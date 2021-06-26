@@ -1,5 +1,4 @@
-I"¤
-<p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="https://jekyllrb.com/">jekyllrb.com</a></p>
+I"õ<p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="https://jekyllrb.com/">jekyllrb.com</a></p>
 
 <p>You can find the source code for Minima at GitHub:
 <a href="https://github.com/jekyll">jekyll</a> /
@@ -16,6 +15,19 @@ in Terminal, run 'bundle exec jekyll serve --watch'
 do you modifying/adding the markdowns, save. check in localhost:4000
 in Terminal, git status/add ./commit -m 'cmt'/push -u origin main
 done.
+
+</code></pre></div></div>
+
+<h3 id="basic-format-for-new-post">basic format for new post</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+title:  "Title"
+date:   2021-06-26 07:57:34 +0800
+categories: jekyll update
+---
+
+fileName: 2021-06-26-welcome-to-jekyll.md
 
 </code></pre></div></div>
 

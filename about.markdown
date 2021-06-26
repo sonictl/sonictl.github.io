@@ -28,6 +28,24 @@ done.
 
 ```
 
+### basic format for new post
+
+```
+---
+layout: post
+title:  "Title"
+date:   2021-06-26 07:57:34 +0800
+categories: jekyll update
+---
+
+fileName: 2021-06-26-welcome-to-jekyll.md
+
+```
+
+
+
+
+
 ### **Quick setup** — if you’ve create a new repository
 
 [ Set up in Desktop](x-github-client://openRepo/https://github.com/sonictl/sonictl.github.io)
