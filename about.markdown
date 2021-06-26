@@ -23,7 +23,7 @@ basic steps for adding post for REFERENCE:
 in Terminal, cd to ~/sonictl.github.io
 in Terminal, run 'bundle exec jekyll serve --watch'
 do you modifying/adding the markdowns, save. check in localhost:4000
-in Terminal, git status/add/commit/push
+in Terminal, git status/add ./commit -m 'cmt'/push -u origin main
 done.
 
 ```
