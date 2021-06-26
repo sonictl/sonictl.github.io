@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-06-26T20:05:33+08:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">抛弃清华源，使用SJTU的镜像 for Anaconda</title><link href="/jekyll/update/2021/06/26/UseSJTUcondaMirro.html" rel="alternate" type="text/html" title="抛弃清华源，使用SJTU的镜像 for Anaconda" /><published>2021-06-26T19:06:34+08:00</published><updated>2021-06-26T19:06:34+08:00</updated><id>/jekyll/update/2021/06/26/UseSJTUcondaMirro</id><content type="html" xml:base="/jekyll/update/2021/06/26/UseSJTUcondaMirro.html">&lt;h2 id=&quot;使用sjtu的anaconda镜像&quot;&gt;&lt;a href=&quot;https://verrickt.github.io/2020/12/12/conda-mirror-from-sjtu/&quot;&gt;使用SJTU的Anaconda镜像&lt;/a&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-06-26T20:46:21+08:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">抛弃清华源，使用SJTU的镜像 for Anaconda</title><link href="/jekyll/update/2021/06/26/UseSJTUcondaMirro.html" rel="alternate" type="text/html" title="抛弃清华源，使用SJTU的镜像 for Anaconda" /><published>2021-06-26T19:06:34+08:00</published><updated>2021-06-26T19:06:34+08:00</updated><id>/jekyll/update/2021/06/26/UseSJTUcondaMirro</id><content type="html" xml:base="/jekyll/update/2021/06/26/UseSJTUcondaMirro.html">&lt;h2 id=&quot;使用sjtu的anaconda镜像&quot;&gt;&lt;a href=&quot;https://verrickt.github.io/2020/12/12/conda-mirror-from-sjtu/&quot;&gt;使用SJTU的Anaconda镜像&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://mirrors.tuna.tsinghua.edu.cn/&quot;&gt;清华TUNA&lt;/a&gt;的Anaconda镜像不稳，好的时候一切顺利，坏的时候一个24K的包下5分钟；Anaconda的官方源则更惨，连repo.json都下不下来；
 今天又是清华的源大姨妈的一天：Pytorch下载到100MB就超时，折腾了三个小时也装不上。而同在华东的&lt;a href=&quot;https://mirrors.sjtug.sjtu.edu.cn/&quot;&gt;SJTU&lt;/a&gt;的镜像就很稳定，这次全线换成SJTU啦。&lt;/p&gt;
@@ -54,7 +54,746 @@ custom_channels:
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Ubuntu「一键」设置代理</title><link href="/jekyll/update/2021/06/08/Ubuntu-%E4%B8%80%E9%94%AE-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86.html" rel="alternate" type="text/html" title="Ubuntu「一键」设置代理" /><published>2021-06-08T16:06:34+08:00</published><updated>2021-06-08T16:06:34+08:00</updated><id>/jekyll/update/2021/06/08/Ubuntu%E3%80%8C%E4%B8%80%E9%94%AE%E3%80%8D%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86</id><content type="html" xml:base="/jekyll/update/2021/06/08/Ubuntu-%E4%B8%80%E9%94%AE-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86.html">&lt;h1 id=&quot;ubuntu一键设置代理&quot;&gt;Ubuntu「一键」设置代理&lt;/h1&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">deepwalk、node2vec的高性能优化 (Python)</title><link href="/jekyll/update/2021/06/16/High-performance-optimization-and-acceleration-for-randomWalk,-deepwalk,-node2vec-(Python)-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html" rel="alternate" type="text/html" title="deepwalk、node2vec的高性能优化 (Python)" /><published>2021-06-16T21:34:34+08:00</published><updated>2021-06-16T21:34:34+08:00</updated><id>/jekyll/update/2021/06/16/High%20performance%20optimization%20and%20acceleration%20for%20randomWalk,%20deepwalk,%20node2vec%20(Python)%20-%20sonictl%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD</id><content type="html" xml:base="/jekyll/update/2021/06/16/High-performance-optimization-and-acceleration-for-randomWalk,-deepwalk,-node2vec-(Python)-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html">&lt;h1 id=&quot;deepwalknode2vec的高性能优化&quot;&gt;deepwalk、node2vec的高性能优化&lt;/h1&gt;
+
+&lt;h3 id=&quot;high-performance-optimization-and-acceleration-for-randomwalk-deepwalk-node2vec&quot;&gt;High performance optimization and acceleration for randomWalk, deepwalk, node2vec&lt;/h3&gt;
+
+&lt;p&gt;` 转自知乎： https://zhuanlan.zhihu.com/p/348778146 `&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;原作者：马东什么&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;首先是graph的存储问题，看了很多实现node2vec或deepwalk的library，大都是以networkx或是类似的python
+class对象为graph的存储形式进行开发，首先我们需要知道目前单机版的deepwalk和node2vec的主要的性能瓶颈在random
+walk部分，因为底层的word2vec基本上都是直接调用的gensim的word2vec（gensim的word2vec基于c++开发，目前新版的gensim的word2vec的fast
+version使用了cython代替了原来的一些逻辑实现，个人感觉从word2vec层面再去做优化太复杂了，也很难比gensim做的更好，除此之外另一个思路就是用tf.keras或torch来实现word2vec，借用gpu的算力来试图击败gensim，然而看完这几篇，我心灰意冷了：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//github.com/tensorflow/tensorflow/issues/13048&quot;&gt; Word2vec on GPU slower than CPU · Issue #13048 · tensorflow/tensorflow
+&lt;/a&gt;
+[github.com &lt;a href=&quot;https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/39558642/does-
+gensim-library-support-gpu-acceleration&quot;&gt; Does Gensim library support GPU acceleration?
+&lt;/a&gt; &lt;a href=&quot;https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/39558642/does-
+gensim-library-support-gpu-acceleration&quot;&gt;
+stackoverflow.com![图标](https://pic1.zhimg.com/v2-2d47e939feed796bcf7483d306661c88_ipico.jpg
+&lt;/a&gt; &lt;a href=&quot;https://link.zhihu.com/?target=https%3A//www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/&quot;&gt;
+https://www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/
+&lt;/a&gt;
+&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/&quot;&gt; www.reddit.com
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;）&lt;/p&gt;
+
+&lt;p&gt;graph通常以相互引用的内存指针的方式存储在内存中，这意味着每个节点在内存中都位于不同的位置，这种基于基于链表的思想，使得内存访问的速度成为了主要的瓶颈，因为每次从一个节点移动到另一个节点，都需要在内存中寻址和查询，一种更好的方式是把节点都打包到数组中，因为数据的内存地址一般是连续的，在内存访问上的开销要小很多；（这里还没有提到networkx本身用纯python编写导致的较低效的编译效率问题，具体可见：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/348315009&quot;&gt; 马东什么：为什么python这么慢？numba解决了什么问题？ &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;）&lt;/p&gt;
+
+&lt;p&gt;一个较好的解决方案就是使用scipy.sparse.csr_matrix对graph进行存储和后续的访问等，&lt;/p&gt;
+
+&lt;p&gt;csr_matrix可见下：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/348905107&quot;&gt; 马东什么：scipy sparse 中稀疏矩阵的常见存储方式 &lt;/a&gt; &lt;a href=&quot;https://zhuanlan.zhihu.com/p/348905107&quot;&gt;
+zhuanlan.zhihu.com &lt;img src=&quot;https://zhstatic.zhihu.com/assets/zhihu/editor/zhihu-
+card-default.svg&quot; alt=&quot;图标&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看到，通过将graph转化为csr_matrix，利用其巧妙地存储方式，可以大大提高节点和节点之间的访问效率。&lt;/p&gt;
+
+&lt;p&gt;下面就来看一个非常nice的小众的graph
+library，csr_graph和nodevectors，nodevectors基本上是对csr_graph做的封装，底层的逻辑直接使用了csr_graph的接口api，所以直接研究csr_graph即可。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//github.com/VHRanger/CSRGraph&quot;&gt; VHRanger/CSRGraph
+&lt;/a&gt; &lt;a href=&quot;https://link.zhihu.com/?target=https%3A//github.com/VHRanger/CSRGraph&quot;&gt;
+github.com![图标](https://pic4.zhimg.com/v2-9b74ff2ecca657554aa17776a6083d37_ipico.jpg
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;整个csr graph的核心在于graph的重构：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pic3.zhimg.com/80/v2-11115dd76ed901601a49db1b0341c97a_1440w.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    class csrgraph():
+        “””
+        This top level python class either calls external JIT’ed methods
+            or methods from the JIT’ed internal graph
+        “””
+        def &lt;strong&gt;init&lt;/strong&gt;(self, data, nodenames=None, copy=True, threads=0):
+            “””
+            A class for larger graphs.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        NOTE: this class tends to &quot;steal data&quot; by default.
+            If you pass a numpy array/scipy matrix/csr graph
+            Chances are this object will point to the same instance of data
+
+        Parameters:
+        -------------------
+
+        data : The graph data. Can be one of:
+            **NetworkX Graph**
+            **Numpy dense matrix**
+            **CSR Matrix**
+            **(data, indices, indptr)**
+            **CSRGraph object**
+
+        nodenames (array of str or int) : Node names
+            The position in this array should correspond with the node ID
+            So if passing a CSR Matrix or raw data, it should be co-indexed
+            with the matrix/raw data arrays
+
+        copy : bool
+            Wether to copy passed data to create new object
+            Default behavior is to point to underlying ctor passed data
+            For networkX graphs and numpy dense matrices we create a new object anyway
+        threads : int
+            number of threads to leverage for methods in this graph.
+            WARNING: changes the numba environment variable to do it.
+            Recompiles methods and changes it when changed.
+            0 is numba default (usually all threads)
+
+        TODO: add numpy mmap support for very large on-disk graphs
+            Should be in a different class
+            This also requires routines to read/write edgelists, etc. from disk
+        
+        TODO: subclass scipy.csr_matrix???
+        &quot;&quot;&quot;
+        # If input is a CSRGraph, same object
+        if isinstance(data, csrgraph):
+            if copy:
+                self.mat = data.mat.copy()
+                self.names = deepcopy(data.names)
+            else:
+                self.mat = data.mat
+                self.names = data.names
+            if not nodenames:
+                nodenames = self.names
+            else:
+                self.names = nodenames
+        # NetworkX Graph input
+        elif isinstance(data, (nx.Graph, nx.DiGraph)):
+            mat = nx.adj_matrix(data)
+            mat.data = mat.data.astype(np.float32)
+            self.mat = mat
+            nodenames = list(data)
+        # CSR Matrix Input
+        elif isinstance(data, sparse.csr_matrix):
+            if copy: self.mat = data.copy()
+            else: self.mat = data
+        # Numpy Array Input
+        elif isinstance(data, np.ndarray):
+            self.mat = sparse.csr_matrix(data)
+        else:
+            raise ValueError(f&quot;Incorrect input data type: {type(data).__name__}&quot;)
+        # Now that we have the core csr_matrix, alias underlying arrays
+        assert hasattr(self, 'mat')
+        self.weights = self.mat.data
+        self.src = self.mat.indptr
+        self.dst = self.mat.indices
+        # indptr has one more element than nnodes
+        self.nnodes = self.src.size - 1
+        # node name -&amp;gt; node ID
+        if nodenames is not None:
+            self.names = pd.Series(nodenames)
+        else:
+            self.names = pd.Series(np.arange(self.nnodes))
+        # Bounds check once here otherwise there be dragons later
+        max_idx = np.max(self.dst)
+        if self.nnodes &amp;lt; max_idx:
+            raise ValueError(f&quot;&quot;&quot;
+                Out of bounds node: {max_idx}, nnodes: {self.nnodes}
+            &quot;&quot;&quot;)
+        self.set_threads(threads)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+        def set_threads(self, threads):
+            self.threads = threads
+            # Manage threading through Numba hack
+            if type(threads) is not int:
+                raise ValueError(“Threads argument must be an int!”)
+            if threads == 0:
+                threads = numba.config.NUMBA_DEFAULT_NUM_THREADS
+            threads = str(threads)
+            # If we change the number of threads, recompile
+            try:
+                prev_numba_value = os.environ[‘NUMBA_NUM_THREADS’]
+            except KeyError:
+                prev_numba_value = threads
+            if threads != prev_numba_value:
+                os.environ[‘NUMBA_NUM_THREADS’] = threads
+                _random_walk.recompile()
+                _row_norm.recompile()
+                _node2vec_walks.recompile()
+                _node_degrees.recompile()
+                _src_multiply.recompile()
+                _dst_multiply.recompile()&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    def __getitem__(self, node):
+        &quot;&quot;&quot;
+        [] operator
+        like networkX, gets names of neighbor nodes
+        &quot;&quot;&quot;
+        # Get node ID from names array
+        # This is O(n) by design -- we more often get names from IDs
+        #    than we get IDs from names and we don't want to hold 2 maps
+        # TODO : replace names with a pd.Index and use get_loc
+        node_id = self.names[self.names == node].index[0]
+        edges = self.dst[
+            self.src[node_id] : self.src[node_id+1]
+        ]
+        return self.names.iloc[edges].values
+
+    def nodes(self):
+        &quot;&quot;&quot;
+        Returns the graph's nodes, in order
+        &quot;&quot;&quot;
+        if self.names is not None:
+            return self.names
+        else:
+            return np.arange(self.nnodes)
+
+    def normalize(self, return_self=True):
+        &quot;&quot;&quot;
+        Normalizes edge weights per node
+
+        For any node in the Graph, the new edges' weights will sum to 1
+
+        return_self : bool
+            whether to change the graph's values and return itself
+            this lets us call `G.normalize()` directly
+        &quot;&quot;&quot;
+        new_weights = _row_norm(self.weights, self.src)
+        if return_self:
+            self.mat = sparse.csr_matrix((new_weights, self.dst, self.src))
+            # Point objects to the correct places
+            self.weights = self.mat.data
+            self.src = self.mat.indptr
+            self.dst = self.mat.indices
+            gc.collect()
+            return self
+        else:
+            return csrgraph(sparse.csr_matrix(
+                (new_weights, self.dst, self.src)), 
+                nodenames=self.names)
+
+    def random_walks(self,
+                walklen=10,
+                epochs=1,
+                start_nodes=None,
+                normalize_self=False,
+                return_weight=1.,
+                neighbor_weight=1.):
+        &quot;&quot;&quot;
+        Create random walks from the transition matrix of a graph
+            in CSR sparse format
+
+        Parameters
+        ----------
+        T : scipy.sparse.csr matrix
+            Graph transition matrix in CSR sparse format
+        walklen : int
+            length of the random walks
+        epochs : int
+            number of times to start a walk from each nodes
+        return_weight : float in (0, inf]
+            Weight on the probability of returning to node coming from
+            Having this higher tends the walks to be
+            more like a Breadth-First Search.
+            Having this very high  (&amp;gt; 2) makes search very local.
+            Equal to the inverse of p in the Node2Vec paper.
+        explore_weight : float in (0, inf]
+            Weight on the probability of visitng a neighbor node
+            to the one we're coming from in the random walk
+            Having this higher tends the walks to be
+            more like a Depth-First Search.
+            Having this very high makes search more outward.
+            Having this very low makes search very local.
+            Equal to the inverse of q in the Node2Vec paper.
+        threads : int
+            number of threads to use.  0 is full use
+
+        Returns
+        -------
+        out : 2d np.array (n_walks, walklen)
+            A matrix where each row is a random walk,
+            and each entry is the ID of the node
+        &quot;&quot;&quot;
+        # Make csr graph
+        if normalize_self:
+            self.normalize(return_self=True)
+            T = self
+        else:
+            T = self.normalize(return_self=False)
+        n_rows = T.nnodes
+        if start_nodes is None:
+            start_nodes = np.arange(n_rows)
+        sampling_nodes = np.tile(start_nodes, epochs)
+        # Node2Vec Biased walks if parameters specified
+        if (return_weight &amp;gt; 1. or return_weight &amp;lt; 1.
+                or neighbor_weight &amp;lt; 1. or neighbor_weight &amp;gt; 1.):
+            walks = _node2vec_walks(T.weights, T.src, T.dst,
+                                    sampling_nodes=sampling_nodes,
+                                    walklen=walklen,
+                                    return_weight=return_weight,
+                                    neighbor_weight=neighbor_weight)
+        # much faster implementation for regular walks
+        else:
+            walks = _random_walk(T.weights, T.src, T.dst,
+                                 sampling_nodes, walklen)
+        return walks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;初始化init部分的逻辑很简单，就是把graph用scipy.sparse.csr_matrix的方式存储，需要注意的是，csr
+matrix仅支持有向/无向+有权/无权的简单图的表示，如果是复杂的属性图，例如存在多重的边关系或者是多个节点类型，则表示起来比较困难，不过常见的非GNN的graph
+embedding（以及排除了matapath2vec）之外大部分的graph embedding算法都是在简单图上运行的。&lt;/p&gt;
+
+&lt;p&gt;首先注意一个细节部分就是，我们要对边的权重做标准化norm，&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    new_weights = _row_norm(self.weights, self.src)&lt;/p&gt;
+
+&lt;p&gt;其实现逻辑为：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    @jit(nopython=True, parallel=True, nogil=True, fastmath=True)
+    def _row_norm(weights, src):
+        “””
+        Returns the weights for normalized rows in a CSR Matrix.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Parameters
+    ----------
+    weights : array[float]
+        The data array from a CSR Matrix. 
+        For a scipy.csr_matrix, is accessed by M.data
+  
+    src : array[int]
+        The index pointer array from a CSR Matrix. 
+        For a scipy.csr_matrix, is accessed by M.indptr
+        
+    ----------------
+    returns : array[float32]
+        The normalized data array for the CSR Matrix
+    &quot;&quot;&quot;
+    n_nodes = src.size - 1
+    res = np.empty(weights.size, dtype=np.float32)
+    for i in numba.prange(n_nodes):
+        s1 = src[i]
+        s2 = src[i+1]
+        rowsum = np.sum(weights[s1:s2])
+        res[s1:s2] = weights[s1:s2] / rowsum
+    return res
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以看到，这里的逻辑就是把每一个节点的权重进行归一化，即每一个节点的和它连接的边的权重的权重之和为1，这里的实现就是每一行所有非零值初一这一行的非0值的总和。&lt;/p&gt;
+
+&lt;p&gt;可以看到，这里使用了numba和numba.prange进行了加速，需要注意的是，numba目前对于numpy的支持是最完善的，但是
+&lt;strong&gt;numba不支持scipy sparse&lt;/strong&gt; ！因此，我们将csr matrix的三要素：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://pic2.zhimg.com/80/v2-4a2c1469dd87a19d9b6bb81eca0df0dd_1440w.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;indices，indtpr，data用三个numpy array来存储，从而使用numba来间接优化scipy
+sparse，代码中的src是indtpr，&lt;/p&gt;
+
+&lt;p&gt;这里还是说明一下，如上图，index
+pointers即indptr，第i个节点具有的邻节点个数就是indptr[i+1]-indptr[1],第i个节点的邻节点的集合的列索引就是
+indptr[i:i+1],例如对于节点4来说，indptr[4:5]=3:6=[3,4,5]，然后去indices中查找，indices[3,4,5]=[2,3,4]，此时我们就知道了
+第四行的第2，3，4列（ &lt;strong&gt;注意，初始都是从0开始的&lt;/strong&gt; ）是有值的，因此节点4的邻节点就是节点2和节点3（节点4和本身存在自环self
+loop），通过这种方式可以非常迅速地找到某个节点的邻节点，如果要找寻二阶邻节点，我们可以通过numba.prange再写一个循环，比如对于节点4的邻节点[2,3]，我们循环对csr
+matrix矩阵的第二行和第三行进行同样的查询就可以了，访问非常的迅速，主要原因在于csr matrix本质上三个连续内存地址的数组，内存访问的效率很高。&lt;/p&gt;
+
+&lt;p&gt;对于numba，这里的装饰器设置：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    @jit(nopython=True, parallel=True, nogil=True, fastmath=True)&lt;/p&gt;
+
+&lt;p&gt;比较固定，一般设置成这样就行，如果不涉及到并行则parallel可以不设置。&lt;/p&gt;
+
+&lt;p&gt;然后是核心的random walk部分：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+        def random_walks(self,
+                    walklen=10,
+                    epochs=1,
+                    start_nodes=None,
+                    normalize_self=False,
+                    return_weight=1.,
+                    neighbor_weight=1.):
+            “””
+            Create random walks from the transition matrix of a graph
+                in CSR sparse format&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        Parameters
+        ----------
+        T : scipy.sparse.csr matrix
+            Graph transition matrix in CSR sparse format
+        walklen : int
+            length of the random walks
+        epochs : int
+            number of times to start a walk from each nodes
+        return_weight : float in (0, inf]
+            Weight on the probability of returning to node coming from
+            Having this higher tends the walks to be
+            more like a Breadth-First Search.
+            Having this very high  (&amp;gt; 2) makes search very local.
+            Equal to the inverse of p in the Node2Vec paper.
+        explore_weight : float in (0, inf]
+            Weight on the probability of visitng a neighbor node
+            to the one we're coming from in the random walk
+            Having this higher tends the walks to be
+            more like a Depth-First Search.
+            Having this very high makes search more outward.
+            Having this very low makes search very local.
+            Equal to the inverse of q in the Node2Vec paper.
+        threads : int
+            number of threads to use.  0 is full use
+
+        Returns
+        -------
+        out : 2d np.array (n_walks, walklen)
+            A matrix where each row is a random walk,
+            and each entry is the ID of the node
+        &quot;&quot;&quot;
+        # Make csr graph
+        if normalize_self:
+            self.normalize(return_self=True)
+            T = self
+        else:
+            T = self.normalize(return_self=False)
+        n_rows = T.nnodes
+        if start_nodes is None:
+            start_nodes = np.arange(n_rows)
+        sampling_nodes = np.tile(start_nodes, epochs)
+        # Node2Vec Biased walks if parameters specified
+        if (return_weight &amp;gt; 1. or return_weight &amp;lt; 1.
+                or neighbor_weight &amp;lt; 1. or neighbor_weight &amp;gt; 1.):
+            walks = _node2vec_walks(T.weights, T.src, T.dst,
+                                    sampling_nodes=sampling_nodes,
+                                    walklen=walklen,
+                                    return_weight=return_weight,
+                                    neighbor_weight=neighbor_weight)
+        # much faster implementation for regular walks
+        else:
+            walks = _random_walk(T.weights, T.src, T.dst,
+                                 sampling_nodes, walklen)
+        return walks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以看到，为了实现使用numba加速，基本上需要把所有的变量都以numpy形式存储，例如range使用np.arange，sampling_nodes =
+np.tile(start_nodes,
+epochs)等，numba目前也勉强支持list，dict这类的python数据结构，但是本身numpy的性能和扩展性都要好很多，而且也更加成熟，所以还是建议走numpy不容易各种bug。&lt;/p&gt;
+
+&lt;p&gt;最后就进入核心的核心了：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+            if (return_weight &amp;gt; 1. or return_weight &amp;lt; 1.
+                    or neighbor_weight &amp;lt; 1. or neighbor_weight &amp;gt; 1.):
+                walks = _node2vec_walks(T.weights, T.src, T.dst,
+                                        sampling_nodes=sampling_nodes,
+                                        walklen=walklen,
+                                        return_weight=return_weight,
+                                        neighbor_weight=neighbor_weight)
+            # much faster implementation for regular walks
+            else:
+                walks = _random_walk(T.weights, T.src, T.dst,
+                                     sampling_nodes, walklen)&lt;/p&gt;
+
+&lt;p&gt;首先来看下_random_walk&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    @(nopython=True, parallel=True, nogil=True, fastmath=True)
+    def _random_walk(weights, indptr, dst,
+                     sampling_nodes, walklen):
+        “””
+        Create random walks from the transition matrix of a graph 
+            in CSR sparse format&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Parameters
+    ----------
+    weights : 1d np.array  weights表示的是csr matrix的直接取值，使用csr matrix
+存储的话，会有3个id array矩阵，分别是indices，indptr，data，含义在之前关于scipy的文章里
+这里的weights对应的是data。
+        CSR data vector from a sparse matrix. Can be accessed by M.data
+    indptr : 1d np.array  这里的indptr对应的是csr matrix的indptr
+        CSR index pointer vector from a sparse matrix. 
+        Can be accessed by M.indptr
+    dst : 1d np.array 这里的dst对应的是csr matrix的indices
+        CSR column vector from a sparse matrix. 
+        Can be accessed by M.indices
+    sampling_nodes : 1d np.array of int  samling nodes为我们要采样的节点，如果没有指定需要采样的
+特定的节点则默认是对整个graph的所有节点进行采样
+        List of node IDs to start random walks from.
+        If doing sampling from walks, is equal to np.arrange(n_nodes) 
+            repeated for each epoch
+    walklen : int   random walks的长度，游走的次数在更上层的函数里，用epochs来表示，这里实际上是
+
+        length of the random walks
+
+    Returns
+    -------
+    out : 2d np.array (n_walks, walklen)
+        A matrix where each row is a random walk, 
+        and each entry is the ID of the node
+    &quot;&quot;&quot;
+    n_walks = len(sampling_nodes) ##游走的次数
+    res = np.empty((n_walks, walklen), dtype=np.uint32) #用于存放游走的结果序列
+    n_nodes = indptr.size #节点数量
+    n_edges = weights.size #边数量
+    for i in numba.prange(n_walks):#对每个节点实施下面的逻辑，这里对每个节点的游走采样
+#是完全独立可并行的，所以用numba的prange来自动实现对循环的并行，非常的直观方便
+        # Current node (each element is one walk's state)
+        state = sampling_nodes[i]
+        for k in range(walklen-1): #游走n次则进行n次循环，这里的循环时顺序执行的，所以无法并行
+            # Write state
+            res[i, k] = state # 初始节点，即start node
+            # Find row in csr indptr
+            start = indptr[state] #通过indptr来找到start node的邻节点
+# 前面已经提到过csr matrix的indptr如何访问邻节点的问题了
+            end = indptr[state+1]
+            # If there are edges in the node, find next step
+            if start != end:#如果start！=end，这里用于判断是否无法继续游走（即游走到的节点没有邻
+节点或者其邻节点在上一步已经游走过了），如果
+#可以继续则继续执行下面的代码
+              # transition probabilities
+              p = weights[start:end] #根据indptr定位start node的邻节点，通过weights
+#和indptr返回的列索引定位到start node和其邻节点之间的edges的权重的具体的值
+              # cumulative distribution of transition probabilities
+              cdf = np.cumsum(p)
+              # Random draw in [0, 1] for each row
+              # Choice is where random draw falls in cumulative distribution
+              draw = np.random.rand()
+              # Find where draw is in cdf
+              # Then use its index to update state
+              next_idx = np.searchsorted(cdf, draw) #上面通过简单的三个np函数就实现了
+#随机采样，注意这里实现的是deepwalk的无偏简单采样，所以逻辑很简单，searchsorted在这个
+#下非常合适，其作用
+#在于在数组a中插入数组v（并不执行插入操作），返回一个下标列表，
+#这个列表指明了v中对应元素应该插入在a中那个位置上，通过这种方式用numpy就实现了随机采样的简单逻辑了
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​  &lt;br /&gt;
+                  # Winner points to the column index of the next node
+                  state = dst[start + next_idx]#此时我们的start node发生改变，这里涉及到下一个节点的
+    #寻址，可以看到，我们通过dst，即indices的列表可以非常方便的定位到下一个节点的行位置。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;            # If there are no edges, this is the end of the walk
+            else:
+              res[i, k:] = state #存放采样结果
+              break
+        # Write final states
+        res[i, -1] = state#存放最终采样结果，即最后一个采样的节点
+    return res
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;真是越来越爱numba了。。。主要在于相对于cython来说，numba的使用更简单，你基本上用numpy的逻辑来写就行，对于numpy的死忠粉来说几乎无缝衔接。&lt;/p&gt;
+
+&lt;p&gt;这里的思路也不复杂，为了方便注释直接写代码里&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;下面i 看看node2vec的逻辑，原作者还没有实现rejective
+sampling有偏采样逻辑，具体在issues里面有提到过，不过这里有一个类似的版本中也是用numba实现了rejective sampling：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//louisabraham.github.io/articles/node2vec-
+sampling.html&quot;&gt; Accelerating node2vec with rejection sampling
+&lt;/a&gt; &lt;a href=&quot;https://link.zhihu.com/?target=https%3A//louisabraham.github.io/articles/node2vec-
+sampling.html&quot;&gt; louisabraham.github.io
+&lt;img src=&quot;https://pic1.zhimg.com/v2-6a9bc4511a35bdcea240f19d8b630aa8_180x120.jpg&quot; alt=&quot;图标&quot; /&gt;
+&lt;/a&gt; &lt;a href=&quot;https://link.zhihu.com/?target=https%3A//github.com/louisabraham/fastnode2vec&quot;&gt; https://github.com/louisabraham/fastnode2vec
+&lt;/a&gt;
+&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//github.com/louisabraham/fastnode2vec&quot;&gt; github.com
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;感觉这两个library可以做一个合并了。。。&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    import numpy as np
+    from numba import jit&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    @jit(nogil=True,nopython=True,parallel=True,fastmath=True)
+    def random_walk(walk_length, p, q, t):
+        “&quot;”sample a random walk starting from t
+        “””
+        # Normalize the weights to compute rejection probabilities
+        max_prob = max(1 / p, 1, 1 / q)
+        prob_0 = 1 / p / max_prob
+        prob_1 = 1 / max_prob
+        prob_2 = 1 / q / max_prob&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    # Initialize the walk
+    walk = np.empty(walk_length, dtype=indices.dtype)
+    walk[0] = t
+    walk[1] = random_neighbor(t)
+
+    for j in numba.prange(2, walk_length):
+        while True:
+            new_node = random_neighbor(walk[j - 1])
+            r = np.random.rand()
+            if new_node == walk[j - 2]:
+                # back to the previous node
+                if r &amp;lt; prob_0:
+                    break
+            elif is_neighbor(walk[j - 2], new_node):
+                # distance 1
+                if r &amp;lt; prob_1:
+                    break
+            elif r &amp;lt; prob_2:
+                # distance 2
+                break
+        walk[j] = new_node
+        
+    return walk
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;我们看一下node2vec的有偏采样的逻辑，csrgraph怎么写的：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    @jit(nopython=True, nogil=True, parallel=True, fastmath=True)
+    def _node2vec_walks(Tdata, Tindptr, Tindices,
+                        sampling_nodes,
+                        walklen,
+                        return_weight,
+                        neighbor_weight):
+        “””
+        Create biased random walks from the transition matrix of a graph 
+            in CSR sparse format. Bias method comes from Node2Vec paper.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Parameters
+    ----------
+    Tdata : 1d np.array  casrmatrix的data
+        CSR data vector from a sparse matrix. Can be accessed by M.data
+    Tindptr : 1d np.array casrmatrix的indptr
+        CSR index pointer vector from a sparse matrix. 
+        Can be accessed by M.indptr
+    Tindices : 1d np.array casrmatrix的indices
+        CSR column vector from a sparse matrix. 
+        Can be accessed by M.indices
+    sampling_nodes : 1d np.array of int 采样节点，默认是全部节点
+        List of node IDs to start random walks from.
+        Is generally equal to np.arrange(n_nodes) repeated for each epoch
+    walklen : int 随机游走的步数
+        length of the random walks
+    return_weight : float in (0, inf]  返回权重，对应node2vec论文中的p
+        Weight on the probability of returning to node coming from
+        Having this higher tends the walks to be 
+        more like a Breadth-First Search.
+        Having this very high  (&amp;gt; 2) makes search very local.
+        return weights如果大于2则游走非常接近局部
+        Equal to the inverse of p in the Node2Vec paper.
+    explore_weight : float in (0, inf] # 探索权重，对应node2vec论文中的q
+        Weight on the probability of visitng a neighbor node
+        to the one we're coming from in the random walk
+        Having this higher tends the walks to be 
+        more like a Depth-First Search.
+        Having this very high makes search more outward.
+        Having this very low makes search very local.
+        Equal to the inverse of q in the Node2Vec paper.
+    Returns
+    -------
+    out : 2d np.array (n_walks, walklen)
+        A matrix where each row is a biased random walk, 
+        and each entry is the ID of the node
+    &quot;&quot;&quot;
+    n_walks = len(sampling_nodes)
+    res = np.empty((n_walks, walklen), dtype=np.uint32)
+    for i in numba.prange(n_walks):
+        # Current node (each element is one walk's state)
+        state = sampling_nodes[i]
+        res[i, 0] = state
+        # Do one normal step first
+        state = _node2vec_first_step(state, Tdata, Tindices, Tindptr)
+        for k in range(1, walklen-1):
+            # Write state
+            res[i, k] = state
+            state = _node2vec_inner(
+                res, i, k, state,
+                Tdata, Tindices, Tindptr, 
+                return_weight, neighbor_weight
+            )
+        # Write final states
+        res[i, -1] = state
+    return res
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里实现了两个函数，一个是_node2vec_first_step用于有偏游走的初始化，一个是_node2vec_inner用于有偏游走后续的实现&lt;/p&gt;
+
+&lt;p&gt;其中：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    @jit(nopython=True, nogil=True, fastmath=True)
+    def _node2vec_first_step(state, Tdata, Tindices, Tindptr):
+        “””
+        Inner code for node2vec walks
+        Normal random walk step
+        Comments for this logic are in _random_walk
+        “””
+        start = Tindptr[state]
+        end = Tindptr[state+1]
+        p = Tdata[start:end]
+        cdf = np.cumsum(p)
+        draw = np.random.rand()
+        next_idx = np.searchsorted(cdf, draw)
+        state = Tindices[start + next_idx]
+        return state&lt;/p&gt;
+
+&lt;p&gt;这里和deepwalk的逻辑是一样的， &lt;strong&gt;实际上有偏的定义是从初始游走之后的第一个游走才开始的&lt;/strong&gt; ，这一点建议对照论文的图仔细看看：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/344839298&quot;&gt; 马东什么：Node2vec 深入分析 &lt;/a&gt; ]( &lt;a href=&quot;https://zhuanlan.zhihu.com/p/344839298&quot;&gt;
+https://zhuanlan.zhihu.com/p/344839298
+&lt;/a&gt; )&lt;/p&gt;
+
+&lt;p&gt;也就是初始先随机走一步，然后开始下面正式的有偏游走：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    @jit(nopython=True, nogil=True, fastmath=True)
+    def _node2vec_inner(
+        res, i, k, state,
+        Tdata, Tindices, Tindptr, 
+        return_weight, neighbor_weight):
+        “””
+        Inner loop core for node2vec walks
+        Does the biased walk updating (pure function)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    All arguments are directly from the node2vec walks method
+    &quot;&quot;&quot;
+    # Find rows in csr indptr
+    prev = res[i, k-1]
+    start = Tindptr[state] #当前节点的start和end，即得到当前节点的邻节点个数
+    end = Tindptr[state+1]
+    start_prev = Tindptr[prev] #当前节点的上一个节点（即从上一个节点游走到当前节点的
+#上一个节点）的start和end，即得到上一个节点的邻节点个数
+    end_prev = Tindptr[prev+1]
+    # Find overlaps and fix weights
+    this_edges = Tindices[start:end] #当前节点的邻节点确定
+    prev_edges = Tindices[start_prev:end_prev] #上一个节点的邻节点确定
+    p = np.copy(Tdata[start:end]) #当前节点和邻节点连接的edges的权重
+    ret_idx = np.where(this_edges == prev) #确认上一个节点的index
+    p[ret_idx] = np.multiply(p[ret_idx], return_weight) #计算上一个节点
+#和当前节点连接的edge权重*return weight
+    for pe in prev_edges:
+        n_idx_v = np.where(this_edges == pe)
+        n_idx = n_idx_v[0]
+        p[n_idx] = np.multiply(p[n_idx], neighbor_weight) #计算深入游走的概率和对应edge的积
+    # Get next state
+    ## 剩下的部分就和deep walk一样了
+    cdf = np.cumsum(np.divide(p, np.sum(p)))
+    draw = np.random.rand()
+    next_idx = np.searchsorted(cdf, draw)
+    new_state = this_edges[next_idx]
+    return new_state
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里 思路其实是把p和q的参数和edges的权重进行相乘然后转化为常规的deepwalk的决策过程：&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+        cdf = np.cumsum(np.divide(p, np.sum(p)))
+        draw = np.random.rand()
+        next_idx = np.searchsorted(cdf, draw)&lt;/p&gt;
+
+&lt;p&gt;学好numpy，做一些性能不错的开发工作还是很ok的~一些不是很复杂的需求，用numpy+numba或者numpy+numba或者numpy+numba+cython的性能并不会比c++差。&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">deepwalk、node2vec的高性能优化</summary></entry><entry><title type="html">Ubuntu「一键」设置代理</title><link href="/jekyll/update/2021/06/08/Ubuntu-%E4%B8%80%E9%94%AE-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86.html" rel="alternate" type="text/html" title="Ubuntu「一键」设置代理" /><published>2021-06-08T16:06:34+08:00</published><updated>2021-06-08T16:06:34+08:00</updated><id>/jekyll/update/2021/06/08/Ubuntu%E3%80%8C%E4%B8%80%E9%94%AE%E3%80%8D%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86</id><content type="html" xml:base="/jekyll/update/2021/06/08/Ubuntu-%E4%B8%80%E9%94%AE-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86.html">&lt;h1 id=&quot;ubuntu一键设置代理&quot;&gt;Ubuntu「一键」设置代理&lt;/h1&gt;
 
 &lt;p&gt;sonictl note: the DNS problem may be still there. Except &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxychains&lt;/code&gt;.&lt;/p&gt;
 
@@ -199,4 +938,591 @@ echo -e &quot;Acquire::https::Proxy \&quot;http://127.0.0.1:1090\&quot;;&quot; |
   &lt;p&gt;&lt;strong&gt;本文采用 &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh&quot;&gt;CC BY-NC-SA 4.0&lt;/a&gt; 许可协议。转载和引用时请注意遵守协议！&lt;/strong&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;strong&gt;本文链接 :&lt;/strong&gt; https://blog.skk.moe/post/enable-proxy-on-ubuntu/&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Ubuntu「一键」设置代理</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Ubuntu「一键」设置代理</summary></entry><entry><title type="html">Draw graph(network) with nx_pydot in networkx</title><link href="/jekyll/update/2020/07/23/Draw-graph(network)-with-nx_pydot-in-networkx-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html" rel="alternate" type="text/html" title="Draw graph(network) with nx_pydot in networkx" /><published>2020-07-23T09:23:34+08:00</published><updated>2020-07-23T09:23:34+08:00</updated><id>/jekyll/update/2020/07/23/Draw%20graph(network)%20with%20nx_pydot%20in%20networkx%20-%20sonictl%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD</id><content type="html" xml:base="/jekyll/update/2020/07/23/Draw-graph(network)-with-nx_pydot-in-networkx-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html">&lt;h1 id=&quot;draw-graphnetwork-with-nx_pydot-in-networkx&quot;&gt;Draw graph(network) with nx_pydot in networkx&lt;/h1&gt;
+
+&lt;p&gt;with ` nx_pydot ` in ` nx.drawing ` , we can have more plotting style of
+network/ tree/ graph.&lt;/p&gt;
+
+&lt;p&gt;Here is a simple sample:&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    import networkx as nx&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;g=nx.DiGraph()
+
+edgelist = [(0, 1), (1, 12), (2, 12), (3, 17), (4, 11), (5, 4), (6, 10), (7, 12), (8, 14), (9, 14), (10, 11),
+            (11, 14), (12, 11), (13, 17), (14, -1), (15, -1), (16, 10), (17, 11), (18, -1)]
+
+g.add_edges_from(edgelist)
+p=nx.drawing.nx_pydot.to_pydot(g)
+p.write_png('pydot_Tree.png')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;the plot result:&lt;br /&gt;
+&lt;img src=&quot;https://img2020.cnblogs.com/blog/780771/202007/780771-20200723092116705-652754159.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Draw graph(network) with nx_pydot in networkx</summary></entry><entry><title type="html">自建云存储：Nextcloud vs. ownCloud vs. Seafile</title><link href="/jekyll/update/2020/07/05/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8-Nextcloud-vs.-ownCloud-vs.-Seafile.html" rel="alternate" type="text/html" title="自建云存储：Nextcloud vs. ownCloud vs. Seafile" /><published>2020-07-05T11:00:34+08:00</published><updated>2020-07-05T11:00:34+08:00</updated><id>/jekyll/update/2020/07/05/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8:Nextcloud%20vs.%20ownCloud%20vs.%20Seafile</id><content type="html" xml:base="/jekyll/update/2020/07/05/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8-Nextcloud-vs.-ownCloud-vs.-Seafile.html">&lt;h1 id=&quot;self-hosted-cloud-storage-nextcloud-vs-owncloud-vs-seafile&quot;&gt;Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Updated at 2020-07-05 11:00:
+If you meet usability issues, consider Alternatives: VerySync(微力同步), Resilio Sync, Syncthing, Tresorit, Pydio, ownCloud, rsync, GoodSync. &lt;a href=&quot;https://www.cnblogs.com/sonictl/p/13221967.html&quot;&gt;Why do you need to ditch nextcloud, owncloud, seafile, blabla…&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Updated at 2020-05-19 07:36:
+I recently used seafile and nextCloud. tried deploying them. But what I’ve found: the advantage of nextCloud is that the developers seem to be more responsible, the disadvantage is that it doesn’t allow users to register their own accounts and requires administrators to open new ones. Seafile’s advantage is mainly open registration, light-weighted and simplicity. seafile’s developers, to put it mildly, seem slightly amateurish compared to nextCloud’s developers. That is, seafile will encounter various problems in the deployment process. I’ve done tests on both x64 Linux and arm64. It’s only on x64 Linux, using Docker to deploy seafile-mc:latest. It’s OK to use file synchronization, but there are bugs that fail to upload. As a team of only 5-6 core developers, the developers of seafile are very appreciated. They put a lot of effort into it. We should support them. On OSX, the seafile’s client takes RAM about 87MB, however, nextCloud takes 150MB for running. Seafile is a light weighted choise.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you are a lightweight NAS user, consider the difficulty of deploying, choose nextCloud. nextCloud also has better support for embedded boards such as arm64 (aarch64).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在2020-05-19 07:36:07更新：
+我最近使用了seafile和nextCloud. 尝试了布署他们。但是我发现：nextCloud的优点在于文档更为整洁，缺点在于无法让用户自行注册账户，需要管理员开设新的账户。seafile 的优点主要在于开放注册和简洁。seafile的开发者，说句不客套的评论，与nextCloud的开发者比起来，显得略微业余（凌乱和bug）。也就是说，seafile在布署的过程中会遇到各种问题。无论是在x64 Linux还是arm64上，我都做了测试。仅仅在x64 Linux上, 使用Docker来布署seafile-mc:latest。能用文件同步功能，但都存在上传失败的bug。不过作为一只仅5-6个核心开发者的团队，seafile的开发者非常值得赞赏，他们付出了很多努力，我们应该支持他们。
+如果你是轻量级的NAS用户，考虑到布署的难度，还是选择nextCloud吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;By &lt;a href=&quot;https://www.hongkiat.com/blog/author/ashutosh_ks/&quot;&gt;Ashutosh KS&lt;/a&gt; in &lt;a href=&quot;https://www.hongkiat.com/blog/category/hosting/&quot;&gt;Hosting&lt;/a&gt;. Updated on June 13, 2018.&lt;/p&gt;
+
+&lt;p&gt;Are you planning to build your own Dropbox-type cloud storage for your team or business? Though there are &lt;strong&gt;various self-hosted cloud solutions&lt;/strong&gt; for creating a private cloud yet all of them will not fit your requirements.&lt;/p&gt;
+
+&lt;p&gt;That is why, in this post I am going to confront the top three &lt;a href=&quot;https://www.hongkiat.com/blog/free-tools-to-build-personal-cloud/&quot;&gt;self-hosted cloud storage solutions&lt;/a&gt;i.e. Nextcloud, ownCloud, and Seafile, to help you pick the best. These three are &lt;strong&gt;free and open-source solutions&lt;/strong&gt; to create and host private cloud — a cloud for you and your contacts only.&lt;/p&gt;
+
+&lt;p&gt;So, let us discuss these in detail to know where they stand individually.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Read Also:&lt;/strong&gt; &lt;a href=&quot;https://www.hongkiat.com/blog/dropbox-tips-and-tricks/&quot;&gt;15 Tips to Get More Out of Dropbox&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://owncloud.org/&quot;&gt;ownCloud&lt;/a&gt; was started to provide a &lt;strong&gt;free replacement for proprietary storage&lt;/strong&gt; service providers. &lt;a href=&quot;https://nextcloud.com/&quot;&gt;Nextcloud&lt;/a&gt;, on the other hand, is a &lt;strong&gt;featureful fork of ownCloud&lt;/strong&gt; that was started by ownCloud’s core developers including its founding developer. And &lt;a href=&quot;https://www.seafile.com/en/home/&quot;&gt;Seafile&lt;/a&gt; was born with an objective to &lt;strong&gt;develop and distribute a file syncing software&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Although these three were started to provide a &lt;strong&gt;proprietary-free cloud storage&lt;/strong&gt; solution yet they have lots of differences. The most notable among those is, ownCloud and Seafile offer two editions — a server edition that is free and open-source and a pro/enterprise edition with extra features, but Nextcloud, on the other hand, features a &lt;strong&gt;single edition with optional enterprise support&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;download-options&quot;&gt;Download options&lt;/h3&gt;
+
+&lt;p&gt;Nextcloud provides &lt;strong&gt;numerous methods to install or get&lt;/strong&gt; it — an archive file and a web installer for dedicated servers and shared hosts. It also offers appliances and images for easy deployment to your servers.&lt;/p&gt;
+
+&lt;p&gt;Lastly, there are also &lt;strong&gt;officially suggested cloud providers and device manufacturers&lt;/strong&gt; to get it easily.&lt;/p&gt;
+
+&lt;p&gt;ownCloud, being the base of Nextcloud, &lt;strong&gt;offers almost similar installation options&lt;/strong&gt; — a tarball and a web installer. It also offers appliances, images, and distribution packages to deploy it readily on servers. Moreover, there are various hosting partners to create and sign up for your private cloud quickly.&lt;/p&gt;
+
+&lt;p&gt;Seafile gives &lt;strong&gt;less options than the above two&lt;/strong&gt; — a web installer (installation script) as well as pre-built binary packages for Linux distributions. Moreover, it offers docker images and &lt;strong&gt;supports Raspberry Pi&lt;/strong&gt; as well, interestingly.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nextcloud is the clear winner&lt;/strong&gt; here. You can get ready-made devices with preinstalled Nextcloud, which are not available for ownCloud. And both of these offer a lot more than Seafile for getting and setting up a private cloud.&lt;/p&gt;
+
+&lt;h3 id=&quot;usability-features&quot;&gt;Usability features&lt;/h3&gt;
+
+&lt;h4 id=&quot;sharing-features&quot;&gt;Sharing features&lt;/h4&gt;
+
+&lt;p&gt;Nextcloud offers numerous features to enhance collaboration among a team. It supports &lt;strong&gt;Collabora Online Office&lt;/strong&gt; to allow viewing and editing documents online.&lt;/p&gt;
+
+&lt;p&gt;Moreover, you can search for and &lt;strong&gt;share a file with a user or group&lt;/strong&gt; on the cloud, add comments to discuss about it, or create a public link to share it with others. You can also add &lt;strong&gt;a expiration date or a password&lt;/strong&gt; to links for added protection.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;Nextcloud has sharing features&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ownCloud features all sharing features of Nextcloud. What I found unique as well as interesting is its ‘Guests’ feature, which enables creating limited accounts that &lt;strong&gt;allow guests to have full collaboration&lt;/strong&gt; without assigning them as members.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;ownCloud has Guests feature&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Seafile too offers almost the &lt;strong&gt;same features as Nextcloud&lt;/strong&gt;. It also avails a library feature to create libraries of files and folders that you can then sync or share.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;Seafile has Library feature&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ownCloud surely stands out&lt;/strong&gt; in this section with its unique feature ‘Guests’. Of course, both the other solutions provide all the necessary sharing features.&lt;/p&gt;
+
+&lt;h4 id=&quot;supported-devices&quot;&gt;Supported devices&lt;/h4&gt;
+
+&lt;p&gt;Nextcloud desktop clients support &lt;strong&gt;Windows 7 and above, macOS 10.10 and newer versions, and Linux distributions&lt;/strong&gt; as well. Its mobile apps are available for Android, iOS, and Windows platforms with the last one still in testing phase.&lt;/p&gt;
+
+&lt;p&gt;ownCloud too supports all devices as Nextcloud except for Windows Mobile.&lt;/p&gt;
+
+&lt;p&gt;Seafile also supports as many platforms as supported by ownCloud. What makes it unique is it provides &lt;strong&gt;drive and sync clients separately&lt;/strong&gt; for desktop platforms.&lt;/p&gt;
+
+&lt;p&gt;Though Nextcloud has the edge here yet Windows Mobile platform is less used, thus all the three solutions have almost the &lt;strong&gt;same set of supported devices&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;apps--integrations&quot;&gt;Apps &amp;amp; integrations&lt;/h4&gt;
+
+&lt;p&gt;Nextcloud offers ‘Nextcloud Talk’ and ‘Nextcloud Groupware’, which promotes collaboration and productivity among a team and makes it a complete solution. Talk allows the users to &lt;strong&gt;text, call, or have web meetings&lt;/strong&gt; with other users. Groupware provides &lt;strong&gt;webmail, calendar, and contacts&lt;/strong&gt;management features.&lt;/p&gt;
+
+&lt;p&gt;Also, its ‘App Store’ hosts 120+ apps to add more functionalities.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;Nextcloud Talk adds call feature&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ownCloud’s store features official &lt;strong&gt;apps for calendar and contacts&lt;/strong&gt;. Its ‘ownCloud Marketplace’ stores 200+ official and third-party apps to extend its functionality.&lt;/p&gt;
+
+&lt;p&gt;I found there are apps to add bookmarks and tasks feature, add external storage services including Dropbox, integrate a backup solution, etc.&lt;/p&gt;
+
+&lt;p&gt;However, there is &lt;strong&gt;no app to add text, call, or web meetings&lt;/strong&gt; support, unlike Nextcloud.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;ownCloud's Contacts app&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Seafile, on the other hand, misses all such features. That means, it is just a file sync and share platform with support for online office but it &lt;strong&gt;lacks collaboration features&lt;/strong&gt; like calendar, contacts, web mail, and text and call as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nextcloud is definitely the winner here&lt;/strong&gt; — it is a mature solution with various collaboration features, making it a self-hosted rival of Google Drive + Hangouts.&lt;/p&gt;
+
+&lt;p&gt;ownCloud lacks many such features but is still better than Seafile, which is just a Dropbox-like file storage solution with basic collaboration options.&lt;/p&gt;
+
+&lt;h3 id=&quot;security-features&quot;&gt;Security features&lt;/h3&gt;
+
+&lt;p&gt;Nextcloud features robust security measures including encryption while data transfer, server-side storage encryption, and client-side &lt;strong&gt;end-to-end encryption&lt;/strong&gt;. It also offers file access control and app access rights for better control.&lt;/p&gt;
+
+&lt;p&gt;Also, LDAP, SAML, Active Directory, and Kerberos are supported out of the box.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;Nextcloud's security features&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ownCloud offers &lt;strong&gt;similar security features with some exceptions&lt;/strong&gt; to Nextcloud like it does not feature app access rights and Native SAML support. ownCloud even miss content security policy feature, which is offered by Nextcloud.&lt;/p&gt;
+
+&lt;p&gt;Seafile also features &lt;strong&gt;server-side data encryption and end-to-end encryption&lt;/strong&gt; at client side along with encryption during data transfer. However, it misses features like LDAP and Active Directory, which are found in others.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nextcloud is again the victor&lt;/strong&gt; in this section. Though all three are good at usual and essential security features yet Nextcloud has lot more features to protect your data from intruders and give admins fine control over its accessors.&lt;/p&gt;
+
+&lt;h3 id=&quot;enterprise-features&quot;&gt;Enterprise features&lt;/h3&gt;
+
+&lt;p&gt;Nextcloud, as I told before, offers almost &lt;strong&gt;everything in its free edition&lt;/strong&gt;. It does include full-text search, anti-virus integration, data workflow management, file access control, audit logs, and integrated account management.&lt;/p&gt;
+
+&lt;p&gt;If you opt for one of their subscriptions, they offer you maintenance and support. Moreover, you can opt for &lt;strong&gt;Collabora Online Office or branding services&lt;/strong&gt; separately.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;Nextcloud supports Collabora Online Office&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ownCloud features many productivity and security features in its enterprise edition. Its workflows feature lets you &lt;strong&gt;automate file management&lt;/strong&gt;, ownBrander lets you &lt;strong&gt;custom brand your cloud&lt;/strong&gt;, and SharePoint integration offers access to all SharePoint files on ownCloud.&lt;/p&gt;
+
+&lt;p&gt;Moreover, it offers network drive support, &lt;strong&gt;file firewall&lt;/strong&gt; (to set access rules for files), audit logs, single sign-on, and more.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==&quot; alt=&quot;ownCloud's PDF Viewer app&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Seafile too offers numerous features in its pro edition&lt;/strong&gt;. You can lock files to avoid co-editing, set permissions on folders, and have &lt;strong&gt;role-based accounts&lt;/strong&gt;. If I talk about usability features, it include &lt;strong&gt;full-text file search&lt;/strong&gt;, Office Online Server integration, and an online garbage cleaner.&lt;/p&gt;
+
+&lt;p&gt;Moreover, it features advanced single sign-on, &lt;strong&gt;remote wipe, anti-virus&lt;/strong&gt; integration, and audit log for high security.&lt;/p&gt;
+
+&lt;p&gt;Nextcloud is definitely better than the other two here — especially if you are looking for &lt;strong&gt;a low-cost yet featureful solution&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;It avails most features in its free edition and its subscription cost is lowest with ownCloud’s being highest.&lt;/p&gt;
+
+&lt;h3 id=&quot;which-to-choose&quot;&gt;Which to choose?&lt;/h3&gt;
+
+&lt;p&gt;It is your decision at the end of the day, but I will suggest to evaluate your team’s or business’s requirements with the features provided by these solutions. Then you can &lt;strong&gt;choose one of these based on the best match&lt;/strong&gt;. Don’t you agree?&lt;/p&gt;
+
+&lt;h3 id=&quot;table-of-comparison&quot;&gt;Table of comparison&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;Nextcloud&lt;/th&gt;
+      &lt;th&gt;ownCloud&lt;/th&gt;
+      &lt;th&gt;Seafile&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Download options&lt;/td&gt;
+      &lt;td&gt;Web installer, Archive file, Appliances and images, Distribution packages, Cloud providers, Ready-made devices&lt;/td&gt;
+      &lt;td&gt;Web installer, Archive file, Appliances and images, Distribution packages, Cloud providers&lt;/td&gt;
+      &lt;td&gt;Web installer, Archive file, Docker images, Distribution packages&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sharing features&lt;/td&gt;
+      &lt;td&gt;Online Office, Share with a user or group, Public yet protected links&lt;/td&gt;
+      &lt;td&gt;Online Office, Share with a user or group, Public yet protected links, Guests feature&lt;/td&gt;
+      &lt;td&gt;Online Office, Share with a user or group, Public yet protected links, Library feature&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Supported devices&lt;/td&gt;
+      &lt;td&gt;Windows, macOS, Linux, Android, iOS, Windows Mobile&lt;/td&gt;
+      &lt;td&gt;Windows, macOS, Linux, Android, iOS&lt;/td&gt;
+      &lt;td&gt;Windows, macOS, Linux, Android, iOS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Apps &amp;amp; integrations&lt;/td&gt;
+      &lt;td&gt;Talk &amp;amp; Groupware apps, App store with 120+ apps&lt;/td&gt;
+      &lt;td&gt;App store with 200+ apps&lt;/td&gt;
+      &lt;td&gt;None&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Security features&lt;/td&gt;
+      &lt;td&gt;Storage encryption, End-to-end encryption, File access control, App access rights, LDAP, Native SAML, Active Directory, Kerberos&lt;/td&gt;
+      &lt;td&gt;Storage encryption, End-to-end encryption, File access control, LDAP, Active Directory, Kerberos&lt;/td&gt;
+      &lt;td&gt;Storage encryption, End-to-end encryption, App access rights, LDAP, Shibboleth, Active Directory, Kerberos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Enterprise features&lt;/td&gt;
+      &lt;td&gt;Full-text search, Anti-virus integration, Data workflow management, File access control, Audit logs, Integrated account management, Collabora Online Office, Custom branding&lt;/td&gt;
+      &lt;td&gt;Full-text search, Anti-virus integration, Data workflow management, File firewall, Network drive support, Audit logs, Single sign-on, SharePoint integration, Collabora Online Office, Custom branding&lt;/td&gt;
+      &lt;td&gt;Full-text search, Lock files, Anti-virus integration, Remote wipe, Audit logs, Role-based account management, Office Online Server, Custom brandin&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;read more: &lt;a href=&quot;https://ownyourbits.com/2018/09/16/stream-media-files-from-nextcloud-to-your-android-and-ios-device-with-kodi/&quot;&gt;Stream media files from nextcloud to your Android (and iOS) device with Kodi&lt;/a&gt;
+read more: &lt;a href=&quot;https://www.cnblogs.com/sonictl/p/13221967.html&quot;&gt;Why do you need to ditch nextcloud, owncloud, seafile, blabla…&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile</summary></entry><entry><title type="html">python绘制图的度分布柱状图</title><link href="/jekyll/update/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,-draw-graph-degree-histogram-with-Python-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html" rel="alternate" type="text/html" title="python绘制图的度分布柱状图" /><published>2019-10-10T13:26:34+08:00</published><updated>2019-10-10T13:26:34+08:00</updated><id>/jekyll/update/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,%20draw%20graph%20degree%20histogram%20with%20Python%20-%20sonictl%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD</id><content type="html" xml:base="/jekyll/update/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,-draw-graph-degree-histogram-with-Python-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html">&lt;h2 id=&quot;图的度数分布&quot;&gt;图的度数分布&lt;/h2&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    import collections
+    import matplotlib.pyplot as plt
+    import networkx as nx&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;G = nx.gnp_random_graph(100, 0.02)
+
+degree_sequence = sorted([d for n, d in G.degree()], reverse=True)  # degree sequence
+# print &quot;Degree sequence&quot;, degree_sequence
+degreeCount = collections.Counter(degree_sequence)
+deg, cnt = zip(*degreeCount.items())
+
+# #as an alternation, you can pick out the top N items for the plot:
+#d = sorted(degreeCount.items(), key=lambda item:item[1], reverse=True)[:30]   # pick out the up 30 items from counter
+#deg = [i[0] for i in d]
+#cnt = [i[1] for i in d]
+
+fig, ax = plt.subplots()
+plt.bar(deg, cnt, width=0.80, color='b')
+
+plt.title(&quot;Degree Histogram&quot;)
+plt.ylabel(&quot;Count&quot;)
+plt.xlabel(&quot;Degree&quot;)
+ax.set_xticks([d + 0.4 for d in deg])
+ax.set_xticklabels(deg)
+
+# draw graph in inset
+plt.axes([0.4, 0.4, 0.5, 0.5])
+Gcc = sorted(nx.connected_component_subgraphs(G), key=len, reverse=True)[0]
+pos = nx.spring_layout(G)
+plt.axis('off')
+nx.draw_networkx_nodes(G, pos, node_size=20)
+nx.draw_networkx_edges(G, pos, alpha=0.4)
+
+plt.draw()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Source for reference:&lt;br /&gt;
+&lt;a href=&quot;https://networkx.github.io/documentation/stable/auto_examples/drawing/plot_degree_histogram.html#degree-
+histogram&quot;&gt; degree-histogram, networkx
+&lt;/a&gt;&lt;br /&gt;
+&lt;img src=&quot;https://networkx.github.io/documentation/stable/_images/sphx_glr_plot_degree_histogram_001.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;draw-the-histogram-for-values-of-dict&quot;&gt;Draw the histogram for values of dict&lt;/h3&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    import collections
+    import matplotlib.pyplot as plt&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dict_granuLevel = {'1283': 9, '291': 5, '451': 6, '964': 8, '1093': 5, '525': 8, '878': 11, '1553': 9, '1107': 6, '1588': 8,
+             '1435': 6, '861': 8, '1054': 9}
+
+value_sequence = sorted([d for d in dict_granuLevel.values()], reverse=True)  # value sequence
+print(&quot;value sequence:&quot;, value_sequence)
+valueCount = collections.Counter(value_sequence)
+val, cnt = zip(*valueCount.items())
+
+# # as an alternation, you can pick out the top N items for the plot:
+# d = sorted(degreeCount.items(), key=lambda item:item[1], reverse=True)[:10]   # pick out the up 10 items from counter
+# val = [i[0] for i in d]
+# cnt = [i[1] for i in d]
+
+fig, ax = plt.subplots()
+plt.bar(val, cnt, width=0.80, color='b')
+
+plt.title(&quot;value Histogram&quot;)
+plt.ylabel(&quot;Count&quot;)
+plt.xlabel(&quot;value&quot;)
+ax.set_xticks([d + 0.4 for d in val])
+ax.set_xticklabels(val)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img2018.cnblogs.com/blog/780771/201912/780771-20191215213205661-1904942784.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;the-function-style&quot;&gt;The function style:&lt;/h4&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    import collections
+    import matplotlib.pyplot as plt&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    def plot_histogram(list_input, k=0):
+        ‘’’
+        draw the histogram for items in list_input
+        :param list: list of count_numbers. all items are required to be int.
+        :param k: the top k-th count of items to be considered for drawing the plot. default: k=0, plot all
+        :return:
+        ‘’’
+        valueCount = collections.Counter(list_input)
+        val, cnt = zip(*valueCount.items())
+        print(‘  len of val, cnt:’, len(val), end=’’)
+        if k != 0:
+            print(‘ pick the largest’, k, ‘cnt for histogram.’)
+            d = sorted(valueCount.items(), key=lambda item: item[1], reverse=True)[:k]    # pick out the up k items from counter
+        else:
+            d = sorted(valueCount.items(), key=lambda item: item[1], reverse=True)
+            print(‘ k = 0. Pick all the cnt for histogram.’)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val = [i[0] for i in d]
+    cnt = [i[1] for i in d]
+
+    fig, ax = plt.subplots()
+    plt.bar(val, cnt, width=0.80, color='b')
+    plt.title(&quot;value Histogram&quot;)
+    plt.ylabel(&quot;Count&quot;)
+    plt.xlabel(&quot;value&quot;)
+    ax.set_xticks([d + 0.4 for d in val])
+    ax.set_xticklabels(val)
+    plt.show()
+
+    return
+
+dict_granuLevel = {'tom': 9, 'cat': 5, 'dot': 6, 'dog': 8, 'hors': 5, 'fao': 8, 'pao': 11, 'koo': 9, 'jan': 6, 'dec': 8,
+             'foo': 6, 'doo': 8, 'coo': 9}
+
+value_sequence = sorted([d for d in dict_granuLevel.values()], reverse=True)  # value sequence
+print(&quot;value sequence:&quot;, value_sequence)
+
+plot_histogram(value_sequence, 3)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;read more: &lt;a href=&quot;https://www.cnblogs.com/sonictl/p/9663189.html&quot;&gt; 用python + networkx探索和分析网络数据
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;draw-the-edge_weighted-graph&quot;&gt;draw the edge_weighted graph:&lt;/h2&gt;
+
+&lt;p&gt;for network with weighted edges, draw the graph :&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    ###
+    import matplotlib.pyplot as plt
+    pos = nx.planar_layout(G)           # pos = nx.spring_layout(G)
+    labels = nx.get_edge_attributes(G,’weight’)
+    nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
+    plt.show()&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">图的度数分布</summary></entry><entry><title type="html">一波儿networkx 读写edgelist，给节点加attribute的操作</title><link href="/jekyll/update/2019/10/09/%E4%B8%80%E6%B3%A2%E5%84%BFnetworkx-%E8%AF%BB%E5%86%99edgelist-%E7%BB%99%E8%8A%82%E7%82%B9%E5%8A%A0attribute%E7%9A%84%E6%93%8D%E4%BD%9C.html" rel="alternate" type="text/html" title="一波儿networkx 读写edgelist，给节点加attribute的操作" /><published>2019-10-09T19:24:34+08:00</published><updated>2019-10-09T19:24:34+08:00</updated><id>/jekyll/update/2019/10/09/%E4%B8%80%E6%B3%A2%E5%84%BFnetworkx%20%E8%AF%BB%E5%86%99edgelist,%E7%BB%99%E8%8A%82%E7%82%B9%E5%8A%A0attribute%E7%9A%84%E6%93%8D%E4%BD%9C</id><content type="html" xml:base="/jekyll/update/2019/10/09/%E4%B8%80%E6%B3%A2%E5%84%BFnetworkx-%E8%AF%BB%E5%86%99edgelist-%E7%BB%99%E8%8A%82%E7%82%B9%E5%8A%A0attribute%E7%9A%84%E6%93%8D%E4%BD%9C.html">&lt;h1 id=&quot;一波儿networkx-读写edgelist给节点加attribute的操作&quot;&gt;一波儿networkx 读写edgelist，给节点加attribute的操作&lt;/h1&gt;
+
+&lt;p&gt;read more: &lt;a href=&quot;https://networkx.github.io/documentation/stable/reference/readwrite/index.html&quot;&gt; nx official: Reading and writing graphs
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+    import numpy as np
+    import networkx as nx
+    import operator&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;G1 = nx.DiGraph(name='network1')  # Directed Graph
+#networkx 导入edgelist
+with open(net1_path, 'r') as edgeReader:   # 从文件中读取edgelist生成Graph of networkx
+    for line in edgeReader.readlines():
+        edges_net1.append(tuple(map(int, line.strip().split(' '))))
+G1.add_edges_from(edges_net1)
+print('\n== info of net1 original: ')
+print(nx.info(G1))
+triad_list_net1 = []
+for i in edges_net1:
+  triad = tuple([i[0], i[1], i[0]+i[1]])
+  triad_list_net1.append(triad)   # list of triads
+  
+triad_list_net1.sort(key=operator.itemgetter(2))   # sort the list by the 3rd item of triad
+isgt_dict1 = dict(zip(G1.nodes, np.zeros(len(G1.nodes), int)))  # gen the dic for attribute of nodes in G1
+nx.set_node_attributes(G1, isgt_dict1, 'Attr_name')
+
+#networkx 导出网络为edgelist
+nx.write_edgelist(G1, 'data_G1.txt', delimiter=' ', data=False)  # without properties by 'data=False'
+#         将nodes带属性写入文件：
+f = open('data_G1_nodes.txt', 'w')
+for node_i in G1.nodes:
+  f.write(str(node_i)+','+str(G1.nodes[node_i]['Attr_name'])+'\n')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Use ` networkx.read_edgelist() ` function: 快速从文件中读取边并创建图&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netPath = 'myEdgelist.txt'
+G = nx.read_edgelist(netPath)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;read more: &lt;a href=&quot;https://networkx.github.io/documentation/stable/reference/readwrite/index.html&quot;&gt; nx official: Reading and writing graphs
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">一波儿networkx 读写edgelist，给节点加attribute的操作</summary></entry><entry><title type="html">Convert Adjacency matrix into edgelist with networkx</title><link href="/jekyll/update/2019/09/04/Convert-Adjacency-matrix-into-edgelist-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html" rel="alternate" type="text/html" title="Convert Adjacency matrix into edgelist with networkx" /><published>2019-09-04T16:06:34+08:00</published><updated>2019-09-04T16:06:34+08:00</updated><id>/jekyll/update/2019/09/04/Convert%20Adjacency%20matrix%20into%20edgelist%20-%20sonictl%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD</id><content type="html" xml:base="/jekyll/update/2019/09/04/Convert-Adjacency-matrix-into-edgelist-sonictl-%E5%8D%9A%E5%AE%A2%E5%9B%AD.html">&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;# Edge List &amp;lt;\-- Adjacency Matrix&quot;&gt;Edge List &amp;lt;-- Adjacency Matrix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;# Edge List --&amp;gt; Adjacency Matrix&quot;&gt;Edge List –&amp;gt; Adjacency Matrix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#About Adjacency List&quot;&gt;About Adjacency List&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;edge-list----adjacency-matrix&quot;&gt;Edge List &amp;lt;-- Adjacency Matrix&lt;/h2&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​    ‘’’
+​    ref: https://www.cnblogs.com/sonictl/p/10688533.html 
+​    convert adjMatrix into edgelist: ‘data/unweighted_edgelist.number’ or ‘data/weighted_edgelist.number’’
+​  &lt;br /&gt;
+​    input: adjacency matrix with delimiter=’, ‘
+​      it can process:
+​      - Unweighted directed graph
+​      - Weighted directed graph
+​  &lt;br /&gt;
+    output: edgelist (unweighted and weighted)&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​    ‘’’
+​  &lt;br /&gt;
+​    import numpy as np
+​    import networkx as nx
+​  &lt;br /&gt;
+    # ——-DIRECTED Graph, Unweighted———–
+    # Unweighted directed graph:
+    a = np.loadtxt(‘data/test_adjMatrix.txt’, delimiter=’, ‘, dtype=int)
+    D = nx.DiGraph(a)
+    nx.write_edgelist(D, ‘data/unweighted_edgelist.number’, data=False)  # output&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;edges = [(u, v) for (u, v) in D.edges()]
+print(edges)
+
+# -------DIRECTED Graph, Weighted------------
+# Weighted directed graph (weighted adj_matrix):
+a = np.loadtxt('data/adjmatrix_weight_sample.txt', delimiter=', ', dtype=float)
+D = nx.DiGraph(a)
+nx.write_weighted_edgelist(D, 'data/weighted_edgelist.number')  # write the weighted edgelist into file
+
+# print(D.edges)
+elarge = [(u, v, d['weight']) for (u, v, d) in D.edges(data=True) if d['weight'] &amp;gt; 0.]
+print(elarge)    # class: list
+
+# -------UNDIRECTED Graph -------------------
+# for undirected graph, simply use:
+udrtG = D.to_undirected()
+
+'''
+test_adjMatrix.txt:  (Symmetric matrices if unweighted graph)
+---
+0, 1, 1, 1, 0, 1, 1, 0
+0, 0, 1, 0, 0, 0, 1, 1
+0, 0, 0, 1, 1, 0, 0, 0
+0, 1, 0, 0, 1, 1, 0, 0
+0, 0, 0, 0, 0, 0, 0, 0
+0, 0, 0, 0, 0, 0, 0, 0
+0, 0, 0, 0, 0, 0, 0, 0
+0, 0, 1, 0, 0, 0, 0, 0
+===
+
+adjmatrix_weight_sample.txt：
+---
+0, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0
+0, 0, 0.5, 0, 0, 0, 0.5, 0.5
+0, 0, 0, 0.5, 0.5, 0, 0, 0
+0, 0.5, 0, 0, 0.5, 0.5, 0, 0
+0, 0, 0, 0, 0, 0, 0, 0
+0, 0, 0, 0, 0, 0, 0, 0
+0, 0, 0, 0, 0, 0, 0, 0
+0, 0, 0.5, 0, 0, 0, 0, 0
+===
+
+output:
+---
+[(0, 1), (0, 2), (0, 3), (0, 5), (0, 6), (1, 2), (1, 6), (1, 7), (2, 3), (2, 4), (3, 1), (3, 4), (3, 5), (7, 2)]
+[(0, 1, 0.5), (0, 2, 0.5), (0, 3, 0.5), (0, 5, 0.5), (0, 6, 0.5), (1, 2, 0.5), (1, 6, 0.5), (1, 7, 0.5), (2, 3, 0.5), (2, 4, 0.5), (3, 1, 0.5), (3, 4, 0.5), (3, 5, 0.5), (7, 2, 0.5)]
+===
+'''
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​&lt;/p&gt;
+
+&lt;h2 id=&quot;edge-list--adjacency-matrix&quot;&gt;Edge List –&amp;gt; Adjacency Matrix&lt;/h2&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​    ‘’’
+​      https://networkx.github.io/documentation/networkx-2.2/reference/generated/networkx.linalg.graphmatrix.adjacency_matrix.html
+​  &lt;br /&gt;
+​    ‘’’
+​  &lt;br /&gt;
+    import numpy
+    import networkx as nx&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# edgelist to adjacency matrix
+
+# way1: G=nx.read_edgelist
+D = nx.read_edgelist('input/edgelist_sample.txt', create_using=nx.DiGraph(), nodetype=int)  # create_using=nx.Graph()
+print(D.edges)
+print(D.nodes)
+
+# way2:
+'''
+a = numpy.loadtxt('input/edgelist_sample.txt', dtype=int)
+edges = [tuple(e) for e in a]
+D = nx.DiGraph()
+D.add_edges_from(edges)   # D.add_edges_from(nodes); D.edges; D.nodes
+D.name = 'digraph_sample'
+print(nx.info(D))
+
+udrtG = D.to_undirected()
+udrtG.name = 'udrt'
+print(nx.info(udrtG))
+'''
+
+# dump to file as adjacency Matrix
+A = nx.adjacency_matrix(D, nodelist=list(range(len(D.nodes))))  # nx.adjacency_matrix(D, nodelist=None, weight='weight')   # Return type: SciPy sparse matrix
+# print(A)   # type &amp;lt; SciPy sparse matrix &amp;gt;
+A_dense = A.todense()   # type-&amp;gt; numpy.matrixlib.defmatrix.matrix
+print(A_dense, type(A_dense))
+
+print('--- See two row of matrix equal or not: ---')
+print((numpy.equal(A_dense[5], A_dense[6])).all())
+
+# print('to_numpy_array:\n', nx.to_numpy_array(D, nodelist=list(range(len(D.nodes)))))
+
+# print('to_dict_of_dicts:\n', nx.to_dict_of_dicts(D, nodelist=list(range(len(D.nodes)))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h2 id=&quot;about-adjacency-list&quot;&gt;About Adjacency LIST&lt;/h2&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​    nx.read_adjlist()&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img2018.cnblogs.com/blog/780771/201905/780771-20190523193021270-1849833006.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;convert-adjacency-matrix-into-edgelist&quot;&gt;Convert Adjacency matrix into edgelist&lt;/h2&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​    import numpy as np
+​  &lt;br /&gt;
+​    #read matrix without head.
+​    a = np.loadtxt(‘admatrix.txt’, delimiter=’, ‘, dtype=int)  #set the delimiter as you need
+​    print “a:”
+​    print a
+​    print ‘shape:’,a.shape[0] ,”*”, a.shape[1]
+​  &lt;br /&gt;
+    num_nodes = a.shape[0] + a.shape[1]&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;num_edge = 0
+edgeSet = set()
+
+for row in range(a.shape[0]):
+    for column in range(a.shape[1]):
+        if a.item(row,column) == 1 and (column,row) not in edgeSet: #get rid of repeat edge
+            num_edge += 1
+            edgeSet.add((row,column))
+
+print '\nnum_edge:', num_edge
+print 'edge Set:', edgeSet
+print ''
+for edge in edgeSet:
+    print edge[0] , edge[1]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sample Adjacency Matrix Input file:&lt;/p&gt;
+
+&lt;p&gt;​  &lt;br /&gt;
+​    0, 1, 1, 1, 0, 1, 1, 0
+​    0, 0, 1, 0, 0, 0, 1, 1
+​    0, 0, 0, 1, 1, 0, 0, 0
+​    0, 1, 0, 0, 1, 1, 0, 0
+​    0, 0, 0, 0, 0, 0, 0, 0
+​    0, 0, 0, 0, 0, 0, 0, 0
+​    0, 0, 0, 0, 0, 0, 0, 0
+​    0, 0, 1, 0, 0, 0, 0, 0&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Table of Contents</summary></entry></feed>
