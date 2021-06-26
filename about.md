@@ -21,7 +21,7 @@ You can find the source code for Jekyll at GitHub:
 basic steps for adding post for REFERENCE:
 
 in Terminal, cd to ~/sonictl.github.io
-in Terminal, run 'bundle exec jekyll serve --watch'
+in Terminal, run 'bundle exec jekyll serve --watch'  # or: bundle exec jekyll serve
 do you modifying/adding the markdowns, save. check in localhost:4000
 in Terminal, git status/add ./commit -m 'cmt'/push -u origin main
 done.
@@ -29,7 +29,7 @@ done.
 ```
 **Quick reference:**
 ```
-cd ~/sonictl.github.io/ && bundle exec jekyll serve --watch
+cd ~/sonictl.github.io/ && bundle exec jekyll serve
 cd ~/sonictl.github.io/  && git add . && git commit -m 'new cmit' && git push -u origin main
 ```
 
