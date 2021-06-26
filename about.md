@@ -53,4 +53,6 @@ fileName: 2021-06-26-welcome-to-jekyll.md
 
 1. pick a preferable theme other than this default `minima`
 2. set up the favicon for the theme selected.
+3. set up statistics/visitor_map for the index.html
+4. 
 
