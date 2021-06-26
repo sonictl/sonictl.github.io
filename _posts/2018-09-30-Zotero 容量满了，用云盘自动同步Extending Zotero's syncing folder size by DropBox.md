@@ -1,5 +1,5 @@
 ---
-title: 'Zotero 容量满了，用云盘自动同步 - Extending Zoteros syncing folder size by DropBox'
+title: "Zotero 容量满了，用云盘自动同步 - Extending Zotero's syncing folder size by DropBox"
 date: 2018-09-30 10:10:00
 ---
 
