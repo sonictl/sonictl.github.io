@@ -1,0 +1,47 @@
+I"B	<h1 id="-centos-7-网络daemon-相关命令-">=== CentOS 7+ 网络、Daemon 相关命令 ===</h1>
+<p>包含了centos system 中 firewalld, port occupation, systemd service management 相关常用命令。</p>
+
+<h3 id="1-firewalld">1. firewalld</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`firewall-cmd --permanent --add-port=100/tcp ` 	# open specific port
+`firewall-cmd --permanent --add-port=200-300/tcp`
+`firewall-cmd --permanent --add-service=http`		# open port for service
+`firewall-cmd --reload`  							# take changes into effect
+`firewall-cmd --list-ports`   					# check the ports opened.
+`firewall-cmd --list-services`					# check the service
+` iptables-save`									# check all currently applied rules
+</code></pre></div></div>
+
+<h3 id="2-port">2. port</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -tlunp							# display all ports opened in host
+lsof -i									# list the network open ports 
+netstat -lptu							# the process that owns them
+netstat -tulpn							# You can add "     | grep "kw1\|kw2\|kw3'     " for keywords grep
+</code></pre></div></div>
+
+<h3 id="3-daemon-守护与开机开机启动可用">3. daemon 守护与开机（开机启动可用）</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/rc.d/rc.local					# edit script in this file for script running at boot
+vim ~.bash_profile 						# exe script at log on.	and ~.bash_logout for log out.
+shutdown -r now
+systemctl reboot						# Reboot to verify scripts launching during system boot
+</code></pre></div></div>
+
+<h3 id="4-systemd开机启动可用">4. systemd（开机启动可用）</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim  /etc/systemd/system/sample.service  ```
+	[Unit]
+	Description=Description for sample script goes here
+	After=network.target
+
+	[Service]
+	Type=simple
+	ExecStart=/var/tmp/test_script.sh
+	TimeoutStartSec=0
+
+	[Install]
+	WantedBy=default.target ```
+systemctl daemon-reload
+systemctl enable sample.service
+systemctl start sample.service
+systemctl list-unit-files | grep enabled  	# list all enabled ones.
+systemctl list-unit-files | grep disabled 	# list all disabled ones.
+</code></pre></div></div>
+:ET

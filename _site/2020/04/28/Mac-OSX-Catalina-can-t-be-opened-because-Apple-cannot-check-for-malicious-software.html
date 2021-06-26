@@ -1,0 +1,15 @@
+<p>Mac OSX Catalina: can’t be opened because Apple cannot check for malicious software
+macOS cannot verify that this app is free from malware.</p>
+
+<p>Solution:</p>
+<ul>
+  <li>check with Security&amp;Privacy settings under System Preferences to lift the Gatekeeper blocks, and fix alert messages.</li>
+  <li>when you are using Catalina, the warning message reappears every time you open the non-notarized app</li>
+  <li>open Terminal and run the cmd below</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xattr -d com.apple.quarantine /Applications/&lt;your App's Name&gt;.app
+
+e.g.: 
+xattr -d com.apple.quarantine /Applications/qbittorrent.app
+</code></pre></div></div>

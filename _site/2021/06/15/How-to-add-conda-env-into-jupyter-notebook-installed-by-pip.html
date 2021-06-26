@@ -1,0 +1,43 @@
+<h2 id="how-to-add-conda-env-into-jupyter-notebook-installed-by-pip">How to add conda env into jupyter notebook installed by pip</h2>
+<p>ref: https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084</p>
+
+<p>If your linux server has no Anaconda installed but conda installed. You don’t want to install Anaconda for just installing jupyter notebook. You just installed jupyter notebook with pip3 with this <a href="https://test-jupyter.readthedocs.io/en/latest/install.html#id4">link</a></p>
+
+<h3 id="1-check-the-env-on-which-jupyter-notebook-is-runing">1. check the env on which jupyter notebook is runing:</h3>
+<p>which pip3
+   where pip3 #for windows cmd</p>
+
+<h3 id="2-add-your-conda-environment-to-your-jupyter-notebook">2. add your Conda environment to your jupyter notebook:</h3>
+
+<p><strong>Step 1: Create a Conda environment.</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">conda create --name firstEnv</code></p>
+
+<p>once you have created the environment you will see some output after you create your environment.</p>
+
+<p><strong>Step 2: Activate the environment</strong>
+ After you activate it, you can install any package you need in this environment.</p>
+
+<p>For example, I am going to install Tensorflow in this environment. The command to do so,</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda install -c conda-forge tensorflow</code></p>
+
+<p><strong>Step 3: install ipykernel</strong></p>
+
+<p>Now comes the step to set this conda environment on your jupyter notebook, to do so please install ipykernel.</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda install -c anaconda ipykernel</code></p>
+
+<p>After installing this,</p>
+
+<p>just type,</p>
+
+<p><code class="language-plaintext highlighter-rouge">python -m ipykernel install --user --name=firstEnv</code></p>
+
+<p>Using the above command, I will now have this conda environment in my Jupyter notebook.</p>
+
+<p>Just check your Jupyter Notebook, to see the shining <code class="language-plaintext highlighter-rouge">firstEnv</code> under “new” list of jupyter first page.</p>
+
+<h3 id="the-newer-comer-jupyterlab">the newer comer: jupyterLab</h3>
+
+<p>https://jupyter.org/install</p>

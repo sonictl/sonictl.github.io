@@ -1,0 +1,54 @@
+I"t<p>2者都挺优秀的，但是在具体使用时还是遇到一些问题：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>作业部落</th>
+      <th>Typora</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>图片调整大小<img src="" type="zoom:50%" /></td>
+      <td>×</td>
+      <td>√  <a href="http://support.typora.io/Resize-Image/">how to</a></td>
+    </tr>
+    <tr>
+      <td>在线同步，易于分享</td>
+      <td>√</td>
+      <td>×</td>
+    </tr>
+    <tr>
+      <td>pdf对emoji的支持</td>
+      <td>×</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td>pdf的text view: View pdf as a text file 时，对中文的支持，这个影响pdf内搜索中文的性能，以及分享上传后是否会乱码。</td>
+      <td>√</td>
+      <td>×</td>
+    </tr>
+    <tr>
+      <td>代码语法支持高亮</td>
+      <td>×</td>
+      <td>√</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+:ET

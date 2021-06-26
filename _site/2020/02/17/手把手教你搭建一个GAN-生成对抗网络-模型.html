@@ -1,0 +1,237 @@
+<h1 id="手把手教你搭建一个gan生成对抗网络模型">手把手教你搭建一个GAN（生成对抗网络）模型</h1>
+
+<p>这个教程用 Keras 实现一个简单的GAN （生成对抗网络）模型. 基于这个:<a href="https://github.com/Zackory/Keras-MNIST-GAN">mnistGAN项目</a>，我们将用到<a href="https://www.datacamp.com/community/tutorials/deep-learning-python">Keras</a> 这个python 库。</p>
+
+<p>将用到的python packages:</p>
+<ul>
+  <li>keras: 神经网络模型相关</li>
+  <li>matplotlib: 画图</li>
+  <li>tensorflow: keras运行基础</li>
+  <li>tqdm: 进度条</li>
+</ul>
+
+<blockquote>
+  <p>Talk is cheap, show me the code.</p>
+</blockquote>
+
+<h3 id="1-导入包">1. 导入包：</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Input</span>  <span class="c1"># input layer  
+</span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers.core</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
+<span class="kn">from</span> <span class="nn">keras.layers.advanced_activations</span> <span class="kn">import</span> <span class="n">LeakyReLU</span>
+<span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">initializers</span>
+
+</code></pre></div></div>
+
+<h3 id="2-定义几个变量">2. 定义几个变量：</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Let Keras know that we are using tensorflow as our backend engine
+</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"KERAS_BACKEND"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"tensorflow"</span>
+
+<span class="c1"># To make sure that we can reproduce the experiment and get the same results by same random output
+</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># The dimension of our random noise vector. this code is from: sonictl_at_cnblogs.net
+</span><span class="n">random_dim</span> <span class="o">=</span> <span class="mi">100</span>
+</code></pre></div></div>
+
+<h3 id="3-准备数据">3. 准备数据：</h3>
+<p>这里要用到手写阿拉伯数字（MNIST）数据集。MNIST 数据集已经是一个被”嚼烂”了的数据集, 很多教程都会对它”下手”, 几乎成为一个 “典范”. 介绍一下:</p>
+
+<p>MNIST 数据集来自美国国家标准与技术研究所, National Institute of Standards and Technology (NIST). 训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员. 测试集(test set) 也是同样比例的手写数字数据.</p>
+
+<p>MNIST 数据集可在 http://yann.lecun.com/exdb/mnist/ 获取, 它包含了四个部分:</p>
+<ul>
+  <li>Training set images(包含 60,000 个样本)</li>
+  <li>Training set labels(包含 60,000 个标签)</li>
+  <li>Test set images(10,000 个样本)</li>
+  <li>Test set labels(包含 10,000 个标签)
+在 MNIST 数据集中的每张图片由 28 x 28 个像素点构成, 每个像素点用一个灰度值表示. labels包含了相应的目标变量, 也就是手写数字的类标签(整数 0-9).
+如图：
+<img src="https://img2018.cnblogs.com/blog/780771/202002/780771-20200217201022389-1044249940.png" alt="MNIST 数据集中的图" /></li>
+</ul>
+
+<p>代码：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">load_minst_data</span><span class="p">():</span>
+    <span class="c1"># load the data
+</span>    <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">load_data</span><span class="p">()</span>    <span class="c1"># y is the set of labels, mnist.load_data() is part of Keras and allows you to easily import the MNIST dataset
+</span>    <span class="c1"># normalize our inputs to be in the range[-1, 1]
+</span>    <span class="n">x_train</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-</span> <span class="mf">127.5</span><span class="p">)</span><span class="o">/</span><span class="mf">127.5</span>
+    <span class="c1"># convert x_train with a shape of (60000, 28, 28) to (60000, 784) so we have
+</span>    <span class="c1"># 784 columns per row
+</span>    <span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</code></pre></div></div>
+<h3 id="4-生成器和判别器">4. 生成器和判别器</h3>
+<p>现在要建立生成器和判别器，我们要用<a href="https://machinelearningmastery.com/adam-optimization-algorithm-for-deep-learning/">Adam 优化器</a>来优化这2个网络。对于生成器和判别器中的神经网络，我们都用3个隐藏层，并用<a href="https://www.quora.com/What-are-the-advantages-of-using-Leaky-Rectified-Linear-Units-Leaky-ReLU-over-normal-ReLU-in-deep-learning">Leaky Relu</a>函数来作为激活函数。这里还有个技巧，为了提升判别器在它没见过的数据上的鲁棒性，在里面加了一个<a href="https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5">DropOut 层</a></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># You will use the Adam optimizer
+</span><span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">,</span> <span class="n">beta_1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_generator</span><span class="p">(</span><span class="n">optimizer</span><span class="p">):</span>
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">random_dim</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="n">initializers</span><span class="p">.</span><span class="n">RandomNormal</span><span class="p">(</span><span class="n">stddev</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)))</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+
+    <span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">))</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+
+    <span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+
+    <span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'tanh'</span><span class="p">))</span>
+    <span class="n">generator</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">generator</span>
+
+<span class="k">def</span> <span class="nf">get_discriminator</span><span class="p">(</span><span class="n">optimizer</span><span class="p">):</span>
+    <span class="n">discriminator</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="n">initializers</span><span class="p">.</span><span class="n">RandomNormal</span><span class="p">(</span><span class="n">stddev</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)))</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
+
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">))</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
+
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
+
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">))</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">discriminator</span>
+</code></pre></div></div>
+<h3 id="一个流程的代码">一个流程的代码</h3>
+<p>有关的注释都已经写了。一行行弄懂基本就懂了。</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Input</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers.core</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
+<span class="kn">from</span> <span class="nn">keras.layers.advanced_activations</span> <span class="kn">import</span> <span class="n">LeakyReLU</span>
+<span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">initializers</span>
+
+<span class="c1"># fix the multiple OpenMP runtime linked error:
+</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'KMP_DUPLICATE_LIB_OK'</span><span class="p">]</span><span class="o">=</span><span class="s">'True'</span>
+
+<span class="c1"># Let Keras know that we are using tensorflow as our backend engine
+</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"KERAS_BACKEND"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"tensorflow"</span>
+
+<span class="c1"># To make sure that we can reproduce the experiment and get the same results
+</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># The dimension of our random noise vector. This vector is the most initial input of the gan Model.
+</span><span class="n">random_dim</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># size of each batch
+</span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="c1"># load the data:
+</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">load_data</span><span class="p">(</span><span class="s">'mnist.npz'</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-</span> <span class="mf">127.5</span><span class="p">)</span><span class="o">/</span><span class="mf">127.5</span>   <span class="c1"># x_train_i is from 0 to 255, 255 = 127.5*2
+# convert x_train with a shape of (60000, 28, 28) to (60000, 784) so we have
+# 784 columns per row
+</span><span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+
+<span class="c1"># Split the training data into batches of size 128
+</span><span class="n">batch_count</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">batch_size</span>
+<span class="n">batch_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">batch_count</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'batch_count:'</span><span class="p">,</span> <span class="n">batch_count</span><span class="p">)</span>
+
+<span class="c1">#
+# ==== build the GAN ====
+</span><span class="n">adam</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">,</span> <span class="n">beta_1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># -- generator building: --
+</span><span class="n">generator</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>   <span class="c1"># keras Sequential model, model of sequential stack of layers
+</span><span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">random_dim</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="n">initializers</span><span class="p">.</span><span class="n">RandomNormal</span><span class="p">(</span><span class="n">stddev</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)))</span>
+<span class="c1"># layer: (256, input_dim=random_dim, kernel_initializer=initializers.RandomNormal(stddev=0.02))
+</span><span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">))</span>     <span class="c1"># second layer
+</span><span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>    <span class="c1"># third layer
+</span><span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">generator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'tanh'</span><span class="p">))</span>    <span class="c1"># output layer, 784 = 28*28
+</span><span class="n">generator</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">adam</span><span class="p">)</span>    <span class="c1"># compile Before training a model,
+# you need to configure the learning process, which is done via the compile method.
+</span>
+<span class="c1"># -- discriminator building: --
+</span><span class="n">discriminator</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="n">initializers</span><span class="p">.</span><span class="n">RandomNormal</span><span class="p">(</span><span class="n">stddev</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)))</span>
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
+
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">))</span>
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
+
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
+
+<span class="n">discriminator</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">))</span>
+<span class="n">discriminator</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">adam</span><span class="p">)</span>
+
+<span class="c1"># -- gan building with generator&amp;discriminator: --
+</span><span class="n">discriminator</span><span class="p">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="bp">False</span>  <span class="c1"># frozen discriminator first. Train either the generator or discriminator at a time
+</span><span class="n">gan_input</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">random_dim</span><span class="p">,))</span>   <span class="c1"># keras.layers.input, type: tensor.
+# gan input (noise) will be 100-dimensional vectors
+</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">gan_input</span><span class="p">)</span>  <span class="c1"># gan_input -&gt; generator(a Sequential()) -&gt; x , x is the input of discriminator, x is an image
+</span><span class="n">gan_output</span> <span class="o">=</span> <span class="n">discriminator</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># x -&gt; discriminator -&gt; gan_output. gan_output is a probability: if the image is real
+</span><span class="n">gan</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">gan_input</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">gan_output</span><span class="p">)</span> <span class="c1"># gan_input -&gt;[GAN]-&gt; gan_output. The Model takes the head and tail as
+# its arguments of inputs and outputs.
+</span>
+<span class="n">gan</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">adam</span><span class="p">)</span> <span class="c1"># gan: &lt;keras.engine.training.Model object at 0x647626d68&gt;
+</span>
+<span class="c1"># ==== one epoch of training: =====
+</span><span class="n">e</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span> <span class="s">'-'</span><span class="o">*</span><span class="mi">15</span><span class="p">,</span> <span class="s">'Epoch %d'</span> <span class="o">%</span> <span class="n">e</span><span class="p">,</span> <span class="s">'-'</span><span class="o">*</span><span class="mi">15</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">batch_count</span><span class="p">)):</span>  <span class="c1"># each batch in batch_count, Note: operations on each batch of 128 samples.
+</span>    <span class="c1"># Get a random set of input noise and images
+</span>    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">random_dim</span><span class="p">])</span>   <span class="c1"># batch_size = 128, one batch of noise.
+</span>    <span class="n">temp_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x_train</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>  <span class="c1"># pick 128 rand int numbers from [0, 60000]
+</span>    <span class="n">image_batch</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">temp_idx</span><span class="p">]</span>  <span class="c1"># shape=(128,784)
+</span>
+    <span class="n">generated_images</span> <span class="o">=</span> <span class="n">generator</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span>  <span class="c1"># Generate fake MNIST images: shape=(128,784)
+</span>    <span class="n">num_fake_img</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">generated_images</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">image_batch</span><span class="p">,</span> <span class="n">generated_images</span><span class="p">])</span>  <span class="c1"># concatenate the True image batch and Fake image  (256,784)
+</span>
+    <span class="c1"># Labels for generated and real data
+</span>    <span class="n">y_dis</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">y_dis</span><span class="p">[:</span><span class="n">batch_size</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.9</span>   <span class="c1"># One-sided label smoothing
+</span>    <span class="c1"># read more: https://towardsdatascience.com/gan-ways-to-improve-gan-performance-acf37f9f59b?gi=ddcc9670e7bd
+</span>
+    <span class="c1"># Train discriminator
+</span>    <span class="n">discriminator</span><span class="p">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">discriminator</span><span class="p">.</span><span class="n">train_on_batch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_dis</span><span class="p">)</span>   <span class="c1"># The training of discriminator is as same as general neural networks
+</span>
+    <span class="c1"># Train generator
+</span>    <span class="n">discriminator</span><span class="p">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">random_dim</span><span class="p">])</span>
+    <span class="n">y_gen</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">gan</span><span class="p">.</span><span class="n">train_on_batch</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="n">y_gen</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>You can read more content in the link below:
+<a href="https://www.datacamp.com/community/tutorials/generative-adversarial-networks"><strong>Read more:</strong> </a></p>
+
+<p>.
+.
+.
+.
+.
+.</p>

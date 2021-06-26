@@ -1,0 +1,112 @@
+<h1 id="install-seafile-server-armbian-arch64">Install seafile server, Armbian arch64</h1>
+
+<p><strong>I write this to ask you to give it up. This is a note with failed result. Just use docker if you wanna quick&amp;smooth deployment.</strong></p>
+
+<h4 id="download-binary-package">Download binary package</h4>
+<p>Visit our <a href="http://www.seafile.com/en/download/#server">download page</a>, download the <strong>latest</strong> server package:</p>
+
+<p>reference:</p>
+
+<p>https://seafile.gitbook.io/seafile-server-manual/deploying-seafile-under-linux/deploying-seafile-with-sqlite</p>
+
+<p>https://forum.seafile.com/t/compilation-arm64-done/6170</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+mkdir</span> <span class="nt">-p</span> Downloads/seafile
+wget hhttps://cdn.iklive.eu/tcb13/2018/seafile-server_6.3.0_arm64.tar.gz
+
+</code></pre></div></div>
+
+<h4 id="deploy">Deploy</h4>
+
+<p>you may need <code class="language-plaintext highlighter-rouge">sudo -i</code> first</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>haiwen
+<span class="nb">mv </span>seafile-server_<span class="k">*</span>.tar.gz haiwen
+<span class="nb">cd </span>haiwen
+<span class="c"># after moving seafile-server_* to this directory</span>
+<span class="nb">tar</span> <span class="nt">-xzf</span> seafile-server_<span class="k">*</span>.tar.gz
+<span class="nb">mkdir </span>installed
+<span class="nb">mv </span>seafile-server_<span class="k">*</span>.tar.gz installed
+</code></pre></div></div>
+
+<h4 id="setting-up-seafile-server">Setting up seafile server:</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># As the default python binary on Debian server is python 3(check by `phthon3 -V`), we need to install python (python 2) first.</span>
+apt-get update
+apt-get <span class="nb">install </span>python
+apt-get <span class="nb">install </span>python2.7 libpython2.7 python-setuptools python-pil python3-pil python-ldap python-urllib3 ffmpeg python-pip sqlite3 python-requests
+pip <span class="nb">install </span>pillow
+pip <span class="nb">install </span>moviepy  <span class="c"># For movie thumbnail, ignore. This may cause error</span>
+</code></pre></div></div>
+
+<p><strong>Seafile 6.3.x and above versions</strong></p>
+
+<p>setup seafile by run <code class="language-plaintext highlighter-rouge">./setup-seafile.sh</code></p>
+
+<pre><code class="language-txt">server name:        seafile-chBox
+server ip/domain:   localhost
+seafile data dir:   /data/seafile-data
+port of seafile fileserver:   8082
+port of seahub:               8000
+</code></pre>
+
+<p>You will see:</p>
+
+<pre><code class="language-txt">-----------------------------------------------------------------
+Your seafile server configuration has been completed successfully.
+-----------------------------------------------------------------
+
+run seafile server:     ./seafile.sh { start | stop | restart }
+run seahub  server:     ./seahub.sh  { start &lt;port&gt; | stop | restart &lt;port&gt; }
+
+-----------------------------------------------------------------
+If the server is behind a firewall, remember to open these tcp ports:
+-----------------------------------------------------------------
+
+port of seafile fileserver:   8082
+port of seahub:               8000
+</code></pre>
+
+<h4 id="start-ther-server">start ther server</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./seafile.sh start
+./seahub.sh start &lt;port&gt;
+</code></pre></div></div>
+
+<p>you may meet error when start seafilehub, try <code class="language-plaintext highlighter-rouge">./seahub.sh start-fastcgi</code> to see the detail.</p>
+
+<p>if you meet <code class="language-plaintext highlighter-rouge">No module named appconf </code> error, try <code class="language-plaintext highlighter-rouge">pip install django-appconf==1.0.2 </code>to install them.</p>
+
+<p>Eventhough your two .sh files starts without error, you can still has no response when you try to login the web page on hostname:port</p>
+
+<h4 id="check-the-port-occupation">check the port occupation</h4>
+
+<p>when you success on starting the two .sh files, check the port occupation:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># lsof -i -P -n | grep LISTEN</span>
+sshd       894    root    3u  IPv4  12730      0t0  TCP <span class="k">*</span>:22 <span class="o">(</span>LISTEN<span class="o">)</span>
+sshd       894    root    4u  IPv6  10982      0t0  TCP <span class="k">*</span>:22 <span class="o">(</span>LISTEN<span class="o">)</span>
+seaf-serv 6121    root   18u  IPv4  28113      0t0  TCP <span class="k">*</span>:8082 <span class="o">(</span>LISTEN<span class="o">)</span>
+python2.7 6505    root    3u  IPv4  37061      0t0  TCP 127.0.0.1:8000 <span class="o">(</span>LISTEN<span class="o">)</span>
+python2.7 6506    root    3u  IPv4  37061      0t0  TCP 127.0.0.1:8000 <span class="o">(</span>LISTEN<span class="o">)</span>
+python2.7 6507    root    3u  IPv4  37061      0t0  TCP 127.0.0.1:8000 <span class="o">(</span>LISTEN<span class="o">)</span>
+python2.7 6508    root    3u  IPv4  37061      0t0  TCP 127.0.0.1:8000 <span class="o">(</span>LISTEN<span class="o">)</span>
+python2.7 6509    root    3u  IPv4  37061      0t0  TCP 127.0.0.1:8000 <span class="o">(</span>LISTEN<span class="o">)</span>
+python2.7 6510    root    3u  IPv4  37061      0t0  TCP 127.0.0.1:8000 <span class="o">(</span>LISTEN<span class="o">)</span>
+</code></pre></div></div>
+
+<h4 id="kill-the-process">kill the process</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./seahub.sh stop
+./seafile.sh stop
+</code></pre></div></div>
+
+<p>modify the value of SERVICE_URL in the file <code class="language-plaintext highlighter-rouge">../conf/ccnet.conf</code>, like this: (assume your ip or domain is 192.168.1.100). You can also modify SERVICE_URL via web UI in “System Admin-&gt;Settings”. (<strong>Warning</strong>: if you set the value both via Web UI and ccnet.conf, the setting via Web UI will take precedence.)</p>
+
+<p>You can assign the port of Seahub by setting the <code class="language-plaintext highlighter-rouge">conf/gunicorn.conf</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h2 id="conclusion-the-process-of-configuration-is-really-tough">Conclusion: The process of configuration is really tough.</h2>

@@ -1,0 +1,24 @@
+<h3 id="firefox-56支持旧式扩展这很科学">firefox 56支持旧式扩展，这很科学~~</h3>
+<h3 id="它却自动更新简单地关了也不行很是牛氓">它却自动更新，简单地关了也不行，很是牛氓！</h3>
+
+<p>==========</p>
+
+<p>-备份C:\Users\用户名\AppData\Roaming\Mozilla\Firefox\Profiles 文件夹。</p>
+
+<p>-卸载FF57，重启，用everything搜索所有ff残留文件，删除，安装56.0.2，断网运行FF，关闭FF 将配置文件覆盖回。</p>
+
+<p>-断网运行FF，设置里关闭自动更新，about：config里false以下3项：
+        app.update.auto
+        app.update.enabled
+        app.update.service.enabled</p>
+
+<p>-还有一个重要任务：</p>
+<ul>
+  <li>Edit the file <strong>prefs.js</strong>, located in %APPDATA%\Mozilla\Firefox\Profiles\xyz.default\ which usually translates to C:\Users\username\AppData\Roaming\Mozilla\Firefox\Profiles\xyz.default\ (Note: username and xyz will vary)</li>
+  <li>Make sure the line <strong>user_pref(“app.update.enabled”, false);</strong> is present in the file; if it isn’t, add it or modify it. Ignore the warning that this file should not be edited</li>
+  <li>Save and close the file. OK.</li>
+  <li><strong>Optional:</strong> Note the <strong>button “Check for updates”</strong> in the “About Firefox” dialog box. Of course, <strong>DO NOT click it</strong> until you are prepared and ready to receive the update</li>
+</ul>
+
+<p>由于56 到57 有重要安全更新，所以安全起见，还有一条路，用firefox的一个分支：
+https://www.waterfoxproject.org/downloads</p>

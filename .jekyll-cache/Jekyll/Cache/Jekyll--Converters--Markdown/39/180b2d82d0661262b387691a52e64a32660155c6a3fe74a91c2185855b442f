@@ -1,0 +1,181 @@
+I"<h1 id="split-your-cpp-code-into-multiple-files">split your cpp code into multiple files</h1>
+
+<p>reference: http://cse230.artifice.cc/lecture/splitting-code.html</p>
+
+<h2 id="understande-the-include">understande the #include</h2>
+
+<p>The compiler will substitute #include <xyz> with the actual contents of the file xyz.</xyz></p>
+
+<h2 id="the-header-files">the header files</h2>
+
+<p>the <code class="language-plaintext highlighter-rouge">.h</code> file is called the header files. People often use the header file as the one included.
+Header files usually have the ending .h and source files usually have the ending .cpp</p>
+
+<p>A header file contains only class and function <code class="language-plaintext highlighter-rouge">declarations</code>.</p>
+
+<p>Note:
+  the declaration is a statement that a class exists and has certain properties and methods, or that a function exists; 
+  neither the class methods nor the functions will be defined; 
+  their implementations will not be provided in the header file.</p>
+
+<p>We also need to prevent repeated-includes because the compiler is not happy when a class or function or variable of the same name is declared twice.</p>
+
+<h2 id="the-frequent-ifndef-xxx_h-define-xxx_h-and-endif">The frequent <code class="language-plaintext highlighter-rouge">#ifndef XXX_H</code>, <code class="language-plaintext highlighter-rouge">#define XXX_H</code> and <code class="language-plaintext highlighter-rouge">#endif</code></h2>
+
+<p>Because the compiler is not happy when a class or function or variable of the same name is declared twice. Thus, in every header file (named blah.h in this example), we write the following at the top and bottom:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```
+#ifndef BLAH_H
+#define BLAH_H
+
+...
+
+#endif
+```
+</code></pre></div></div>
+
+<p>This means “if the name BLAH_H is not already defined, then define it.” If a file is included twice, then BLAH_H will be defined (by the first inclusion) so the entire “if—endif” will be skipped (which is the whole file, because the whole file is between the “if” and “endif”). Of course, BLAH_H can be anything; it could be FOO; we usually write FILE_H in the file named file.h so that we don’t reuse names.</p>
+
+<h2 id="example">Example</h2>
+
+<p>files in structure:</p>
+<ul>
+  <li>
+    <p>main.cpp</p>
+
+    <ul>
+      <li>
+        <p>eclipse.h (eclipse.cpp)</p>
+
+        <ul>
+          <li>shape.h</li>
+        </ul>
+      </li>
+      <li>
+        <p>rectangle.h (eclipse.cpp)</p>
+
+        <ul>
+          <li>shape.h</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>main.cpp:</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include "rectangle.h"
+#include "eclipse.h"
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Rectangle</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">Ellipse</span> <span class="n">e</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">major_axis</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">minor_axis</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">68</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>rectangle.h
+```c++
+#ifndef RECTANGLE_H
+#define RECTANGLE_H</li>
+</ul>
+
+<p>#include “shape.h”</p>
+
+<p>class Rectangle : public Shape
+{
+    public:
+    double width;
+    double height;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>double area(); };
+</code></pre></div></div>
+
+<p>#endif</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- rectangle.cpp:
+
+  ```c++
+  #include "rectangle.h"
+  double Rectangle::area()
+  {
+      return width * height;
+  }
+</code></pre></div></div>
+
+<ul>
+  <li>eclipse.h
+```c++
+#ifndef ELLIPSE_H
+#define ELLIPSE_H</li>
+</ul>
+
+<p>#include “shape.h”</p>
+
+<p>class Ellipse : public Shape
+{
+    public:
+    double major_axis;
+    double minor_axis;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>double area(); };
+</code></pre></div></div>
+
+<p>#endif</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- ellipse.cpp:
+
+  ```c++
+  #include "ellipse.h"
+  double Ellipse::area()
+  {
+      return 3.1415926 * major_axis * minor_axis;
+  }
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>shape.h:</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef SHAPE_H
+#define SHAPE_H
+</span>  
+<span class="k">class</span> <span class="nc">Shape</span>
+<span class="p">{</span>
+    <span class="nl">public:</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+  
+    <span class="k">virtual</span> <span class="kt">double</span> <span class="n">area</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+  
+<span class="cp">#endif
+</span>  
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+:ET

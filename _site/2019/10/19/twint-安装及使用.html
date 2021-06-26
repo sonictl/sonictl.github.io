@@ -1,0 +1,55 @@
+<p>分享这个post是自己方便查，还有中文网界对这个东西介绍太少。
+更多的就看github项目twint吧。</p>
+
+<h3 id="installation">Installation:</h3>
+
+<p>git+pip3:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/twintproject/twint.git
+pip3 install -r requirements.txt
+pip3 install twint
+</code></pre></div></div>
+
+<p>or pip3+pipenv:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+pipenv install -e git+https://github.com/twintproject/twint.git#egg=twint
+</code></pre></div></div>
+
+<p>You may meet module cannot found error when you try to run twint after installation. On ubuntu, add ~/.local/bin into your PATH by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=$PATH:~/.local/bin
+
+</code></pre></div></div>
+
+<p>You may edit <code class="language-plaintext highlighter-rouge">~/.bashrc</code> file to permanately add the ‘~/.local/bin’ into your PATH.</p>
+
+<h3 id="usage">Usage:</h3>
+
+<p>Running the <code class="language-plaintext highlighter-rouge">twint</code> cmd with arguments can give you results. A few simple examples to help you understand the basics:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username</code> - Scrape all the Tweets from <em>user</em>’s timeline.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username -s pineapple</code> - Scrape all Tweets from the <em>user</em>’s timeline containing <em>pineapple</em>.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -s pineapple</code> - Collect every Tweet containing <em>pineapple</em> from everyone’s Tweets.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --year 2014</code> - Collect Tweets that were tweeted <strong>before</strong> 2014.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --since "2015-12-20 20:30:15"</code> - Collect Tweets that were tweeted since 2015-12-20 20:30:15.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --since 2015-12-20</code> - Collect Tweets that were tweeted since 2015-12-20 00:00:00.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username -o file.txt</code> - Scrape Tweets and save to file.txt.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username -o file.csv --csv</code> - Scrape Tweets and save as a csv file.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --email --phone</code> - Show Tweets that might have phone numbers or email addresses.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -s "Donald Trump" --verified</code> - Display Tweets by verified users that Tweeted about Donald Trump.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -g="48.880048,2.385939,1km" -o file.csv --csv</code> - Scrape Tweets from a radius of 1km around a place in Paris and export them to a csv file.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username -es localhost:9200</code> - Output Tweets to Elastic search</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username -o file.json --json</code> - Scrape Tweets and save as a json file.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --database tweets.db</code> - Save Tweets to a SQLite database.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --followers</code> - Scrape a Twitter user’s followers.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --following</code> - Scrape who a Twitter user follows.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --favorites</code> - Collect all the Tweets a user has favorited (gathers ~3200 tweet).</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --following --user-full</code> - Collect full user information a person follows</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --profile-full</code> - Use a slow, but effective method to gather Tweets from a user’s profile (Gathers ~3200 Tweets, Including Retweets).</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --retweets</code> - Use a quick method to gather the last 900 Tweets (that includes retweets) from a user’s profile.</li>
+  <li><code class="language-plaintext highlighter-rouge">twint -u username --resume resume_file.txt</code> - Resume a search starting from the last saved scroll-id.</li>
+</ul>
+
+<p>More detail about the commands and options are located in the <a href="https://github.com/twintproject/twint/wiki/Commands">wiki</a></p>

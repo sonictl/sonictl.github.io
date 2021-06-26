@@ -1,0 +1,23 @@
+I"V<p>1. WEB-INF/web.xml<span style="white-space:pre"> </span>这里定义了获取请求后，执行的第一步。抓取请求。<br />
+</p>
+<pre code_snippet_id="497959" snippet_file_name="blog_20141027_1_2374591" name="code" class="html">	&lt;servlet&gt;
+		&lt;servlet-name&gt;appServlet&lt;/servlet-name&gt;
+		&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+		&lt;init-param&gt;
+			&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+			&lt;param-value&gt;/WEB-INF/spring/appServlet/servlet-context.xml&lt;/param-value&gt;
+		&lt;/init-param&gt;
+		&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+	&lt;/servlet&gt;
+</pre>
+<p><br />
+<br /></p>
+<ol>
+  <li>WEB-INF/spring/appServlet/servlet-context.xml<span style="white-space:pre"> </span>
+这里定义了Dispatcher Servlet模式<br /></li>
+</ol>
+<pre code_snippet_id="497959" snippet_file_name="blog_20141027_2_6027898" name="code" class="html">	&lt;!--Default Annotation model- Dispacher Servlet--&gt;
+	&lt;!-- Enables the Spring MVC @Controller programming model --&gt;
+	&lt;annotation-driven /&gt;
+</pre>
+:ET

@@ -1,0 +1,75 @@
+I"z!<h3 id="对列表按概率采样">对列表按概率采样</h3>
+
+<ul>
+  <li>Input: a collection C of elements and a probability distribution p over C;</li>
+  <li>Output: an element chosen at random from C according to p.</li>
+</ul>
+
+<p>C有n 个元素，1-n, 概率 (p = (p[1], …, p[n])。 我们只有random.random()函数，它会给我们均匀分布的[0,1]上的一个float. 基本思想是分割[0,1]into n segments of length p[1] … p[n] ( ∑ p[i] = 1) . 如果均匀地在[0,1]上打点，那它在第i个segment上停住的概率就是p[i]. 因此可以用random.random()函数来实现。查看停止的地方在[0,1]的哪个位置，然后返回其所在的那个segment index. python如下实现：</p>
+
+<p>ref: https://scaron.info/blog/python-weighted-choice.html</p>
+<h3 id="对列表按概率采样-1">对列表按概率采样</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="k">def</span> <span class="nf">weighted_choice</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-6</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">elmt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">elmt</span>
+        <span class="n">x</span> <span class="o">-=</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">gen_weight_list</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">gt_set</span><span class="p">,</span> <span class="n">incline_ratio</span><span class="p">):</span>
+    <span class="s">'''
+    :param seq:
+    :param gt_list:
+    :param incline_ratio:
+    :return:
+    seqe = [1,2,3,4,5]
+    gt_list = [3,5,7]
+    # incline_ratio = 0.9   # allocate this num of prob for random select gt's in sequence
+    '''</span>
+    <span class="n">len_seq</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="c1"># programmatic gen the prob list:
+</span>    <span class="n">prob_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">gts_in_seq</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gt_set</span><span class="p">]</span>
+    <span class="n">len_gts_in_seq</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gts_in_seq</span><span class="p">)</span>
+    <span class="c1"># item_ngt_in_seq = [i for i in seqe if i not in gt_list]
+</span>    <span class="k">if</span> <span class="n">len_gts_in_seq</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">prob_gt</span> <span class="o">=</span> <span class="n">incline_ratio</span><span class="o">/</span><span class="n">len_gts_in_seq</span>
+        <span class="n">prob_ngt</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">incline_ratio</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">len_seq</span> <span class="o">-</span> <span class="n">len_gts_in_seq</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">prob_gt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">prob_ngt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">len_seq</span>
+
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">len_seq</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="ow">in</span> <span class="n">gts_in_seq</span><span class="p">:</span>
+            <span class="c1"># prob_list[idx] = prob_gt
+</span>            <span class="n">prob_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">prob_gt</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># prob_list[idx] = prob_ngt
+</span>            <span class="n">prob_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">prob_ngt</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">prob_list</span>
+
+<span class="c1"># add prob incline ratio for allocate heavier weight udr some conditions:
+</span><span class="n">seqe</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">gt_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>    <span class="c1"># conditions, if item in seq is also in this list, will be allocated higher weight.
+</span><span class="n">inc_ratio</span> <span class="o">=</span> <span class="mf">0.8</span>   <span class="c1"># allocate this num of prob for random select gt's in sequence
+</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">gen_weight_list</span><span class="p">(</span><span class="n">seqe</span><span class="p">,</span> <span class="n">gt_set</span><span class="p">,</span> <span class="n">inc_ratio</span><span class="p">)</span>
+<span class="n">select_seq</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">select_seq</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">weighted_choice</span><span class="p">(</span><span class="n">seqe</span><span class="p">,</span> <span class="n">prob</span><span class="p">))</span>
+
+<span class="c1"># count the item in select_seq:
+</span><span class="n">select_seq</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>     <span class="c1">#optional?
+</span><span class="n">item_Count</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">select_seq</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">item_Count</span><span class="p">)</span>
+</code></pre></div></div>
+:ET

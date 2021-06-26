@@ -1,0 +1,254 @@
+I"�?<blockquote>
+  <p>写在前面：Arm板卡上的 BT 下载器得可以通过web进行操作才比较方便。所以人家推荐了 Deluge 这款工具。 
+references: <a href="https://pimylifeup.com/raspberry-pi-deluge/">Installing Deluge on the Raspberry Pi</a>
+                    <a href="https://www.fossmint.com/best-bittorrent-clients-for-linux/">7 Best BitTorrent Clients for Linux in 2020</a></p>
+</blockquote>
+
+<h1 id="installing-deluge-on-the-raspberry-pi">Installing Deluge on the Raspberry Pi</h1>
+
+<p>by Emmet Jul 30, 2019 Updated May 03, 2020 <a href="https://pimylifeup.com/category/projects/beginner/">Beginner</a></p>
+
+<p>In this Raspberry Pi Deluge project, we will show you how to set up the popular Deluge torrent client on the Pi.</p>
+
+<p><img src="https://pi.lbbcdn.com/wp-content/uploads/2019/07/Raspberry-Pi-Deluge-Thumbnail.jpg" alt="Raspberry Pi Deluge Thumbnail" /></p>
+
+<p>Throughout this tutorial, we will be showing you how to install and configure the Deluge torrent client alongside the Deluge web interface. We will also show you how to enable Deluge’s remote access ability.</p>
+
+<p>As well as showing you how to install and setup the software on your Raspberry Pi we will also be showing you how you can setup Deluge as a service.</p>
+
+<p>Setting Deluge up on your Raspberry Pi as a service will allow it so that the software will automatically start when the Raspberry Pi boots up.</p>
+
+<p>There are VPNs that you can setup on the Raspberry Pi to help with privacy. I recommend using something <a href="https://pimylifeup.com/raspberry-pi-expressvpn/">like ExpressVPN</a> or <a href="https://pimylifeup.com/raspberry-pi-vyprvpn/">VyprVPN</a>. There are plenty others that you can install.</p>
+
+<p>For the maximum amount of storage you might want to <a href="https://pimylifeup.com/raspberry-pi-mount-usb-drive/">mount an external hard drive</a>. You also might want to <a href="https://pimylifeup.com/raspberry-pi-nas/">setup a Raspberry Pi NAS</a> so you can access your files remotely.</p>
+
+<h2 id="equipment-list">Equipment List</h2>
+
+<p>Below is all the equipment that I made use of for this Raspberry Pi Deluge tutorial.</p>
+
+<h3 id="recommended">Recommended</h3>
+
+<p><a href="https://go.pimylifeup.com/l8KF94/amazon/raspberrypi">Raspberry Pi</a> 2, 3 or 4</p>
+
+<p><a href="https://go.pimylifeup.com/DUVENo/amazon/microsdcard">Micro SD Card</a></p>
+
+<p><a href="https://go.pimylifeup.com/TwjJnF/amazon/powersupply">Power Supply</a></p>
+
+<p><a href="https://go.pimylifeup.com/9YIU76/amazon/ethernetcord">Ethernet Cord</a> or <a href="https://go.pimylifeup.com/89vmLk/amazon/wifidongle">WiFi dongle</a> (The Pi 3 and 4 has WiFi inbuilt)</p>
+
+<h3 id="optional">Optional</h3>
+
+<p><a href="https://go.pimylifeup.com/vbWKKX/allraspberrypicases">Raspberry Pi Case</a></p>
+
+<h2 id="setting-up-deluge-on-the-raspberry-pi">Setting up Deluge on the Raspberry Pi</h2>
+
+<p>Firstly, we will be using the <a href="https://pimylifeup.com/how-to-install-raspbian/">latest Raspbian operating system</a> anything else you might run into problems.</p>
+
+<p><strong>1.</strong> Before we install the Deluge torrent client on to the Raspberry Pi, we should first ensure all our packages are up to date. You can do this by running the following two commands.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt upgrade
+</code></pre></div></div>
+
+<p><strong>2.</strong> In this step, we will now install the <a href="https://deluge-torrent.org/">Deluge torrent client</a> to the Raspberry Pi.</p>
+
+<p>The version of the Deluge torrent client that we will be installing contains its web interface. The Deluge web interface will allow you to manage your torrents from any web browser easily.</p>
+
+<p>To install Deluge, deluges web interface module and the python module the web interface requires we run the command below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install deluged deluge-web deluge-console python-mako
+</code></pre></div></div>
+
+<p><strong>3.</strong> If you want to store your downloaded torrents in a different location, then you can now go ahead and create the required folder.</p>
+
+<p>In our example, we will be creating a folder within a drive we mounted to our “<strong>/media/NASHDD</strong>” folder called “<strong>torrent-downloads</strong>“. This folder is a <a href="https://pimylifeup.com/raspberry-pi-samba/">Samba share</a>, and our <strong>pi</strong> user already has the privileges to write to this directory.</p>
+
+<p>We can create this folder by running the following command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir /media/NASHDD/torrent-downloads
+</code></pre></div></div>
+
+<p><strong>4.</strong> Let’s now start-up and then shutdown the <strong>Deluged daemon</strong> by running the following two commands. This process will make the Deluge torrent software create the config files we need on our Raspberry Pi.</p>
+
+<p>We will modify two config files so that we can allow remote access to Deluge and create a user to login to the Deluge daemon.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deluged
+sudo pkill -i deluged
+</code></pre></div></div>
+
+<p><strong>5.</strong> We can easily insert a user into Deluges auth file by running the command below.</p>
+
+<p>Make sure you swap out certain parts of this command such as “<code class="language-plaintext highlighter-rouge">” with the username you want to set and “</code>” with the password that you want to give the user.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "&lt;USERNAME&gt;:&lt;PASSWORD&gt;:10" &gt;&gt; ~/.config/deluge/auth
+</code></pre></div></div>
+
+<p><strong>6.</strong> With the authentication now modified we need to go ahead and fire up the Deluge software again.</p>
+
+<p>Without the software running we won’t be able to make the next configuration change.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deluged
+</code></pre></div></div>
+
+<p><strong>7.</strong> Now we can go ahead and change Deluge’s config file so that the “<code class="language-plaintext highlighter-rouge">allow_remote</code>” variable is set to “<code class="language-plaintext highlighter-rouge">True</code>“.</p>
+
+<p>We can do this by making use of the “<code class="language-plaintext highlighter-rouge">deluge-console</code>” package and running the command below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deluge-console "config -s allow_remote True"
+</code></pre></div></div>
+
+<p><strong>8.</strong> With all the required configuration changes done, we can now go ahead and fire up the Deluge web interface.</p>
+
+<p>Run the following command to launch the web interface. We use “<code class="language-plaintext highlighter-rouge">-f</code>” on “<code class="language-plaintext highlighter-rouge">deluge-web</code>” to launch it as a daemon.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deluge-web -f
+</code></pre></div></div>
+
+<p><strong>9.</strong> Lastly, let’s grab the Raspberry Pi’s local IP address with the command below. We will need this IP so that we can access the Raspberry Pi Deluge web interface.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hostname -I
+</code></pre></div></div>
+
+<h2 id="the-deluge-web-interface">The Deluge Web Interface</h2>
+
+<p><strong>1.</strong> With the Deluge web interface up and running on the Raspberry Pi, we can now access it by going to the Pi’s IP address followed by the “<strong>8112</strong>” port.</p>
+
+<p>Enter the following web address, make sure you swap out “<em>**</em>” with your Pi’s IP address.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://&lt;IPADDRESS&gt;:8112
+</code></pre></div></div>
+
+<p><strong>2.</strong> Upon going to the web address, you will be greeted by Deluge’s web interface.</p>
+
+<p>To access the interface, you will be first asked to enter a password (<strong>1.</strong>). The web interface password by default is “<strong>deluge</strong>“. We will update this password later on in the tutorial.</p>
+
+<p>Once you have entered the password for Deluge, press the “<strong>Login</strong>” button (<strong>2.</strong>).
+<img src="https://pi.lbbcdn.com/wp-content/uploads/2019/07/01-Deluge-web-interface-login-screen.png" alt="Raspberry Pi Deluge Web Login Screen" /></p>
+
+<p><strong>3.</strong> After logging into the Deluge web interface, you will then be shown the “<strong>Connection Manager</strong>” (<strong>1.</strong>). Click the available host and then click the “<strong>Connect</strong>” button (<strong>2.</strong>).</p>
+
+<p><img src="https://pi.lbbcdn.com/wp-content/uploads/2019/07/02-Deluge-web-interface-connection-manager.png" alt="Deluge Connection Manager" /></p>
+
+<p><strong>4.</strong> Once you have selected a connection in the “<strong>Connection Manager</strong>” box, you will now be brought to the main Deluge web interface screen.</p>
+
+<p>If you want to change the download location or the default password, you can now do this by opening up the preferences dialog box by clicking “<strong>Preferences</strong>” in the toolbar.</p>
+
+<p><img src="https://pi.lbbcdn.com/wp-content/uploads/2019/07/05-Deluge-web-interface.png" alt="Deluge Preferences Location" /></p>
+
+<p><strong>5.</strong> The first screen within the Deluge preferences interface is the “<strong>Downloads</strong>” screen. This screen lets you set things such as the download folder (<strong>1.</strong>)</p>
+
+<p>Within this interface, you can specify the general download folder. You can also pick more specific options such as a location you want the completed torrents kept.</p>
+
+<p>If you want to change the default password for the Deluge web interface, then you will need to go to the “<strong>Interface</strong>” screen (<strong>2.</strong>).</p>
+
+<p><img src="https://pi.lbbcdn.com/wp-content/uploads/2019/07/03-Deluge-web-Preferences.png" alt="Deluge Web Download Settings" /></p>
+
+<p><strong>6.</strong> Now within the “<strong>Interface</strong>” screen, you can set the password (<strong>1.</strong>).</p>
+
+<p>First, you will need to specify the original password in the “<strong>Old password</strong>” textbox, which in a first-run case, this will be “<strong>deluge</strong>“.</p>
+
+<p>Next, specify your desired password in both the “<strong>New Password:</strong>” and “<strong>Confirm Password:</strong>” text fields.</p>
+
+<p>Once you are all set, click the “<strong>Change</strong>” button (<strong>2.</strong>)</p>
+
+<p><img src="https://pi.lbbcdn.com/wp-content/uploads/2019/07/04-Deluge-web-Change-Password.png" alt="Deluge Web Change Password" /></p>
+
+<h2 id="setting-up-deluge-as-a-service">Setting up Deluge as a service</h2>
+
+<p><strong>1.</strong> Now we need to make a service file for the Deluge daemon. This service file is what <a href="https://wiki.debian.org/systemd">systemd will read</a> from so that it knows how to manage the daemon.</p>
+
+<p>Run the following command to begin writing our “<strong>deluged.service</strong>” file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/systemd/system/deluged.service
+</code></pre></div></div>
+
+<p><strong>2.</strong> Within this file, enter the following text.</p>
+
+<p>These settings will set it up so that Deluged daemon will be started after the network has come online.</p>
+
+<p>We also set it so that the default “<strong>pi</strong>” user starts the service. Setting the user helps prevent any potential permission issues.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+Description=Deluge Daemon
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+UMask=007
+ExecStart=/usr/bin/deluged -d
+Restart=on-failure
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div></div>
+
+<p><strong>3.</strong> Once done, you can go ahead and save the Deluged service file by pressing <strong>CTRL+ X</strong> then <strong>Y</strong> followed by <strong>ENTER</strong>.</p>
+
+<p><strong>4.</strong> Now that we have created our Deluged service file let’s go ahead and enable it. Enabling the service means that on the next boot, it will start automatically.</p>
+
+<p>Enable the service by running the following command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable deluged.service
+</code></pre></div></div>
+
+<p>We won’t be running the service straight away because the “<strong>deluged</strong>” daemon will be running already from the previous sections of this tutorial.</p>
+
+<p><strong>5.</strong> Next, we will need to create another service that will manage running the deluge web interface for us.</p>
+
+<p>We will be calling this service file “<strong>deluge-web.service</strong>“, we can begin writing this file by running the following command on the Raspberry Pi</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/systemd/system/deluge-web.service
+</code></pre></div></div>
+
+<p><strong>6.</strong> Within this file, enter the following text.</p>
+
+<p>This text defines our Deluge web interface service. This service will only start up after both the network has come online and the deluged service is active.</p>
+
+<p>Like our other service, we also set this so that the “<strong>pi</strong>” user will run the deluged web server.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+Description=Deluge Web Interface
+After=network-online.target deluged.service
+Wants=deluged.service
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+UMask=027
+ExecStart=/usr/bin/deluge-web
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div></div>
+
+<p><strong>7.</strong> With our “<strong>deluge-web.service</strong>” now created, let’s go ahead and enable it by running the command below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable deluge-web.service
+</code></pre></div></div>
+
+<p><strong>8.</strong> Finally, we need to restart our Raspberry Pi Deluge setup by running the following command.</p>
+
+<p>Restarting our Raspberry Pi will allow us to test that our services are running as they should be.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo reboot
+</code></pre></div></div>
+
+<p><strong>9.</strong> Once your Raspberry Pi has finished rebooting you can now check to ensure that both Deluged and the Deluge web service is up and running.</p>
+
+<p>Run the following two commands to retrieve the current status of the two services.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status deluged
+sudo systemctl status deluge-web
+</code></pre></div></div>
+
+<p>If the status returns as “<strong>Active: active (running)</strong>” then you have successfully set up the Deluge torrent client on your Raspberry Pi.</p>
+
+<p>There are other <a href="https://pimylifeup.com/raspberry-pi-torrentbox/">alternative torrent software packages</a> for the Raspberry Pi that you can utilize. Each has its pros and cons, so it’s entirely up to you which one you pick.</p>
+
+<p>By the time you’re at this point in this Raspberry Pi Deluge tutorial, you should have everything configured and set up correctly. If you’re running into issues, then please don’t hesitate to leave a comment below.</p>
+:ET

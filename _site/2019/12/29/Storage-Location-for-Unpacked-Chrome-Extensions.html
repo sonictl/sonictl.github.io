@@ -1,0 +1,33 @@
+<h1 id="storage-location-for-unpacked-extensions">Storage Location for Unpacked Extensions</h1>
+
+<p>Extension engine does not explicitly change their location or add a reference to its local paths, they are left in the place where there are selected from in all <strong>Operating Systems</strong>.</p>
+
+<p><strong>Ex:</strong> If i load a unpacked Extension from <code class="language-plaintext highlighter-rouge">E:\Chrome Extension</code> the unpacked Extension is still in the same location</p>
+
+<h1 id="storage-location-for-packed-extensions">Storage Location for Packed Extensions</h1>
+
+<p>Navigate to <code class="language-plaintext highlighter-rouge">chrome://version/</code> and look for <strong>Profile Path</strong>, it is your default directory and Extensions Folder is where all the <strong><code class="language-plaintext highlighter-rouge">extensions, apps, themes</code></strong> are stored</p>
+
+<h3 id="eg">e.g:</h3>
+
+<h4 id="windows">Windows</h4>
+
+<p>If my <strong>Profile Path</strong> is <code class="language-plaintext highlighter-rouge">%userprofile%\AppData\Local\Google\Chrome\User Data\Default</code> then my storage directory is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Users\&lt;Your_User_Name&gt;\AppData\Local\Google\Chrome\User Data\Default\Extensions 
+</code></pre></div></div>
+
+<h4 id="linux">Linux</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.config/google-chrome/Default/Extensions/
+</code></pre></div></div>
+
+<h4 id="macos">MacOS</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Application\ Support/Google/Chrome/Default/Extensions
+</code></pre></div></div>
+
+<h4 id="chromium">Chromium</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.config/chromium/Default/Extensions
+</code></pre></div></div>

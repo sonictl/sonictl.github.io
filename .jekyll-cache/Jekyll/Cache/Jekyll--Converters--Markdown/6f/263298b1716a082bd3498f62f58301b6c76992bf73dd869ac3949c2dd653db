@@ -1,0 +1,5 @@
+I"n<h1 id="nxcompose">nx.compose</h1>
+
+<p><code class="language-plaintext highlighter-rouge">nx.compose</code> Return a new graph of G composed with H. Composition is the simple union of the node sets and edge sets.
+ref <a href="https://networkx.github.io/documentation/networkx-1.9.1/reference/generated/networkx.algorithms.operators.binary.compose.html">link</a></p>
+:ET

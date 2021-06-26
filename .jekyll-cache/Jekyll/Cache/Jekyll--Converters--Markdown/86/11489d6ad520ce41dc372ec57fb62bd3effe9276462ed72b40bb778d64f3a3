@@ -1,0 +1,21 @@
+I"õ<h1 id="draw-graphnetwork-with-nx_pydot-in-networkx">Draw graph(network) with nx_pydot in networkx</h1>
+
+<p>with <code class="language-plaintext highlighter-rouge">nx_pydot</code> in <code class="language-plaintext highlighter-rouge">nx.drawing</code>, we can have more plotting style of network/ tree/ graph.</p>
+
+<p>Here is a simple sample:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="n">nx</span>
+
+<span class="n">g</span><span class="o">=</span><span class="n">nx</span><span class="p">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="n">edgelist</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+            <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">g</span><span class="p">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edgelist</span><span class="p">)</span>
+<span class="n">p</span><span class="o">=</span><span class="n">nx</span><span class="p">.</span><span class="n">drawing</span><span class="p">.</span><span class="n">nx_pydot</span><span class="p">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">p</span><span class="p">.</span><span class="n">write_png</span><span class="p">(</span><span class="s">'pydot_Tree.png'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>the plot result:
+<img src="https://img2020.cnblogs.com/blog/780771/202007/780771-20200723092116705-652754159.png" alt="" width="350" height="230" /></p>
+:ET

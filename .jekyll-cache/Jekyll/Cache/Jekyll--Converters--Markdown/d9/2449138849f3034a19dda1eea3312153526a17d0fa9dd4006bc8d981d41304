@@ -1,0 +1,71 @@
+I"5<h2 id="this-is-a-tutorial-of-how-to-use-args-and-kwargs">This is a tutorial of how to use <code class="language-plaintext highlighter-rouge">*args</code> and <code class="language-plaintext highlighter-rouge">**kwargs</code></h2>
+
+<p>For defining the <strong>default value</strong> of arguments that is not assigned in key words when calling the function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">**</span><span class="n">keywargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">'my_word'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">keywargs</span><span class="p">:</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="s">'default_msg'</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">keywargs</span><span class="p">[</span><span class="s">'my_word'</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</code></pre></div></div>
+<p>call this by:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">func</span><span class="p">()</span>
+<span class="n">func</span><span class="p">(</span><span class="n">my_word</span><span class="o">=</span><span class="s">'love'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>you’ll get:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>default_msg
+love
+</code></pre></div></div>
+<p>read more about *args and **kwargs in python: https://www.digitalocean.com/community/tutorials/how-to-use-args-and-kwargs-in-python-3</p>
+
+<p><strong>Add more about default value if arg key is not assigned:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">make_hastie_10_2</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">12000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""Generates data for binary classification used in
+    Hastie et al. 2009, Example 10.2.
+
+    The ten features are standard independent Gaussian and
+    the target ``y`` is defined by::
+
+      y[i] = 1 if np.sum(X[i] ** 2) &gt; 9.34 else -1
+
+    Read more in the :ref:`User Guide &lt;sample_generators&gt;`.
+
+    Parameters
+    ----------
+    n_samples : int, optional (default=12000)
+        The number of samples.
+
+    random_state : int, RandomState instance or None (default)
+        Determines random number generation for dataset creation. Pass an int
+        for reproducible output across multiple function calls.
+        See :term:`Glossary &lt;random_state&gt;`.
+
+    Returns
+    -------
+    X : array of shape [n_samples, 10]
+        The input samples.
+
+    y : array of shape [n_samples]
+        The output values.
+
+    References
+    ----------
+    .. [1] T. Hastie, R. Tibshirani and J. Friedman, "Elements of Statistical
+           Learning Ed. 2", Springer, 2009.
+
+    See also
+    --------
+    make_gaussian_quantiles: a generalization of this dataset approach
+    """</span>
+    <span class="n">rs</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+
+    <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">rs</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">((</span><span class="n">X</span> <span class="o">**</span> <span class="mf">2.0</span><span class="p">).</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">9.34</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+</code></pre></div></div>
+:ET

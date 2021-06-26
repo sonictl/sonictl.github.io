@@ -1,0 +1,55 @@
+<p>ref: https://stackoverflow.com/questions/53385448/how-can-i-manage-the-modules-for-python2-when-python3-installed-as-well-in-osx</p>
+
+<p>I’m using OSX and I installed python3 with anaconda installed. In my OSX, there exists two versions of python, i.e. python2 and python3.</p>
+
+<p>I managed the modules in anaconda which only affect modules in python3. But how can I manage(install, delete, update) the modules for python2?</p>
+
+<p>I’ve checked some posts about ‘python2 is at /usr/bin/python’ . So it’s ok to use python2 by ‘/usr/bin/python’ without configuring alias. But, how can I manage(install, delete, update) the modules for python2 when python3 installed as well. In OSX.</p>
+
+<p>Anaconda comes with a package and environment manager called conda. This is what you need to do:</p>
+
+<p>Create a separate Python 2.7 environment, let’s call it old and busted.</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda create --name old_and_busted python=2.7</code></p>
+
+<p>Now switch to this environment:</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda activate old_and_busted</code></p>
+
+<p>Verify it worked if you want:</p>
+
+<p><code class="language-plaintext highlighter-rouge">python --version</code></p>
+
+<p>Install some modules cool:</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda install flask</code></p>
+
+<p>Bonus, use pip to install something cool in the same environment:</p>
+
+<p><code class="language-plaintext highlighter-rouge">pip install flask</code></p>
+
+<p>What environment are we in again?</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda env list</code></p>
+
+<p>Let’s check for that package:</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda list</code></p>
+
+<p>Now this part is very important, make sure to do it often - go back to your Python 3 environment:</p>
+
+<p><code class="language-plaintext highlighter-rouge">conda activate base</code></p>
+
+<p>pipenv manages environments in a similar way. Anaconda specializes in packaging for scientific computing handling packaging non-python extensions (e. g. C, C++) dependencies well.</p>
+
+<p>** Note on <code class="language-plaintext highlighter-rouge">conda</code> vs <code class="language-plaintext highlighter-rouge">source</code> for environment activation **</p>
+
+<p>If conda activate does not work use <code class="language-plaintext highlighter-rouge">source activate</code>. This was changed in Anaconda 4.4.0.
+If you have this in your .bash_profile (or .profile or other magical dotfile) you use source activate:</p>
+
+<p><code class="language-plaintext highlighter-rouge">export PATH="$HOME/anaconda3/bin:$PATH"</code></p>
+
+<p>If you have this updated code in your shell startup then you can use conda activate:</p>
+
+<p><code class="language-plaintext highlighter-rouge">. $HOME/anaconda3/etc/profile.d/conda.sh</code>
+<code class="language-plaintext highlighter-rouge">conda activate</code></p>

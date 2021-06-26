@@ -1,0 +1,131 @@
+<h2 id="how-to-install-and-configure-denyhosts-in-centos-7-for-preventing-the-violent-cracking-on-ssh">How To Install and Configure DenyHosts in CentOS 7 for preventing the violent cracking on ssh</h2>
+<h3 id="防止ssh被暴力破解denyhost工具">防止ssh被暴力破解：denyhost工具</h3>
+
+<p>DenyHosts is an open-source python-based tool developed by Phil Schwartz intended to prevent brute-force attacks and dictionary-based attacks on SSH servers. It is a log-based security tool.
+It is simple and the ability to configure rules manually.</p>
+
+<p>DenyHosts is widely used as an alternative to Fail2ban. If there have been too many invalid SSH login attempts it assume that it’s brute-force attacks or dictionary-based attacks and prevents the IP address from making any further attempts by adding it to /etc/hosts.deny on the server.</p>
+
+<p><strong>(<a href="https://www.hostnextra.com/kb/learn-to-install-fail2ban-on-centos-7/">Learn To Install Fail2ban on CentOS 7</a>)</strong></p>
+
+<h4 id="install-and-configure-denyhost-in-centos-7-from-github-repo">Install and configure denyhost in centos 7 from Github Repo</h4>
+
+<p>First, install git</p>
+
+<blockquote>
+  <p># yum install git</p>
+</blockquote>
+
+<p>Now, cloud the <a href="https://github.com/denyhosts/denyhosts">denyhosts Github</a> repo</p>
+
+<blockquote>
+  <p># cd /usr/share/
+# git clone https://github.com/denyhosts/denyhosts</p>
+</blockquote>
+
+<p>After cloning the files from the Github, install it.</p>
+
+<blockquote>
+  <p># cd denyhosts</p>
+
+  <p># python setup.py install</p>
+</blockquote>
+
+<p>This will install the DenyHosts modules into python’s site-packages directory.</p>
+
+<h4 id="lets-configure-denyhosts">Let’s configure DenyHosts</h4>
+
+<p>We need to create a configuration file before it can function. The sample configuration file denyhosts.conf contains most of the possible settings and we need to copy it and edit the file.</p>
+
+<blockquote>
+  <p># cp denyhosts.conf /etc</p>
+
+  <p># vim /etc/denyhosts.conf</p>
+</blockquote>
+
+<p>The sample configuration file contains informational comments that should help you quickly configure DenyHosts.</p>
+
+<p><strong>Note:</strong> Edit by commenting out the  <code class="language-plaintext highlighter-rouge">#</code> at the lines with words <code class="language-plaintext highlighter-rouge">Redhat</code> for centOS7.</p>
+
+<p>After you have edited your configuration file, save it.</p>
+
+<p>Next, we need to copy the sample daemon-control.dist script as such to daemon-control and modify the recommended section as per your configuration file location.</p>
+
+<blockquote>
+  <p># cp daemon-control-dist daemon-control</p>
+</blockquote>
+
+<p>Edit the daemon-control file. You should only need to edit this section near the top:</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202005/780771-20200507175010570-126865914.png" alt="install denyhosts in centos 7" /></p>
+
+<blockquote>
+  <p>###############################################
+#### Edit these to suit your configuration ####
+###############################################</p>
+
+  <p>DENYHOSTS_BIN = “/usr/local/bin/denyhosts.py”
+DENYHOSTS_LOCK = “/var/lock/subsys/denyhosts”
+DENYHOSTS_CFG = “/etc/denyhosts.conf”</p>
+</blockquote>
+
+<p>Once you have edited the configuration and daemon control files make sure that the daemon control script it executable.</p>
+
+<h4 id="now-start-denyhosts-manually">Now start DenyHosts manually</h4>
+
+<blockquote>
+  <p># ./daemon-control start</p>
+</blockquote>
+
+<p>You should refer to the daemon log (typically /var/log/denyhosts) to ensure that DenyHosts is running successfully.</p>
+
+<h4 id="to-start-denyhosts-automatically">To start DenyHosts automatically</h4>
+
+<p>Create a symbolic link from /etc/init.d such as:</p>
+
+<blockquote>
+  <p># cd /etc/init.d
+# ln -s /usr/share/denyhosts/daemon-control denyhosts</p>
+</blockquote>
+
+<p>Now, we create a <a href="https://linuxize.com/post/how-to-remove-symbolic-links-in-linux/">symbolic link</a> and we can manage denyhosts service from systemctl command</p>
+
+<p>To enable DenyHosts</p>
+
+<blockquote>
+  <p># systemctl enable denyhosts</p>
+</blockquote>
+
+<p>To start</p>
+
+<blockquote>
+  <p># systemctl start denyhosts</p>
+</blockquote>
+
+<p>To check the status</p>
+
+<blockquote>
+  <p># systemctl status denyhosts</p>
+</blockquote>
+
+<h3 id="starting-denyhosts-automatically">Starting DenyHosts Automatically</h3>
+<h4 id="method-1-preferred">Method 1 (preferred)</h4>
+<p>Create a symbolic link from /etc/init.d such as:</p>
+
+<blockquote>
+  <p># cd /etc/init.d
+# ln -s /usr/share/denyhosts/daemon-control denyhosts
+If you have chkconfig installed you can then use it to ensure that DenyHosts runs at boot time:</p>
+</blockquote>
+
+<blockquote>
+  <p># chkconfig –add denyhosts
+If you do not have chkconfig (or similar) installed you can either manually create the symlinks in /etc/rc2.d, /etc/rc3.d, /etc/rc5.d but that is beyond the scope of this document.</p>
+</blockquote>
+
+<h4 id="method-2">Method 2</h4>
+<p>Add an entry into the /etc/rc.local file:</p>
+
+<blockquote>
+  <p>/usr/share/denyhosts/daemon-control start</p>
+</blockquote>

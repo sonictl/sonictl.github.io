@@ -1,0 +1,57 @@
+<p>in my impression, the gradient descent is for finding the independent variable that can get the minimum/maximum value of an objective function. So we need an obj. function: $\mathcal{L}$</p>
+
+<ul>
+  <li>an obj. function: $\mathcal{L}$</li>
+  <li>The gradient of $\mathcal{L}: 2x+2$</li>
+  <li>$\Delta x$ , The value of idependent variable needs to be updated: $x \leftarrow x+\Delta x$</li>
+  <li></li>
+</ul>
+
+<h3 id="1-the-mathcall-is-a-context-function-fxx22x1">1. the $\mathcal{L}$ is a context function: $f(x)=x^2+2x+1$</h3>
+
+<p>how to find the $x_0$ that makes the $f(x)$ has the minimum value, via gradient descent?</p>
+
+<p>Start with an arbitrary $x$, calculate the value of $f(x)$ :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span>  <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">1</span>
+<span class="k">def</span> <span class="nf">gred</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>   <span class="c1"># the gradient of f(x)
+</span>  <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>  <span class="c1">#randomly pick a float in interval of (-10, 10)
+# x = 10
+</span><span class="k">print</span><span class="p">(</span><span class="s">'x starts at:'</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">y0</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#first cal
+</span><span class="n">delta</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1">#the value of delta_x, each iteration
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">delta</span>
+
+<span class="c1"># === interation ===
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">'i='</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">y1</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">delta</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.08</span><span class="o">*</span><span class="n">gred</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">'  delta='</span><span class="p">,</span><span class="n">delta</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">y1</span> <span class="o">&gt;</span> <span class="n">y0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'  y1&gt;y0'</span><span class="p">)</span>
+    <span class="c1"># if gred(x) is positive, the x should decrease.
+</span>    <span class="c1"># if gred(x) is negative, the x should increase.
+</span>  <span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'  y1&lt;=y0'</span><span class="p">)</span>
+    <span class="c1"># if gred(x) is positive, the x should increase.
+</span>    <span class="c1"># if gred(x) is negative, the x should decrease.
+</span>  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">delta</span>
+  <span class="n">y0</span> <span class="o">=</span> <span class="n">y1</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">'  x='</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s">'f(x)='</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Let’s disscuss how to determin the <code class="language-plaintext highlighter-rouge">some_value</code> in the psudo code above.</p>
+
+<p>if $y_1-y_0$ has a large positive difference, i.e. $y1 » y0$, the x should shift backward heavily. so the <code class="language-plaintext highlighter-rouge">some_value</code> can be a ratio of $(y_1-y_0)\times(-gradient)$ , Let’s say, <code class="language-plaintext highlighter-rouge">some_value</code>:  $\lambda = r \times$ gred(x) , here, $r=0.08$ is the step-size.</p>
+
+<p>The basic gradient descent has many shortcomings which can be found by search the ‘shortcoming of gd’.</p>
+
+<p>Another problem of GD algorithm is , <strong>What if the $\mathcal{L}$ does not have explicit expression of its gradient?</strong></p>
+
+<p>Stochastic Gradient Descent(SGD) is another GD algorithm.</p>

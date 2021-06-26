@@ -1,0 +1,63 @@
+<p>During my time with Zotero, I’ve really enjoyed its various features and the 300MB of file sync space is able to be extended by modifying the path to a synchronized folder under oneDrive or dropBox. reference: <a href="https://www.cnblogs.com/sonictl/p/9732977.html">Extending Zotero’s syncing folder size by DropBox</a></p>
+
+<p>However, I often get lost when jumping between papers. After jumping from paper A to paper B, I am unable to go back to paper A if I forget its name.</p>
+
+<p>I wish I could write an extension to <strong>add a history feature for paper viewing</strong>. In the official documentation, I didn’t find a way to build extension (how to generate a .zoteroplugin from source code?) for Zotero 5.0. And I failed at compiling and installing the the source code for the <a href="https://www.zotero.org/support/dev/sample_plugin">hello-world-zotero</a> extension, on Zotero 5.0.</p>
+
+<p>Fortunately, with Zotero 5.0’s javascript API, I’ve managed to implement a way of <strong>Manually logs the history of the papers viewed</strong>. It’s not quite user friendly yet, but it barely works.</p>
+
+<p>If you know how to do this via extension, drop me a comment, thanks!</p>
+
+<hr />
+
+<p>我在使用Zotero期间，非常喜欢它的各种功能，并且300MB的文件同步空间也可以通过修改路径扩展到oneDrive或dropBox等文件同步服务器上。</p>
+
+<p>但是，我在论文间跳转时，常常会迷失方向。从A论文跳转到B论文后，无法回退至A论文。</p>
+
+<p>我希望可以写一个扩展程序来增加论文查看的历史记录功能。由于我并没有在官方文档中找到Zotero5.0的扩展程序build方法，我失败于将<a href="https://www.zotero.org/support/dev/sample_plugin">hello-world-zotero</a>扩展的源码进行编译并安装进Zotero5.0.</p>
+
+<p>还好，我通过 Zotero 5.0 的 javascript API, 勉强实现了一个手动的记录所浏览的paper的历史记录。它还不太友好，但勉强能用。</p>
+
+<p>如果你知道如何通过扩展来实现，请给我留言，谢谢！</p>
+
+<h3 id="使用环境test-environment">使用环境：Test environment:</h3>
+<p><code class="language-plaintext highlighter-rouge">Zotero v5.0.87</code>
+ <code class="language-plaintext highlighter-rouge">tested on Mac OSX 10.15.4</code> 
+  windows user can try the same way and comment on how it works. thx!</p>
+
+<h3 id="使用方法useage">使用方法：Useage:</h3>
+<p><code class="language-plaintext highlighter-rouge">Zotero</code> -&gt; <code class="language-plaintext highlighter-rouge">Tools</code> -&gt; <code class="language-plaintext highlighter-rouge">Develop</code> -&gt; <code class="language-plaintext highlighter-rouge">Run javascript</code></p>
+
+<p>step1. 先执行第1段代码，进行变量的初始化：Initialize the variable by executing the first patch of code:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//=== initialize the history ====</span>
+<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">Zotero</span><span class="p">.</span><span class="nx">getActiveZoteroPane</span><span class="p">().</span><span class="nx">getSelectedItems</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">cur_itemKey</span> <span class="o">=</span> <span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">key</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">tmp_key</span> <span class="o">=</span> <span class="nx">cur_itemKey</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">key_paper_list</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">List of keys of papers your selected:</span><span class="se">\n</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">cur_itemKey</span> <span class="o">+=</span> <span class="dl">'</span><span class="se">\n</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>step2. 然后将第1段代码替换成第2段代码： Then replace the first patch of code with the below.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//==== run above once, and modify above 5 lines into: ====</span>
+<span class="nx">items</span> <span class="o">=</span> <span class="nx">Zotero</span><span class="p">.</span><span class="nx">getActiveZoteroPane</span><span class="p">().</span><span class="nx">getSelectedItems</span><span class="p">();</span>
+<span class="nx">cur_itemKey</span> <span class="o">=</span> <span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">key</span> <span class="o">+</span> <span class="dl">'</span><span class="se">\n</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">key</span> <span class="o">!=</span><span class="nx">tmp_key</span><span class="p">){</span>
+	<span class="nx">tmp_key</span> <span class="o">=</span> <span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">key</span><span class="p">;</span>
+	<span class="nx">key_paper_list</span> <span class="o">+=</span> <span class="nx">cur_itemKey</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="nx">key_paper_list</span> <span class="o">+=</span> <span class="dl">''</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>step3. 回到Zotero主界面，进行论文浏览，每切换一次论文，就回到Run javascript界面执行一次第2段代码，进行历史记录。Return to the Zotero main screen and browse papers, returning to Run every time you switch papers. The javascript interface executes the 2nd code once to make a history.</p>
+
+<p>step4. 通过搜索，直接输入key即可回溯浏览记录。go back through the browsing history by searching and entering the key directly.</p>
+
+<h2 id="tips">Tips:</h2>
+<p>on Mac OSX, use <code class="language-plaintext highlighter-rouge">Command</code>+` to switch between javascript running interface and Zotero paper viewing interface.</p>
+
+<h2 id="参考reference">参考：Reference:</h2>
+<p><a href="https://www.zotero.org/support/dev/client_coding/javascript_api#get_information_about_an_item">Zotero JavaScript API</a>
+<a href="https://www.zotero.org/support/dev/source_code">Zotero Source Code</a></p>

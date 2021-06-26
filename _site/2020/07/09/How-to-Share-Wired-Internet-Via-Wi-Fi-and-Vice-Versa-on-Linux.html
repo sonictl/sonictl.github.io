@@ -1,0 +1,59 @@
+<h1 id="how-to-share-wired-internet-via-wi-fi-and-vice-versa-on-linux">How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux</h1>
+
+<p><a href="https://www.tecmint.com/author/aaronkili/">Aaron Kili</a>April 15, 2020 Categories<a href="https://www.tecmint.com/category/networking-commands/">Networking Commands</a> <a href="https://www.tecmint.com/share-internet-in-linux/#respond">Leave a comment</a></p>
+
+<p>In this article, you will learn how to share a <strong>wired</strong> (<strong>Ethernet</strong>) internet connection via a wireless hotspot and also how to share a wireless internet connection via a wired connection on a Linux desktop.</p>
+
+<p>This article requires you to have at least two computers: a Linux desktop/laptop with a wireless card and an Ethernet port, then another computer (which may not necessarily be running Linux) with either a wireless card and/or an Ethernet port.</p>
+
+<h3 id="sharing-wiredethernet-internet-connection-via-wi-fi-hotspot">Sharing Wired(Ethernet) Internet Connection Via Wi-Fi Hotspot</h3>
+
+<p>First, connect your computer to a source of internet using an <strong>Ethernet</strong> cable as shown in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/connect-ethernet-cable.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/connect-ethernet-cable.png" alt="Connect Ethernet Cable" /></a>Connect Ethernet Cable</p>
+
+<p>Next, enable <strong>Wireless</strong> connections, then go to <strong>Network Settings</strong> as highlighted in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/enable-wireless-connections.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/enable-wireless-connections.png" alt="Enable Wireless Connection" /></a>Enable Wireless Connection</p>
+
+<p>Then click <strong>Use as Hotspot</strong> as shown in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/use-as-hotspot-feature.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/use-as-hotspot-feature.png" alt="Use as Hotspot Feature" /></a>Use as Hotspot Feature</p>
+
+<p>Next, from the pop-up window, click <strong>Turn On</strong> to activate the wireless hotspot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/trun-on-hotspot.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/trun-on-hotspot.png" alt="Turn On Hotspot" /></a>Turn On Hotspot</p>
+
+<p>Now a wireless hotspot should be created with a name defaulting to the hostname e.g <strong>tecmint</strong>.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/wireless-hotspot-created.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/wireless-hotspot-created.png" alt="Wireless Hotspot Created" /></a>Wireless Hotspot Created</p>
+
+<p>Now you can connect another computer or device via the hot-spot to the internet.</p>
+
+<h3 id="sharing-wi-fi-internet-connection-via-wiredethernet-connection">Sharing Wi-Fi Internet Connection via Wired(Ethernet) Connection</h3>
+
+<p>Start by connecting your computer to a wireless connection with access to the internet e.g <strong>HackerNet</strong> in the test environment. Then connect an <strong>Ethernet</strong> cable to it and go to <strong>Network Connections</strong>.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/connect-to-wireless-connection-and-enable-ethernet-connection.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/connect-to-wireless-connection-and-enable-ethernet-connection.png" alt="Connect to Wireless and Enable Ethernet" /></a>Connect to Wireless and Enable Ethernet</p>
+
+<p>From the pop-up window, select the <strong>Wired/Ethernet</strong> connection, then go to its <strong>settings</strong> as described in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/network-connections-interface.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/network-connections-interface.png" alt="Select Network Connection Interface" /></a>Select Network Connection Interface</p>
+
+<p>Under the connection settings, go to <strong>IPv4</strong> Settings.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-ipv4-settings.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-ipv4-settings.png" alt="Select IPv4 Settings" /></a>Select IPv4 Settings</p>
+
+<p>Under the IPv4 settings, set the <strong>Method</strong> to <strong>Shared</strong> to other computers as shown in the following screenshot. Optionally, you can add the IP address to define the network to use. Then click <strong>Save</strong>.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/ipv4-connection-method.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/ipv4-connection-method.png" alt="Select Share to Other Computers" /></a>Select Share to Other Computers</p>
+
+<p>Next, turn the wired connection <strong>off</strong> then <strong>on</strong>, to activate it once more. Then open it under <strong>Network Connections</strong>, it should now be configured for sharing (by having a default IP address of <strong>10.42.0.1</strong>) as shown in this screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-shared-to-other-computers.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-shared-to-other-computers.png" alt="Sharing Wired Connection with Other Computers" /></a>Sharing Wired Connection with Other Computers</p>
+
+<p><strong>Note</strong>: You can also share a bridged interface the same way as the wired interface as shown in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/share-a-bridged-interface-to-other-computers.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/share-a-bridged-interface-to-other-computers.png" alt="Share a Bridged Interface with Other Computers" /></a>Share a Bridged Interface with Other Computers</p>
+
+<p>Go ahead and connect another computer to the other end of the Ethernet cable or an access point to serve many computers/devices. For any inquiries, reach us via the feedback form below.</p>
