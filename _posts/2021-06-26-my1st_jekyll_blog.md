@@ -13,3 +13,5 @@ It's a cloudy but not hot day in this city.
 What a nice weather!
 
 Have a walk in my living compus.
+
+当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中！！
