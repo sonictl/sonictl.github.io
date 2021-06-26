@@ -11,3 +11,5 @@ categories: jekyll update
 It's a cloudy but not hot day in this city.
 
 What a nice weather!
+
+Have a walk in my living compus.
