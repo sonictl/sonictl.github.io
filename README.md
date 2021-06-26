@@ -5,8 +5,10 @@
 each time when updated posts:
 
 ```
-git commit -m 'this commit'
-git push -u origin master
+git status
+git add <files/folders>
+git commit -m 'describe this commit'
+git push -u origin main
 
 ```
 

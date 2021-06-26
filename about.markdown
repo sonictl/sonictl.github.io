@@ -18,12 +18,46 @@ You can find the source code for Jekyll at GitHub:
 [jekyll-organization]: https://github.com/jekyll
 
 ```
-write the post in markdown and save it in '_post' directory
-in Terminal, run the jekyll with: bundle exec jekyll serve --watch
-check the result in browser: http://127.0.0.1:4000
-in Terminal, cd to the '_side' directory
-in Terminal, git 
+basic steps for adding post for REFERENCE:
 
+in Terminal, cd to ~/sonictl.github.io
+in Terminal, run 'bundle exec jekyll serve --watch'
+do you modifying/adding the markdowns, save. check in localhost:4000
+in Terminal, git status/add/commit/push
+done.
 
 ```
 
+### **Quick setup** — if you’ve create a new repository
+
+[ Set up in Desktop](x-github-client://openRepo/https://github.com/sonictl/sonictl.github.io)
+
+Get started by [creating a new file](https://github.com/sonictl/sonictl.github.io/new/main) or [uploading an existing file](https://github.com/sonictl/sonictl.github.io/upload). We recommend every repository include a [README](https://github.com/sonictl/sonictl.github.io/new/main?readme=1), [LICENSE](https://github.com/sonictl/sonictl.github.io/new/main?filename=LICENSE.md), and [.gitignore](https://github.com/sonictl/sonictl.github.io/new/main?filename=.gitignore).
+
+### …or create a new repository on the command line
+
+
+
+```
+echo "# sonictl.github.io" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/sonictl/sonictl.github.io.git
+git push -u origin main
+```
+
+### …or push an existing repository from the command line
+
+
+
+```
+git remote add origin https://github.com/sonictl/sonictl.github.io.git
+git branch -M main
+git push -u origin main
+```
+
+### …or import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
