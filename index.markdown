@@ -5,7 +5,7 @@
 layout: home
 ---
 
-This is index of my blogs, search the blogs using [Google](https://www.google.com/#q=SEARCH_WORDS+site:http://sonictl.github.io) ,  [Bing](https://www.bing.com/search?q=SEARCH_WORDS%20site:sonictl.github.io&qs=n&form=QBLH&sp=-1&pq=SEARCH_WORDS%20site:sonictl.github.io&sc=1-34&sk=&cvid=2F19DF8EA66E4F1795CEA36F5E6A1269)
+This is index of my blogs, search the blogs using [Google](https://www.google.com/search?q=SEARCH_WORDS+site:sonictl.github.io) ,  [Bing](https://www.bing.com/search?q=SEARCH_WORDS%20site:sonictl.github.io&qs=n&form=QBLH&sp=-1&pq=SEARCH_WORDS%20site:sonictl.github.io&sc=1-34&sk=&cvid=2F19DF8EA66E4F1795CEA36F5E6A1269)
 
 ----
 

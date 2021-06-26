@@ -12,3 +12,10 @@ git push -u origin main
 
 ```
 
+The basic steps for bloging by jekyll:
+
+- install jekyll
+- create a jekyll blog site under a local directory, which contains `_config.yml`
+- create a git page repository
+- put the local jekyll site into remote github page repository
+
