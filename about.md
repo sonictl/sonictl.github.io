@@ -27,6 +27,11 @@ in Terminal, git status/add ./commit -m 'cmt'/push -u origin main
 done.
 
 ```
+**Quick reference:**
+```
+cd ~/sonictl.github.io/ && bundle exec jekyll serve --watch
+cd ~/sonictl.github.io/  && git add . && git commit -m 'new cmit' && git push -u origin main
+```
 
 ### basic format for new post
 
