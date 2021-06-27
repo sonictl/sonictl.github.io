@@ -1,5 +1,5 @@
 ---
-title: '抛弃清华源，使用SJTU的镜像 for Anaconda（moved to https://sonictl.github.io/）'
+title: '抛弃清华源，使用SJTU的镜像 for Anaconda'
 date: 2021-06-17 13:25:00
 ---
 ##   	[使用SJTU的Anaconda镜像](https://verrickt.github.io/2020/12/12/conda-mirror-from-sjtu/)  
