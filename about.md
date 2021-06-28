@@ -20,7 +20,7 @@ You can find the source code for Jekyll at GitHub:
 ```
 basic steps for adding post for REFERENCE:
 
-in Terminal, cd to ~/sonictl.github.io
+in Terminal, cd <to the jekyll proj dir>
 in Terminal, run 'bundle exec jekyll serve --watch'  # or: bundle exec jekyll serve
 do you modifying/adding the markdowns, save. check in localhost:4000
 in Terminal, git status/add ./commit -m 'cmt'/push -u origin main
@@ -29,8 +29,8 @@ done.
 ```
 **Quick reference:**
 ```
-cd ~/sonictl.github.io/ && bundle exec jekyll serve
-cd ~/sonictl.github.io/  && git add . && git commit -m 'new cmit' && git push -u origin main
+cd <to the jekyll proj dir> && bundle exec jekyll serve
+cd <to the jekyll proj dir> && git add . && git commit -m 'new cmit' && git push -u origin main
 ```
 
 ### basic format for new post
@@ -47,8 +47,12 @@ fileName: 2021-06-26-welcome-to-jekyll.md
 
 ```
 
-
-
+## solve timeZone issue for jekyll:
+```
+- $ gem install tzinfo -v "1.2"
+- edit _config.yml, add: timezone: Asia/Shanghai
+- write "date: 2019-03-17 12:07:00 +0800" in frontMatter of each post 
+```
 ## work to do about maintaining this blog:
 
 1. pick a preferable theme other than this default `minima`

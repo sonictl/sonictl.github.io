@@ -28,7 +28,8 @@ twitter_username: jekyll
 github_username:  jekyll
 
 # Time Zone
-timezone: Asia/Shanghai
+# Note: the '+0800' in date line of frontMatter is IMPORTANT!
+# timezone: Asia/Shanghai  
 
 # Build settings
 theme: minima
@@ -36,7 +37,7 @@ plugins:
   - jekyll-feed
 
 # Google Analytics
-google_analytics: G-VX9P72R0D7   # UA—XXXXXXXX-X
+google_analytics: UA-200656646-1   # UA—XXXXXXXX-X
 
 # Exclude from processing.
 # The following items will not be processed, by default.

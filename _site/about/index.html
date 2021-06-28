@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="About" />
 <script type="application/ld+json">
-{"description":"当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。","@type":"WebSite","url":"/about/","headline":"About","name":"Combine Art and Sciences","@context":"https://schema.org"}</script>
+{"description":"当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。","headline":"About","@type":"WebSite","url":"/about/","name":"Combine Art and Sciences","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -54,7 +54,7 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>basic steps for adding post for REFERENCE:
 
-in Terminal, cd to ~/sonictl.github.io
+in Terminal, cd &lt;to the jekyll proj dir&gt;
 in Terminal, run 'bundle exec jekyll serve --watch'  # or: bundle exec jekyll serve
 do you modifying/adding the markdowns, save. check in localhost:4000
 in Terminal, git status/add ./commit -m 'cmt'/push -u origin main
@@ -62,8 +62,8 @@ done.
 
 </code></pre></div></div>
 <p><strong>Quick reference:</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/sonictl.github.io/ &amp;&amp; bundle exec jekyll serve
-cd ~/sonictl.github.io/  &amp;&amp; git add . &amp;&amp; git commit -m 'new cmit' &amp;&amp; git push -u origin main
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd &lt;to the jekyll proj dir&gt; &amp;&amp; bundle exec jekyll serve
+cd &lt;to the jekyll proj dir&gt; &amp;&amp; git add . &amp;&amp; git commit -m 'new cmit' &amp;&amp; git push -u origin main
 </code></pre></div></div>
 
 <h3 id="basic-format-for-new-post">basic format for new post</h3>
@@ -79,6 +79,11 @@ fileName: 2021-06-26-welcome-to-jekyll.md
 
 </code></pre></div></div>
 
+<h2 id="solve-timezone-issue-for-jekyll">solve timeZone issue for jekyll:</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- $ gem install tzinfo -v "1.2"
+- edit _config.yml, add: timezone: Asia/Shanghai
+- write "date: 2019-03-17 12:07:00 +0800" in frontMatter of each post 
+</code></pre></div></div>
 <h2 id="work-to-do-about-maintaining-this-blog">work to do about maintaining this blog:</h2>
 
 <ol>
