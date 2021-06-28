@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '【GPU】Install CUDA on Mac'
-date: 2019-10-23 13:23:00
+date: 2019-10-23 13:23:00 +0800
+category: from_cnblogs
 ---
 # Install CUDA on Mac
 

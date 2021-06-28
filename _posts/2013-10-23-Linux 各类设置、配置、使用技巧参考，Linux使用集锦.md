@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Linux 各类设置、配置、使用技巧参考，Linux使用集锦'
-date: 2013-10-23 01:15:00
+date: 2013-10-23 01:15:00 +0800
+category: from_cnblogs
 ---
 <p>&nbsp;</p>
 <p>&nbsp;</p>

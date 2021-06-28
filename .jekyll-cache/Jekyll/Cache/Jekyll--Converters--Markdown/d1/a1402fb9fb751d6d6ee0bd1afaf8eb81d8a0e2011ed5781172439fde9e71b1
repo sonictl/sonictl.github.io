@@ -1,0 +1,118 @@
+I"�#<div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>We first built a static site which displayed a static image using only a Controller and a View. This is our Etsy landing page page.</p>
+<p>Then we built the Categories page, with a Model (manages data), Controller (manages decisions) and View (manages display). The Categories pages allows us to display dynamic content so users can browse through different Categories that can be updated regularly.</p>
+<p>Now we will build the Products page, which will allow users to browse through Products in our Etsy app. To create this, we'll be creating a new Model, Controller, and View.</p>
+<p>Now, because have more than one Model, we will also learn how Models interact with each other through associations.</p>
+<p>前面我们完成的ruby on rails app 的静态、动态网页开发，实现了数据库增删改查的操作，熟悉了MVC结构的工作机理。本文在前面的基础上，要新增一个Prodect的Model,从而体现多model交互的功能。<br />
+<br />
+</p>
+<p>====================================</p>
+<p>Product Page 的效果如下：<br />
+<img src="http://img.blog.csdn.net/20150519145837880?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="428" width="769" /><br />
+</p>
+<p><br />
+</p>
+<div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>Let's review our Request-Response Cycle one more time.</p>
+<p>Again, in our Products page, we're using a database just like we did for Categories.</p>
+<ul>
+<li><span style="background-color:rgb(255,255,0)">Our browser will first make a request to the server. The server handles the requests by talking to our Rails application.</span></li><li><span style="background-color:rgb(255,255,0)">Second, the route takes the request and finds the right Controller and method to handle the request.</span></li><li><span style="background-color:rgb(255,255,0)">Third, the Controller gathers data directly from our Model. It assembles the data in methods and then passes it on the View.</span></li><li><span style="background-color:rgb(255,255,0)">Finally, the View packages the information and sends it back to our browser.</span></li></ul>
+</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="http://img.blog.csdn.net/20150519150112667?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="327" width="558" />
+<p></p>
+<h3>Request-Response Cycle的工作机理：</h3>
+<p>1. 浏览器发送请求到服务器，服务器处理请求，怎么处理：跟Rails App 说：有个请求来了！<br />
+2. the routes 拿到请求，找到正确的Controller和Method，来处理这个请求。<br />
+3. Controller 开始收集数据，从Model里收集，在Methods里组装数据，完了就传递给View<br />
+4. 最后，View把所有的信息打包好，包括数据，样式，文本，图片各种。。。传回给浏览器。<br />
+<br />
+========================================<br />
+</p>
+<h2>下面开始我们Making Product Page<br />
+</h2>
+<p>This page will list all products that users buy - like shoes or craft paper. Users will be able to browse through products and find what they like.<br />
+When we created a Model for Categories, we were able to add information about our categories. For Products, we will also create a Model so we can add information about our products, such as a product name or price.</p>
+<h3>1. Generate the product model</h3>
+<p>we generate a model like this:(in terminal)</p>
+<pre><code> rails generate model product
+</code></pre>
+<p></p>
+<p>Remember that Model names are always singular.<br />
+When we generate a Product Model, we create corresponding Model and Migration files. Let's first focus on the product model.<br />
+</p>
+<h3>2. build the association between two models</h3>
+<p>Since we have more than one Model, a Category Model and a Product Model, we can build the association between the two.<br />
+Why do we need associations? As you create the Etsy app, you want to make sure that certain Products are associated with a Category. What if we want to put our painting in the Art category, or a toy in the Kids category?<br />
+Associations do just this. They tell us how parts of our app relate to other parts.Association（关联）就是解决我们app的一些parts和另一些parts 是怎么个关系。<br />
+How do we create associations? The most basic type is a has_many and belongs_to relationship, where 'one thing' has many 'other things'. Imagine a Person and their Pets. The Person has_many Pets, and Pets belongs_to the Person.怎么来创建一个关联呢？<br />
+最基本的类型就是 has_many 和 belongs_to 关系。has_many 就是 ‘一个东西’ 有很多 ‘其他东西们’ ，设想，一个人和他的宠物们。就是这个人has_many 宠物们，并且，宠物们 belongs_to 这个人。<br />
+</p>
+<p>In the Person Model we type:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>
+  <span class="title">has_many</span> :</span>pets
+end
+</code></pre>
+<p>In the Pet Model, we type:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Pets</span>
+  <span class="title">belongs_to</span> :</span>person
+end
+</code></pre>
+<p><br />
+</p>
+<p>In our case, our Category has many products, and Product belongs to category:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Category</span>
+  <span class="title">has_many</span> :</span>products
+end
+</code></pre>
+<p>In the Pet Model, we type:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Products</span>
+  <span class="title">belongs_to</span> :</span>category
+end
+</code></pre>
+**<span></span><span>app/models/category.rb</span>:<pre code_snippet_id="670722" snippet_file_name="blog_20150519_1_7742902" name="code" class="ruby">class Category &lt; ActiveRecord::Base
+	has_many :products
+end
+</pre>同时，<br />
+**<span>app/models/product.rb</span>:<pre code_snippet_id="670722" snippet_file_name="blog_20150519_2_3254708" name="code" class="ruby">class Product &lt; ActiveRecord::Base
+	belongs_to :category
+end</pre><br />
+<h3>3. prepare our Products Migration table</h3>
+<p></p>
+<p></p>
+<p>Now that our Product Model is set up, we need to prepare our Products Migration table so that it has the right columns.</p>
+<p>If you recall from the Categories Migration, we do this in two steps:</p>
+<p>a. Add columns to our Products Migration table</p>
+<p>b. Type <span style="font-family:Courier New">bundle exec rake db:migrate</span> in the terminal</p>
+<p>In this case, there's one more column that we will add. Now that we have an association, we need to tell our Models that our Product Model belongs to our Category Model by adding a<strong>references</strong> column.</p>
+we had a Product that belonged to a Category, we would add<span style="font-family:Courier New"> t.references</span>to our<span style="font-family:Courier New">Pet</span> table to look like this:
+<p><br />
+</p>
+<p>in our Products Migration table, we will <code>:references</code> to Category. We always add references to the table that<code>belongs_to</code> something else.[从model里添加references to 主model.] 这里我们就是产品model的文件里，Reference to Category, buz product model belongs
+ to category model.</p>
+<p>1. 文件**db/migrate/20140626211017_create_products.rb: </p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150519_3_4174333" name="code" class="ruby">class CreateProducts &lt; ActiveRecord::Migration
+&#160; def change
+&#160;&#160;&#160; create_table :products do |t|
+&#160;&#160; &#160;&#160;&#160; &#160;t.string :product_name&#160; #string
+&#160;&#160; &#160;&#160;&#160; &#160;t.text :description&#160;&#160;&#160;&#160; #text
+&#160;&#160; &#160;&#160;&#160; &#160;t.float :price&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; #float
+&#160;&#160; &#160;&#160;&#160; &#160;t.string :thumburl&#160;&#160;&#160;&#160;&#160; #string
+&#160;&#160; &#160;&#160;&#160; &#160;t.references :category&#160; #references
+&#160;&#160; &#160;&#160;&#160; &#160;t.timestamps&#160;&#160; &#160;&#160;&#160; &#160;    #timestamps is required.
+&#160;&#160;&#160; end
+&#160; end
+end</pre>
+<p></p>
+<p><span>2. In terminal, run <span style="background-color:rgb(204,204,204)"><code>bundle exec rake db:migrate</code></span> to migrate your database. Press Enter.</span><br />
+</p>
+<br />
+<pre code_snippet_id="670722" snippet_file_name="blog_20150519_4_9063691" name="code" class="plain">$ bundle exec rake db:migrate
+== 20140626211017 CreateProducts: migrating ===================================
+-- create_table(:products)
+   -&gt; 0.0013s
+== 20140626211017 CreateProducts: migrated (0.0013s) ==========================
+</pre></div></div>
+:ET

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'python绘制图的度分布柱状图, draw graph degree histogram with Python'
-date: 2019-10-10 05:26:00
+date: 2019-10-10 05:26:00 +0800
+category: from_cnblogs
 ---
 ## 图的度数分布
 ```python

@@ -1,0 +1,28 @@
+I"t<h1>Combine Subscriber and Publisher in Python, ROS<br />
+</h1>
+<p>This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming.</p>
+<p>This is very useful in ROS development.</p>
+<p>We will also discuss briefly how to build and modify a catkin package which is written by Python.</p>
+<ul>
+<li>Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/src</li><li>Build it with the command: catkin_make, under the path: ~/catkin_ws/</li><li>Source the catkin setup file under devel folder:<br />
+<pre>$ source ~/catkin_ws/devel/setup.bash</pre>
+</li><li>modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx.py</li><li>chmod &#43;x nodexxx.py</li><li>Run this package by Command:&nbsp; rosrun package_name nodexxx.py</li><li>Modify the CMakefile.txt for Python: <a target="_blank" href="http://wiki.ros.org/rospy_tutorials/Tutorials/Makefile">
+Writing a ROS Python Makefile</a><br />
+</li></ul>
+<p>More about Create and Build catkin ROS package: <a target="_blank" href="http://blog.csdn.net/sonictl/article/details/46764855#t5">
+This blog</a><br />
+</p>
+<p>The sourcecode for this Combining Subscriber and Publisher in Python is here:</p>
+<p></p>
+<pre code_snippet_id="1591986" snippet_file_name="blog_20160229_1_8422993" name="code" class="python">#!/usr/bin/env python
+# License removed for brevity
+&quot;&quot;&quot;
+	learn to write Subscriber and Listener in one python script.
+	Function Style
+	Author: Sonic http://blog.csdn.net/sonictl
+	Date: Feb 29, 2016	
+&quot;&quot;&quot;
+import rospy
+from std_msgs.msg import String
+</pre>
+:ET

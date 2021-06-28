@@ -39,6 +39,12 @@ plugins:
 # Google Analytics
 google_analytics: UA-200656646-1   # UA—XXXXXXXX-X
 
+# About categories: https://blog.webjeda.com/jekyll-categories/
+permalink: /:categories/:title/
+
+# advanced settings: https://github.com/jekyll/minima
+# show_excerpts: true   # 显示摘要 This is dangerous!! cause errors in index.html
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

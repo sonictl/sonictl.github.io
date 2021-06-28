@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '关于微编程（Microprogramming）的简史'
-date: 2013-01-20 15:01:00
+date: 2013-01-20 15:01:00 +0800
+category: from_cnblogs
 ---
 
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Ruby学习笔记2 ： 一个简单的Ruby网站，搭建ruby环境'
-date: 2015-05-05 02:54:00
+date: 2015-05-05 02:54:00 +0800
+category: from_cnblogs
 ---
 
 

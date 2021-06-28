@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'win7与VMware/VBox下linux共享文件夹方法'
-date: 2013-01-04 22:01:00
+date: 2013-01-04 22:01:00 +0800
+category: from_cnblogs
 ---
 
 

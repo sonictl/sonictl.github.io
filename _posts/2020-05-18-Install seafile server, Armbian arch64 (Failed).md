@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Install seafile server, Armbian arch64 (Failed)'
-date: 2020-05-18 13:58:00
+date: 2020-05-18 13:58:00 +0800
+category: from_cnblogs
 ---
 # Install seafile server, Armbian arch64
 

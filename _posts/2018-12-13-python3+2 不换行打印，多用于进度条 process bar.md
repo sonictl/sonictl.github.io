@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'python3+2 不换行打印，多用于进度条 process bar'
-date: 2018-12-13 13:28:00
+date: 2018-12-13 13:28:00 +0800
+category: from_cnblogs
 ---
 ## 用tqdm包实现进度条：
 tqdm基本用法：

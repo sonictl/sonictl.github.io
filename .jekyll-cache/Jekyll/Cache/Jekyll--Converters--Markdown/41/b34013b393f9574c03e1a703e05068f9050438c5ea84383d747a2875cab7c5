@@ -1,0 +1,62 @@
+I"T<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">开始之前：http://docs.jquery.com/ 是jQuery文档的网站， https://jsfiddle.net/是js的在线验证工具</span><br />
+</p>
+<p><img src="http://img.blog.csdn.net/20150422100454819?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" /><br />
+</p>
+<p>在html中，有这几个标签：&nbsp;</p>
+<p><img src="http://img.blog.csdn.net/20150422101041717?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" /><br />
+</p>
+<p><br />
+</p>
+<p>javascript、jQuery代码：<pre code_snippet_id="649925" snippet_file_name="blog_20150422_1_9860979" name="code" class="javascript">var main = function(){
+    $(&#39;.dropdown-toggle&#39;).click(function(){
+        //$(&#39;.dropdown-menu&#39;).slideDown();
+        $(&#39;.dropdown-menu&#39;).toggle();
+        
+    });
+    
+    // Click Slides -- Show next slide
+    $(&#39;.arrow-next&#39;).click(function(){//select
+        var currentSlide = $(&#39;.active-slide&#39;);
+        var nextSlide = currentSlide.next();
+        if (nextSlide.length ===0)
+            nextSlide = $(&#39;.slide&#39;).first();
+        
+        currentSlide.fadeOut(600);
+        nextSlide.fadeIn(600);
+        currentSlide.removeClass(&#39;active-slide&#39;);//注意这里没有&quot;.&quot;
+        nextSlide.addClass(&#39;active-slide&#39;);
+        //让点点的颜色跟随变化
+        var currentDot = $(&#39;.active-dot&#39;);
+        var nextDot = currentDot.next();
+        if (nextDot.length === 0)
+            nextDot = $(&#39;.dot&#39;).first();
+        currentDot.removeClass(&#39;active-dot&#39;);
+        nextDot.addClass(&#39;active-dot&#39;);
+    });
+    
+    // Click Slides -- show previous slide
+    $(&#39;.arrow-prev&#39;).click(function(){//select
+        var currentSlide = $(&#39;.active-slide&#39;);
+        var prevSlide = currentSlide.prev();
+        if (prevSlide.length === 0)
+            prevSlide = $(&#39;.slide&#39;).last();
+        
+        currentSlide.fadeOut(600);
+        prevSlide.fadeIn(600);
+        currentSlide.removeClass(&#39;active-slide&#39;);//注意这里没有&quot;.&quot;
+        prevSlide.addClass(&#39;active-slide&#39;);
+        //让点点的颜色跟随变化
+        var currentDot = $(&#39;.active-dot&#39;);
+        var prevDot = currentDot.prev();
+        if (prevDot.length === 0)
+            prevDot = $(&#39;.dot&#39;).last();
+        currentDot.removeClass(&#39;active-dot&#39;);
+        prevDot.addClass(&#39;active-dot&#39;);
+    });
+}
+    
+$(document).ready(main);</pre><br />
+</p>
+<p>CSS代码：<pre code_snippet_id="649925" snippet_file_name="blog_20150422_2_1350551" name="code" class="css">/* General */
+</pre></p>
+:ET

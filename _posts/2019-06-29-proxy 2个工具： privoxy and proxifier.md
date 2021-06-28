@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'proxy 2个工具： privoxy and proxifier'
-date: 2019-06-29 14:07:00
+date: 2019-06-29 14:07:00 +0800
+category: from_cnblogs
 ---
 ## privoxy and proxifier
 

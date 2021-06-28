@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Ubuntu「一键」设置全局Proxy'
-date: 2021-06-07 08:54:00
+date: 2021-06-07 08:54:00 +0800
+category: from_cnblogs
 ---
 # Ubuntu「一键」设置代理
 

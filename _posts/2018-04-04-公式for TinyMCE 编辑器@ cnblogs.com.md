@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '公式for TinyMCE 编辑器@ cnblogs.com'
-date: 2018-04-04 08:29:00
+date: 2018-04-04 08:29:00 +0800
+category: from_cnblogs
 ---
 <p>&nbsp;</p>
 <p>编辑器截图：</p>

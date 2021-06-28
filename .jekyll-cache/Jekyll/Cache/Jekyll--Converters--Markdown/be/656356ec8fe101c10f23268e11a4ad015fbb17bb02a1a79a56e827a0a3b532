@@ -1,0 +1,106 @@
+I"�,<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+</p>
+<h2>Ruby学习笔记4： 动态web app的建立</h2>
+<p></p>
+<p>We will first build the Categories page. This page contains topics like Art, Home &amp; Living, and Kids, so our users can browse through categories and find what they like.<br />
+</p>
+<p>Each Category in our site will need to store information about itself, such as a name and an image. Our Category Model is what stores information about our Categories. Remember that our Model manages the data in our app.</p>
+<p>===============================<br />
+1. Build Model<br />
+2. Build Migration Table<br />
+3. Add Data to Tables<br />
+4. Generate Table Controller<br />
+5. <br />
+===============================</p>
+<h3></h3>
+<h3>1. Build our Model</h3>
+<p>开始之前，我们要先建立Model用来存储每个Category的数据模型。</p>
+<p></p>
+<p>We can generate a Model with the following rails command:</p>
+<pre><code>rails generate model Person
+</code></pre>
+<p>Here <code>Person</code> is an example name for our Model. Model names are always singular.</p>
+<p><span>这里，我们建立一个叫做Category的Model：<br />
+In your terminal, generate a model named <code>Category</code> using the rails command. Press Enter.</span><br /></p>
+<p></p>
+<pre><code>rails generate model Category
+</code></pre>
+<p>In terminal:&lt;pre code_snippet_id="661983" snippet_file_name="blog_20150508_1_7184323"  code_snippet_id="661983" snippet_file_name="blog_20150508_1_7184323" name="code" class="plain"&gt;$ rails generate model Category
+invoke  active_record
+create    db/migrate/20141013165110_create_categories.rb
+create    app/models/category.rb
+invoke    test_unit
+create      test/models/category_test.rb
+create      test/fixtures/categories.yml
+$ &lt;/pre&gt;<br /></p>
+<p></p>
+<h3>2. Build our Migration table</h3>
+<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+</p>
+<p></p>
+<p>Our Model is fine for now. Let's prepare our Migration table. We do this in two steps:</p>
+<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+a. We add columns to our Category Migration table. These will define what information our database can accept.</p>
+<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+b. We type bundle exec bundle exec rake db:migrate in our terminal to migrate our database, or update its state.</p>
+<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+Let's look at an example. Say we had a Person Model, and we want it to have the columns name and age. In the Migration table, we add columns like this:</p>
+<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+<span style="background-color:rgb(204,204,204)">def change<br />
+&nbsp; create_table :person do |t|<br />
+&nbsp; &nbsp; t.string :name<br />
+&nbsp; &nbsp; t.integer :age<br />
+&nbsp; &nbsp; t.timestamps<br />
+&nbsp; end<br />
+end</span><br />
+</p>
+<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+<span style="background-color:rgb(204,204,204)"><span style="font-family:Oxygen,sans-serif; color:#4a4a4c; font-size:16px; line-height:22px; background-color:rgb(241,242,243)">Above we add&nbsp;</span><code style="">t.string :name</code><span style="font-family:Oxygen,sans-serif; color:#4a4a4c; font-size:16px; line-height:22px; background-color:rgb(241,242,243)">&nbsp;and</span><code style="">t.integer
+ :age</code><span style="font-family:Oxygen,sans-serif; color:#4a4a4c; font-size:16px; line-height:22px; background-color:rgb(241,242,243)">&nbsp;specifying the name of type string and the age of type integer. We run db:migrate to add a name and age column to our
+ actual database.</span><br />
+</span></p>
+<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+<span style="background-color:rgb(204,204,204)"><span style="font-family:Oxygen,sans-serif; color:#4a4a4c; font-size:16px; line-height:22px; background-color:rgb(241,242,243)"></span></span></p>
+<div class="accordion-section-heading" style="margin:0px; padding:10px; border-width:0px 0px 1px; border-bottom-style:solid; border-bottom-color:rgb(241,242,242); font-family:Oxygen,sans-serif; font-size:16px; vertical-align:baseline; word-break:break-word; height:40px; background-color:rgb(230,231,232); color:rgb(32,64,86)">
+<span style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">Instructions</span></div>
+<div class="accordion-section-body" style="">
+<div class="narrative--markdown" style="margin:0px; padding:0px; border:0px; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; font-size:1em; vertical-align:baseline; word-break:break-word; height:inherit; background-color:rgb(241,242,243)">
+<div class="fcn-checkpoint fcn-checkpoint--satisfied" style="margin:0px; padding:30px; border-width:1px 0px; border-top-style:solid; border-bottom-style:solid; border-top-color:rgb(235,250,247); border-bottom-color:white; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word; position:relative; background-color:rgb(235,250,247)">
+<span class="fcn-checkpoint__number" style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word; text-align:right; position:absolute; top:30px; left:50px; width:28px"><span style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">1</span><span style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">.</span></span>
+<div class="fcn-checkpoint__body" style="margin:0px 0px 0px 55px; padding:0px; border:0px; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">
+<span style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word"></span>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; border:0px; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:22px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+Add a&nbsp;<code style="">name</code>&nbsp;and&nbsp;<code style="">thumburl</code>&nbsp;attributes to your category migrations. These are both strings. Hit Run.</p>
+</div>
+<div class="fcn-checkpoint__checkbox fcn-checkpoint__checkbox--satisfied" style="margin:0px; padding:0px; border:0px; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word; position:absolute; top:30px; left:30px; background-color:rgb(57,209,180); width:20px; height:20px; color:white">
+<div class="fcn-icon fcn-icon-checkmark" style=""></div>
+</div>
+</div>
+<div class="fcn-checkpoint fcn-checkpoint--satisfied" style="margin:0px; padding:30px; border-width:0px 0px 1px; border-bottom-style:solid; border-bottom-color:white; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word; position:relative; background-color:rgb(235,250,247)">
+<span class="fcn-checkpoint__number" style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word; text-align:right; position:absolute; top:30px; left:50px; width:28px"><span style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">2</span><span style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">.</span></span>
+<div class="fcn-checkpoint__body" style="margin:0px 0px 0px 55px; padding:0px; border:0px; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">
+<span style="font-family:inherit; margin:0px; padding:0px; border:0px; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word"></span>
+<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; border:0px; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:22px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+In your terminal, run<code style="">bundle exec rake db:migrate</code>&nbsp;to migrate your database. Press Enter.</p>
+</div>
+</div>
+</div>
+</div>
+<pre code_snippet_id="661983" snippet_file_name="blog_20150508_2_5816976" name="code" class="ruby">class CreateCategories &lt; ActiveRecord::Migration
+  def change
+    create_table :categories do |t|
+			t.string :name
+			t.string :thumburl
+      #t.timestamps
+    end
+  end
+end</pre>
+<p><br /></p>
+<p>Terminal：</p>
+<pre code_snippet_id="661983" snippet_file_name="blog_20150508_3_1766650" name="code" class="plain">$ bundle exec rake db:migrate
+== 20140626211003 CreateCategories: migrating =================================
+-- create_table(:categories)
+   -&gt; 0.0010s
+== 20140626211003 CreateCategories: migrated (0.0010s) ========================
+</pre>
+:ET

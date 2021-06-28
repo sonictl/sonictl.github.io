@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>干净win7要做几步才能运行第一个Spring MVC 写的动态web程序 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="干净win7要做几步才能运行第一个Spring MVC 写的动态web程序" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="干净win7要做几步才能运行第一个Spring MVC 写的动态web程序： 下载安装jdk 配置Java环境变量 测试一下第1，2两步是否完全成功：http://jingyan.baidu.com/article/14bd256e2e3e0cbb6d261201.html 下载安装Eclipse J2EE luna（一定要是j2EE版本，否则会有jar包缺失引起internal error，补起来很麻烦） 在Eclipse中安装Spring Tool Suite(不要纠结SpringIDE与SpringToolSuite的区别，STS就好。)          Help &gt;&gt; Eclipse Marketplace &gt;&gt; Search: Spring Tool Suite &gt;&gt; Install the one that matches. 下载解压Tomcat:  http://tomcat.apache.org/download-80.cgi          选择符合你机器的版本和格式进行下载，解压放在你喜欢的路径下。 配置tomcat环境变量：          配置Tomcat环境变量          1，新建变量名：CATALINA_BASE，变量值：C:\tomcat          2，新建变量名：CATALINA_HOME，变量值：C:\tomcat          3，打开PATH，添加变量值：%CATALINA_HOME%\lib;%CATALINA_HOME%\bin          参考：http://jingyan.baidu.com/article/8065f87fcc0f182330249841.html 为了能方便调试，Eclipse设置Tomcat运行环境：          Window &gt;&gt; Preferences &gt;&gt; Server &gt;&gt; Runtime Environment &gt;&gt; Add… &gt;&gt; Select your tomcat Path &gt;&gt; OK Configure your tomcat in Eclipse:          Run &gt;&gt; Run Configuration &gt;&gt; Right click &quot;Apache Tomcat&quot; &gt;&gt; new &gt;&gt; name: myTomcat &gt;&gt; OK 建立Spring MVC项目，总算来了：          File &gt;&gt; new &gt;&gt; Project &gt;&gt; Spring/Spring Project &gt;&gt; Project name, Templates:SpringMVC …          Eclipse已经预置了一个简单的Hello world代码结构，所以下一步是运行一下看看。 10.运行Run Project &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Right click the project root in PackageExplorer on the right side of Eclipse&#39;s window shown in the image below: &nbsp; &nbsp; Enjoy.&nbsp;" />
+<meta property="og:description" content="干净win7要做几步才能运行第一个Spring MVC 写的动态web程序： 下载安装jdk 配置Java环境变量 测试一下第1，2两步是否完全成功：http://jingyan.baidu.com/article/14bd256e2e3e0cbb6d261201.html 下载安装Eclipse J2EE luna（一定要是j2EE版本，否则会有jar包缺失引起internal error，补起来很麻烦） 在Eclipse中安装Spring Tool Suite(不要纠结SpringIDE与SpringToolSuite的区别，STS就好。)          Help &gt;&gt; Eclipse Marketplace &gt;&gt; Search: Spring Tool Suite &gt;&gt; Install the one that matches. 下载解压Tomcat:  http://tomcat.apache.org/download-80.cgi          选择符合你机器的版本和格式进行下载，解压放在你喜欢的路径下。 配置tomcat环境变量：          配置Tomcat环境变量          1，新建变量名：CATALINA_BASE，变量值：C:\tomcat          2，新建变量名：CATALINA_HOME，变量值：C:\tomcat          3，打开PATH，添加变量值：%CATALINA_HOME%\lib;%CATALINA_HOME%\bin          参考：http://jingyan.baidu.com/article/8065f87fcc0f182330249841.html 为了能方便调试，Eclipse设置Tomcat运行环境：          Window &gt;&gt; Preferences &gt;&gt; Server &gt;&gt; Runtime Environment &gt;&gt; Add… &gt;&gt; Select your tomcat Path &gt;&gt; OK Configure your tomcat in Eclipse:          Run &gt;&gt; Run Configuration &gt;&gt; Right click &quot;Apache Tomcat&quot; &gt;&gt; new &gt;&gt; name: myTomcat &gt;&gt; OK 建立Spring MVC项目，总算来了：          File &gt;&gt; new &gt;&gt; Project &gt;&gt; Spring/Spring Project &gt;&gt; Project name, Templates:SpringMVC …          Eclipse已经预置了一个简单的Hello world代码结构，所以下一步是运行一下看看。 10.运行Run Project &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Right click the project root in PackageExplorer on the right side of Eclipse&#39;s window shown in the image below: &nbsp; &nbsp; Enjoy.&nbsp;" />
+<link rel="canonical" href="/from_cnblogs/%E5%B9%B2%E5%87%80win7%E8%A6%81%E5%81%9A%E5%87%A0%E6%AD%A5%E6%89%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AASpring-MVC-%E5%86%99%E7%9A%84%E5%8A%A8%E6%80%81web%E7%A8%8B%E5%BA%8F/" />
+<meta property="og:url" content="/from_cnblogs/%E5%B9%B2%E5%87%80win7%E8%A6%81%E5%81%9A%E5%87%A0%E6%AD%A5%E6%89%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AASpring-MVC-%E5%86%99%E7%9A%84%E5%8A%A8%E6%80%81web%E7%A8%8B%E5%BA%8F/" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-29T12:31:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="干净win7要做几步才能运行第一个Spring MVC 写的动态web程序" />
+<script type="application/ld+json">
+{"dateModified":"2014-11-29T12:31:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E5%B9%B2%E5%87%80win7%E8%A6%81%E5%81%9A%E5%87%A0%E6%AD%A5%E6%89%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AASpring-MVC-%E5%86%99%E7%9A%84%E5%8A%A8%E6%80%81web%E7%A8%8B%E5%BA%8F/"},"description":"干净win7要做几步才能运行第一个Spring MVC 写的动态web程序： 下载安装jdk 配置Java环境变量 测试一下第1，2两步是否完全成功：http://jingyan.baidu.com/article/14bd256e2e3e0cbb6d261201.html 下载安装Eclipse J2EE luna（一定要是j2EE版本，否则会有jar包缺失引起internal error，补起来很麻烦） 在Eclipse中安装Spring Tool Suite(不要纠结SpringIDE与SpringToolSuite的区别，STS就好。)          Help &gt;&gt; Eclipse Marketplace &gt;&gt; Search: Spring Tool Suite &gt;&gt; Install the one that matches. 下载解压Tomcat:  http://tomcat.apache.org/download-80.cgi          选择符合你机器的版本和格式进行下载，解压放在你喜欢的路径下。 配置tomcat环境变量：          配置Tomcat环境变量          1，新建变量名：CATALINA_BASE，变量值：C:\\tomcat          2，新建变量名：CATALINA_HOME，变量值：C:\\tomcat          3，打开PATH，添加变量值：%CATALINA_HOME%\\lib;%CATALINA_HOME%\\bin          参考：http://jingyan.baidu.com/article/8065f87fcc0f182330249841.html 为了能方便调试，Eclipse设置Tomcat运行环境：          Window &gt;&gt; Preferences &gt;&gt; Server &gt;&gt; Runtime Environment &gt;&gt; Add… &gt;&gt; Select your tomcat Path &gt;&gt; OK Configure your tomcat in Eclipse:          Run &gt;&gt; Run Configuration &gt;&gt; Right click &quot;Apache Tomcat&quot; &gt;&gt; new &gt;&gt; name: myTomcat &gt;&gt; OK 建立Spring MVC项目，总算来了：          File &gt;&gt; new &gt;&gt; Project &gt;&gt; Spring/Spring Project &gt;&gt; Project name, Templates:SpringMVC …          Eclipse已经预置了一个简单的Hello world代码结构，所以下一步是运行一下看看。 10.运行Run Project &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Right click the project root in PackageExplorer on the right side of Eclipse&#39;s window shown in the image below: &nbsp; &nbsp; Enjoy.&nbsp;","@type":"BlogPosting","headline":"干净win7要做几步才能运行第一个Spring MVC 写的动态web程序","url":"/from_cnblogs/%E5%B9%B2%E5%87%80win7%E8%A6%81%E5%81%9A%E5%87%A0%E6%AD%A5%E6%89%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AASpring-MVC-%E5%86%99%E7%9A%84%E5%8A%A8%E6%80%81web%E7%A8%8B%E5%BA%8F/","datePublished":"2014-11-29T12:31:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">干净win7要做几步才能运行第一个Spring MVC 写的动态web程序</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2014-11-29T12:31:00+08:00" itemprop="datePublished">
+        Nov 29, 2014
+      </time></p>
+  </header>
+<!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="/categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+<!-- categories end <<<<< -->
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><br />
+<br />
+<span style="font-size:18px">干净win7要做几步才能运行第一个Spring MVC 写的动态web程序：</span><br />
+<br />
+<br /></p>
+<ol>
+  <li>下载安装jdk<br /></li>
+  <li>配置Java环境变量<br /></li>
+  <li>测试一下第1，2两步是否完全成功：http://jingyan.baidu.com/article/14bd256e2e3e0cbb6d261201.html<br /></li>
+  <li>下载安装Eclipse J2EE luna（一定要是j2EE版本，否则会有jar包缺失引起internal error，补起来很麻烦）<br /></li>
+  <li>在Eclipse中安装Spring Tool Suite(不要纠结SpringIDE与SpringToolSuite的区别，STS就好。)<br />
+         Help &gt;&gt; Eclipse Marketplace &gt;&gt; Search: Spring Tool Suite &gt;&gt; Install the one that matches.<br /></li>
+  <li>下载解压Tomcat:  http://tomcat.apache.org/download-80.cgi<br />
+         选择符合你机器的版本和格式进行下载，解压放在你喜欢的路径下。<br /></li>
+  <li>配置tomcat环境变量：<br />
+         配置Tomcat环境变量<br />
+         1，新建变量名：CATALINA_BASE，变量值：C:\tomcat<br />
+         2，新建变量名：CATALINA_HOME，变量值：C:\tomcat<br />
+         3，打开PATH，添加变量值：%CATALINA_HOME%\lib;%CATALINA_HOME%\bin<br />
+         参考：http://jingyan.baidu.com/article/8065f87fcc0f182330249841.html<br /></li>
+  <li>为了能方便调试，Eclipse设置Tomcat运行环境：<br />
+         Window &gt;&gt; Preferences &gt;&gt; Server &gt;&gt; Runtime Environment &gt;&gt; Add… &gt;&gt; Select your tomcat Path &gt;&gt; OK<br /></li>
+  <li>Configure your tomcat in Eclipse:<br />
+         Run &gt;&gt; Run Configuration &gt;&gt; Right click "Apache Tomcat" &gt;&gt; new &gt;&gt; name: myTomcat &gt;&gt; OK<br /></li>
+  <li>建立Spring MVC项目，总算来了：<br />
+         File &gt;&gt; new &gt;&gt; Project &gt;&gt; Spring/Spring Project &gt;&gt; Project name, Templates:SpringMVC …<br />
+         Eclipse已经预置了一个简单的Hello world代码结构，所以下一步是运行一下看看。<br />
+10.运行Run Project<br /></li>
+</ol>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Right click the project root in PackageExplorer on the right side of Eclipse's window shown in the image below:</p>
+<p><img src="http://img.blog.csdn.net/20141129203056328?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="3" alt="" /><br />
+</p>
+<p><br />
+</p>
+<p>&nbsp; &nbsp; Enjoy.&nbsp;</p>
+
+
+  </div><a class="u-url" href="/from_cnblogs/%E5%B9%B2%E5%87%80win7%E8%A6%81%E5%81%9A%E5%87%A0%E6%AD%A5%E6%89%8D%E8%83%BD%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AASpring-MVC-%E5%86%99%E7%9A%84%E5%8A%A8%E6%80%81web%E7%A8%8B%E5%BA%8F/" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Combine Art and Sciences</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

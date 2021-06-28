@@ -1,0 +1,29 @@
+I"�	<div style="line-height:21px; font-size:14px">
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial">&nbsp; &nbsp;&nbsp;<strong>&nbsp;About transfer pointer into function (C Language)</strong></span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial"><br style="line-height:1.5" />
+</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial">In the main() function of our program, we often need to use some user defined functions to do our calculating work.</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial"><br style="line-height:1.5" />
+</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial">For a user_function, we may transfer into several int variable, and return a variable.</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial">or, we may need modify a data array by calling a function. And return void.</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial">or, we may need modify a data array in a struct, and call a function to modify that data array. We need to transfer into the function the pointer of that struct containing our data
+ array.</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial"><br style="line-height:1.5" />
+</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial">1. Transfer into function the pointer of An data array:</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial"><br style="line-height:1.5" />
+</span></div>
+<div style="line-height:21px; font-size:14px"><span style="font-family:Arial">&nbsp; &nbsp;Take the example of my project: &quot;Audio_Goertzel_Algorithm&quot;</span></div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+【声数函，方括号；调函数，没括号】</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<pre name="code" class="cpp">        //--------Some delaration in main() function: ---------
+    float data_Re[1024]; // Array of Real part of data
+    float data_Im[1024]; // Array of image part of data 
+    float abs_x[1024];
+    int length_kArr = 8; // k is array of number of X
+    int kArr[length_kArr];
+    int num_data = 1024; // Length of array x[i]
+</pre></div></div>
+:ET

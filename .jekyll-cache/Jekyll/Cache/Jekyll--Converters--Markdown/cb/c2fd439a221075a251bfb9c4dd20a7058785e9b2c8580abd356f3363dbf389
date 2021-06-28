@@ -1,0 +1,11 @@
+I"r<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：<strong><a target="_blank" href="http://www.youku.com/playlist_show/id_18938612.html">Java编程简明教程 by Thenewboston（Youtube）</a></strong></p>
+<p>&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。</p>
+<p>&nbsp; &nbsp;---------- Oct 14, 2014 ---------</p>
+<h3><span style="font-family:Arial Black">配置Java环境变量：</span></h3>
+<p><span style="white-space:pre"></span></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700" name="code" class="plain">http://www.oracle.com/technetwork/java/javase/downloads/index.html
+下载安装JDK for x86 (32bit) or x64(64bit).
+右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量-
+</pre>
+:ET

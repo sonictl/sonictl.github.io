@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="&nbsp; 用interactive_makers控制Turtlebot移动 interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。 参考：    ref1：    http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers （groovy version）    === rvizTutorialsInteractive Markers: Getting Started ===    ref2：    http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started 就应该实现ref1页面中，视频里的功能。 具体步骤： 在my_robot1的Terminal里运行： &nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch 在my_Desktop的Terminal里运行： &nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch $ roslaunch turtlebot_rviz_launchers view_robot.launch 前提是按ref1安装了turtlebot_interactive_markers: &nbsp;$ rosmake turtlebot_interactive_markers" />
+<meta property="og:description" content="&nbsp; 用interactive_makers控制Turtlebot移动 interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。 参考：    ref1：    http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers （groovy version）    === rvizTutorialsInteractive Markers: Getting Started ===    ref2：    http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started 就应该实现ref1页面中，视频里的功能。 具体步骤： 在my_robot1的Terminal里运行： &nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch 在my_Desktop的Terminal里运行： &nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch $ roslaunch turtlebot_rviz_launchers view_robot.launch 前提是按ref1安装了turtlebot_interactive_markers: &nbsp;$ rosmake turtlebot_interactive_markers" />
+<link rel="canonical" href="/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/" />
+<meta property="og:url" content="/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-12-23T09:10:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers" />
+<script type="application/ld+json">
+{"dateModified":"2015-12-23T09:10:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/"},"description":"&nbsp; 用interactive_makers控制Turtlebot移动 interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。 参考：    ref1：    http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers （groovy version）    === rvizTutorialsInteractive Markers: Getting Started ===    ref2：    http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started 就应该实现ref1页面中，视频里的功能。 具体步骤： 在my_robot1的Terminal里运行： &nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch 在my_Desktop的Terminal里运行： &nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch $ roslaunch turtlebot_rviz_launchers view_robot.launch 前提是按ref1安装了turtlebot_interactive_markers: &nbsp;$ rosmake turtlebot_interactive_markers","@type":"BlogPosting","headline":"ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers","url":"/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/","datePublished":"2015-12-23T09:10:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2015-12-23T09:10:00+08:00" itemprop="datePublished">
+        Dec 23, 2015
+      </time></p>
+  </header>
+<!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="/categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+<!-- categories end <<<<< -->
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1>&nbsp; 用interactive_makers控制Turtlebot移动</h1>
+<p><br />
+interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。<br />
+<br /></p>
+<h2>参考：</h2>
+<p>   ref1：<a target="_blank" href="http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers"><br />
+</a>   <a target="_blank" href="http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers">
+http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers</a><br />
+（groovy version）<br />
+<br />
+   === rvizTutorialsInteractive Markers: Getting Started ===<br />
+   ref2：<br />
+   <a target="_blank" href="http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started">
+http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started</a><br />
+<br />
+就应该实现ref1页面中，视频里的功能。<br />
+<br /></p>
+<h2>具体步骤：</h2>
+<p>在my_robot1的Terminal里运行：<br /></p>
+<pre>&nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch</pre>
+<p><br />
+在my_Desktop的Terminal里运行：<br /></p>
+<pre>&nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch
+ $ roslaunch turtlebot_rviz_launchers view_robot.launch</pre>
+<p><br />
+前提是按ref1安装了turtlebot_interactive_markers:<br /></p>
+<pre>&nbsp;$ rosmake turtlebot_interactive_markers</pre>
+<p><br /></p>
+
+
+  </div><a class="u-url" href="/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Combine Art and Sciences</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

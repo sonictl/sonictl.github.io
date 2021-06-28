@@ -1,0 +1,71 @@
+I"« <h1>Communication with ROS through USART Serial Port<br />
+</h1>
+<p>We always need to communicate with ROS through serial port as we have many devices like sensors, touch-screen, actuators to be controlled through USART serial protocol.</p>
+<p>After some investigation, I found several ways that can make ROS work with the serial-port-devices:</p>
+<ul>
+<li>Use the package: <a target="_blank" href="http://wiki.ros.org/rosserial/">
+rosserial</a>. It seems like only the &quot;connected rosserial-enabled device&quot; can work upon that, including Aduino, Windows, XBee, etc.(<a target="_blank" href="http://answers.ros.org/question/225495/how-to-use-rosserial_python/?answer=225611#post-id-225611">ROS
+ community</a> said: rosserial is used with mcus that have rosserial code running on them.)<br />
+</li><li>Use the driver package: <a target="_blank" href="http://wiki.ros.org/serial/">
+serial</a>. It seems like a serial port driver for ROS programming. This should be the most free way but I didn't find out how to use it.</li><li>Use the package: <a target="_blank" href="http://wiki.ros.org/cereal_port">
+cereal_port</a>, a serial port library for ROS, you can find it in the<a target="_blank" href="http://www.ros.org/wiki/serial_communication/">serial_communication stack</a>, it's easy to use.</li><li>The package:<a target="_blank" href="http://www.ros.org/wiki/rosbridge"> rosbridge</a><em>may</em> also suit your needs (full disclosure, author of rosbridge here). Check out<a target="_blank" href="http://www.youtube.com/watch?v=lo2diadVEG4">this
+ video</a> of using rosbridge with an Arduino (though the principles apply to any uController).<br />
+</li><li>A simple approach is to write a ROS node that can read/write text messages exchanged with the microcontroller over a serial port and convert these serial messages to ROS style std_msgs/String messages.<strong>Here we are going to share this way first.<br />
+</strong></li><li>Kevin: a <a target="_blank" href="https://github.com/walchko/serial_node">
+service</a> given by Kevin. It seems to work pretty good. This works well cuz a lot of our serial stuff is sending a message and receiving a response back, instead of separate publish/subscribes.<a target="_blank" href="http://answers.ros.org/question/10114/how-can-ros-communicate-with-my-microcontroller/?sort=latest#sort-top">reference
+ web</a><br />
+</li><li><br />
+</li></ul>
+<p>A simple approach is to write a ROS node that can read/write text messages exchanged with the microcontroller over a serial port and convert these serial messages to ROS style std_msgs/String messages. Here we are going to share this way first. ref:<a target="_blank" href="http://answers.ros.org/question/10114/how-can-ros-communicate-with-my-microcontroller/?sort=latest#sort-top">reference
+ web</a>&nbsp;</p>
+<p>In that page, Bart says:<br />
+<strong>&quot;A simple approach is to write a ROS node that can read/write text messages exchanged with the microcontroller over a serial port and convert these serial messages to ROS style std_msgs/String messages. A separate ROS node can then be written to convert
+ the simple text messages to specific ROS message formats (cmd_vel, odom, etc) based on whatever message protocol was defined for the exchange with the microcontroller.</strong></p>
+<p><strong>Attached below is the source for code that I used for this purpose. There is nothing original in the code, but it may be helpful to someone new to ROS and Unix/Linux serial communication. Posting this type of a listing may be a bit unconventional
+ for this site as short answers are generally preferred. Hopefully no one is offended. I would be interested in hearing if there are other successful approaches to the problem.&quot;</strong></p>
+<h3>Let's implement this approach:</h3>
+<p>Enter the catkin workspace, build the package: (<a target="_blank" href="http://wiki.ros.org/catkin/Tutorials/CreatingPackage">tutorial page</a>)<br />
+</p>
+<pre><span style="font-family:Courier New">$ cd ~/catkin_ws/src
+$ catkin_create_pkg r2serial_driver std_msgs rospy roscpp
+$ cd ~/catkin_ws
+$ catkin_make</span>
+</pre>
+<p></p>
+<p class="line874">To add the workspace to your ROS environment you need to source the generated setup file:<span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-77"></span><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-78"></span></p>
+<p class="line867"><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-79"></span><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-80"></span></p>
+<pre><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-1-7"></span><span style="font-family:Courier New">$ . ~/catkin_ws/devel/setup.bash
+$ cd ~/catkin_ws/src/r2serial_driver/src</span></pre>
+<p>Add a file: &quot;r2serial.cpp&quot;, Source code:<br />
+</p>
+<p></p>
+<pre code_snippet_id="1572730" snippet_file_name="blog_20160202_1_6250658" name="code" class="cpp">/*                                                                                                                       
+ * Copyright (c) 2010, Willow Garage, Inc.                                                                               
+ * All rights reserved.                                                                                                  
+ *                                                                                                                       
+ * Redistribution and use in source and binary forms, with or without                                                    
+ * modification, are permitted provided that the following conditions are met:                                           
+ *                                                                                                                       
+ *     * Redistributions of source code must retain the above copyright                                                  
+ *       notice, this list of conditions and the following disclaimer.                                                   
+ *     * Redistributions in binary form must reproduce the above copyright                                               
+ *       notice, this list of conditions and the following disclaimer in the                                             
+ *       documentation and/or other materials provided with the distribution.                                            
+ *     * Neither the name of the Willow Garage, Inc. nor the names of its                                                
+ *       contributors may be used to endorse or promote products derived from                                            
+ *       this software without specific prior written permission.                                                        
+ *                                                                                                                       
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;                                           
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE                                             
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE                                            
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE                                              
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR                                                   
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF                                                  
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS                                              
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN                                               
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)                                               
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                                            
+ * POSSIBILITY OF SUCH DAMAGE.                                                                                           
+ */
+</pre>
+:ET

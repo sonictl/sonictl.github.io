@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'win7 CMD登录本机MySQL数据库管理'
-date: 2014-12-12 01:18:00
+date: 2014-12-12 01:18:00 +0800
+category: from_cnblogs
 ---
 
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Spring MVC 学习笔记12 —— SpringMVC+Hibernate开发（1）依赖包搭建'
-date: 2014-11-26 07:37:00
+date: 2014-11-26 07:37:00 +0800
+category: from_cnblogs
 ---
 
 

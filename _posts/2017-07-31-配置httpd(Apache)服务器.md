@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '配置httpd(Apache)服务器'
-date: 2017-07-31 10:23:00
+date: 2017-07-31 10:23:00 +0800
+category: from_cnblogs
 ---
 <p>配置httpd(Apache)使其指向网页首页所在目录</p>
 <p>1. apachectl 命令查看apache服务器信息<br />&nbsp; &nbsp; apachectl -t #语法检查</p>

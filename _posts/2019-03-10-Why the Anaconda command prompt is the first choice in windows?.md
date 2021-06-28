@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Why the Anaconda command prompt is the first choice in windows?'
-date: 2019-03-10 13:24:00
+date: 2019-03-10 13:24:00 +0800
+category: from_cnblogs
 ---
 为什么在windows里，首选的conda命令行工具是Anaconda command prompt？
 #### In windows, what's the difference between command prompt and anaconda prompt

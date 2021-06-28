@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '文件查重工具 ultraCompare 和 UltraFinder 用法 (moved to https://sonictl.github.io)'
-date: 2017-07-31 23:39:00
+date: 2017-07-31 23:39:00 +0800
+category: from_cnblogs
 ---
 <p><strong>UltraCompare</strong> 是一款文件内容比较工具，它可以对于文本、文件夹、二进制进行比较。可进行文本模式，文件夹模式以及二进制模式的比较，可对比较的文件、文件夹等进行合并，同步等操作。是进行比较操作的很好的工具。你可以用它来比较两个文本文件的不同，也可以比较以二进制的模式比较两个EXE 文件的不同，还可以用它来比较两个文件夹及其子文件夹内文件的不同。</p>
 <p>　　最为文件管理<span class="keylink">系统</span>的补充，UltraCompare Professional 可以追踪不同文件、目录和 .zip/.jar 档案之间的差异。文件比较功能包括同时对两个或三个文件进行文本及二进制比较，并能合并这些文件之间的差异。文件夹比较支持对本地/网络目录(并递归比较子目录)和 zip 档案进行比较，同时与文本/二进制模式类似，可以合并这些目录之间的差异。</p>

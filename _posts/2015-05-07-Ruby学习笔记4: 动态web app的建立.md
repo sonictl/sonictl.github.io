@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Ruby学习笔记4: 动态web app的建立'
-date: 2015-05-07 15:38:00
+date: 2015-05-07 15:38:00 +0800
+category: from_cnblogs
 ---
 
 

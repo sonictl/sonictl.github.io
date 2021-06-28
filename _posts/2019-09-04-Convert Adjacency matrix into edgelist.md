@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Convert Adjacency matrix into edgelist'
-date: 2019-09-04 12:24:00
+date: 2019-09-04 12:24:00 +0800
+category: from_cnblogs
 ---
 # Table of Contents
 1. [Edge List <-- Adjacency Matrix](# Edge List <-- Adjacency Matrix)

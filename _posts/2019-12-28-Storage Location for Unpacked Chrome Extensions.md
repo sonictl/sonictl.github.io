@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Storage Location for Unpacked Chrome Extensions'
-date: 2019-12-28 22:52:00
+date: 2019-12-28 22:52:00 +0800
+category: from_cnblogs
 ---
 # Storage Location for Unpacked Extensions
 

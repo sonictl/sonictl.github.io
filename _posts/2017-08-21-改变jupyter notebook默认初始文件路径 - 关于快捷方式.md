@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '改变jupyter notebook默认初始文件路径 - 关于快捷方式'
-date: 2017-08-21 03:08:00
+date: 2017-08-21 03:08:00 +0800
+category: from_cnblogs
 ---
 <h2>jupyter notebook home path changing - %USERFROFILE% and Configure file</h2>
 <p>如何改变jupyter notebook默认初始文件路径，网上都提供了很多方法。<a href="http://blog.csdn.net/lixintong1992/article/details/53012921" target="_blank">Link1</a> , <a href="http://blog.csdn.net/qq_33039859/article/details/54604533" target="_blank">Link2</a></p>

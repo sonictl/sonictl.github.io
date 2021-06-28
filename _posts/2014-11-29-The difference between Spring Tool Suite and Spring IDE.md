@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'The difference between Spring Tool Suite and Spring IDE'
-date: 2014-11-29 09:59:00
+date: 2014-11-29 09:59:00 +0800
+category: from_cnblogs
 ---
 
 

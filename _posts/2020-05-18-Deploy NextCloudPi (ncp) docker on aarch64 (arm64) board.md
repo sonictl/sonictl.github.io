@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Deploy NextCloudPi (ncp) docker on aarch64 (arm64) board'
-date: 2020-05-18 12:45:00
+date: 2020-05-18 12:45:00 +0800
+category: from_cnblogs
 ---
 # Deploy NextCloudPi(ncp) docker on aarch64 board
 

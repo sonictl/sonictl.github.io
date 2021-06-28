@@ -1,0 +1,23 @@
+I"g<p><br />
+</p>
+<p>我们已经完成了Category &amp; Product页面内容的增删改查，再加入一个身份验证即可成为一个较完整的Rails App了。本文就来完成这个任务。<br />
+We now need to give users the ability to <strong>sign up</strong> for the app so that they can do things like purchase products or leave reviews.<br />
+To do this, we'll <strong>add a user authentication system</strong> to the app.看下图：<br />
+</p>
+<p><img src="http://img.blog.csdn.net/20150521134933961?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" /></p>
+<h3>1. install a gem called Devise.</h3>
+<p></p>
+<div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>Earlier, we learned about bundler and how it sets up our gems. To add authentication, we'll install a gem called Devise.</p>
+<p>We've gone ahead and added Devise for you in your Gemfile. Run bundle to install it in your app.</p>
+</div>
+</div>
+<div class="accordion-section-heading"><span><span class="fcn-icon fcn-icon-instructions"></span><span>【Instructions】</span></span></div>
+<p><strong class="fcn-checkpoint__number"><span>1</span><span>.</span> </strong>In your terminal, run
+<span style="color:#339999"><code>bundle install</code></span> to update all your gems. Press Enter.</p>
+<p></p>
+<p>这个命令看起来好像是依托于一个叫做GemFile的文件的：</p>
+<pre code_snippet_id="671999" snippet_file_name="blog_20150521_1_8618631" name="code" class="plain">source &#39;https://rubygems.org&#39;
+</pre>
+:ET

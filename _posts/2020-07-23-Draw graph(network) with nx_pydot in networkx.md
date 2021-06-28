@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Draw graph(network) with nx_pydot in networkx'
-date: 2020-07-23 01:23:00
+date: 2020-07-23 01:23:00 +0800
+category: from_cnblogs
 ---
 # Draw graph(network) with nx_pydot in networkx
 

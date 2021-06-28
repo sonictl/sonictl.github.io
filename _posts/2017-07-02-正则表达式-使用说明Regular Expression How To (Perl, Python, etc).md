@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '正则表达式-使用说明Regular Expression How To (Perl, Python, etc)'
-date: 2017-07-02 08:01:00
+date: 2017-07-02 08:01:00 +0800
+category: from_cnblogs
 ---
 <p><a href="http://docs.notepad-plus-plus.org/index.php/Regular_Expressions" target="_blank">notepad++ wiki about regular expression</a></p>
 <p>正则表达式-使用说明Regular Expression How To (Perl, Python, etc)</p>

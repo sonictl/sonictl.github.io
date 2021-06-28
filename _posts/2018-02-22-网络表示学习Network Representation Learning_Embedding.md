@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '网络表示学习Network Representation Learning/Embedding'
-date: 2018-02-22 13:47:00
+date: 2018-02-22 13:47:00 +0800
+category: from_cnblogs
 ---
 <p>&nbsp;</p>
 <h2>网络表示学习相关资料</h2>

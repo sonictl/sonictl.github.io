@@ -1,0 +1,10 @@
+I",<p><span style="font-size:18px"></span>&lt;pre name="code" class="plain"&gt;function callback(s,BytesAvailable,p)
+    global i;
+    global t;
+    global x;
+    global m;</p>
+
+<p>%     p = plot(t,m,…
+%              'EraseMode','background','MarkerSize',5);
+    out = fscanf(s) %read data from s</p>
+:ET

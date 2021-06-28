@@ -1,0 +1,40 @@
+I"#<p>原文出处：<span style="max-width: 100%; color: #bfbfbf; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;"><a><span style="max-width: 100%; color: #bfbfbf; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">http://blog.csdn.net/han_xiaoyang/article/details/50469334</span></a></span></p>
+<div id="js_article" class="rich_media">
+<div class="rich_media_inner">
+<div id="page-content">
+<div id="img-content" class="rich_media_area_primary">
+<h2 id="activity-name" class="rich_media_title">机器学习算法一览</h2>
+<div class="rich_media_meta_list"><em id="post-date" class="rich_media_meta rich_media_meta_text">2016-01-12</em> <a id="post-user" class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" href="http://mp.weixin.qq.com/s/NRdHW_0NWISwr86RhMwC5w##">大数据文摘</a></div>
+<div id="js_content" class="rich_media_content ">
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; color: #bfbfbf; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">&nbsp;</span></p>
+<blockquote>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; color: #bfbfbf; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">作者：寒小阳 </span></p>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; color: #bfbfbf; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">摘自：<a><span style="max-width: 100%; color: #bfbfbf; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">http://blog.csdn.net/han_xiaoyang/article/details/50469334</span></a></span></p>
+</blockquote>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;">&nbsp;</p>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><img style="width: auto ! important; height: auto ! important; visibility: visible ! important;" src="http://mmbiz.qpic.cn/mmbiz/wc7YNPm3YxVNpZESzHwz4sQV5iakSMibenIVNKhV1vK7lhEvQM0oRicMNk5wgglgCWX1xnVhdIr8lNUBAsonxTZ1w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1" alt="" data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz/wc7YNPm3YxVNpZESzHwz4sQV5iakSMibenIVNKhV1vK7lhEvQM0oRicMNk5wgglgCWX1xnVhdIr8lNUBAsonxTZ1w/0?wx_fmt=jpeg" data-ratio="0.66" data-w="400" data-fail="0" /></p>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="font-size: 14px;">大数据文摘愿意为读者打造高质量【<span style="max-width: 100%; color: #548dd4; box-sizing: border-box !important; word-wrap: break-word !important;">机器学习讨论群】，措施如下</span></span></p>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="font-size: 14px;">（1）群内定期组织分享</span></p>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="font-size: 14px;">（2）确保群内分享者和学习者数量适合，<span style="font-size: 14px; max-width: 100%; color: #548dd4; box-sizing: border-box !important; word-wrap: break-word !important;">有分享能力者不限名额，学习者数量少于分享者，按申请顺序排序。</span></span></p>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="font-size: 14px;">点击文末&ldquo;<span style="font-size: 14px; max-width: 100%; color: #548dd4; box-sizing: border-box !important; word-wrap: break-word !important;">阅读原文&rdquo;填表入<span style="font-size: 14px; max-width: 100%; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;">群</span></span></span></p>
+<p style="max-width: 100%; min-height: 1em; white-space: pre-wrap; color: #3e3e3e; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="max-width: 100%; color: #bfbfbf; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">&nbsp;</span></p>
+<ol class="list-paddingleft-2" style="list-style-type: decimal;">
+<li>
+<h2>引言</h2>
+</li>
+</ol>
+<p>&nbsp;</p>
+<p>提起笔来写这篇博客，突然有点愧疚和尴尬。愧疚的是，工作杂事多，加之懒癌严重，导致这个系列一直没有更新，向关注该系列的同学们道个歉。尴尬的是，按理说，机器学习介绍与算法一览应该放在最前面写，详细的应用建议应该在讲完机器学习常用算法之后写，突然莫名奇妙在中间插播这么一篇，好像有点打乱主线。 <br style="box-sizing: border-box;" />老话说『亡羊补牢，为时未晚』，前面开头忘讲的东西，咱在这块儿补上。我们先带着大家过一遍传统机器学习算法，基本思想和用途。把问题解决思路和方法应用建议提前到这里的想法也很简单，希望能提前给大家一些小建议，对于某些容易出错的地方也先给大家打个预防针，这样在理解后续相应机器学习算法之后，使用起来也有一定的章法。</p>
+<h2>&nbsp;</h2>
+<h2><a style="color: #ca0000; box-sizing: border-box;" name="t1"></a>2.机器学习算法简述</h2>
+<p>&nbsp;</p>
+<p>按照不同的分类标准，可以把机器学习的算法做不同的分类。</p>
+<h3>&nbsp;</h3>
+<h3><a style="color: #ca0000; box-sizing: border-box;" name="t2"></a>2.1 从机器学习问题角度分类</h3>
+<p>&nbsp;</p>
+<p>我们先从机器学习问题本身分类的角度来看，我们可以分成下列类型的算法：</p>
+<ul class="list-paddingleft-2">
+<li>
+<p>监督学习算法</p>
+</li></ul></div></div></div></div></div>
+:ET

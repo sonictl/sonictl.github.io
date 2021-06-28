@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Install Python on Mac (Anaconda)'
-date: 2018-04-16 10:35:00
+date: 2018-04-16 10:35:00 +0800
+category: from_cnblogs
 ---
 # Install Python on Mac (Anaconda)
 标签（空格分隔）： 运维

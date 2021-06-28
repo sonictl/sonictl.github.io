@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)'
-date: 2018-05-15 08:27:00
+date: 2018-05-15 08:27:00 +0800
+category: from_cnblogs
 ---
 NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)
 

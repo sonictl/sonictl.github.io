@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'php学习笔记1——使用phpStudy进行php运行环境搭建与测试。'
-date: 2015-01-07 07:45:00
+date: 2015-01-07 07:45:00 +0800
+category: from_cnblogs
 ---
 
 

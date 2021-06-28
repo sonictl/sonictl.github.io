@@ -1,0 +1,17 @@
+I"]<p>&nbsp;</p>
+<h2>网络表示学习相关资料</h2>
+<p>网络表示学习（network representation learning，NRL）,也被称为图嵌入方法（graph embedding method，GEM）是这两年兴起的工作，目前很热，许多直接研究网络表示学习的工作和同时优化网络表示+下游任务的工作正在进行中。</p>
+<ol><ol>
+<li>
+<p>清华大学计算机系的一个学习组 新浪微博@涂存超 整理的论文列表：<a href="https://github.com/thunlp/NRLpapers" target="_blank">https://github.com/thunlp/NRLpapers</a>，并一直持续更新着，里面详细的列举了最近几年有关网络表示学习（network representation learning/network embedding）比较有代表性的论文列表及其代码。</p>
+</li>
+<li>
+<p><span style="color: #ff0000;">☆</span>陈启明整理的github列表&nbsp; <a href="https://github.com/chihming/awesome-network-embedding" target="_blank">https://github.com/chihming/awesome-network-embedding</a></p>
+</li>
+<li>
+<p>一篇综述性文章（University of Southern California (USC)）及其code： <br />
+（1）文章： Goyal P, Ferrara E. Graph Embedding Techniques, Applications, and 
+Performance: A Survey[J]. arXiv preprint arXiv:1705.02801, 2017. <br />
+（2）代码： <a href="https://github.com/palash1992/GEM" target="_blank">https://github.com/palash1992/GEM</a></p>
+</li></ol></ol>
+:ET

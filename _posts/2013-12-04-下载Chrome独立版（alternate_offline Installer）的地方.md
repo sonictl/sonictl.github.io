@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '下载Chrome独立版（alternate/offline Installer）的地方'
-date: 2013-12-04 12:09:00
+date: 2013-12-04 12:09:00 +0800
+category: from_cnblogs
 ---
 
 

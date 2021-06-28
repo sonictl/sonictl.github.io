@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'delete content on the right of cursor, Mac'
-date: 2018-07-13 04:20:00
+date: 2018-07-13 04:20:00 +0800
+category: from_cnblogs
 ---
 ## delete content on the right of cursor, Mac
 

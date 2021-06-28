@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'SFTP 常用命令 —— SecureCRT版本'
-date: 2014-10-28 03:37:00
+date: 2014-10-28 03:37:00 +0800
+category: from_cnblogs
 ---
 
 

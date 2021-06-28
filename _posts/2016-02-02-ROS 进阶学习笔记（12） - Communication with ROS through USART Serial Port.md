@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port'
-date: 2016-02-02 06:24:00
+date: 2016-02-02 06:24:00 +0800
+category: from_cnblogs
 ---
 
 

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python) | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="deepwalk、node2vec的高性能优化" />
+<meta property="og:description" content="deepwalk、node2vec的高性能优化" />
+<link rel="canonical" href="/from_cnblogs/High-performance-optimization-and-acceleration-for-randomWalk,-deepwalk,-node2vec-(Python)/" />
+<meta property="og:url" content="/from_cnblogs/High-performance-optimization-and-acceleration-for-randomWalk,-deepwalk,-node2vec-(Python)/" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-16T13:34:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)" />
+<script type="application/ld+json">
+{"dateModified":"2021-06-16T13:34:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/High-performance-optimization-and-acceleration-for-randomWalk,-deepwalk,-node2vec-(Python)/"},"description":"deepwalk、node2vec的高性能优化","@type":"BlogPosting","headline":"High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)","url":"/from_cnblogs/High-performance-optimization-and-acceleration-for-randomWalk,-deepwalk,-node2vec-(Python)/","datePublished":"2021-06-16T13:34:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-06-16T13:34:00+08:00" itemprop="datePublished">
+        Jun 16, 2021
+      </time></p>
+  </header>
+<!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="/categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+<!-- categories end <<<<< -->
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="deepwalknode2vec的高性能优化">deepwalk、node2vec的高性能优化</h1>
+
+<p><code class="language-plaintext highlighter-rouge">转自知乎： https://zhuanlan.zhihu.com/p/348778146</code></p>
+
+<p><strong>原作者：马东什么</strong></p>
+
+<hr />
+
+<p>首先是graph的存储问题，看了很多实现node2vec或deepwalk的library，大都是以networkx或是类似的python class对象为graph的存储形式进行开发，首先我们需要知道目前单机版的deepwalk和node2vec的主要的性能瓶颈在random  walk部分，因为底层的word2vec基本上都是直接调用的gensim的word2vec（gensim的word2vec基于c++开发，目前新版的gensim的word2vec的fast  version使用了cython代替了原来的一些逻辑实现，个人感觉从word2vec层面再去做优化太复杂了，也很难比gensim做的更好，除此之外另一个思路就是用tf.keras或torch来实现word2vec，借用gpu的算力来试图击败gensim，然而看完这几篇，我心灰意冷了：</p>
+
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/tensorflow/tensorflow/issues/13048">Word2vec on GPU slower than CPU · Issue #13048 · tensorflow/tensorflow</a>[github.com<a href="https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/39558642/does-gensim-library-support-gpu-acceleration">Does Gensim library support GPU acceleration?</a><a href="https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/39558642/does-gensim-library-support-gpu-acceleration">stackoverflow.com![图标](https://pic1.zhimg.com/v2-2d47e939feed796bcf7483d306661c88_ipico.jpg</a><a href="https://link.zhihu.com/?target=https%3A//www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/">https://www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/</a><a href="https://link.zhihu.com/?target=https%3A//www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/">www.reddit.com</a></p>
+
+<p>）</p>
+
+<p>graph通常以相互引用的内存指针的方式存储在内存中，这意味着每个节点在内存中都位于不同的位置，这种基于基于链表的思想，使得内存访问的速度成为了主要的瓶颈，因为每次从一个节点移动到另一个节点，都需要在内存中寻址和查询，一种更好的方式是把节点都打包到数组中，因为数据的内存地址一般是连续的，在内存访问上的开销要小很多；（这里还没有提到networkx本身用纯python编写导致的较低效的编译效率问题，具体可见：</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/348315009">马东什么：为什么python这么慢？numba解决了什么问题？</a></p>
+
+<p>）</p>
+
+<p>一个较好的解决方案就是使用scipy.sparse.csr_matrix对graph进行存储和后续的访问等，</p>
+
+<p>csr_matrix可见下：</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/348905107">马东什么：scipy sparse 中稀疏矩阵的常见存储方式</a><a href="https://zhuanlan.zhihu.com/p/348905107">zhuanlan.zhihu.com<img src="https://zhstatic.zhihu.com/assets/zhihu/editor/zhihu-card-default.svg" alt="图标" /></a></p>
+
+<p>可以看到，通过将graph转化为csr_matrix，利用其巧妙地存储方式，可以大大提高节点和节点之间的访问效率。</p>
+
+<p>下面就来看一个非常nice的小众的graph library，csr_graph和nodevectors，nodevectors基本上是对csr_graph做的封装，底层的逻辑直接使用了csr_graph的接口api，所以直接研究csr_graph即可。</p>
+
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/VHRanger/CSRGraph">VHRanger/CSRGraph</a><a href="https://link.zhihu.com/?target=https%3A//github.com/VHRanger/CSRGraph">github.com![图标](https://pic4.zhimg.com/v2-9b74ff2ecca657554aa17776a6083d37_ipico.jpg</a></p>
+
+<p>整个csr graph的核心在于graph的重构：</p>
+
+<p><img src="https://pic3.zhimg.com/80/v2-11115dd76ed901601a49db1b0341c97a_1440w.jpg" alt="img" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">csrgraph</span><span class="p">():</span>
+    <span class="s">"""
+    This top level python class either calls external JIT'ed methods
+        or methods from the JIT'ed internal graph
+    """</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">nodenames</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="s">"""
+        A class for larger graphs.
+
+        NOTE: this class tends to "steal data" by default.
+            If you pass a numpy array/scipy matrix/csr graph
+            Chances are this object will point to the same instance of data
+
+        Parameters:
+        -------------------
+
+        data : The graph data. Can be one of:
+            **NetworkX Graph**
+            **Numpy dense matrix**
+            **CSR Matrix**
+            **(data, indices, indptr)**
+            **CSRGraph object**
+
+        nodenames (array of str or int) : Node names
+            The position in this array should correspond with the node ID
+            So if passing a CSR Matrix or raw data, it should be co-indexed
+            with the matrix/raw data arrays
+
+        copy : bool
+            Wether to copy passed data to create new object
+            Default behavior is to point to underlying ctor passed data
+            For networkX graphs and numpy dense matrices we create a new object anyway
+        threads : int
+            number of threads to leverage for methods in this graph.
+            WARNING: changes the numba environment variable to do it.
+            Recompiles methods and changes it when changed.
+            0 is numba default (usually all threads)
+
+        TODO: add numpy mmap support for very large on-disk graphs
+            Should be in a different class
+            This also requires routines to read/write edgelists, etc. from disk
+        
+        TODO: subclass scipy.csr_matrix???
+        """</span>
+        <span class="c1"># If input is a CSRGraph, same object
+</span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">csrgraph</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">copy</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">mat</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">names</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">mat</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">names</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">nodenames</span><span class="p">:</span>
+                <span class="n">nodenames</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">names</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">nodenames</span>
+        <span class="c1"># NetworkX Graph input
+</span>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">nx</span><span class="p">.</span><span class="n">Graph</span><span class="p">,</span> <span class="n">nx</span><span class="p">.</span><span class="n">DiGraph</span><span class="p">)):</span>
+            <span class="n">mat</span> <span class="o">=</span> <span class="n">nx</span><span class="p">.</span><span class="n">adj_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">mat</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">mat</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span>
+            <span class="n">nodenames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="c1"># CSR Matrix Input
+</span>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sparse</span><span class="p">.</span><span class="n">csr_matrix</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">copy</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="c1"># Numpy Array Input
+</span>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">.</span><span class="n">csr_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s">"Incorrect input data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">).</span><span class="n">__name__</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="c1"># Now that we have the core csr_matrix, alias underlying arrays
+</span>        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">'mat'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span><span class="p">.</span><span class="n">data</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">src</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span><span class="p">.</span><span class="n">indptr</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">dst</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span><span class="p">.</span><span class="n">indices</span>
+        <span class="c1"># indptr has one more element than nnodes
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">nnodes</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">src</span><span class="p">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c1"># node name -&gt; node ID
+</span>        <span class="k">if</span> <span class="n">nodenames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nodenames</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">nnodes</span><span class="p">))</span>
+        <span class="c1"># Bounds check once here otherwise there be dragons later
+</span>        <span class="n">max_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">dst</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">nnodes</span> <span class="o">&lt;</span> <span class="n">max_idx</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s">"""
+                Out of bounds node: </span><span class="si">{</span><span class="n">max_idx</span><span class="si">}</span><span class="s">, nnodes: </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">nnodes</span><span class="si">}</span><span class="s">
+            """</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">set_threads</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">set_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threads</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">threads</span> <span class="o">=</span> <span class="n">threads</span>
+        <span class="c1"># Manage threading through Numba hack
+</span>        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"Threads argument must be an int!"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">threads</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">threads</span> <span class="o">=</span> <span class="n">numba</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">NUMBA_DEFAULT_NUM_THREADS</span>
+        <span class="n">threads</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span>
+        <span class="c1"># If we change the number of threads, recompile
+</span>        <span class="k">try</span><span class="p">:</span>
+            <span class="n">prev_numba_value</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'NUMBA_NUM_THREADS'</span><span class="p">]</span>
+        <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
+            <span class="n">prev_numba_value</span> <span class="o">=</span> <span class="n">threads</span>
+        <span class="k">if</span> <span class="n">threads</span> <span class="o">!=</span> <span class="n">prev_numba_value</span><span class="p">:</span>
+            <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'NUMBA_NUM_THREADS'</span><span class="p">]</span> <span class="o">=</span> <span class="n">threads</span>
+            <span class="n">_random_walk</span><span class="p">.</span><span class="n">recompile</span><span class="p">()</span>
+            <span class="n">_row_norm</span><span class="p">.</span><span class="n">recompile</span><span class="p">()</span>
+            <span class="n">_node2vec_walks</span><span class="p">.</span><span class="n">recompile</span><span class="p">()</span>
+            <span class="n">_node_degrees</span><span class="p">.</span><span class="n">recompile</span><span class="p">()</span>
+            <span class="n">_src_multiply</span><span class="p">.</span><span class="n">recompile</span><span class="p">()</span>
+            <span class="n">_dst_multiply</span><span class="p">.</span><span class="n">recompile</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="s">"""
+        [] operator
+        like networkX, gets names of neighbor nodes
+        """</span>
+        <span class="c1"># Get node ID from names array
+</span>        <span class="c1"># This is O(n) by design -- we more often get names from IDs
+</span>        <span class="c1">#    than we get IDs from names and we don't want to hold 2 maps
+</span>        <span class="c1"># TODO : replace names with a pd.Index and use get_loc
+</span>        <span class="n">node_id</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">names</span> <span class="o">==</span> <span class="n">node</span><span class="p">].</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">dst</span><span class="p">[</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">src</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">src</span><span class="p">[</span><span class="n">node_id</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">names</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">edges</span><span class="p">].</span><span class="n">values</span>
+
+    <span class="k">def</span> <span class="nf">nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""
+        Returns the graph's nodes, in order
+        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">names</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">nnodes</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_self</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="s">"""
+        Normalizes edge weights per node
+
+        For any node in the Graph, the new edges' weights will sum to 1
+
+        return_self : bool
+            whether to change the graph's values and return itself
+            this lets us call `G.normalize()` directly
+        """</span>
+        <span class="n">new_weights</span> <span class="o">=</span> <span class="n">_row_norm</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">weights</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">src</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">return_self</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">new_weights</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">dst</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">src</span><span class="p">))</span>
+            <span class="c1"># Point objects to the correct places
+</span>            <span class="bp">self</span><span class="p">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span><span class="p">.</span><span class="n">data</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">src</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span><span class="p">.</span><span class="n">indptr</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">dst</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">mat</span><span class="p">.</span><span class="n">indices</span>
+            <span class="n">gc</span><span class="p">.</span><span class="n">collect</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">csrgraph</span><span class="p">(</span><span class="n">sparse</span><span class="p">.</span><span class="n">csr_matrix</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">new_weights</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">dst</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">src</span><span class="p">)),</span> 
+                <span class="n">nodenames</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">names</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">random_walks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">walklen</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">start_nodes</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                <span class="n">normalize_self</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                <span class="n">return_weight</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+                <span class="n">neighbor_weight</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+        <span class="s">"""
+        Create random walks from the transition matrix of a graph
+            in CSR sparse format
+
+        Parameters
+        ----------
+        T : scipy.sparse.csr matrix
+            Graph transition matrix in CSR sparse format
+        walklen : int
+            length of the random walks
+        epochs : int
+            number of times to start a walk from each nodes
+        return_weight : float in (0, inf]
+            Weight on the probability of returning to node coming from
+            Having this higher tends the walks to be
+            more like a Breadth-First Search.
+            Having this very high  (&gt; 2) makes search very local.
+            Equal to the inverse of p in the Node2Vec paper.
+        explore_weight : float in (0, inf]
+            Weight on the probability of visitng a neighbor node
+            to the one we're coming from in the random walk
+            Having this higher tends the walks to be
+            more like a Depth-First Search.
+            Having this very high makes search more outward.
+            Having this very low makes search very local.
+            Equal to the inverse of q in the Node2Vec paper.
+        threads : int
+            number of threads to use.  0 is full use
+
+        Returns
+        -------
+        out : 2d np.array (n_walks, walklen)
+            A matrix where each row is a random walk,
+            and each entry is the ID of the node
+        """</span>
+        <span class="c1"># Make csr graph
+</span>        <span class="k">if</span> <span class="n">normalize_self</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">return_self</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">return_self</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">n_rows</span> <span class="o">=</span> <span class="n">T</span><span class="p">.</span><span class="n">nnodes</span>
+        <span class="k">if</span> <span class="n">start_nodes</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">start_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_rows</span><span class="p">)</span>
+        <span class="n">sampling_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">tile</span><span class="p">(</span><span class="n">start_nodes</span><span class="p">,</span> <span class="n">epochs</span><span class="p">)</span>
+        <span class="c1"># Node2Vec Biased walks if parameters specified
+</span>        <span class="k">if</span> <span class="p">(</span><span class="n">return_weight</span> <span class="o">&gt;</span> <span class="mf">1.</span> <span class="ow">or</span> <span class="n">return_weight</span> <span class="o">&lt;</span> <span class="mf">1.</span>
+                <span class="ow">or</span> <span class="n">neighbor_weight</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="ow">or</span> <span class="n">neighbor_weight</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">):</span>
+            <span class="n">walks</span> <span class="o">=</span> <span class="n">_node2vec_walks</span><span class="p">(</span><span class="n">T</span><span class="p">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">T</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="n">T</span><span class="p">.</span><span class="n">dst</span><span class="p">,</span>
+                                    <span class="n">sampling_nodes</span><span class="o">=</span><span class="n">sampling_nodes</span><span class="p">,</span>
+                                    <span class="n">walklen</span><span class="o">=</span><span class="n">walklen</span><span class="p">,</span>
+                                    <span class="n">return_weight</span><span class="o">=</span><span class="n">return_weight</span><span class="p">,</span>
+                                    <span class="n">neighbor_weight</span><span class="o">=</span><span class="n">neighbor_weight</span><span class="p">)</span>
+        <span class="c1"># much faster implementation for regular walks
+</span>        <span class="k">else</span><span class="p">:</span>
+            <span class="n">walks</span> <span class="o">=</span> <span class="n">_random_walk</span><span class="p">(</span><span class="n">T</span><span class="p">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">T</span><span class="p">.</span><span class="n">src</span><span class="p">,</span> <span class="n">T</span><span class="p">.</span><span class="n">dst</span><span class="p">,</span>
+                                 <span class="n">sampling_nodes</span><span class="p">,</span> <span class="n">walklen</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">walks</span>
+</code></pre></div></div>
+
+<p>初始化init部分的逻辑很简单，就是把graph用scipy.sparse.csr_matrix的方式存储，需要注意的是，csr  matrix仅支持有向/无向+有权/无权的简单图的表示，如果是复杂的属性图，例如存在多重的边关系或者是多个节点类型，则表示起来比较困难，不过常见的非GNN的graph embedding（以及排除了matapath2vec）之外大部分的graph embedding算法都是在简单图上运行的。</p>
+
+<p>首先注意一个细节部分就是，我们要对边的权重做标准化norm，</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_weights = _row_norm(self.weights, self.src)
+</code></pre></div></div>
+
+<p>其实现逻辑为：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@jit(nopython=True, parallel=True, nogil=True, fastmath=True)
+def _row_norm(weights, src):
+    """
+    Returns the weights for normalized rows in a CSR Matrix.
+    
+    Parameters
+    ----------
+    weights : array[float]
+        The data array from a CSR Matrix. 
+        For a scipy.csr_matrix, is accessed by M.data
+  
+    src : array[int]
+        The index pointer array from a CSR Matrix. 
+        For a scipy.csr_matrix, is accessed by M.indptr
+        
+    ----------------
+    returns : array[float32]
+        The normalized data array for the CSR Matrix
+    """
+    n_nodes = src.size - 1
+    res = np.empty(weights.size, dtype=np.float32)
+    for i in numba.prange(n_nodes):
+        s1 = src[i]
+        s2 = src[i+1]
+        rowsum = np.sum(weights[s1:s2])
+        res[s1:s2] = weights[s1:s2] / rowsum
+    return res
+</code></pre></div></div>
+
+<p>可以看到，这里的逻辑就是把每一个节点的权重进行归一化，即每一个节点的和它连接的边的权重的权重之和为1，这里的实现就是每一行所有非零值初一这一行的非0值的总和。</p>
+
+<p>可以看到，这里使用了numba和numba.prange进行了加速，需要注意的是，numba目前对于numpy的支持是最完善的，但是<strong>numba不支持scipy sparse</strong>！因此，我们将csr matrix的三要素：</p>
+
+<p><img src="https://pic2.zhimg.com/80/v2-4a2c1469dd87a19d9b6bb81eca0df0dd_1440w.jpg" alt="img" /></p>
+
+<p>indices，indtpr，data用三个numpy array来存储，从而使用numba来间接优化scipy sparse，代码中的src是indtpr，</p>
+
+<p>这里还是说明一下，如上图，index pointers即indptr，第i个节点具有的邻节点个数就是indptr[i+1]-indptr[1],第i个节点的邻节点的集合的列索引就是  indptr[i:i+1],例如对于节点4来说，indptr[4:5]=3:6=[3,4,5]，然后去indices中查找，indices[3,4,5]=[2,3,4]，此时我们就知道了 第四行的第2，3，4列（<strong>注意，初始都是从0开始的</strong>）是有值的，因此节点4的邻节点就是节点2和节点3（节点4和本身存在自环self  loop），通过这种方式可以非常迅速地找到某个节点的邻节点，如果要找寻二阶邻节点，我们可以通过numba.prange再写一个循环，比如对于节点4的邻节点[2,3]，我们循环对csr matrix矩阵的第二行和第三行进行同样的查询就可以了，访问非常的迅速，主要原因在于csr  matrix本质上三个连续内存地址的数组，内存访问的效率很高。</p>
+
+<p>对于numba，这里的装饰器设置：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@jit(nopython=True, parallel=True, nogil=True, fastmath=True)
+</code></pre></div></div>
+
+<p>比较固定，一般设置成这样就行，如果不涉及到并行则parallel可以不设置。</p>
+
+<p>然后是核心的random walk部分：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    def random_walks(self,
+                walklen=10,
+                epochs=1,
+                start_nodes=None,
+                normalize_self=False,
+                return_weight=1.,
+                neighbor_weight=1.):
+        """
+        Create random walks from the transition matrix of a graph
+            in CSR sparse format
+
+        Parameters
+        ----------
+        T : scipy.sparse.csr matrix
+            Graph transition matrix in CSR sparse format
+        walklen : int
+            length of the random walks
+        epochs : int
+            number of times to start a walk from each nodes
+        return_weight : float in (0, inf]
+            Weight on the probability of returning to node coming from
+            Having this higher tends the walks to be
+            more like a Breadth-First Search.
+            Having this very high  (&gt; 2) makes search very local.
+            Equal to the inverse of p in the Node2Vec paper.
+        explore_weight : float in (0, inf]
+            Weight on the probability of visitng a neighbor node
+            to the one we're coming from in the random walk
+            Having this higher tends the walks to be
+            more like a Depth-First Search.
+            Having this very high makes search more outward.
+            Having this very low makes search very local.
+            Equal to the inverse of q in the Node2Vec paper.
+        threads : int
+            number of threads to use.  0 is full use
+
+        Returns
+        -------
+        out : 2d np.array (n_walks, walklen)
+            A matrix where each row is a random walk,
+            and each entry is the ID of the node
+        """
+        # Make csr graph
+        if normalize_self:
+            self.normalize(return_self=True)
+            T = self
+        else:
+            T = self.normalize(return_self=False)
+        n_rows = T.nnodes
+        if start_nodes is None:
+            start_nodes = np.arange(n_rows)
+        sampling_nodes = np.tile(start_nodes, epochs)
+        # Node2Vec Biased walks if parameters specified
+        if (return_weight &gt; 1. or return_weight &lt; 1.
+                or neighbor_weight &lt; 1. or neighbor_weight &gt; 1.):
+            walks = _node2vec_walks(T.weights, T.src, T.dst,
+                                    sampling_nodes=sampling_nodes,
+                                    walklen=walklen,
+                                    return_weight=return_weight,
+                                    neighbor_weight=neighbor_weight)
+        # much faster implementation for regular walks
+        else:
+            walks = _random_walk(T.weights, T.src, T.dst,
+                                 sampling_nodes, walklen)
+        return walks
+</code></pre></div></div>
+
+<p>可以看到，为了实现使用numba加速，基本上需要把所有的变量都以numpy形式存储，例如range使用np.arange，sampling_nodes = np.tile(start_nodes,  epochs)等，numba目前也勉强支持list，dict这类的python数据结构，但是本身numpy的性能和扩展性都要好很多，而且也更加成熟，所以还是建议走numpy不容易各种bug。</p>
+
+<p>最后就进入核心的核心了：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        if (return_weight &gt; 1. or return_weight &lt; 1.
+                or neighbor_weight &lt; 1. or neighbor_weight &gt; 1.):
+            walks = _node2vec_walks(T.weights, T.src, T.dst,
+                                    sampling_nodes=sampling_nodes,
+                                    walklen=walklen,
+                                    return_weight=return_weight,
+                                    neighbor_weight=neighbor_weight)
+        # much faster implementation for regular walks
+        else:
+            walks = _random_walk(T.weights, T.src, T.dst,
+                                 sampling_nodes, walklen)
+</code></pre></div></div>
+
+<p>首先来看下_random_walk</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@(nopython=True, parallel=True, nogil=True, fastmath=True)
+def _random_walk(weights, indptr, dst,
+                 sampling_nodes, walklen):
+    """
+    Create random walks from the transition matrix of a graph 
+        in CSR sparse format
+
+    Parameters
+    ----------
+    weights : 1d np.array  weights表示的是csr matrix的直接取值，使用csr matrix
+存储的话，会有3个id array矩阵，分别是indices，indptr，data，含义在之前关于scipy的文章里
+这里的weights对应的是data。
+        CSR data vector from a sparse matrix. Can be accessed by M.data
+    indptr : 1d np.array  这里的indptr对应的是csr matrix的indptr
+        CSR index pointer vector from a sparse matrix. 
+        Can be accessed by M.indptr
+    dst : 1d np.array 这里的dst对应的是csr matrix的indices
+        CSR column vector from a sparse matrix. 
+        Can be accessed by M.indices
+    sampling_nodes : 1d np.array of int  samling nodes为我们要采样的节点，如果没有指定需要采样的
+特定的节点则默认是对整个graph的所有节点进行采样
+        List of node IDs to start random walks from.
+        If doing sampling from walks, is equal to np.arrange(n_nodes) 
+            repeated for each epoch
+    walklen : int   random walks的长度，游走的次数在更上层的函数里，用epochs来表示，这里实际上是
+
+        length of the random walks
+
+    Returns
+    -------
+    out : 2d np.array (n_walks, walklen)
+        A matrix where each row is a random walk, 
+        and each entry is the ID of the node
+    """
+    n_walks = len(sampling_nodes) ##游走的次数
+    res = np.empty((n_walks, walklen), dtype=np.uint32) #用于存放游走的结果序列
+    n_nodes = indptr.size #节点数量
+    n_edges = weights.size #边数量
+    for i in numba.prange(n_walks):#对每个节点实施下面的逻辑，这里对每个节点的游走采样
+#是完全独立可并行的，所以用numba的prange来自动实现对循环的并行，非常的直观方便
+        # Current node (each element is one walk's state)
+        state = sampling_nodes[i]
+        for k in range(walklen-1): #游走n次则进行n次循环，这里的循环时顺序执行的，所以无法并行
+            # Write state
+            res[i, k] = state # 初始节点，即start node
+            # Find row in csr indptr
+            start = indptr[state] #通过indptr来找到start node的邻节点
+# 前面已经提到过csr matrix的indptr如何访问邻节点的问题了
+            end = indptr[state+1]
+            # If there are edges in the node, find next step
+            if start != end:#如果start！=end，这里用于判断是否无法继续游走（即游走到的节点没有邻
+节点或者其邻节点在上一步已经游走过了），如果
+#可以继续则继续执行下面的代码
+              # transition probabilities
+              p = weights[start:end] #根据indptr定位start node的邻节点，通过weights
+#和indptr返回的列索引定位到start node和其邻节点之间的edges的权重的具体的值
+              # cumulative distribution of transition probabilities
+              cdf = np.cumsum(p)
+              # Random draw in [0, 1] for each row
+              # Choice is where random draw falls in cumulative distribution
+              draw = np.random.rand()
+              # Find where draw is in cdf
+              # Then use its index to update state
+              next_idx = np.searchsorted(cdf, draw) #上面通过简单的三个np函数就实现了
+#随机采样，注意这里实现的是deepwalk的无偏简单采样，所以逻辑很简单，searchsorted在这个
+#下非常合适，其作用
+#在于在数组a中插入数组v（并不执行插入操作），返回一个下标列表，
+#这个列表指明了v中对应元素应该插入在a中那个位置上，通过这种方式用numpy就实现了随机采样的简单逻辑了
+
+
+
+              # Winner points to the column index of the next node
+              state = dst[start + next_idx]#此时我们的start node发生改变，这里涉及到下一个节点的
+#寻址，可以看到，我们通过dst，即indices的列表可以非常方便的定位到下一个节点的行位置。
+
+            # If there are no edges, this is the end of the walk
+            else:
+              res[i, k:] = state #存放采样结果
+              break
+        # Write final states
+        res[i, -1] = state#存放最终采样结果，即最后一个采样的节点
+    return res
+</code></pre></div></div>
+
+<p>真是越来越爱numba了。。。主要在于相对于cython来说，numba的使用更简单，你基本上用numpy的逻辑来写就行，对于numpy的死忠粉来说几乎无缝衔接。</p>
+
+<p>这里的思路也不复杂，为了方便注释直接写代码里</p>
+
+<hr />
+
+<p>下面i 看看node2vec的逻辑，原作者还没有实现rejective sampling有偏采样逻辑，具体在issues里面有提到过，不过这里有一个类似的版本中也是用numba实现了rejective sampling：</p>
+
+<p><a href="https://link.zhihu.com/?target=https%3A//louisabraham.github.io/articles/node2vec-sampling.html">Accelerating node2vec with rejection sampling</a><a href="https://link.zhihu.com/?target=https%3A//louisabraham.github.io/articles/node2vec-sampling.html">louisabraham.github.io<img src="https://pic1.zhimg.com/v2-6a9bc4511a35bdcea240f19d8b630aa8_180x120.jpg" alt="图标" /></a><a href="https://link.zhihu.com/?target=https%3A//github.com/louisabraham/fastnode2vec">https://github.com/louisabraham/fastnode2vec</a><a href="https://link.zhihu.com/?target=https%3A//github.com/louisabraham/fastnode2vec">github.com</a></p>
+
+<p>感觉这两个library可以做一个合并了。。。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
+
+
+<span class="o">@</span><span class="n">jit</span><span class="p">(</span><span class="n">nogil</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">parallel</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">fastmath</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">random_walk</span><span class="p">(</span><span class="n">walk_length</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="s">"""sample a random walk starting from t
+    """</span>
+    <span class="c1"># Normalize the weights to compute rejection probabilities
+</span>    <span class="n">max_prob</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">p</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">q</span><span class="p">)</span>
+    <span class="n">prob_0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">p</span> <span class="o">/</span> <span class="n">max_prob</span>
+    <span class="n">prob_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">max_prob</span>
+    <span class="n">prob_2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">q</span> <span class="o">/</span> <span class="n">max_prob</span>
+
+    <span class="c1"># Initialize the walk
+</span>    <span class="n">walk</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="n">walk_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">indices</span><span class="p">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">walk</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="n">walk</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_neighbor</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">numba</span><span class="p">.</span><span class="n">prange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">walk_length</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">new_node</span> <span class="o">=</span> <span class="n">random_neighbor</span><span class="p">(</span><span class="n">walk</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">rand</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">new_node</span> <span class="o">==</span> <span class="n">walk</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]:</span>
+                <span class="c1"># back to the previous node
+</span>                <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">prob_0</span><span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="k">elif</span> <span class="n">is_neighbor</span><span class="p">(</span><span class="n">walk</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">2</span><span class="p">],</span> <span class="n">new_node</span><span class="p">):</span>
+                <span class="c1"># distance 1
+</span>                <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">prob_1</span><span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">prob_2</span><span class="p">:</span>
+                <span class="c1"># distance 2
+</span>                <span class="k">break</span>
+        <span class="n">walk</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+        
+    <span class="k">return</span> <span class="n">walk</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>我们看一下node2vec的有偏采样的逻辑，csrgraph怎么写的：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nogil</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_node2vec_walks</span><span class="p">(</span><span class="n">Tdata</span><span class="p">,</span> <span class="n">Tindptr</span><span class="p">,</span> <span class="n">Tindices</span><span class="p">,</span>
+                    <span class="n">sampling_nodes</span><span class="p">,</span>
+                    <span class="n">walklen</span><span class="p">,</span>
+                    <span class="n">return_weight</span><span class="p">,</span>
+                    <span class="n">neighbor_weight</span><span class="p">):</span>
+    <span class="s">"""
+    Create biased random walks from the transition matrix of a graph 
+        in CSR sparse format. Bias method comes from Node2Vec paper.
+    
+    Parameters
+    ----------
+    Tdata : 1d np.array  casrmatrix的data
+        CSR data vector from a sparse matrix. Can be accessed by M.data
+    Tindptr : 1d np.array casrmatrix的indptr
+        CSR index pointer vector from a sparse matrix. 
+        Can be accessed by M.indptr
+    Tindices : 1d np.array casrmatrix的indices
+        CSR column vector from a sparse matrix. 
+        Can be accessed by M.indices
+    sampling_nodes : 1d np.array of int 采样节点，默认是全部节点
+        List of node IDs to start random walks from.
+        Is generally equal to np.arrange(n_nodes) repeated for each epoch
+    walklen : int 随机游走的步数
+        length of the random walks
+    return_weight : float in (0, inf]  返回权重，对应node2vec论文中的p
+        Weight on the probability of returning to node coming from
+        Having this higher tends the walks to be 
+        more like a Breadth-First Search.
+        Having this very high  (&gt; 2) makes search very local.
+        return weights如果大于2则游走非常接近局部
+        Equal to the inverse of p in the Node2Vec paper.
+    explore_weight : float in (0, inf] # 探索权重，对应node2vec论文中的q
+        Weight on the probability of visitng a neighbor node
+        to the one we're coming from in the random walk
+        Having this higher tends the walks to be 
+        more like a Depth-First Search.
+        Having this very high makes search more outward.
+        Having this very low makes search very local.
+        Equal to the inverse of q in the Node2Vec paper.
+    Returns
+    -------
+    out : 2d np.array (n_walks, walklen)
+        A matrix where each row is a biased random walk, 
+        and each entry is the ID of the node
+    """</span>
+    <span class="n">n_walks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampling_nodes</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_walks</span><span class="p">,</span> <span class="n">walklen</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">uint32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="p">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n_walks</span><span class="p">):</span>
+        <span class="c1"># Current node (each element is one walk's state)
+</span>        <span class="n">state</span> <span class="o">=</span> <span class="n">sampling_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="c1"># Do one normal step first
+</span>        <span class="n">state</span> <span class="o">=</span> <span class="n">_node2vec_first_step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">Tdata</span><span class="p">,</span> <span class="n">Tindices</span><span class="p">,</span> <span class="n">Tindptr</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">walklen</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># Write state
+</span>            <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">_node2vec_inner</span><span class="p">(</span>
+                <span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span>
+                <span class="n">Tdata</span><span class="p">,</span> <span class="n">Tindices</span><span class="p">,</span> <span class="n">Tindptr</span><span class="p">,</span> 
+                <span class="n">return_weight</span><span class="p">,</span> <span class="n">neighbor_weight</span>
+            <span class="p">)</span>
+        <span class="c1"># Write final states
+</span>        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></div>
+
+<p>这里实现了两个函数，一个是_node2vec_first_step用于有偏游走的初始化，一个是_node2vec_inner用于有偏游走后续的实现</p>
+
+<p>其中：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@jit(nopython=True, nogil=True, fastmath=True)
+def _node2vec_first_step(state, Tdata, Tindices, Tindptr):
+    """
+    Inner code for node2vec walks
+    Normal random walk step
+    Comments for this logic are in _random_walk
+    """
+    start = Tindptr[state]
+    end = Tindptr[state+1]
+    p = Tdata[start:end]
+    cdf = np.cumsum(p)
+    draw = np.random.rand()
+    next_idx = np.searchsorted(cdf, draw)
+    state = Tindices[start + next_idx]
+    return state
+</code></pre></div></div>
+
+<p>这里和deepwalk的逻辑是一样的，<strong>实际上有偏的定义是从初始游走之后的第一个游走才开始的</strong>，这一点建议对照论文的图仔细看看：</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/344839298">马东什么：Node2vec 深入分析</a>](https://zhuanlan.zhihu.com/p/344839298)</p>
+
+<p>也就是初始先随机走一步，然后开始下面正式的有偏游走：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@jit(nopython=True, nogil=True, fastmath=True)
+def _node2vec_inner(
+    res, i, k, state,
+    Tdata, Tindices, Tindptr, 
+    return_weight, neighbor_weight):
+    """
+    Inner loop core for node2vec walks
+    Does the biased walk updating (pure function)
+    
+    All arguments are directly from the node2vec walks method
+    """
+    # Find rows in csr indptr
+    prev = res[i, k-1]
+    start = Tindptr[state] #当前节点的start和end，即得到当前节点的邻节点个数
+    end = Tindptr[state+1]
+    start_prev = Tindptr[prev] #当前节点的上一个节点（即从上一个节点游走到当前节点的
+#上一个节点）的start和end，即得到上一个节点的邻节点个数
+    end_prev = Tindptr[prev+1]
+    # Find overlaps and fix weights
+    this_edges = Tindices[start:end] #当前节点的邻节点确定
+    prev_edges = Tindices[start_prev:end_prev] #上一个节点的邻节点确定
+    p = np.copy(Tdata[start:end]) #当前节点和邻节点连接的edges的权重
+    ret_idx = np.where(this_edges == prev) #确认上一个节点的index
+    p[ret_idx] = np.multiply(p[ret_idx], return_weight) #计算上一个节点
+#和当前节点连接的edge权重*return weight
+    for pe in prev_edges:
+        n_idx_v = np.where(this_edges == pe)
+        n_idx = n_idx_v[0]
+        p[n_idx] = np.multiply(p[n_idx], neighbor_weight) #计算深入游走的概率和对应edge的积
+    # Get next state
+    ## 剩下的部分就和deep walk一样了
+    cdf = np.cumsum(np.divide(p, np.sum(p)))
+    draw = np.random.rand()
+    next_idx = np.searchsorted(cdf, draw)
+    new_state = this_edges[next_idx]
+    return new_state
+</code></pre></div></div>
+
+<p>这里 思路其实是把p和q的参数和edges的权重进行相乘然后转化为常规的deepwalk的决策过程：</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    cdf = np.cumsum(np.divide(p, np.sum(p)))
+    draw = np.random.rand()
+    next_idx = np.searchsorted(cdf, draw)
+</code></pre></div></div>
+
+<p>学好numpy，做一些性能不错的开发工作还是很ok的~一些不是很复杂的需求，用numpy+numba或者numpy+numba或者numpy+numba+cython的性能并不会比c++差。</p>
+
+  </div><a class="u-url" href="/from_cnblogs/High-performance-optimization-and-acceleration-for-randomWalk,-deepwalk,-node2vec-(Python)/" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Combine Art and Sciences</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

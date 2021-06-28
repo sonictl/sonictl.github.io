@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '好用的 FTP 软件之 FileZilla 技巧教程'
-date: 2013-10-18 09:45:00
+date: 2013-10-18 09:45:00 +0800
+category: from_cnblogs
 ---
 
 

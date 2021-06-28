@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Spring MVC 学习笔记11 —— 后端返回json格式数据 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Spring MVC 学习笔记11 —— 后端返回json格式数据" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Spring MVC 学习笔记11 —— 后端返回json&#26684;式数据 &nbsp;我们常常听说json数据，首先，什么是json数据，总结起来，有以下几点： &nbsp; &nbsp;1. JSON的全称是”JavaScript Object Notation”，意思是JavaScript对象表示法. &nbsp; &nbsp;2.&nbsp;它是一种基于文本，独立于语言的轻量级数据交换&#26684;式. &nbsp; &nbsp;3. json的两种结构：对象{key:value,key:value,...} &nbsp;和 &nbsp;数组 [value, value2, ... ] &nbsp; &nbsp;4. json字符串：普通字符串、json字符串、json对象的区别 &nbsp; &nbsp;5. 不同编程工具使用json的方法 &nbsp;参考：http://www.cnblogs.com/mcgrady/archive/2013/06/08/3127781.html Spring MVC 返回json数据，用show来实现： UserController.java: 保持两套请求，一套是传统的请求返回数据；一套是请求json&#26684;式返回数据。 //6. 查一个用户 show.jsp @RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET) public String show(@PathVariable String username, Model model){ model.addAttribute(&quot;user1&quot;,users.get(username)); //user1参数属性名，到了视图，就是user1 return &quot;user/show&quot;; } //6. 查一个用户 show.jsp @RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET, params=&quot;jsoon&quot;) @ResponseBody //这里要加一行 public User show(@PathVariable String username){ //声明中没有了Model //model.addAttribute(&quot;user1&quot;,users.get(username)); return users.get(username); //不返回String了，返回user对象 } 说明，以上代码中： &nbsp; 1. 增加@ResponseBody,&nbsp; &nbsp; 2. no return String, but User Object &nbsp; 3. no Model &nbsp; 4. directly return users.get(username)//注意返回的是一个User对象 &nbsp; 5. 可以在RequestMapping行增加一个请求&#20540;：Params=&quot;jsoon&quot;//这是规定如要进这个方法返回json，需要带个参数jsoon 此时可测试，返回406错误如图：（通过url加入?jsoon访问了，但没有头文件为它进行解释） 所以我们需要加入一个jar包：jackson-all-1.x.x.jar 从这个网址可以下载到：http://jarfiles.pandaidea.com/jackson.all.html 把jar包复制到项目文件夹/lib文件夹下，重新debug，链接进入：http://localhost:8080/myhello/user/sdy?jsoon 此时，有的浏览器Chrome，firefox等能显示如下，其他浏览器如360等，会提示下载sdy.json文件，notepad&#43;&#43;打开以后也是如下内容。 Enjoy ;)" />
+<meta property="og:description" content="Spring MVC 学习笔记11 —— 后端返回json&#26684;式数据 &nbsp;我们常常听说json数据，首先，什么是json数据，总结起来，有以下几点： &nbsp; &nbsp;1. JSON的全称是”JavaScript Object Notation”，意思是JavaScript对象表示法. &nbsp; &nbsp;2.&nbsp;它是一种基于文本，独立于语言的轻量级数据交换&#26684;式. &nbsp; &nbsp;3. json的两种结构：对象{key:value,key:value,...} &nbsp;和 &nbsp;数组 [value, value2, ... ] &nbsp; &nbsp;4. json字符串：普通字符串、json字符串、json对象的区别 &nbsp; &nbsp;5. 不同编程工具使用json的方法 &nbsp;参考：http://www.cnblogs.com/mcgrady/archive/2013/06/08/3127781.html Spring MVC 返回json数据，用show来实现： UserController.java: 保持两套请求，一套是传统的请求返回数据；一套是请求json&#26684;式返回数据。 //6. 查一个用户 show.jsp @RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET) public String show(@PathVariable String username, Model model){ model.addAttribute(&quot;user1&quot;,users.get(username)); //user1参数属性名，到了视图，就是user1 return &quot;user/show&quot;; } //6. 查一个用户 show.jsp @RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET, params=&quot;jsoon&quot;) @ResponseBody //这里要加一行 public User show(@PathVariable String username){ //声明中没有了Model //model.addAttribute(&quot;user1&quot;,users.get(username)); return users.get(username); //不返回String了，返回user对象 } 说明，以上代码中： &nbsp; 1. 增加@ResponseBody,&nbsp; &nbsp; 2. no return String, but User Object &nbsp; 3. no Model &nbsp; 4. directly return users.get(username)//注意返回的是一个User对象 &nbsp; 5. 可以在RequestMapping行增加一个请求&#20540;：Params=&quot;jsoon&quot;//这是规定如要进这个方法返回json，需要带个参数jsoon 此时可测试，返回406错误如图：（通过url加入?jsoon访问了，但没有头文件为它进行解释） 所以我们需要加入一个jar包：jackson-all-1.x.x.jar 从这个网址可以下载到：http://jarfiles.pandaidea.com/jackson.all.html 把jar包复制到项目文件夹/lib文件夹下，重新debug，链接进入：http://localhost:8080/myhello/user/sdy?jsoon 此时，有的浏览器Chrome，firefox等能显示如下，其他浏览器如360等，会提示下载sdy.json文件，notepad&#43;&#43;打开以后也是如下内容。 Enjoy ;)" />
+<link rel="canonical" href="/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011-%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9Ejson%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE/" />
+<meta property="og:url" content="/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011-%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9Ejson%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE/" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-25T03:21:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Spring MVC 学习笔记11 —— 后端返回json格式数据" />
+<script type="application/ld+json">
+{"dateModified":"2014-11-25T03:21:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011-%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9Ejson%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE/"},"description":"Spring MVC 学习笔记11 —— 后端返回json&#26684;式数据 &nbsp;我们常常听说json数据，首先，什么是json数据，总结起来，有以下几点： &nbsp; &nbsp;1. JSON的全称是”JavaScript Object Notation”，意思是JavaScript对象表示法. &nbsp; &nbsp;2.&nbsp;它是一种基于文本，独立于语言的轻量级数据交换&#26684;式. &nbsp; &nbsp;3. json的两种结构：对象{key:value,key:value,...} &nbsp;和 &nbsp;数组 [value, value2, ... ] &nbsp; &nbsp;4. json字符串：普通字符串、json字符串、json对象的区别 &nbsp; &nbsp;5. 不同编程工具使用json的方法 &nbsp;参考：http://www.cnblogs.com/mcgrady/archive/2013/06/08/3127781.html Spring MVC 返回json数据，用show来实现： UserController.java: 保持两套请求，一套是传统的请求返回数据；一套是请求json&#26684;式返回数据。 //6. 查一个用户 show.jsp @RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET) public String show(@PathVariable String username, Model model){ model.addAttribute(&quot;user1&quot;,users.get(username)); //user1参数属性名，到了视图，就是user1 return &quot;user/show&quot;; } //6. 查一个用户 show.jsp @RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET, params=&quot;jsoon&quot;) @ResponseBody //这里要加一行 public User show(@PathVariable String username){ //声明中没有了Model //model.addAttribute(&quot;user1&quot;,users.get(username)); return users.get(username); //不返回String了，返回user对象 } 说明，以上代码中： &nbsp; 1. 增加@ResponseBody,&nbsp; &nbsp; 2. no return String, but User Object &nbsp; 3. no Model &nbsp; 4. directly return users.get(username)//注意返回的是一个User对象 &nbsp; 5. 可以在RequestMapping行增加一个请求&#20540;：Params=&quot;jsoon&quot;//这是规定如要进这个方法返回json，需要带个参数jsoon 此时可测试，返回406错误如图：（通过url加入?jsoon访问了，但没有头文件为它进行解释） 所以我们需要加入一个jar包：jackson-all-1.x.x.jar 从这个网址可以下载到：http://jarfiles.pandaidea.com/jackson.all.html 把jar包复制到项目文件夹/lib文件夹下，重新debug，链接进入：http://localhost:8080/myhello/user/sdy?jsoon 此时，有的浏览器Chrome，firefox等能显示如下，其他浏览器如360等，会提示下载sdy.json文件，notepad&#43;&#43;打开以后也是如下内容。 Enjoy ;)","@type":"BlogPosting","headline":"Spring MVC 学习笔记11 —— 后端返回json格式数据","url":"/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011-%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9Ejson%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE/","datePublished":"2014-11-25T03:21:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Spring MVC 学习笔记11 —— 后端返回json格式数据</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2014-11-25T03:21:00+08:00" itemprop="datePublished">
+        Nov 25, 2014
+      </time></p>
+  </header>
+<!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="/categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+<!-- categories end <<<<< -->
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3>Spring MVC 学习笔记11 —— 后端返回json&#26684;式数据</h3>
+<h3>&nbsp;我们常常听说json数据，首先，什么是json数据，总结起来，有以下几点：</h3>
+<p><span style="white-space:pre"></span>&nbsp; &nbsp;1. JSON的全称是”JavaScript Object Notation”，意思是JavaScript对象表示法.<br />
+<span style="white-space:pre"></span>&nbsp; &nbsp;2.&nbsp;它是一种基于文本，独立于语言的轻量级数据交换&#26684;式.<br />
+<span style="white-space:pre"></span><span style="white-space:pre"></span>&nbsp; &nbsp;3. json的两种结构：对象{key:value,key:value,...} &nbsp;和 &nbsp;数组 [value, value2, ... ]<br />
+<span style="white-space:pre"></span>&nbsp; &nbsp;4. json字符串：普通字符串、json字符串、json对象的区别<br />
+<span style="white-space:pre"></span>&nbsp; &nbsp;5. 不同编程工具使用json的方法</p>
+<p>&nbsp;参考：<a target="_blank" href="http://www.cnblogs.com/mcgrady/archive/2013/06/08/3127781.html">http://www.cnblogs.com/mcgrady/archive/2013/06/08/3127781.html</a></p>
+<p><br />
+</p>
+<h3>Spring MVC 返回json数据，用show来实现：</h3>
+<p>UserController.java:</p>
+<p>保持两套请求，一套是传统的请求返回数据；一套是请求json&#26684;式返回数据。</p>
+<p></p>
+<pre code_snippet_id="532140" snippet_file_name="blog_20141125_1_1513179" name="code" class="java">	//6. 查一个用户 show.jsp
+	@RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET)
+	public String show(@PathVariable String username, Model model){
+		model.addAttribute(&quot;user1&quot;,users.get(username));	//user1参数属性名，到了视图，就是user1
+		return &quot;user/show&quot;;
+	}
+	
+	//6. 查一个用户 show.jsp
+	@RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET, params=&quot;jsoon&quot;)
+	@ResponseBody	//这里要加一行
+	public User show(@PathVariable String username){      //声明中没有了Model
+		//model.addAttribute(&quot;user1&quot;,users.get(username));
+		return users.get(username);            //不返回String了，返回user对象
+	}</pre>
+<p><br />
+<strong>说明</strong>，以上代码中：</p>
+<p></p>
+<p>&nbsp; 1. 增加@ResponseBody,&nbsp;<br />
+&nbsp; 2. no return String, but User Object<br />
+&nbsp; 3. no Model<br />
+&nbsp; 4. directly return users.get(username)//注意返回的是一个User对象<br />
+&nbsp; 5. 可以在RequestMapping行增加一个请求&#20540;：Params=&quot;jsoon&quot;//这是规定如要进这个方法返回json，需要带个参数jsoon<br />
+</p>
+<p>此时可测试，返回406错误如图：（通过url加入?jsoon访问了，但没有头文件为它进行解释）</p>
+<p><img src="http://img.blog.csdn.net/20141125111809515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt="" /><br />
+</p>
+<p>所以我们需要加入一个jar包：jackson-all-1.x.x.jar</p>
+<p>从这个网址可以下载到：http://jarfiles.pandaidea.com/jackson.all.html</p>
+<p>把jar包复制到项目文件夹/lib文件夹下，重新debug，链接进入：http://localhost:8080/myhello/user/sdy?jsoon</p>
+<p>此时，有的浏览器Chrome，firefox等能显示如下，其他浏览器如360等，会提示下载sdy.json文件，notepad&#43;&#43;打开以后也是如下内容。<br />
+</p>
+<p><img src="http://img.blog.csdn.net/20141125135446640?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt="" /><br />
+</p>
+<p>Enjoy ;)</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+
+
+  </div><a class="u-url" href="/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011-%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9Ejson%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE/" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Combine Art and Sciences</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

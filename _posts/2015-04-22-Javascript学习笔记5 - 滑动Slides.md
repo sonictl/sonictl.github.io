@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Javascript学习笔记5 - 滑动Slides'
-date: 2015-04-22 02:12:00
+date: 2015-04-22 02:12:00 +0800
+category: from_cnblogs
 ---
 
 

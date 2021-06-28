@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>block SSH attacks on Linux with denyhosts (centOS7) | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="block SSH attacks on Linux with denyhosts (centOS7)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How To Install and Configure DenyHosts in CentOS 7 for preventing the violent cracking on ssh 防止ssh被暴力破解：denyhost工具" />
+<meta property="og:description" content="How To Install and Configure DenyHosts in CentOS 7 for preventing the violent cracking on ssh 防止ssh被暴力破解：denyhost工具" />
+<link rel="canonical" href="/from_cnblogs/block-SSH-attacks-on-Linux-with-denyhosts-(centOS7)/" />
+<meta property="og:url" content="/from_cnblogs/block-SSH-attacks-on-Linux-with-denyhosts-(centOS7)/" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-07T09:50:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="block SSH attacks on Linux with denyhosts (centOS7)" />
+<script type="application/ld+json">
+{"dateModified":"2020-05-07T09:50:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/block-SSH-attacks-on-Linux-with-denyhosts-(centOS7)/"},"description":"How To Install and Configure DenyHosts in CentOS 7 for preventing the violent cracking on ssh 防止ssh被暴力破解：denyhost工具","@type":"BlogPosting","headline":"block SSH attacks on Linux with denyhosts (centOS7)","url":"/from_cnblogs/block-SSH-attacks-on-Linux-with-denyhosts-(centOS7)/","datePublished":"2020-05-07T09:50:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">block SSH attacks on Linux with denyhosts (centOS7)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-05-07T09:50:00+08:00" itemprop="datePublished">
+        May 7, 2020
+      </time></p>
+  </header>
+<!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="/categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+<!-- categories end <<<<< -->
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="how-to-install-and-configure-denyhosts-in-centos-7-for-preventing-the-violent-cracking-on-ssh">How To Install and Configure DenyHosts in CentOS 7 for preventing the violent cracking on ssh</h2>
+<h3 id="防止ssh被暴力破解denyhost工具">防止ssh被暴力破解：denyhost工具</h3>
+
+<p>DenyHosts is an open-source python-based tool developed by Phil Schwartz intended to prevent brute-force attacks and dictionary-based attacks on SSH servers. It is a log-based security tool.
+It is simple and the ability to configure rules manually.</p>
+
+<p>DenyHosts is widely used as an alternative to Fail2ban. If there have been too many invalid SSH login attempts it assume that it’s brute-force attacks or dictionary-based attacks and prevents the IP address from making any further attempts by adding it to /etc/hosts.deny on the server.</p>
+
+<p><strong>(<a href="https://www.hostnextra.com/kb/learn-to-install-fail2ban-on-centos-7/">Learn To Install Fail2ban on CentOS 7</a>)</strong></p>
+
+<h4 id="install-and-configure-denyhost-in-centos-7-from-github-repo">Install and configure denyhost in centos 7 from Github Repo</h4>
+
+<p>First, install git</p>
+
+<blockquote>
+  <p># yum install git</p>
+</blockquote>
+
+<p>Now, cloud the <a href="https://github.com/denyhosts/denyhosts">denyhosts Github</a> repo</p>
+
+<blockquote>
+  <p># cd /usr/share/
+# git clone https://github.com/denyhosts/denyhosts</p>
+</blockquote>
+
+<p>After cloning the files from the Github, install it.</p>
+
+<blockquote>
+  <p># cd denyhosts</p>
+
+  <p># python setup.py install</p>
+</blockquote>
+
+<p>This will install the DenyHosts modules into python’s site-packages directory.</p>
+
+<h4 id="lets-configure-denyhosts">Let’s configure DenyHosts</h4>
+
+<p>We need to create a configuration file before it can function. The sample configuration file denyhosts.conf contains most of the possible settings and we need to copy it and edit the file.</p>
+
+<blockquote>
+  <p># cp denyhosts.conf /etc</p>
+
+  <p># vim /etc/denyhosts.conf</p>
+</blockquote>
+
+<p>The sample configuration file contains informational comments that should help you quickly configure DenyHosts.</p>
+
+<p><strong>Note:</strong> Edit by commenting out the  <code class="language-plaintext highlighter-rouge">#</code> at the lines with words <code class="language-plaintext highlighter-rouge">Redhat</code> for centOS7.</p>
+
+<p>After you have edited your configuration file, save it.</p>
+
+<p>Next, we need to copy the sample daemon-control.dist script as such to daemon-control and modify the recommended section as per your configuration file location.</p>
+
+<blockquote>
+  <p># cp daemon-control-dist daemon-control</p>
+</blockquote>
+
+<p>Edit the daemon-control file. You should only need to edit this section near the top:</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202005/780771-20200507175010570-126865914.png" alt="install denyhosts in centos 7" /></p>
+
+<blockquote>
+  <p>###############################################
+#### Edit these to suit your configuration ####
+###############################################</p>
+
+  <p>DENYHOSTS_BIN = “/usr/local/bin/denyhosts.py”
+DENYHOSTS_LOCK = “/var/lock/subsys/denyhosts”
+DENYHOSTS_CFG = “/etc/denyhosts.conf”</p>
+</blockquote>
+
+<p>Once you have edited the configuration and daemon control files make sure that the daemon control script it executable.</p>
+
+<h4 id="now-start-denyhosts-manually">Now start DenyHosts manually</h4>
+
+<blockquote>
+  <p># ./daemon-control start</p>
+</blockquote>
+
+<p>You should refer to the daemon log (typically /var/log/denyhosts) to ensure that DenyHosts is running successfully.</p>
+
+<h4 id="to-start-denyhosts-automatically">To start DenyHosts automatically</h4>
+
+<p>Create a symbolic link from /etc/init.d such as:</p>
+
+<blockquote>
+  <p># cd /etc/init.d
+# ln -s /usr/share/denyhosts/daemon-control denyhosts</p>
+</blockquote>
+
+<p>Now, we create a <a href="https://linuxize.com/post/how-to-remove-symbolic-links-in-linux/">symbolic link</a> and we can manage denyhosts service from systemctl command</p>
+
+<p>To enable DenyHosts</p>
+
+<blockquote>
+  <p># systemctl enable denyhosts</p>
+</blockquote>
+
+<p>To start</p>
+
+<blockquote>
+  <p># systemctl start denyhosts</p>
+</blockquote>
+
+<p>To check the status</p>
+
+<blockquote>
+  <p># systemctl status denyhosts</p>
+</blockquote>
+
+<h3 id="starting-denyhosts-automatically">Starting DenyHosts Automatically</h3>
+<h4 id="method-1-preferred">Method 1 (preferred)</h4>
+<p>Create a symbolic link from /etc/init.d such as:</p>
+
+<blockquote>
+  <p># cd /etc/init.d
+# ln -s /usr/share/denyhosts/daemon-control denyhosts
+If you have chkconfig installed you can then use it to ensure that DenyHosts runs at boot time:</p>
+</blockquote>
+
+<blockquote>
+  <p># chkconfig –add denyhosts
+If you do not have chkconfig (or similar) installed you can either manually create the symlinks in /etc/rc2.d, /etc/rc3.d, /etc/rc5.d but that is beyond the scope of this document.</p>
+</blockquote>
+
+<h4 id="method-2">Method 2</h4>
+<p>Add an entry into the /etc/rc.local file:</p>
+
+<blockquote>
+  <p>/usr/share/denyhosts/daemon-control start</p>
+</blockquote>
+
+  </div><a class="u-url" href="/from_cnblogs/block-SSH-attacks-on-Linux-with-denyhosts-(centOS7)/" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Combine Art and Sciences</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

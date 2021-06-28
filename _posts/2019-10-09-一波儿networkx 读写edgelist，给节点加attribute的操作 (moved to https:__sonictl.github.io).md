@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '一波儿networkx 读写edgelist，给节点加attribute的操作 (moved to https://sonictl.github.io)'
-date: 2019-10-09 11:24:00
+date: 2019-10-09 11:24:00 +0800
+category: from_cnblogs
 ---
 # 一波儿networkx 读写edgelist，给节点加attribute的操作 (moved to https://sonictl.github.io)
 read more: [nx official: Reading and writing graphs](https://networkx.github.io/documentation/stable/reference/readwrite/index.html)

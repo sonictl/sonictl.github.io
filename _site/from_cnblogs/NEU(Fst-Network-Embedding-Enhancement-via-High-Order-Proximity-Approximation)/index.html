@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation) | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)" />
+<meta property="og:description" content="NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)" />
+<link rel="canonical" href="/from_cnblogs/NEU(Fst-Network-Embedding-Enhancement-via-High-Order-Proximity-Approximation)/" />
+<meta property="og:url" content="/from_cnblogs/NEU(Fst-Network-Embedding-Enhancement-via-High-Order-Proximity-Approximation)/" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-15T08:27:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)" />
+<script type="application/ld+json">
+{"dateModified":"2018-05-15T08:27:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/NEU(Fst-Network-Embedding-Enhancement-via-High-Order-Proximity-Approximation)/"},"description":"NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)","@type":"BlogPosting","headline":"NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)","url":"/from_cnblogs/NEU(Fst-Network-Embedding-Enhancement-via-High-Order-Proximity-Approximation)/","datePublished":"2018-05-15T08:27:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2018-05-15T08:27:00+08:00" itemprop="datePublished">
+        May 15, 2018
+      </time></p>
+  </header>
+<!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="/categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+<!-- categories end <<<<< -->
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)</p>
+
+<h2 id="neu通过对高阶相似性的近似加持快速网络嵌入">NEU：通过对高阶相似性的近似，加持快速网络嵌入</h2>
+
+<h2 id="nrl的框架总结">NRL的框架总结</h2>
+<ul>
+  <li>First, Clarify the notations and formalize the problem of NRL.</li>
+  <li>Then, Introduce the concept of k-order proximity.</li>
+  <li>Finally, Summarize an NRL framework based on proximity matrix factorization and show that the aforementioned NRL methods fall into the category.</li>
+</ul>
+
+<p>定义本文处理的图是无权无向图。这也是他的局限性。<span style="color:red;">这是一个NEU算法的缺点!</span></p>
+
+<p>对角阵 $D_{ii}=d_i$是$v_i$节点的度。$A=D^{-1} \widetilde A$ ，是对邻接矩阵$\widetilde A$的归一化结果。
+Laplacian Matrix: $\widetilde L = D - \widetilde A$, 这是把$\widetilde A$全取反再在对角线上加上$v_i$的度数。
+Normalized Laplacian Matrix: $ L = D^{-\frac{1}{2}}\widetilde L D^{-\frac{1}{2}} $</p>
+<blockquote>
+  <p>这俩Laplacian matrix 拿来何用？</p>
+</blockquote>
+
+<h3 id="k-order-proximity">K-order proximity</h3>
+<p>$ A$和$\widetilde L$ characterize 一阶相似性，建模局部节点对的proximity。
+还是沿用GraRep的K-step转移概率矩阵：transition probability matrix 作为<strong>k-order proximity matrix</strong>.
+$A^k = \underbrace{A \cdot A … A}_{k}$</p>
+
+<h3 id="nrl-framework">NRL Framework</h3>
+<p><strong>Step1: Proximity Matrix Construction</strong> 相似性矩阵建立
+相似性矩阵$M \in \mathbb R^{|V|\times |V|}$编码了 $k$ 阶相似性，$k = 1,2,…,K$ .有$A$是normalized邻接矩阵， $M=\frac{A+A^2+…+A^K}{K}$表示了K阶相似性矩阵的联合再平均。$M$通常是由$A$的$K$级的多项式表示，文章记为$f(A) \in \mathbb R^{|V|\times |V|}$, $K$级是多少，depends on 相似度矩阵proximity matrix要表达的最大的proximity阶数。</p>
+
+<p><strong>Step2: Dimension Reduction</strong> 维数约减
+寻找2个矩阵，$R$ 和 $C$.</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$R \in \mathbb R^{</td>
+          <td>V</td>
+          <td>\times d}$ 是节点的低维向量表达,</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$C \in \mathbb R^{</td>
+          <td>V</td>
+          <td>\times d}$是context角色时，节点的低维向量表达。</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>矩阵的乘积$R \cdot C^T$就是对原网络的相似性矩阵$M$的近似。这里，不同的算法对$R \cdot C^T$和$M$的距离有不同的描述，employ different distance function. 比如，用$M- R \cdot C^T$</p>
+
+<p><strong>前人的方法与本框架的关系</strong>
+Spectral Clustering: 
+DeepWalk: 
+GraRep: 
+TADW: 
+LINE:</p>
+
+<h3 id="观察和problem-formalization">观察和Problem Formalization</h3>
+<p>既然是2步框架，第一步是建立proximity matrix，怎么建立一个好的proximity matrix for NRL.在这篇文章里讨论。
+至于第二步，维数约减，future Work.</p>
+
+<p><strong>Observation 1</strong>: 更高阶的，和更精确的proximity matrix可以提升模型的学习效果。也就是说，如果探索一个更高阶的polynomial proximity matrix $f(A)$，NRL可以因此受益。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Observation 2</strong>：对大规模网络来说，对高阶的proximity matrix的精确计算是不可行的。实际上对proximity matrix的计算takes $O(</td>
+      <td>V</td>
+      <td>^2)$ time. SVD的时间复杂度也随k 的增大，get dense，从而增加。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>其实Observation1&amp;2是矛盾的，前者要更精确，更高阶。后者又表明越高阶越难算。
+因此如何高效地获得高阶的proximity matrix变为一个问题。
+文章的解决方案是，先对低阶的proximity matrix的信息进行编码，以此作为一个基础，来避免重复的计算。</p>
+
+<p><strong>问题的构建</strong>：
+有个假设，$R$和$C$是某个NRL算法学到的表达，$R \cdot C^T$ 对$K$阶的多项式proximity matrix $f(A)$ 构成近似。目的就是学到一个更好的$R’$和$C’$，它俩可以构成对$g(A)$的近似，这个$g(A)$比$f(A)$更高阶。并且，算法还要高效，should be efficient in the linear time of $|V|$. 注意，时间复杂度下界是$O(|V|d)$ ，which is the size of embedding matrix $R$.</p>
+
+  </div><a class="u-url" href="/from_cnblogs/NEU(Fst-Network-Embedding-Enhancement-via-High-Order-Proximity-Approximation)/" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Combine Art and Sciences</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

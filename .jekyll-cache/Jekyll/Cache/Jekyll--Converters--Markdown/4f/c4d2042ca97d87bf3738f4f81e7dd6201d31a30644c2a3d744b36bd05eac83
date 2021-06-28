@@ -1,0 +1,16 @@
+I"G<p>How to remap /dev/ttyUSB* to a specific name to be called by my program.<br />
+How to map /dev/ttyUSB* to specific device.</p>
+<p>ref: <a target="_blank" href="http://unix.stackexchange.com/questions/81754/how-can-i-match-a-ttyusbx-device-to-a-usb-serial-device">
+How can I match a ttyUSBX device to a usb serial device</a><br />
+ref: <a target="_blank" href="http://unix.stackexchange.com/questions/81754/how-can-i-match-a-ttyusbx-device-to-a-usb-serial-device">
+http://unix.stackexchange.com/questions/81754/how-can-i-match-a-ttyusbx-device-to-a-usb-serial-device</a><br />
+ref: <a target="_blank" href="http://unix.stackexchange.com/questions/64266/putty-can-access-serial-port-as-dev-ttyusb0-but-not-as-named-udev-device">
+http://ubuntuforums.org/showthread.php?t=168221 <br />
+</a>and : <a target="_blank" href="http://unix.stackexchange.com/questions/64266/putty-can-access-serial-port-as-dev-ttyusb0-but-not-as-named-udev-device">
+http://unix.stackexchange.com/questions/64266/putty-can-access-serial-port-as-dev-ttyusb0-but-not-as-named-udev-device</a><a target="_blank" href="http://unix.stackexchange.com/questions/64266/putty-can-access-serial-port-as-dev-ttyusb0-but-not-as-named-udev-device"><br />
+</a></p>
+<p></p>
+<h2 class="posttitle icon">Quickly Reference/Steps:</h2>
+<div><pre name="code" class="plain">Brief Steps:
+</pre></div>
+:ET

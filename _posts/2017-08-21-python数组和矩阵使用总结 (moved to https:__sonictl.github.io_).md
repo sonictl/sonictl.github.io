@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'python数组和矩阵使用总结 (moved to https://sonictl.github.io/)'
-date: 2017-08-21 12:41:00
+date: 2017-08-21 12:41:00 +0800
+category: from_cnblogs
 ---
 <h1><span class="link_title"><a href="http://blog.csdn.net/everlasting_188/article/details/53484290">python数组和矩阵使用总结 </a></span></h1>
 <h1>1、数组和矩阵常见用法</h1>
