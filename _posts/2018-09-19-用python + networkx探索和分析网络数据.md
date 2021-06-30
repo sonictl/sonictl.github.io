@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '用python + networkx探索和分析网络数据 (moved to https://sonictl.github.io/)'
+title: '用python + networkx探索和分析网络数据'
 date: 2018-09-19 13:10:00 +0800
-category: from_cnblogs
+category: from_cnblogs networkx
 ---
 Edited by Markdown
 
