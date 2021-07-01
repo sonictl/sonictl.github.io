@@ -46,7 +46,7 @@ permalink: /:categories/:title/
 emptyArray: []
 
 comments:
-  receiver: https://{{your-receiver-site}}/api/PostComment}}
+  receiver: https://https://jekyll-blog-comments.azurewebsites.net/api/PostComment}}
   #eg.      https://haacked-blog.azurewebsites.net/api/PostComment
 
 defaults:
