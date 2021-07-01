@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-01T10:55:02+08:00</updated><id>/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</subtitle><entry><title type="html">todo List</title><link href="/jekyll/timeline/p20210628100034/" rel="alternate" type="text/html" title="todo List" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>/jekyll/timeline/p20210628100034</id><content type="html" xml:base="/jekyll/timeline/p20210628100034/">&lt;h2 id=&quot;todo-list&quot;&gt;Todo List&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-01T11:54:14+08:00</updated><id>/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</subtitle><entry><title type="html">todo List</title><link href="/jekyll/timeline/p20210628100034/" rel="alternate" type="text/html" title="todo List" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>/jekyll/timeline/p20210628100034</id><content type="html" xml:base="/jekyll/timeline/p20210628100034/">&lt;h2 id=&quot;todo-list&quot;&gt;Todo List&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;add public comments
@@ -106,7 +106,14 @@ message: &quot;This is a great solution for 'dynamic' comments on a static blog!
     &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;ggg&lt;/p&gt;
+    &lt;p&gt;I meet the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;handle forms for '$'.&lt;/code&gt; error from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.azurewebsites.net/api/PostComment&lt;/code&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Error&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;Message&amp;gt;&lt;/span&gt;This Jekyll comments receiever does not handle forms for '$'. You should point to your own instance.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Message&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Error&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;wait for the issue answering in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><category term="timeline" /><summary type="html">Todo List</summary></entry><entry><title type="html">抛弃清华源，使用SJTU的镜像 for Anaconda</title><link href="/%E8%BF%90%E7%BB%B4/%E6%8A%9B%E5%BC%83%E6%B8%85%E5%8D%8E%E6%BA%90-%E4%BD%BF%E7%94%A8SJTU%E7%9A%84%E9%95%9C%E5%83%8F-for-Anaconda/" rel="alternate" type="text/html" title="抛弃清华源，使用SJTU的镜像 for Anaconda" /><published>2021-06-17T13:25:00+08:00</published><updated>2021-06-17T13:25:00+08:00</updated><id>/%E8%BF%90%E7%BB%B4/%E6%8A%9B%E5%BC%83%E6%B8%85%E5%8D%8E%E6%BA%90,%E4%BD%BF%E7%94%A8SJTU%E7%9A%84%E9%95%9C%E5%83%8F%20for%20Anaconda</id><content type="html" xml:base="/%E8%BF%90%E7%BB%B4/%E6%8A%9B%E5%BC%83%E6%B8%85%E5%8D%8E%E6%BA%90-%E4%BD%BF%E7%94%A8SJTU%E7%9A%84%E9%95%9C%E5%83%8F-for-Anaconda/">&lt;h2 id=&quot;使用sjtu的anaconda镜像&quot;&gt;&lt;a href=&quot;https://verrickt.github.io/2020/12/12/conda-mirror-from-sjtu/&quot;&gt;使用SJTU的Anaconda镜像&lt;/a&gt;&lt;/h2&gt;
