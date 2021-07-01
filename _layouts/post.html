@@ -25,7 +25,8 @@ layout: default
         {% endfor %}
       {%- endif -%}</p>
   </header>
-<!-- categories start >>>> -->
+
+  <!-- categories start >>>> -->
   <div class="post-categories">
   {% if post %}
     {% assign categories = post.categories %}
@@ -37,17 +38,13 @@ layout: default
   {% unless forloop.last %}&nbsp;{% endunless %}
   {% endfor %}
   </div>
-<!-- categories end <<<<< -->
+  <!-- categories end <<<<< -->
+
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
+    {% include comments.html %}
   </div>
-
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
-
-
 
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

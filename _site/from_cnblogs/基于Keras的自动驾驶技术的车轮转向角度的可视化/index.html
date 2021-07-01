@@ -6,6 +6,7 @@
 <title>基于Keras的自动驾驶技术的车轮转向角度的可视化 | Combine Art and Sciences</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="基于Keras的自动驾驶技术的车轮转向角度的可视化" />
+<meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This post is about understanding how a self driving deep learning network decides to steer the wheel. &nbsp; NVIDIA published a very interesting paper(https://arxiv.org/pdf/1604.07316.pdf), that describes how a deep learning network can be trained to steer a wheel, given a 200x66 RGB image from the front of a car. This repository(https://github.com/SullyChen/Nvidia-Autopilot-TensorFlow) shared a Tensorflow implementation of the network described in the paper, and (thankfully!) a dataset of image / steering angles collected from a human driving a car. The dataset is quite small, and there are much larger datasets available like in the udacity challenge. However it is great for quickly experimenting with these kind of networks, and visualizing when the network is overfitting is also interesting. I ported the code to Keras, trained a (very over-fitting) network based on the NVIDIA paper, and made visualizations.I think that if eventually this kind of a network will find use in a real world self driving car, being able to debug it and understand its output will be crucial. Otherwise the first time the network decides to make a very wrong turn, critics will say that this is just a black box we don&rsquo;t understand, and it should be replaced!First attempt : Treating the network as a black box - occlusion mapsThe first thing we will try, won&rsquo;t require any knowledge about the network, and in fact we won&rsquo;t peak inside the network, just look at the output. We&rdquo;l create an occlusion map for a given image, where we take many windows in the image, mask them out, run the network, and see how the regressed angle changed. If the angle changed a lot - that window contains information that was important for the network decision. We then can assign each window a score based on how the angle changed!We need to take many windows, with different sizes - since we don&rsquo;t know in advance the sizes of important features in the image.Now we can make nice effects like filtering the occlusion map, and displaying the focused area on top of a blurred image: 链接(需翻墙)：http://jacobcv.blogspot.jp/2016/10/visualizations-for-regressing-wheel.html代码链接：https://github.com/jacobgil/keras-steering-angle-visualizations原文链接：http://weibo.com/5501429448/EeBRKc9pl?ref=collection&amp;type=comment" />
 <meta property="og:description" content="This post is about understanding how a self driving deep learning network decides to steer the wheel. &nbsp; NVIDIA published a very interesting paper(https://arxiv.org/pdf/1604.07316.pdf), that describes how a deep learning network can be trained to steer a wheel, given a 200x66 RGB image from the front of a car. This repository(https://github.com/SullyChen/Nvidia-Autopilot-TensorFlow) shared a Tensorflow implementation of the network described in the paper, and (thankfully!) a dataset of image / steering angles collected from a human driving a car. The dataset is quite small, and there are much larger datasets available like in the udacity challenge. However it is great for quickly experimenting with these kind of networks, and visualizing when the network is overfitting is also interesting. I ported the code to Keras, trained a (very over-fitting) network based on the NVIDIA paper, and made visualizations.I think that if eventually this kind of a network will find use in a real world self driving car, being able to debug it and understand its output will be crucial. Otherwise the first time the network decides to make a very wrong turn, critics will say that this is just a black box we don&rsquo;t understand, and it should be replaced!First attempt : Treating the network as a black box - occlusion mapsThe first thing we will try, won&rsquo;t require any knowledge about the network, and in fact we won&rsquo;t peak inside the network, just look at the output. We&rdquo;l create an occlusion map for a given image, where we take many windows in the image, mask them out, run the network, and see how the regressed angle changed. If the angle changed a lot - that window contains information that was important for the network decision. We then can assign each window a score based on how the angle changed!We need to take many windows, with different sizes - since we don&rsquo;t know in advance the sizes of important features in the image.Now we can make nice effects like filtering the occlusion map, and displaying the focused area on top of a blurred image: 链接(需翻墙)：http://jacobcv.blogspot.jp/2016/10/visualizations-for-regressing-wheel.html代码链接：https://github.com/jacobgil/keras-steering-angle-visualizations原文链接：http://weibo.com/5501429448/EeBRKc9pl?ref=collection&amp;type=comment" />
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="基于Keras的自动驾驶技术的车轮转向角度的可视化" />
 <script type="application/ld+json">
-{"dateModified":"2017-02-16T07:15:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E7%9A%84%E8%BD%A6%E8%BD%AE%E8%BD%AC%E5%90%91%E8%A7%92%E5%BA%A6%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/"},"description":"This post is about understanding how a self driving deep learning network decides to steer the wheel. &nbsp; NVIDIA published a very interesting paper(https://arxiv.org/pdf/1604.07316.pdf), that describes how a deep learning network can be trained to steer a wheel, given a 200x66 RGB image from the front of a car. This repository(https://github.com/SullyChen/Nvidia-Autopilot-TensorFlow) shared a Tensorflow implementation of the network described in the paper, and (thankfully!) a dataset of image / steering angles collected from a human driving a car. The dataset is quite small, and there are much larger datasets available like in the udacity challenge. However it is great for quickly experimenting with these kind of networks, and visualizing when the network is overfitting is also interesting. I ported the code to Keras, trained a (very over-fitting) network based on the NVIDIA paper, and made visualizations.I think that if eventually this kind of a network will find use in a real world self driving car, being able to debug it and understand its output will be crucial. Otherwise the first time the network decides to make a very wrong turn, critics will say that this is just a black box we don&rsquo;t understand, and it should be replaced!First attempt : Treating the network as a black box - occlusion mapsThe first thing we will try, won&rsquo;t require any knowledge about the network, and in fact we won&rsquo;t peak inside the network, just look at the output. We&rdquo;l create an occlusion map for a given image, where we take many windows in the image, mask them out, run the network, and see how the regressed angle changed. If the angle changed a lot - that window contains information that was important for the network decision. We then can assign each window a score based on how the angle changed!We need to take many windows, with different sizes - since we don&rsquo;t know in advance the sizes of important features in the image.Now we can make nice effects like filtering the occlusion map, and displaying the focused area on top of a blurred image: 链接(需翻墙)：http://jacobcv.blogspot.jp/2016/10/visualizations-for-regressing-wheel.html代码链接：https://github.com/jacobgil/keras-steering-angle-visualizations原文链接：http://weibo.com/5501429448/EeBRKc9pl?ref=collection&amp;type=comment","@type":"BlogPosting","headline":"基于Keras的自动驾驶技术的车轮转向角度的可视化","url":"/from_cnblogs/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E7%9A%84%E8%BD%A6%E8%BD%AE%E8%BD%AC%E5%90%91%E8%A7%92%E5%BA%A6%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/","datePublished":"2017-02-16T07:15:00+08:00","@context":"https://schema.org"}</script>
+{"dateModified":"2017-02-16T07:15:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E7%9A%84%E8%BD%A6%E8%BD%AE%E8%BD%AC%E5%90%91%E8%A7%92%E5%BA%A6%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/"},"author":{"@type":"Person","name":"sonictl"},"description":"This post is about understanding how a self driving deep learning network decides to steer the wheel. &nbsp; NVIDIA published a very interesting paper(https://arxiv.org/pdf/1604.07316.pdf), that describes how a deep learning network can be trained to steer a wheel, given a 200x66 RGB image from the front of a car. This repository(https://github.com/SullyChen/Nvidia-Autopilot-TensorFlow) shared a Tensorflow implementation of the network described in the paper, and (thankfully!) a dataset of image / steering angles collected from a human driving a car. The dataset is quite small, and there are much larger datasets available like in the udacity challenge. However it is great for quickly experimenting with these kind of networks, and visualizing when the network is overfitting is also interesting. I ported the code to Keras, trained a (very over-fitting) network based on the NVIDIA paper, and made visualizations.I think that if eventually this kind of a network will find use in a real world self driving car, being able to debug it and understand its output will be crucial. Otherwise the first time the network decides to make a very wrong turn, critics will say that this is just a black box we don&rsquo;t understand, and it should be replaced!First attempt : Treating the network as a black box - occlusion mapsThe first thing we will try, won&rsquo;t require any knowledge about the network, and in fact we won&rsquo;t peak inside the network, just look at the output. We&rdquo;l create an occlusion map for a given image, where we take many windows in the image, mask them out, run the network, and see how the regressed angle changed. If the angle changed a lot - that window contains information that was important for the network decision. We then can assign each window a score based on how the angle changed!We need to take many windows, with different sizes - since we don&rsquo;t know in advance the sizes of important features in the image.Now we can make nice effects like filtering the occlusion map, and displaying the focused area on top of a blurred image: 链接(需翻墙)：http://jacobcv.blogspot.jp/2016/10/visualizations-for-regressing-wheel.html代码链接：https://github.com/jacobgil/keras-steering-angle-visualizations原文链接：http://weibo.com/5501429448/EeBRKc9pl?ref=collection&amp;type=comment","@type":"BlogPosting","headline":"基于Keras的自动驾驶技术的车轮转向角度的可视化","url":"/from_cnblogs/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E7%9A%84%E8%BD%A6%E8%BD%AE%E8%BD%AC%E5%90%91%E8%A7%92%E5%BA%A6%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/","datePublished":"2017-02-16T07:15:00+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -43,9 +44,12 @@
     <h1 class="post-title p-name" itemprop="name headline">基于Keras的自动驾驶技术的车轮转向角度的可视化</h1>
     <p class="post-meta"><time class="dt-published" datetime="2017-02-16T07:15:00+08:00" itemprop="datePublished">
         Feb 16, 2017
-      </time></p>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
   </header>
-<!-- categories start >>>> -->
+
+  <!-- categories start >>>> -->
   <div class="post-categories">
   
   
@@ -53,7 +57,8 @@
   
   
   </div>
-<!-- categories end <<<<< -->
+  <!-- categories end <<<<< -->
+
 
   <div class="post-content e-content" itemprop="articleBody">
     <p>This post is about understanding how a self driving deep learning network decides to steer the wheel.</p>
@@ -77,7 +82,83 @@ angle changed. <br />If the angle changed a lot - that window contains informati
  need to take many windows, with different sizes - since we don&rsquo;t know 
 in advance the sizes of important features in the image.<br /><br />Now we can make nice effects like filtering the occlusion map, and displaying the focused area on top of a blurred image: <br /><img style="width: auto ! important; height: auto ! important; visibility: visible ! important;" src="http://mmbiz.qpic.cn/mmbiz_jpg/6PqHI4vHibfW5jv56JrqBF0tliakbUwHOxPibjdzZeXTjtdJnRbnx2micEzfzXm8cTWY23ErR6Xric0Y5PxCgnofygA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1" alt="" data-s="300,640" data-type="jpeg" data-src="http://mmbiz.qpic.cn/mmbiz_jpg/6PqHI4vHibfW5jv56JrqBF0tliakbUwHOxPibjdzZeXTjtdJnRbnx2micEzfzXm8cTWY23ErR6Xric0Y5PxCgnofygA/0?wx_fmt=jpeg" data-ratio="0.5626373626373626" data-w="455" data-fail="0" /><br /><br />链接(需翻墙)：<br />http://jacobcv.blogspot.jp/2016/10/visualizations-for-regressing-wheel.html<br /><br />代码链接：<br />https://github.com/jacobgil/keras-steering-angle-visualizations<br /><br />原文链接：<br />http://weibo.com/5501429448/EeBRKc9pl?ref=collection&amp;type=comment</span></span></p>
 
-  </div><a class="u-url" href="/from_cnblogs/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E7%9A%84%E8%BD%A6%E8%BD%AE%E8%BD%AC%E5%90%91%E8%A7%92%E5%BA%A6%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/" hidden></a>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="/thanks">
+    <input name="post_id" type="hidden" value="基于keras的自动驾驶技术的车轮转向角度的可视化">
+    <input name="comment-site" type="hidden" value="">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://{{your-receiver-site}}/api/PostComment}}'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E6%8A%80%E6%9C%AF%E7%9A%84%E8%BD%A6%E8%BD%AE%E8%BD%AC%E5%90%91%E8%A7%92%E5%BA%A6%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/" hidden></a>
 </article>
 
 

@@ -42,6 +42,33 @@ google_analytics: UA-200656646-1   # UA—XXXXXXXX-X
 # About categories: https://blog.webjeda.com/jekyll-categories/
 permalink: /:categories/:title/
 
+# for jekyll-blog-comments:
+emptyArray: []
+
+comments:
+  receiver: https://{{your-receiver-site}}/api/PostComment}}
+  #eg.      https://haacked-blog.azurewebsites.net/api/PostComment
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: pages
+    values:
+      layout: page
+      author: sonictl
+      commenting: open
+  -
+    scope:
+      path: '_posts'
+      type: posts
+    values:
+      layout: post
+      author: sonictl
+      commenting: open
+
+parse_liquid_in_code_blocks: false
+
 # advanced settings: https://github.com/jekyll/minima
 # show_excerpts: true   # 显示摘要 This is dangerous!! cause errors in index.html
 

@@ -1,0 +1,115 @@
+I"<h2 id="todo-list">Todo List</h2>
+
+<ul>
+  <li>add public comments
+    <ul>
+      <li>https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/</li>
+      <li>https://github.com/xk-wang/comment</li>
+      <li>https://darekkay.com/blog/static-site-comments/</li>
+      <li>https://jacobpan3g.github.io/cn/2017/07/17/gitment-in-jekyll/</li>
+      <li></li>
+    </ul>
+  </li>
+  <li>select a preferable minima theme</li>
+</ul>
+
+<h2 id="done">done:</h2>
+
+<ol>
+  <li>
+    <p>add categories</p>
+  </li>
+  <li>
+    <p>add comments</p>
+
+    <p>ref: https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/</p>
+
+    <p>Disqus is ban in mainland C</p>
+
+    <p>The idea is use <a href="https://jekyllrb.com/docs/datafiles/">data files</a> in Jekyll to store comments and some liquid templates to render them. That all can be static.</p>
+
+    <p>Azure Function or AWS Lambda combined with the GitHub API. Receive a comment form submission and create the appropriate data file in your Jekyll repository.</p>
+
+    <p>Damien Guard wrote an <a href="https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments">Azure function</a> that calls the GitHub API using <a href="https://github.com/octokit/octokit.net">Octokit.net</a> (<code class="language-plaintext highlighter-rouge">Install-Package octokit</code> when using NuGet) to create a Pull Request that contains a data file with the content info rendered as yaml.</p>
+
+    <p>Following the instructions in: https://github.com/damieng/jekyll-blog-comments to set up.</p>
+
+    <p>ref: Damien’s blog about this topic: https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. create test data and attempt rendering: 
+   create three htmls in /_includes: comment.html, new-comment.html, comments.html
+ - Render an individual comment (comment.html)
+ - Show a form to accept a new comment (new-comment.html)
+ - Loop over individual comments for a post (comments.html)
+      
+2. modify the blog post template file: _layouts/post.html
+ - add 'include comments.html' after line of `page.content`
+ @@: should add 'include item.html' before line of `page.content`, but the item.html is not offered by jekyll-blog-comments repo. And jekyll report file not exist error. `jekyll clean` to clear the built proj.
+    
+3. add the following line to _config.yml:
+   - add `emptyArray: [] `
+    
+4. add /comments folder under jekylls /_data folder
+      
+</code></pre></div>    </div>
+
+    <p>store each comment in a file named <code class="language-plaintext highlighter-rouge">_data/{blog_post_slug}/{comment_id}.yml</code> with this format:</p>
+
+    <p>blog_post_slug 可以在frontMatter里指定：<code class="language-plaintext highlighter-rouge">slug: yourSlug</code> 或者参考_includes/comments.html 第一行：</p>
+
+    <p>`` 其中，page.title 被认为是默认的slug.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>id: 12345
+name: Damien Guard
+email: damieng@gmail.com
+gravatar: dc72963e7279d34c85ed4c0b731ce5a9
+url: https://damieng.com
+date: 2007-12-18 18:51:55
+message: "This is a great solution for 'dynamic' comments on a static blog!"
+</code></pre></div>    </div>
+
+    <p><strong>Accepting new comments with an Azure function</strong></p>
+
+    <p>需要安装<a href="https://github.com/damieng/jekyll-blog-comments-azure">jekyll-blog-comments-azure</a>， 先fork, 再：</p>
+
+    <p><img src="/Users/sonic/Blog_sonictl.github.io/Posts_for_publish/images/image-20210630225938194.png" alt="image-20210630225938194" /></p>
+
+    <p>Create Azure Account, and create aZure function</p>
+
+    <p>fork the github repo: https://github.com/damieng/jekyll-blog-comments</p>
+
+    <ol>
+      <li>
+        <p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function">Create a <strong>v1</strong> Azure Function</a></p>
+      </li>
+      <li>
+        <p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous">Set up your function to deploy from your fork</a></p>
+      </li>
+      <li>
+        <p>deploy jekyll-blog-comments:</p>
+
+        <ol>
+          <li>in deploy center, select github repo</li>
+          <li>deploy</li>
+          <li>Configure <strong>Branch</strong> to <strong>master</strong></li>
+        </ol>
+      </li>
+      <li>
+        <p>Set up the following <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings">App Settings for your Azure Function</a></p>
+
+        <p>You also need to set-up two <strong>Application Settings</strong> for your function so it can create the necessary pull requests. They are:</p>
+
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">GitHubToken</code> should be a <a href="https://github.com/settings/tokens">personal access token</a> with <code class="language-plaintext highlighter-rouge">repo</code> rights</li>
+          <li><code class="language-plaintext highlighter-rouge">PullRequestRepository</code> should contain the org and repo name, e.g. <code class="language-plaintext highlighter-rouge">damieng/my-blog</code></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>ggg</p>
+  </li>
+  <li></li>
+</ol>
+
+:ET

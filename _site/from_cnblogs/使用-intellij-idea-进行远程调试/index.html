@@ -6,6 +6,7 @@
 <title>使用 intellij idea 进行远程调试 | Combine Art and Sciences</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="使用 intellij idea 进行远程调试" />
+<meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="转自：http://yiminghe.iteye.com/blog/1027707 以前都是很土得打 log ，发现一篇关于&nbsp;java 调试器架构&nbsp;，以及&nbsp;eclipse 上使用&nbsp;的文章，在常用的 intellij idea 以及 tomcat 上调试成功，结合调用堆栈希望可以加快 ``how tomcat works`` 读书进度。 &nbsp; 1. tomcat 7.0.5 启动支持调试 &nbsp; 新建文件 setenv.bat &nbsp; Java代码&nbsp;&nbsp; SET&nbsp;CATALINA_OPTS=-server&nbsp;-Xdebug&nbsp;-Xnoagent&nbsp;&nbsp;&nbsp; -Djava.compiler=NONE&nbsp;-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000&nbsp;&nbsp; &nbsp; &nbsp;放入 tomcat 下 bin/ 中（和 startup.bat）同级。 &nbsp; 2. 点击 startup.bat 启动，控制台输出调试支持日志表示成功配置： &nbsp; Java代码&nbsp;&nbsp; Listening&nbsp;for&nbsp;transport&nbsp;dt_socket&nbsp;at&nbsp;address:&nbsp;8000&nbsp;&nbsp; &nbsp; 3. idea remote debug 配置 &nbsp; 打开已有的 web 类型项目，设置运行配置 &nbsp; &nbsp; 找到 remote 子项，选择新增配置 &nbsp; &nbsp; 输入项目名称，端口设置 tomcat 配置的 8000，并选择源码所在模块，调试模式为 attach &nbsp; &nbsp; &nbsp; &nbsp; 点击 ok 关闭设置窗口 &nbsp; 4. 在源码上设置断点后，点击调试按钮 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 调试窗口输出 &nbsp; Java代码&nbsp;&nbsp; Connected&nbsp;to&nbsp;the&nbsp;target&nbsp;VM,&nbsp;address:&nbsp;&#39;localhost:8000&#39;,&nbsp;transport:&nbsp;&#39;socket&#39;&nbsp;&nbsp; &nbsp; 表示正常连上了远端（localhost）服务器。 &nbsp; 5.启动调试 &nbsp; 使用浏览器访问对应服务器应用，启动调试，运行到客户端断点时，就可以查看当前帧变量与堆栈信息了： &nbsp; &nbsp; &nbsp; 再进一步关联&nbsp;tomcat 源码&nbsp;则可以了解到请求在 servlet 容器中的一系列转发过程了。" />
 <meta property="og:description" content="转自：http://yiminghe.iteye.com/blog/1027707 以前都是很土得打 log ，发现一篇关于&nbsp;java 调试器架构&nbsp;，以及&nbsp;eclipse 上使用&nbsp;的文章，在常用的 intellij idea 以及 tomcat 上调试成功，结合调用堆栈希望可以加快 ``how tomcat works`` 读书进度。 &nbsp; 1. tomcat 7.0.5 启动支持调试 &nbsp; 新建文件 setenv.bat &nbsp; Java代码&nbsp;&nbsp; SET&nbsp;CATALINA_OPTS=-server&nbsp;-Xdebug&nbsp;-Xnoagent&nbsp;&nbsp;&nbsp; -Djava.compiler=NONE&nbsp;-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000&nbsp;&nbsp; &nbsp; &nbsp;放入 tomcat 下 bin/ 中（和 startup.bat）同级。 &nbsp; 2. 点击 startup.bat 启动，控制台输出调试支持日志表示成功配置： &nbsp; Java代码&nbsp;&nbsp; Listening&nbsp;for&nbsp;transport&nbsp;dt_socket&nbsp;at&nbsp;address:&nbsp;8000&nbsp;&nbsp; &nbsp; 3. idea remote debug 配置 &nbsp; 打开已有的 web 类型项目，设置运行配置 &nbsp; &nbsp; 找到 remote 子项，选择新增配置 &nbsp; &nbsp; 输入项目名称，端口设置 tomcat 配置的 8000，并选择源码所在模块，调试模式为 attach &nbsp; &nbsp; &nbsp; &nbsp; 点击 ok 关闭设置窗口 &nbsp; 4. 在源码上设置断点后，点击调试按钮 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 调试窗口输出 &nbsp; Java代码&nbsp;&nbsp; Connected&nbsp;to&nbsp;the&nbsp;target&nbsp;VM,&nbsp;address:&nbsp;&#39;localhost:8000&#39;,&nbsp;transport:&nbsp;&#39;socket&#39;&nbsp;&nbsp; &nbsp; 表示正常连上了远端（localhost）服务器。 &nbsp; 5.启动调试 &nbsp; 使用浏览器访问对应服务器应用，启动调试，运行到客户端断点时，就可以查看当前帧变量与堆栈信息了： &nbsp; &nbsp; &nbsp; 再进一步关联&nbsp;tomcat 源码&nbsp;则可以了解到请求在 servlet 容器中的一系列转发过程了。" />
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="使用 intellij idea 进行远程调试" />
 <script type="application/ld+json">
-{"dateModified":"2014-10-10T03:17:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E4%BD%BF%E7%94%A8-intellij-idea-%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/"},"description":"转自：http://yiminghe.iteye.com/blog/1027707 以前都是很土得打 log ，发现一篇关于&nbsp;java 调试器架构&nbsp;，以及&nbsp;eclipse 上使用&nbsp;的文章，在常用的 intellij idea 以及 tomcat 上调试成功，结合调用堆栈希望可以加快 ``how tomcat works`` 读书进度。 &nbsp; 1. tomcat 7.0.5 启动支持调试 &nbsp; 新建文件 setenv.bat &nbsp; Java代码&nbsp;&nbsp; SET&nbsp;CATALINA_OPTS=-server&nbsp;-Xdebug&nbsp;-Xnoagent&nbsp;&nbsp;&nbsp; -Djava.compiler=NONE&nbsp;-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000&nbsp;&nbsp; &nbsp; &nbsp;放入 tomcat 下 bin/ 中（和 startup.bat）同级。 &nbsp; 2. 点击 startup.bat 启动，控制台输出调试支持日志表示成功配置： &nbsp; Java代码&nbsp;&nbsp; Listening&nbsp;for&nbsp;transport&nbsp;dt_socket&nbsp;at&nbsp;address:&nbsp;8000&nbsp;&nbsp; &nbsp; 3. idea remote debug 配置 &nbsp; 打开已有的 web 类型项目，设置运行配置 &nbsp; &nbsp; 找到 remote 子项，选择新增配置 &nbsp; &nbsp; 输入项目名称，端口设置 tomcat 配置的 8000，并选择源码所在模块，调试模式为 attach &nbsp; &nbsp; &nbsp; &nbsp; 点击 ok 关闭设置窗口 &nbsp; 4. 在源码上设置断点后，点击调试按钮 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 调试窗口输出 &nbsp; Java代码&nbsp;&nbsp; Connected&nbsp;to&nbsp;the&nbsp;target&nbsp;VM,&nbsp;address:&nbsp;&#39;localhost:8000&#39;,&nbsp;transport:&nbsp;&#39;socket&#39;&nbsp;&nbsp; &nbsp; 表示正常连上了远端（localhost）服务器。 &nbsp; 5.启动调试 &nbsp; 使用浏览器访问对应服务器应用，启动调试，运行到客户端断点时，就可以查看当前帧变量与堆栈信息了： &nbsp; &nbsp; &nbsp; 再进一步关联&nbsp;tomcat 源码&nbsp;则可以了解到请求在 servlet 容器中的一系列转发过程了。","@type":"BlogPosting","headline":"使用 intellij idea 进行远程调试","url":"/from_cnblogs/%E4%BD%BF%E7%94%A8-intellij-idea-%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/","datePublished":"2014-10-10T03:17:00+08:00","@context":"https://schema.org"}</script>
+{"dateModified":"2014-10-10T03:17:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E4%BD%BF%E7%94%A8-intellij-idea-%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/"},"author":{"@type":"Person","name":"sonictl"},"description":"转自：http://yiminghe.iteye.com/blog/1027707 以前都是很土得打 log ，发现一篇关于&nbsp;java 调试器架构&nbsp;，以及&nbsp;eclipse 上使用&nbsp;的文章，在常用的 intellij idea 以及 tomcat 上调试成功，结合调用堆栈希望可以加快 ``how tomcat works`` 读书进度。 &nbsp; 1. tomcat 7.0.5 启动支持调试 &nbsp; 新建文件 setenv.bat &nbsp; Java代码&nbsp;&nbsp; SET&nbsp;CATALINA_OPTS=-server&nbsp;-Xdebug&nbsp;-Xnoagent&nbsp;&nbsp;&nbsp; -Djava.compiler=NONE&nbsp;-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000&nbsp;&nbsp; &nbsp; &nbsp;放入 tomcat 下 bin/ 中（和 startup.bat）同级。 &nbsp; 2. 点击 startup.bat 启动，控制台输出调试支持日志表示成功配置： &nbsp; Java代码&nbsp;&nbsp; Listening&nbsp;for&nbsp;transport&nbsp;dt_socket&nbsp;at&nbsp;address:&nbsp;8000&nbsp;&nbsp; &nbsp; 3. idea remote debug 配置 &nbsp; 打开已有的 web 类型项目，设置运行配置 &nbsp; &nbsp; 找到 remote 子项，选择新增配置 &nbsp; &nbsp; 输入项目名称，端口设置 tomcat 配置的 8000，并选择源码所在模块，调试模式为 attach &nbsp; &nbsp; &nbsp; &nbsp; 点击 ok 关闭设置窗口 &nbsp; 4. 在源码上设置断点后，点击调试按钮 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 调试窗口输出 &nbsp; Java代码&nbsp;&nbsp; Connected&nbsp;to&nbsp;the&nbsp;target&nbsp;VM,&nbsp;address:&nbsp;&#39;localhost:8000&#39;,&nbsp;transport:&nbsp;&#39;socket&#39;&nbsp;&nbsp; &nbsp; 表示正常连上了远端（localhost）服务器。 &nbsp; 5.启动调试 &nbsp; 使用浏览器访问对应服务器应用，启动调试，运行到客户端断点时，就可以查看当前帧变量与堆栈信息了： &nbsp; &nbsp; &nbsp; 再进一步关联&nbsp;tomcat 源码&nbsp;则可以了解到请求在 servlet 容器中的一系列转发过程了。","@type":"BlogPosting","headline":"使用 intellij idea 进行远程调试","url":"/from_cnblogs/%E4%BD%BF%E7%94%A8-intellij-idea-%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/","datePublished":"2014-10-10T03:17:00+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -43,9 +44,12 @@
     <h1 class="post-title p-name" itemprop="name headline">使用 intellij idea 进行远程调试</h1>
     <p class="post-meta"><time class="dt-published" datetime="2014-10-10T03:17:00+08:00" itemprop="datePublished">
         Oct 10, 2014
-      </time></p>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
   </header>
-<!-- categories start >>>> -->
+
+  <!-- categories start >>>> -->
   <div class="post-categories">
   
   
@@ -53,7 +57,8 @@
   
   
   </div>
-<!-- categories end <<<<< -->
+  <!-- categories end <<<<< -->
+
 
   <div class="post-content e-content" itemprop="articleBody">
     <p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; font-family:Helvetica,Tahoma,Arial,sans-serif; font-size:14px; line-height:25.1875px">
@@ -192,7 +197,83 @@
 再进一步关联&nbsp;<a target="_blank" href="http://tomcat.apache.org/download-70.cgi" style="color:rgb(16,138,198)">tomcat 源码</a>&nbsp;则可以了解到请求在 servlet 容器中的一系列转发过程了。</p>
 
 
-  </div><a class="u-url" href="/from_cnblogs/%E4%BD%BF%E7%94%A8-intellij-idea-%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/" hidden></a>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="/thanks">
+    <input name="post_id" type="hidden" value="使用 intellij idea 进行远程调试">
+    <input name="comment-site" type="hidden" value="">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://{{your-receiver-site}}/api/PostComment}}'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/%E4%BD%BF%E7%94%A8-intellij-idea-%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/" hidden></a>
 </article>
 
 

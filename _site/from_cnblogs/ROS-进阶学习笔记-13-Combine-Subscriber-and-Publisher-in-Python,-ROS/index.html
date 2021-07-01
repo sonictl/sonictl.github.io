@@ -6,6 +6,7 @@
 <title>ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS | Combine Art and Sciences</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS" />
+<meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Combine Subscriber and Publisher in Python, ROS This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming. This is very useful in ROS development. We will also discuss briefly how to build and modify a catkin package which is written by Python. Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/srcBuild it with the command: catkin_make, under the path: ~/catkin_ws/Source the catkin setup file under devel folder: $ source ~/catkin_ws/devel/setup.bash modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx.pychmod &#43;x nodexxx.pyRun this package by Command:&nbsp; rosrun package_name nodexxx.pyModify the CMakefile.txt for Python: Writing a ROS Python Makefile More about Create and Build catkin ROS package: This blog The sourcecode for this Combining Subscriber and Publisher in Python is here: #!/usr/bin/env python # License removed for brevity &quot;&quot;&quot; learn to write Subscriber and Listener in one python script. Function Style Author: Sonic http://blog.csdn.net/sonictl Date: Feb 29, 2016 &quot;&quot;&quot; import rospy from std_msgs.msg import String" />
 <meta property="og:description" content="Combine Subscriber and Publisher in Python, ROS This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming. This is very useful in ROS development. We will also discuss briefly how to build and modify a catkin package which is written by Python. Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/srcBuild it with the command: catkin_make, under the path: ~/catkin_ws/Source the catkin setup file under devel folder: $ source ~/catkin_ws/devel/setup.bash modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx.pychmod &#43;x nodexxx.pyRun this package by Command:&nbsp; rosrun package_name nodexxx.pyModify the CMakefile.txt for Python: Writing a ROS Python Makefile More about Create and Build catkin ROS package: This blog The sourcecode for this Combining Subscriber and Publisher in Python is here: #!/usr/bin/env python # License removed for brevity &quot;&quot;&quot; learn to write Subscriber and Listener in one python script. Function Style Author: Sonic http://blog.csdn.net/sonictl Date: Feb 29, 2016 &quot;&quot;&quot; import rospy from std_msgs.msg import String" />
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS" />
 <script type="application/ld+json">
-{"dateModified":"2016-02-29T06:10:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/ROS-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-13-Combine-Subscriber-and-Publisher-in-Python,-ROS/"},"description":"Combine Subscriber and Publisher in Python, ROS This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming. This is very useful in ROS development. We will also discuss briefly how to build and modify a catkin package which is written by Python. Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/srcBuild it with the command: catkin_make, under the path: ~/catkin_ws/Source the catkin setup file under devel folder: $ source ~/catkin_ws/devel/setup.bash modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx.pychmod &#43;x nodexxx.pyRun this package by Command:&nbsp; rosrun package_name nodexxx.pyModify the CMakefile.txt for Python: Writing a ROS Python Makefile More about Create and Build catkin ROS package: This blog The sourcecode for this Combining Subscriber and Publisher in Python is here: #!/usr/bin/env python # License removed for brevity &quot;&quot;&quot; learn to write Subscriber and Listener in one python script. Function Style Author: Sonic http://blog.csdn.net/sonictl Date: Feb 29, 2016 &quot;&quot;&quot; import rospy from std_msgs.msg import String","@type":"BlogPosting","headline":"ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS","url":"/from_cnblogs/ROS-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-13-Combine-Subscriber-and-Publisher-in-Python,-ROS/","datePublished":"2016-02-29T06:10:00+08:00","@context":"https://schema.org"}</script>
+{"dateModified":"2016-02-29T06:10:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/ROS-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-13-Combine-Subscriber-and-Publisher-in-Python,-ROS/"},"author":{"@type":"Person","name":"sonictl"},"description":"Combine Subscriber and Publisher in Python, ROS This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming. This is very useful in ROS development. We will also discuss briefly how to build and modify a catkin package which is written by Python. Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/srcBuild it with the command: catkin_make, under the path: ~/catkin_ws/Source the catkin setup file under devel folder: $ source ~/catkin_ws/devel/setup.bash modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx.pychmod &#43;x nodexxx.pyRun this package by Command:&nbsp; rosrun package_name nodexxx.pyModify the CMakefile.txt for Python: Writing a ROS Python Makefile More about Create and Build catkin ROS package: This blog The sourcecode for this Combining Subscriber and Publisher in Python is here: #!/usr/bin/env python # License removed for brevity &quot;&quot;&quot; learn to write Subscriber and Listener in one python script. Function Style Author: Sonic http://blog.csdn.net/sonictl Date: Feb 29, 2016 &quot;&quot;&quot; import rospy from std_msgs.msg import String","@type":"BlogPosting","headline":"ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS","url":"/from_cnblogs/ROS-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-13-Combine-Subscriber-and-Publisher-in-Python,-ROS/","datePublished":"2016-02-29T06:10:00+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -43,9 +44,12 @@
     <h1 class="post-title p-name" itemprop="name headline">ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS</h1>
     <p class="post-meta"><time class="dt-published" datetime="2016-02-29T06:10:00+08:00" itemprop="datePublished">
         Feb 29, 2016
-      </time></p>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
   </header>
-<!-- categories start >>>> -->
+
+  <!-- categories start >>>> -->
   <div class="post-categories">
   
   
@@ -53,7 +57,8 @@
   
   
   </div>
-<!-- categories end <<<<< -->
+  <!-- categories end <<<<< -->
+
 
   <div class="post-content e-content" itemprop="articleBody">
     <h1>Combine Subscriber and Publisher in Python, ROS<br />
@@ -193,7 +198,83 @@ We can learn how to initialize a node, declare a publisher, subscriber and how t
 <p></p>
 
 
-  </div><a class="u-url" href="/from_cnblogs/ROS-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-13-Combine-Subscriber-and-Publisher-in-Python,-ROS/" hidden></a>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="/thanks">
+    <input name="post_id" type="hidden" value="ros 进阶学习笔记（13） - combine subscriber and publisher in python, ros">
+    <input name="comment-site" type="hidden" value="">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://{{your-receiver-site}}/api/PostComment}}'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/ROS-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-13-Combine-Subscriber-and-Publisher-in-Python,-ROS/" hidden></a>
 </article>
 
 

@@ -6,6 +6,7 @@
 <title>背单词app测评，2018年 | Combine Art and Sciences</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="背单词app测评，2018年" />
+<meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="TFT测评丨所有好用的背单词app一网打尽" />
 <meta property="og:description" content="TFT测评丨所有好用的背单词app一网打尽" />
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="背单词app测评，2018年" />
 <script type="application/ld+json">
-{"dateModified":"2021-03-08T13:53:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E8%83%8C%E5%8D%95%E8%AF%8Dapp%E6%B5%8B%E8%AF%84-2018%E5%B9%B4/"},"description":"TFT测评丨所有好用的背单词app一网打尽","@type":"BlogPosting","headline":"背单词app测评，2018年","url":"/from_cnblogs/%E8%83%8C%E5%8D%95%E8%AF%8Dapp%E6%B5%8B%E8%AF%84-2018%E5%B9%B4/","datePublished":"2021-03-08T13:53:00+08:00","@context":"https://schema.org"}</script>
+{"dateModified":"2021-03-08T13:53:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E8%83%8C%E5%8D%95%E8%AF%8Dapp%E6%B5%8B%E8%AF%84-2018%E5%B9%B4/"},"author":{"@type":"Person","name":"sonictl"},"description":"TFT测评丨所有好用的背单词app一网打尽","@type":"BlogPosting","headline":"背单词app测评，2018年","url":"/from_cnblogs/%E8%83%8C%E5%8D%95%E8%AF%8Dapp%E6%B5%8B%E8%AF%84-2018%E5%B9%B4/","datePublished":"2021-03-08T13:53:00+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -43,9 +44,12 @@
     <h1 class="post-title p-name" itemprop="name headline">背单词app测评，2018年</h1>
     <p class="post-meta"><time class="dt-published" datetime="2021-03-08T13:53:00+08:00" itemprop="datePublished">
         Mar 8, 2021
-      </time></p>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
   </header>
-<!-- categories start >>>> -->
+
+  <!-- categories start >>>> -->
   <div class="post-categories">
   
   
@@ -53,7 +57,8 @@
   
   
   </div>
-<!-- categories end <<<<< -->
+  <!-- categories end <<<<< -->
+
 
   <div class="post-content e-content" itemprop="articleBody">
     <h1 id="tft测评丨所有好用的背单词app一网打尽">TFT测评丨所有好用的背单词app一网打尽</h1>
@@ -182,7 +187,83 @@
 
 <p><img src="https://static.careerengine.us/api/aov2/https%3A_%7C__%7C_mmbiz.qpic.cn_%7C_mmbiz_jpg_%7C_KEXBp45xfJzxfydJdlGsnEdEQ7fhPWuOLdNuxXvo97YibjveBgc5WicvNDa0vKibSzjfE52Lu1lfVBibEuG5XHqlsQ_%7C_640" alt="img" /></p>
 
-  </div><a class="u-url" href="/from_cnblogs/%E8%83%8C%E5%8D%95%E8%AF%8Dapp%E6%B5%8B%E8%AF%84-2018%E5%B9%B4/" hidden></a>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="/thanks">
+    <input name="post_id" type="hidden" value="背单词app测评，2018年">
+    <input name="comment-site" type="hidden" value="">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://{{your-receiver-site}}/api/PostComment}}'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/%E8%83%8C%E5%8D%95%E8%AF%8Dapp%E6%B5%8B%E8%AF%84-2018%E5%B9%B4/" hidden></a>
 </article>
 
 

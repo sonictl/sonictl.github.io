@@ -6,6 +6,7 @@
 <title>ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers | Combine Art and Sciences</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers" />
+<meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="&nbsp; 用interactive_makers控制Turtlebot移动 interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。 参考：    ref1：    http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers （groovy version）    === rvizTutorialsInteractive Markers: Getting Started ===    ref2：    http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started 就应该实现ref1页面中，视频里的功能。 具体步骤： 在my_robot1的Terminal里运行： &nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch 在my_Desktop的Terminal里运行： &nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch $ roslaunch turtlebot_rviz_launchers view_robot.launch 前提是按ref1安装了turtlebot_interactive_markers: &nbsp;$ rosmake turtlebot_interactive_markers" />
 <meta property="og:description" content="&nbsp; 用interactive_makers控制Turtlebot移动 interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。 参考：    ref1：    http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers （groovy version）    === rvizTutorialsInteractive Markers: Getting Started ===    ref2：    http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started 就应该实现ref1页面中，视频里的功能。 具体步骤： 在my_robot1的Terminal里运行： &nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch 在my_Desktop的Terminal里运行： &nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch $ roslaunch turtlebot_rviz_launchers view_robot.launch 前提是按ref1安装了turtlebot_interactive_markers: &nbsp;$ rosmake turtlebot_interactive_markers" />
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers" />
 <script type="application/ld+json">
-{"dateModified":"2015-12-23T09:10:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/"},"description":"&nbsp; 用interactive_makers控制Turtlebot移动 interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。 参考：    ref1：    http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers （groovy version）    === rvizTutorialsInteractive Markers: Getting Started ===    ref2：    http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started 就应该实现ref1页面中，视频里的功能。 具体步骤： 在my_robot1的Terminal里运行： &nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch 在my_Desktop的Terminal里运行： &nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch $ roslaunch turtlebot_rviz_launchers view_robot.launch 前提是按ref1安装了turtlebot_interactive_markers: &nbsp;$ rosmake turtlebot_interactive_markers","@type":"BlogPosting","headline":"ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers","url":"/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/","datePublished":"2015-12-23T09:10:00+08:00","@context":"https://schema.org"}</script>
+{"dateModified":"2015-12-23T09:10:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/"},"author":{"@type":"Person","name":"sonictl"},"description":"&nbsp; 用interactive_makers控制Turtlebot移动 interactive_makers 是Willow Garage公司开发的一个虚拟控制工具，可通过鼠标在虚拟环境中的操作，完成实际机器人运动的拖动运动控制。 参考：    ref1：    http://wiki.ros.org/turtlebot_interactive_markers/Tutorials/UsingTurtlebotInteractiveMarkers （groovy version）    === rvizTutorialsInteractive Markers: Getting Started ===    ref2：    http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started 就应该实现ref1页面中，视频里的功能。 具体步骤： 在my_robot1的Terminal里运行： &nbsp;$ roslaunch rbx1_bringup turtlebot_minimal_create.launch 在my_Desktop的Terminal里运行： &nbsp;$ roslaunch turtlebot_interactive_markers interactive_markers.launch $ roslaunch turtlebot_rviz_launchers view_robot.launch 前提是按ref1安装了turtlebot_interactive_markers: &nbsp;$ rosmake turtlebot_interactive_markers","@type":"BlogPosting","headline":"ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers","url":"/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/","datePublished":"2015-12-23T09:10:00+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -43,9 +44,12 @@
     <h1 class="post-title p-name" itemprop="name headline">ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers</h1>
     <p class="post-meta"><time class="dt-published" datetime="2015-12-23T09:10:00+08:00" itemprop="datePublished">
         Dec 23, 2015
-      </time></p>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
   </header>
-<!-- categories start >>>> -->
+
+  <!-- categories start >>>> -->
   <div class="post-categories">
   
   
@@ -53,7 +57,8 @@
   
   
   </div>
-<!-- categories end <<<<< -->
+  <!-- categories end <<<<< -->
+
 
   <div class="post-content e-content" itemprop="articleBody">
     <h1>&nbsp; 用interactive_makers控制Turtlebot移动</h1>
@@ -86,7 +91,83 @@ http://wiki.ros.org/rviz/Tutorials/Interactive%20Markers%3A%20Getting%20Started<
 <p><br /></p>
 
 
-  </div><a class="u-url" href="/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/" hidden></a>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="/thanks">
+    <input name="post_id" type="hidden" value="ros进阶学习笔记（10）- 搭建自己的turtlebot(5) - interactive makers">
+    <input name="comment-site" type="hidden" value="">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://{{your-receiver-site}}/api/PostComment}}'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/ROS%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-10-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Turtlebot(5)-Interactive-Makers/" hidden></a>
 </article>
 
 

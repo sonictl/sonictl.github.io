@@ -1,4 +1,64 @@
-<p>&nbsp;</p>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>LINE 论文笔记 - 【结硬寨，打呆仗】 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="LINE 论文笔记 - 【结硬寨，打呆仗】" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="&nbsp; 经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。 1. 问题定义 &nbsp; 定义1：Information Network: 　　An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \equiv (v,u)$ and $w_{uv} \equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \not\equiv (v,u)$ and $w_{uv} \not\equiv w_{vu}$ . &nbsp; 定义2：First-order Proximity: 　　一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0. 　　但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。 &nbsp; 定义3：Second-order Proximity: 　　二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0. 　　考虑一阶和二阶相似度的网络嵌入，看定义4：网络嵌入 &nbsp; &nbsp; 定义4：Network Embedding: &nbsp;　　LINE的目的是要： 把大规模网络$G = (V, E)$ 中的节点&nbsp;$v\in V$ 表示成低维向量空间 $R^d$ ，也就是说，学习一个映射 $f_G:V \to R^d$, 这个 $d \ll |V|$. 在$R^d$空间里，一阶相似性和二阶相似性都能得到保留。 &nbsp; 2. 模型构建 　　一个好的真实信息网络的嵌入模型要有以下特点： 能表达一阶二阶相似性 能适应每个大的网络，百万级的节点和十亿级的边 可以处理任意类型的边：有向，无向，有/无权重。" />
+<meta property="og:description" content="&nbsp; 经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。 1. 问题定义 &nbsp; 定义1：Information Network: 　　An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \equiv (v,u)$ and $w_{uv} \equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \not\equiv (v,u)$ and $w_{uv} \not\equiv w_{vu}$ . &nbsp; 定义2：First-order Proximity: 　　一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0. 　　但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。 &nbsp; 定义3：Second-order Proximity: 　　二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0. 　　考虑一阶和二阶相似度的网络嵌入，看定义4：网络嵌入 &nbsp; &nbsp; 定义4：Network Embedding: &nbsp;　　LINE的目的是要： 把大规模网络$G = (V, E)$ 中的节点&nbsp;$v\in V$ 表示成低维向量空间 $R^d$ ，也就是说，学习一个映射 $f_G:V \to R^d$, 这个 $d \ll |V|$. 在$R^d$空间里，一阶相似性和二阶相似性都能得到保留。 &nbsp; 2. 模型构建 　　一个好的真实信息网络的嵌入模型要有以下特点： 能表达一阶二阶相似性 能适应每个大的网络，百万级的节点和十亿级的边 可以处理任意类型的边：有向，无向，有/无权重。" />
+<link rel="canonical" href="/LINE-%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E7%BB%93%E7%A1%AC%E5%AF%A8-%E6%89%93%E5%91%86%E4%BB%97/" />
+<meta property="og:url" content="/LINE-%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E7%BB%93%E7%A1%AC%E5%AF%A8-%E6%89%93%E5%91%86%E4%BB%97/" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-10T09:42:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="LINE 论文笔记 - 【结硬寨，打呆仗】" />
+<script type="application/ld+json">
+{"dateModified":"2018-04-10T09:42:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/LINE-%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E7%BB%93%E7%A1%AC%E5%AF%A8-%E6%89%93%E5%91%86%E4%BB%97/"},"author":{"@type":"Person","name":"sonictl"},"description":"&nbsp; 经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。 1. 问题定义 &nbsp; 定义1：Information Network: 　　An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \\equiv (v,u)$ and $w_{uv} \\equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \\not\\equiv (v,u)$ and $w_{uv} \\not\\equiv w_{vu}$ . &nbsp; 定义2：First-order Proximity: 　　一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0. 　　但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。 &nbsp; 定义3：Second-order Proximity: 　　二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0. 　　考虑一阶和二阶相似度的网络嵌入，看定义4：网络嵌入 &nbsp; &nbsp; 定义4：Network Embedding: &nbsp;　　LINE的目的是要： 把大规模网络$G = (V, E)$ 中的节点&nbsp;$v\\in V$ 表示成低维向量空间 $R^d$ ，也就是说，学习一个映射 $f_G:V \\to R^d$, 这个 $d \\ll |V|$. 在$R^d$空间里，一阶相似性和二阶相似性都能得到保留。 &nbsp; 2. 模型构建 　　一个好的真实信息网络的嵌入模型要有以下特点： 能表达一阶二阶相似性 能适应每个大的网络，百万级的节点和十亿级的边 可以处理任意类型的边：有向，无向，有/无权重。","@type":"BlogPosting","headline":"LINE 论文笔记 - 【结硬寨，打呆仗】","url":"/LINE-%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E7%BB%93%E7%A1%AC%E5%AF%A8-%E6%89%93%E5%91%86%E4%BB%97/","datePublished":"2018-04-10T09:42:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">LINE 论文笔记 - 【结硬寨，打呆仗】</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2018-04-10T09:42:00+08:00" itemprop="datePublished">
+        Apr 10, 2018
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>&nbsp;</p>
 <p>经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。<br />困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。</p>
 <h2>1. 问题定义</h2>
 <h3>&nbsp; 定义1：Information Network:</h3>
@@ -212,3 +272,113 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp; 参考简书上的总结(https://www.jianshu.com/p/8bb4cd0df840)[https://www.jianshu.com/p/8bb4cd0df840]即可。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp; 【我想说的是】：实验分析里有很多干货，值得细细研读。</p>
 <p>&nbsp;</p>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="/thanks">
+    <input name="post_id" type="hidden" value="line 论文笔记 - 结硬寨，打呆仗">
+    <input name="comment-site" type="hidden" value="">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://{{your-receiver-site}}/api/PostComment}}'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/LINE-%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E7%BB%93%E7%A1%AC%E5%AF%A8-%E6%89%93%E5%91%86%E4%BB%97/" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Combine Art and Sciences</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

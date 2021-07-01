@@ -6,6 +6,7 @@
 <title>Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息 | Combine Art and Sciences</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息" />
+<meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="&lt;/pre&gt;Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录--显示全局异常信息&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h3 style=&quot;margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px&quot;&gt;第三部分：显示全局异常信息，而不是局部异常信息。&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 当有很多异常时，光是UserController这个控制器中的异常通过局部异常信息处理，已经不能满足需求。在其他控制器中（包括UserController）中的异常，都可以使用全局异常处理异常信息。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 1. 在myhello-Servelet.xml文件中，添加SimpleMappingExceptionResolver&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 2. 注入&lt;property&gt;标签，通过&lt;prop&gt;标签列出全局中所有需要处理的异常。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 3. 然后注释掉局部异常处理code，在UserController控制器的代码中。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 4. 在error.jsp视图中，使用 ${exception.message } 显示全局异常处理结果。&#160; &#160; &#160;&#160;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;在myhello-servelet.xml文件中：&lt;/p&gt;&lt;pre code_snippet_id=&quot;526777&quot; snippet_file_name=&quot;blog_20141120_1_7394166&quot; name=&quot;code&quot; class=&quot;html&quot;&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xsi:schemaLocation=&quot; http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt; &lt;!-- DispatcherServlet Context: defines this servlet&#39;s request-processing infrastructure --&gt; &lt;!-- Scans within the base package of the application for @Components to configure as beans --&gt; &lt;!-- @Controller, @Service, @Configuration, etc. --&gt; &lt;context:component-scan base-package=&quot;edu.bit.myhello&quot; /&gt; &lt;!-- Enables the Spring MVC @Controller programming model --&gt; &lt;mvc:annotation-driven /&gt; &lt;!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory --&gt; &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt; &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/views/&quot; /&gt; &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt; &lt;/bean&gt; &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; &lt;/beans&gt; 加入的部分： &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; 在UserController.java中，注释掉局部异常处理代码： /* * 显示局部的异常信息:仅仅只能处理这个控制器中的异常 * 写一个方法，HandlerException, 把 UserException传进来 */ // @ExceptionHandler(value={UserException.class}) //用ExceptionHandler来映射，要处理的value是一个数组 // //要处理一个对象就这样写，可处理多个对象。 // public String handlerException(UserException ue, HttpServletRequest req){ // //1.把 UserException传进来; // //2.不能用model来传值，因为不是RequestMapping，用HttpSeverletRequest req // //把异常对象存进去： // req.setAttribute(&quot;e&quot;, ue); //req 的 “e”参数，被set为 ue // return &quot;error&quot;; // } 在error.jsp中，改为： &lt;h1&gt; &lt;!-- ${e.message} --&gt; ${exception.message } &lt;/h1&gt; 这样就完成了全局异常处理。" />
 <meta property="og:description" content="&lt;/pre&gt;Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录--显示全局异常信息&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h3 style=&quot;margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px&quot;&gt;第三部分：显示全局异常信息，而不是局部异常信息。&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 当有很多异常时，光是UserController这个控制器中的异常通过局部异常信息处理，已经不能满足需求。在其他控制器中（包括UserController）中的异常，都可以使用全局异常处理异常信息。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 1. 在myhello-Servelet.xml文件中，添加SimpleMappingExceptionResolver&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 2. 注入&lt;property&gt;标签，通过&lt;prop&gt;标签列出全局中所有需要处理的异常。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 3. 然后注释掉局部异常处理code，在UserController控制器的代码中。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 4. 在error.jsp视图中，使用 ${exception.message } 显示全局异常处理结果。&#160; &#160; &#160;&#160;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;在myhello-servelet.xml文件中：&lt;/p&gt;&lt;pre code_snippet_id=&quot;526777&quot; snippet_file_name=&quot;blog_20141120_1_7394166&quot; name=&quot;code&quot; class=&quot;html&quot;&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xsi:schemaLocation=&quot; http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt; &lt;!-- DispatcherServlet Context: defines this servlet&#39;s request-processing infrastructure --&gt; &lt;!-- Scans within the base package of the application for @Components to configure as beans --&gt; &lt;!-- @Controller, @Service, @Configuration, etc. --&gt; &lt;context:component-scan base-package=&quot;edu.bit.myhello&quot; /&gt; &lt;!-- Enables the Spring MVC @Controller programming model --&gt; &lt;mvc:annotation-driven /&gt; &lt;!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory --&gt; &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt; &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/views/&quot; /&gt; &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt; &lt;/bean&gt; &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; &lt;/beans&gt; 加入的部分： &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; 在UserController.java中，注释掉局部异常处理代码： /* * 显示局部的异常信息:仅仅只能处理这个控制器中的异常 * 写一个方法，HandlerException, 把 UserException传进来 */ // @ExceptionHandler(value={UserException.class}) //用ExceptionHandler来映射，要处理的value是一个数组 // //要处理一个对象就这样写，可处理多个对象。 // public String handlerException(UserException ue, HttpServletRequest req){ // //1.把 UserException传进来; // //2.不能用model来传值，因为不是RequestMapping，用HttpSeverletRequest req // //把异常对象存进去： // req.setAttribute(&quot;e&quot;, ue); //req 的 “e”参数，被set为 ue // return &quot;error&quot;; // } 在error.jsp中，改为： &lt;h1&gt; &lt;!-- ${e.message} --&gt; ${exception.message } &lt;/h1&gt; 这样就完成了全局异常处理。" />
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息" />
 <script type="application/ld+json">
-{"dateModified":"2014-11-20T09:31:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4.3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%98%BE%E7%A4%BA%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/"},"description":"&lt;/pre&gt;Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录--显示全局异常信息&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h3 style=&quot;margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px&quot;&gt;第三部分：显示全局异常信息，而不是局部异常信息。&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 当有很多异常时，光是UserController这个控制器中的异常通过局部异常信息处理，已经不能满足需求。在其他控制器中（包括UserController）中的异常，都可以使用全局异常处理异常信息。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 1. 在myhello-Servelet.xml文件中，添加SimpleMappingExceptionResolver&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 2. 注入&lt;property&gt;标签，通过&lt;prop&gt;标签列出全局中所有需要处理的异常。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 3. 然后注释掉局部异常处理code，在UserController控制器的代码中。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 4. 在error.jsp视图中，使用 ${exception.message } 显示全局异常处理结果。&#160; &#160; &#160;&#160;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;在myhello-servelet.xml文件中：&lt;/p&gt;&lt;pre code_snippet_id=&quot;526777&quot; snippet_file_name=&quot;blog_20141120_1_7394166&quot; name=&quot;code&quot; class=&quot;html&quot;&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xsi:schemaLocation=&quot; http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt; &lt;!-- DispatcherServlet Context: defines this servlet&#39;s request-processing infrastructure --&gt; &lt;!-- Scans within the base package of the application for @Components to configure as beans --&gt; &lt;!-- @Controller, @Service, @Configuration, etc. --&gt; &lt;context:component-scan base-package=&quot;edu.bit.myhello&quot; /&gt; &lt;!-- Enables the Spring MVC @Controller programming model --&gt; &lt;mvc:annotation-driven /&gt; &lt;!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory --&gt; &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt; &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/views/&quot; /&gt; &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt; &lt;/bean&gt; &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; &lt;/beans&gt; 加入的部分： &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; 在UserController.java中，注释掉局部异常处理代码： /* * 显示局部的异常信息:仅仅只能处理这个控制器中的异常 * 写一个方法，HandlerException, 把 UserException传进来 */ // @ExceptionHandler(value={UserException.class}) //用ExceptionHandler来映射，要处理的value是一个数组 // //要处理一个对象就这样写，可处理多个对象。 // public String handlerException(UserException ue, HttpServletRequest req){ // //1.把 UserException传进来; // //2.不能用model来传值，因为不是RequestMapping，用HttpSeverletRequest req // //把异常对象存进去： // req.setAttribute(&quot;e&quot;, ue); //req 的 “e”参数，被set为 ue // return &quot;error&quot;; // } 在error.jsp中，改为： &lt;h1&gt; &lt;!-- ${e.message} --&gt; ${exception.message } &lt;/h1&gt; 这样就完成了全局异常处理。","@type":"BlogPosting","headline":"Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息","url":"/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4.3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%98%BE%E7%A4%BA%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/","datePublished":"2014-11-20T09:31:00+08:00","@context":"https://schema.org"}</script>
+{"dateModified":"2014-11-20T09:31:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4.3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%98%BE%E7%A4%BA%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/"},"author":{"@type":"Person","name":"sonictl"},"description":"&lt;/pre&gt;Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录--显示全局异常信息&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h3 style=&quot;margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px&quot;&gt;第三部分：显示全局异常信息，而不是局部异常信息。&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 当有很多异常时，光是UserController这个控制器中的异常通过局部异常信息处理，已经不能满足需求。在其他控制器中（包括UserController）中的异常，都可以使用全局异常处理异常信息。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 1. 在myhello-Servelet.xml文件中，添加SimpleMappingExceptionResolver&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 2. 注入&lt;property&gt;标签，通过&lt;prop&gt;标签列出全局中所有需要处理的异常。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 3. 然后注释掉局部异常处理code，在UserController控制器的代码中。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 4. 在error.jsp视图中，使用 ${exception.message } 显示全局异常处理结果。&#160; &#160; &#160;&#160;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;在myhello-servelet.xml文件中：&lt;/p&gt;&lt;pre code_snippet_id=&quot;526777&quot; snippet_file_name=&quot;blog_20141120_1_7394166&quot; name=&quot;code&quot; class=&quot;html&quot;&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xsi:schemaLocation=&quot; http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt; &lt;!-- DispatcherServlet Context: defines this servlet&#39;s request-processing infrastructure --&gt; &lt;!-- Scans within the base package of the application for @Components to configure as beans --&gt; &lt;!-- @Controller, @Service, @Configuration, etc. --&gt; &lt;context:component-scan base-package=&quot;edu.bit.myhello&quot; /&gt; &lt;!-- Enables the Spring MVC @Controller programming model --&gt; &lt;mvc:annotation-driven /&gt; &lt;!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory --&gt; &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt; &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/views/&quot; /&gt; &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt; &lt;/bean&gt; &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; &lt;/beans&gt; 加入的部分： &lt;bean id = &quot;exceptionResolver&quot; class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt; &lt;property name=&quot;exceptionMappings&quot;&gt; &lt;props&gt; &lt;prop key = &quot;edu.bit.model.UserException&quot;&gt;error&lt;/prop&gt; &lt;!--key值的是你要映射哪个类 ,value=error直接写 --&gt; &lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象 同样还可以： &lt;prop key = &quot;java.lang.NullPointer&quot;&gt; exception &lt;/prop&gt; 处理空指针异常，在exception.jsp视图中处理 --&gt; &lt;/props&gt; &lt;/property&gt; &lt;/bean&gt; 在UserController.java中，注释掉局部异常处理代码： /* * 显示局部的异常信息:仅仅只能处理这个控制器中的异常 * 写一个方法，HandlerException, 把 UserException传进来 */ // @ExceptionHandler(value={UserException.class}) //用ExceptionHandler来映射，要处理的value是一个数组 // //要处理一个对象就这样写，可处理多个对象。 // public String handlerException(UserException ue, HttpServletRequest req){ // //1.把 UserException传进来; // //2.不能用model来传值，因为不是RequestMapping，用HttpSeverletRequest req // //把异常对象存进去： // req.setAttribute(&quot;e&quot;, ue); //req 的 “e”参数，被set为 ue // return &quot;error&quot;; // } 在error.jsp中，改为： &lt;h1&gt; &lt;!-- ${e.message} --&gt; ${exception.message } &lt;/h1&gt; 这样就完成了全局异常处理。","@type":"BlogPosting","headline":"Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息","url":"/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4.3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%98%BE%E7%A4%BA%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/","datePublished":"2014-11-20T09:31:00+08:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -43,9 +44,12 @@
     <h1 class="post-title p-name" itemprop="name headline">Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息</h1>
     <p class="post-meta"><time class="dt-published" datetime="2014-11-20T09:31:00+08:00" itemprop="datePublished">
         Nov 20, 2014
-      </time></p>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
   </header>
-<!-- categories start >>>> -->
+
+  <!-- categories start >>>> -->
   <div class="post-categories">
   
   
@@ -53,7 +57,8 @@
   
   
   </div>
-<!-- categories end <<<<< -->
+  <!-- categories end <<<<< -->
+
 
   <div class="post-content e-content" itemprop="articleBody">
     <p><a target="_blank" href="http://blog.csdn.net/sonictl/article/details/41312005" style="color:rgb(0,0,0); text-decoration:none; font-family:'Microsoft YaHei'; font-size:20px; line-height:30px"></a></p>
@@ -154,7 +159,83 @@
 </p>
 
 
-  </div><a class="u-url" href="/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4.3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%98%BE%E7%A4%BA%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/" hidden></a>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="/thanks">
+    <input name="post_id" type="hidden" value="spring mvc 学习笔记10 —— 实现简单的用户管理（4-3）用户登录显示全局异常信息">
+    <input name="comment-site" type="hidden" value="">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://{{your-receiver-site}}/api/PostComment}}'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4.3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%98%BE%E7%A4%BA%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/" hidden></a>
 </article>
 
 
