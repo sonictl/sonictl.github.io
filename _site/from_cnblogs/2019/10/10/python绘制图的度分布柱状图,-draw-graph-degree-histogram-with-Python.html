@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>python绘制图的度分布柱状图, draw graph degree histogram with Python | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="python绘制图的度分布柱状图, draw graph degree histogram with Python" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="图的度数分布 ```python import collections import matplotlib.pyplot as plt import networkx as nx" />
+<meta property="og:description" content="图的度数分布 ```python import collections import matplotlib.pyplot as plt import networkx as nx" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,-draw-graph-degree-histogram-with-Python.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,-draw-graph-degree-histogram-with-Python.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-10T05:26:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="python绘制图的度分布柱状图, draw graph degree histogram with Python" />
+<script type="application/ld+json">
+{"headline":"python绘制图的度分布柱状图, draw graph degree histogram with Python","dateModified":"2019-10-10T05:26:00+08:00","datePublished":"2019-10-10T05:26:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,-draw-graph-degree-histogram-with-Python.html"},"description":"图的度数分布 ```python import collections import matplotlib.pyplot as plt import networkx as nx","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,-draw-graph-degree-histogram-with-Python.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">python绘制图的度分布柱状图, draw graph degree histogram with Python</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2019-10-10T05:26:00+08:00" itemprop="datePublished">
+        Oct 10, 2019
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="图的度数分布">图的度数分布</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="n">nx</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="p">.</span><span class="n">gnp_random_graph</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+
+<span class="n">degree_sequence</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="p">.</span><span class="n">degree</span><span class="p">()],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c1"># degree sequence
+# print "Degree sequence", degree_sequence
+</span><span class="n">degreeCount</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">degree_sequence</span><span class="p">)</span>
+<span class="n">deg</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">degreeCount</span><span class="p">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="c1"># #as an alternation, you can pick out the top N items for the plot:
+#d = sorted(degreeCount.items(), key=lambda item:item[1], reverse=True)[:30]   # pick out the up 30 items from counter
+#deg = [i[0] for i in d]
+#cnt = [i[1] for i in d]
+</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">deg</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Degree Histogram"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Count"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"Degree"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">d</span> <span class="o">+</span> <span class="mf">0.4</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">deg</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">deg</span><span class="p">)</span>
+
+<span class="c1"># draw graph in inset
+</span><span class="n">plt</span><span class="p">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">Gcc</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nx</span><span class="p">.</span><span class="n">connected_component_subgraphs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="p">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">axis</span><span class="p">(</span><span class="s">'off'</span><span class="p">)</span>
+<span class="n">nx</span><span class="p">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">nx</span><span class="p">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">draw</span><span class="p">()</span>
+</code></pre></div></div>
+<p>Source for reference:
+<a href="https://networkx.github.io/documentation/stable/auto_examples/drawing/plot_degree_histogram.html#degree-histogram">degree-histogram, networkx</a>
+<img src="https://networkx.github.io/documentation/stable/_images/sphx_glr_plot_degree_histogram_001.png" alt="" /></p>
+
+<h3 id="draw-the-histogram-for-values-of-dict">Draw the histogram for values of dict</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">dict_granuLevel</span> <span class="o">=</span> <span class="p">{</span><span class="s">'1283'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s">'291'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">'451'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">'964'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">'1093'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">'525'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">'878'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'1553'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s">'1107'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">'1588'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+             <span class="s">'1435'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">'861'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">'1054'</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
+
+<span class="n">value_sequence</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dict_granuLevel</span><span class="p">.</span><span class="n">values</span><span class="p">()],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c1"># value sequence
+</span><span class="k">print</span><span class="p">(</span><span class="s">"value sequence:"</span><span class="p">,</span> <span class="n">value_sequence</span><span class="p">)</span>
+<span class="n">valueCount</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">value_sequence</span><span class="p">)</span>
+<span class="n">val</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">valueCount</span><span class="p">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="c1"># # as an alternation, you can pick out the top N items for the plot:
+# d = sorted(degreeCount.items(), key=lambda item:item[1], reverse=True)[:10]   # pick out the up 10 items from counter
+# val = [i[0] for i in d]
+# cnt = [i[1] for i in d]
+</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"value Histogram"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Count"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"value"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">d</span> <span class="o">+</span> <span class="mf">0.4</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">val</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p><img src="https://img2018.cnblogs.com/blog/780771/201912/780771-20191215213205661-1904942784.png" alt="" /></p>
+
+<h4 id="the-function-style">The function style:</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="k">def</span> <span class="nf">plot_histogram</span><span class="p">(</span><span class="n">list_input</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="s">'''
+    draw the histogram for items in list_input
+    :param list: list of count_numbers. all items are required to be int.
+    :param k: the top k-th count of items to be considered for drawing the plot. default: k=0, plot all
+    :return:
+    '''</span>
+    <span class="n">valueCount</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">list_input</span><span class="p">)</span>
+    <span class="n">val</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">valueCount</span><span class="p">.</span><span class="n">items</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'  len of val, cnt:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">' pick the largest'</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s">'cnt for histogram.'</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">valueCount</span><span class="p">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[:</span><span class="n">k</span><span class="p">]</span>    <span class="c1"># pick out the up k items from counter
+</span>    <span class="k">else</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">valueCount</span><span class="p">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">' k = 0. Pick all the cnt for histogram.'</span><span class="p">)</span>
+
+    <span class="n">val</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">]</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">]</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"value Histogram"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Count"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"value"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">d</span> <span class="o">+</span> <span class="mf">0.4</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">val</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span>
+
+<span class="n">dict_granuLevel</span> <span class="o">=</span> <span class="p">{</span><span class="s">'tom'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s">'cat'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">'dot'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">'dog'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">'hors'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">'fao'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">'pao'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'koo'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s">'jan'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">'dec'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+             <span class="s">'foo'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">'doo'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s">'coo'</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
+
+<span class="n">value_sequence</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dict_granuLevel</span><span class="p">.</span><span class="n">values</span><span class="p">()],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c1"># value sequence
+</span><span class="k">print</span><span class="p">(</span><span class="s">"value sequence:"</span><span class="p">,</span> <span class="n">value_sequence</span><span class="p">)</span>
+
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">value_sequence</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>read more: <a href="https://www.cnblogs.com/sonictl/p/9663189.html">用python + networkx探索和分析网络数据</a></p>
+
+<h2 id="draw-the-edge_weighted-graph">draw the edge_weighted graph:</h2>
+<p>for network with weighted edges, draw the graph :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>###
+import matplotlib.pyplot as plt
+pos = nx.planar_layout(G)           # pos = nx.spring_layout(G)
+labels = nx.get_edge_attributes(G,'weight')
+nx.draw_networkx_edge_labels(G,pos,edge_labels=labels)
+plt.show()
+</code></pre></div></div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="python绘制图的度分布柱状图, draw graph degree histogram with python">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2019/10/10/python%E7%BB%98%E5%88%B6%E5%9B%BE%E7%9A%84%E5%BA%A6%E5%88%86%E5%B8%83%E6%9F%B1%E7%8A%B6%E5%9B%BE,-draw-graph-degree-histogram-with-Python.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux" />
+<meta property="og:description" content="How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2020/07/09/How-to-Share-Wired-Internet-Via-Wi-Fi-and-Vice-Versa-on-Linux.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2020/07/09/How-to-Share-Wired-Internet-Via-Wi-Fi-and-Vice-Versa-on-Linux.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-09T09:27:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux" />
+<script type="application/ld+json">
+{"headline":"How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux","dateModified":"2020-07-09T09:27:00+08:00","datePublished":"2020-07-09T09:27:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2020/07/09/How-to-Share-Wired-Internet-Via-Wi-Fi-and-Vice-Versa-on-Linux.html"},"description":"How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2020/07/09/How-to-Share-Wired-Internet-Via-Wi-Fi-and-Vice-Versa-on-Linux.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-07-09T09:27:00+08:00" itemprop="datePublished">
+        Jul 9, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="how-to-share-wired-internet-via-wi-fi-and-vice-versa-on-linux">How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux</h1>
+
+<p><a href="https://www.tecmint.com/author/aaronkili/">Aaron Kili</a>April 15, 2020 Categories<a href="https://www.tecmint.com/category/networking-commands/">Networking Commands</a> <a href="https://www.tecmint.com/share-internet-in-linux/#respond">Leave a comment</a></p>
+
+<p>In this article, you will learn how to share a <strong>wired</strong> (<strong>Ethernet</strong>) internet connection via a wireless hotspot and also how to share a wireless internet connection via a wired connection on a Linux desktop.</p>
+
+<p>This article requires you to have at least two computers: a Linux desktop/laptop with a wireless card and an Ethernet port, then another computer (which may not necessarily be running Linux) with either a wireless card and/or an Ethernet port.</p>
+
+<h3 id="sharing-wiredethernet-internet-connection-via-wi-fi-hotspot">Sharing Wired(Ethernet) Internet Connection Via Wi-Fi Hotspot</h3>
+
+<p>First, connect your computer to a source of internet using an <strong>Ethernet</strong> cable as shown in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/connect-ethernet-cable.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/connect-ethernet-cable.png" alt="Connect Ethernet Cable" /></a>Connect Ethernet Cable</p>
+
+<p>Next, enable <strong>Wireless</strong> connections, then go to <strong>Network Settings</strong> as highlighted in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/enable-wireless-connections.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/enable-wireless-connections.png" alt="Enable Wireless Connection" /></a>Enable Wireless Connection</p>
+
+<p>Then click <strong>Use as Hotspot</strong> as shown in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/use-as-hotspot-feature.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/use-as-hotspot-feature.png" alt="Use as Hotspot Feature" /></a>Use as Hotspot Feature</p>
+
+<p>Next, from the pop-up window, click <strong>Turn On</strong> to activate the wireless hotspot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/trun-on-hotspot.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/trun-on-hotspot.png" alt="Turn On Hotspot" /></a>Turn On Hotspot</p>
+
+<p>Now a wireless hotspot should be created with a name defaulting to the hostname e.g <strong>tecmint</strong>.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/wireless-hotspot-created.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/wireless-hotspot-created.png" alt="Wireless Hotspot Created" /></a>Wireless Hotspot Created</p>
+
+<p>Now you can connect another computer or device via the hot-spot to the internet.</p>
+
+<h3 id="sharing-wi-fi-internet-connection-via-wiredethernet-connection">Sharing Wi-Fi Internet Connection via Wired(Ethernet) Connection</h3>
+
+<p>Start by connecting your computer to a wireless connection with access to the internet e.g <strong>HackerNet</strong> in the test environment. Then connect an <strong>Ethernet</strong> cable to it and go to <strong>Network Connections</strong>.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/connect-to-wireless-connection-and-enable-ethernet-connection.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/connect-to-wireless-connection-and-enable-ethernet-connection.png" alt="Connect to Wireless and Enable Ethernet" /></a>Connect to Wireless and Enable Ethernet</p>
+
+<p>From the pop-up window, select the <strong>Wired/Ethernet</strong> connection, then go to its <strong>settings</strong> as described in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/network-connections-interface.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/network-connections-interface.png" alt="Select Network Connection Interface" /></a>Select Network Connection Interface</p>
+
+<p>Under the connection settings, go to <strong>IPv4</strong> Settings.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-ipv4-settings.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-ipv4-settings.png" alt="Select IPv4 Settings" /></a>Select IPv4 Settings</p>
+
+<p>Under the IPv4 settings, set the <strong>Method</strong> to <strong>Shared</strong> to other computers as shown in the following screenshot. Optionally, you can add the IP address to define the network to use. Then click <strong>Save</strong>.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/ipv4-connection-method.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/ipv4-connection-method.png" alt="Select Share to Other Computers" /></a>Select Share to Other Computers</p>
+
+<p>Next, turn the wired connection <strong>off</strong> then <strong>on</strong>, to activate it once more. Then open it under <strong>Network Connections</strong>, it should now be configured for sharing (by having a default IP address of <strong>10.42.0.1</strong>) as shown in this screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-shared-to-other-computers.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/wired-connection-shared-to-other-computers.png" alt="Sharing Wired Connection with Other Computers" /></a>Sharing Wired Connection with Other Computers</p>
+
+<p><strong>Note</strong>: You can also share a bridged interface the same way as the wired interface as shown in the following screenshot.</p>
+
+<p><a href="https://www.tecmint.com/wp-content/uploads/2020/04/share-a-bridged-interface-to-other-computers.png"><img src="https://www.tecmint.com/wp-content/uploads/2020/04/share-a-bridged-interface-to-other-computers.png" alt="Share a Bridged Interface with Other Computers" /></a>Share a Bridged Interface with Other Computers</p>
+
+<p>Go ahead and connect another computer to the other end of the Ethernet cable or an access point to serve many computers/devices. For any inquiries, reach us via the feedback form below.</p>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="how to share wired internet via wi-fi and vice versa on linux">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2020/07/09/How-to-Share-Wired-Internet-Via-Wi-Fi-and-Vice-Versa-on-Linux.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

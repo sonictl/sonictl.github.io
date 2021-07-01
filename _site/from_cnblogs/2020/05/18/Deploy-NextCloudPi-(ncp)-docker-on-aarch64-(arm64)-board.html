@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Deploy NextCloudPi (ncp) docker on aarch64 (arm64) board | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Deploy NextCloudPi (ncp) docker on aarch64 (arm64) board" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Deploy NextCloudPi(ncp) docker on aarch64 board" />
+<meta property="og:description" content="Deploy NextCloudPi(ncp) docker on aarch64 board" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2020/05/18/Deploy-NextCloudPi-(ncp)-docker-on-aarch64-(arm64)-board.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2020/05/18/Deploy-NextCloudPi-(ncp)-docker-on-aarch64-(arm64)-board.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-18T12:45:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Deploy NextCloudPi (ncp) docker on aarch64 (arm64) board" />
+<script type="application/ld+json">
+{"headline":"Deploy NextCloudPi (ncp) docker on aarch64 (arm64) board","dateModified":"2020-05-18T12:45:00+08:00","datePublished":"2020-05-18T12:45:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2020/05/18/Deploy-NextCloudPi-(ncp)-docker-on-aarch64-(arm64)-board.html"},"description":"Deploy NextCloudPi(ncp) docker on aarch64 board","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2020/05/18/Deploy-NextCloudPi-(ncp)-docker-on-aarch64-(arm64)-board.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Deploy NextCloudPi (ncp) docker on aarch64 (arm64) board</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-05-18T12:45:00+08:00" itemprop="datePublished">
+        May 18, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="deploy-nextcloudpincp-docker-on-aarch64-board">Deploy NextCloudPi(ncp) docker on aarch64 board</h1>
+
+<h2 id="在arm64或aarch64架构的板卡上使用docker布署nextcloudpi云盘服务">在Arm64或aarch64架构的板卡上使用Docker布署NextCloudPi云盘服务</h2>
+
+<blockquote>
+  <p>About “arm64 vs aarch64”, just Google it.</p>
+</blockquote>
+
+<p style="text-align: center;"><img src="https://img2020.cnblogs.com/blog/780771/202005/780771-20200518203347990-367555538.png" alt="" width="350" height="230" />&nbsp;<img src="https://img2020.cnblogs.com/blog/780771/202005/780771-20200518204317981-246737653.png" alt="" width="420" /></p>
+
+<p style="text-align: center;"><a href="http://av98.byethost10.com/index.php?thread-457.htm&amp;i=1" target="_blank" rel="noopener">figure source</a></p>
+
+<h3 id="reference">Reference:</h3>
+
+<ul>
+  <li>Get started with NextCloudPi (ncp) installation via docker: https://docs.nextcloudpi.com/en/how-to-get-started-with-ncp-docker/</li>
+  <li>Docker installation, on aarch64, ref: https://www.cnblogs.com/sonictl/p/12909874.html</li>
+</ul>
+
+<h3 id="1-install-ncp-with-docker">1. Install ncp with docker:</h3>
+
+<p>If you wanna firstly have a taste in LAN network env.:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="nt">-p</span> 4443:4443 <span class="nt">-p</span> 443:443 <span class="nt">-p</span> 80:80 <span class="nt">-v</span> ncdata:/data <span class="nt">--name</span> nextcloudpi ownyourbits/nextcloudpi 127.0.0.1
+</code></pre></div></div>
+
+<p>If you have a domain name:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -d -p 4443:4443 -p 443:443 -p 80:80 -v ncdata:/data --name nextcloudpi ownyourbits/nextcloudpi $YOUR_Domain
+</code></pre></div></div>
+
+<h3 id="2-some-useful-commands-for-work-with-docker">2. Some useful commands for work with docker:</h3>
+<p>We recommend to firstly read all the content below, and pick commands for your need during configuration. The procedures of configuration is roughly as below:</p>
+
+<h5 id="enter-the-container">Enter the container:</h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;container name&gt; /bin/bash
+  docker <span class="nb">exec</span> <span class="nt">-it</span> 6ef91daa0481 /bin/bash
+</code></pre></div></div>
+
+<h5 id="set-the-timezone-same-with-host">Set the timeZone same with host:</h5>
+
+<p><strong>Note: failing synchronizing the timezone of docker-container and host may lead Authorization Fatal</strong>
+This is a big entraping‼️ 😭</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cp</span> /usr/share/zoneinfo/PRC /etc/localtime
+  docker <span class="nb">exec</span> <span class="nt">-it</span> 6ef91daa0481 <span class="nb">date
+  </span>docker <span class="nb">exec</span> <span class="nt">-it</span> 6ef91daa0481 /bin/bash
+</code></pre></div></div>
+
+<h5 id="install-vim-for-container">Install vim for container</h5>
+
+<p>You may need to configure <code class="language-plaintext highlighter-rouge">config/config.php</code>, but we recommend to use <code class="language-plaintext highlighter-rouge">ncp-config</code> as below.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  apt-get update
+  apt-get <span class="nb">install </span>vim
+  vim /var/www/nextcloud/config/config.php
+  docker <span class="nb">exec</span> <span class="nt">-it</span> nextcloudpi ncp-config  <span class="c">#WARNING: note the '_' everywhere in 'ncp-config'!!</span>
+</code></pre></div></div>
+<p>ref: https://help.nextcloud.com/t/reset-password-ncp/74207/12</p>
+
+<h5 id="enlarge-the-volume-for-varlibdocker-directory">Enlarge the volume for ‘/var/lib/docker’ directory</h5>
+<p>WARNING: data may get lost. Do this if you have no data in your ncp account. Do it on your own risk.
+  WARNING: data may get lost. Do this if you have no data in your ncp account. Do it on your own risk.</p>
+
+<p>ref: https://forums.docker.com/t/how-to-change-var-lib-docker-directory-with-overlay2/43620/9</p>
+
+<ol>
+  <li>make the new folder on the other volume, e.g. you mount your Mess-storage HardDisk /sda1 on /data</li>
+  <li>stop the docker daemon,</li>
+  <li>move everything, e.g. <code class="language-plaintext highlighter-rouge">cp -avr /var/lib/docker/ /data/lib/</code></li>
+  <li>Edit the file /etc/docker/daemon.json and add or modfy the “data-root” entry. 
+    If you configuration is empty, the file will look like this:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {
+ "data-root": "/data/lib/docker"
+    }
+</code></pre></div>    </div>
+  </li>
+  <li>Stop the docker daemon by <code class="language-plaintext highlighter-rouge">systemd stop docker</code></li>
+  <li>modify the configuration file for containers: /data/lib/docker/containers/<container full="">/config.vs.json. At the `source:`, make it into your new path.</container></li>
+  <li>start the docker daemon.</li>
+  <li>Check
+    <ul>
+      <li>Check by: <code class="language-plaintext highlighter-rouge"># docker info | grep Root &amp;&amp; docker ps -a &amp;&amp; docker image ls</code></li>
+      <li>start the docker container
+ If you meet the data-lost error, just change <code class="language-plaintext highlighter-rouge">"data-root": "/data/lib/docker"</code> back.
+        <blockquote>
+          <p>If you meet the error below:
+Error response from daemon: error evaluating symlinks from mount source “/var/lib/docker/volumes/esdata/_data”: lstat /var/lib/docker: no such file or directory</p>
+
+          <blockquote>
+            <p>ref links and modify the configuration of docker container.
+ref link1: <a href="https://forums.docker.com/t/error-starting-container-after-moving-docker-root-directory/64324">meet error after moving docker root</a>
+ref link2: <a href="https://bobcares.com/blog/docker-change-container-configuration/">change container configuration</a>
+ref link3: <a href="https://vi.stackexchange.com/questions/16906/how-to-format-json-file-in-vim">how to format json file in vim</a></p>
+          </blockquote>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h5 id="set-the-frpc-for-exposing-the-local-service-to-public-internet">set the frpc for exposing the local service to public Internet</h5>
+<ul>
+  <li>Check the port occupation:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># lsof -i -P -n | grep LISTEN</span>
+docker-pr  9168    root    4u  IPv6 120391      0t0  TCP <span class="k">*</span>:4443 <span class="o">(</span>LISTEN<span class="o">)</span>
+docker-pr  9183    root    4u  IPv6 119704      0t0  TCP <span class="k">*</span>:443 <span class="o">(</span>LISTEN<span class="o">)</span>
+docker-pr  9197    root    4u  IPv6 122113      0t0  TCP <span class="k">*</span>:80 <span class="o">(</span>LISTEN<span class="o">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>config <code class="language-plaintext highlighter-rouge">frpc</code>: <code class="language-plaintext highlighter-rouge">vim /etc/frp/frpc.ini</code></p>
+
+    <p>If you’re not familiar frp(frps &amp; frpc), learn and be practised about it.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  e.g.    
+  remote: 8282
+  local:  80
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>domain name recored: map <code class="language-plaintext highlighter-rouge">cloud.yourdomain.com</code> to the IP of frps’s host.</p>
+  </li>
+  <li>
+    <p>in frps’s host, add host <code class="language-plaintext highlighter-rouge">cloud.yourdomain.com</code> to <code class="language-plaintext highlighter-rouge">8282</code>:   <code class="language-plaintext highlighter-rouge">vim /etc/caddy/Caddyfile</code></p>
+
+    <blockquote>
+      <p>Caddy 自动https，确实很香啊~！Nginx 的反向代理配置啥的，这里就按下不表了哈~</p>
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  cloud.yourdomain.com {
+    gzip
+    log stdout
+    proxy / localhost:8282 {  # ncp, frp 8282 - &gt; 80 @ armbian_chanidBox
+      websocket
+      transparent
+    }
+  }
+</code></pre></div>      </div>
+    </blockquote>
+  </li>
+  <li>
+    <p>Add the LAN_IP; Domain; 127.0.0.1 into the trust domain list of ncp:</p>
+
+    <p>add the domain <code class="language-plaintext highlighter-rouge">cloud.yourdomain.com</code></p>
+
+    <p><code class="language-plaintext highlighter-rouge">docker exec -it nextcloudpi ncp-config</code></p>
+  </li>
+</ul>
+
+<h4 id="start-docker-container-automatically">Start docker container automatically.</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You may need the container get started automatically for cases such as interrupted. There are two ways I can find:
+- use `docker run -d --restart &lt;flag&gt; &lt;container_name&gt;` when you pull the image and build the container at the first time. [ref link](https://docs.docker.com/config/containers/start-containers-automatically/)
+- create a systemd service on host. [ref link](https://blog.container-solutions.com/running-docker-containers-with-systemd) The example content of `/etc/systemd/system/docker.nextcloudpi.service`
+</code></pre></div></div>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[Unit]</span>
+<span class="py">Description</span><span class="p">=</span><span class="s">nextCloudPi Container</span>
+<span class="py">After</span><span class="p">=</span><span class="s">docker.service</span>
+<span class="py">Requires</span><span class="p">=</span><span class="s">docker.service</span>
+<span class="py">After</span><span class="p">=</span><span class="s">frpc.service</span>
+<span class="py">Requires</span><span class="p">=</span><span class="s">frpc.service     # if you use frpc for exposing the local service to public Internet</span>
+
+<span class="nn">[Service]</span>
+<span class="py">TimeoutStartSec</span><span class="p">=</span><span class="s">30</span>
+<span class="py">ExecStart</span><span class="p">=</span><span class="s">/usr/bin/docker start nextcloudpi</span>
+
+<span class="nn">[Install]</span>
+<span class="py">WantedBy</span><span class="p">=</span><span class="s">multi-user.target</span>
+</code></pre></div></div>
+<p>enable this service run on boot: <code class="language-plaintext highlighter-rouge">sudo systemctl enable docker.nextcloudpi.service</code>. Note this .service file may cause fail. test it by reboot your host.</p>
+
+<h4 id="stop-auto-start-container">Stop Auto-start container:</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$ docker update --restart unless-stopped &lt;container_name&gt;</code>, change the <code class="language-plaintext highlighter-rouge">unless-stopped</code> into <code class="language-plaintext highlighter-rouge">no</code></li>
+  <li>and modify the <code class="language-plaintext highlighter-rouge">/etc/systemd/system/docker.nextcloudpi.service</code></li>
+</ul>
+
+<h3 id="create-new-nextcloud-user">create new nextCloud user:</h3>
+
+<blockquote>
+  <p>NextCloud does not support users to register themselves? Funny…</p>
+</blockquote>
+
+<p>ref: https://docs.nextcloud.com/server/13/admin_manual/configuration_user/user_configuration.html#creating-a-new-user</p>
+
+<h3 id="tips">Tips:</h3>
+
+<h5 id="different-quota-options---configure">Different Quota options - configure?</h5>
+<p>The options for user quotas are “Default”, “Unlimited”, 1GB, 5GB and 10GB. If you’d like to be able to set a 25GB, just type in your own quota in. e.g. 1TB limit just type in “1TB”. <a href="https://www.reddit.com/r/NextCloud/comments/bf088u/different_quota_options_configure/">ref_link</a></p>
+
+<h5 id="what-http-server-does-ncp-use">What http server does ncp use?</h5>
+<p>try <code class="language-plaintext highlighter-rouge">systemctl status apache2</code> in ncp container’s bash
+  manually stopping the daemon of apache2:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># systemctl stop apache2</span>
+ <span class="c"># systemctl disable apache2</span>
+</code></pre></div></div>
+
+<h2 id="what-if-install-ncp-via-curl-command">What if install ncp via curl command</h2>
+<p>We can now install NextCloudPi in any Debian Buster system of any architecture with:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># curl -sSL https://raw.githubusercontent.com/nextcloud/nextcloudpi/master/install.sh | bash</span>
+</code></pre></div></div>
+<p>before running above, may need to copy the nc-app and nc-web, ref: https://github.com/nextcloud/nextcloudpi/issues/976
+before running above, may need to configure the debian source.list</p>
+
+<p>##</p>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="deploy nextcloudpi (ncp) docker on aarch64 (arm64) board">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2020/05/18/Deploy-NextCloudPi-(ncp)-docker-on-aarch64-(arm64)-board.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

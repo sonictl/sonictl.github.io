@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>在Ubuntu12.04上安装SimpleScalar的方法 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="在Ubuntu12.04上安装SimpleScalar的方法" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="【技术】在Ubuntu12.04上安装SimpleScalar的方法 【技术】Install SimpleScalar on Ubuntu 12.04 1.在gedit（Ubuntu自带的文本编辑器）中加入以下代码： NAME=Simplescalar PACKAGE=simplescalar TOOL=simpletools-2v0 UTIL=simpleutils SIM=simplesim sudo apt-get update sudo apt-get install flex-old bison build-essential cd mkdir $NAME cd $NAME wget http://csrl.unt.edu/downloads/$PACKAGE.tgz tar xvfz $PACKAGE.tgz export CC=&quot;gcc&quot; export HOST=i686-unknown-linux export TARGET=sslittle-na-sstrix export IDIR=~/$NAME cd ~/$NAME tar xvfz $TOOL.tgz rm -rf gcc-2.6.3 cd ~/$NAME tar xvfz $UTIL-990811.tar.gz cd $UTIL-990811 ./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR make CC=gcc sudo make install CC=gcc cd ~/$NAME tar xvfz $SIM-3v0d.tgz cd $SIM-3.0 make config-pisa make CC=gcc cd ~/$NAME tar xvfz gcc-2.7.2.3.ss.tar.gz cd ~/$NAME/gcc-2.7.2.3 export PATH=$PATH:$IDIR/simpleutils-990811/sslittle-na-sstrix/bin ./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; sed -i &#39;s/return \&quot;FIXME\\n/return \&quot;FIXME\\n\\/g&#39; ~/$NAME/gcc-2.7.2.3/insn-output.c make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; wget http://www.ict.kth.se/courses/IS2202/ar wget http://www.ict.kth.se/courses/IS2202/ranlib chmod 700 ar chmod 700 ranlib sudo cp ar $IDIR/sslittle-na-sstrix/bin/ar sudo cp ranlib $IDIR/sslittle-na-sstrix/bin/ranlib rm ar rm ranlib chmod &#43;w ~/$NAME/gcc-2.7.2.3/obstack.h sed -i &#39;s/next_free)&#43;&#43;/next_free&#43;&#43;)/g&#39; ~/$NAME/gcc-2.7.2.3/obstack.h make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; sed -i &#39;98i\ &#39; ~/$NAME/gcc-2.7.2.3/libgcc2.c cp $IDIR/gcc-2.7.2.3/patched/sys/cdefs.h $IDIR/sslittle-na-sstrix/include/sys/cdefs.h make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; make enquire CC=gcc sudo make install LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; PATH=$PATH:~/$NAME/bin exit 0 2.将以上代码保存成： SimpleScalar.build &nbsp;文件，放在/home/Document文件夹中 3.在 Terminal 中运行：&nbsp; &nbsp; cd &nbsp; cd Document &nbsp; source SimpleScalar.build 4.坐等安装完成。 5.验证方法： 假设有hello.c在你的simplescalar文件夹下： ~/simplescalar&gt; $ bin/sslittle-na-sstrix-gcc hello.c ~/simplescalar&gt; $ simplesim-3.0/sim-safe a.out 或者： 假设你的示例源文件hello.c在home文件夹，而simplescalar的gcc工具在simplescalar/bin/文件夹下，sim-safe工具在simplescalar/simplesim-3.0文件夹下， 那么，在当前位置为home 时（执行ls会看到hello.c),执行：/simplescalar/bin/sslittle-na-sstrix-gcc hello.c会在home文件夹下生成a.out的文件。再执行：/simplescalar/simplesim-3.0/sim-safe a.out会进行模拟仿真，并显示结果。 &nbsp;【演示视频】： http://v.youku.com/v_show/id_XNDc3OTExNjA4.html" />
+<meta property="og:description" content="【技术】在Ubuntu12.04上安装SimpleScalar的方法 【技术】Install SimpleScalar on Ubuntu 12.04 1.在gedit（Ubuntu自带的文本编辑器）中加入以下代码： NAME=Simplescalar PACKAGE=simplescalar TOOL=simpletools-2v0 UTIL=simpleutils SIM=simplesim sudo apt-get update sudo apt-get install flex-old bison build-essential cd mkdir $NAME cd $NAME wget http://csrl.unt.edu/downloads/$PACKAGE.tgz tar xvfz $PACKAGE.tgz export CC=&quot;gcc&quot; export HOST=i686-unknown-linux export TARGET=sslittle-na-sstrix export IDIR=~/$NAME cd ~/$NAME tar xvfz $TOOL.tgz rm -rf gcc-2.6.3 cd ~/$NAME tar xvfz $UTIL-990811.tar.gz cd $UTIL-990811 ./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR make CC=gcc sudo make install CC=gcc cd ~/$NAME tar xvfz $SIM-3v0d.tgz cd $SIM-3.0 make config-pisa make CC=gcc cd ~/$NAME tar xvfz gcc-2.7.2.3.ss.tar.gz cd ~/$NAME/gcc-2.7.2.3 export PATH=$PATH:$IDIR/simpleutils-990811/sslittle-na-sstrix/bin ./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; sed -i &#39;s/return \&quot;FIXME\\n/return \&quot;FIXME\\n\\/g&#39; ~/$NAME/gcc-2.7.2.3/insn-output.c make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; wget http://www.ict.kth.se/courses/IS2202/ar wget http://www.ict.kth.se/courses/IS2202/ranlib chmod 700 ar chmod 700 ranlib sudo cp ar $IDIR/sslittle-na-sstrix/bin/ar sudo cp ranlib $IDIR/sslittle-na-sstrix/bin/ranlib rm ar rm ranlib chmod &#43;w ~/$NAME/gcc-2.7.2.3/obstack.h sed -i &#39;s/next_free)&#43;&#43;/next_free&#43;&#43;)/g&#39; ~/$NAME/gcc-2.7.2.3/obstack.h make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; sed -i &#39;98i\ &#39; ~/$NAME/gcc-2.7.2.3/libgcc2.c cp $IDIR/gcc-2.7.2.3/patched/sys/cdefs.h $IDIR/sslittle-na-sstrix/include/sys/cdefs.h make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; make enquire CC=gcc sudo make install LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; PATH=$PATH:~/$NAME/bin exit 0 2.将以上代码保存成： SimpleScalar.build &nbsp;文件，放在/home/Document文件夹中 3.在 Terminal 中运行：&nbsp; &nbsp; cd &nbsp; cd Document &nbsp; source SimpleScalar.build 4.坐等安装完成。 5.验证方法： 假设有hello.c在你的simplescalar文件夹下： ~/simplescalar&gt; $ bin/sslittle-na-sstrix-gcc hello.c ~/simplescalar&gt; $ simplesim-3.0/sim-safe a.out 或者： 假设你的示例源文件hello.c在home文件夹，而simplescalar的gcc工具在simplescalar/bin/文件夹下，sim-safe工具在simplescalar/simplesim-3.0文件夹下， 那么，在当前位置为home 时（执行ls会看到hello.c),执行：/simplescalar/bin/sslittle-na-sstrix-gcc hello.c会在home文件夹下生成a.out的文件。再执行：/simplescalar/simplesim-3.0/sim-safe a.out会进行模拟仿真，并显示结果。 &nbsp;【演示视频】： http://v.youku.com/v_show/id_XNDc3OTExNjA4.html" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2013/01/20/%E5%9C%A8Ubuntu12.04%E4%B8%8A%E5%AE%89%E8%A3%85SimpleScalar%E7%9A%84%E6%96%B9%E6%B3%95.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2013/01/20/%E5%9C%A8Ubuntu12.04%E4%B8%8A%E5%AE%89%E8%A3%85SimpleScalar%E7%9A%84%E6%96%B9%E6%B3%95.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-01-20T14:53:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="在Ubuntu12.04上安装SimpleScalar的方法" />
+<script type="application/ld+json">
+{"headline":"在Ubuntu12.04上安装SimpleScalar的方法","dateModified":"2013-01-20T14:53:00+08:00","datePublished":"2013-01-20T14:53:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2013/01/20/%E5%9C%A8Ubuntu12.04%E4%B8%8A%E5%AE%89%E8%A3%85SimpleScalar%E7%9A%84%E6%96%B9%E6%B3%95.html"},"description":"【技术】在Ubuntu12.04上安装SimpleScalar的方法 【技术】Install SimpleScalar on Ubuntu 12.04 1.在gedit（Ubuntu自带的文本编辑器）中加入以下代码： NAME=Simplescalar PACKAGE=simplescalar TOOL=simpletools-2v0 UTIL=simpleutils SIM=simplesim sudo apt-get update sudo apt-get install flex-old bison build-essential cd mkdir $NAME cd $NAME wget http://csrl.unt.edu/downloads/$PACKAGE.tgz tar xvfz $PACKAGE.tgz export CC=&quot;gcc&quot; export HOST=i686-unknown-linux export TARGET=sslittle-na-sstrix export IDIR=~/$NAME cd ~/$NAME tar xvfz $TOOL.tgz rm -rf gcc-2.6.3 cd ~/$NAME tar xvfz $UTIL-990811.tar.gz cd $UTIL-990811 ./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR make CC=gcc sudo make install CC=gcc cd ~/$NAME tar xvfz $SIM-3v0d.tgz cd $SIM-3.0 make config-pisa make CC=gcc cd ~/$NAME tar xvfz gcc-2.7.2.3.ss.tar.gz cd ~/$NAME/gcc-2.7.2.3 export PATH=$PATH:$IDIR/simpleutils-990811/sslittle-na-sstrix/bin ./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; sed -i &#39;s/return \\&quot;FIXME\\\\n/return \\&quot;FIXME\\\\n\\\\/g&#39; ~/$NAME/gcc-2.7.2.3/insn-output.c make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; wget http://www.ict.kth.se/courses/IS2202/ar wget http://www.ict.kth.se/courses/IS2202/ranlib chmod 700 ar chmod 700 ranlib sudo cp ar $IDIR/sslittle-na-sstrix/bin/ar sudo cp ranlib $IDIR/sslittle-na-sstrix/bin/ranlib rm ar rm ranlib chmod &#43;w ~/$NAME/gcc-2.7.2.3/obstack.h sed -i &#39;s/next_free)&#43;&#43;/next_free&#43;&#43;)/g&#39; ~/$NAME/gcc-2.7.2.3/obstack.h make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; sed -i &#39;98i\\ &#39; ~/$NAME/gcc-2.7.2.3/libgcc2.c cp $IDIR/gcc-2.7.2.3/patched/sys/cdefs.h $IDIR/sslittle-na-sstrix/include/sys/cdefs.h make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; make enquire CC=gcc sudo make install LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; PATH=$PATH:~/$NAME/bin exit 0 2.将以上代码保存成： SimpleScalar.build &nbsp;文件，放在/home/Document文件夹中 3.在 Terminal 中运行：&nbsp; &nbsp; cd &nbsp; cd Document &nbsp; source SimpleScalar.build 4.坐等安装完成。 5.验证方法： 假设有hello.c在你的simplescalar文件夹下： ~/simplescalar&gt; $ bin/sslittle-na-sstrix-gcc hello.c ~/simplescalar&gt; $ simplesim-3.0/sim-safe a.out 或者： 假设你的示例源文件hello.c在home文件夹，而simplescalar的gcc工具在simplescalar/bin/文件夹下，sim-safe工具在simplescalar/simplesim-3.0文件夹下， 那么，在当前位置为home 时（执行ls会看到hello.c),执行：/simplescalar/bin/sslittle-na-sstrix-gcc hello.c会在home文件夹下生成a.out的文件。再执行：/simplescalar/simplesim-3.0/sim-safe a.out会进行模拟仿真，并显示结果。 &nbsp;【演示视频】： http://v.youku.com/v_show/id_XNDc3OTExNjA4.html","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2013/01/20/%E5%9C%A8Ubuntu12.04%E4%B8%8A%E5%AE%89%E8%A3%85SimpleScalar%E7%9A%84%E6%96%B9%E6%B3%95.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">在Ubuntu12.04上安装SimpleScalar的方法</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2013-01-20T14:53:00+08:00" itemprop="datePublished">
+        Jan 20, 2013
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><span style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; font-size:14px; line-height:21px">【技术】在Ubuntu12.04上安装SimpleScalar的方法</span></p>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+【技术】Install SimpleScalar on Ubuntu 12.04</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+1.在gedit（Ubuntu自带的文本编辑器）中加入以下代码：</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<div style="line-height:1.5"><span style="color:#2F3699">NAME=Simplescalar</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">PACKAGE=simplescalar</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">TOOL=simpletools-2v0</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">UTIL=simpleutils</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">SIM=simplesim</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sudo apt-get update</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sudo apt-get install flex-old bison build-essential</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">mkdir $NAME</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd $NAME</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">wget http://csrl.unt.edu/downloads/$PACKAGE.tgz</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">tar xvfz $PACKAGE.tgz</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">export CC=&quot;gcc&quot;</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">export HOST=i686-unknown-linux</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">export TARGET=sslittle-na-sstrix</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">export IDIR=~/$NAME</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd ~/$NAME</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">tar xvfz $TOOL.tgz</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">rm -rf gcc-2.6.3</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd ~/$NAME</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">tar xvfz $UTIL-990811.tar.gz</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd $UTIL-990811</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make CC=gcc</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sudo make install CC=gcc</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd ~/$NAME</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">tar xvfz $SIM-3v0d.tgz</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd $SIM-3.0</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make config-pisa</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make CC=gcc</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd ~/$NAME</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">tar xvfz gcc-2.7.2.3.ss.tar.gz</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cd ~/$NAME/gcc-2.7.2.3</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">export PATH=$PATH:$IDIR/simpleutils-990811/sslittle-na-sstrix/bin</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">./configure --host=$HOST --target=$TARGET --with-gnu-as --with-gnu-ld --prefix=$IDIR</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot;</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sed -i 's/return \&quot;FIXME\\n/return \&quot;FIXME\\n\\/g' ~/$NAME/gcc-2.7.2.3/insn-output.c</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot;</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">wget http://www.ict.kth.se/courses/IS2202/ar</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">wget http://www.ict.kth.se/courses/IS2202/ranlib</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">chmod 700 ar</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">chmod 700 ranlib</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sudo cp ar $IDIR/sslittle-na-sstrix/bin/ar</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sudo cp ranlib $IDIR/sslittle-na-sstrix/bin/ranlib</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">rm ar</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">rm ranlib</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">chmod &#43;w ~/$NAME/gcc-2.7.2.3/obstack.h</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sed -i 's/next_free)&#43;&#43;/next_free&#43;&#43;)/g' ~/$NAME/gcc-2.7.2.3/obstack.h</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot;</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sed -i '98i\</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">' ~/$NAME/gcc-2.7.2.3/libgcc2.c</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">cp $IDIR/gcc-2.7.2.3/patched/sys/cdefs.h $IDIR/sslittle-na-sstrix/include/sys/cdefs.h</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot;</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">make enquire CC=gcc</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">sudo make install LANGUAGES=&quot;c c&#43;&#43;&quot; CFLASS=-O3 CC=&quot;gcc&quot; PATH=$PATH:~/$NAME/bin</span></div>
+<div style="line-height:1.5"><span style="color:#2F3699">exit 0</span></div>
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+2.将以上代码保存成： SimpleScalar.build &nbsp;文件，放在/home/Document文件夹中</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+3.在 Terminal 中运行：&nbsp;</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+&nbsp; cd</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+&nbsp; cd Document</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+&nbsp; source SimpleScalar.build</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+4.坐等安装完成。</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+5.验证方法：</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<div style="line-height:1.5"><br style="line-height:1.5" />
+</div>
+<div style="line-height:1.5">假设有hello.c在你的simplescalar文件夹下：</div>
+<div style="line-height:1.5">~/simplescalar&gt; $ bin/sslittle-na-sstrix-gcc hello.c</div>
+<div style="line-height:1.5">~/simplescalar&gt; $ simplesim-3.0/sim-safe a.out</div>
+<div style="line-height:1.5"><br style="line-height:1.5" />
+</div>
+<div style="line-height:1.5">或者：</div>
+<div style="line-height:1.5">假设你的示例源文件hello.c在home文件夹，而simplescalar的gcc工具在simplescalar/bin/文件夹下，sim-safe工具在simplescalar/simplesim-3.0文件夹下，</div>
+<div style="line-height:1.5"><br style="line-height:1.5" />
+</div>
+<div style="line-height:1.5">那么，在当前位置为home 时（执行ls会看到hello.c),执行：/simplescalar/bin/sslittle-na-sstrix-gcc hello.c会在home文件夹下生成a.out的文件。再执行：/simplescalar/simplesim-3.0/sim-safe a.out会进行模拟仿真，并显示结果。</div>
+</div>
+<p><a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s15.sinaimg.cn/orignal/55a4cddcg7b18e7b571ee" target="_blank" style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; font-size:14px; line-height:21px"><img src="http://s15.sinaimg.cn/mw690/55a4cddcg7b18e7b571ee&amp;690" name="image_operate_58831353469056570" alt="" style="border:0px" /></a><br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px" />
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px" /></p>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+&nbsp;【演示视频】：</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<a href="http://v.youku.com/v_show/id_XNDc3OTExNjA4.html">http://v.youku.com/v_show/id_XNDc3OTExNjA4.html</a></div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="在ubuntu12-04上安装simplescalar的方法">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2013/01/20/%E5%9C%A8Ubuntu12.04%E4%B8%8A%E5%AE%89%E8%A3%85SimpleScalar%E7%9A%84%E6%96%B9%E6%B3%95.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

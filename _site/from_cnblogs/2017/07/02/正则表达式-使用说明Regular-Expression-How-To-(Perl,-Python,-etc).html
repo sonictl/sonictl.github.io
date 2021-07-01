@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>正则表达式-使用说明Regular Expression How To (Perl, Python, etc) | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="正则表达式-使用说明Regular Expression How To (Perl, Python, etc)" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="notepad++ wiki about regular expression 正则表达式-使用说明Regular Expression How To (Perl, Python, etc) https://docs.python.org/2/howto/regex.html#regex-howto For more: Linux Shell 通配符、元字符、转义符使用实例介绍(\后面跟实际字符： [0-9]\a&nbsp; =匹配=&gt; &#39;0a&#39;, &#39;1a&#39;, &#39;9a&#39;... ) https://docs.python.org/2/library/re.html https://regexone.com/ Learn Regular Expressions with simple, interactive exercises. &nbsp; &nbsp; Quick Reference: The first metacharacters we&rsquo;ll look at are&nbsp;[&nbsp;and&nbsp;]. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;&#39;-&#39;. For example,&nbsp;[abc]&nbsp;will match any of the characters&nbsp;a,&nbsp;b, or&nbsp;c; this is the same as&nbsp;[a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be&nbsp;[a-z]. Metacharacters are not active inside classes. For example,&nbsp;[akm$]&nbsp;will match any of the characters&nbsp;&#39;a&#39;,&nbsp;&#39;k&#39;,&nbsp;&#39;m&#39;, or&nbsp;&#39;$&#39;;&nbsp;&#39;$&#39;&nbsp;is usually a metacharacter, but inside a character class it&rsquo;s stripped of its special nature. You can match the characters not listed within the class by&nbsp;complementing&nbsp;the set. This is indicated by including a&nbsp;&#39;^&#39;&nbsp;as the first character of the class;&nbsp;&#39;^&#39;&nbsp;outside a character class will simply match the&nbsp;&#39;^&#39;&nbsp;character. For example,&nbsp;[^5]&nbsp;will match any character except&nbsp;&#39;5&#39;. Perhaps the most important metacharacter is the backslash,&nbsp;\. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It&rsquo;s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a&nbsp;[&nbsp;or&nbsp;\, you can precede them with a backslash to remove their special meaning:&nbsp;\[&nbsp;or&nbsp;\\. Some of the special sequences beginning with&nbsp;&#39;\&#39;&nbsp;represent predefined sets of characters that are often useful, such as the set of digits, the set of letters, or the set of anything that isn&rsquo;t whitespace. The following predefined special sequences are a subset of those available. The equivalent classes are for byte string patterns. For a complete list of sequences and expanded class definitions for Unicode string patterns, see the last part of&nbsp;Regular Expression Syntax. \dMatches any decimal digit; this is equivalent to the class&nbsp;[0-9].\DMatches any non-digit character; this is equivalent to the class&nbsp;[^0-9].\sMatches any whitespace character; this is equivalent to the class&nbsp;[&nbsp;\t\n\r\f\v].\SMatches any non-whitespace character; this is equivalent to the class&nbsp;[^&nbsp;\t\n\r\f\v].\wMatches any alphanumeric character; this is equivalent to the class&nbsp;[a-zA-Z0-9_].\WMatches any non-alphanumeric character; this is equivalent to the class&nbsp;[^a-zA-Z0-9_]. These sequences can be included inside a character class. For example,&nbsp;[\s,.]&nbsp;is a character class that will match any whitespace character, or&nbsp;&#39;,&#39;&nbsp;or&nbsp;&#39;.&#39;. The final metacharacter in this section is&nbsp;.. It matches anything except a newline character, and there&rsquo;s an alternate mode (re.DOTALL) where it will match even a newline.&nbsp;&#39;.&#39;&nbsp;is often used where you want to match &ldquo;any character&rdquo;. &nbsp;" />
+<meta property="og:description" content="notepad++ wiki about regular expression 正则表达式-使用说明Regular Expression How To (Perl, Python, etc) https://docs.python.org/2/howto/regex.html#regex-howto For more: Linux Shell 通配符、元字符、转义符使用实例介绍(\后面跟实际字符： [0-9]\a&nbsp; =匹配=&gt; &#39;0a&#39;, &#39;1a&#39;, &#39;9a&#39;... ) https://docs.python.org/2/library/re.html https://regexone.com/ Learn Regular Expressions with simple, interactive exercises. &nbsp; &nbsp; Quick Reference: The first metacharacters we&rsquo;ll look at are&nbsp;[&nbsp;and&nbsp;]. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;&#39;-&#39;. For example,&nbsp;[abc]&nbsp;will match any of the characters&nbsp;a,&nbsp;b, or&nbsp;c; this is the same as&nbsp;[a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be&nbsp;[a-z]. Metacharacters are not active inside classes. For example,&nbsp;[akm$]&nbsp;will match any of the characters&nbsp;&#39;a&#39;,&nbsp;&#39;k&#39;,&nbsp;&#39;m&#39;, or&nbsp;&#39;$&#39;;&nbsp;&#39;$&#39;&nbsp;is usually a metacharacter, but inside a character class it&rsquo;s stripped of its special nature. You can match the characters not listed within the class by&nbsp;complementing&nbsp;the set. This is indicated by including a&nbsp;&#39;^&#39;&nbsp;as the first character of the class;&nbsp;&#39;^&#39;&nbsp;outside a character class will simply match the&nbsp;&#39;^&#39;&nbsp;character. For example,&nbsp;[^5]&nbsp;will match any character except&nbsp;&#39;5&#39;. Perhaps the most important metacharacter is the backslash,&nbsp;\. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It&rsquo;s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a&nbsp;[&nbsp;or&nbsp;\, you can precede them with a backslash to remove their special meaning:&nbsp;\[&nbsp;or&nbsp;\\. Some of the special sequences beginning with&nbsp;&#39;\&#39;&nbsp;represent predefined sets of characters that are often useful, such as the set of digits, the set of letters, or the set of anything that isn&rsquo;t whitespace. The following predefined special sequences are a subset of those available. The equivalent classes are for byte string patterns. For a complete list of sequences and expanded class definitions for Unicode string patterns, see the last part of&nbsp;Regular Expression Syntax. \dMatches any decimal digit; this is equivalent to the class&nbsp;[0-9].\DMatches any non-digit character; this is equivalent to the class&nbsp;[^0-9].\sMatches any whitespace character; this is equivalent to the class&nbsp;[&nbsp;\t\n\r\f\v].\SMatches any non-whitespace character; this is equivalent to the class&nbsp;[^&nbsp;\t\n\r\f\v].\wMatches any alphanumeric character; this is equivalent to the class&nbsp;[a-zA-Z0-9_].\WMatches any non-alphanumeric character; this is equivalent to the class&nbsp;[^a-zA-Z0-9_]. These sequences can be included inside a character class. For example,&nbsp;[\s,.]&nbsp;is a character class that will match any whitespace character, or&nbsp;&#39;,&#39;&nbsp;or&nbsp;&#39;.&#39;. The final metacharacter in this section is&nbsp;.. It matches anything except a newline character, and there&rsquo;s an alternate mode (re.DOTALL) where it will match even a newline.&nbsp;&#39;.&#39;&nbsp;is often used where you want to match &ldquo;any character&rdquo;. &nbsp;" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2017/07/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8ERegular-Expression-How-To-(Perl,-Python,-etc).html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2017/07/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8ERegular-Expression-How-To-(Perl,-Python,-etc).html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-02T08:01:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="正则表达式-使用说明Regular Expression How To (Perl, Python, etc)" />
+<script type="application/ld+json">
+{"headline":"正则表达式-使用说明Regular Expression How To (Perl, Python, etc)","dateModified":"2017-07-02T08:01:00+08:00","datePublished":"2017-07-02T08:01:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2017/07/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8ERegular-Expression-How-To-(Perl,-Python,-etc).html"},"description":"notepad++ wiki about regular expression 正则表达式-使用说明Regular Expression How To (Perl, Python, etc) https://docs.python.org/2/howto/regex.html#regex-howto For more: Linux Shell 通配符、元字符、转义符使用实例介绍(\\后面跟实际字符： [0-9]\\a&nbsp; =匹配=&gt; &#39;0a&#39;, &#39;1a&#39;, &#39;9a&#39;... ) https://docs.python.org/2/library/re.html https://regexone.com/ Learn Regular Expressions with simple, interactive exercises. &nbsp; &nbsp; Quick Reference: The first metacharacters we&rsquo;ll look at are&nbsp;[&nbsp;and&nbsp;]. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;&#39;-&#39;. For example,&nbsp;[abc]&nbsp;will match any of the characters&nbsp;a,&nbsp;b, or&nbsp;c; this is the same as&nbsp;[a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be&nbsp;[a-z]. Metacharacters are not active inside classes. For example,&nbsp;[akm$]&nbsp;will match any of the characters&nbsp;&#39;a&#39;,&nbsp;&#39;k&#39;,&nbsp;&#39;m&#39;, or&nbsp;&#39;$&#39;;&nbsp;&#39;$&#39;&nbsp;is usually a metacharacter, but inside a character class it&rsquo;s stripped of its special nature. You can match the characters not listed within the class by&nbsp;complementing&nbsp;the set. This is indicated by including a&nbsp;&#39;^&#39;&nbsp;as the first character of the class;&nbsp;&#39;^&#39;&nbsp;outside a character class will simply match the&nbsp;&#39;^&#39;&nbsp;character. For example,&nbsp;[^5]&nbsp;will match any character except&nbsp;&#39;5&#39;. Perhaps the most important metacharacter is the backslash,&nbsp;\\. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It&rsquo;s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a&nbsp;[&nbsp;or&nbsp;\\, you can precede them with a backslash to remove their special meaning:&nbsp;\\[&nbsp;or&nbsp;\\\\. Some of the special sequences beginning with&nbsp;&#39;\\&#39;&nbsp;represent predefined sets of characters that are often useful, such as the set of digits, the set of letters, or the set of anything that isn&rsquo;t whitespace. The following predefined special sequences are a subset of those available. The equivalent classes are for byte string patterns. For a complete list of sequences and expanded class definitions for Unicode string patterns, see the last part of&nbsp;Regular Expression Syntax. \\dMatches any decimal digit; this is equivalent to the class&nbsp;[0-9].\\DMatches any non-digit character; this is equivalent to the class&nbsp;[^0-9].\\sMatches any whitespace character; this is equivalent to the class&nbsp;[&nbsp;\\t\\n\\r\\f\\v].\\SMatches any non-whitespace character; this is equivalent to the class&nbsp;[^&nbsp;\\t\\n\\r\\f\\v].\\wMatches any alphanumeric character; this is equivalent to the class&nbsp;[a-zA-Z0-9_].\\WMatches any non-alphanumeric character; this is equivalent to the class&nbsp;[^a-zA-Z0-9_]. These sequences can be included inside a character class. For example,&nbsp;[\\s,.]&nbsp;is a character class that will match any whitespace character, or&nbsp;&#39;,&#39;&nbsp;or&nbsp;&#39;.&#39;. The final metacharacter in this section is&nbsp;.. It matches anything except a newline character, and there&rsquo;s an alternate mode (re.DOTALL) where it will match even a newline.&nbsp;&#39;.&#39;&nbsp;is often used where you want to match &ldquo;any character&rdquo;. &nbsp;","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2017/07/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8ERegular-Expression-How-To-(Perl,-Python,-etc).html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">正则表达式-使用说明Regular Expression How To (Perl, Python, etc)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2017-07-02T08:01:00+08:00" itemprop="datePublished">
+        Jul 2, 2017
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="http://docs.notepad-plus-plus.org/index.php/Regular_Expressions" target="_blank">notepad++ wiki about regular expression</a></p>
+<p>正则表达式-使用说明Regular Expression How To (Perl, Python, etc)</p>
+<p>https://docs.python.org/2/howto/regex.html#regex-howto</p>
+<p>For more:</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/chengmo/archive/2010/10/17/1853344.html">Linux Shell 通配符、元字符、转义符使用实例介绍</a>(\后面跟实际字符： [0-9]\a&nbsp; =匹配=&gt; '0a', '1a', '9a'... )</p>
+<p>https://docs.python.org/2/library/re.html</p>
+<p><a title="sonictl" href="https://regexone.com/">https://regexone.com/</a> <span class="site_name"><span class="desc hide-max-md">Learn Regular Expressions with simple, interactive exercises.</span></span></p>
+<p>&nbsp;</p>
+<hr />
+
+<p>&nbsp;</p>
+<p>Quick Reference:</p>
+<p>The first metacharacters we&rsquo;ll look at are&nbsp;<code class="docutils literal"><span class="pre">[</span></code>&nbsp;and&nbsp;<code class="docutils literal"><span class="pre">]</span></code>. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;<code class="docutils literal"><span class="pre">'-'</span></code>. For example,&nbsp;<code class="docutils literal"><span class="pre">[abc]</span></code>&nbsp;will match any of the characters&nbsp;<code class="docutils literal"><span class="pre">a</span></code>,&nbsp;<code class="docutils literal"><span class="pre">b</span></code>, or&nbsp;<code class="docutils literal"><span class="pre">c</span></code>; this is the same as&nbsp;<code class="docutils literal"><span class="pre">[a-c]</span></code>, which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be&nbsp;<code class="docutils literal"><span class="pre">[a-z]</span></code>.</p>
+<p>Metacharacters are not active inside classes. For example,&nbsp;<code class="docutils literal"><span class="pre">[akm$]</span></code>&nbsp;will match any of the characters&nbsp;<code class="docutils literal"><span class="pre">'a'</span></code>,&nbsp;<code class="docutils literal"><span class="pre">'k'</span></code>,&nbsp;<code class="docutils literal"><span class="pre">'m'</span></code>, or&nbsp;<code class="docutils literal"><span class="pre">'$'</span></code>;&nbsp;<code class="docutils literal"><span class="pre">'$'</span></code>&nbsp;is usually a metacharacter, but inside a character class it&rsquo;s stripped of its special nature.</p>
+<p>You can match the characters not listed within the class by&nbsp;<em class="dfn">complementing</em>&nbsp;the set. This is indicated by including a&nbsp;<code class="docutils literal"><span class="pre">'^'</span></code>&nbsp;as the first character of the class;&nbsp;<code class="docutils literal"><span class="pre">'^'</span></code>&nbsp;outside a character class will simply match the&nbsp;<code class="docutils literal"><span class="pre">'^'</span></code>&nbsp;character. For example,&nbsp;<code class="docutils literal"><span class="pre">[^5]</span></code>&nbsp;will match any character except&nbsp;<code class="docutils literal"><span class="pre">'5'</span></code>.</p>
+<p>Perhaps the most important metacharacter is the backslash,&nbsp;<code class="docutils literal"><span class="pre">\</span></code>. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It&rsquo;s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a&nbsp;<code class="docutils literal"><span class="pre">[</span></code>&nbsp;or&nbsp;<code class="docutils literal"><span class="pre">\</span></code>, you can precede them with a backslash to remove their special meaning:&nbsp;<code class="docutils literal"><span class="pre">\[</span></code>&nbsp;or&nbsp;<code class="docutils literal"><span class="pre">\\</span></code>.</p>
+<p>Some of the special sequences beginning with&nbsp;<code class="docutils literal"><span class="pre">'\'</span></code>&nbsp;represent predefined sets of characters that are often useful, such as the set of digits, the set of letters, or the set of anything that isn&rsquo;t whitespace. The following predefined special sequences are a subset of those available. The equivalent classes are for byte string patterns. For a complete list of sequences and expanded class definitions for Unicode string patterns, see the last part of&nbsp;<a class="reference internal" href="https://docs.python.org/2/library/re.html#re-syntax">Regular Expression Syntax</a>.</p>
+<dl class="docutils"><dt><code class="docutils literal"><span class="pre">\d</span></code></dt><dd>Matches any decimal digit; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[0-9]</span></code>.</dd><dt><code class="docutils literal"><span class="pre">\D</span></code></dt><dd>Matches any non-digit character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[^0-9]</span></code>.</dd><dt><code class="docutils literal"><span class="pre">\s</span></code></dt><dd>Matches any whitespace character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[&nbsp;<span class="pre">\t\n\r\f\v]</span></span></code>.</dd><dt><code class="docutils literal"><span class="pre">\S</span></code></dt><dd>Matches any non-whitespace character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[^&nbsp;<span class="pre">\t\n\r\f\v]</span></span></code>.</dd><dt><code class="docutils literal"><span class="pre">\w</span></code></dt><dd>Matches any alphanumeric character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[a-zA-Z0-9_]</span></code>.</dd><dt><code class="docutils literal"><span class="pre">\W</span></code></dt><dd>Matches any non-alphanumeric character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[^a-zA-Z0-9_]</span></code>.</dd></dl>
+<p>These sequences can be included inside a character class. For example,&nbsp;<code class="docutils literal"><span class="pre">[\s,.]</span></code>&nbsp;is a character class that will match any whitespace character, or&nbsp;<code class="docutils literal"><span class="pre">','</span></code>&nbsp;or&nbsp;<code class="docutils literal"><span class="pre">'.'</span></code>.</p>
+<p>The final metacharacter in this section is&nbsp;<code class="docutils literal"><span class="pre">.</span></code>. It matches anything except a newline character, and there&rsquo;s an alternate mode (<code class="docutils literal"><span class="pre">re.DOTALL</span></code>) where it will match even a newline.&nbsp;<code class="docutils literal"><span class="pre">'.'</span></code>&nbsp;is often used where you want to match &ldquo;any character&rdquo;.</p>
+<hr />
+
+<p>&nbsp;</p>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="正则表达式-使用说明regular expression how to (perl, python, etc)">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2017/07/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8ERegular-Expression-How-To-(Perl,-Python,-etc).html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

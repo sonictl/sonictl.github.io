@@ -1,35 +1,20 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: Combine Art and Sciences
+subtitle: subtitle here and you like it
+author: sonictl
+# email:  # Comment out this line if you don't want to expose your email.
+avatar_url: https://2.gravatar.com/avatar/cdf546b601bf29a7eb4ca777544d11cd?s=160
 email:  
-description: >- # this means to ignore newlines until "baseurl:"
+description: >  # this means to ignore newlines until "baseurl:"
   当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
-baseurl: "" # the subpath of your site, e.g. /blog
+
+repository: sonictl/sonictl.github.io
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://sonictl.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# social links:
 twitter_username: jekyll
 github_username:  jekyll
 
-# Time Zone
-# Note: the '+0800' in date line of frontMatter is IMPORTANT!
-# timezone: Asia/Shanghai  
 
 # Build settings
 theme: minima
@@ -40,14 +25,16 @@ plugins:
 google_analytics: UA-200656646-1   # UA—XXXXXXXX-X
 
 # About categories: https://blog.webjeda.com/jekyll-categories/
-permalink: /:categories/:title/
+# permalink: /:categories/:title/
 
-# for jekyll-blog-comments:
-emptyArray: []
 
 comments:
+  enabled: true
+  show_count: true
   receiver: https://jekyll-comments.azurewebsites.net/api/PostComment
   #eg.      https://haacked-blog.azurewebsites.net/api/PostComment
+emptyArray: []
+
 
 defaults:
   -
@@ -67,7 +54,6 @@ defaults:
       author: sonictl
       commenting: open
 
-parse_liquid_in_code_blocks: false
 
 # advanced settings: https://github.com/jekyll/minima
 # show_excerpts: true   # 显示摘要 This is dangerous!! cause errors in index.html

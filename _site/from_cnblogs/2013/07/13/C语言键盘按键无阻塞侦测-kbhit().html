@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>C语言键盘按键无阻塞侦测:kbhit() | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="C语言键盘按键无阻塞侦测:kbhit()" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="http://www.360doc.com/content/12/0414/09/1317564_203474440.shtml kbhit in c kbhit in c: kbhit function is used to determine if a key has been pressed or not. To use kbhit function in your program you should include the header file &quot;conio.h&quot;. If a key has been pressed then it returns a non zero value otherwise returns zero. Declaration : int kbhit(); C programming code for kbhit #include &lt;stdio.h&gt; #include &lt;conio.h&gt; &nbsp; main() { while (!kbhit()) printf(&quot;You haven&#39;t pressed a key.\n&quot;); &nbsp; return 0; } As long as in the above program user doesn&#39;t presses a key kbhit() return zero and (!0) i.e. 1 the condition in while loop is true and &quot;You haven&#39;t pressed a key.&quot; will be printed again and again. As a key is pressed from the keyboard the condition in while loop become false as now kbhit() will return a non-zero value and ( !(non-zero) = 0), so the control will come out of the while loop. =========================== ubuntu上没有conio.h如何解决 www.MyException.Cn &nbsp; 发布于：2012-08-01 17:53:40 &nbsp; 浏览：142次 &nbsp; 本人用的ubuntu12.04版本，gcc是4.6.3版本，要下载什么样的conio.h和库文件？难道只能用ncurses替代吗 ------解决方案-------------------------------------------------------- 来自百度百科:　 conio 库不仅适用于 Window 平台，在 Linux 下也可使用.网上已经有兼容包,下载后打开就可使用;而至于Mac则完全跟Window没有区别,直接可以使用.&nbsp; ------解决方案-------------------------------------------------------- 自己没试过，希望对你有帮助，或者直接自己搜索关键字 &quot;linux 使用 conio.h&quot;. http://zhidao.baidu.com/question/241772898.html http://tech.techweb.com.cn/thread-183749-1-1.html&nbsp; ------解决方案-------------------------------------------------------- 用curses.h&nbsp; ------解决方案-------------------------------------------------------- sudo apt-get install libncurses5-dev" />
+<meta property="og:description" content="http://www.360doc.com/content/12/0414/09/1317564_203474440.shtml kbhit in c kbhit in c: kbhit function is used to determine if a key has been pressed or not. To use kbhit function in your program you should include the header file &quot;conio.h&quot;. If a key has been pressed then it returns a non zero value otherwise returns zero. Declaration : int kbhit(); C programming code for kbhit #include &lt;stdio.h&gt; #include &lt;conio.h&gt; &nbsp; main() { while (!kbhit()) printf(&quot;You haven&#39;t pressed a key.\n&quot;); &nbsp; return 0; } As long as in the above program user doesn&#39;t presses a key kbhit() return zero and (!0) i.e. 1 the condition in while loop is true and &quot;You haven&#39;t pressed a key.&quot; will be printed again and again. As a key is pressed from the keyboard the condition in while loop become false as now kbhit() will return a non-zero value and ( !(non-zero) = 0), so the control will come out of the while loop. =========================== ubuntu上没有conio.h如何解决 www.MyException.Cn &nbsp; 发布于：2012-08-01 17:53:40 &nbsp; 浏览：142次 &nbsp; 本人用的ubuntu12.04版本，gcc是4.6.3版本，要下载什么样的conio.h和库文件？难道只能用ncurses替代吗 ------解决方案-------------------------------------------------------- 来自百度百科:　 conio 库不仅适用于 Window 平台，在 Linux 下也可使用.网上已经有兼容包,下载后打开就可使用;而至于Mac则完全跟Window没有区别,直接可以使用.&nbsp; ------解决方案-------------------------------------------------------- 自己没试过，希望对你有帮助，或者直接自己搜索关键字 &quot;linux 使用 conio.h&quot;. http://zhidao.baidu.com/question/241772898.html http://tech.techweb.com.cn/thread-183749-1-1.html&nbsp; ------解决方案-------------------------------------------------------- 用curses.h&nbsp; ------解决方案-------------------------------------------------------- sudo apt-get install libncurses5-dev" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2013/07/13/C%E8%AF%AD%E8%A8%80%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E6%97%A0%E9%98%BB%E5%A1%9E%E4%BE%A6%E6%B5%8B-kbhit().html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2013/07/13/C%E8%AF%AD%E8%A8%80%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E6%97%A0%E9%98%BB%E5%A1%9E%E4%BE%A6%E6%B5%8B-kbhit().html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-07-13T15:41:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="C语言键盘按键无阻塞侦测:kbhit()" />
+<script type="application/ld+json">
+{"headline":"C语言键盘按键无阻塞侦测:kbhit()","dateModified":"2013-07-13T15:41:00+08:00","datePublished":"2013-07-13T15:41:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2013/07/13/C%E8%AF%AD%E8%A8%80%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E6%97%A0%E9%98%BB%E5%A1%9E%E4%BE%A6%E6%B5%8B-kbhit().html"},"description":"http://www.360doc.com/content/12/0414/09/1317564_203474440.shtml kbhit in c kbhit in c: kbhit function is used to determine if a key has been pressed or not. To use kbhit function in your program you should include the header file &quot;conio.h&quot;. If a key has been pressed then it returns a non zero value otherwise returns zero. Declaration : int kbhit(); C programming code for kbhit #include &lt;stdio.h&gt; #include &lt;conio.h&gt; &nbsp; main() { while (!kbhit()) printf(&quot;You haven&#39;t pressed a key.\\n&quot;); &nbsp; return 0; } As long as in the above program user doesn&#39;t presses a key kbhit() return zero and (!0) i.e. 1 the condition in while loop is true and &quot;You haven&#39;t pressed a key.&quot; will be printed again and again. As a key is pressed from the keyboard the condition in while loop become false as now kbhit() will return a non-zero value and ( !(non-zero) = 0), so the control will come out of the while loop. =========================== ubuntu上没有conio.h如何解决 www.MyException.Cn &nbsp; 发布于：2012-08-01 17:53:40 &nbsp; 浏览：142次 &nbsp; 本人用的ubuntu12.04版本，gcc是4.6.3版本，要下载什么样的conio.h和库文件？难道只能用ncurses替代吗 ------解决方案-------------------------------------------------------- 来自百度百科:　 conio 库不仅适用于 Window 平台，在 Linux 下也可使用.网上已经有兼容包,下载后打开就可使用;而至于Mac则完全跟Window没有区别,直接可以使用.&nbsp; ------解决方案-------------------------------------------------------- 自己没试过，希望对你有帮助，或者直接自己搜索关键字 &quot;linux 使用 conio.h&quot;. http://zhidao.baidu.com/question/241772898.html http://tech.techweb.com.cn/thread-183749-1-1.html&nbsp; ------解决方案-------------------------------------------------------- 用curses.h&nbsp; ------解决方案-------------------------------------------------------- sudo apt-get install libncurses5-dev","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2013/07/13/C%E8%AF%AD%E8%A8%80%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E6%97%A0%E9%98%BB%E5%A1%9E%E4%BE%A6%E6%B5%8B-kbhit().html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">C语言键盘按键无阻塞侦测:kbhit()</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2013-07-13T15:41:00+08:00" itemprop="datePublished">
+        Jul 13, 2013
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="http://www.360doc.com/content/12/0414/09/1317564_203474440.shtml">http://www.360doc.com/content/12/0414/09/1317564_203474440.shtml</a></p>
+<p><br />
+</p>
+<p></p>
+<h1 class="title" id="page-title" style="margin:1em 0px 0.5em; font-weight:inherit; line-height:1; font-family:Georgia,'Times New Roman',Times,serif">
+kbhit in c</h1>
+<div class="tabs" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; margin-bottom:20px; color:rgb(59,59,59); font-size:14px; line-height:21px">
+</div>
+<div class="region region-content" style="color:rgb(59,59,59); font-family:Georgia,'Times New Roman',Times,serif; font-size:14px; line-height:21px">
+<div id="block-system-main" class="block block-system">
+<div class="content" style="margin-top:10px">
+<div id="node-225" class="node node-page node-full clearfix" style="border:none; padding:0px">
+<div class="content clearfix" style="margin-top:10px; font-size:1.071em">
+<div class="field field-name-body field-type-text-with-summary field-label-hidden">
+<div class="field-items">
+<div class="field-item even">
+<p style="margin-top:0px; margin-bottom:1.2em">kbhit in c: kbhit function is used to determine if a key has been pressed or not. To use kbhit function in your program you should include the header file &quot;conio.h&quot;. If a key has been pressed then it returns a
+ non zero value otherwise returns zero.</p>
+<p style="margin-top:0px; margin-bottom:1.2em">Declaration : int kbhit();</p>
+<h2 style="margin:1em 0px 2px; font-weight:inherit; font-size:1.429em; line-height:1.4">
+C programming code for kbhit</h2>
+<div class="geshifilter" style="padding:0.5em; margin:0.5em; border:1px solid rgb(204,204,204); background-color:rgb(248,248,248); color:rgb(34,34,34); line-height:1.3; overflow:auto">
+<pre class="c geshifilter-c" style="padding:0px; margin-top:0px; margin-bottom:0px; overflow:hidden; white-space:pre-wrap; line-height:1.3"><span style="color:rgb(51,153,51)">#include &lt;stdio.h&gt;</span>
+<span style="color:rgb(51,153,51)">#include &lt;conio.h&gt;</span>
+&nbsp;
+main<span style="color:rgb(0,153,0)">(</span><span style="color:rgb(0,153,0)">)</span>
+<span style="color:rgb(0,153,0)">{</span>
+   <span style="color:rgb(177,177,0)">while</span> <span style="color:rgb(0,153,0)">(</span><span style="color:rgb(51,153,51)">!</span>kbhit<span style="color:rgb(0,153,0)">(</span><span style="color:rgb(0,153,0)">)</span><span style="color:rgb(0,153,0)">)</span>
+      <span style="color:rgb(0,0,102)">printf</span><span style="color:rgb(0,153,0)">(</span><span style="color:rgb(255,0,0)">&quot;You haven't pressed a key.<span style="color:rgb(0,0,153)"><strong>\n</strong></span>&quot;</span><span style="color:rgb(0,153,0)">)</span><span style="color:rgb(51,153,51)">;</span>
+&nbsp;
+   <span style="color:rgb(177,177,0)">return</span> <span style="color:rgb(0,0,221)">0</span><span style="color:rgb(51,153,51)">;</span>
+<span style="color:rgb(0,153,0)">}</span></pre>
+</div>
+<p style="margin-top:0px; margin-bottom:1.2em">As long as in the above program user doesn't presses a key kbhit() return zero and (!0) i.e. 1 the condition in while loop is true and &quot;You haven't pressed a key.&quot; will be printed again and again. As a key is pressed
+ from the keyboard the condition in while loop become false as now kbhit() will return a non-zero value and ( !(non-zero) = 0), so the control will come out of the while loop.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>===========================</p>
+<p></p>
+<p>ubuntu上没有conio.h如何解决<br />
+www.MyException.Cn &nbsp; 发布于：2012-08-01 17:53:40 &nbsp; 浏览：142次<br />
+&nbsp;<br />
+本人用的ubuntu12.04版本，gcc是4.6.3版本，要下载什么样的conio.h和库文件？难道只能用ncurses替代吗<br />
+<br />
+------解决方案--------------------------------------------------------<br />
+来自百度百科:　<br />
+conio 库不仅适用于 Window 平台，在 Linux 下也可使用.网上已经有兼容包,下载后打开就可使用;而至于Mac则完全跟Window没有区别,直接可以使用.&nbsp;<br />
+------解决方案--------------------------------------------------------<br />
+自己没试过，希望对你有帮助，或者直接自己搜索关键字 &quot;linux 使用 conio.h&quot;.<br />
+http://zhidao.baidu.com/question/241772898.html<br />
+http://tech.techweb.com.cn/thread-183749-1-1.html&nbsp;<br />
+------解决方案--------------------------------------------------------<br />
+用curses.h&nbsp;<br />
+------解决方案--------------------------------------------------------<br />
+sudo apt-get install libncurses5-dev<br />
+</p>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="c语言键盘按键无阻塞侦测:kbhit()">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2013/07/13/C%E8%AF%AD%E8%A8%80%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E6%97%A0%E9%98%BB%E5%A1%9E%E4%BE%A6%E6%B5%8B-kbhit().html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

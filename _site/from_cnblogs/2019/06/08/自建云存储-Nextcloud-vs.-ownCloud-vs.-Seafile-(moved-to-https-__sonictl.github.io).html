@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>自建云存储：Nextcloud vs. ownCloud vs. Seafile (moved to https://sonictl.github.io) | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="自建云存储：Nextcloud vs. ownCloud vs. Seafile (moved to https://sonictl.github.io)" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile" />
+<meta property="og:description" content="Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2019/06/08/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8-Nextcloud-vs.-ownCloud-vs.-Seafile-(moved-to-https-__sonictl.github.io).html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2019/06/08/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8-Nextcloud-vs.-ownCloud-vs.-Seafile-(moved-to-https-__sonictl.github.io).html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-08T23:57:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="自建云存储：Nextcloud vs. ownCloud vs. Seafile (moved to https://sonictl.github.io)" />
+<script type="application/ld+json">
+{"headline":"自建云存储：Nextcloud vs. ownCloud vs. Seafile (moved to https://sonictl.github.io)","dateModified":"2019-06-08T23:57:00+08:00","datePublished":"2019-06-08T23:57:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2019/06/08/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8-Nextcloud-vs.-ownCloud-vs.-Seafile-(moved-to-https-__sonictl.github.io).html"},"description":"Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2019/06/08/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8-Nextcloud-vs.-ownCloud-vs.-Seafile-(moved-to-https-__sonictl.github.io).html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">自建云存储：Nextcloud vs. ownCloud vs. Seafile (moved to https://sonictl.github.io)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2019-06-08T23:57:00+08:00" itemprop="datePublished">
+        Jun 8, 2019
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="self-hosted-cloud-storage-nextcloud-vs-owncloud-vs-seafile">Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile</h1>
+
+<blockquote>
+  <p>Updated at 2020-07-05 11:00:
+If you meet usability issues, consider Alternatives: VerySync(微力同步), Resilio Sync, Syncthing, Tresorit, Pydio, ownCloud, rsync, GoodSync. <a href="https://www.cnblogs.com/sonictl/p/13221967.html">Why do you need to ditch nextcloud, owncloud, seafile, blabla…</a></p>
+</blockquote>
+
+<blockquote>
+  <p>Updated at 2020-05-19 07:36:
+I recently used seafile and nextCloud. tried deploying them. But what I’ve found: the advantage of nextCloud is that the developers seem to be more responsible, the disadvantage is that it doesn’t allow users to register their own accounts and requires administrators to open new ones. Seafile’s advantage is mainly open registration, light-weighted and simplicity. seafile’s developers, to put it mildly, seem slightly amateurish compared to nextCloud’s developers. That is, seafile will encounter various problems in the deployment process. I’ve done tests on both x64 Linux and arm64. It’s only on x64 Linux, using Docker to deploy seafile-mc:latest. It’s OK to use file synchronization, but there are bugs that fail to upload. As a team of only 5-6 core developers, the developers of seafile are very appreciated. They put a lot of effort into it. We should support them. On OSX, the seafile’s client takes RAM about 87MB, however, nextCloud takes 150MB for running. Seafile is a light weighted choise.</p>
+
+  <p>If you are a lightweight NAS user, consider the difficulty of deploying, choose nextCloud. nextCloud also has better support for embedded boards such as arm64 (aarch64).</p>
+
+</blockquote>
+
+<p>By <a href="https://www.hongkiat.com/blog/author/ashutosh_ks/">Ashutosh KS</a> in <a href="https://www.hongkiat.com/blog/category/hosting/">Hosting</a>. Updated on June 13, 2018.</p>
+
+<p>Are you planning to build your own Dropbox-type cloud storage for your team or business? Though there are <strong>various self-hosted cloud solutions</strong> for creating a private cloud yet all of them will not fit your requirements.</p>
+
+<p>That is why, in this post I am going to confront the top three <a href="https://www.hongkiat.com/blog/free-tools-to-build-personal-cloud/">self-hosted cloud storage solutions</a>i.e. Nextcloud, ownCloud, and Seafile, to help you pick the best. These three are <strong>free and open-source solutions</strong> to create and host private cloud — a cloud for you and your contacts only.</p>
+
+<p>So, let us discuss these in detail to know where they stand individually.</p>
+
+<p><strong>Read Also:</strong> <a href="https://www.hongkiat.com/blog/dropbox-tips-and-tricks/">15 Tips to Get More Out of Dropbox</a></p>
+
+<h3 id="introduction">Introduction</h3>
+
+<p><a href="https://owncloud.org/">ownCloud</a> was started to provide a <strong>free replacement for proprietary storage</strong> service providers. <a href="https://nextcloud.com/">Nextcloud</a>, on the other hand, is a <strong>featureful fork of ownCloud</strong> that was started by ownCloud’s core developers including its founding developer. And <a href="https://www.seafile.com/en/home/">Seafile</a> was born with an objective to <strong>develop and distribute a file syncing software</strong>.</p>
+
+<p>Although these three were started to provide a <strong>proprietary-free cloud storage</strong> solution yet they have lots of differences. The most notable among those is, ownCloud and Seafile offer two editions — a server edition that is free and open-source and a pro/enterprise edition with extra features, but Nextcloud, on the other hand, features a <strong>single edition with optional enterprise support</strong>.</p>
+
+<h3 id="download-options">Download options</h3>
+
+<p>Nextcloud provides <strong>numerous methods to install or get</strong> it — an archive file and a web installer for dedicated servers and shared hosts. It also offers appliances and images for easy deployment to your servers.</p>
+
+<p>Lastly, there are also <strong>officially suggested cloud providers and device manufacturers</strong> to get it easily.</p>
+
+<p>ownCloud, being the base of Nextcloud, <strong>offers almost similar installation options</strong> — a tarball and a web installer. It also offers appliances, images, and distribution packages to deploy it readily on servers. Moreover, there are various hosting partners to create and sign up for your private cloud quickly.</p>
+
+<p>Seafile gives <strong>less options than the above two</strong> — a web installer (installation script) as well as pre-built binary packages for Linux distributions. Moreover, it offers docker images and <strong>supports Raspberry Pi</strong> as well, interestingly.</p>
+
+<p><strong>Nextcloud is the clear winner</strong> here. You can get ready-made devices with preinstalled Nextcloud, which are not available for ownCloud. And both of these offer a lot more than Seafile for getting and setting up a private cloud.</p>
+
+<h3 id="usability-features">Usability features</h3>
+
+<h4 id="sharing-features">Sharing features</h4>
+
+<p>Nextcloud offers numerous features to enhance collaboration among a team. It supports <strong>Collabora Online Office</strong> to allow viewing and editing documents online.</p>
+
+<p>Moreover, you can search for and <strong>share a file with a user or group</strong> on the cloud, add comments to discuss about it, or create a public link to share it with others. You can also add <strong>a expiration date or a password</strong> to links for added protection.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="Nextcloud has sharing features" /></p>
+
+<p>ownCloud features all sharing features of Nextcloud. What I found unique as well as interesting is its ‘Guests’ feature, which enables creating limited accounts that <strong>allow guests to have full collaboration</strong> without assigning them as members.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="ownCloud has Guests feature" /></p>
+
+<p>Seafile too offers almost the <strong>same features as Nextcloud</strong>. It also avails a library feature to create libraries of files and folders that you can then sync or share.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="Seafile has Library feature" /></p>
+
+<p><strong>ownCloud surely stands out</strong> in this section with its unique feature ‘Guests’. Of course, both the other solutions provide all the necessary sharing features.</p>
+
+<h4 id="supported-devices">Supported devices</h4>
+
+<p>Nextcloud desktop clients support <strong>Windows 7 and above, macOS 10.10 and newer versions, and Linux distributions</strong> as well. Its mobile apps are available for Android, iOS, and Windows platforms with the last one still in testing phase.</p>
+
+<p>ownCloud too supports all devices as Nextcloud except for Windows Mobile.</p>
+
+<p>Seafile also supports as many platforms as supported by ownCloud. What makes it unique is it provides <strong>drive and sync clients separately</strong> for desktop platforms.</p>
+
+<p>Though Nextcloud has the edge here yet Windows Mobile platform is less used, thus all the three solutions have almost the <strong>same set of supported devices</strong>.</p>
+
+<h4 id="apps--integrations">Apps &amp; integrations</h4>
+
+<p>Nextcloud offers ‘Nextcloud Talk’ and ‘Nextcloud Groupware’, which promotes collaboration and productivity among a team and makes it a complete solution. Talk allows the users to <strong>text, call, or have web meetings</strong> with other users. Groupware provides <strong>webmail, calendar, and contacts</strong>management features.</p>
+
+<p>Also, its ‘App Store’ hosts 120+ apps to add more functionalities.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="Nextcloud Talk adds call feature" /></p>
+
+<p>ownCloud’s store features official <strong>apps for calendar and contacts</strong>. Its ‘ownCloud Marketplace’ stores 200+ official and third-party apps to extend its functionality.</p>
+
+<p>I found there are apps to add bookmarks and tasks feature, add external storage services including Dropbox, integrate a backup solution, etc.</p>
+
+<p>However, there is <strong>no app to add text, call, or web meetings</strong> support, unlike Nextcloud.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="ownCloud's Contacts app" /></p>
+
+<p>Seafile, on the other hand, misses all such features. That means, it is just a file sync and share platform with support for online office but it <strong>lacks collaboration features</strong> like calendar, contacts, web mail, and text and call as well.</p>
+
+<p><strong>Nextcloud is definitely the winner here</strong> — it is a mature solution with various collaboration features, making it a self-hosted rival of Google Drive + Hangouts.</p>
+
+<p>ownCloud lacks many such features but is still better than Seafile, which is just a Dropbox-like file storage solution with basic collaboration options.</p>
+
+<h3 id="security-features">Security features</h3>
+
+<p>Nextcloud features robust security measures including encryption while data transfer, server-side storage encryption, and client-side <strong>end-to-end encryption</strong>. It also offers file access control and app access rights for better control.</p>
+
+<p>Also, LDAP, SAML, Active Directory, and Kerberos are supported out of the box.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="Nextcloud's security features" /></p>
+
+<p>ownCloud offers <strong>similar security features with some exceptions</strong> to Nextcloud like it does not feature app access rights and Native SAML support. ownCloud even miss content security policy feature, which is offered by Nextcloud.</p>
+
+<p>Seafile also features <strong>server-side data encryption and end-to-end encryption</strong> at client side along with encryption during data transfer. However, it misses features like LDAP and Active Directory, which are found in others.</p>
+
+<p><strong>Nextcloud is again the victor</strong> in this section. Though all three are good at usual and essential security features yet Nextcloud has lot more features to protect your data from intruders and give admins fine control over its accessors.</p>
+
+<h3 id="enterprise-features">Enterprise features</h3>
+
+<p>Nextcloud, as I told before, offers almost <strong>everything in its free edition</strong>. It does include full-text search, anti-virus integration, data workflow management, file access control, audit logs, and integrated account management.</p>
+
+<p>If you opt for one of their subscriptions, they offer you maintenance and support. Moreover, you can opt for <strong>Collabora Online Office or branding services</strong> separately.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="Nextcloud supports Collabora Online Office" /></p>
+
+<p>ownCloud features many productivity and security features in its enterprise edition. Its workflows feature lets you <strong>automate file management</strong>, ownBrander lets you <strong>custom brand your cloud</strong>, and SharePoint integration offers access to all SharePoint files on ownCloud.</p>
+
+<p>Moreover, it offers network drive support, <strong>file firewall</strong> (to set access rules for files), audit logs, single sign-on, and more.</p>
+
+<p><img src="https://img2020.cnblogs.com/blog/780771/202106/780771-20210626204238206-733771519.gif" alt="ownCloud's PDF Viewer app" /></p>
+
+<p><strong>Seafile too offers numerous features in its pro edition</strong>. You can lock files to avoid co-editing, set permissions on folders, and have <strong>role-based accounts</strong>. If I talk about usability features, it include <strong>full-text file search</strong>, Office Online Server integration, and an online garbage cleaner.</p>
+
+<p>Moreover, it features advanced single sign-on, <strong>remote wipe, anti-virus</strong> integration, and audit log for high security.</p>
+
+<p>Nextcloud is definitely better than the other two here — especially if you are looking for <strong>a low-cost yet featureful solution</strong>.</p>
+
+<p>It avails most features in its free edition and its subscription cost is lowest with ownCloud’s being highest.</p>
+
+<h3 id="which-to-choose">Which to choose?</h3>
+
+<p>It is your decision at the end of the day, but I will suggest to evaluate your team’s or business’s requirements with the features provided by these solutions. Then you can <strong>choose one of these based on the best match</strong>. Don’t you agree?</p>
+
+<h3 id="table-of-comparison">Table of comparison</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Nextcloud</th>
+      <th>ownCloud</th>
+      <th>Seafile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Download options</td>
+      <td>Web installer, Archive file, Appliances and images, Distribution packages, Cloud providers, Ready-made devices</td>
+      <td>Web installer, Archive file, Appliances and images, Distribution packages, Cloud providers</td>
+      <td>Web installer, Archive file, Docker images, Distribution packages</td>
+    </tr>
+    <tr>
+      <td>Sharing features</td>
+      <td>Online Office, Share with a user or group, Public yet protected links</td>
+      <td>Online Office, Share with a user or group, Public yet protected links, Guests feature</td>
+      <td>Online Office, Share with a user or group, Public yet protected links, Library feature</td>
+    </tr>
+    <tr>
+      <td>Supported devices</td>
+      <td>Windows, macOS, Linux, Android, iOS, Windows Mobile</td>
+      <td>Windows, macOS, Linux, Android, iOS</td>
+      <td>Windows, macOS, Linux, Android, iOS</td>
+    </tr>
+    <tr>
+      <td>Apps &amp; integrations</td>
+      <td>Talk &amp; Groupware apps, App store with 120+ apps</td>
+      <td>App store with 200+ apps</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Security features</td>
+      <td>Storage encryption, End-to-end encryption, File access control, App access rights, LDAP, Native SAML, Active Directory, Kerberos</td>
+      <td>Storage encryption, End-to-end encryption, File access control, LDAP, Active Directory, Kerberos</td>
+      <td>Storage encryption, End-to-end encryption, App access rights, LDAP, Shibboleth, Active Directory, Kerberos</td>
+    </tr>
+    <tr>
+      <td>Enterprise features</td>
+      <td>Full-text search, Anti-virus integration, Data workflow management, File access control, Audit logs, Integrated account management, Collabora Online Office, Custom branding</td>
+      <td>Full-text search, Anti-virus integration, Data workflow management, File firewall, Network drive support, Audit logs, Single sign-on, SharePoint integration, Collabora Online Office, Custom branding</td>
+      <td>Full-text search, Lock files, Anti-virus integration, Remote wipe, Audit logs, Role-based account management, Office Online Server, Custom brandin</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>read more: <a href="https://ownyourbits.com/2018/09/16/stream-media-files-from-nextcloud-to-your-android-and-ios-device-with-kodi/">Stream media files from nextcloud to your Android (and iOS) device with Kodi</a>
+read more: <a href="https://www.cnblogs.com/sonictl/p/13221967.html">Why do you need to ditch nextcloud, owncloud, seafile, blabla…</a></p>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="自建云存储：nextcloud vs- owncloud vs- seafile (moved to https:--sonictl-github-io)">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2019/06/08/%E8%87%AA%E5%BB%BA%E4%BA%91%E5%AD%98%E5%82%A8-Nextcloud-vs.-ownCloud-vs.-Seafile-(moved-to-https-__sonictl.github.io).html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

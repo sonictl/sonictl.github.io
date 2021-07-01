@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>[转]Python 的列表解析式，集合解析式，字典解析式 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="[转]Python 的列表解析式，集合解析式，字典解析式" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python 的列表解析式，集合解析式，字典解析式" />
+<meta property="og:description" content="Python 的列表解析式，集合解析式，字典解析式" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2019/03/07/%E8%BD%AC-Python-%E7%9A%84%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%BC%8F-%E9%9B%86%E5%90%88%E8%A7%A3%E6%9E%90%E5%BC%8F-%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BC%8F.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2019/03/07/%E8%BD%AC-Python-%E7%9A%84%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%BC%8F-%E9%9B%86%E5%90%88%E8%A7%A3%E6%9E%90%E5%BC%8F-%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BC%8F.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-07T03:22:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[转]Python 的列表解析式，集合解析式，字典解析式" />
+<script type="application/ld+json">
+{"headline":"[转]Python 的列表解析式，集合解析式，字典解析式","dateModified":"2019-03-07T03:22:00+08:00","datePublished":"2019-03-07T03:22:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2019/03/07/%E8%BD%AC-Python-%E7%9A%84%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%BC%8F-%E9%9B%86%E5%90%88%E8%A7%A3%E6%9E%90%E5%BC%8F-%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BC%8F.html"},"description":"Python 的列表解析式，集合解析式，字典解析式","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2019/03/07/%E8%BD%AC-Python-%E7%9A%84%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%BC%8F-%E9%9B%86%E5%90%88%E8%A7%A3%E6%9E%90%E5%BC%8F-%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BC%8F.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">[转]Python 的列表解析式，集合解析式，字典解析式</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2019-03-07T03:22:00+08:00" itemprop="datePublished">
+        Mar 7, 2019
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="python-的列表解析式集合解析式字典解析式">Python 的列表解析式，集合解析式，字典解析式</h2>
+
+<p>这三种都是 python 里面的语法糖。</p>
+
+<p>语法糖，Syntactic Sugar，就是为了写程序时候少出错，发明的一些简便的方法，但不影响这个语法的功能。</p>
+
+<p>（我第一反应是 HP 里面的 chocolate frog，哈哈哈)</p>
+
+<h1 id="1-列表解析式-list-comprehension">1. 列表解析式 list comprehension</h1>
+
+<p>通常我们定义有内容 list 时，想对内容进行一些计算再<a href="https://www.baidu.com/s?wd=%E6%94%BE%E8%BF%9B%E5%8E%BB&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd">放进去</a>，除了使用 for 循环迭代出列表内的元素，进行计算再放进去，还可以在列表内直接写解析式计算。</p>
+
+<h2 id="11-普通版expression-for-i-in-iterable">1.1 普通版：[expression for i in iterable]</h2>
+
+<p>比如，要求 1-10 的每个数字的算术平方根组成的集合。</p>
+
+<p>用 for 循环的话：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst = []
+for i in range(1, 11):
+    i = i ** 0.5 #不用pow()是因为这样计算比较快
+    lst.append(i) 
+</code></pre></div></div>
+
+<p>这样看起来就比较繁琐。 
+用列表解析式的话，就相当于把上面的内容都浓缩起来：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst = [ i**0.5 for i in range(1,11) ]
+</code></pre></div></div>
+
+<p>这样看起来就很清爽，前面是要对 i 做的处理，后面是 i 从哪里迭代，这些都用中括号 [ ] 括起来，是生成一个列表。</p>
+
+<h2 id="12-进阶版-expression-for-i-in-iterable-if-for-j-in-iterable-if-">1.2 进阶版 [expression for i in iterable if… for j in iterable if… …]</h2>
+
+<p>前面还是表达式，但是后面写的是双循环，还有判断条件，就是符合条件的再进前面的表达式。</p>
+
+<p>比如，我想要 5 以内的单数，和 5 以内双数组成的所有二元组，然后把这些元组放在一个列表里。</p>
+
+<p>用 for 循环的话：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst = []
+for i in range(1,6):
+if i % 2 == 0:
+    continue
+for j in range(1,6):
+    if j % 2 == 0:
+        lst.append((i,j))
+
+lst
+[(1, 2), (1, 4), (3, 2), (3, 4), (5, 2), (5, 4)]
+</code></pre></div></div>
+
+<p>巨繁琐，但是如果用列表解析式的话：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[(i,j) for i in range(1,6) if i % 2 for j in range(1,6) if not j % 2]
+[(1, 2), (1, 4), (3, 2), (3, 4), (5, 2), (5, 4)]
+#减量不减价，你值得拥有。
+</code></pre></div></div>
+
+<p>但是要注意，列表解析式里不能有 elif 等比较复杂的语法结构，如果实在不行，还是用 for 循环吧。</p>
+
+<p>而且一定要注意效率，怎么用 if 来筛选数据。比如:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[(i,j) for i in range(1,6) if i % 2 for j in range(1,6) if not j % 2]
+
+[(i,j) for i in range(1,6) for j in range(1,6) if i % 2 if not j % 2]
+[(i,j) for i in range(1,6) for j in range(1,6) if i % 2 == 0 and j % 2 != 0] 
+#前者的效率要略高，因为前者在第一个循环时就做了判断，不符合的话，就不用迭代第二个循环。
+#第二个和第三个是一个类型，两个if就是嵌套解构
+#而且一定要注意逻辑，看自己想要的到底是什么
+</code></pre></div></div>
+
+<p>还有列表解析式前面的 expression 得是有输出的，这个输出的结果才能放进列表里。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[print(i) for i in range(3)]
+0
+1
+2
+[None, None, None]
+#i倒是会出现，但这是print的功能，print没有返回值，所以列表里面全都是None。
+</code></pre></div></div>
+
+<h1 id="2-集合解析式">2. 集合解析式</h1>
+
+<p><strong>普通版：{expression for i in iterable}</strong> 
+<strong>进阶版 {expression for i in iterable if… for j in iterable if… …}</strong></p>
+
+<p>用法和列表解析式是一样的，就是把中括号 [] 换成大括号 {}</p>
+
+<p>需要注意得是，集合解析式，最终生成的也是集合，集合里面的元素必须是 hashable。所以这样是不行的：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ [i] for i in range(5) }
+#这样生成的元素都是list，不可hash，会报错
+</code></pre></div></div>
+
+<p>集合解析式也能自动去重（不能就怪了）：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{i for i in [1,1,1,1,1,1]}
+{1}
+</code></pre></div></div>
+
+<h1 id="3-字典解析式">3. 字典解析式</h1>
+
+<p>用法还是和前两者一样，区别就是：用 { } 包起来，而且前面的 expression 得是 key:value 的形式。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{i:[j] for i in range(3) for j in 'abc'}
+{0: ['c'], 1: ['c'], 2: ['c']}
+
+#注意key是去重的，所以第一个循环的元素带入第二个循环时，会与第二个循环的最后一个元素组成key:value
+
+#key必须可hash，但是value不需要hashable，所以value可以用可变的数据结构
+</code></pre></div></div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="[转]python 的列表解析式，集合解析式，字典解析式">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2019/03/07/%E8%BD%AC-Python-%E7%9A%84%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%BC%8F-%E9%9B%86%E5%90%88%E8%A7%A3%E6%9E%90%E5%BC%8F-%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BC%8F.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

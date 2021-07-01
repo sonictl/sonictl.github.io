@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 增删改查，login 1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp 表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。 &lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt; username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt; password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt; &lt;input type=&quot;submit&quot;/&gt; &lt;/form&gt; 2. userController.java login.jsp点击“submit”以后，将访问userController里的login方法：Public String login(){ } · 指定进入method的条件 · 指定进入method的参数 · 异常处理1：用户名不存在， 异常处理2：密码不正确 · 把User存到Session中 【？】 ·&nbsp; @RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的 public String login(String username, String password, HttpSession session){ //传2个参数进来, 1st:username 2nd:password //第3个参数是指定Session注入的 if (!users.containsKey(username)){ //异常处理1.如果不包含，则用户名不存在 //创建一个异常处理.java,见下“3. 需要一个处理异常的class” throw new UserException(&quot;Username does not exist! &quot;); } User u = users.get(username); //得到username if (!u.getPassword().equals(password) ) {//if 不相等， 说明密码不正确: throw new UserException(&quot;Password does not match!&quot;); } //把user 存到Session中: session.setAttribute(&quot;loginUser&quot;,u); return &quot;redirect:/user/users&quot;; //login success, jump to user/users } 3. 需要一个处理异常的class ·&nbsp;新建一个class: &nbsp;&nbsp;Name: UserException.class &nbsp;&nbsp;Superclass: java.lang.RuntimExcption ·&nbsp;Add Default Version ID: 代码：&nbsp;private static final long serialVersionUID = 1L; ·创建一个Constructors构造器 from Superclass: 右键-Resources-Generate Constructors from Superclass &nbsp; package edu.bit.model; public class UserException extends RuntimeException { public UserException() { super(); // TODO Auto-generated constructor stub }" />
+<meta property="og:description" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 增删改查，login 1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp 表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。 &lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt; username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt; password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt; &lt;input type=&quot;submit&quot;/&gt; &lt;/form&gt; 2. userController.java login.jsp点击“submit”以后，将访问userController里的login方法：Public String login(){ } · 指定进入method的条件 · 指定进入method的参数 · 异常处理1：用户名不存在， 异常处理2：密码不正确 · 把User存到Session中 【？】 ·&nbsp; @RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的 public String login(String username, String password, HttpSession session){ //传2个参数进来, 1st:username 2nd:password //第3个参数是指定Session注入的 if (!users.containsKey(username)){ //异常处理1.如果不包含，则用户名不存在 //创建一个异常处理.java,见下“3. 需要一个处理异常的class” throw new UserException(&quot;Username does not exist! &quot;); } User u = users.get(username); //得到username if (!u.getPassword().equals(password) ) {//if 不相等， 说明密码不正确: throw new UserException(&quot;Password does not match!&quot;); } //把user 存到Session中: session.setAttribute(&quot;loginUser&quot;,u); return &quot;redirect:/user/users&quot;; //login success, jump to user/users } 3. 需要一个处理异常的class ·&nbsp;新建一个class: &nbsp;&nbsp;Name: UserException.class &nbsp;&nbsp;Superclass: java.lang.RuntimExcption ·&nbsp;Add Default Version ID: 代码：&nbsp;private static final long serialVersionUID = 1L; ·创建一个Constructors构造器 from Superclass: 右键-Resources-Generate Constructors from Superclass &nbsp; package edu.bit.model; public class UserException extends RuntimeException { public UserException() { super(); // TODO Auto-generated constructor stub }" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2014/11/20/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2014/11/20/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-11-20T06:02:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录" />
+<script type="application/ld+json">
+{"headline":"Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录","dateModified":"2014-11-20T06:02:00+08:00","datePublished":"2014-11-20T06:02:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2014/11/20/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95.html"},"description":"Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 增删改查，login 1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp 表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。 &lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt; username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt; password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt; &lt;input type=&quot;submit&quot;/&gt; &lt;/form&gt; 2. userController.java login.jsp点击“submit”以后，将访问userController里的login方法：Public String login(){ } · 指定进入method的条件 · 指定进入method的参数 · 异常处理1：用户名不存在， 异常处理2：密码不正确 · 把User存到Session中 【？】 ·&nbsp; @RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的 public String login(String username, String password, HttpSession session){ //传2个参数进来, 1st:username 2nd:password //第3个参数是指定Session注入的 if (!users.containsKey(username)){ //异常处理1.如果不包含，则用户名不存在 //创建一个异常处理.java,见下“3. 需要一个处理异常的class” throw new UserException(&quot;Username does not exist! &quot;); } User u = users.get(username); //得到username if (!u.getPassword().equals(password) ) {//if 不相等， 说明密码不正确: throw new UserException(&quot;Password does not match!&quot;); } //把user 存到Session中: session.setAttribute(&quot;loginUser&quot;,u); return &quot;redirect:/user/users&quot;; //login success, jump to user/users } 3. 需要一个处理异常的class ·&nbsp;新建一个class: &nbsp;&nbsp;Name: UserException.class &nbsp;&nbsp;Superclass: java.lang.RuntimExcption ·&nbsp;Add Default Version ID: 代码：&nbsp;private static final long serialVersionUID = 1L; ·创建一个Constructors构造器 from Superclass: 右键-Resources-Generate Constructors from Superclass &nbsp; package edu.bit.model; public class UserException extends RuntimeException { public UserException() { super(); // TODO Auto-generated constructor stub }","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2014/11/20/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2014-11-20T06:02:00+08:00" itemprop="datePublished">
+        Nov 20, 2014
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3>Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</h3>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">增删改查，login</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"></span></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_1_5888629" name="code" class="html">&lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt;
+   username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
+   password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt;
+   &lt;input type=&quot;submit&quot;/&gt;
+&lt;/form&gt;</pre>
+<p></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">2. userController.java</span><br />
+</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>login.jsp点击“submit”以后，将访问userController里的login方法：Public
+ String login(){ }<br />
+<span style="white-space:pre"></span>· 指定进入method的条件<br />
+<span style="white-space:pre"></span>· 指定进入method的参数<br />
+<span style="white-space:pre"></span>· 异常处理1：用户名不存在， 异常处理2：密码不正确<br />
+<span style="white-space:pre"></span>· 把User存到Session中 【？】<br />
+</span></span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>·&nbsp;</span></span></p>
+<p></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_2_2140409" name="code" class="java">@RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的
+	public String login(String username, String password, HttpSession session){	//传2个参数进来, 1st:username 2nd:password
+//第3个参数是指定Session注入的
+		if (!users.containsKey(username)){	//异常处理1.如果不包含，则用户名不存在
+			//创建一个异常处理.java,见下“3. 需要一个处理异常的class”
+			throw new UserException(&quot;Username does not exist! &quot;);
+		}
+			User u = users.get(username);	//得到username
+		if (!u.getPassword().equals(password) )	{//if 不相等， 说明密码不正确:
+			throw new UserException(&quot;Password does not match!&quot;);
+		}
+		//把user 存到Session中:
+		session.setAttribute(&quot;loginUser&quot;,u);
+		return &quot;redirect:/user/users&quot;;	//login success, jump to user/users
+	}</pre>
+<p><br />
+<span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"></span></p>
+<p></p>
+<p>3. 需要一个处理异常的class</p>
+<p><span style="color:rgb(102,102,102); font-size:14px; line-height:24px"><span style="font-family:Arial; white-space:pre"></span><strong>·&nbsp;</strong><span style="font-family:Arial">新建一个class:</span><br />
+<span style="font-family:Arial; white-space:pre"></span>&nbsp;&nbsp;<span style="font-family:Arial">Name: UserException.class</span><br />
+<span style="font-family:Arial; white-space:pre"></span>&nbsp;&nbsp;<span style="font-family:Arial">Superclass: java.lang.RuntimExcption</span><br />
+<span style="font-family:Arial; white-space:pre"></span><strong>·&nbsp;</strong><span style="font-family:Arial">Add Default Version ID: 代码：&nbsp;</span><span style="font-family:Courier New; background-color:rgb(204,204,204)">private static final long serialVersionUID
+ = 1L;</span></span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span><strong>·</strong>创建一个Constructors构造器 from Superclass: 右键-Resources-Generate Constructors from Superclass</span></p>
+<p style="text-indent:28px"><strong>&nbsp;</strong></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_3_5893557" name="code" class="java">   package edu.bit.model;
+        public class UserException extends RuntimeException {
+        public UserException() {
+	        super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
+		super(arg0, arg1, arg2, arg3);
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserException(String arg0, Throwable arg1) {
+		super(arg0, arg1);
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserException(String arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserException(Throwable arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}</pre>
+<p><br /></p>
+<p></p>
+<p style="text-indent:28px">==========至此，基本完成一个登陆操作的编写，但如果用户名不存在或密码不正确，将返回500错误，并按UserException(&quot;错误提示&quot;)提示错误 ========</p>
+<p style="text-indent:28px">测试链接： http://localhost:8080/myhello/login.jsp<br />
+<span style="white-space:pre"></span>500错误页截图：</p>
+<p style="text-indent:28px"><img src="http://img.blog.csdn.net/20141120140635213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt="" /><br />
+</p>
+<h3 style="text-indent:28px"><br />
+</h3>
+<p><a target="_blank" href="http://blog.csdn.net/sonictl/article/details/41312005" style="color:rgb(0,0,0); text-decoration:none; font-family:'Microsoft YaHei'; font-size:20px; line-height:30px">&nbsp;实现简单的用户管理（4.2）用户登录--显示局部异常信息</a></p>
+<h3></h3>
+<h3 style="margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px">
+第二部分：显示局部异常信息，而不是500错误页</h3>
+<p><span style="font-weight:normal; white-space:pre"></span><span style="font-weight:normal"><span style="white-space:pre"></span>1. 写一个方法，把UserException传进来。<br />
+<span style="white-space:pre"></span><span style="white-space:pre"></span>2. 映射方式：@ExceptionHandler (), 括号里value是UserException.class<br />
+<span style="white-space:pre"></span><span style="white-space:pre"></span>3. 传参进入UserException方法：(UserException ue, HttpServletRequest req)<br />
+<span style="white-space:pre"></span>-----//1.把 UserException传进来;<br />
+<span style="white-space:pre"></span>-----//2.不能用model来传&#20540;，因为不是RequestMapping，用HttpSeverletRequest req<br />
+<span style="white-space:pre"></span>4. 把异常对象存入HttpSeverletRequest req的e参数: &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New">req.setAttribute(&quot;e&quot;,ue);</span><br />
+<span style="white-space:pre"></span>5. 返回视图error: &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New">return error;</span><br />
+<span style="white-space:pre"></span><br />
+----实现代码-----<br />
+UserController.java中加入：</span></p>
+<p></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_1_3893429" name="code" class="java">	/*
+	 * 显示局部的异常信息:仅仅只能处理这个控制器中的异常
+	 * 写一个方法，HandlerException, 把 UserException传进来
+	 */
+	@ExceptionHandler(value={UserException.class})	//用ExceptionHandler来映射，要处理的value是一个数组
+							//要处理一个对象就这样写，可处理多个对象。
+	public String handlerException(UserException ue, HttpServletRequest req){	
+				//1.把 UserException传进来;
+				//2.不能用model来传值，因为不是RequestMapping，用HttpSeverletRequest req
+		//把异常对象ue存进去：
+		req.setAttribute(&quot;e&quot;, ue);	//req 的 “e”参数，被set为 uexception
+		return &quot;error&quot;;
+	}</pre>
+<p><br /></p>
+<p>/WEB-INF/error.jsp中代码：<span style="font-family:Courier New">${e.message} </span>
+<span style="font-family:Arial">调取message信息：</span></p>
+<p></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_2_5095678" name="code" class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+	&lt;title&gt;Error page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+	${e.message}  
+&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><br />
+<br /></p>
+<p></p>
+<p></p>
+<p><br />
+</p>
+<p><br />
+</p>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="spring mvc 学习笔记8 —— 实现简单的用户管理（4）用户登录">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2014/11/20/Spring-MVC-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-4-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

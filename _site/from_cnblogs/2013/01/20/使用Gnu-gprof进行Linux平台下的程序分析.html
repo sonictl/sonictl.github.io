@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>使用Gnu gprof进行Linux平台下的程序分析 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="使用Gnu gprof进行Linux平台下的程序分析" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html http://www.pcdog.com/edu/linux/18/10/u231314_2.html http://www.pcdog.com/edu/linux/18/10/u231314_3.html Compile source .c code for analysis, Create executable file: &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; gcc -pg test.c -o test&nbsp; Launch executable file, Create gmon.out &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; ./test Use gmon.out to analysis: &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less &nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more 4.             常用的Gprof 命令选项解释：   -b不再输出统计图表中每个字段的详细描述。 -p 只输出函数的调用图（Call graph 的那部分信息）。 -q 只输出函数的时间消耗列表。 -E Name不再输出函数Name 及其子函数的调用图，此标志类似于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。 -e Name 不再输出函数Name 及其子函数的调用图（除非它们有未被限制的其它父函数）。可以给定多个 -e 标志。一个 -e 标志只能指定一个函数。 -F Name 输出函数Name 及其子函数的调用图，它类似于 -f 标志，但它在总时间和百分比时间计算中仅使用所打印的例程的时间。可以指定多个 -F 标志。一个 -F 标志只能指定一个函数。-F 标志覆盖 -E 标志。 -f Name输出函数Name 及其子函数的调用图。可以指定多个 -f 标志。一个 -f 标志只能指定一个函数。 -z 显示使用次数为零的例程（按照调用计数和累积时间计算）。 English Reference:http://www.cs.utah.edu/dept/old/texinfo/as/gprof.html#SEC4 --------附： vi使用方法：--------- 　　vi 的三种命令模式　　 Command（命令）模式，用于输入命令 　　Insert（插入）模式，用于插入文本 　　Visual（可视）模式，用于视化的的高亮并选定正文 　　光标移动　　 　　当我们按ESC进入Command模式后，我们可以用下面的一些键位来移动光标； 　　j 向下移动一行 　　k 向上移动一行 　　h 向左移动一个字符 　　l 向右移动一个字符 　　ctrl&#43;b 向上移动一屏 　　ctrl&#43;f 向下移动一屏 　　向上箭头 向上移动 　　向下箭头 向下移动 　　向左箭头 向左移动 　　向右箭头 向右移动 　　我们编辑一个文件时，对于 j、k、l和h键，还能在这些动作命令的前面加上数字，比如 3j，表示向下移动3行。 　　/# &#43;Enter #为查找的内容　 　　插入模式（文本的插入） 　　 　　i 在光标之前插入 　　a 在光标之后插入 　　I 在光标所在行的行首插入 　　A 在光标所在行的行末插入 　　o 在光标所在的行的下面插入一行 　　O 在光标所在的行的上面插入一行 　　s 用输入的文本替换光标所在字符 　　S 用输入的文本替换光标所在行　 　　文本内容的删除操作； 　　 　　x 一个字符 　　#x 删除几个字符，#表示数字，比如3x 　　dw 删除一个单词 　　#dw 删除几个单词，#用数字表示，比如3dw表示删除三个单词 　　dd 删除一行； 　　#dd 删除多个行，#代表数字，比如3dd 表示删除光标行及光标的下两行 　　d$ 删除光标到行尾的内容 　　J 清除光标所处的行与下一行之间的换行，行尾没有空&#26684;的话会自动添加一个空&#26684;。 　　#J 表示合并#(数字)行。 　　退出保存； 　　在命令模式下按 shift&#43;: 文本底端出现冒号 　　:w 保存； 　　:w filename 另存为filename； 　　:wq! 保存退出； 　　:wq! filename 注：以filename为文件名保存后退出； 　　:q! 不保存退出； 　　:x 应该是保存并退出 ，功能和:wq!相同 　　撤销操作 　　u命令取消最近一次的操作，可以使用多次来恢复原有的操作[1] 　　U取消所有操作 　　Ctrl&#43;R可以恢复对使用u命令的操作 　　复制操作 　　yy命令复制当前整行的内容到vi缓冲区 　　yw复制当前光标所在位置到单词尾字符的内容到vi缓存区，相当于复制一个单词 　　y$复制光标所在位置到行尾内容到缓存区 　　y^复制光标所在位置到行首内容到缓存区 　　#yy例如：5yy就是复制5行 　　#yw例如：2yw就是复制两个单词 　　如果要复制第m行到第n行之间的内容，可以在末行模式中输入m，ny例如：3，5y复制第三行到第五行内容到缓存区。 　　查找和替换 　　vi的查找和替换功能主要在末行模式完成： 　　至上而下的查找 　　/ 要查找的字符串，其中/代表从光标所在位置起开始查找，例如：/ work 　　至下而上的查找 　　?要查找的字符串 例如：? work 　　替换 　　:s/old/new用new替换行中首次出现的old 　　: s/old/new/g 用new替换行中所有出现的old 　　:#,# s/old/new/g用new替换从第#行到第#行中出现的old 　　:% s/old/new/g用new替换整篇中出现的old 　　如果替换的范围较大时，在所有的命令尾加一个c命令，强制每个替换需要用户进行确认，例如:s/old/new/c 或s/old/new/gc 　　恢复文件　　 　vi在编辑某一个文件时，会生成一个临时文件，这个文件以 . 开头并以 .swp结尾。正常退出该文件自动删除，如果意外退出例如忽然断电，该文件不会删除，我们在下次编辑时可以选择一下命令处理： 　　O只读打开，不改变文件内容 　　E继续编辑文件，不恢复.swp文件保存的内容 　　R将恢复上次编辑以后未保存文件内容 　　Q退出vi 　　D删除.swp文件 　　或者使用vi －r 文件名来恢复未保存的内容" />
+<meta property="og:description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html http://www.pcdog.com/edu/linux/18/10/u231314_2.html http://www.pcdog.com/edu/linux/18/10/u231314_3.html Compile source .c code for analysis, Create executable file: &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; gcc -pg test.c -o test&nbsp; Launch executable file, Create gmon.out &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; ./test Use gmon.out to analysis: &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less &nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more 4.             常用的Gprof 命令选项解释：   -b不再输出统计图表中每个字段的详细描述。 -p 只输出函数的调用图（Call graph 的那部分信息）。 -q 只输出函数的时间消耗列表。 -E Name不再输出函数Name 及其子函数的调用图，此标志类似于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。 -e Name 不再输出函数Name 及其子函数的调用图（除非它们有未被限制的其它父函数）。可以给定多个 -e 标志。一个 -e 标志只能指定一个函数。 -F Name 输出函数Name 及其子函数的调用图，它类似于 -f 标志，但它在总时间和百分比时间计算中仅使用所打印的例程的时间。可以指定多个 -F 标志。一个 -F 标志只能指定一个函数。-F 标志覆盖 -E 标志。 -f Name输出函数Name 及其子函数的调用图。可以指定多个 -f 标志。一个 -f 标志只能指定一个函数。 -z 显示使用次数为零的例程（按照调用计数和累积时间计算）。 English Reference:http://www.cs.utah.edu/dept/old/texinfo/as/gprof.html#SEC4 --------附： vi使用方法：--------- 　　vi 的三种命令模式　　 Command（命令）模式，用于输入命令 　　Insert（插入）模式，用于插入文本 　　Visual（可视）模式，用于视化的的高亮并选定正文 　　光标移动　　 　　当我们按ESC进入Command模式后，我们可以用下面的一些键位来移动光标； 　　j 向下移动一行 　　k 向上移动一行 　　h 向左移动一个字符 　　l 向右移动一个字符 　　ctrl&#43;b 向上移动一屏 　　ctrl&#43;f 向下移动一屏 　　向上箭头 向上移动 　　向下箭头 向下移动 　　向左箭头 向左移动 　　向右箭头 向右移动 　　我们编辑一个文件时，对于 j、k、l和h键，还能在这些动作命令的前面加上数字，比如 3j，表示向下移动3行。 　　/# &#43;Enter #为查找的内容　 　　插入模式（文本的插入） 　　 　　i 在光标之前插入 　　a 在光标之后插入 　　I 在光标所在行的行首插入 　　A 在光标所在行的行末插入 　　o 在光标所在的行的下面插入一行 　　O 在光标所在的行的上面插入一行 　　s 用输入的文本替换光标所在字符 　　S 用输入的文本替换光标所在行　 　　文本内容的删除操作； 　　 　　x 一个字符 　　#x 删除几个字符，#表示数字，比如3x 　　dw 删除一个单词 　　#dw 删除几个单词，#用数字表示，比如3dw表示删除三个单词 　　dd 删除一行； 　　#dd 删除多个行，#代表数字，比如3dd 表示删除光标行及光标的下两行 　　d$ 删除光标到行尾的内容 　　J 清除光标所处的行与下一行之间的换行，行尾没有空&#26684;的话会自动添加一个空&#26684;。 　　#J 表示合并#(数字)行。 　　退出保存； 　　在命令模式下按 shift&#43;: 文本底端出现冒号 　　:w 保存； 　　:w filename 另存为filename； 　　:wq! 保存退出； 　　:wq! filename 注：以filename为文件名保存后退出； 　　:q! 不保存退出； 　　:x 应该是保存并退出 ，功能和:wq!相同 　　撤销操作 　　u命令取消最近一次的操作，可以使用多次来恢复原有的操作[1] 　　U取消所有操作 　　Ctrl&#43;R可以恢复对使用u命令的操作 　　复制操作 　　yy命令复制当前整行的内容到vi缓冲区 　　yw复制当前光标所在位置到单词尾字符的内容到vi缓存区，相当于复制一个单词 　　y$复制光标所在位置到行尾内容到缓存区 　　y^复制光标所在位置到行首内容到缓存区 　　#yy例如：5yy就是复制5行 　　#yw例如：2yw就是复制两个单词 　　如果要复制第m行到第n行之间的内容，可以在末行模式中输入m，ny例如：3，5y复制第三行到第五行内容到缓存区。 　　查找和替换 　　vi的查找和替换功能主要在末行模式完成： 　　至上而下的查找 　　/ 要查找的字符串，其中/代表从光标所在位置起开始查找，例如：/ work 　　至下而上的查找 　　?要查找的字符串 例如：? work 　　替换 　　:s/old/new用new替换行中首次出现的old 　　: s/old/new/g 用new替换行中所有出现的old 　　:#,# s/old/new/g用new替换从第#行到第#行中出现的old 　　:% s/old/new/g用new替换整篇中出现的old 　　如果替换的范围较大时，在所有的命令尾加一个c命令，强制每个替换需要用户进行确认，例如:s/old/new/c 或s/old/new/gc 　　恢复文件　　 　vi在编辑某一个文件时，会生成一个临时文件，这个文件以 . 开头并以 .swp结尾。正常退出该文件自动删除，如果意外退出例如忽然断电，该文件不会删除，我们在下次编辑时可以选择一下命令处理： 　　O只读打开，不改变文件内容 　　E继续编辑文件，不恢复.swp文件保存的内容 　　R将恢复上次编辑以后未保存文件内容 　　Q退出vi 　　D删除.swp文件 　　或者使用vi －r 文件名来恢复未保存的内容" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2013/01/20/%E4%BD%BF%E7%94%A8Gnu-gprof%E8%BF%9B%E8%A1%8CLinux%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2013/01/20/%E4%BD%BF%E7%94%A8Gnu-gprof%E8%BF%9B%E8%A1%8CLinux%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-01-20T15:22:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="使用Gnu gprof进行Linux平台下的程序分析" />
+<script type="application/ld+json">
+{"headline":"使用Gnu gprof进行Linux平台下的程序分析","dateModified":"2013-01-20T15:22:00+08:00","datePublished":"2013-01-20T15:22:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2013/01/20/%E4%BD%BF%E7%94%A8Gnu-gprof%E8%BF%9B%E8%A1%8CLinux%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90.html"},"description":"http://www.pcdog.com/edu/linux/18/10/u231314_1.html http://www.pcdog.com/edu/linux/18/10/u231314_2.html http://www.pcdog.com/edu/linux/18/10/u231314_3.html Compile source .c code for analysis, Create executable file: &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; gcc -pg test.c -o test&nbsp; Launch executable file, Create gmon.out &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; ./test Use gmon.out to analysis: &nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less &nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more 4.             常用的Gprof 命令选项解释：   -b不再输出统计图表中每个字段的详细描述。 -p 只输出函数的调用图（Call graph 的那部分信息）。 -q 只输出函数的时间消耗列表。 -E Name不再输出函数Name 及其子函数的调用图，此标志类似于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。 -e Name 不再输出函数Name 及其子函数的调用图（除非它们有未被限制的其它父函数）。可以给定多个 -e 标志。一个 -e 标志只能指定一个函数。 -F Name 输出函数Name 及其子函数的调用图，它类似于 -f 标志，但它在总时间和百分比时间计算中仅使用所打印的例程的时间。可以指定多个 -F 标志。一个 -F 标志只能指定一个函数。-F 标志覆盖 -E 标志。 -f Name输出函数Name 及其子函数的调用图。可以指定多个 -f 标志。一个 -f 标志只能指定一个函数。 -z 显示使用次数为零的例程（按照调用计数和累积时间计算）。 English Reference:http://www.cs.utah.edu/dept/old/texinfo/as/gprof.html#SEC4 --------附： vi使用方法：--------- 　　vi 的三种命令模式　　 Command（命令）模式，用于输入命令 　　Insert（插入）模式，用于插入文本 　　Visual（可视）模式，用于视化的的高亮并选定正文 　　光标移动　　 　　当我们按ESC进入Command模式后，我们可以用下面的一些键位来移动光标； 　　j 向下移动一行 　　k 向上移动一行 　　h 向左移动一个字符 　　l 向右移动一个字符 　　ctrl&#43;b 向上移动一屏 　　ctrl&#43;f 向下移动一屏 　　向上箭头 向上移动 　　向下箭头 向下移动 　　向左箭头 向左移动 　　向右箭头 向右移动 　　我们编辑一个文件时，对于 j、k、l和h键，还能在这些动作命令的前面加上数字，比如 3j，表示向下移动3行。 　　/# &#43;Enter #为查找的内容　 　　插入模式（文本的插入） 　　 　　i 在光标之前插入 　　a 在光标之后插入 　　I 在光标所在行的行首插入 　　A 在光标所在行的行末插入 　　o 在光标所在的行的下面插入一行 　　O 在光标所在的行的上面插入一行 　　s 用输入的文本替换光标所在字符 　　S 用输入的文本替换光标所在行　 　　文本内容的删除操作； 　　 　　x 一个字符 　　#x 删除几个字符，#表示数字，比如3x 　　dw 删除一个单词 　　#dw 删除几个单词，#用数字表示，比如3dw表示删除三个单词 　　dd 删除一行； 　　#dd 删除多个行，#代表数字，比如3dd 表示删除光标行及光标的下两行 　　d$ 删除光标到行尾的内容 　　J 清除光标所处的行与下一行之间的换行，行尾没有空&#26684;的话会自动添加一个空&#26684;。 　　#J 表示合并#(数字)行。 　　退出保存； 　　在命令模式下按 shift&#43;: 文本底端出现冒号 　　:w 保存； 　　:w filename 另存为filename； 　　:wq! 保存退出； 　　:wq! filename 注：以filename为文件名保存后退出； 　　:q! 不保存退出； 　　:x 应该是保存并退出 ，功能和:wq!相同 　　撤销操作 　　u命令取消最近一次的操作，可以使用多次来恢复原有的操作[1] 　　U取消所有操作 　　Ctrl&#43;R可以恢复对使用u命令的操作 　　复制操作 　　yy命令复制当前整行的内容到vi缓冲区 　　yw复制当前光标所在位置到单词尾字符的内容到vi缓存区，相当于复制一个单词 　　y$复制光标所在位置到行尾内容到缓存区 　　y^复制光标所在位置到行首内容到缓存区 　　#yy例如：5yy就是复制5行 　　#yw例如：2yw就是复制两个单词 　　如果要复制第m行到第n行之间的内容，可以在末行模式中输入m，ny例如：3，5y复制第三行到第五行内容到缓存区。 　　查找和替换 　　vi的查找和替换功能主要在末行模式完成： 　　至上而下的查找 　　/ 要查找的字符串，其中/代表从光标所在位置起开始查找，例如：/ work 　　至下而上的查找 　　?要查找的字符串 例如：? work 　　替换 　　:s/old/new用new替换行中首次出现的old 　　: s/old/new/g 用new替换行中所有出现的old 　　:#,# s/old/new/g用new替换从第#行到第#行中出现的old 　　:% s/old/new/g用new替换整篇中出现的old 　　如果替换的范围较大时，在所有的命令尾加一个c命令，强制每个替换需要用户进行确认，例如:s/old/new/c 或s/old/new/gc 　　恢复文件　　 　vi在编辑某一个文件时，会生成一个临时文件，这个文件以 . 开头并以 .swp结尾。正常退出该文件自动删除，如果意外退出例如忽然断电，该文件不会删除，我们在下次编辑时可以选择一下命令处理： 　　O只读打开，不改变文件内容 　　E继续编辑文件，不恢复.swp文件保存的内容 　　R将恢复上次编辑以后未保存文件内容 　　Q退出vi 　　D删除.swp文件 　　或者使用vi －r 文件名来恢复未保存的内容","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2013/01/20/%E4%BD%BF%E7%94%A8Gnu-gprof%E8%BF%9B%E8%A1%8CLinux%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">使用Gnu gprof进行Linux平台下的程序分析</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2013-01-20T15:22:00+08:00" itemprop="datePublished">
+        Jan 20, 2013
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>http://www.pcdog.com/edu/linux/18/10/u231314_1.html<br />
+http://www.pcdog.com/edu/linux/18/10/u231314_2.html<br />
+http://www.pcdog.com/edu/linux/18/10/u231314_3.html<br />
+<br />
+<br /></p>
+<ol>
+  <li>Compile source .c code for analysis, Create executable file:<br /></li>
+</ol>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-family:Courier New">&gt;&gt; gcc -pg test.c -o test</span>&nbsp;</pre>
+<p><br /></p>
+<ol>
+  <li>Launch executable file, Create gmon.out<br /></li>
+</ol>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New"> &gt;&gt; ./test</span></pre>
+<p><br /></p>
+<ol>
+  <li>Use gmon.out to analysis:<br /></li>
+</ol>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less</pre>
+<pre>&nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more</pre>
+<p><br />
+4. <br />
+    <br />
+     <img src="http://img.my.csdn.net/uploads/201301/20/1358695524_8629.png" alt="" /><br />
+<br />
+常用的Gprof 命令选项解释：<br />
+ <br />
+-b不再输出统计图表中每个字段的详细描述。<br />
+<br />
+-p 只输出函数的调用图（Call graph 的那部分信息）。<br />
+<br />
+-q 只输出函数的时间消耗列表。<br />
+<br />
+-E Name不再输出函数Name 及其子函数的调用图，此标志类似于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。<br />
+<br />
+-e Name 不再输出函数Name 及其子函数的调用图（除非它们有未被限制的其它父函数）。可以给定多个 -e 标志。一个 -e 标志只能指定一个函数。<br />
+<br />
+-F Name 输出函数Name 及其子函数的调用图，它类似于 -f 标志，但它在总时间和百分比时间计算中仅使用所打印的例程的时间。可以指定多个 -F 标志。一个 -F 标志只能指定一个函数。-F 标志覆盖 -E 标志。<br />
+<br />
+-f Name输出函数Name 及其子函数的调用图。可以指定多个 -f 标志。一个 -f 标志只能指定一个函数。<br />
+<br />
+-z 显示使用次数为零的例程（按照调用计数和累积时间计算）。<br />
+<br /></p>
+<p>English Reference:<a href="http://www.cs.utah.edu/dept/old/texinfo/as/gprof.html#SEC4" target="_blank">http://www.cs.utah.edu/dept/old/texinfo/as/gprof.html#SEC4</a></p>
+<p><br />
+</p>
+<p>--------附： vi使用方法：---------<br />
+<br />
+<br />
+　　vi 的三种命令模式　　<br />
+<br />
+<br />
+Command（命令）模式，用于输入命令<br />
+　　Insert（插入）模式，用于插入文本<br />
+　　Visual（可视）模式，用于视化的的高亮并选定正文<br />
+　　光标移动　　<br />
+　　当我们按ESC进入Command模式后，我们可以用下面的一些键位来移动光标；<br />
+　　j 向下移动一行<br />
+　　k 向上移动一行<br />
+　　h 向左移动一个字符<br />
+　　l 向右移动一个字符<br />
+　　ctrl&#43;b 向上移动一屏<br />
+　　ctrl&#43;f 向下移动一屏<br />
+　　向上箭头 向上移动<br />
+　　向下箭头 向下移动<br />
+　　向左箭头 向左移动<br />
+　　向右箭头 向右移动<br />
+　　我们编辑一个文件时，对于 j、k、l和h键，还能在这些动作命令的前面加上数字，比如 3j，表示向下移动3行。<br />
+　　/# &#43;Enter #为查找的内容　<br />
+　　插入模式（文本的插入）<br />
+　　<br />
+　　i 在光标之前插入<br />
+　　a 在光标之后插入<br />
+　　I 在光标所在行的行首插入<br />
+　　A 在光标所在行的行末插入<br />
+　　o 在光标所在的行的下面插入一行<br />
+　　O 在光标所在的行的上面插入一行<br />
+　　s 用输入的文本替换光标所在字符<br />
+　　S 用输入的文本替换光标所在行　<br />
+　　文本内容的删除操作；<br />
+　　<br />
+　　x 一个字符<br />
+　　#x 删除几个字符，#表示数字，比如3x<br />
+　　dw 删除一个单词<br />
+　　#dw 删除几个单词，#用数字表示，比如3dw表示删除三个单词<br />
+　　dd 删除一行；<br />
+　　#dd 删除多个行，#代表数字，比如3dd 表示删除光标行及光标的下两行<br />
+　　d$ 删除光标到行尾的内容<br />
+　　J 清除光标所处的行与下一行之间的换行，行尾没有空&#26684;的话会自动添加一个空&#26684;。<br />
+　　#J 表示合并#(数字)行。<br />
+　　退出保存；<br />
+　　在命令模式下按 shift&#43;: 文本底端出现冒号<br />
+　　:w 保存；<br />
+　　:w filename 另存为filename；<br />
+　　:wq! 保存退出；<br />
+　　:wq! filename 注：以filename为文件名保存后退出；<br />
+　　:q! 不保存退出；<br />
+　　:x 应该是保存并退出 ，功能和:wq!相同<br />
+　　撤销操作<br />
+　　u命令取消最近一次的操作，可以使用多次来恢复原有的操作[1]<br />
+　　U取消所有操作<br />
+　　Ctrl&#43;R可以恢复对使用u命令的操作<br />
+　　复制操作<br />
+　　yy命令复制当前整行的内容到vi缓冲区<br />
+　　yw复制当前光标所在位置到单词尾字符的内容到vi缓存区，相当于复制一个单词<br />
+　　y$复制光标所在位置到行尾内容到缓存区<br />
+　　y^复制光标所在位置到行首内容到缓存区<br />
+　　#yy例如：5yy就是复制5行<br />
+　　#yw例如：2yw就是复制两个单词<br />
+　　如果要复制第m行到第n行之间的内容，可以在末行模式中输入m，ny例如：3，5y复制第三行到第五行内容到缓存区。<br />
+　　查找和替换<br />
+　　vi的查找和替换功能主要在末行模式完成：<br />
+　　至上而下的查找<br />
+　　/ 要查找的字符串，其中/代表从光标所在位置起开始查找，例如：/ work<br />
+　　至下而上的查找<br />
+　　?要查找的字符串 例如：? work<br />
+　　替换<br />
+　　:s/old/new用new替换行中首次出现的old<br />
+　　: s/old/new/g 用new替换行中所有出现的old<br />
+　　:#,# s/old/new/g用new替换从第#行到第#行中出现的old<br />
+　　:% s/old/new/g用new替换整篇中出现的old<br />
+　　如果替换的范围较大时，在所有的命令尾加一个c命令，强制每个替换需要用户进行确认，例如:s/old/new/c 或s/old/new/gc<br />
+　　恢复文件　　<br />
+　vi在编辑某一个文件时，会生成一个临时文件，这个文件以 . 开头并以 .swp结尾。正常退出该文件自动删除，如果意外退出例如忽然断电，该文件不会删除，我们在下次编辑时可以选择一下命令处理：<br />
+　　O只读打开，不改变文件内容<br />
+　　E继续编辑文件，不恢复.swp文件保存的内容<br />
+　　R将恢复上次编辑以后未保存文件内容<br />
+　　Q退出vi<br />
+　　D删除.swp文件<br />
+　　或者使用vi －r 文件名来恢复未保存的内容<br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="使用gnu gprof进行linux平台下的程序分析">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2013/01/20/%E4%BD%BF%E7%94%A8Gnu-gprof%E8%BF%9B%E8%A1%8CLinux%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

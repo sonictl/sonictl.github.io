@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Dinero cache simulator-Computer Architecture | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Dinero cache simulator-Computer Architecture" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="【问题描述：】 PART A. The Dinero cache simulator is available on the COE Solaris system (machines alpha, beta). The following information is for using dineroIII (which is the default dinero installed on COE Solaris systems). You will also find dineroIV installed on both Solaris and Linux machines. Please use dineroIII for this assignment. You are welcome to experiment with dineroIV. Dinero allows you to configure a cache using command line arguments (see attached info on Dinero). The simulator takes as input an address trace. The Dinero input format &quot;din&quot; is an ASCII file with one LABEL and one ADDRESS per line. The rest of the line is ignored so that it can be used for comments. LABEL = 0 read data = 1 write data = 2 instruction fetch = 3 escape record (treated as unknown access type) = 4 escape record (causes cache flush) 0 &lt;= ADDRESS &lt;= ffffffff where the hexadecimal addresses are NOT preceded by &quot;0x.&quot; Here are some examples: 2 0 This is an instruction fetch at hex address 0. 0 1000 This is a data read at hex address 1000. 1 70f60888 This is a data write at hex address 70f60888. Make sure to use lowercase. After creating a trace file (e.g., trace.txt), you run Dinero as follows: dinero –i16KB –d32KB –b32 &lt; trace.txt This will simulate a 16KB instruction cache and a 32KB data cache, each with a 32 byte block size. Your job is to generate reference streams in Dinero&#39;s din format (see description provided with trace) and produce the following (where you are asked to generate an address stream, submit in your report enough of the trace so that we can understand the pattern you are using – do not submit the full trace since it will only waste paper): 1. Assume that you have a direct-mapped 16KB instruction cache (32B block). Generate an address stream that will touch every cache line once, but no more than once. 2. Assume the same instruction cache organization as in (1), but now the instruction cache is 2- way set associative, with LRU replacement. The total cache space is still 16KB with a 32B block, but now you have 1/2 the number of indices. Generate an address stream that touches every cache index only 8 times, producing 5 misses and 3 hits, but only accesses 3 unique addresses per index. 【Solution】 2. 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 这是32位的物理地址，Cache 大小16KB = 2^14, 故物理地址的低14位 对Cache是唯一对应的，前提是direct association。 此时有32Byte = 2^5 的block大小，所以低5位是offset。从而有16K/32 = 2^9 = 2^(14-5) 个block, 也就是512个index. 这是direct的情况。如果是2set, 那就是256组， 256个index, 占用8位，每组2个block随机分配或者LRU(Least Recent Use)。 所以：1.对于direct associate: offset的5位若有不同不会造成miss 比如： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp; 2 21 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001 2 22 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp; 2 21 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001 2 22 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt&nbsp; 预测结果: fetch: 6 &nbsp;&nbsp;&nbsp;miss: 1 &nbsp;&nbsp;【符合】 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.对于direct associate: index的变化会有失效产生 比如： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;(miss)2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)3 与1的index相同，冲掉1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)4 与3的index相同，冲掉3 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)5 与4的index相同，冲掉4 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)6 与5的index相同，冲掉5 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)7 与6的index相同，冲掉6 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;与2的index相同，高位也相同，hit &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;3(miss) 冲掉-&gt;index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;4(miss) 冲掉-&gt;index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-1&nbsp; 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;8(miss) 冲掉-&gt;index1-2 &nbsp; &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:5 思路：同样的地址stream, 如果 视为9 和 视为8 不一样，谁符合仿真结果，谁就正确。 所以要构造地址stream, 使 视为9 和 视为8 的人工预测结果不一样。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index2-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;3(miss) -&gt;index1-2 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;4hit same with 1&lt;- index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-2 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-2&nbsp; 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;8hit same with 2&lt;-index2-1&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数视为8： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;3(miss) 冲掉-&gt;index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;4(miss) 冲掉-&gt;index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-1&nbsp; 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;&nbsp;8(miss) 冲掉-&gt;index1-2&nbsp; &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:5" />
+<meta property="og:description" content="【问题描述：】 PART A. The Dinero cache simulator is available on the COE Solaris system (machines alpha, beta). The following information is for using dineroIII (which is the default dinero installed on COE Solaris systems). You will also find dineroIV installed on both Solaris and Linux machines. Please use dineroIII for this assignment. You are welcome to experiment with dineroIV. Dinero allows you to configure a cache using command line arguments (see attached info on Dinero). The simulator takes as input an address trace. The Dinero input format &quot;din&quot; is an ASCII file with one LABEL and one ADDRESS per line. The rest of the line is ignored so that it can be used for comments. LABEL = 0 read data = 1 write data = 2 instruction fetch = 3 escape record (treated as unknown access type) = 4 escape record (causes cache flush) 0 &lt;= ADDRESS &lt;= ffffffff where the hexadecimal addresses are NOT preceded by &quot;0x.&quot; Here are some examples: 2 0 This is an instruction fetch at hex address 0. 0 1000 This is a data read at hex address 1000. 1 70f60888 This is a data write at hex address 70f60888. Make sure to use lowercase. After creating a trace file (e.g., trace.txt), you run Dinero as follows: dinero –i16KB –d32KB –b32 &lt; trace.txt This will simulate a 16KB instruction cache and a 32KB data cache, each with a 32 byte block size. Your job is to generate reference streams in Dinero&#39;s din format (see description provided with trace) and produce the following (where you are asked to generate an address stream, submit in your report enough of the trace so that we can understand the pattern you are using – do not submit the full trace since it will only waste paper): 1. Assume that you have a direct-mapped 16KB instruction cache (32B block). Generate an address stream that will touch every cache line once, but no more than once. 2. Assume the same instruction cache organization as in (1), but now the instruction cache is 2- way set associative, with LRU replacement. The total cache space is still 16KB with a 32B block, but now you have 1/2 the number of indices. Generate an address stream that touches every cache index only 8 times, producing 5 misses and 3 hits, but only accesses 3 unique addresses per index. 【Solution】 2. 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 这是32位的物理地址，Cache 大小16KB = 2^14, 故物理地址的低14位 对Cache是唯一对应的，前提是direct association。 此时有32Byte = 2^5 的block大小，所以低5位是offset。从而有16K/32 = 2^9 = 2^(14-5) 个block, 也就是512个index. 这是direct的情况。如果是2set, 那就是256组， 256个index, 占用8位，每组2个block随机分配或者LRU(Least Recent Use)。 所以：1.对于direct associate: offset的5位若有不同不会造成miss 比如： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp; 2 21 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001 2 22 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp; 2 21 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001 2 22 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt&nbsp; 预测结果: fetch: 6 &nbsp;&nbsp;&nbsp;miss: 1 &nbsp;&nbsp;【符合】 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.对于direct associate: index的变化会有失效产生 比如： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;(miss)2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)3 与1的index相同，冲掉1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)4 与3的index相同，冲掉3 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)5 与4的index相同，冲掉4 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)6 与5的index相同，冲掉5 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)7 与6的index相同，冲掉6 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;与2的index相同，高位也相同，hit &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;3(miss) 冲掉-&gt;index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;4(miss) 冲掉-&gt;index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-1&nbsp; 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;8(miss) 冲掉-&gt;index1-2 &nbsp; &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:5 思路：同样的地址stream, 如果 视为9 和 视为8 不一样，谁符合仿真结果，谁就正确。 所以要构造地址stream, 使 视为9 和 视为8 的人工预测结果不一样。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index2-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;3(miss) -&gt;index1-2 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;4hit same with 1&lt;- index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-2 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-2&nbsp; 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;8hit same with 2&lt;-index2-1&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数视为8： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;3(miss) 冲掉-&gt;index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;4(miss) 冲掉-&gt;index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-1&nbsp; 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;&nbsp;8(miss) 冲掉-&gt;index1-2&nbsp; &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:5" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2013/01/20/Dinero-cache-simulator-Computer-Architecture.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2013/01/20/Dinero-cache-simulator-Computer-Architecture.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-01-20T14:55:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dinero cache simulator-Computer Architecture" />
+<script type="application/ld+json">
+{"headline":"Dinero cache simulator-Computer Architecture","dateModified":"2013-01-20T14:55:00+08:00","datePublished":"2013-01-20T14:55:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2013/01/20/Dinero-cache-simulator-Computer-Architecture.html"},"description":"【问题描述：】 PART A. The Dinero cache simulator is available on the COE Solaris system (machines alpha, beta). The following information is for using dineroIII (which is the default dinero installed on COE Solaris systems). You will also find dineroIV installed on both Solaris and Linux machines. Please use dineroIII for this assignment. You are welcome to experiment with dineroIV. Dinero allows you to configure a cache using command line arguments (see attached info on Dinero). The simulator takes as input an address trace. The Dinero input format &quot;din&quot; is an ASCII file with one LABEL and one ADDRESS per line. The rest of the line is ignored so that it can be used for comments. LABEL = 0 read data = 1 write data = 2 instruction fetch = 3 escape record (treated as unknown access type) = 4 escape record (causes cache flush) 0 &lt;= ADDRESS &lt;= ffffffff where the hexadecimal addresses are NOT preceded by &quot;0x.&quot; Here are some examples: 2 0 This is an instruction fetch at hex address 0. 0 1000 This is a data read at hex address 1000. 1 70f60888 This is a data write at hex address 70f60888. Make sure to use lowercase. After creating a trace file (e.g., trace.txt), you run Dinero as follows: dinero –i16KB –d32KB –b32 &lt; trace.txt This will simulate a 16KB instruction cache and a 32KB data cache, each with a 32 byte block size. Your job is to generate reference streams in Dinero&#39;s din format (see description provided with trace) and produce the following (where you are asked to generate an address stream, submit in your report enough of the trace so that we can understand the pattern you are using – do not submit the full trace since it will only waste paper): 1. Assume that you have a direct-mapped 16KB instruction cache (32B block). Generate an address stream that will touch every cache line once, but no more than once. 2. Assume the same instruction cache organization as in (1), but now the instruction cache is 2- way set associative, with LRU replacement. The total cache space is still 16KB with a 32B block, but now you have 1/2 the number of indices. Generate an address stream that touches every cache index only 8 times, producing 5 misses and 3 hits, but only accesses 3 unique addresses per index. 【Solution】 2. 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 这是32位的物理地址，Cache 大小16KB = 2^14, 故物理地址的低14位 对Cache是唯一对应的，前提是direct association。 此时有32Byte = 2^5 的block大小，所以低5位是offset。从而有16K/32 = 2^9 = 2^(14-5) 个block, 也就是512个index. 这是direct的情况。如果是2set, 那就是256组， 256个index, 占用8位，每组2个block随机分配或者LRU(Least Recent Use)。 所以：1.对于direct associate: offset的5位若有不同不会造成miss 比如： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp; 2 21 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001 2 22 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp; 2 21 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001 2 22 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt&nbsp; 预测结果: fetch: 6 &nbsp;&nbsp;&nbsp;miss: 1 &nbsp;&nbsp;【符合】 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.对于direct associate: index的变化会有失效产生 比如： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;(miss)2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)3 与1的index相同，冲掉1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)4 与3的index相同，冲掉3 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)5 与4的index相同，冲掉4 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;(miss)6 与5的index相同，冲掉5 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;(miss)7 与6的index相同，冲掉6 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;与2的index相同，高位也相同，hit &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;3(miss) 冲掉-&gt;index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;4(miss) 冲掉-&gt;index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-2 2 8020 &nbsp;&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-1&nbsp; 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;8(miss) 冲掉-&gt;index1-2 &nbsp; &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:5 思路：同样的地址stream, 如果 视为9 和 视为8 不一样，谁符合仿真结果，谁就正确。 所以要构造地址stream, 使 视为9 和 视为8 的人工预测结果不一样。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index2-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;3(miss) -&gt;index1-2 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;4hit same with 1&lt;- index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-2 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-1 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-2&nbsp; 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;&nbsp;8hit same with 2&lt;-index2-1&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数视为8： 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;1(miss) -&gt;index1-1 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;&nbsp;2(miss) -&gt;index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;3(miss) 冲掉-&gt;index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;4(miss) 冲掉-&gt;index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;5hit same with 3&lt;-index1-1 2 20 &nbsp;&nbsp;&nbsp;&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;&nbsp;6hit same with 4&lt;-index1-2 2 4020 &nbsp;&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;&nbsp;7hit same with 5&lt;-index1-1&nbsp; 2 2020 &nbsp;&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;&nbsp;8(miss) 冲掉-&gt;index1-2&nbsp; &nbsp;&nbsp;&nbsp;$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt 仿真结果：fetch:8 &nbsp;&nbsp;&nbsp;miss:5","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2013/01/20/Dinero-cache-simulator-Computer-Architecture.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Dinero cache simulator-Computer Architecture</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2013-01-20T14:55:00+08:00" itemprop="datePublished">
+        Jan 20, 2013
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+【问题描述：】</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+PART A.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+The Dinero cache simulator is available on the COE Solaris system (machines alpha, beta). The</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+following information is for using dineroIII (which is the default dinero installed on COE Solaris</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+systems). You will also find dineroIV installed on both Solaris and Linux machines. Please use</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+dineroIII for this assignment. You are welcome to experiment with dineroIV.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+Dinero allows you to configure a cache using command line arguments (see attached info on</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+Dinero). The simulator takes as input an address trace. The Dinero input format &quot;din&quot; is an</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+ASCII file with one LABEL and one ADDRESS per line. The rest of the line is ignored so that it</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+can be used for comments.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+LABEL = 0 read data</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+= 1 write data</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+= 2 instruction fetch</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+= 3 escape record (treated as unknown access type)</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+= 4 escape record (causes cache flush)</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+0 &lt;= ADDRESS &lt;= ffffffff where the hexadecimal addresses are NOT preceded by &quot;0x.&quot;</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+Here are some examples:</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+2 0 This is an instruction fetch at hex address 0.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+0 1000 This is a data read at hex address 1000.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+1 70f60888 This is a data write at hex address 70f60888.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+Make sure to use lowercase.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+After creating a trace file (e.g., trace.txt), you run Dinero as follows:</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+dinero –i16KB –d32KB –b32 &lt; trace.txt</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+This will simulate a 16KB instruction cache and a 32KB data cache, each with a 32 byte block</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+size.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+Your job is to generate reference streams in Dinero's din format (see description provided with</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+trace) and produce the following (where you are asked to generate an address stream, submit in</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+your report enough of the trace so that we can understand the pattern you are using – do not</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+submit the full trace since it will only waste paper):</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+1. Assume that you have a direct-mapped 16KB instruction cache (32B block). Generate an</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+address stream that will touch every cache line once, but no more than once.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+2. Assume the same instruction cache organization as in (1), but now the instruction cache is 2-</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+way set associative, with LRU replacement. The total cache space is still 16KB with a 32B</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+block, but now you have 1/2 the number of indices. Generate an address stream that touches</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+every cache index only 8 times, producing 5 misses and 3 hits, but only accesses 3 unique</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+addresses per index.</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<br style="line-height:1.5" />
+</div>
+<div style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:21px; font-size:14px">
+<div style="line-height:1.5">【Solution】</div>
+<div style="line-height:1.5">2.</div>
+<div style="line-height:1.5">
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+这是32位的物理地址，Cache 大小16KB = 2^14, 故物理地址的低14位</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+对Cache是唯一对应的，前提是direct association。 此时有32Byte = 2^5</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+的block大小，所以低5位是offset。从而有16K/32 = 2^9 = 2^(14-5) 个block,</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+也就是512个index. 这是direct的情况。如果是2set, 那就是256组，</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+256个index, 占用8位，每组2个block随机分配或者LRU(Least Recent Use)。</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+所以：1.对于direct associate: offset的5位若有不同不会造成miss</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+比如：</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 21 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 22 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 21 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0001</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 22 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0010</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+预测结果: fetch: 6 &nbsp;<wbr />&nbsp;&nbsp;<wbr />miss: 1 &nbsp;<wbr />&nbsp;【符合】</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;2.对于direct associate: index的变化会有失效产生</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+比如：</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;(miss)1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;<wbr />&nbsp;(miss)2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;(miss)3 与1的index相同，冲掉1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;(miss)4 与3的index相同，冲掉3</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;(miss)5 与4的index相同，冲掉4</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;(miss)6 与5的index相同，冲掉5</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;(miss)7 与6的index相同，冲掉6</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;<wbr />&nbsp;与2的index相同，高位也相同，hit</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />$ dinero -i16K -d16K -b32 -a1 &lt; hw6_1_2d.txt</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+仿真结果：fetch:8 &nbsp;<wbr />&nbsp;&nbsp;<wbr />miss:7</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;3.对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9：</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;1(miss) -&gt;index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;2(miss) -&gt;index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 8020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;3(miss) 冲掉-&gt;index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;4(miss) 冲掉-&gt;index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 8020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;5hit same with 3&lt;-index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;6hit same with 4&lt;-index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 8020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 10|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;7hit same with 5&lt;-index1-1&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;8(miss) 冲掉-&gt;index1-2 &nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+仿真结果：fetch:8 &nbsp;<wbr />&nbsp;&nbsp;<wbr />miss:5</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+思路：同样的地址stream, 如果 视为9 和 视为8 不一样，谁符合仿真结果，谁就正确。</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+所以要构造地址stream, 使 视为9 和 视为8 的人工预测结果不一样。</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;4.1对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数还是视为9：</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;1(miss) -&gt;index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;<wbr />&nbsp;2(miss) -&gt;index2-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;3(miss) -&gt;index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;4hit same with 1&lt;- index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;5hit same with 3&lt;-index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;6hit same with 4&lt;-index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 01|00 0000 001|0 0000 &nbsp;<wbr />&nbsp;7hit same with 5&lt;-index1-2&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 00|10 0000 001|0 0000 &nbsp;<wbr />&nbsp;8hit same with 2&lt;-index2-1&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;4.2对于2set associate, 此时只有512/2 = 256 = 2^8 组，index的位数视为8：</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;1(miss) -&gt;index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;2(miss) -&gt;index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;3(miss) 冲掉-&gt;index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;4(miss) 冲掉-&gt;index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;5hit same with 3&lt;-index1-1</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 20 &nbsp;<wbr />&nbsp;&nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 000|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;6hit same with 4&lt;-index1-2</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 4020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 010|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;7hit same with 5&lt;-index1-1&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+2 2020 &nbsp;<wbr />&nbsp;----- 0000 0000 0000 0000 001|0 0000 001|0 0000 &nbsp;<wbr />&nbsp;8(miss) 冲掉-&gt;index1-2&nbsp;<wbr /></div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+<br style="font-family:宋体,Verdana,Arial,Helvetica,sans-serif; line-height:1.5" />
+</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+&nbsp;<wbr />&nbsp;&nbsp;<wbr />$ dinero -i16K -d16K -b32 -a2 &lt; hw6_1_2d.txt</div>
+<div style="font-family:simsun; color:rgb(70,70,70); background-color:rgb(188,211,229)">
+仿真结果：fetch:8 &nbsp;<wbr />&nbsp;&nbsp;<wbr />miss:5</div>
+<div><br />
+</div>
+</div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="dinero cache simulator-computer architecture">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2013/01/20/Dinero-cache-simulator-Computer-Architecture.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
