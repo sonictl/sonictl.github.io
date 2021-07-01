@@ -10,17 +10,17 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="直接型FIR滤波器的C语言实现 &nbsp;&nbsp; 设输入数据x[N],输出数据y[N],滤波器系数h[n] 1.直接法(由y(m)=h(0)*x(m)&#43;h(1)*x(m-1)&#43;...&#43;h(N-1)*x(m-n-1)); void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = 0; j &lt; N; j++) { sum = 0; for (i = 0; i &lt; n; i++) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }乘法器使用次数：N*n &nbsp; 2.逆推法： void fir(short x[], short h[], short y[]) { int i,j; long sum; for (j = 0; j &lt; n; j++) { for (i = 0; i &lt; N; i++) { sum = 0; sum = h[j] * x[i] y[i] += sum &gt;&gt; 15; } } }乘法器使用次数：N*n &nbsp; 3.倒序法：（输入输出可以是同一量） void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = N; j &gt; 0; j--) { sum = 0; for (i = n; i &gt; 0; i--) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }" />
 <meta property="og:description" content="直接型FIR滤波器的C语言实现 &nbsp;&nbsp; 设输入数据x[N],输出数据y[N],滤波器系数h[n] 1.直接法(由y(m)=h(0)*x(m)&#43;h(1)*x(m-1)&#43;...&#43;h(N-1)*x(m-n-1)); void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = 0; j &lt; N; j++) { sum = 0; for (i = 0; i &lt; n; i++) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }乘法器使用次数：N*n &nbsp; 2.逆推法： void fir(short x[], short h[], short y[]) { int i,j; long sum; for (j = 0; j &lt; n; j++) { for (i = 0; i &lt; N; i++) { sum = 0; sum = h[j] * x[i] y[i] += sum &gt;&gt; 15; } } }乘法器使用次数：N*n &nbsp; 3.倒序法：（输入输出可以是同一量） void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = N; j &gt; 0; j--) { sum = 0; for (i = n; i &gt; 0; i--) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }" />
-<link rel="canonical" href="/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" />
-<meta property="og:url" content="/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" />
 <meta property="og:site_name" content="Combine Art and Sciences" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-01-20T15:25:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="直接型FIR滤波器的C语言实现" />
 <script type="application/ld+json">
-{"dateModified":"2013-01-20T15:25:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/"},"author":{"@type":"Person","name":"sonictl"},"description":"直接型FIR滤波器的C语言实现 &nbsp;&nbsp; 设输入数据x[N],输出数据y[N],滤波器系数h[n] 1.直接法(由y(m)=h(0)*x(m)&#43;h(1)*x(m-1)&#43;...&#43;h(N-1)*x(m-n-1)); void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = 0; j &lt; N; j++) { sum = 0; for (i = 0; i &lt; n; i++) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }乘法器使用次数：N*n &nbsp; 2.逆推法： void fir(short x[], short h[], short y[]) { int i,j; long sum; for (j = 0; j &lt; n; j++) { for (i = 0; i &lt; N; i++) { sum = 0; sum = h[j] * x[i] y[i] += sum &gt;&gt; 15; } } }乘法器使用次数：N*n &nbsp; 3.倒序法：（输入输出可以是同一量） void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = N; j &gt; 0; j--) { sum = 0; for (i = n; i &gt; 0; i--) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }","@type":"BlogPosting","headline":"直接型FIR滤波器的C语言实现","url":"/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/","datePublished":"2013-01-20T15:25:00+08:00","@context":"https://schema.org"}</script>
+{"headline":"直接型FIR滤波器的C语言实现","dateModified":"2013-01-20T15:25:00+08:00","datePublished":"2013-01-20T15:25:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/"},"description":"直接型FIR滤波器的C语言实现 &nbsp;&nbsp; 设输入数据x[N],输出数据y[N],滤波器系数h[n] 1.直接法(由y(m)=h(0)*x(m)&#43;h(1)*x(m-1)&#43;...&#43;h(N-1)*x(m-n-1)); void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = 0; j &lt; N; j++) { sum = 0; for (i = 0; i &lt; n; i++) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }乘法器使用次数：N*n &nbsp; 2.逆推法： void fir(short x[], short h[], short y[]) { int i,j; long sum; for (j = 0; j &lt; n; j++) { for (i = 0; i &lt; N; i++) { sum = 0; sum = h[j] * x[i] y[i] += sum &gt;&gt; 15; } } }乘法器使用次数：N*n &nbsp; 3.倒序法：（输入输出可以是同一量） void fir(short x[], short h[], short y[]) { int i,j; long long sum; for (j = N; j &gt; 0; j--) { sum = 0; for (i = n; i &gt; 0; i--) sum += x[j-i] * h[i]; y[j] = sum &gt;&gt; 15; } }","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/%E7%9B%B4%E6%8E%A5%E5%9E%8BFIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Combine Art and Sciences" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
@@ -150,9 +150,9 @@
 <form action="/fake" method="post" id="commentform" class="form-horizontal">
 
   <fieldset id="commentfields" style="position: relative">
-    <input name="redirect" type="hidden" value="/thanks">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
     <input name="post_id" type="hidden" value="直接型fir滤波器的c语言实现">
-    <input name="comment-site" type="hidden" value="">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
 
     <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Continue the discussion."></textarea>
 

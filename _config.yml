@@ -23,7 +23,7 @@ email:
 description: >- # this means to ignore newlines until "baseurl:"
   当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://sonictl.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyll
 github_username:  jekyll
 
