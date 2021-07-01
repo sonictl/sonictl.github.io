@@ -147,18 +147,17 @@ message: "This is a great solution for 'dynamic' comments on a static blog!"
     <ol>
       <li>
         <p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function">Create a <strong>v1</strong> Azure Function</a></p>
+
+        <p>change the runtime through the Configuration screen of the Function App by changing the FUNCTIONS_EXTENSION_VERSION key to ~1.</p>
+
+        <p>ref: https://marcroussy.com/2018/11/10/create-runtime-v1-azure-functions/</p>
       </li>
       <li>
         <p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous">Set up your function to deploy from your fork</a></p>
-      </li>
-      <li>
+
         <p>deploy jekyll-blog-comments:</p>
 
-        <ol>
-          <li>in deploy center, select github repo</li>
-          <li>deploy</li>
-          <li>Configure <strong>Branch</strong> to <strong>master</strong></li>
-        </ol>
+        <p>deploy with the CLI code, configure before running as a executable .sh file.</p>
       </li>
       <li>
         <p>Set up the following <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings">App Settings for your Azure Function</a></p>
@@ -277,7 +276,7 @@ message: "This is a great solution for 'dynamic' comments on a static blog!"
       }
 
       var form = document.getElementById('commentform')
-      form.action = 'https://jekyll-blog-comments.azurewebsites.net/api/PostComment'
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
       button.innerText = 'Posting...'
       button.disabled = true
       form.submit()

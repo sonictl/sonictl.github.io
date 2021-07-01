@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-01T09:03:50+08:00</updated><id>/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</subtitle><entry><title type="html">todo List</title><link href="/jekyll/timeline/p20210628100034/" rel="alternate" type="text/html" title="todo List" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>/jekyll/timeline/p20210628100034</id><content type="html" xml:base="/jekyll/timeline/p20210628100034/">&lt;h2 id=&quot;todo-list&quot;&gt;Todo List&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-01T10:49:49+08:00</updated><id>/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</subtitle><entry><title type="html">todo List</title><link href="/jekyll/timeline/p20210628100034/" rel="alternate" type="text/html" title="todo List" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>/jekyll/timeline/p20210628100034</id><content type="html" xml:base="/jekyll/timeline/p20210628100034/">&lt;h2 id=&quot;todo-list&quot;&gt;Todo List&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;add public comments
@@ -81,18 +81,17 @@ message: &quot;This is a great solution for 'dynamic' comments on a static blog!
     &lt;ol&gt;
       &lt;li&gt;
         &lt;p&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function&quot;&gt;Create a &lt;strong&gt;v1&lt;/strong&gt; Azure Function&lt;/a&gt;&lt;/p&gt;
+
+        &lt;p&gt;change the runtime through the Configuration screen of the Function App by changing the FUNCTIONS_EXTENSION_VERSION key to ~1.&lt;/p&gt;
+
+        &lt;p&gt;ref: https://marcroussy.com/2018/11/10/create-runtime-v1-azure-functions/&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;p&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous&quot;&gt;Set up your function to deploy from your fork&lt;/a&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
+
         &lt;p&gt;deploy jekyll-blog-comments:&lt;/p&gt;
 
-        &lt;ol&gt;
-          &lt;li&gt;in deploy center, select github repo&lt;/li&gt;
-          &lt;li&gt;deploy&lt;/li&gt;
-          &lt;li&gt;Configure &lt;strong&gt;Branch&lt;/strong&gt; to &lt;strong&gt;master&lt;/strong&gt;&lt;/li&gt;
-        &lt;/ol&gt;
+        &lt;p&gt;deploy with the CLI code, configure before running as a executable .sh file.&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;p&gt;Set up the following &lt;a href=&quot;https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings&quot;&gt;App Settings for your Azure Function&lt;/a&gt;&lt;/p&gt;
