@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-01T11:54:14+08:00</updated><id>/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</subtitle><entry><title type="html">todo List</title><link href="/jekyll/timeline/p20210628100034/" rel="alternate" type="text/html" title="todo List" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>/jekyll/timeline/p20210628100034</id><content type="html" xml:base="/jekyll/timeline/p20210628100034/">&lt;h2 id=&quot;todo-list&quot;&gt;Todo List&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-01T11:58:57+08:00</updated><id>/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。</subtitle><entry><title type="html">todo List</title><link href="/jekyll/timeline/p20210628100034/" rel="alternate" type="text/html" title="todo List" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>/jekyll/timeline/p20210628100034</id><content type="html" xml:base="/jekyll/timeline/p20210628100034/">&lt;h2 id=&quot;todo-list&quot;&gt;Todo List&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;add public comments
@@ -72,7 +72,7 @@ message: &quot;This is a great solution for 'dynamic' comments on a static blog!
 
     &lt;p&gt;需要安装&lt;a href=&quot;https://github.com/damieng/jekyll-blog-comments-azure&quot;&gt;jekyll-blog-comments-azure&lt;/a&gt;， 先fork, 再：&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;/Users/sonic/Blog_sonictl.github.io/Posts_for_publish/images/image-20210630225938194.png&quot; alt=&quot;image-20210630225938194&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;images/image-20210630225938194.png&quot; alt=&quot;image-20210630225938194&quot; /&gt;&lt;/p&gt;
 
     &lt;p&gt;Create Azure Account, and create aZure function&lt;/p&gt;
 
