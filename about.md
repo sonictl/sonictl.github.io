@@ -40,7 +40,7 @@ cd <to the jekyll proj dir> && git add . && git commit -m 'new cmit' && git push
 layout: post
 title:  "Title"
 date:   2021-06-26 07:57:34 +0800
-categories: jekyll update
+categories: jekyll tech
 ---
 
 fileName: 2021-06-26-welcome-to-jekyll.md
@@ -49,14 +49,5 @@ fileName: 2021-06-26-welcome-to-jekyll.md
 
 ## solve timeZone issue for jekyll:
 ```
-- $ gem install tzinfo -v "1.2"
-- edit _config.yml, add: timezone: Asia/Shanghai
 - write "date: 2019-03-17 12:07:00 +0800" in frontMatter of each post 
 ```
-## work to do about maintaining this blog:
-
-1. pick a preferable theme other than this default `minima`
-2. set up the favicon for the theme selected.
-3. set up statistics/visitor_map for the index.html
-4. 
-

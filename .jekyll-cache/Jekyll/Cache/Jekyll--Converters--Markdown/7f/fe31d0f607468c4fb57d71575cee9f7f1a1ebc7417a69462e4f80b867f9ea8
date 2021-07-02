@@ -1,0 +1,35 @@
+I"|<h2 id="todo-list">Todo List</h2>
+
+<ul>
+  <li>add public comments
+    <ul>
+      <li>https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/</li>
+      <li>https://github.com/xk-wang/comment</li>
+      <li>https://darekkay.com/blog/static-site-comments/</li>
+      <li>https://jacobpan3g.github.io/cn/2017/07/17/gitment-in-jekyll/</li>
+      <li></li>
+    </ul>
+  </li>
+  <li>select a preferable minima theme</li>
+  <li>add <code class="language-plaintext highlighter-rouge">slug</code> in frontMatter for each article, mkdir -p under <code class="language-plaintext highlighter-rouge">_data/comments/&lt;slug&gt;</code> with slug name</li>
+</ul>
+
+<h2 id="done">done:</h2>
+
+<ol>
+  <li>
+    <p>add categories. ref: https://blog.webjeda.com/jekyll-categories/</p>
+  </li>
+  <li>
+    <p>To use images for posts. put the images as <code class="language-plaintext highlighter-rouge">./assets/images/xxx.jpg</code></p>
+  </li>
+  <li>
+    <p>add comments</p>
+
+    <p>ref: https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/</p>
+
+    <p>Disqus is ban in mainland CN. github pull request way is under debugging…</p>
+  </li>
+</ol>
+
+:ET

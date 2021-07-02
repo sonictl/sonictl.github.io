@@ -2,7 +2,7 @@
 layout: post
 title:  "Implementing comment for jekyll blog with github pull request"
 date: 2021-07-01 17:01:00 +0800
-categories: jekyll update
+categories: jekyll
 slug: p20210701170100
 ---
 
