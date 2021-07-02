@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "jekyll blog comment function implementation with github pull request"
+title:  "implementing comment for jekyll blog with github pull request"
 date: 2021-07-01 17:01:00 +0800
 categories: jekyll update
 slug: p20210701170100
@@ -19,7 +19,7 @@ The github repos that needed:
 
 ---
 
-#### 2. Steps and notes for jekyll comment funtion building
+#### 2. Steps and notes for jekyll comment box building
 
    The idea is use [data files](https://jekyllrb.com/docs/datafiles/) in Jekyll to store comments and some liquid templates to render them. That all can be static.
 
@@ -69,7 +69,7 @@ The github repos that needed:
 
    需要安装[jekyll-blog-comments-azure](https://github.com/damieng/jekyll-blog-comments-azure)， 先fork, 再：
 
-   ![image-20210630225938194](images/image-20210630225938194.png)
+   ![image-20210630225938194](/assets/images/image-20210630225938194.png)
 
    Create Azure Account, and create aZure function
 

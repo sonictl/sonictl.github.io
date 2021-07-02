@@ -1,4 +1,4 @@
-I",<h4 id="1-the-refered-blogs">1. The refered blogs:</h4>
+I"$<h4 id="1-the-refered-blogs">1. The refered blogs:</h4>
 
 <ul>
   <li>https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments</li>
@@ -14,7 +14,7 @@
 
 <hr />
 
-<h4 id="2-steps-and-notes-for-jekyll-comment-funtion-building">2. Steps and notes for jekyll comment funtion building</h4>
+<h4 id="2-steps-and-notes-for-jekyll-comment-box-building">2. Steps and notes for jekyll comment box building</h4>
 
 <p>The idea is use <a href="https://jekyllrb.com/docs/datafiles/">data files</a> in Jekyll to store comments and some liquid templates to render them. That all can be static.</p>
 
