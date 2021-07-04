@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '【未显示首页】Access IOT (Arduino) from anywhere remotely'
-date: 2020-12-18 15:45:00
+date: 2020-12-18 15:45:00 +0800
+category: from_cnblogs
 ---
 How to Access Arduino Video Stream Over Internet
 
