@@ -90,8 +90,8 @@
 
 <p>two lines of cmds：</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ALL_PROXY</span><span class="o">=</span><span class="s2">"socks5://127.0.0.1080"</span>
-<span class="nb">export </span><span class="nv">all_proxy</span><span class="o">=</span><span class="s2">"socks5://127.0.0.1080"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ALL_PROXY</span><span class="o">=</span><span class="s2">"socks5://127.0.0.1:1080"</span>
+<span class="nb">export </span><span class="nv">all_proxy</span><span class="o">=</span><span class="s2">"socks5://127.0.0.1:1080"</span>
 </code></pre></div></div>
 
 <p>这样 <code class="language-plaintext highlighter-rouge">curl</code> <code class="language-plaintext highlighter-rouge">wget</code> 是都走代理了，包括 <code class="language-plaintext highlighter-rouge">git</code> <code class="language-plaintext highlighter-rouge">npm</code> <code class="language-plaintext highlighter-rouge">yarn</code> .</p>

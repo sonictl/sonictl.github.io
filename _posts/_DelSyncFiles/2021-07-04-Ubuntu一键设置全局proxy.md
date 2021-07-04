@@ -26,8 +26,8 @@ WSL (Windows Subsystem for Linux) or Ubuntu is OK for this tutorial. Other linux
  two lines of cmds：
 
 ```bash
-export ALL_PROXY="socks5://127.0.0.1:1080"
-export all_proxy="socks5://127.0.0.1:1080"
+export ALL_PROXY="socks5://127.0.0.1080"
+export all_proxy="socks5://127.0.0.1080"
 ```
 
 这样 `curl` `wget` 是都走代理了，包括 `git` `npm` `yarn` .
