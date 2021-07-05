@@ -8,8 +8,8 @@
 <meta property="og:title" content="Ubuntu一键设置全局proxy" />
 <meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Ubuntu「一键」设置代理 sonictl note: the DNS problem may be still there. Except proxychains." />
-<meta property="og:description" content="Ubuntu「一键」设置代理 sonictl note: the DNS problem may be still there. Except proxychains." />
+<meta name="description" content="Ubuntu「一键」设置全局代理 sonictl note: the DNS problem may be still there. Except proxychains." />
+<meta property="og:description" content="Ubuntu「一键」设置全局代理 sonictl note: the DNS problem may be still there. Except proxychains." />
 <link rel="canonical" href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html" />
 <meta property="og:url" content="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html" />
 <meta property="og:site_name" content="Combine Art and Sciences" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Ubuntu一键设置全局proxy" />
 <script type="application/ld+json">
-{"headline":"Ubuntu一键设置全局proxy","dateModified":"2021-07-04T11:52:00+08:00","datePublished":"2021-07-04T11:52:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html"},"description":"Ubuntu「一键」设置代理 sonictl note: the DNS problem may be still there. Except proxychains.","@type":"BlogPosting","url":"https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html","@context":"https://schema.org"}</script>
+{"headline":"Ubuntu一键设置全局proxy","dateModified":"2021-07-04T11:52:00+08:00","datePublished":"2021-07-04T11:52:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html"},"description":"Ubuntu「一键」设置全局代理 sonictl note: the DNS problem may be still there. Except proxychains.","@type":"BlogPosting","url":"https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -61,7 +61,7 @@
 
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h1 id="ubuntu一键设置代理">Ubuntu「一键」设置代理</h1>
+    <h1 id="ubuntu一键设置全局代理">Ubuntu「一键」设置全局代理</h1>
 <p><span style="color:red">sonictl note: the DNS problem may be still there. Except <code class="language-plaintext highlighter-rouge">proxychains</code>. </span></p>
 
 <p>WSL (Windows Subsystem for Linux) or Ubuntu is OK for this tutorial. Other linux can also try this.</p>
@@ -136,19 +136,19 @@ noproxy <span class="o">()</span> <span class="o">{</span>
 
 <p><img src="https://cdn.jsdelivr.net/npm/skx@0.1.1/avatar/36x36.png" alt="Sukka's Avatar" />2018-11-29 <a href="https://blog.skk.moe/categories/笔记本/">笔记本</a></p>
 
-<p>首先虽然题目包含 Ubuntu 但是实际上苏卡卡解决的是 WSL 的代理问题的 <del>WSL 是最好的 Linux 发行版</del>；而且 Ubuntu 超级棒的 <del>不出内部错误的话</del>！苏卡卡的方案也是通用于几乎所有 Linux 的。</p>
+<p>首先虽然题目包含 Ubuntu 但是实际上解决的是 Linux的代理问题，通用几乎所有 Linux 。</p>
 
-<p>在 Windows 上使用全局代理亦或是透明代理真是太困难了。我之前在用 SSTap 实现全局代理；后来 Clash 和 Clash for Windows 出来以后就直接去用 Clash 了 <del>界面漂亮才是第一生产力！</del> 我就直接把 <del>难看的</del> SSTap 丢掉了。但是 Clash 只是一个代理程序，并不能提供全局代理的方案。
-好在 Windows 上实现全局代理或者分应用代理还有一个常用的方案——Proxifier，我可以通过 Proxifier 把绝大部分应用的流量转发到 Clash 上面去，Windows 给 UWP 应用做的应用隔离则可以使用 Fiddler 的 <code class="language-plaintext highlighter-rouge">WinConfig</code> 工具解除掉。</p>
+<p>在 Windows 上使用全局代理亦或是透明代理真是太困难了。我之前在用 SSTap 实现全局代理；后来 Clash 和 Clash for Windows 出来以后就直接去用 Clash 了 。Clash 只是一个代理程序，并不能提供全局代理的方案。
+实现全局代理或者分应用代理还有一个常用的app: <code class="language-plaintext highlighter-rouge">Proxifier</code>，可以通过 Proxifier 把绝大部分应用的流量转发到 Clash 上去，Windows 给 UWP 应用做的应用隔离则可以使用 Fiddler 的 <code class="language-plaintext highlighter-rouge">WinConfig</code> 工具解除掉。</p>
 
-<p>但关键是 WSL。之前使用 SSTap 直接接管 Windows 除了 Windows 系统进程以外的网络层，当然也包括 WSL。Proxifier 并不能实现对 WSL 启用代理了，所以用 Proxifier 就得解决 WSL 也走代理的方法。</p>
+<p><strong>关键是 WSL</strong>。之前使用 SSTap 直接接管 Windows 除了 Windows 系统进程以外的网络层，当然也包括 WSL。Proxifier 并不能实现对 WSL 启用代理了，所以用 Proxifier 就得解决 WSL 也走代理的方法。</p>
 
 <p>在 Google 上找遍了「Linux 全局代理」，相对最完美的方法是使用 Proxychains，但每个指令前面都要带个 <code class="language-plaintext highlighter-rouge">proxychains</code> 真的太不方便了；使用 <code class="language-plaintext highlighter-rouge">iptables</code> 的透明代理方案在 WSL 上面也并不适用（WSL 和 Windows 两者是相互依赖的、我不想在 Ubuntu 上设置 <code class="language-plaintext highlighter-rouge">iptables</code> 结果把宿主 Windows 炸掉）。
-既然没有，那就干脆不要了！直接在终端配置 proxy，反正目前在 WSL 上使用的应用和环境并不多。</p>
+既然没有，那就直接在终端配置 proxy</p>
 
 <hr />
 
-<p>给终端设置代理超简单的，直接一句命令搞定：</p>
+<p>给终端设置代理，直接一句命令搞定：</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export ALL_PROXY="socks5://127.0.0.1080"
 </code></pre></div></div>
@@ -168,7 +168,7 @@ yarn config set https-proxy "http://127.0.0.1090"
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export all_proxy="socks5://127.0.0.1080"
 </code></pre></div></div>
 
-<p>这样不仅 <code class="language-plaintext highlighter-rouge">git</code> <code class="language-plaintext highlighter-rouge">npm</code> <code class="language-plaintext highlighter-rouge">yarn</code> <del>这些读取环境变量不支持大小写的辣鸡</del>，其它绝大部分终端应用程序不走代理的问题就都解决了~</p>
+<p>这样不仅 <code class="language-plaintext highlighter-rouge">git</code> <code class="language-plaintext highlighter-rouge">npm</code> <code class="language-plaintext highlighter-rouge">yarn</code> ，其它绝大部分终端应用程序不走代理的问题就都解决了~</p>
 
 <p>不过包管理器 APT 就更麻烦了。如果需要设置 APT 走代理，需要修改 <code class="language-plaintext highlighter-rouge">/etc/apt/apt.conf</code>：</p>
 
@@ -180,7 +180,7 @@ echo -e "Acquire::https::Proxy \"http://127.0.0.1:1090\";" | sudo tee -a /etc/ap
 <h3 id="解除代理">解除代理：</h3>
 <p>在 <code class="language-plaintext highlighter-rouge">.zshrc</code> 里面把解除代理和启用代理写成了两个 function：<code class="language-plaintext highlighter-rouge">proxy()</code> 和 <code class="language-plaintext highlighter-rouge">noproxy()</code>，每次只要执行 <code class="language-plaintext highlighter-rouge">proxy</code> 就可以启用代理、执行 <code class="language-plaintext highlighter-rouge">noproxy</code> 解除代理，近似实现「一键操作」。而且，还可以在 function 中加上 <code class="language-plaintext highlighter-rouge">curl ip.gs</code> 来测试当前 IP。</p>
 
-<p>Talk is cheap, here are the codes:</p>
+<p>Talk is cheap, here is the code:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>proxy () {
   export ALL_PROXY="socks5://127.0.0.1:1080"

@@ -4,7 +4,7 @@ title: 'Ubuntu一键设置全局proxy'
 date: 2021-07-04  11:52:00 +0800
 category: 运维
 ---
-# Ubuntu「一键」设置代理
+# Ubuntu「一键」设置全局代理
 <span style = 'color:red' >sonictl note: the DNS problem may be still there. Except `proxychains`. </span>
 
 WSL (Windows Subsystem for Linux) or Ubuntu is OK for this tutorial. Other linux can also try this.
@@ -26,8 +26,8 @@ WSL (Windows Subsystem for Linux) or Ubuntu is OK for this tutorial. Other linux
  two lines of cmds：
 
 ```bash
-export ALL_PROXY="socks5://127.0.0.1080"
-export all_proxy="socks5://127.0.0.1080"
+export ALL_PROXY="socks5://127.0.0.1:1080"
+export all_proxy="socks5://127.0.0.1:1080"
 ```
 
 这样 `curl` `wget` 是都走代理了，包括 `git` `npm` `yarn` .
