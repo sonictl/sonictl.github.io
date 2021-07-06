@@ -17,7 +17,6 @@ leave your word here for your comments.
 {{< /rawhtml >}}
 
 
-
 ---
 
 
@@ -25,5 +24,5 @@ leave your word here for your comments.
 ref: comment box that support statistic html pages:
 
 - [https://www.talkyard.io/](https://www.talkyard.io/)
-- [https://www.talkyard.io/](https://www.htmlcommentbox.com)
+- [https://www.htmlcommentbox.com/](https://www.htmlcommentbox.com)
 
