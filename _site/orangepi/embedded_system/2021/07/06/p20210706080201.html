@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>install usbmount on debian for orangePi / raspberryPi | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="install usbmount on debian for orangePi / raspberryPi" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="install usbmount on debian for orangePi / raspberryPi" />
+<meta property="og:description" content="install usbmount on debian for orangePi / raspberryPi" />
+<link rel="canonical" href="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html" />
+<meta property="og:url" content="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-06T08:02:01+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="install usbmount on debian for orangePi / raspberryPi" />
+<script type="application/ld+json">
+{"headline":"install usbmount on debian for orangePi / raspberryPi","dateModified":"2021-07-06T08:02:01+08:00","datePublished":"2021-07-06T08:02:01+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html"},"description":"install usbmount on debian for orangePi / raspberryPi","@type":"BlogPosting","url":"https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a><a class="page-link" href="/commentboard">CommentBoard</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">install usbmount on debian for orangePi / raspberryPi</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-07-06T08:02:01+08:00" itemprop="datePublished">
+        Jul 6, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#orangePi">orangePi</a>
+  &nbsp;
+  
+  <a href="//categories/#embedded_system">embedded_system</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="install-usbmount-on-debian-for-orangepi--raspberrypi">install usbmount on debian for orangePi / raspberryPi</h2>
+
+<p>USBmount was removed from Debian a while back because the version from the repositories no longer works. It’s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).</p>
+
+<p>Start by installing Git and downloading the latest <a href="https://github.com/rbrito/usbmount">USBmount Git code</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install git
+git clone https://github.com/rbrito/usbmount
+</code></pre></div></div>
+
+<p>Next, install the packages needed to create an USBmount DEB package:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install debhelper build-essential
+</code></pre></div></div>
+
+<p>Now all you have to do is navigate to the folder where you cloned the USBmount Git repository, and build the DEB package:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd usbmount
+dpkg-buildpackage -us -uc -b
+</code></pre></div></div>
+
+<hr />
+<p><strong>Reference:</strong></p>
+
+<h1 id="automatically-mount-usb-drives-on-ubuntu-or-debian-server-with-usbmount">Automatically Mount USB Drives On Ubuntu Or Debian Server With USBmount</h1>
+
+<p><a href="https://www.blogger.com/profile/03026963810377267607"> Logix</a> Updated on <a href="https://www.linuxuprising.com/2019/04/automatically-mount-usb-drives-on.html">April 4, 2019</a> <a href="https://www.linuxuprising.com/search/label/console?max-results=14">console</a>, <a href="https://www.linuxuprising.com/search/label/debian?max-results=14">debian</a>, <a href="https://www.linuxuprising.com/search/label/how-to?max-results=14">how-to</a>, <a href="https://www.linuxuprising.com/search/label/ubuntu?max-results=14">ubuntu</a>, <a href="https://www.linuxuprising.com/search/label/usb?max-results=14">usb</a></p>
+
+<p><strong>If you want to automatically mount USB drives on a server running Debian or Ubuntu (including Raspbian or Ubuntu MATE for Raspberry Pi) you can use a simple, but very effective tool called <a href="https://github.com/rbrito/usbmount">USBmount</a></strong>.</p>
+
+<p>USBmount is a set of scripts used to automatically mount USB mass storage devices when they are plugged in. While it’s not created to only run on servers, USBmount is especially useful on a server because it doesn’t have a graphical user interface, and it doesn’t depend on any desktop environment. And most desktops can already automount USB devices.</p>
+
+<p>By default USBmount automatically mounts USB devices using <code class="language-plaintext highlighter-rouge">/media/usb0</code>, <code class="language-plaintext highlighter-rouge">/media/usb1</code>, …, <code class="language-plaintext highlighter-rouge">/media/usb7</code> mount points, with <code class="language-plaintext highlighter-rouge">/media/usb0</code> being the first plugged in USB device, <code class="language-plaintext highlighter-rouge">/media/usb1</code> being the second USB device you plugged in, and so on.</p>
+
+<p>For USB sticks that come with a model name, a symbolic link is created at <code class="language-plaintext highlighter-rouge">/var/run/usbmount/MODELNAME</code> for its mount point.</p>
+
+<p>The default USBmount configuration is set to automount USB devices with vfat, ext2, ext3, ext4 and hfsplus filesystems. NTFS can be enabled after installing USBmount - by editing the <code class="language-plaintext highlighter-rouge">/etc/usbmount/usbmount.conf</code> configuration file and adding <code class="language-plaintext highlighter-rouge">ntfs fuseblk</code> to the <code class="language-plaintext highlighter-rouge">FILESYSTEMS</code> variable (without removing the other filesystem types).</p>
+
+<h2 id="alternatives-for-usbmount">Alternatives for usbmount:</h2>
+
+<p><a href="https://github.com/IgnorantGuru/udevil">udevil</a></p>
+
+    
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="p20210706080201">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Pls go to the 'CommentBoard' page to leave some words for me because of the under development of this box."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+  </div>
+
+
+  <a class="u-url" href="/orangepi/embedded_system/2021/07/06/p20210706080201.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

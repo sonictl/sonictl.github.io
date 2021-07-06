@@ -1,5 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-07T07:15:55+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
-</subtitle><author><name>sonictl</name></author><entry><title type="html">Ubuntu一键设置全局proxy</title><link href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html" rel="alternate" type="text/html" title="Ubuntu一键设置全局proxy" /><published>2021-07-04T11:52:00+08:00</published><updated>2021-07-04T11:52:00+08:00</updated><id>https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy</id><content type="html" xml:base="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html">&lt;h1 id=&quot;ubuntu一键设置全局代理&quot;&gt;Ubuntu「一键」设置全局代理&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-07T07:20:03+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</subtitle><author><name>sonictl</name></author><entry><title type="html">install usbmount on debian for orangePi / raspberryPi</title><link href="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html" rel="alternate" type="text/html" title="install usbmount on debian for orangePi / raspberryPi" /><published>2021-07-06T08:02:01+08:00</published><updated>2021-07-06T08:02:01+08:00</updated><id>https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201</id><content type="html" xml:base="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html">&lt;h2 id=&quot;install-usbmount-on-debian-for-orangepi--raspberrypi&quot;&gt;install usbmount on debian for orangePi / raspberryPi&lt;/h2&gt;
+
+&lt;p&gt;USBmount was removed from Debian a while back because the version from the repositories no longer works. It’s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).&lt;/p&gt;
+
+&lt;p&gt;Start by installing Git and downloading the latest &lt;a href=&quot;https://github.com/rbrito/usbmount&quot;&gt;USBmount Git code&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install git
+git clone https://github.com/rbrito/usbmount
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, install the packages needed to create an USBmount DEB package:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install debhelper build-essential
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now all you have to do is navigate to the folder where you cloned the USBmount Git repository, and build the DEB package:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd usbmount
+dpkg-buildpackage -us -uc -b
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Reference:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;automatically-mount-usb-drives-on-ubuntu-or-debian-server-with-usbmount&quot;&gt;Automatically Mount USB Drives On Ubuntu Or Debian Server With USBmount&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.blogger.com/profile/03026963810377267607&quot;&gt; Logix&lt;/a&gt; Updated on &lt;a href=&quot;https://www.linuxuprising.com/2019/04/automatically-mount-usb-drives-on.html&quot;&gt;April 4, 2019&lt;/a&gt; &lt;a href=&quot;https://www.linuxuprising.com/search/label/console?max-results=14&quot;&gt;console&lt;/a&gt;, &lt;a href=&quot;https://www.linuxuprising.com/search/label/debian?max-results=14&quot;&gt;debian&lt;/a&gt;, &lt;a href=&quot;https://www.linuxuprising.com/search/label/how-to?max-results=14&quot;&gt;how-to&lt;/a&gt;, &lt;a href=&quot;https://www.linuxuprising.com/search/label/ubuntu?max-results=14&quot;&gt;ubuntu&lt;/a&gt;, &lt;a href=&quot;https://www.linuxuprising.com/search/label/usb?max-results=14&quot;&gt;usb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;If you want to automatically mount USB drives on a server running Debian or Ubuntu (including Raspbian or Ubuntu MATE for Raspberry Pi) you can use a simple, but very effective tool called &lt;a href=&quot;https://github.com/rbrito/usbmount&quot;&gt;USBmount&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;USBmount is a set of scripts used to automatically mount USB mass storage devices when they are plugged in. While it’s not created to only run on servers, USBmount is especially useful on a server because it doesn’t have a graphical user interface, and it doesn’t depend on any desktop environment. And most desktops can already automount USB devices.&lt;/p&gt;
+
+&lt;p&gt;By default USBmount automatically mounts USB devices using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/media/usb0&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/media/usb1&lt;/code&gt;, …, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/media/usb7&lt;/code&gt; mount points, with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/media/usb0&lt;/code&gt; being the first plugged in USB device, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/media/usb1&lt;/code&gt; being the second USB device you plugged in, and so on.&lt;/p&gt;
+
+&lt;p&gt;For USB sticks that come with a model name, a symbolic link is created at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/run/usbmount/MODELNAME&lt;/code&gt; for its mount point.&lt;/p&gt;
+
+&lt;p&gt;The default USBmount configuration is set to automount USB devices with vfat, ext2, ext3, ext4 and hfsplus filesystems. NTFS can be enabled after installing USBmount - by editing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/usbmount/usbmount.conf&lt;/code&gt; configuration file and adding &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ntfs fuseblk&lt;/code&gt; to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FILESYSTEMS&lt;/code&gt; variable (without removing the other filesystem types).&lt;/p&gt;
+
+&lt;h2 id=&quot;alternatives-for-usbmount&quot;&gt;Alternatives for usbmount:&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/IgnorantGuru/udevil&quot;&gt;udevil&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="orangePi" /><category term="embedded_system" /><summary type="html">install usbmount on debian for orangePi / raspberryPi</summary></entry><entry><title type="html">Ubuntu一键设置全局proxy</title><link href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html" rel="alternate" type="text/html" title="Ubuntu一键设置全局proxy" /><published>2021-07-04T11:52:00+08:00</published><updated>2021-07-04T11:52:00+08:00</updated><id>https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy</id><content type="html" xml:base="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html">&lt;h1 id=&quot;ubuntu一键设置全局代理&quot;&gt;Ubuntu「一键」设置全局代理&lt;/h1&gt;
 &lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;sonictl note: the DNS problem may be still there. Except &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxychains&lt;/code&gt;. &lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;WSL (Windows Subsystem for Linux) or Ubuntu is OK for this tutorial. Other linux can also try this.&lt;/p&gt;
@@ -1477,50 +1517,4 @@ Header files usually have the ending .h and source files usually have the ending
 &lt;/span&gt;  
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">split your cpp code into multiple files</summary></entry><entry><title type="html">For quick reference: Configure VSCode for Python</title><link href="https://sonictl.github.io/from_cnblogs/2021/03/01/For-quick-reference-Configure-VSCode-for-Python.html" rel="alternate" type="text/html" title="For quick reference: Configure VSCode for Python" /><published>2021-03-01T11:53:00+08:00</published><updated>2021-03-01T11:53:00+08:00</updated><id>https://sonictl.github.io/from_cnblogs/2021/03/01/For%20quick%20reference:%20Configure%20VSCode%20for%20Python</id><content type="html" xml:base="https://sonictl.github.io/from_cnblogs/2021/03/01/For-quick-reference-Configure-VSCode-for-Python.html">&lt;h1 id=&quot;for-quick-reference-configure-vscode-for-python&quot;&gt;For quick reference: Configure VSCode for Python&lt;/h1&gt;
-
-&lt;p&gt;in command line/Terminal, the environment manager such as conda is correctly installed and configured.&lt;/p&gt;
-
-&lt;h3 id=&quot;create-proj-folder&quot;&gt;Create proj. folder&lt;/h3&gt;
-
-&lt;h3 id=&quot;run-vs-code&quot;&gt;Run vs code&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;in terminal/cmd, cd to the proj. folder and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code .&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;vsCode UI: &lt;strong&gt;File » Open Folder&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Note: By starting VS Code in a folder, that folder becomes your “workspace”. VS Code stores settings that are specific to that workspace in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.vscode/settings.json&lt;/code&gt;, which are separate from user settings that are stored globally.&lt;/p&gt;
-
-&lt;p&gt;to add settings.json in the folder. This will affect only the current folder&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Create a folder named .vscode in the root folder&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Create a file named&lt;/p&gt;
-
-    &lt;p&gt;settings.json&lt;/p&gt;
-
-    &lt;p&gt;in that folder and add your settings there.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{    
-     &quot;settings-key&quot;: {
-        &quot;setting-1&quot;:  true,
-        &quot;setting-2&quot;:  &quot;../css/&quot;,
-        &quot;setting-3&quot;: &quot;&amp;gt; 0.2%, last 1 version&quot;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;select-a-python-interpreter&quot;&gt;Select a Python interpreter&lt;/h3&gt;
-&lt;p&gt;opening the Command Palette (⇧⌘P), start typing the Python: Select Interpreter command to search, then select the command. You can also use the Select Python Environment option on the Status Bar if available&lt;/p&gt;
-
-&lt;p&gt;Tip: Set the default interpreter: Selecting an interpreter, sets the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python.pythonPath&lt;/code&gt; value in your workspace settings to the path of the interpreter. To see the setting, select &lt;strong&gt;File&lt;/strong&gt; &amp;gt; &lt;strong&gt;Preferences&lt;/strong&gt; &amp;gt; &lt;strong&gt;Settings&lt;/strong&gt; (&lt;strong&gt;Code&lt;/strong&gt; &amp;gt; &lt;strong&gt;Preferences&lt;/strong&gt; &amp;gt; &lt;strong&gt;Settings&lt;/strong&gt; on macOS), then select the &lt;strong&gt;Workspace Settings&lt;/strong&gt; tab.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h3 id=&quot;install-python-interpreter&quot;&gt;Install python interpreter&lt;/h3&gt;
-&lt;p&gt;link for vsCode+python: https://code.visualstudio.com/docs/python/python-tutorial#_install-a-python-interpreter
-link for vsCode+Mac: https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line&lt;/p&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">For quick reference: Configure VSCode for Python</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">split your cpp code into multiple files</summary></entry></feed>
