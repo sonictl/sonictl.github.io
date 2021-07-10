@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Linux 各类设置、配置、日常使用技巧参考，Linux使用集锦'
+title: 'Linux常用各类设置、常用配置、日常使用、常用、使用技巧，集锦'
 date: 2013-10-23 01:15:00 +0800
 category: from_cnblogs 日常技巧
 ---
@@ -28,32 +28,38 @@ category: from_cnblogs 日常技巧
 ### 分区
 
 硬盘添加完成后重启系统,输入用户名密码后进入linux操作界面。接着我们需要做的是为新磁盘分区。
-1.先在命令行输入lsblk (记忆:老师不离开的首字母),查看一下磁盘的信息
+**1.先在命令行输入lsblk (记忆:老师不离开的首字母),查看一下磁盘的信息**
 ![Linux之挂载新的硬盘(超详细!)8](https://res-static.hc-cdn.cn/fms/img/fcbc3f5421b2003e9c65e8265e787ddc1603433474839.png)
 其中的sdb就是我们新添加的磁盘,sda就是我们在第一次安装linux操作系统的时候设置的硬盘(小菌当时没有选择自定义安装,使用的是系统预安装)。
 
-2.命令行输入 `fdisk /dev/sdb [sdb为你新添磁盘名称]`,开始对磁盘的进行设置。
+**2.命令行输入 `fdisk /dev/sdb [sdb为你新添磁盘名称]`,开始对磁盘的进行设置。**
 ![Linux之挂载新的硬盘(超详细!)9](https://res-static.hc-cdn.cn/fms/img/88341189fa9b90f72f1acd1693d4fce31603433474840.png)
-3.我们输入n 添加分区，然后输入 p 设置当前分区为主分区。
+**3.我们输入n 添加分区，然后输入 p 设置当前分区为主分区。**
 ![Linux之挂载新的硬盘(超详细!)10](https://res-static.hc-cdn.cn/fms/img/5dd182a01797aec40a1c675a8231c2b61603433474840.png)
+
 4.Partition number 代表这是该磁盘的第n个分区,我们这里先输入1，然后再选择我们对于磁盘总容量的分割。例如把总容量分成了1305份，我们需要把磁盘的分区设置成两个分区,并且容量之比为1:2。1305/3=435,所以我们第一个分区的范围描述在1~435。
 ![Linux之挂载新的硬盘(超详细!)11](https://res-static.hc-cdn.cn/fms/img/e48359efe163ae2bd15a6f9649b1fc301603433474840.png)
+
 5.第一个分区设置完后,第二个分区的操作类似上面的步骤,只是在命令输入上细心一点就好了。设置完后记得输入w保存当前的操作,否则之前的设置将不起任何作用哦~
 ![Linux之挂载新的硬盘(超详细!)12](https://res-static.hc-cdn.cn/fms/img/0e7e93a590e162514cdf19463010bab11603433474842.png)
+
 6.此时我们再输入lsblk -f 查看当前的磁盘信息。我们可以看到sdb下面的分支上出现了sdb1和sdb2两个节点。这说明我们的分区成功了!
 ![Linux之挂载新的硬盘(超详细!)13](https://res-static.hc-cdn.cn/fms/img/c6822077e98786a4b74b290248a4dc5a1603433474843.png)
 
 ### 格式化
 
 分区完后,我们需要对每一个分区格式化。
+
 1.在命令行输入 `mkfs -t ext4 /dev/格式化指定分区`,出现下面截图内容说明格式化成功了。同样的,sdb2也进行相同的操作。
 ![Linux之挂载新的硬盘(超详细!)14](https://res-static.hc-cdn.cn/fms/img/4bd81ae5d84421bba421da8ba37c01f71603433474843.png)
-2.格式化完成后,可以通过lsblk -f 查看是否成功!
+
+2.格式化完成后,可以通过`lsblk -f `查看是否成功!
 ![Linux之挂载新的硬盘(超详细!)15](https://res-static.hc-cdn.cn/fms/img/1caa9db98ebbf0d3be7fefdc79008fd81603433474843.png)
 
 ### 挂载
 
 在linux中,用户不能直接访问硬件设备，需要将硬件设备挂载到系统目录上，硬件才可以让用户访问到。因此我们需要将格式化后的分区挂载到具体的目录下。
+
 1.创建一个系统目录,`mkdir -p /home/newdisk1` (挂载几个分区就需要创建几个不同的目录)。关于挂载和取消挂载命令的说明见下图
 
 | 命令                               | 含义                             |
@@ -61,9 +67,9 @@ category: from_cnblogs 日常技巧
 | mount 设备名称 挂载目录            | 建立设备分区和系统目录的映射关系 |
 | umount 设备名称 或 umount 挂载目录 | 取消设备分区和系统目录的映射关系 |
 
-所以我们在命令行输入 mount /dev/sdb1 /home/newdisk1 为sdb1分区挂载到了我们新创建的目录下。同样的,sdb2分区也执行同样的步骤。
+所以我们在命令行输入 `mount /dev/sdb1 /home/newdisk1` 为sdb1分区挂载到了我们新创建的目录下。同样的,sdb2分区也执行同样的步骤。
 
-2.两个分区都挂载完成后,我们可以通过lsblk -f 查看是否挂载成功。
+2.两个分区都挂载完成后,我们可以通过`lsblk -f `查看是否挂载成功。
 ![Linux之挂载新的硬盘(超详细!)16](https://res-static.hc-cdn.cn/fms/img/fdb7ee0713921f0ed4d239e545a0e5201603433474843.png)
 通过图片我们可以发现分区挂载成功了,但需要注意的是,这只是临时挂载,重启后挂载将失效。
 
@@ -73,9 +79,13 @@ category: from_cnblogs 日常技巧
 
 ### 总结
 
-linux磁盘挂载分为安装磁盘,分区,格式化,挂载四个步骤。今天的分享就到这里咯
+linux磁盘挂载分为安装磁盘,分区,格式化,挂载四个步骤。今天的分享就到这里。
 
 
+
+
+
+==\=\=\=\=\=Over\=\=\=\=\=\===
 
 
 
@@ -1330,3 +1340,4 @@ There is port monitoring tool to watch the packets written on the port. Especial
 </p>
 <p>&nbsp;</p>
 <p></p>
+
