@@ -15,6 +15,8 @@ leave your word here for your comments.
 <!-- end www.htmlcommentbox.com -->
 
 
+`tip: {%raw%}{{< rawhtml >}} raw html script {{< /rawhtml >}}{%endraw%}`
+
 
 ---
 
