@@ -6,6 +6,9 @@ categories: jekyll
 slug: p20210701170100
 ---
 
+# 利用pull request实现 jekyll 博客评论功能
+## Implementing comment for jekyll blog with github pull request
+
 
 #### 1. The refered blogs: 
 
@@ -52,7 +55,7 @@ The github repos that needed:
    store each comment in a file named `_data/{blog_post_slug}/{comment_id}.yml` with this format:
 
    blog_post_slug 可以在frontMatter里指定：`slug: yourSlug` 或者参考_includes/comments.html 第一行：
-   
+
 `{%raw%}{% capture default_slug %}{{ page.slug | default: (page.title | slugify) }}{% endcapture %}{%endraw%}`
 
 其中，page.title 被认为是默认的slug. 
@@ -94,9 +97,12 @@ The github repos that needed:
       You also need to set-up two **Application Settings** for your function so it can create the necessary pull requests. They are:
 
       - `GitHubToken` should be a [personal access token](https://github.com/settings/tokens) with `repo` rights
-      - `PullRequestRepository` should contain the org and repo name, e.g. `damieng/my-blog`
 
-3. I meet the `handle forms for '$'.` error from `*.azurewebsites.net/api/PostComment`
+      - `PullRequestRepository` should contain the org and repo name, e.g. `damieng/my-blog` 
+
+        **Note:** it should just be in the format `org/repo`, e.g. in your case `urname/urname.github.io`
+
+4. I meet the `handle forms for '$'.` error from `*.azurewebsites.net/api/PostComment`
 
    ```xml
    <Error>
@@ -104,12 +110,13 @@ The github repos that needed:
    </Error>
    ```
 
-   wait for the issue answering in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16
+   The issue answered in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16
 
    in `_config.yml` I missed the url: "\<host url of your blog\>" 
 
-4. I meet the `String cannot be emptyParameter name: name` error, in the background AzureFunctionLog
-
    
 
-5. 
+Enjoy.
+
+Tip1: Check and debug by using the background AzureFunction LogStream.
+Tip2: `{%raw%}{{< rawhtml >}} raw html script {{< /rawhtml >}}{%endraw%}` says using `{%raw%}` and `{%endraw%}` for preventing jekyll compile raw code of [Liquid](https://shopify.github.io/liquid/) templating language.

@@ -3,6 +3,7 @@ layout: post
 title: 'Ubuntu一键设置全局proxy'
 date: 2021-07-04  11:52:00 +0800
 category: 运维
+slug: ubuntu------proxy
 ---
 # Ubuntu「一键」设置全局代理
 <span style = 'color:red' >sonictl note: the DNS problem may be still there. Except `proxychains`. </span>

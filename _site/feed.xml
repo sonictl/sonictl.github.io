@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-12T21:33:37+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-12T22:07:48+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
 </subtitle><author><name>sonictl</name></author><entry><title type="html">install usbmount on debian for orangePi / raspberryPi</title><link href="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html" rel="alternate" type="text/html" title="install usbmount on debian for orangePi / raspberryPi" /><published>2021-07-06T08:02:01+08:00</published><updated>2021-07-06T08:02:01+08:00</updated><id>https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201</id><content type="html" xml:base="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html">&lt;h2 id=&quot;install-usbmount-on-debian-for-orangepi--raspberrypi&quot;&gt;install usbmount on debian for orangePi / raspberryPi&lt;/h2&gt;
 
 &lt;p&gt;USBmount was removed from Debian a while back because the version from the repositories no longer works. It’s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).&lt;/p&gt;
@@ -39,7 +39,7 @@ dpkg-buildpackage -us -uc -b
 
 &lt;h2 id=&quot;alternatives-for-usbmount&quot;&gt;Alternatives for usbmount:&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/IgnorantGuru/udevil&quot;&gt;udevil&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="orangePi" /><category term="embedded_system" /><summary type="html">install usbmount on debian for orangePi / raspberryPi</summary></entry><entry><title type="html">Ubuntu一键设置全局proxy</title><link href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html" rel="alternate" type="text/html" title="Ubuntu一键设置全局proxy" /><published>2021-07-04T11:52:00+08:00</published><updated>2021-07-04T11:52:00+08:00</updated><id>https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy</id><content type="html" xml:base="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/Ubuntu%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80proxy.html">&lt;h1 id=&quot;ubuntu一键设置全局代理&quot;&gt;Ubuntu「一键」设置全局代理&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/IgnorantGuru/udevil&quot;&gt;udevil&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="orangePi" /><category term="embedded_system" /><summary type="html">install usbmount on debian for orangePi / raspberryPi</summary></entry><entry><title type="html">Ubuntu一键设置全局proxy</title><link href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/ubuntu-proxy.html" rel="alternate" type="text/html" title="Ubuntu一键设置全局proxy" /><published>2021-07-04T11:52:00+08:00</published><updated>2021-07-04T11:52:00+08:00</updated><id>https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/ubuntu------proxy</id><content type="html" xml:base="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/07/04/ubuntu-proxy.html">&lt;h1 id=&quot;ubuntu一键设置全局代理&quot;&gt;Ubuntu「一键」设置全局代理&lt;/h1&gt;
 &lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;sonictl note: the DNS problem may be still there. Except &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;proxychains&lt;/code&gt;. &lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;WSL (Windows Subsystem for Linux) or Ubuntu is OK for this tutorial. Other linux can also try this.&lt;/p&gt;
@@ -187,7 +187,8 @@ noproxy () {
   &lt;p&gt;&lt;strong&gt;本文作者 : Sukka&lt;/strong&gt;
 &lt;strong&gt;本文采用 &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh&quot;&gt;CC BY-NC-SA 4.0&lt;/a&gt; 许可协议。转载和引用时请注意遵守协议！&lt;/strong&gt;
 &lt;strong&gt;本文链接 :&lt;/strong&gt; https://blog.skk.moe/post/enable-proxy-on-ubuntu/&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>sonictl</name></author><category term="运维" /><summary type="html">Ubuntu「一键」设置全局代理 sonictl note: the DNS problem may be still there. Except proxychains.</summary></entry><entry><title type="html">Implementing comment for jekyll blog with github pull request</title><link href="https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html" rel="alternate" type="text/html" title="Implementing comment for jekyll blog with github pull request" /><published>2021-07-01T17:01:00+08:00</published><updated>2021-07-01T17:01:00+08:00</updated><id>https://sonictl.github.io/jekyll/2021/07/01/p20210701170100</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tip: {{&amp;lt; rawhtml &amp;gt;}} raw html script {{&amp;lt; /rawhtml &amp;gt;}}&lt;/code&gt; use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;and&lt;/code&gt; for preventing jekyll compile raw code.&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>sonictl</name></author><category term="运维" /><summary type="html">Ubuntu「一键」设置全局代理 sonictl note: the DNS problem may be still there. Except proxychains.</summary></entry><entry><title type="html">Implementing comment for jekyll blog with github pull request</title><link href="https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html" rel="alternate" type="text/html" title="Implementing comment for jekyll blog with github pull request" /><published>2021-07-01T17:01:00+08:00</published><updated>2021-07-01T17:01:00+08:00</updated><id>https://sonictl.github.io/jekyll/2021/07/01/p20210701170100</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html">&lt;h1 id=&quot;利用pull-request实现-jekyll-博客评论功能&quot;&gt;利用pull request实现 jekyll 博客评论功能&lt;/h1&gt;
+&lt;h2 id=&quot;implementing-comment-for-jekyll-blog-with-github-pull-request&quot;&gt;Implementing comment for jekyll blog with github pull request&lt;/h2&gt;
 
 &lt;h4 id=&quot;1-the-refered-blogs&quot;&gt;1. The refered blogs:&lt;/h4&gt;
 
@@ -282,8 +283,14 @@ noproxy () {
     &lt;p&gt;You also need to set-up two &lt;strong&gt;Application Settings&lt;/strong&gt; for your function so it can create the necessary pull requests. They are:&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GitHubToken&lt;/code&gt; should be a &lt;a href=&quot;https://github.com/settings/tokens&quot;&gt;personal access token&lt;/a&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;repo&lt;/code&gt; rights&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PullRequestRepository&lt;/code&gt; should contain the org and repo name, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;damieng/my-blog&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GitHubToken&lt;/code&gt; should be a &lt;a href=&quot;https://github.com/settings/tokens&quot;&gt;personal access token&lt;/a&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;repo&lt;/code&gt; rights&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PullRequestRepository&lt;/code&gt; should contain the org and repo name, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;damieng/my-blog&lt;/code&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; it should just be in the format &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org/repo&lt;/code&gt;, e.g. in your case &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urname/urname.github.io&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -294,15 +301,16 @@ noproxy () {
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Error&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;wait for the issue answering in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16&lt;/p&gt;
+    &lt;p&gt;The issue answered in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16&lt;/p&gt;
 
     &lt;p&gt;in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; I missed the url: “&amp;lt;host url of your blog&amp;gt;”&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;I meet the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String cannot be emptyParameter name: name&lt;/code&gt; error, in the background AzureFunctionLog&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">tip: {{&amp;lt; rawhtml &amp;gt;}} raw html script {{&amp;lt; /rawhtml &amp;gt;}} use and for preventing jekyll compile raw code.</summary></entry><entry><title type="html">todo list for initialize jekyll blog</title><link href="https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034.html" rel="alternate" type="text/html" title="todo list for initialize jekyll blog" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034</id><content type="html" xml:base="https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034.html">&lt;h2 id=&quot;todo-list-for-jekyll-blog-openbox&quot;&gt;Todo List for jekyll blog openbox&lt;/h2&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+
+&lt;p&gt;Tip1: Check and debug by using the background AzureFunction LogStream.
+Tip2: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{&amp;lt; rawhtml &amp;gt;}} raw html script {{&amp;lt; /rawhtml &amp;gt;}}&lt;/code&gt; says using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;and&lt;/code&gt; for preventing jekyll compile raw code of &lt;a href=&quot;https://jekyllrb.com/docs/liquid/&quot;&gt;Liquid&lt;/a&gt; templating language.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request</summary></entry><entry><title type="html">todo list for initialize jekyll blog</title><link href="https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034.html" rel="alternate" type="text/html" title="todo list for initialize jekyll blog" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034</id><content type="html" xml:base="https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034.html">&lt;h2 id=&quot;todo-list-for-jekyll-blog-openbox&quot;&gt;Todo List for jekyll blog openbox&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;add public comments

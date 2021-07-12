@@ -8,8 +8,8 @@
 <meta property="og:title" content="Implementing comment for jekyll blog with github pull request" />
 <meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="tip: {{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}} use and for preventing jekyll compile raw code." />
-<meta property="og:description" content="tip: {{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}} use and for preventing jekyll compile raw code." />
+<meta name="description" content="利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request" />
+<meta property="og:description" content="利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request" />
 <link rel="canonical" href="https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html" />
 <meta property="og:url" content="https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html" />
 <meta property="og:site_name" content="Combine Art and Sciences" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Implementing comment for jekyll blog with github pull request" />
 <script type="application/ld+json">
-{"headline":"Implementing comment for jekyll blog with github pull request","dateModified":"2021-07-01T17:01:00+08:00","datePublished":"2021-07-01T17:01:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html"},"description":"tip: {{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}} use and for preventing jekyll compile raw code.","@type":"BlogPosting","url":"https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html","@context":"https://schema.org"}</script>
+{"headline":"Implementing comment for jekyll blog with github pull request","dateModified":"2021-07-01T17:01:00+08:00","datePublished":"2021-07-01T17:01:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html"},"description":"利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request","@type":"BlogPosting","url":"https://sonictl.github.io/jekyll/2021/07/01/p20210701170100.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -61,7 +61,8 @@
 
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p><code class="language-plaintext highlighter-rouge">tip: {{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}}</code> use <code class="language-plaintext highlighter-rouge">and</code> for preventing jekyll compile raw code.</p>
+    <h1 id="利用pull-request实现-jekyll-博客评论功能">利用pull request实现 jekyll 博客评论功能</h1>
+<h2 id="implementing-comment-for-jekyll-blog-with-github-pull-request">Implementing comment for jekyll blog with github pull request</h2>
 
 <h4 id="1-the-refered-blogs">1. The refered blogs:</h4>
 
@@ -156,8 +157,14 @@
     <p>You also need to set-up two <strong>Application Settings</strong> for your function so it can create the necessary pull requests. They are:</p>
 
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">GitHubToken</code> should be a <a href="https://github.com/settings/tokens">personal access token</a> with <code class="language-plaintext highlighter-rouge">repo</code> rights</li>
-      <li><code class="language-plaintext highlighter-rouge">PullRequestRepository</code> should contain the org and repo name, e.g. <code class="language-plaintext highlighter-rouge">damieng/my-blog</code></li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">GitHubToken</code> should be a <a href="https://github.com/settings/tokens">personal access token</a> with <code class="language-plaintext highlighter-rouge">repo</code> rights</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">PullRequestRepository</code> should contain the org and repo name, e.g. <code class="language-plaintext highlighter-rouge">damieng/my-blog</code></p>
+
+        <p><strong>Note:</strong> it should just be in the format <code class="language-plaintext highlighter-rouge">org/repo</code>, e.g. in your case <code class="language-plaintext highlighter-rouge">urname/urname.github.io</code></p>
+      </li>
     </ul>
   </li>
   <li>
@@ -168,15 +175,16 @@
 <span class="nt">&lt;/Error&gt;</span>
 </code></pre></div>    </div>
 
-    <p>wait for the issue answering in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16</p>
+    <p>The issue answered in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16</p>
 
     <p>in <code class="language-plaintext highlighter-rouge">_config.yml</code> I missed the url: “&lt;host url of your blog&gt;”</p>
   </li>
-  <li>
-    <p>I meet the <code class="language-plaintext highlighter-rouge">String cannot be emptyParameter name: name</code> error, in the background AzureFunctionLog</p>
-  </li>
-  <li></li>
 </ol>
+
+<p>Enjoy.</p>
+
+<p>Tip1: Check and debug by using the background AzureFunction LogStream.
+Tip2: <code class="language-plaintext highlighter-rouge">{{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}}</code> says using <code class="language-plaintext highlighter-rouge">and</code> for preventing jekyll compile raw code of <a href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language.</p>
 
 
     
