@@ -52,10 +52,12 @@ The github repos that needed:
    store each comment in a file named `_data/{blog_post_slug}/{comment_id}.yml` with this format:
 
    blog_post_slug 可以在frontMatter里指定：`slug: yourSlug` 或者参考_includes/comments.html 第一行：
-   
-`{%raw%}{% capture default_slug %}{{ page.slug | default: (page.title | slugify) }}{% endcapture %}{%endraw%}`
 
-其中，page.title 被认为是默认的slug. 
+```text
+{% capture default_slug %}{{ page.slug | default: (page.title | slugify) }}{% endcapture %}
+```
+
+   其中，page.title 被认为是默认的slug. 
 
    ```
    id: 12345

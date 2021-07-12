@@ -110,7 +110,9 @@
 
 <p>blog_post_slug 可以在frontMatter里指定：<code class="language-plaintext highlighter-rouge">slug: yourSlug</code> 或者参考_includes/comments.html 第一行：</p>
 
-<p>`` 其中，page.title 被认为是默认的slug.</p>
+<p><code class="language-plaintext highlighter-rouge">{% capture default_slug %}{{ page.slug | default: (page.title | slugify) }}{% endcapture %}</code></p>
+
+<p>其中，page.title 被认为是默认的slug.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   id: 12345
    name: Damien Guard

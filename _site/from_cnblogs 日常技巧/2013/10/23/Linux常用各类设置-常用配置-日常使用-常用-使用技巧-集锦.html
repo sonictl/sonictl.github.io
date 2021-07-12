@@ -73,6 +73,35 @@
 
 <h1>===</h1>
 
+<p>some useful set timeZone, 设置时区，定时输出bash script</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
+while true
+do
+        now="$(date)"
+        printf "Current date and time %s\n" "$now"
+        sleep 2
+
+
+done
+
+
+# ============================
+
+timedatectl list-timezones  | grep Shanghai
+sudo timedatectl set-timezone Asia/Shanghai
+
+# ========= 安装微力同步 =========
+installed verysync at IP:8886 by:
+#(如果需要指定索引存放位置请在最后面添加-d 路径 如 -d /data/verysync)
+curl http://www.verysync.com/shell/verysync-linux-installer/go-installer.sh &gt; verysync-installer.sh
+chmod +x verysync-installer.sh
+sudo ./verysync-installer.sh
+# ===================
+</code></pre></div></div>
+
+<h1 id="-1">===</h1>
+
 <h1 id="2021-07-09linux之挂载新的硬盘分区格式化">【2021-07-09】Linux之挂载新的硬盘：分区，格式化</h1>
 
 <p>参考链接ref1: <a href="https://www.huaweicloud.com/articles/ea3a51854fc80614115d1d69d16d5978.html">Link of HUAWEI Cloud</a></p>
@@ -154,12 +183,15 @@
 
 <p>所以我们在命令行输入 <code class="language-plaintext highlighter-rouge">mount /dev/sdb1 /home/newdisk1</code> 为sdb1分区挂载到了我们新创建的目录下。同样的,sdb2分区也执行同样的步骤。</p>
 
-<p>2.两个分区都挂载完成后,我们可以通过<code class="language-plaintext highlighter-rouge">lsblk -f </code>查看是否挂载成功。
-<img src="https://res-static.hc-cdn.cn/fms/img/fdb7ee0713921f0ed4d239e545a0e5201603433474843.png" alt="Linux之挂载新的硬盘(超详细!)16" />
-通过图片我们可以发现分区挂载成功了,但需要注意的是,这只是临时挂载,重启后挂载将失效。</p>
+<p>2.两个分区都挂载完成后,我们可以通过<code class="language-plaintext highlighter-rouge">lsblk -f </code>查看是否挂载成功。</p>
 
-<p>3.设置重启挂载<strong>不失效</strong>。
-首先我们用vim编辑器打开配置文件进行修改,<code class="language-plaintext highlighter-rouge">vim /etc/fstab</code>,把刚格式化就完成的id添加进来。修改成功后重启即可或者命令行输入<code class="language-plaintext highlighter-rouge">mount -a</code> 该命令会把配置文件中的所有分区重新挂载一遍。
+<p><img src="https://res-static.hc-cdn.cn/fms/img/fdb7ee0713921f0ed4d239e545a0e5201603433474843.png" alt="Linux之挂载新的硬盘(超详细!)16" /></p>
+
+<p>通过图片我们可以发现分区挂载成功了,但需要注意的是,这只是临时挂载,重启后挂载将失效。</p>
+
+<p>3.设置重启挂载<strong>不失效</strong>。<strong>利用fstab实现自动挂载</strong></p>
+
+<p>首先我们用vim编辑器打开配置文件进行修改,<code class="language-plaintext highlighter-rouge">vim /etc/fstab</code>,把刚格式化就完成的id添加进来。修改成功后重启即可或者命令行输入<code class="language-plaintext highlighter-rouge">mount -a</code> 该命令会把配置文件中的所有分区重新挂载一遍。
 <img src="https://res-static.hc-cdn.cn/fms/img/8ae35ab0f5bbf998c9b88e126ddf7adf1603433474843.png" alt="Linux之挂载新的硬盘(超详细!)17" /></p>
 
 <h3 id="总结">总结</h3>
