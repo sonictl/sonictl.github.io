@@ -175,16 +175,24 @@
 <span class="nt">&lt;/Error&gt;</span>
 </code></pre></div>    </div>
 
-    <p>The issue answered in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16</p>
-
     <p>in <code class="language-plaintext highlighter-rouge">_config.yml</code> I missed the url: “&lt;host url of your blog&gt;”</p>
+
+    <p>another issue I met is solved in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16</p>
   </li>
 </ol>
 
-<p>Enjoy.</p>
+<p>Enjoy~</p>
 
-<p>Tip1: Check and debug by using the background AzureFunction LogStream.
-Tip2: <code class="language-plaintext highlighter-rouge">{{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}}</code> says using <code class="language-plaintext highlighter-rouge">and</code> for preventing jekyll compile raw code of <a href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language.</p>
+<hr />
+
+<p><strong>Note:</strong> After you successfully deploied this comment function, you will need to pull&amp;merge the remote git repo before push local modifications of posts, since the <code class="language-plaintext highlighter-rouge">/_data</code> folder is changed by pull request created by the jekyll-blog-comments Azure Function.</p>
+
+<h3 id="tips">Tips:</h3>
+
+<ol>
+  <li>Check and debug by using the background AzureFunction LogStream.</li>
+  <li><code class="language-plaintext highlighter-rouge">{{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}}</code> says using <code class="language-plaintext highlighter-rouge">and</code> for preventing jekyll compile raw code of <a href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language.</li>
+</ol>
 
 
     
@@ -206,7 +214,7 @@ Tip2: <code class="language-plaintext highlighter-rouge">{{&lt; rawhtml &gt;}} r
     <input name="post_id" type="hidden" value="p20210701170100">
     <input name="comment-site" type="hidden" value="https://sonictl.github.io">
 
-    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Pls go to the 'CommentBoard' page to leave some words for me because of the under development of this box."></textarea>
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Leave your words in this box."></textarea>
 
     <label for="name">Name/alias* <span>(displayed)</span></label>
     <input type="text" name="name" id="name" placeholder="Name" /></br>

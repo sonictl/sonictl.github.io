@@ -110,14 +110,20 @@ The github repos that needed:
    </Error>
    ```
 
-   The issue answered in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16
-
    in `_config.yml` I missed the url: "\<host url of your blog\>" 
+
+   another issue I met is solved in https://github.com/Azure-Functions/jekyll-blog-comments/issues/16
 
    
 
-Enjoy.
+Enjoy~
 
-Tip1: Check and debug by using the background AzureFunction LogStream.
-Tip2: `{%raw%}{{< rawhtml >}} raw html script {{< /rawhtml >}}{%endraw%}` says using `{%raw%}` and `{%endraw%}` for preventing jekyll compile raw code of [Liquid](https://jekyllrb.com/docs/liquid/) templating language.
+---
+
+**Note:** After you successfully deploied this comment function, you will need to pull&merge the remote git repo before push local modifications of posts, since the `/_data` folder is changed by pull request created by the jekyll-blog-comments Azure Function.
+
+### Tips:
+
+1. Check and debug by using the background AzureFunction LogStream.
+2.  `{%raw%}{{< rawhtml >}} raw html script {{< /rawhtml >}}{%endraw%}` says using `{%raw%}` and `{%endraw%}` for preventing jekyll compile raw code of [Liquid](https://jekyllrb.com/docs/liquid/) templating language.
 

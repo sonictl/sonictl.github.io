@@ -1,0 +1,22 @@
+I"^<h2 id="todo-list-for-jekyll-blog-openbox">Todo List for jekyll blog openbox</h2>
+
+<ul>
+  <li>select a preferable minima theme</li>
+  <li>add <code class="language-plaintext highlighter-rouge">slug</code> in frontMatter for each article</li>
+</ul>
+
+<h2 id="done">done:</h2>
+
+<ol>
+  <li>
+    <p>add categories. ref: https://blog.webjeda.com/jekyll-categories/</p>
+  </li>
+  <li>
+    <p>To use images for posts. put the images as <code class="language-plaintext highlighter-rouge">./assets/images/xxx.jpg</code></p>
+  </li>
+  <li>
+    <p>added comments function with github pull requests.</p>
+  </li>
+</ol>
+
+:ET
