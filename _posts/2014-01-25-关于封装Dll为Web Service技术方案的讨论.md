@@ -3,6 +3,7 @@ layout: post
 title: '关于封装Dll为Web Service技术方案的讨论'
 date: 2014-01-25 03:52:00 +0800
 category: from_cnblogs
+slug: p20140125035200
 ---
 
 

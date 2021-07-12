@@ -3,6 +3,7 @@ layout: post
 title: 'markdown工具对比： 作业部落 vs Typora'
 date: 2018-07-08 10:21:00 +0800
 category: from_cnblogs
+slug: p20180708102100
 ---
 2者都挺优秀的，但是在具体使用时还是遇到一些问题：
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'concatenate of numpy'
-date: 2020-04-01 09:49:00
+date: 2020-04-01 09:49:00 +0800
+category: from_cnblogs
 ---
 ## You may first use `np.concatenate`
 

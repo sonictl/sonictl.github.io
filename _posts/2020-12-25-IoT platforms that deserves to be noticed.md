@@ -3,6 +3,7 @@ layout: post
 title: 'IoT platforms that deserves to be noticed'
 date: 2020-12-25 12:53:00 +0800
 category: from_cnblogs
+slug: p20201225125300
 ---
 # IoT platforms that deserves to be noticed
 

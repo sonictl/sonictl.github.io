@@ -3,6 +3,7 @@ layout: post
 title: 'Notes on Noise Contrastive Estimation and Negative Sampling'
 date: 2018-04-04 08:18:00 +0800
 category: from_cnblogs
+slug: p20180404081800
 ---
 <div style="left: 815.1999999999999px; top: 127.48966666666654px; font-size: 23.91033333333333px; font-family: serif;">Notes on Noise Contrastive Estimation and Negative Sampling</div>
 <p>## 生成负样本&nbsp;</p>

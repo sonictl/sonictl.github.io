@@ -3,6 +3,7 @@ layout: post
 title: '【技术】C语言传递指针到函数 About transfer pointer into function'
 date: 2013-01-20 15:11:00 +0800
 category: from_cnblogs
+slug: p20130120151100
 ---
 
 

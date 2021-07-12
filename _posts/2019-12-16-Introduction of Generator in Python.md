@@ -3,6 +3,7 @@ layout: post
 title: 'Introduction of Generator in Python'
 date: 2019-12-16 03:49:00 +0800
 category: from_cnblogs
+slug: p20191216034900
 ---
 # Python中生成器的原理与使用详解
 原创[牛大财有大才](https://me.csdn.net/qq_26442553) 发布于2018-09-05 14:36:38

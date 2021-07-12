@@ -3,6 +3,7 @@ layout: post
 title: 'python代码执行bash命令 -- python3 cook book'
 date: 2019-10-20 12:35:00 +0800
 category: from_cnblogs
+slug: p20191020123500
 ---
 # python代码执行bash命令相关 -- python3 cook book
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'The Power of WordNet and How to Use It in Python'
-date: 2021-03-08 15:03:00
+date: 2021-03-08 15:03:00 +0800
+category: from_cnblogs
 ---
 # The Power of WordNet and How to Use It in Python
 

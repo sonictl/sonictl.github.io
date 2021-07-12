@@ -3,6 +3,7 @@ layout: post
 title: 'Linux配置和管理msyql命令'
 date: 2014-12-30 07:14:00 +0800
 category: from_cnblogs
+slug: p20141230071400
 ---
 
 

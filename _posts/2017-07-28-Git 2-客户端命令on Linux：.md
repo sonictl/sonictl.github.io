@@ -3,6 +3,7 @@ layout: post
 title: 'Git 2-客户端命令on Linux：'
 date: 2017-07-28 14:11:00 +0800
 category: from_cnblogs
+slug: p20170728141100
 ---
 <h1>Git客户端命令on Linux：</h1>
 <p>在此之前：<a id="link_post_title" class="link-post-title" href="http://www.cnblogs.com/sonictl/diary/2017/07/23/7226426.html">Git 1-服务端搭建 Setting up a Git Server in CentOS 6.5</a><br />本地客户端操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令，但在自己搭建Git Remote Server的用法中，往往是从git remote add（添加远程主机）开始的。<br />本文与git clone相关的内容被放在第2点。</p>

@@ -3,6 +3,7 @@ layout: post
 title: 'ubuntu上virtualbox无法找到usb设备【解决】'
 date: 2017-07-30 12:21:00 +0800
 category: from_cnblogs
+slug: p20170730122100
 ---
 <h1><a class="question-hyperlink" href="https://askubuntu.com/questions/25596/how-to-set-up-usb-for-virtualbox">How to set up USB for Virtualbox?</a></h1>
 <h3>USB in different versions of Virtual Box</h3>

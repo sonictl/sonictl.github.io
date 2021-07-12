@@ -3,6 +3,7 @@ layout: post
 title: 'compile and link C/CPP programs on Mac'
 date: 2019-10-28 10:32:00 +0800
 category: from_cnblogs
+slug: p20191028103200
 ---
 ref: https://stackoverflow.com/questions/29987716/cannot-use-gsl-library-on-macos-ld-symbols-not-found-for-architecture-x86-6
 

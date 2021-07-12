@@ -3,6 +3,7 @@ layout: post
 title: 'The list of list is modified unexpected, python'
 date: 2019-10-09 06:52:00 +0800
 category: from_cnblogs
+slug: p20191009065200
 ---
 # Be careful!
 ### The list of list is modified unexpected, python

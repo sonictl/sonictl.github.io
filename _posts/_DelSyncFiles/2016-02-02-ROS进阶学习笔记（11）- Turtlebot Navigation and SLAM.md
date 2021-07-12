@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM'
-date: 2016-02-02 05:56:00
+date: 2016-02-02 05:56:00 +0800
+category: from_cnblogs
 ---
 
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS'
-date: 2016-02-29 06:10:00
+date: 2016-02-29 06:10:00 +0800
+category: from_cnblogs
 ---
 
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)'
-date: 2021-06-16 13:34:00
+date: 2021-06-16 13:34:00 +0800
+category: from_cnblogs
 ---
 # deepwalk、node2vec的高性能优化
 

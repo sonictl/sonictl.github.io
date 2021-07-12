@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Faster RCNN原理分析（二）：Region Proposal Networks详解'
-date: 2017-08-11 06:48:00
+date: 2017-08-11 06:48:00 +0800
+category: from_cnblogs
 ---
 <p>&nbsp;</p>
 <h1>Faster RCNN原理分析（二）：Region Proposal Networks详解</h1>

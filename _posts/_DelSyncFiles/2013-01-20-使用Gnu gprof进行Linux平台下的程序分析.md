@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '使用Gnu gprof进行Linux平台下的程序分析'
-date: 2013-01-20 15:22:00
+date: 2013-01-20 15:22:00 +0800
+category: from_cnblogs
 ---
 
 

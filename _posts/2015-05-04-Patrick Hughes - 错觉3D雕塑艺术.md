@@ -3,6 +3,7 @@ layout: post
 title: 'Patrick Hughes - 错觉3D雕塑艺术'
 date: 2015-05-04 08:42:00 +0800
 category: from_cnblogs
+slug: p20150504084200
 ---
 
 

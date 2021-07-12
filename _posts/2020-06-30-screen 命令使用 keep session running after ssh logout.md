@@ -3,6 +3,7 @@ layout: post
 title: 'screen 命令使用 keep session running after ssh logout'
 date: 2020-06-30 06:44:00 +0800
 category: from_cnblogs
+slug: p20200630064400
 ---
 # screen 命令使用
 ref: https://handerfly.github.io/linux/2019/03/31/Screan%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8/

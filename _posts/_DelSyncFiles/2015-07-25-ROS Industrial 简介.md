@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'ROS Industrial 简介'
-date: 2015-07-25 15:28:00
+date: 2015-07-25 15:28:00 +0800
+category: from_cnblogs
 ---
 
 

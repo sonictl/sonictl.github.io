@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'block SSH attacks on Linux with denyhosts (centOS7)'
-date: 2020-05-07 09:50:00
+date: 2020-05-07 09:50:00 +0800
+category: from_cnblogs
 ---
 ## How To Install and Configure DenyHosts in CentOS 7 for preventing the violent cracking on ssh
 ### 防止ssh被暴力破解：denyhost工具

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Change the environment variable for python code running'
-date: 2019-09-26 04:16:00
+date: 2019-09-26 04:16:00 +0800
+category: from_cnblogs
 ---
 ### python程序运行中改变环境变量:
 >Trying to change the way the loader works for a running Python is very tricky; probably OS/version dependent; may not work. One work-around that might help in some circumstances is to launch a sub-process that changes the environment parameter using a shell script and then launch a new Python using the shell.

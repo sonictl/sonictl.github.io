@@ -3,6 +3,7 @@ layout: post
 title: 'Ruby学习笔记7: 添加身份验证（adding Authentication）'
 date: 2015-05-21 05:47:00 +0800
 category: from_cnblogs
+slug: p20150521054700
 ---
 
 

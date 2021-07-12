@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Deploy seafile on aarch64 (arm64) board with docker (Failed)'
-date: 2020-05-18 22:43:00
+date: 2020-05-18 22:43:00 +0800
+category: from_cnblogs
 ---
 #Deploy seafile on aarch64 (arm64) board with docker (Failed):
 ## 在Arm64或aarch64板卡上通过docker安装seafile (未成功)

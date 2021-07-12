@@ -3,6 +3,7 @@ layout: post
 title: 'Deluge: Enables BT download on your Raspberry Pi'
 date: 2020-07-06 08:46:00 +0800
 category: from_cnblogs
+slug: p20200706084600
 ---
 > 写在前面：Arm板卡上的 BT 下载器得可以通过web进行操作才比较方便。所以人家推荐了 Deluge 这款工具。 
 > references: [Installing Deluge on the Raspberry Pi](https://pimylifeup.com/raspberry-pi-deluge/)

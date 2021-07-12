@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Install Docker-compose, armbian, aarch64 | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Install Docker-compose, armbian, aarch64" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Install Docker-compose, armbian, aarch64 reference: aarch64安装Docker Compose Docker 17.03.2-ce on Arm64 (Aarch64) Debian 1. Check your system" />
+<meta property="og:description" content="Install Docker-compose, armbian, aarch64 reference: aarch64安装Docker Compose Docker 17.03.2-ce on Arm64 (Aarch64) Debian 1. Check your system" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2020/05/18/p20200518043900.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2020/05/18/p20200518043900.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-18T04:39:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Install Docker-compose, armbian, aarch64" />
+<script type="application/ld+json">
+{"headline":"Install Docker-compose, armbian, aarch64","dateModified":"2020-05-18T04:39:00+08:00","datePublished":"2020-05-18T04:39:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2020/05/18/p20200518043900.html"},"description":"Install Docker-compose, armbian, aarch64 reference: aarch64安装Docker Compose Docker 17.03.2-ce on Arm64 (Aarch64) Debian 1. Check your system","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2020/05/18/p20200518043900.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a><a class="page-link" href="/commentboard">CommentBoard</a><a class="page-link" href="/thanks">Thanks</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Install Docker-compose, armbian, aarch64</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-05-18T04:39:00+08:00" itemprop="datePublished">
+        May 18, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="install-docker-compose-armbian-aarch64">Install Docker-compose, armbian, aarch64</h1>
+<p>reference:</p>
+<ul>
+  <li><a href="https://www.huaweicloud.com/kunpeng/software/dockercompose.html">aarch64安装Docker Compose</a></li>
+  <li><a href="https://medium.com/@danacr/docker-17-03-2-ce-on-arm64-aarch64-debian-6c281656f79">Docker 17.03.2-ce on Arm64 (Aarch64) Debian</a>
+    <h3 id="1-check-your-system">1. Check your system</h3>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">uname</span> <span class="nt">-s</span>
+  Linux
+<span class="nv">$ </span><span class="nb">uname</span> <span class="nt">-m</span>
+  aarch64
+<span class="nv">$ </span>docker <span class="nt">--version</span>
+  Docker version 18.09.1, build 4c52b90
+</code></pre></div></div>
+
+<p>reference: https://www.huaweicloud.com/kunpeng/software/dockercompose.html</p>
+
+<h3 id="2-compile">2. Compile</h3>
+
+<p>Follow the link above and test after finished.</p>
+
+<h3 id="3-test">3. Test</h3>
+
+<p>bash commands and result for reference:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@bbhost:/usr/local/src/docker-compose-aarch64# docker run docker-compose-aarch64-builder
+root@bbhost:/usr/local/src/docker-compose-aarch64# find / <span class="nt">-name</span> <span class="s2">"docker-compose-Linux-aarch64"</span>
+/var/lib/docker/volumes/7ea3070ed7150ec80bd98ee7a09875cd891b98c2f570a656685dbd231dbb31be/_data/docker-compose-Linux-aarch64
+/var/lib/docker/overlay2/83f1b21fb322a2f5b3eda68d2ae785c7fff1eaa14d36b6bcbd3df7ea89775501/diff/build/dockercompose/docker-compose-Linux-aarch64
+root@bbhost:/usr/local/src/docker-compose-aarch64# /var/lib/docker/volumes/7ea3070ed7150ec80bd98ee7a09875cd891b98c2f570a656685dbd231dbb31be/_data/docker-compose-Linux-aarch64 <span class="nt">--version</span>
+docker-compose version 1.22.0, build e20d808e
+</code></pre></div></div>
+<p>you may create a symlink for better convenience:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ln -s /var/lib/docker/volumes/7ea3070ed7150ec80bd98ee7a09875cd891b98c2f570a656685dbd231dbb31be/_data/docker-compose-Linux-aarch64 /usr/local/bin/docker-compose</span>
+</code></pre></div></div>
+<p>:)</p>
+
+<p><strong>Reference:</strong></p>
+
+<hr />
+
+<h2 id="软件介绍">软件介绍</h2>
+
+<p>Docker Compose是Docker编排服务的一部分，Compose可以让用户在集群中部署分布式应用。Docker Compose属于一个“应用层”的服务，用户可以定义哪个容器组运行哪个应用，它支持动态改变应用，并在需要时扩展。</p>
+
+<p>建议使用版本为“Docker Compose-1.22.0”。</p>
+
+<p><strong>环境要求</strong></p>
+
+<p><strong>云服务器要求</strong></p>
+
+<p>本文以云服务器KC1实例测试，云服务器配置如表1-1所示。</p>
+
+<p>表1-1云服务器配置</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>规格</td>
+      <td>kc1.large.2 | 2vCPUs | 4GB</td>
+    </tr>
+    <tr>
+      <td>磁盘</td>
+      <td>系统盘：高IO（40GB）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>操作系统要求</strong></p>
+
+<p>操作系统要求如表1-2所示。</p>
+
+<p>表1-2操作系统要求</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>说明</th>
+      <th>下载地址</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CentOS</td>
+      <td>7.6</td>
+      <td>在公共镜像中已提供。</td>
+    </tr>
+    <tr>
+      <td>Kernel</td>
+      <td>4.14.0-115</td>
+      <td>在公共镜像中已提供。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>\1.   配置安装环境</p>
+
+<p>1)  安装wget和openjdk。</p>
+
+<p><strong>yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel wget -y</strong></p>
+
+<p>2)  安装python36。</p>
+
+<p><strong>yum install python36 -y</strong></p>
+
+<p>3)  安装docker。</p>
+
+<p><strong>yum install docker</strong></p>
+
+<p>4)  启动docker。</p>
+
+<p><strong>systemctl start docker</strong></p>
+
+<p>5)  检查docker是否安装成功，显示如下表示安装成功</p>
+
+<p><strong>docker –version</strong></p>
+
+<p>Docker version 1.13.1, build 7f2769b/1.13.1</p>
+
+<p>—-结束</p>
+
+<p>\2.   获取软件包</p>
+
+<p>获取“Docker Compose-1.22.0”安装包。</p>
+
+<p><strong>cd /usr/local/src</strong></p>
+
+<p><strong>git clone https://github.com/ubiquiti/docker-compose-aarch64.git</strong></p>
+
+<p>\3.   安装</p>
+
+<p>1)  进入docker-compose源文件目录。</p>
+
+<p><strong>cd /usr/local/src/docker-compose-aarch64</strong></p>
+
+<p>2)  配置Dockerfile。</p>
+
+<p><strong>vi Dockerfile</strong></p>
+
+<p>注释掉RUN [ “cross-build-start” ]，即在之前加入‘#’后保存退出。</p>
+
+<p># Dockerfile to build docker-compose for aarch64
+FROM arm64v8/python:3.6.5-stretch</p>
+
+<p># Add env
+ENV LANG C.UTF-8</p>
+
+<p># Enable cross-build for aarch64
+COPY ./vendor/qemu-bin /usr/bin/
+<strong>#RUN [ “cross-build-start” ]</strong></p>
+
+<p>3)  安装docker-compose。</p>
+
+<p><strong>cd /usr/local/src/docker-compose-aarch64</strong></p>
+
+<p><strong>docker build . -t docker-compose-aarch64-builder</strong></p>
+
+<p>—-结束</p>
+
+<p>\4.   运行和验证</p>
+
+<p>1)  运行docker-compose容器。</p>
+
+<p><strong>docker run docker-compose-aarch64-builder</strong></p>
+
+<p>2)  找到生成的“docker-compose”可执行程序并执行。</p>
+
+<p><strong>find / -name “docker-compose-Linux-aarch64”</strong></p>
+
+<p>[root@ecs-teukh-1 docker-compose-aarch64]# find / -name “docker-compose-Linux-aarch64”
+/var/lib/docker/overlay2/1d8081e2d4b5958a1eccbaf76e949219c260d89236315b48cf0bfa95e076c1da/diff/build/dockercompose/docker-compose-Linux-aarch64
+/var/lib/docker/overlay2/1d8081e2d4b5958a1eccbaf76e949219c260d89236315b48cf0bfa95e076c1da/diff/build/docker-compose-Linux-aarch64
+/var/lib/docker/volumes/9d6624e6fc53d37221774fed9c64cf1a4ce64319a221e1069c70b4c88df7be40/_data/docker-compose-Linux-aarch64</p>
+
+<p>可以看到有三个目录存放了生成的“docker-compose-Linux-aarch64”可执行程序。</p>
+
+<p>3)  进入任意一个目录。</p>
+
+<p><strong>cd /var/lib/docker/overlay2/1d8081e2d4b5958a1eccbaf76e949219c260d89236315b48cf0bfa95e076c1da/diff/build/dockercompose/</strong></p>
+
+<p><strong>./docker-compose-Linux-aarch64 –version</strong></p>
+
+<p>[root@ecs-teukh-1 build]# ./docker-compose-Linux-aarch64 –version
+docker-compose version 1.22.0, build e20d808e</p>
+
+<p>显示类似上述，表明docker-compose安装成功。</p>
+
+<p>—-结束</p>
+
+    
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="p20200518043900">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Leave your words in this box."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2020/05/18/p20200518043900.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

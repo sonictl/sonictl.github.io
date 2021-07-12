@@ -3,6 +3,7 @@ layout: post
 title: 'Mac OSX Catalina: can’t be opened because Apple cannot check for malicious software'
 date: 2020-04-28 07:59:00 +0800
 category: from_cnblogs
+slug: p20200428075900
 ---
 
 Mac OSX Catalina: can’t be opened because Apple cannot check for malicious software

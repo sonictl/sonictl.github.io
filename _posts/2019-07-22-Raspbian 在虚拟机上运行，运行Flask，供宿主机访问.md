@@ -3,6 +3,7 @@ layout: post
 title: 'Raspbian 在虚拟机上运行，运行Flask，供宿主机访问'
 date: 2019-07-22 08:25:00 +0800
 category: from_cnblogs
+slug: p20190722082500
 ---
 # Raspbian 在虚拟机上运行，启动Flask，供宿主机访问
 

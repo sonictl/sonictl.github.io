@@ -3,6 +3,7 @@ layout: post
 title: 'Graph Neural Networks for Computer Vision'
 date: 2019-09-07 13:55:00 +0800
 category: from_cnblogs
+slug: p20190907135500
 ---
 # Graph Neural Networks for Computer Vision
 ### I was attracted by this image:

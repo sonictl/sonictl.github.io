@@ -1,6 +1,10 @@
 ---
+layout: post
 title: '[转载]Matlab中使用Plot函数动态画图方法总结'
 date: 2013-01-02 19:23:00
+category: matlab
+slug: p20130102192300
+
 ---
 
 

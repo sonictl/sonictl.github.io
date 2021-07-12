@@ -3,6 +3,7 @@ layout: post
 title: 'Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互'
 date: 2015-05-19 06:49:00 +0800
 category: from_cnblogs
+slug: p20150519064900
 ---
 
 

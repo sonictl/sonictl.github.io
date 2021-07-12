@@ -3,6 +3,7 @@ layout: post
 title: 'Setting proxy for Windows CMD and Linux Terminal'
 date: 2019-07-26 02:17:00 +0800
 category: from_cnblogs
+slug: p20190726021700
 ---
 > I found my blog is deleted by platform! WTF? I shall transfer all my blogs to a SECURE place! As soon as possible!! Jun 07, 2021
 

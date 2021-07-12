@@ -3,6 +3,7 @@ layout: post
 title: '干净win7要做几步才能运行第一个Spring MVC 写的动态web程序'
 date: 2014-11-29 12:31:00 +0800
 category: from_cnblogs
+slug: p20141129123100
 ---
 
 

@@ -3,6 +3,7 @@ layout: post
 title: 'Flask on Google Colab, A free web app server'
 date: 2020-03-10 15:17:00 +0800
 category: from_cnblogs
+slug: p20200310151700
 ---
 ## Flask on Google Colab
 Colab is strong and famous by its support of GPU/TPU. However, with Flask, it can be a web app server. That's very cool!

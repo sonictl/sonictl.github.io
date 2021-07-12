@@ -3,6 +3,7 @@ layout: post
 title: 'Spring MVC 学习笔记11 —— 后端返回json格式数据'
 date: 2014-11-25 03:21:00 +0800
 category: from_cnblogs
+slug: p20141125032100
 ---
 
 

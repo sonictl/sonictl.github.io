@@ -3,6 +3,7 @@ layout: post
 title: 'Essay Writting 阅读列表'
 date: 2017-08-17 00:32:00 +0800
 category: from_cnblogs
+slug: p20170817003200
 ---
 <p>&nbsp;</p>
 <p><a href="https://www.internationalstudent.com/essay_writing/essay_tips/" target="_blank">General essay writting tips</a></p>

@@ -3,6 +3,7 @@ layout: post
 title: 'reverse/inverse a mapping but with multiple values for each key'
 date: 2019-11-07 14:19:00 +0800
 category: from_cnblogs
+slug: p20191107141900
 ---
 ## reverse/inverse a mapping but with multiple values for each key
 multi mappping dictionary , reverse/inverse

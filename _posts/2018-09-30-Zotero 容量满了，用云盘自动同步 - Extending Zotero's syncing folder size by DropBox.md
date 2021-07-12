@@ -3,6 +3,7 @@ layout: post
 title: "Zotero 容量满了，用云盘自动同步 - Extending Zotero's syncing folder size by DropBox"
 date: 2018-09-30 10:10:00 +0800
 category: from_cnblogs
+slug: p20180930101000
 ---
 Zotero 容量满了，用云盘自动同步
 

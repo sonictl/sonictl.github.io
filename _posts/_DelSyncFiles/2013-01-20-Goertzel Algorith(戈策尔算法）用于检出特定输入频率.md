@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Goertzel Algorith(戈策尔算法）用于检出特定输入频率'
-date: 2013-01-20 15:06:00
+date: 2013-01-20 15:06:00 +0800
+category: from_cnblogs
 ---
 
 

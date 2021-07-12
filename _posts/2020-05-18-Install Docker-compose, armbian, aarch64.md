@@ -3,6 +3,7 @@ layout: post
 title: 'Install Docker-compose, armbian, aarch64'
 date: 2020-05-18 04:39:00 +0800
 category: from_cnblogs
+slug: p20200518043900
 ---
 # Install Docker-compose, armbian, aarch64
 reference:

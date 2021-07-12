@@ -3,6 +3,7 @@ layout: post
 title: 'try or install Ubuntu on MeegoPad T01'
 date: 2017-07-30 02:00:00 +0800
 category: from_cnblogs
+slug: p20170730020000
 ---
 <p>&nbsp;Ref: <a href="http://www.cnx-software.com/2015/01/19/install-ubuntu-14-10-on-meegopad-t01-with-a-live-iso/" target="_blank">Install Ubuntu on Meego Pad T01 with a Live ISO Image</a></p>
 <p>&nbsp;</p>

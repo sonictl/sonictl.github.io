@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Static / Const 的概念'
-date: 2013-07-09 02:56:00
+date: 2013-07-09 02:56:00 +0800
+category: from_cnblogs
 ---
 
 

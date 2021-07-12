@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Configure ssl+Nginx (secure socket.io connection)'
-date: 2020-03-20 12:41:00
+date: 2020-03-20 12:41:00 +0800
+category: from_cnblogs
 ---
 # secure the nodejs app transmissions by ssl
 

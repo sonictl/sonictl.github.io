@@ -3,6 +3,7 @@ layout: post
 title: '公式for TinyMCE 编辑器@ cnblogs.com'
 date: 2018-04-04 08:29:00 +0800
 category: from_cnblogs
+slug: p20180404082900
 ---
 <p>&nbsp;</p>
 <p>编辑器截图：</p>

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Linux 网络、Daemon、systemd 相关命令'
-date: 2020-04-14 04:14:00
+date: 2020-04-14 04:14:00 +0800
+category: from_cnblogs
 ---
 # === CentOS 7+ 网络、Daemon 相关命令 ===
 包含了centos system 中 firewalld, port occupation, systemd service management 相关常用命令。

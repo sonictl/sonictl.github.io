@@ -3,6 +3,7 @@ layout: post
 title: '【GPU】Install Tensorflow GPU with CUDA 10.1 for python on Windows'
 date: 2019-10-17 10:04:00 +0800
 category: from_cnblogs
+slug: p20191017100400
 ---
 # How to install Tensorflow GPU with CUDA 10.1 for python on Windows
 ## 在cuda 10.0的windows上安装Tensorflow GPU, python

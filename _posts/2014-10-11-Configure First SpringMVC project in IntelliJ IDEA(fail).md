@@ -3,6 +3,7 @@ layout: post
 title: 'Configure First SpringMVC project in IntelliJ IDEA(fail)'
 date: 2014-10-11 07:36:00 +0800
 category: from_cnblogs
+slug: p20141011073600
 ---
 
 

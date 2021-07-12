@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Quick Search Articles in My Blog'
-date: 2017-07-31 23:54:00
+date: 2017-07-31 23:54:00 +0800
+category: from_cnblogs
 ---
 <h2><span style="font-family: Arial; color: #990000;">&nbsp;=== Quickly <span style="font-family: Arial; color: #990000;">Search Articles in My Blog: ===<br />
 </span></span></h2>

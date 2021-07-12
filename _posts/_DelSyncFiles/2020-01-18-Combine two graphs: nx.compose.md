@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Combine two graphs: nx.compose'
-date: 2020-01-18 01:27:00
+date: 2020-01-18 01:27:00 +0800
+category: from_cnblogs
 ---
 # nx.compose
 

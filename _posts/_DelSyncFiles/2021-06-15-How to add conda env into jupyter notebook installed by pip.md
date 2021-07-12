@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'How to add conda env into jupyter notebook installed by pip'
-date: 2021-06-15 13:03:00
+date: 2021-06-15 13:03:00 +0800
+category: from_cnblogs
 ---
 ## How to add conda env into jupyter notebook installed by pip
 ref: https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084

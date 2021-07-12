@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'ASCII Camera'
-date: 2020-05-03 02:43:00
+date: 2020-05-03 02:43:00 +0800
+category: from_cnblogs
 ---
 https://andrei.codes/
 

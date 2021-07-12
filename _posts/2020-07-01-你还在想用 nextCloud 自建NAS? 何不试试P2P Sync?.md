@@ -3,6 +3,7 @@ layout: post
 title: '你还在想用 nextCloud 自建NAS? 何不试试P2P Sync?'
 date: 2020-07-01 14:27:00 +0800
 category: from_cnblogs
+slug: p20200701142700
 ---
 # 你还在想用 nextCloud 自建NAS? 何不试试P2P Sync?
    

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '手机—— “精神糖（Psycho Candy）”'
-date: 2020-04-18 03:35:00
+date: 2020-04-18 03:35:00 +0800
+category: from_cnblogs
 ---
 
 # 手机—— “精神糖（Psycho Candy）”

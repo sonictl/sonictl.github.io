@@ -3,6 +3,7 @@ layout: post
 title: 'MATLAB 笔记，关于Filter函数的功能和使用，求simple（冲激）和unit step（阶跃）响应'
 date: 2013-01-20 15:27:00 +0800
 category: from_cnblogs
+slug: p20130120152700
 ---
 
 

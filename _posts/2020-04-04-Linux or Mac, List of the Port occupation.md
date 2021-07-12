@@ -3,6 +3,7 @@ layout: post
 title: 'Linux or Mac, List of the Port occupation'
 date: 2020-04-04 13:41:00 +0800
 category: from_cnblogs
+slug: p20200404134100
 ---
 # Mac, List of the Port occupation
    `lsof -iTCP -sTCP:LISTEN -n -P`

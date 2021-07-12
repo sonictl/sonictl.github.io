@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Strandbeest mechanism and Leg mechanism'
-date: 2018-03-22 12:32:00
+date: 2018-03-22 12:32:00 +0800
+category: from_cnblogs
 ---
 <p>&nbsp;<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Strandbeest_walking_with_four_legs.gif/180px-Strandbeest_walking_with_four_legs.gif" alt="[img] Strandbeest mechanism" width="180" height="131" /></p>
 <p>I have to say besides computer science study, I'm also interested in Leg mechanism.</p>

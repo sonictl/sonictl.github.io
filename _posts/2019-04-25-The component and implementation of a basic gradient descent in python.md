@@ -3,6 +3,7 @@ layout: post
 title: 'The component and implementation of a basic gradient descent in python'
 date: 2019-04-25 13:02:00 +0800
 category: from_cnblogs
+slug: p20190425130200
 ---
 in my impression, the gradient descent is for finding the independent variable that can get the minimum/maximum value of an objective function. So we need an obj. function: $\mathcal{L}$
 

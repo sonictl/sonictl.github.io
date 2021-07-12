@@ -3,6 +3,7 @@ layout: post
 title: 'Git 1-服务端搭建 Setting up a Git Server in CentOS 6.5'
 date: 2017-07-23 14:24:00 +0800
 category: from_cnblogs
+slug: p20170723142400
 ---
 <h1 id="page-title" class="title">Setting up a Git Server in CentOS 6.5</h1>
 <h3 class="tabs">Quick jump to: <a title="sonictl" href="#Create_a_git_user">Create a git user account</a></h3>

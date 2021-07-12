@@ -3,6 +3,7 @@ layout: post
 title: 'Free Dynamic DNS service 免费的动态dns服务'
 date: 2020-05-25 23:32:00 +0800
 category: from_cnblogs
+slug: p20200525233200
 ---
  才发现原来有免费的动态dns服务
 noip.com

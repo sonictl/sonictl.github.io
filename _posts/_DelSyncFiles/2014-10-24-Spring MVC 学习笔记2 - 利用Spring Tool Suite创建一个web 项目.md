@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Spring MVC 学习笔记2 - 利用Spring Tool Suite创建一个web 项目'
-date: 2014-10-24 08:22:00
+date: 2014-10-24 08:22:00 +0800
+category: from_cnblogs
 ---
 
 

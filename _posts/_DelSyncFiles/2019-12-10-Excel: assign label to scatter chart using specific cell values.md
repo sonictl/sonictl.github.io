@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Excel: assign label to scatter chart using specific cell values'
-date: 2019-12-10 06:03:00
+date: 2019-12-10 06:03:00 +0800
+category: from_cnblogs
 ---
 ref: https://www.get-digital-help.com/custom-data-labels-in-x-y-scatter-chart/
 

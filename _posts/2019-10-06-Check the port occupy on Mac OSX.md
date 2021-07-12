@@ -3,6 +3,7 @@ layout: post
 title: 'Check the port occupy on Mac OSX'
 date: 2019-10-06 09:23:00 +0800
 category: from_cnblogs
+slug: p20191006092300
 ---
 ## Check the port occupy on Mac OSX
 `lsof -i :7070`

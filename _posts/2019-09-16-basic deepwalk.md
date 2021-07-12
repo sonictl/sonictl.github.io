@@ -3,6 +3,7 @@ layout: post
 title: 'basic deepwalk'
 date: 2019-09-16 13:20:00 +0800
 category: from_cnblogs
+slug: p20190916132000
 ---
 ### Get to know How deepwalk works by this project.
 

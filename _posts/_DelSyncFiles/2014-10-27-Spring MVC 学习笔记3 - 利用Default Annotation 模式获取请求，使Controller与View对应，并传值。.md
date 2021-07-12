@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Spring MVC 学习笔记3 - 利用Default Annotation 模式获取请求，使Controller与View对应，并传值。'
-date: 2014-10-27 03:14:00
+date: 2014-10-27 03:14:00 +0800
+category: from_cnblogs
 ---
 
 

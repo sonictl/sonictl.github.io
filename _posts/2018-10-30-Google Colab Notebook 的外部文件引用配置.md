@@ -3,6 +3,7 @@ layout: post
 title: 'Google Colab Notebook 的外部文件引用配置'
 date: 2018-10-30 12:09:00 +0800
 category: from_cnblogs
+slug: p20181030120900
 ---
 # Google Colab Notebook 的外部文件引用配置
 

@@ -3,6 +3,7 @@ layout: post
 title: '不用MathType, 如何在Mac Word中插入公式'
 date: 2018-05-12 00:44:00 +0800
 category: from_cnblogs
+slug: p20180512004400
 ---
 ## 不用MathType, 如何在Mac Word中插入公式
 

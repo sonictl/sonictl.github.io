@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '【GPU】Install pyTorch GPU on Ubuntu16.04'
-date: 2019-10-17 10:06:00
+date: 2019-10-17 10:06:00 +0800
+category: from_cnblogs
 ---
 **Avaliable version combinations for pyTorch/Tensorflow-gpu:**
 

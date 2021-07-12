@@ -3,6 +3,7 @@ layout: post
 title: 'weighted choice in python'
 date: 2019-10-11 03:00:00 +0800
 category: from_cnblogs
+slug: p20191011030000
 ---
 ### 对列表按概率采样
 

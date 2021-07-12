@@ -3,6 +3,7 @@ layout: post
 title: 'Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向）'
 date: 2015-05-06 14:05:00 +0800
 category: from_cnblogs
+slug: p20150506140500
 ---
 
 

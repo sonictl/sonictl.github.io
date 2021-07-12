@@ -3,6 +3,7 @@ layout: post
 title: 'For quick reference: Configure VSCode for Python'
 date: 2021-03-01 11:53:00 +0800
 category: from_cnblogs
+slug: p20210301115300
 ---
 # For quick reference: Configure VSCode for Python
 

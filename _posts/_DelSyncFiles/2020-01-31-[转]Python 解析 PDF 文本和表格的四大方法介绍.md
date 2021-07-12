@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '[转]Python 解析 PDF 文本和表格的四大方法介绍'
-date: 2020-01-31 15:08:00
+date: 2020-01-31 15:08:00 +0800
+category: from_cnblogs
 ---
 # Python 解析 PDF 文本和表格的四大方法介绍
 

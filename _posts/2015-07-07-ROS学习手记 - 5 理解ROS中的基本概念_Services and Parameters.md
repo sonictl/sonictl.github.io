@@ -3,6 +3,7 @@ layout: post
 title: 'ROS学习手记 - 5 理解ROS中的基本概念_Services and Parameters'
 date: 2015-07-07 02:30:00 +0800
 category: from_cnblogs
+slug: p20150707023000
 ---
 
 

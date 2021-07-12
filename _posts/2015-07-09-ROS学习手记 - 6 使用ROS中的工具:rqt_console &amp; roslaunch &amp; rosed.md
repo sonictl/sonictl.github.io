@@ -3,6 +3,7 @@ layout: post
 title: 'ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp; roslaunch &amp; rosed'
 date: 2015-07-09 01:58:00 +0800
 category: from_cnblogs
+slug: p20150709015800
 ---
 
 

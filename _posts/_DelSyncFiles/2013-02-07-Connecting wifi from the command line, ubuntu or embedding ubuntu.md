@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Connecting wifi from the command line, ubuntu or embedding ubuntu'
-date: 2013-02-07 17:05:00
+date: 2013-02-07 17:05:00 +0800
+category: from_cnblogs
 ---
 <p class="entry-title">ref:&nbsp;<a title="sonictl" href="https://linoxide.com/linux-how-to/connect-wifi-terminal-ubuntu-16-04/" target="_blank">How to Connect WiFi from Terminal on Ubuntu 16.04</a>&nbsp;(added on Dec, 2019)</p>
 <p>reference:&nbsp; http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Connecting_to_Networks_on_the_Ubuntu_Command_Line</p>

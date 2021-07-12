@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM - ROSMapModify - ROS地图修改'
-date: 2016-02-02 05:57:00
+date: 2016-02-02 05:57:00 +0800
+category: from_cnblogs
 ---
 <h1>ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM - 2 - MapModify地图修改</h1>
 <p>We can use gmapping model to generate the map file: **.pgm and **.amcl, the latter is just a refer to the **.pgm map file.</p>

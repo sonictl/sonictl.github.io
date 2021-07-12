@@ -3,6 +3,7 @@ layout: post
 title: 'Running a jupyter notebook server'
 date: 2017-11-06 01:56:00 +0800
 category: from_cnblogs
+slug: p20171106015600
 ---
 你也许需要服务器运行jupyter notebook
 

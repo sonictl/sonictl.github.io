@@ -3,6 +3,7 @@ layout: post
 title: 'Zotero: add a history feature for paper viewing  为Zotero添加论文跳转历史记录功能'
 date: 2020-06-14 03:52:00 +0800
 category: from_cnblogs
+slug: p20200614035200
 ---
 During my time with Zotero, I've really enjoyed its various features and the 300MB of file sync space is able to be extended by modifying the path to a synchronized folder under oneDrive or dropBox. reference: [Extending Zotero's syncing folder size by DropBox](https://www.cnblogs.com/sonictl/p/9732977.html)
 

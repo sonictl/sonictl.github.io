@@ -3,6 +3,7 @@ layout: post
 title: 'ROS学习手记 - 8 编写ROS的Publisher and Subscriber'
 date: 2015-07-10 06:52:00 +0800
 category: from_cnblogs
+slug: p20150710065200
 ---
 
 

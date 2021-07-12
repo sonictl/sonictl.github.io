@@ -3,6 +3,7 @@ layout: post
 title: 'How can I manage the modules for python2 when python3 installed as well. In OSX'
 date: 2018-11-20 08:04:00 +0800
 category: from_cnblogs
+slug: p20181120080400
 ---
 ref: https://stackoverflow.com/questions/53385448/how-can-i-manage-the-modules-for-python2-when-python3-installed-as-well-in-osx
 

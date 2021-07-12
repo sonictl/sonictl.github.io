@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux'
-date: 2020-07-09 09:27:00
+date: 2020-07-09 09:27:00 +0800
+category: from_cnblogs
 ---
 # How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux
 

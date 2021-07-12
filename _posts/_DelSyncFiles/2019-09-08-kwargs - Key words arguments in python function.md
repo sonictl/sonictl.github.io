@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'kwargs - Key words arguments in python function'
-date: 2019-09-08 07:49:00
+date: 2019-09-08 07:49:00 +0800
+category: from_cnblogs
 ---
 ## This is a tutorial of how to use `*args` and `**kwargs`
 

@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'TeamViewer的替代品：realVNC'
-date: 2019-12-24 03:51:00
+date: 2019-12-24 03:51:00 +0800
+category: from_cnblogs
 ---
 # TeamViewer的替代品：realVNC
 

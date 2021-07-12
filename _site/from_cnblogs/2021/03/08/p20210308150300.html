@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>The Power of WordNet and How to Use It in Python | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="The Power of WordNet and How to Use It in Python" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Power of WordNet and How to Use It in Python" />
+<meta property="og:description" content="The Power of WordNet and How to Use It in Python" />
+<link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2021/03/08/p20210308150300.html" />
+<meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2021/03/08/p20210308150300.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-08T15:03:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The Power of WordNet and How to Use It in Python" />
+<script type="application/ld+json">
+{"headline":"The Power of WordNet and How to Use It in Python","dateModified":"2021-03-08T15:03:00+08:00","datePublished":"2021-03-08T15:03:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2021/03/08/p20210308150300.html"},"description":"The Power of WordNet and How to Use It in Python","@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2021/03/08/p20210308150300.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a><a class="page-link" href="/commentboard">CommentBoard</a><a class="page-link" href="/thanks">Thanks</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">The Power of WordNet and How to Use It in Python</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-03-08T15:03:00+08:00" itemprop="datePublished">
+        Mar 8, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#from_cnblogs">from_cnblogs</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="the-power-of-wordnet-and-how-to-use-it-in-python">The Power of WordNet and How to Use It in Python</h1>
+
+<p>Posted on <a href="https://blog.xrds.acm.org/2017/07/power-wordnet-use-python/">July 20, 2017</a>  by  <a href="https://blog.xrds.acm.org/author/prachikumar/">Prachi Kumar</a> in this <a href="https://blog.xrds.acm.org/2017/07/power-wordnet-use-python/">link</a></p>
+
+<p>In this post, I am going to talk about the relations in WordNet (https://wordnet.princeton.edu) and how you can use these in a Python project. WordNet is a database of English words with different relations between the words.</p>
+
+<p>Take a look at the next four sentences.</p>
+
+<ol>
+  <li>“She went home and had pasta.”</li>
+  <li>“Then she cleaned the kitchen and sat on the sofa.”</li>
+  <li>“A little while later, she got up from the couch.”</li>
+  <li>“She walked to her bed and in a few minutes she was snoring loudly.”</li>
+</ol>
+
+<p>In Natural Language Processing, we try to use computer programs  to find the meaning of sentences. In the above four sentences, with the  help of WordNet, a computer program will be able to identify the  following –</p>
+
+<ol>
+  <li>“pasta” is a type of dish.</li>
+  <li>“kitchen” is a part of “home”.</li>
+  <li>“sofa” is the same thing as “couch”.</li>
+  <li>“snoring” implies “sleeping”.</li>
+</ol>
+
+<p>Let’s get started with using WordNet in Python. It is included as a part of the NLTK (http://www.nltk.org/) corpus. To use it, we need to import it first.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; from nltk.corpus import wordnet as wn
+</code></pre></div></div>
+
+<p>This allows us to invoke WordNet by  simply typing “wn” instead of “wordnet”. Now let us explore some of the  relations that WordNet provides.</p>
+
+<h1 id="synonyms"><strong>Synonyms</strong></h1>
+
+<p>WordNet stores synonyms in the form of synsets where each word in the synset shares the same meaning. Basically, each synset is a group of  synonyms. Each synset has a definition associated with it. Relations are stored between different synsets as we’ll see in the next section.  Let’s explore synsets with an example.</p>
+
+<p>Take the word ‘sofa’. The following line in Python gives all the synsets for ‘sofa’.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synsets('sofa') 
+[Synset('sofa.n.01')]
+</code></pre></div></div>
+
+<p>We have only one synset for ‘sofa’ which means that it has only one  context or meaning. Another word like ‘ocean’ will give two synsets  because it has two meanings – one as ‘a water body’ and the other as  ‘being limitless in quantity’.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synsets('ocean') 
+[Synset('ocean.n.01'), Synset('ocean.n.02')]
+</code></pre></div></div>
+
+<p>We can find the definition of a synset with the code given below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synset('sofa.n.01').definition()
+u'an upholstered seat for more than one person'
+</code></pre></div></div>
+
+<p>To find all the words that share the same meaning as sofa, we need to find all the synonyms in the sofa synset.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synset('sofa.n.01').lemma_names()
+[u'sofa', u'couch', u'lounge']
+</code></pre></div></div>
+
+<p>As can be seen above, ‘couch’ and ‘sofa’ are synonyms and share the same meaning.</p>
+
+<h1 id="hyponyms-and-hypernyms"><strong>Hyponyms and Hypernyms</strong></h1>
+
+<p>Hyponyms and Hypernyms are specific and generalized concepts respectively.</p>
+
+<p>For example, ‘beach house’ and ‘guest house’ are hyponyms of ‘house’. They are more specific concepts of ‘house’. And ‘house’ is a hypernym  of ‘guest house’ because it is the general concept.</p>
+
+<p>‘Pasta’ is a hyponym of ‘dish’ and ‘dish’ is a hypernym of ‘pasta’.</p>
+
+<p>Let’s look at the code.</p>
+
+<p>After we find the synset whose hyponyms / hypernyms we want, the following code finds the hyponyms and hypernyms.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synset('pasta.n.01').hyponyms() 
+[Synset('cannelloni.n.01'), Synset('lasagna.n.01'), 
+Synset('macaroni_and_cheese.n.01'), Synset('spaghetti.n.01')]
+&gt;&gt;&gt; wn.synset('pasta.n.01').hypernyms()
+[Synset('dish.n.02')]
+&gt;&gt;&gt; wn.synset('dish.n.02').definition()
+u'a particular item of prepared food'
+</code></pre></div></div>
+
+<p>As seen, we found the hyponyms and hypernym of pasta and it can be seen that pasta is a type of dish.</p>
+
+<h1 id="meronyms-and-holonyms"><strong>Meronyms and Holonyms</strong></h1>
+
+<p>Meronyms and Holonyms represent the part-whole relationship. The  meronym represents the part and the holonym represents the whole. For  example, ‘kitchen’ is a meronym of ‘home’(the kitchen is a part of the  home), ‘bread’ is a meronym of ‘sandwich’, and ‘sandwich’ is a holonym  of ‘bread’.</p>
+
+<p>In Python, we have –</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synsets('kitchen') 
+[Synset('kitchen.n.01')]
+&gt;&gt;&gt; wn.synset('kitchen.n.01').part_holonyms() 
+[Synset('dwelling.n.01')]
+&gt;&gt;&gt; wn.synset('kitchen.n.01').part_meronyms() 
+[]
+</code></pre></div></div>
+
+<p>From the above code, we see that ‘dwelling’ is a holonym of ‘kitchen’, and so ‘kitchen’ is a meronym (or a part) of ‘dwelling’</p>
+
+<p>The ‘dwelling’ synset contains ‘home’ as one of its synonyms as seen below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synset('dwelling.n.01').lemma_names()
+[u'dwelling', u'home', u'domicile', 
+u'abode', u'habitation', u'dwelling_house']
+</code></pre></div></div>
+
+<p>So we can figure out that the word ‘kitchen’ is a part of one’s ‘home’.</p>
+
+<h1 id="entailments"><strong>Entailments</strong></h1>
+
+<p>An entailment is an implication. For example, looking implies seeing. Buying implies choosing and paying.</p>
+
+<p>We can find entailments as seen below in the code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; wn.synset('snore.v.01').entailments()
+[Synset('sleep.v.01')]
+&gt;&gt;&gt; wn.synset('buy.v.01').entailments()
+[Synset('choose.v.01'), Synset('pay.v.01')]
+&gt;&gt;&gt; wn.synset('look.v.01').entailments()
+[Synset('see.v.01')]
+</code></pre></div></div>
+
+<p>We can see that sleeping is an entailment (implication) of snoring.  So in our earlier example when she was ‘snoring loudly’, it can be  inferred that she was asleep.</p>
+
+<p>In this post, we have explored the basics of WordNet relations and  how to integrate WordNet in a Python project. There is still a lot more  that you can do with WordNet like finding the similarity between  synsets, converting a noun to its verb form, and much more. You can read more about using WordNet in Python here – http://www.nltk.org/howto/wordnet.html</p>
+
+    
+
+
+
+
+
+
+
+
+<h3>Comment to this blog</h3>
+
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="p20210308150300">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Leave your words in this box."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed)</span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)</span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+  </div>
+
+
+  <a class="u-url" href="/from_cnblogs/2021/03/08/p20210308150300.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

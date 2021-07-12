@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'gensim Load embeddings'
-date: 2019-07-21 02:53:00
+date: 2019-07-21 02:53:00 +0800
+category: from_cnblogs
 ---
 # gensim package
 

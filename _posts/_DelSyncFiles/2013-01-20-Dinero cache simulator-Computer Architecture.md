@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'Dinero cache simulator-Computer Architecture'
-date: 2013-01-20 14:55:00
+date: 2013-01-20 14:55:00 +0800
+category: from_cnblogs
 ---
 
 

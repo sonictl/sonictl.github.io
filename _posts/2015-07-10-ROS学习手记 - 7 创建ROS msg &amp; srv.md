@@ -3,6 +3,7 @@ layout: post
 title: 'ROS学习手记 - 7 创建ROS msg &amp; srv'
 date: 2015-07-10 06:02:00 +0800
 category: from_cnblogs
+slug: p20150710060200
 ---
 
 

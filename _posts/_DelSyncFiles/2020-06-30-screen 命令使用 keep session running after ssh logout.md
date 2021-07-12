@@ -63,12 +63,13 @@ screen -d session_name           # 远程detach某个session
 screen -d -r session_name        # 结束当前session并回到session_name这个session
 ```
 
-**在每个screen session 下，命令都以 ctrl+a、ctrl-a，常用的几个操作如下：**
+**在每个screen session 下，命令以 ctrl+a、ctrl-a开头，常用的几个操作如下：**
 
 ```
 ctrl-a x   # 锁住当前的shell window，需用用户密码解锁
 ctrl-a d   # detach，暂时离开当前session，将当前 screen session 转到后台执行，并会返回没进 screen 时的状态，此时在 screen session 里，每个shell client内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响
 ctrl-a z   # 把当前session放到后台执行，用 shell 的 fg 命令则可回去。
+ctrl-d     # 中止当前所在的screen会话，并退出
 ```
 
 **其他说明**
@@ -124,9 +125,13 @@ screen -r -S session2
 
 # 中止 screen 会话
 
-有几种方法来中止 screen 会话。你可以按下 Ctrl+d ，或者在命令行中使用 exit 命令。
+有几种方法来中止 screen 会话：
 
-要查看screen命令所有有用的功能，你可以查看 screen 的 man 手册。
+- 你可以按下 Ctrl+d ，或者
+
+- 在命令行中使用 exit 命令。
+
+### 要查看screen命令所有有用的功能，可以查看 screen 的 man 手册：
 
 ```
 man screen

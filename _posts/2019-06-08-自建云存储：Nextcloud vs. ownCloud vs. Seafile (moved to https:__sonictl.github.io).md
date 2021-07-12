@@ -3,6 +3,7 @@ layout: post
 title: '自建云存储：Nextcloud vs. ownCloud vs. Seafile (moved to https://sonictl.github.io)'
 date: 2019-06-08 23:57:00 +0800
 category: from_cnblogs
+slug: p20190608235700
 ---
 # Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile
 

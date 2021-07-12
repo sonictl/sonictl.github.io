@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'split your cpp code into multiple files'
-date: 2021-03-05 14:59:00
+date: 2021-03-05 14:59:00 +0800
+category: from_cnblogs
 ---
 # split your cpp code into multiple files
 

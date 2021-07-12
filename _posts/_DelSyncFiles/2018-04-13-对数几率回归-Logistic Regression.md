@@ -1,6 +1,8 @@
 ---
+layout: post
 title: '对数几率回归-Logistic Regression'
-date: 2018-04-13 12:12:00
+date: 2018-04-13 12:12:00 +0800
+category: from_cnblogs
 ---
 Finally, I'd use English for excercise and for conveniently type in the equations without switch.
 Table of content:

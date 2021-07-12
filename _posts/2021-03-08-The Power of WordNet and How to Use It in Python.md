@@ -3,6 +3,7 @@ layout: post
 title: 'The Power of WordNet and How to Use It in Python'
 date: 2021-03-08 15:03:00 +0800
 category: from_cnblogs
+slug: p20210308150300
 ---
 # The Power of WordNet and How to Use It in Python
 

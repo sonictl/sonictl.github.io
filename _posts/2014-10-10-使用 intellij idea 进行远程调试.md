@@ -3,6 +3,7 @@ layout: post
 title: '使用 intellij idea 进行远程调试'
 date: 2014-10-10 03:17:00 +0800
 category: from_cnblogs
+slug: p20141010031700
 ---
 
 

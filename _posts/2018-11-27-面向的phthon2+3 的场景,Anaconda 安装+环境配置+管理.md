@@ -3,6 +3,7 @@ layout: post
 title: '面向的phthon2+3 的场景,Anaconda 安装+环境配置+管理'
 date: 2018-11-27 03:34:00 +0800
 category: from_cnblogs
+slug: p20181127033400
 ---
 ### standard procedure in pyCharm for creating environment when Anaconda installed
 

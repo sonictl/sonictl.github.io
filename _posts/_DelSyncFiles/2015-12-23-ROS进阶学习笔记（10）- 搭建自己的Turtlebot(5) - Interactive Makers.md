@@ -1,6 +1,8 @@
 ---
+layout: post
 title: 'ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers'
-date: 2015-12-23 09:10:00
+date: 2015-12-23 09:10:00 +0800
+category: from_cnblogs
 ---
 
 
