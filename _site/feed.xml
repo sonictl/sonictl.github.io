@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-13T16:31:37+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-13T16:39:39+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>当cnblogs偷删我博客，我决定把自己的博客掌握在自己手中。
 </subtitle><author><name>sonictl</name></author><entry><title type="html">install usbmount on debian for orangePi / raspberryPi</title><link href="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html" rel="alternate" type="text/html" title="install usbmount on debian for orangePi / raspberryPi" /><published>2021-07-06T08:02:01+08:00</published><updated>2021-07-06T08:02:01+08:00</updated><id>https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201</id><content type="html" xml:base="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html">&lt;h2 id=&quot;install-usbmount-on-debian-for-orangepi--raspberrypi&quot;&gt;install usbmount on debian for orangePi / raspberryPi&lt;/h2&gt;
 
 &lt;p&gt;USBmount was removed from Debian a while back because the version from the repositories no longer works. It’s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).&lt;/p&gt;
@@ -171,26 +171,7 @@ dpkg-buildpackage -us -uc -b
   &lt;li&gt;Check and debug by using the background AzureFunction LogStream.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{&amp;lt; rawhtml &amp;gt;}} raw html script {{&amp;lt; /rawhtml &amp;gt;}}&lt;/code&gt; says using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;and&lt;/code&gt; for preventing jekyll compile raw code of &lt;a href=&quot;https://jekyllrb.com/docs/liquid/&quot;&gt;Liquid&lt;/a&gt; templating language.&lt;/li&gt;
   &lt;li&gt;if you want to prevent the thanks.md displaying its link in index, under default theme, you can modify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/includes/header.html&lt;/code&gt;. Add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;and&lt;/code&gt; surrounding the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; tag that generates the links of thank page. Then, add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exclude: true&lt;/code&gt; in the frontmatter of thanks.md markdown page/code. Reference: &lt;a href=&quot;https://stackoverflow.com/questions/25452429/excluding-page-from-jekyll-navigation-bar&quot;&gt;this link&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request</summary></entry><entry><title type="html">todo list for initialize jekyll blog</title><link href="https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034.html" rel="alternate" type="text/html" title="todo list for initialize jekyll blog" /><published>2021-06-28T10:00:34+08:00</published><updated>2021-06-28T10:00:34+08:00</updated><id>https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034</id><content type="html" xml:base="https://sonictl.github.io/jekyll/timeline/2021/06/28/p20210628100034.html">&lt;h2 id=&quot;todo-list-for-jekyll-blog-openbox&quot;&gt;Todo List for jekyll blog openbox&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;select a preferable minima theme&lt;/li&gt;
-  &lt;li&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slug&lt;/code&gt; in frontMatter for each article&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;done&quot;&gt;done:&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;add categories. ref: https://blog.webjeda.com/jekyll-categories/&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;To use images for posts. put the images as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./assets/images/xxx.jpg&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;added comments function with github pull requests.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><category term="timeline" /><summary type="html">Todo List for jekyll blog openbox</summary></entry><entry><title type="html">抛弃清华源，使用SJTU的镜像 for Anaconda</title><link href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/06/17/p20210617132500.html" rel="alternate" type="text/html" title="抛弃清华源，使用SJTU的镜像 for Anaconda" /><published>2021-06-17T13:25:00+08:00</published><updated>2021-06-17T13:25:00+08:00</updated><id>https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/06/17/p20210617132500</id><content type="html" xml:base="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/06/17/p20210617132500.html">&lt;h2 id=&quot;使用sjtu的anaconda镜像&quot;&gt;&lt;a href=&quot;https://verrickt.github.io/2020/12/12/conda-mirror-from-sjtu/&quot;&gt;使用SJTU的Anaconda镜像&lt;/a&gt;&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request</summary></entry><entry><title type="html">抛弃清华源，使用SJTU的镜像 for Anaconda</title><link href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/06/17/p20210617132500.html" rel="alternate" type="text/html" title="抛弃清华源，使用SJTU的镜像 for Anaconda" /><published>2021-06-17T13:25:00+08:00</published><updated>2021-06-17T13:25:00+08:00</updated><id>https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/06/17/p20210617132500</id><content type="html" xml:base="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/06/17/p20210617132500.html">&lt;h2 id=&quot;使用sjtu的anaconda镜像&quot;&gt;&lt;a href=&quot;https://verrickt.github.io/2020/12/12/conda-mirror-from-sjtu/&quot;&gt;使用SJTU的Anaconda镜像&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://mirrors.tuna.tsinghua.edu.cn/&quot;&gt;清华TUNA&lt;/a&gt;的Anaconda镜像不稳，好的时候一切顺利，坏的时候一个24K的包下5分钟；Anaconda的官方源则更惨，连repo.json都下不下来；
 今天又是清华的源大姨妈的一天：Pytorch下载到100MB就超时，折腾了三个小时也装不上。而同在华东的&lt;a href=&quot;https://mirrors.sjtug.sjtu.edu.cn/&quot;&gt;SJTU&lt;/a&gt;的镜像就很稳定，这次全线换成SJTU啦。&lt;/p&gt;
@@ -1423,4 +1404,19 @@ Header files usually have the ending .h and source files usually have the ending
 &lt;hr /&gt;
 &lt;h3 id=&quot;install-python-interpreter&quot;&gt;Install python interpreter&lt;/h3&gt;
 &lt;p&gt;link for vsCode+python: https://code.visualstudio.com/docs/python/python-tutorial#_install-a-python-interpreter
-link for vsCode+Mac: https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line&lt;/p&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">For quick reference: Configure VSCode for Python</summary></entry></feed>
+link for vsCode+Mac: https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line&lt;/p&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">For quick reference: Configure VSCode for Python</summary></entry><entry><title type="html">IoT platforms that deserves to be noticed</title><link href="https://sonictl.github.io/from_cnblogs/2020/12/25/p20201225125300.html" rel="alternate" type="text/html" title="IoT platforms that deserves to be noticed" /><published>2020-12-25T12:53:00+08:00</published><updated>2020-12-25T12:53:00+08:00</updated><id>https://sonictl.github.io/from_cnblogs/2020/12/25/p20201225125300</id><content type="html" xml:base="https://sonictl.github.io/from_cnblogs/2020/12/25/p20201225125300.html">&lt;h1 id=&quot;iot-platforms-that-deserves-to-be-noticed&quot;&gt;IoT platforms that deserves to be noticed&lt;/h1&gt;
+
+&lt;p&gt;When you are developing an IoT project, you often need to connect, communicate, and collect real-time data from sensors, cameras, and actuators to other devices. Then this bridge becomes especially important. It needs to be deployed easily and efficiently, and it needs to be low cost, secure, and accessible to the world. Here are a few platforms that may allow you to quickly deploy such a bridge to support your IoT projects.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-node-red&quot;&gt;1. Node-RED&lt;/h2&gt;
+&lt;p&gt;https://nodered.org/docs/
+   It seems to let you deploy with a graphical interface or minimal amount of code.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-openhab&quot;&gt;2. openHAB&lt;/h2&gt;
+&lt;p&gt;https://www.openhab.org/docs/
+   Looks good and has engineering cultural team.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-home-assistant&quot;&gt;3. Home Assistant&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- 1GB RAM required
+- 32GB HD space required    I believe you'll back off when you see these parameters. However, the features will be powerful.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">IoT platforms that deserves to be noticed</summary></entry></feed>
