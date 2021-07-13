@@ -189,9 +189,17 @@
 <h3 id="tips">Tips:</h3>
 
 <ol>
-  <li>Check and debug by using the background AzureFunction LogStream.</li>
-  <li><code class="language-plaintext highlighter-rouge">{{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}}</code> says using <code class="language-plaintext highlighter-rouge">and</code> for preventing jekyll compile raw code of <a href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language.</li>
-  <li>if you want to prevent the thanks.md displaying its link in index, under default theme, you can modify the <code class="language-plaintext highlighter-rouge">/includes/header.html</code>. Add the <code class="language-plaintext highlighter-rouge">and</code> surrounding the <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> tag that generates the links of thank page. Then, add <code class="language-plaintext highlighter-rouge">exclude: true</code> in the frontmatter of thanks.md markdown page/code. Reference: <a href="https://stackoverflow.com/questions/25452429/excluding-page-from-jekyll-navigation-bar">this link</a></li>
+  <li>
+    <p>Check and debug by using the background AzureFunction LogStream.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">{{&lt; rawhtml &gt;}} raw html script {{&lt; /rawhtml &gt;}}</code> says using <code class="language-plaintext highlighter-rouge">and</code> for preventing jekyll compile raw code of <a href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language.</p>
+
+    <p><img src="/assets/images/image-20210713172424532.png" alt="image-20210713172424532" /></p>
+  </li>
+  <li>
+    <p>if you want to prevent the thanks.md displaying its link in index, under default theme, you can modify the <code class="language-plaintext highlighter-rouge">/includes/header.html</code>. Add the <code class="language-plaintext highlighter-rouge">and</code> surrounding the <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> tag that generates the links of thank page. Then, add <code class="language-plaintext highlighter-rouge">exclude: true</code> in the frontmatter of thanks.md markdown page/code. Reference: <a href="https://stackoverflow.com/questions/25452429/excluding-page-from-jekyll-navigation-bar">this link</a></p>
+  </li>
 </ol>
 
 

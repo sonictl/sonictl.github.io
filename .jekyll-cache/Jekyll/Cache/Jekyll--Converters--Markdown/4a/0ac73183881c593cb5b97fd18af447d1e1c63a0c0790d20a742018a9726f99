@@ -1,0 +1,7 @@
+I"i<h1 id="一波儿networkx-读写edgelist给节点加attribute的操作">一波儿networkx 读写edgelist，给节点加attribute的操作</h1>
+<p>read more: <a href="https://networkx.github.io/documentation/stable/reference/readwrite/index.html">nx official: Reading and writing graphs</a>
+```python
+import numpy as np
+import networkx as nx
+import operator</p>
+:ET

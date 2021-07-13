@@ -125,6 +125,10 @@ Enjoy~
 ### Tips:
 
 1. Check and debug by using the background AzureFunction LogStream.
-2.  `{%raw%}{{< rawhtml >}} raw html script {{< /rawhtml >}}{%endraw%}` says using `{%raw%}` and `{%endraw%}` for preventing jekyll compile raw code of [Liquid](https://jekyllrb.com/docs/liquid/) templating language.
+
+2. `{%raw%}{{< rawhtml >}} raw html script {{< /rawhtml >}}{%endraw%}` says using `{%raw%}` and `{%endraw%}` for preventing jekyll compile raw code of [Liquid](https://jekyllrb.com/docs/liquid/) templating language.
+
+   ![image-20210713172424532](/assets/images/image-20210713172424532.png)
+
 3. if you want to prevent the thanks.md displaying its link in index, under default theme, you can modify the `/includes/header.html`. Add the `{% unless my_page.exclude %}` and `{% endunless %}` surrounding the `<a>` tag that generates the links of thank page. Then, add `exclude: true` in the frontmatter of thanks.md markdown page/code. Reference: [this link](https://stackoverflow.com/questions/25452429/excluding-page-from-jekyll-navigation-bar)
 

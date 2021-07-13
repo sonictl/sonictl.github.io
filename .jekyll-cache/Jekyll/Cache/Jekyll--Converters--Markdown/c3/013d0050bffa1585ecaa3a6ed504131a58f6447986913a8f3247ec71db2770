@@ -1,0 +1,42 @@
+I"�<h1 id="一波儿networkx-读写edgelist给节点加attribute的操作">一波儿networkx 读写edgelist，给节点加attribute的操作</h1>
+<p>read more: <a href="https://networkx.github.io/documentation/stable/reference/readwrite/index.html">nx official: Reading and writing graphs</a></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="n">nx</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+
+<span class="n">G1</span> <span class="o">=</span> <span class="n">nx</span><span class="p">.</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'network1'</span><span class="p">)</span>  <span class="c1"># Directed Graph
+#networkx 导入edgelist
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">net1_path</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">edgeReader</span><span class="p">:</span>   <span class="c1"># 从文件中读取edgelist生成Graph of networkx
+</span>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">edgeReader</span><span class="p">.</span><span class="n">readlines</span><span class="p">():</span>
+        <span class="n">edges_net1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">strip</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">))))</span>
+<span class="n">G1</span><span class="p">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges_net1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">== info of net1 original: '</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">nx</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">G1</span><span class="p">))</span>
+<span class="n">triad_list_net1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">edges_net1</span><span class="p">:</span>
+  <span class="n">triad</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+  <span class="n">triad_list_net1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">triad</span><span class="p">)</span>   <span class="c1"># list of triads
+</span>  
+<span class="n">triad_list_net1</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="p">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># sort the list by the 3rd item of triad
+</span><span class="n">isgt_dict1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">G1</span><span class="p">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">G1</span><span class="p">.</span><span class="n">nodes</span><span class="p">),</span> <span class="nb">int</span><span class="p">)))</span>  <span class="c1"># gen the dic for attribute of nodes in G1
+</span><span class="n">nx</span><span class="p">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span> <span class="n">isgt_dict1</span><span class="p">,</span> <span class="s">'Attr_name'</span><span class="p">)</span>
+
+<span class="c1">#networkx 导出网络为edgelist
+</span><span class="n">nx</span><span class="p">.</span><span class="n">write_edgelist</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span> <span class="s">'data_G1.txt'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">' '</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>  <span class="c1"># without properties by 'data=False'
+#         将nodes带属性写入文件：
+</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data_G1_nodes.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">node_i</span> <span class="ow">in</span> <span class="n">G1</span><span class="p">.</span><span class="n">nodes</span><span class="p">:</span>
+  <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">node_i</span><span class="p">)</span><span class="o">+</span><span class="s">','</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">G1</span><span class="p">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node_i</span><span class="p">][</span><span class="s">'Attr_name'</span><span class="p">])</span><span class="o">+</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<ol>
+  <li>Use <code class="language-plaintext highlighter-rouge">networkx.read_edgelist()</code> function: 快速从文件中读取边并创建图
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">netPath</span> <span class="o">=</span> <span class="s">'myEdgelist.txt'</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="p">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="n">netPath</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p>read more: <a href="https://networkx.github.io/documentation/stable/reference/readwrite/index.html">nx official: Reading and writing graphs</a></p>
+  </li>
+</ol>
+:ET
