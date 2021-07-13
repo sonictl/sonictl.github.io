@@ -1,0 +1,17 @@
+I"n<h1 id="iot-platforms-that-deserves-to-be-noticed">IoT platforms that deserves to be noticed</h1>
+
+<p>When you are developing an IoT project, you often need to connect, communicate, and collect real-time data from sensors, cameras, and actuators to other devices. Then this bridge becomes especially important. It needs to be deployed easily and efficiently, and it needs to be low cost, secure, and accessible to the world. Here are a few platforms that may allow you to quickly deploy such a bridge to support your IoT projects.</p>
+
+<h2 id="1-node-red">1. Node-RED</h2>
+<p>https://nodered.org/docs/
+   It seems to let you deploy with a graphical interface or minimal amount of code.</p>
+
+<h2 id="2-openhab">2. openHAB</h2>
+<p>https://www.openhab.org/docs/
+   Looks good and has engineering cultural team.</p>
+
+<h2 id="3-home-assistant">3. Home Assistant</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 1GB RAM required
+- 32GB HD space required    I believe you'll back off when you see these parameters. However, the features will be powerful.
+</code></pre></div></div>
+:ET
