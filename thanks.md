@@ -2,6 +2,7 @@
 layout: page
 title: Thanks
 permalink: /thanks
+exclude: true
 ---
 
 Thank you for your comments！

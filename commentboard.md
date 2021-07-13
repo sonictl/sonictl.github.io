@@ -2,6 +2,7 @@
 layout: page
 title: CommentBoard
 permalink: /commentboard
+exclude: true
 ---
 
 Thank you for your comments.
