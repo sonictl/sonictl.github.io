@@ -14,8 +14,7 @@ You can find the source code for Jekyll at GitHub:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
 
-
-[jekyll-organization]: https://github.com/jekyll
+check the [source code](https://github.com/sonictl/sonictl.github.io) for [this blog](https://sonictl.github.io).
 
 ```
 basic steps for adding post for REFERENCE:
