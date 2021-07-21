@@ -42,7 +42,7 @@ Given a graph $G = (V, E)$ , a GCN takes as input:
 
 
 
-![image-20210717215412877](./assets/images/image-20210717215412877.png)
+![image-20210717215412877](/assets/images/image-20210717215412877.png)
 
 图示是一个例子
 
@@ -91,7 +91,7 @@ $$
 
 #### 解决：
 
-1. 增加自环，在A中加入eye矩阵：np.eye(A.shape[0])
+1. 增加自环，在A中加入eye矩阵 $I$：np.eye(A.shape[0])
 2. 对表征进行归一化。如：$f(X,A) = D^{-1} \mathbf{A} X$
 
 ---
@@ -104,11 +104,19 @@ $$
 
 ### 2.1 应用权重
 
-一个定义：$\hat{\mathbf{A}} = A + I$ 。 $D$ 是 A 的度矩阵，定义$\hat{D}$ 是 $\hat{\mathbf{A}}$ 的度矩阵。
+一个定义，添加了自环的adj_Matrix：$\hat{\mathbf{A}} = \mathbf{A} + I$ 。 $D$ 是 $\mathbf{A}$ 的度矩阵，定义$\hat{D}$ 是 $\hat{\mathbf{A}}$ 的度矩阵。
 
 权重矩阵： $W = \begin{bmatrix} 1&-1 \\ -1&1 \end{bmatrix}$ 
 
 计算此时的属性传播：$\hat{D}^{-1} \times \hat{\mathbf{A}} \times X \times W$
+
+上面的 $H^i$ 即为：$ H^{i} = \begin{bmatrix} 1  \\ 4 \\ 2 \\ 5 \end{bmatrix} $
+
+再用ReLu函数套一下：`relu(D_hat**-1 * A_hat * X * W)`  
+
+
+
+## 3. 应用于 Karate 网络数据
 
 
 

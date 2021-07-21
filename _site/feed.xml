@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-21T10:40:43+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>自己的博客掌握在自己手中。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-21T10:42:30+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>自己的博客掌握在自己手中。
 </subtitle><author><name>sonictl</name></author><entry><title type="html">中国计算机学会(CCF)推荐国际学术期刊目录(2019)</title><link href="https://sonictl.github.io/academy/2021/07/14/p20210714215528.html" rel="alternate" type="text/html" title="中国计算机学会(CCF)推荐国际学术期刊目录(2019)" /><published>2021-07-14T21:55:28+08:00</published><updated>2021-07-14T21:55:28+08:00</updated><id>https://sonictl.github.io/academy/2021/07/14/p20210714215528</id><content type="html" xml:base="https://sonictl.github.io/academy/2021/07/14/p20210714215528.html">&lt;p&gt;#中国计算机学会(CCF)推荐国际学术期刊目录(2019)&lt;/p&gt;
 
 &lt;h2 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h2&gt;
@@ -1511,7 +1511,7 @@ ACM http://dblp.uni-trier.de/db/conf/avi/&lt;/p&gt;</content><author><name>sonic
 
 &lt;p&gt;此例中，\(D = \begin{bmatrix} 1&amp;amp;0&amp;amp;0&amp;amp;0 \\ 0&amp;amp;2&amp;amp;0&amp;amp;0 \\0&amp;amp;0&amp;amp;2&amp;amp;0 \\0&amp;amp;0&amp;amp;0&amp;amp;1 \\ \end{bmatrix}\)&lt;/p&gt;
 
-&lt;p&gt;归一化后，上面的 $H^i$ 变为：$ H^i = \begin{bmatrix} 1&amp;amp;-1 \ 2.5&amp;amp;-2.5 \ 0.5&amp;amp;-0.5 \2&amp;amp;-2 \end{bmatrix}$&lt;/p&gt;
+&lt;p&gt;归一化后，上面的 $H^i$ 变为：$ H^i = \begin{bmatrix} 1&amp;amp;-1 \ 2.5&amp;amp;-2.5 \ 0.5&amp;amp;-0.5 \ 2&amp;amp;-2 \end{bmatrix}$&lt;/p&gt;
 
 &lt;h3 id=&quot;几个问题&quot;&gt;几个问题&lt;/h3&gt;
 
