@@ -1,4 +1,4 @@
-I"<h1 id="getting-started-with-graph-convolutional-networks-as-an-amateur">Getting started with Graph Convolutional Networks as an Amateur</h1>
+I"}<h1 id="getting-started-with-graph-convolutional-networks-as-an-amateur">Getting started with Graph Convolutional Networks as an Amateur</h1>
 
 <p>https://zhuanlan.zhihu.com/p/27587371</p>
 
@@ -32,7 +32,7 @@
   </li>
 </ul>
 
-<p><img src="./assets/images/image-20210717215412877.png" alt="image-20210717215412877" /></p>
+<p><img src="/assets/images/image-20210717215412877.png" alt="image-20210717215412877" /></p>
 
 <p>图示是一个例子</p>
 
@@ -67,7 +67,7 @@
 <h4 id="解决">解决：</h4>
 
 <ol>
-  <li>增加自环，在A中加入eye矩阵：np.eye(A.shape[0])</li>
+  <li>增加自环，在A中加入eye矩阵 $I$：np.eye(A.shape[0])</li>
   <li>对表征进行归一化。如：$f(X,A) = D^{-1} \mathbf{A} X$</li>
 </ol>
 
@@ -81,6 +81,16 @@
 
 <h3 id="21-应用权重">2.1 应用权重</h3>
 
-<p>$\hat{A} = A + I$</p>
+<p>一个定义，添加了自环的adj_Matrix：$\hat{\mathbf{A}} = \mathbf{A} + I$ 。 $D$ 是 $\mathbf{A}$ 的度矩阵，定义$\hat{D}$ 是 $\hat{\mathbf{A}}$ 的度矩阵。</p>
+
+<p>权重矩阵： $W = \begin{bmatrix} 1&amp;-1 \ -1&amp;1 \end{bmatrix}$</p>
+
+<p>计算此时的属性传播：$\hat{D}^{-1} \times \hat{\mathbf{A}} \times X \times W$</p>
+
+<p>上面的 $H^i$ 即为：$ H^{i} = \begin{bmatrix} 1  \ 4 \ 2 \ 5 \end{bmatrix} $</p>
+
+<p>再用ReLu函数套一下：<code class="language-plaintext highlighter-rouge">relu(D_hat**-1 * A_hat * X * W)</code></p>
+
+<h2 id="3-应用于-karate-网络数据">3. 应用于 Karate 网络数据</h2>
 
 :ET
