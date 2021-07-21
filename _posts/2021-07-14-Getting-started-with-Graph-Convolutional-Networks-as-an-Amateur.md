@@ -79,7 +79,7 @@ $$
 
 此例中，$$D = \begin{bmatrix} 1&0&0&0 \\ 0&2&0&0 \\0&0&2&0 \\0&0&0&1 \\ \end{bmatrix}$$
 
-归一化后，上面的 $H^i$ 变为：$ H^i = \begin{bmatrix} 1&-1 \\ 2.5&-2.5 \\ 0.5&-0.5 \\ 2&-2 \end{bmatrix}$
+归一化后，上面的 $H^i$ 变为：$$ H^i = \begin{bmatrix} 1&-1 \\ 2.5&-2.5 \\ 0.5&-0.5 \\ 2&-2 \end{bmatrix} $$
 
 
 
@@ -106,11 +106,11 @@ $$
 
 一个定义，添加了自环的adj_Matrix：$\hat{\mathbf{A}} = \mathbf{A} + I$ 。 $D$ 是 $\mathbf{A}$ 的度矩阵，定义$\hat{D}$ 是 $\hat{\mathbf{A}}$ 的度矩阵。
 
-权重矩阵： $W = \begin{bmatrix} 1&-1 \\ -1&1 \end{bmatrix}$ 
+权重矩阵： $$W = \begin{bmatrix} 1&-1 \\ -1&1 \end{bmatrix}$$ 
 
 计算此时的属性传播：$\hat{D}^{-1} \times \hat{\mathbf{A}} \times X \times W$
 
-上面的 $H^i$ 即为：$ H^{i} = \begin{bmatrix} 1  \\ 4 \\ 2 \\ 5 \end{bmatrix} $
+上面的 $H^i$ 即为：$$ H^{i} = \begin{bmatrix} 1  \\ 4 \\ 2 \\ 5 \end{bmatrix} $$
 
 再用ReLu函数套一下：`relu(D_hat**-1 * A_hat * X * W)`  
 

@@ -79,7 +79,7 @@ $$
 
 此例中，$$D = \begin{bmatrix} 1&0&0&0 \\ 0&2&0&0 \\0&0&2&0 \\0&0&0&1 \\ \end{bmatrix}$$
 
-归一化后，上面的 $H^i$ 变为：$ H^i = \begin{bmatrix} 1&-1 \\ 2.5&-2.5 \\ 0.5&-0.5 \\2&-2 \end{bmatrix}$
+归一化后，上面的 $H^i$ 变为：$$ H^i = \begin{bmatrix} 1&-1 \\ 2.5&-2.5 \\ 0.5&-0.5 \\ 2&-2 \end{bmatrix} $$
 
 
 
@@ -110,7 +110,7 @@ $$
 
 计算此时的属性传播：$\hat{D}^{-1} \times \hat{\mathbf{A}} \times X \times W$
 
-上面的 $H^i$ 即为：$ H^{i} = \begin{bmatrix} 1  \\ 4 \\ 2 \\ 5 \end{bmatrix} $
+上面的 $H^i$ 即为：$$ H^{i} = \begin{bmatrix} 1  \\ 4 \\ 2 \\ 5 \end{bmatrix} $$
 
 再用ReLu函数套一下：`relu(D_hat**-1 * A_hat * X * W)`  
 

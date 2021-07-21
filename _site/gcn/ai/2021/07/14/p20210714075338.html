@@ -133,7 +133,7 @@
 
 <p>此例中，\(D = \begin{bmatrix} 1&amp;0&amp;0&amp;0 \\ 0&amp;2&amp;0&amp;0 \\0&amp;0&amp;2&amp;0 \\0&amp;0&amp;0&amp;1 \\ \end{bmatrix}\)</p>
 
-<p>归一化后，上面的 $H^i$ 变为：$ H^i = \begin{bmatrix} 1&amp;-1 \ 2.5&amp;-2.5 \ 0.5&amp;-0.5 \ 2&amp;-2 \end{bmatrix}$</p>
+<p>归一化后，上面的 $H^i$ 变为：\(H^i = \begin{bmatrix} 1&amp;-1 \\ 2.5&amp;-2.5 \\ 0.5&amp;-0.5 \\ 2&amp;-2 \end{bmatrix}\)</p>
 
 <h3 id="几个问题">几个问题</h3>
 
@@ -160,11 +160,11 @@
 
 <p>一个定义，添加了自环的adj_Matrix：$\hat{\mathbf{A}} = \mathbf{A} + I$ 。 $D$ 是 $\mathbf{A}$ 的度矩阵，定义$\hat{D}$ 是 $\hat{\mathbf{A}}$ 的度矩阵。</p>
 
-<p>权重矩阵： $W = \begin{bmatrix} 1&amp;-1 \ -1&amp;1 \end{bmatrix}$</p>
+<p>权重矩阵： \(W = \begin{bmatrix} 1&amp;-1 \\ -1&amp;1 \end{bmatrix}\)</p>
 
 <p>计算此时的属性传播：$\hat{D}^{-1} \times \hat{\mathbf{A}} \times X \times W$</p>
 
-<p>上面的 $H^i$ 即为：$ H^{i} = \begin{bmatrix} 1  \ 4 \ 2 \ 5 \end{bmatrix} $</p>
+<p>上面的 $H^i$ 即为：\(H^{i} = \begin{bmatrix} 1  \\ 4 \\ 2 \\ 5 \end{bmatrix}\)</p>
 
 <p>再用ReLu函数套一下：<code class="language-plaintext highlighter-rouge">relu(D_hat**-1 * A_hat * X * W)</code></p>
 
