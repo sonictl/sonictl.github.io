@@ -1,0 +1,86 @@
+I"^<h1 id="getting-started-with-graph-convolutional-networks-as-an-amateur">Getting started with Graph Convolutional Networks as an Amateur</h1>
+
+<p>https://zhuanlan.zhihu.com/p/27587371</p>
+
+<p>https://www.cnblogs.com/wangxiaocvpr/p/8306519.html</p>
+
+<p>https://www.cnblogs.com/wangxiaocvpr/p/8299336.html</p>
+
+<p>https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780</p>
+
+<p>GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：</p>
+
+<ol>
+  <li>本篇：一个高层级的GCN介绍</li>
+  <li>谱图卷积的半监督学习</li>
+</ol>
+
+<h2 id="最基本的代码实现gcn--一个高层级的gcn介绍">最基本的代码实现GCN – 一个高层级的GCN介绍</h2>
+<p>In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。
+<a href="https://cloud.tencent.com/developer/article/1400504">ref link in Chinese中文</a></p>
+
+<h3 id="看看gcn的输入是啥">看看GCN的输入是啥</h3>
+<p>Given a graph $G = (V, E)$ , a GCN takes as input:</p>
+
+<ul>
+  <li>adjacency matrix $\mathbf{A}$ of $G$.   <em>N</em> × <em>N</em></li>
+  <li>an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,
+    <ul>
+      <li>where <em>N</em> is the number of nodes and</li>
+      <li><em>F⁰</em> is the number of input features for each node</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image-20210717215412877.png" alt="image-20210717215412877" /></p>
+
+<p>图示是一个例子</p>
+
+<h3 id="对图中示例的解释">对图中示例的解释：</h3>
+
+<p>以一个包含4个节点的图为例，圆括号是每个节点的属性信息。有向边（v,n）表示从v-&gt;n的边，此时定义n是节点v的邻居。</p>
+
+<p>GCN的隐藏层记作： $H^{i} = f(H^{i-1}, \mathbf{A})$</p>
+
+<p>如果将 $f$ 这个传播规则定义为最简单的  $f(\cdot) = \mathbf{A} \times H^{i-1}$</p>
+
+\[\mathbf{A} = \begin{bmatrix} 0&amp;1&amp;0&amp;0 \\ 0&amp;0&amp;1&amp;1 \\0&amp;1&amp;0&amp;0 \\1&amp;0&amp;1&amp;0 \\ \end{bmatrix}\]
+
+\[H^{i-1} = \begin{bmatrix} 0&amp;0 \\ 1&amp;-1 \\ 2&amp;-2 \\ 3&amp;-3 \\  \end{bmatrix}\]
+
+\[H^{i} = \mathbf{A} \times H^{i-1} = \begin{bmatrix} 1 &amp; -1 \\ 5 &amp; -5 \\ 1 &amp; -1 \\ 2 &amp; -2 \end{bmatrix}\]
+
+<p>通过一次传播，得到了节点的新的特征$H^i$ .</p>
+
+<p>如果我们还有节点的度矩阵： $D$ ，利用 $D$ 可以对 $H^i$ 进行归一化： $f(X,A) = D^{-1} \mathbf{A} X$ or  $f(X,A) = D^{-1} \mathbf{A} H^{i}$</p>
+
+<p>此例中，\(D = \begin{bmatrix} 1&amp;0&amp;0&amp;0 \\ 0&amp;2&amp;0&amp;0 \\0&amp;0&amp;2&amp;0 \\0&amp;0&amp;0&amp;1 \\ \end{bmatrix}\)</p>
+
+<p>归一化后，上面的 $H^i$ 变为：$ H^i = \begin{bmatrix} 1&amp;-1 \ 2.5&amp;-2.5 \ 0.5&amp;-0.5 \2&amp;-2 \end{bmatrix}$</p>
+
+<h3 id="几个问题">几个问题</h3>
+
+<p><strong>问题1：</strong>该表征是相邻节点的特征聚合， 节点的聚合表征不包含它⾃⼰的特征！只有具有⾃环（self-loop）的节点才会在该聚合中包含⾃⼰的特征。在邻接矩阵A中，对角线上为1的节点才是具有自环的节点。</p>
+
+<p><strong>问题2：</strong>度⼤的节点在其特征表征中将具有较⼤的值，度⼩的节点将具有较⼩的值。会影响随机梯度下降算法，比如梯度爆炸。</p>
+
+<h4 id="解决">解决：</h4>
+
+<ol>
+  <li>增加自环，在A中加入eye矩阵：np.eye(A.shape[0])</li>
+  <li>对表征进行归一化。如：$f(X,A) = D^{-1} \mathbf{A} X$</li>
+</ol>
+
+<hr />
+
+<h2 id="2-整合">2. 整合</h2>
+
+<p>这一节要把前面讨论的增加自环、归一化加入，还要加入前面省略的权重和激活函数。</p>
+
+<p>即： 自环 - 归一化 - 权重 - 激活函数</p>
+
+<h3 id="21-应用权重">2.1 应用权重</h3>
+
+<p>一个定义：$\hat{A} = A + I$ 。 $D$ 是 A 的度矩阵，定义$\hat{D}$ 是 $\hat{A}$ 的度矩阵。</p>
+
+:ET

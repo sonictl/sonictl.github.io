@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-14T23:03:44+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>自己的博客掌握在自己手中。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-07-21T09:02:16+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>自己的博客掌握在自己手中。
 </subtitle><author><name>sonictl</name></author><entry><title type="html">中国计算机学会(CCF)推荐国际学术期刊目录(2019)</title><link href="https://sonictl.github.io/academy/2021/07/14/p20210714215528.html" rel="alternate" type="text/html" title="中国计算机学会(CCF)推荐国际学术期刊目录(2019)" /><published>2021-07-14T21:55:28+08:00</published><updated>2021-07-14T21:55:28+08:00</updated><id>https://sonictl.github.io/academy/2021/07/14/p20210714215528</id><content type="html" xml:base="https://sonictl.github.io/academy/2021/07/14/p20210714215528.html">&lt;p&gt;#中国计算机学会(CCF)推荐国际学术期刊目录(2019)&lt;/p&gt;
 
 &lt;h2 id=&quot;table-of-contents&quot;&gt;Table of contents&lt;/h2&gt;
@@ -1459,7 +1459,88 @@ ACM http://dblp.uni-trier.de/db/conf/avi/&lt;/p&gt;</content><author><name>sonic
 
 &lt;p&gt;https://www.cnblogs.com/wangxiaocvpr/p/8306519.html&lt;/p&gt;
 
-&lt;p&gt;https://www.cnblogs.com/wangxiaocvpr/p/8299336.html&lt;/p&gt;</content><author><name>sonictl</name></author><category term="GCN" /><category term="AI" /><summary type="html">Getting started with Graph Convolutional Networks as an Amateur</summary></entry><entry><title type="html">install usbmount on debian for orangePi / raspberryPi</title><link href="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html" rel="alternate" type="text/html" title="install usbmount on debian for orangePi / raspberryPi" /><published>2021-07-06T08:02:01+08:00</published><updated>2021-07-06T08:02:01+08:00</updated><id>https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201</id><content type="html" xml:base="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html">&lt;h2 id=&quot;install-usbmount-on-debian-for-orangepi--raspberrypi&quot;&gt;install usbmount on debian for orangePi / raspberryPi&lt;/h2&gt;
+&lt;p&gt;https://www.cnblogs.com/wangxiaocvpr/p/8299336.html&lt;/p&gt;
+
+&lt;p&gt;https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780&lt;/p&gt;
+
+&lt;p&gt;GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;本篇：一个高层级的GCN介绍&lt;/li&gt;
+  &lt;li&gt;谱图卷积的半监督学习&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;最基本的代码实现gcn--一个高层级的gcn介绍&quot;&gt;最基本的代码实现GCN – 一个高层级的GCN介绍&lt;/h2&gt;
+&lt;p&gt;In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。
+&lt;a href=&quot;https://cloud.tencent.com/developer/article/1400504&quot;&gt;ref link in Chinese中文&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;看看gcn的输入是啥&quot;&gt;看看GCN的输入是啥&lt;/h3&gt;
+&lt;p&gt;Given a graph $G = (V, E)$ , a GCN takes as input:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;adjacency matrix $\mathbf{A}$ of $G$.   &lt;em&gt;N&lt;/em&gt; × &lt;em&gt;N&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,
+    &lt;ul&gt;
+      &lt;li&gt;where &lt;em&gt;N&lt;/em&gt; is the number of nodes and&lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;F⁰&lt;/em&gt; is the number of input features for each node&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/image-20210717215412877.png&quot; alt=&quot;image-20210717215412877&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;图示是一个例子&lt;/p&gt;
+
+&lt;h3 id=&quot;对图中示例的解释&quot;&gt;对图中示例的解释：&lt;/h3&gt;
+
+&lt;p&gt;以一个包含4个节点的图为例，圆括号是每个节点的属性信息。有向边（v,n）表示从v-&amp;gt;n的边，此时定义n是节点v的邻居。&lt;/p&gt;
+
+&lt;p&gt;GCN的隐藏层记作： $H^{i} = f(H^{i-1}, \mathbf{A})$&lt;/p&gt;
+
+&lt;p&gt;如果将 $f$ 这个传播规则定义为最简单的  $f(\cdot) = \mathbf{A} \times H^{i-1}$&lt;/p&gt;
+
+\[\mathbf{A} = \begin{bmatrix} 0&amp;amp;1&amp;amp;0&amp;amp;0 \\ 0&amp;amp;0&amp;amp;1&amp;amp;1 \\0&amp;amp;1&amp;amp;0&amp;amp;0 \\1&amp;amp;0&amp;amp;1&amp;amp;0 \\ \end{bmatrix}\]
+
+\[H^{i-1} = \begin{bmatrix} 0&amp;amp;0 \\ 1&amp;amp;-1 \\ 2&amp;amp;-2 \\ 3&amp;amp;-3 \\  \end{bmatrix}\]
+
+\[H^{i} = \mathbf{A} \times H^{i-1} = \begin{bmatrix} 1 &amp;amp; -1 \\ 5 &amp;amp; -5 \\ 1 &amp;amp; -1 \\ 2 &amp;amp; -2 \end{bmatrix}\]
+
+&lt;p&gt;通过一次传播，得到了节点的新的特征$H^i$ .&lt;/p&gt;
+
+&lt;p&gt;如果我们还有节点的度矩阵： $D$ ，利用 $D$ 可以对 $H^i$ 进行归一化： $f(X,A) = D^{-1} \mathbf{A} X$ or  $f(X,A) = D^{-1} \mathbf{A} H^{i}$&lt;/p&gt;
+
+&lt;p&gt;此例中，\(D = \begin{bmatrix} 1&amp;amp;0&amp;amp;0&amp;amp;0 \\ 0&amp;amp;2&amp;amp;0&amp;amp;0 \\0&amp;amp;0&amp;amp;2&amp;amp;0 \\0&amp;amp;0&amp;amp;0&amp;amp;1 \\ \end{bmatrix}\)&lt;/p&gt;
+
+&lt;p&gt;归一化后，上面的 $H^i$ 变为：$ H^i = \begin{bmatrix} 1&amp;amp;-1 \ 2.5&amp;amp;-2.5 \ 0.5&amp;amp;-0.5 \2&amp;amp;-2 \end{bmatrix}$&lt;/p&gt;
+
+&lt;h3 id=&quot;几个问题&quot;&gt;几个问题&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;问题1：&lt;/strong&gt;该表征是相邻节点的特征聚合， 节点的聚合表征不包含它⾃⼰的特征！只有具有⾃环（self-loop）的节点才会在该聚合中包含⾃⼰的特征。在邻接矩阵A中，对角线上为1的节点才是具有自环的节点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;问题2：&lt;/strong&gt;度⼤的节点在其特征表征中将具有较⼤的值，度⼩的节点将具有较⼩的值。会影响随机梯度下降算法，比如梯度爆炸。&lt;/p&gt;
+
+&lt;h4 id=&quot;解决&quot;&gt;解决：&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;增加自环，在A中加入eye矩阵：np.eye(A.shape[0])&lt;/li&gt;
+  &lt;li&gt;对表征进行归一化。如：$f(X,A) = D^{-1} \mathbf{A} X$&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2-整合&quot;&gt;2. 整合&lt;/h2&gt;
+
+&lt;p&gt;这一节要把前面讨论的增加自环、归一化加入，还要加入前面省略的权重和激活函数。&lt;/p&gt;
+
+&lt;p&gt;即： 自环 - 归一化 - 权重 - 激活函数&lt;/p&gt;
+
+&lt;h3 id=&quot;21-应用权重&quot;&gt;2.1 应用权重&lt;/h3&gt;
+
+&lt;p&gt;一个定义：$\hat{\mathbf{A}} = A + I$ 。 $D$ 是 A 的度矩阵，定义$\hat{D}$ 是 $\hat{\mathbf{A}}$ 的度矩阵。&lt;/p&gt;
+
+&lt;p&gt;权重矩阵： $W = \begin{bmatrix} 1&amp;amp;-1 \ -1&amp;amp;1 \end{bmatrix}$&lt;/p&gt;
+
+&lt;p&gt;计算此时的属性传播：$\hat{D}^{-1} \times \hat{\mathbf{A}} \times X \times W$&lt;/p&gt;</content><author><name>sonictl</name></author><category term="GCN" /><category term="AI" /><summary type="html">Getting started with Graph Convolutional Networks as an Amateur</summary></entry><entry><title type="html">install usbmount on debian for orangePi / raspberryPi</title><link href="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html" rel="alternate" type="text/html" title="install usbmount on debian for orangePi / raspberryPi" /><published>2021-07-06T08:02:01+08:00</published><updated>2021-07-06T08:02:01+08:00</updated><id>https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201</id><content type="html" xml:base="https://sonictl.github.io/orangepi/embedded_system/2021/07/06/p20210706080201.html">&lt;h2 id=&quot;install-usbmount-on-debian-for-orangepi--raspberrypi&quot;&gt;install usbmount on debian for orangePi / raspberryPi&lt;/h2&gt;
 
 &lt;p&gt;USBmount was removed from Debian a while back because the version from the repositories no longer works. It’s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).&lt;/p&gt;
 

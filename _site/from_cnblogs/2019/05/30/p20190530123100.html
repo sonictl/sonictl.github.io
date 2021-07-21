@@ -48,6 +48,18 @@
             <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
   </header>
 
+  <!-- add this block for math equation support >>>>-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- <<<< add above block for math equation support -->
+
   <!-- categories start >>>> -->
   <div class="post-categories">
   
@@ -153,6 +165,28 @@ RQSZ <span class="k">\\</span>
 </code></pre></div></div>
 <p><img src="https://img2020.cnblogs.com/blog/780771/202003/780771-20200312103840966-1850720798.png" alt="" /></p>
 
+<h4 id="matrix-equation">Matrix equation:</h4>
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">\begin{bmatrix}</span> <span class="k">\Phi</span><span class="p">_{</span>11<span class="p">}</span> <span class="p">&amp;</span> <span class="k">\Phi</span><span class="p">_{</span>12<span class="p">}</span> <span class="k">\\</span> <span class="k">\Phi</span><span class="p">_{</span>21<span class="p">}</span> <span class="p">&amp;</span> <span class="k">\Phi</span><span class="p">_{</span>22<span class="p">}</span> <span class="nt">\end{bmatrix}</span>
+ =
+ <span class="k">\frac</span><span class="p">{</span>1<span class="p">}{</span><span class="k">\det</span>(X)<span class="p">}</span>
+  <span class="nt">\begin{bmatrix}</span>
+   X<span class="p">_{</span>22<span class="p">}</span> Y<span class="p">_{</span>11<span class="p">}</span> - X<span class="p">_{</span>12<span class="p">}</span> Y<span class="p">_{</span>21<span class="p">}</span> <span class="p">&amp;</span>
+   X<span class="p">_{</span>22<span class="p">}</span> Y<span class="p">_{</span>12<span class="p">}</span> - X<span class="p">_{</span>12<span class="p">}</span> Y<span class="p">_{</span>22<span class="p">}</span> <span class="k">\\</span>
+   X<span class="p">_{</span>11<span class="p">}</span> Y<span class="p">_{</span>21<span class="p">}</span> - X<span class="p">_{</span>21<span class="p">}</span> Y<span class="p">_{</span>11<span class="p">}</span> <span class="p">&amp;</span>
+   X<span class="p">_{</span>11<span class="p">}</span> Y<span class="p">_{</span>22<span class="p">}</span> - X<span class="p">_{</span>21<span class="p">}</span> Y<span class="p">_{</span>12<span class="p">}</span> 
+   <span class="nt">\end{bmatrix}</span>
+</code></pre></div></div>
+
+\[\begin{bmatrix} \Phi_{11} &amp; \Phi_{12} \\ \Phi_{21} &amp; \Phi_{22} \end{bmatrix}
+ =
+ \frac{1}{\det(X)}
+  \begin{bmatrix}
+   X_{22} Y_{11} - X_{12} Y_{21} &amp;
+   X_{22} Y_{12} - X_{12} Y_{22} \\
+   X_{11} Y_{21} - X_{21} Y_{11} &amp;
+   X_{11} Y_{22} - X_{21} Y_{12} 
+   \end{bmatrix}\]
+
 <h3 id="further-reading"><a href="https://www.overleaf.com/learn/latex/Mathematical_fonts#Further_reading">Further reading</a></h3>
 
 <h3 id="摘自一份不太简短的-latex2e-介绍">摘自<a href="http://www.mohu.org/info/lshort-cn.pdf">“一份不太简短的 LATEX2e 介绍”</a>）</h3>
@@ -208,6 +242,7 @@ RQSZ <span class="k">\\</span>
 <p><strong><a href="https://www.overleaf.com/learn/latex/biblatex_citation_styles">biblatex_citation_styles</a></strong></p>
 
 <p><strong><a href="https://tex.stackexchange.com/questions/304438/superscript-citations-in-numeric-comp-style">Superscript citations in numeric-comp style</a></strong></p>
+
 <h2 id="o">o</h2>
 
     
