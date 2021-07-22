@@ -156,6 +156,20 @@ print(nx.info(G))
 ```
 现在应该能看到这个Graph的一些基本的，表面的情况，但还远远不够。。
 
+#### 邻接矩阵的生成
+
+```python
+from networkx import karate_club_graph, to_numpy_matrix
+zkc = karate_club_graph()
+order = sorted(list(zkc.nodes()))  # order = [0,1,2,...]
+A = to_numpy_matrix(zkc, nodelist=order)   # 输入一个nx.graph, this shows how to generate its adj_Matrix
+# degree matrix: 度矩阵的生成
+D = np.array(np.sum(A, axis=0))[0]
+D = np.matrix(np.diag(D))
+```
+
+
+
 ## 进一步分析
 
 ### Add attributes

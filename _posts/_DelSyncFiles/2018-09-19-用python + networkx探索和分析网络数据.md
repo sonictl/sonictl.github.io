@@ -3,6 +3,7 @@ layout: post
 title: '用python + networkx探索和分析网络数据'
 date: 2018-09-19 13:10:00 +0800
 category: from_cnblogs networkx
+slug: p20180919131000
 ---
 Edited by Markdown
 
@@ -154,6 +155,18 @@ Now you have your data as two Python lists: a list of nodes (`node_names`) and a
 print(nx.info(G))
 ```
 现在应该能看到这个Graph的一些基本的，表面的情况，但还远远不够。。
+
+#### 邻接矩阵的生成
+
+```python
+from networkx import karate_club_graph, to_numpy_matrix
+zkc = karate_club_graph()
+order = sorted(list(zkc.nodes()))  # order = [0,1,2,...]
+A = to_numpy_matrix(zkc, nodelist=order)   # 输入一个nx.graph, this shows how to generate its adj_Matrix
+
+```
+
+
 
 ## 进一步分析
 
