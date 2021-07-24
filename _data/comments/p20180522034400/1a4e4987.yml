@@ -1,0 +1,29 @@
+id: 1a4e4987
+date: 2021-07-24T14:13:12.9024410Z
+name: sonictl
+email: sonictl@sonictl.github.io
+score: Not configured
+message: >-
+  change the mouse scroll direction for windows10
+
+  - ctrl+R + 'regedit' , open the reg editor
+
+  - go to 'Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\HID'
+
+  - open 'device manager' and find the 'device instance path' at the propertiy's detail tag for 'HID-compliant' mouse
+
+  - you can find the 'device instance path' as below:
+
+  - HID\{00001812-0000-1000-8000-00805F9B34FB}_DEV_VID&021915_PID&0040_REV&0001_D0FC999B0CFD&COL01\9&21DDADF7&0&0000
+
+
+
+  - back to regEditor, go to the path constructed by two parts above:
+
+
+
+  Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\HID\{00001812-0000-1000-8000-00805F9B34FB}_DEV_VID&021915_PID&0040_REV&0001_D0FC999B0CFD&COL01\9&21DDADF7&0&0000
+
+
+
+  - find the 'FlipFlopWheel' and set it as 1. The 'FlipFlopWheel' is in 'Device Parameters' folder.
