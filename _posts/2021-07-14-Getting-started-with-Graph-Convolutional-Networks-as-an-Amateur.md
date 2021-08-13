@@ -274,3 +274,8 @@ plot_embeddings(M_reduced_plot, word2Ind_plot, words)
 ### 总结
 
 在这篇文章中，我对图卷积网络进行了高层次的介绍，并说明了GCN中每一层的节点的特征表示是如何基于其邻域的集合的。我们看到了如何使用numpy构建这些网络，以及它们有多么强大：即使是随机初始化的GCN也能在Zachary的空手道俱乐部中分离出社区。 在下一篇文章中，我将对技术细节进行深入探讨，并展示如何使用半监督学习实现和训练一个最近发表的GCN。你可以在这里找到这个系列的下一篇文章。 喜欢你读的东西吗？可以考虑在Twitter上关注我，除了我自己的文章之外，我还会分享与数据科学和机器学习的实践、理论和伦理学有关的论文、视频和文章。 有关专业咨询，请在LinkedIn上联系我，或在Twitter上直接留言。
+
+
+
+参考下一节： [Part 2: Semi-Supervised Learning with Spectral Graph Convolutions](https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-62acf5b143d0)
+
