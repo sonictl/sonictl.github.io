@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "简单的python web服务器（附编码设置）"
+title:  "简单的python web服务器，编码设置"
 date: 2021-08-26 10:52:01 +0800
 categories: python
 slug: p20210826105201
@@ -53,4 +53,3 @@ if __name__ == '__main__':
     server.serve_forever()
 ```
 
-You can access the content by '127.0.0.1:8080' in browser that running in local machine on which the python web is running on.
