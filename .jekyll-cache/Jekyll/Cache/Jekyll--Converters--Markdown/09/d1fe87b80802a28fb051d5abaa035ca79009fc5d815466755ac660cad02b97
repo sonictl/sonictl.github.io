@@ -1,0 +1,80 @@
+I"l<p>#ESP8266 wifi configuration with AP mode</p>
+
+<p>Thanks for the github repository: <code class="language-plaintext highlighter-rouge">tzapu/WiFiManager</code></p>
+
+<p>Although we all know that we can use the AP mode to configure the wifi password for ESP8266, it still takes time to implement the specific code line by line. Now, with the help of this project, I just need to share the steps to get this project running on our own ESP8266 chip.</p>
+
+<p><strong>Note</strong> that the ESP8266 SmartConfig is another covenient way for wifi password broadcasting while the android app seems not supported by my HomonyOS phone.</p>
+
+<h2 id="wifikit8">wifikit8</h2>
+
+<p>https://heltec.org/product/wifi-kit-8/</p>
+
+<p>with esp8266 as the MCU on board.</p>
+
+<h2 id="platformio-on-vs-code">PlatformIO on VS Code</h2>
+
+<p>reference: <a href="https://www.electronicshub.org/programming-esp8266-using-vs-code-and-platformio/">Getting start with Platform on VS_Code</a></p>
+
+<p>add <code class="language-plaintext highlighter-rouge">monitor_speed = 115200</code> into <code class="language-plaintext highlighter-rouge">platformio.ini</code> file.</p>
+
+<p>Here I have an example code in <code class="language-plaintext highlighter-rouge">main.cpp</code> for testing:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;Arduino.h&gt;
+</span>
+<span class="cp">#define ledPin 4
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// put your setup code here, to run once:</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// put your main code here, to run repeatedly:</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"LED is ON!!!"</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"LED is OFF!!!"</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Once you have successfully implemented your first Arduino proj. with the help of PlatformIO on VSCode, go ahead to read the next section of WiFiManger.</p>
+
+<h2 id="wifimanager">WiFiManager</h2>
+
+<h3 id="install-the-libray-in-platformio">Install the libray in PlatformIO</h3>
+
+<p>reference: <a href="https://github.com/tzapu/WiFiManager#install-using-platformio">install tutorial</a></p>
+
+<p>in VSCode, goto: PlO_home » libraries » search the <code class="language-plaintext highlighter-rouge">tzapu WiFiManger</code> , and add it to your project.</p>
+
+<h3 id="basic-exaple-code">Basic exaple code</h3>
+
+<p>The basic <a href="https://github.com/tzapu/WiFiManager/blob/master/examples/Basic/Basic.ino">example</a> helps you get started.</p>
+
+<h2 id="https-client">HTTPS client</h2>
+
+<p>reference: <a href="https://buger.dread.cz/simple-esp8266-https-client-without-verification-of-certificate-fingerprint.html">ESP8266 HTTPS client without cert fingerprint</a></p>
+
+<p>ESP8266HTTPClient requires server certificate fingerprint hardcoded (or provided somehow) in your sketch to be able to connect. This is not an issue until the certificate on the server is renewed. So here the no-cert https client is used.</p>
+
+<h4 id="when-avoid-this-method-that-without-certificate">When avoid this method that without certificate?</h4>
+
+<p>Really don’t use this when:</p>
+
+<ul>
+  <li>any kind of personal or sensitive data are involved / transfered - like passwords, keys, personal messages</li>
+  <li>faked value / information may cause damage - like turning on all heaters in your house during your 2 weeks long summer vacation because somebody faked the API you are using to control them, or bot which sells all your bitcoins by “mistake” because of faked exchange rate received</li>
+</ul>
+
+<h2 id="basic-simple-web-server-by-python">Basic simple web server by Python</h2>
+
+<p>Python run a web server and publish some messages that can be gotten by the https client on ESP8266.</p>
+
+<p>ref: <a href="https://docs.python.org/3/library/http.server.html">https://docs.python.org/3/library/http.server.html</a></p>
+
+:ET

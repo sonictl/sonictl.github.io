@@ -2,7 +2,7 @@
 layout: post
 title: 'Configure ssl+Nginx (secure socket.io connection)'
 date: 2020-03-20 12:41:00 +0800
-category: from_cnblogs
+category: web
 slug: p20200320124100
 ---
 # secure the nodejs app transmissions by ssl
@@ -14,7 +14,7 @@ slug: p20200320124100
    - create a `package.json` manifest file that describes our project
    - `npm install express@4.15.2`
    - create an `index.js` file that will setup our application
-   The `index.js` file supply the html content of "Hello world".
+      The `index.js` file supply the html content of "Hello world".
    - create a `index.html` file and modify the `index.js` to serve the `index.html`.
 
 ### Insert socket.io:
@@ -37,11 +37,14 @@ slug: p20200320124100
 For more details: https://socket.io/get-started/chat/
 
 ## 2. Take nginx as a web server, make the nodejs app accessible
-   Even though the Caddy is the convenient server for https and the certificate application. The nginx is still the wider used solution for web service.
+   Even though the Caddy is the convenient server for https and the certificate application. The nginx is still the wider-used solution for web service.
    ref: https://www.sitepoint.com/configuring-nginx-ssl-node-js/
+
 ### Configure the nginx for nodejs service on port 3000
-    configure the nginx.conf file, and add a server:
-```
+
+configure the nginx.conf file, and add a server:
+
+```json
 server {
   listen       80;
   server_name  <your_domain_name>;
@@ -56,8 +59,9 @@ server {
   }
 }
 ```
+
    The `location /` block tells NGINX what to do with any incoming request. We use `proxy_pass` to point to our Node.js application, which is running at `http://localhost:3000` in this case.
-   
+
 ## 3. Secure the nodejs app by https
    - Install the certbot: https://certbot.eff.org/lets-encrypt/centosrhel8-nginx (**select the nginx and the os of web server**)
    - to configure ssl by `certbot`, run `sudo /usr/local/bin/certbot-auto --nginx`
@@ -74,9 +78,9 @@ IMPORTANT NOTES:
    of your certificates, run "certbot-auto renew"
 ```
    - restart the service of nginx should make the ssl transmission enabled.
-   Note: the ssl goes on the 443 port by default. Check the port occupy by `netstat -tulnp`. If the 443 is occupied, you may change the 443 into other port and specify the port when you aquire the web in web browser. e.g. : `https://your_domain.com:port_num` 
-   The transmission should be secured now.
-   tip: You may need a simple CLI tool for ensuring that a given script runs continuously (i.e. [forever](https://www.npmjs.com/package/forever)).
+      Note: the ssl goes on the 443 port by default. Check the port occupy by `netstat -tulnp`. If the 443 is occupied, you may change the 443 into other port and specify the port when you aquire the web in web browser. e.g. : `https://your_domain.com:port_num` 
+      The transmission should be secured now.
+      tip: You may need a simple CLI tool for ensuring that a given script runs continuously (i.e. [forever](https://www.npmjs.com/package/forever)).
 
 ## 4. Secure the socket.io
 
@@ -123,7 +127,7 @@ preparations:
 3. configure the firewall
   depends on the firewall software installed in the system
   on centos, check status:
-```  # sudo systemctl status firewalld```
+  ```  # sudo systemctl status firewalld```
 
   my firewalld is in active. if it's active, ref: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-8
 
@@ -134,7 +138,7 @@ preparations:
   
  ``` #mkdir -p /var/www/urdomain1.com/html
   #mkdir -p /var/www/urdomain2.com/html
-```
+ ```
 5. assign ownership to the directories.
 ```
   # echo $USER
@@ -246,7 +250,7 @@ follow the [ref link](https://www.digitalocean.com/community/tutorials/how-to-se
 ```
 
 #### Updating Diffie-Hellman Parameters
-  
+
 #### Setting Up Auto Renewal
 Let’s Encrypt’s certificates are only valid for 90 days. set up a regularly run command to check and renew.
 

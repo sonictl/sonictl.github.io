@@ -50,6 +50,7 @@ class handler(BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     server = HTTPServer(('', 8080), handler)
+    #server = HTTPServer(('0.0.0.0', 8080), handler)  # 0.0.0.0 for public accessible
     server.serve_forever()
 ```
 

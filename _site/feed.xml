@@ -1,5 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-08-26T11:11:05+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">简单的python web服务器（附编码设置）</title><link href="https://sonictl.github.io/python/2021/08/26/p20210826105201.html" rel="alternate" type="text/html" title="简单的python web服务器（附编码设置）" /><published>2021-08-26T10:52:01+08:00</published><updated>2021-08-26T10:52:01+08:00</updated><id>https://sonictl.github.io/python/2021/08/26/p20210826105201</id><content type="html" xml:base="https://sonictl.github.io/python/2021/08/26/p20210826105201.html">&lt;h3 id=&quot;a-basic-web-server-implemented-by-python36&quot;&gt;A basic web server implemented by python3.6&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2021-09-05T19:45:34+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">ESP8266 wifi configuration with AP mode</title><link href="https://sonictl.github.io/iot/arduino/2021/08/26/p20210826204201.html" rel="alternate" type="text/html" title="ESP8266 wifi configuration with AP mode" /><published>2021-08-26T20:42:01+08:00</published><updated>2021-08-26T20:42:01+08:00</updated><id>https://sonictl.github.io/iot/arduino/2021/08/26/p20210826204201</id><content type="html" xml:base="https://sonictl.github.io/iot/arduino/2021/08/26/p20210826204201.html">&lt;p&gt;#ESP8266 wifi configuration with AP mode&lt;/p&gt;
+
+&lt;p&gt;Thanks for the github repository: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tzapu/WiFiManager&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Although we all know that we can use the AP mode to configure the wifi password for ESP8266, it still takes time to implement the specific code line by line. Now, with the help of this project, I just need to share the steps to get this project running on our own ESP8266 chip.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; that the ESP8266 SmartConfig is another covenient way for wifi password broadcasting while the android app seems not supported by my HomonyOS phone.&lt;/p&gt;
+
+&lt;h2 id=&quot;wifikit8&quot;&gt;wifikit8&lt;/h2&gt;
+
+&lt;p&gt;https://heltec.org/product/wifi-kit-8/&lt;/p&gt;
+
+&lt;p&gt;with esp8266 as the MCU on board.&lt;/p&gt;
+
+&lt;h2 id=&quot;platformio-on-vs-code&quot;&gt;PlatformIO on VS Code&lt;/h2&gt;
+
+&lt;p&gt;reference: &lt;a href=&quot;https://www.electronicshub.org/programming-esp8266-using-vs-code-and-platformio/&quot;&gt;Getting start with Platform on VS_Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;monitor_speed = 115200&lt;/code&gt; into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Here I have an example code in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.cpp&lt;/code&gt; for testing:&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;Arduino.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define ledPin 4
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// put your setup code here, to run once:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;115200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// put your main code here, to run repeatedly:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LED is ON!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LED is OFF!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you have successfully implemented your first Arduino proj. with the help of PlatformIO on VSCode, go ahead to read the next section of WiFiManger.&lt;/p&gt;
+
+&lt;h2 id=&quot;wifimanager&quot;&gt;WiFiManager&lt;/h2&gt;
+
+&lt;h3 id=&quot;install-the-libray-in-platformio&quot;&gt;Install the libray in PlatformIO&lt;/h3&gt;
+
+&lt;p&gt;reference: &lt;a href=&quot;https://github.com/tzapu/WiFiManager#install-using-platformio&quot;&gt;install tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;in VSCode, goto: PlO_home » libraries » search the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tzapu WiFiManger&lt;/code&gt; , and add it to your project.&lt;/p&gt;
+
+&lt;h3 id=&quot;basic-exaple-code&quot;&gt;Basic exaple code&lt;/h3&gt;
+
+&lt;p&gt;The basic &lt;a href=&quot;https://github.com/tzapu/WiFiManager/blob/master/examples/Basic/Basic.ino&quot;&gt;example&lt;/a&gt; helps you get started.&lt;/p&gt;
+
+&lt;h2 id=&quot;https-client&quot;&gt;HTTPS client&lt;/h2&gt;
+
+&lt;p&gt;reference: &lt;a href=&quot;https://buger.dread.cz/simple-esp8266-https-client-without-verification-of-certificate-fingerprint.html&quot;&gt;ESP8266 HTTPS client without cert fingerprint&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ESP8266HTTPClient requires server certificate fingerprint hardcoded (or provided somehow) in your sketch to be able to connect. This is not an issue until the certificate on the server is renewed. So here the no-cert https client is used.&lt;/p&gt;
+
+&lt;h4 id=&quot;when-avoid-this-method-that-without-certificate&quot;&gt;When avoid this method that without certificate?&lt;/h4&gt;
+
+&lt;p&gt;Really don’t use this when:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;any kind of personal or sensitive data are involved / transfered - like passwords, keys, personal messages&lt;/li&gt;
+  &lt;li&gt;faked value / information may cause damage - like turning on all heaters in your house during your 2 weeks long summer vacation because somebody faked the API you are using to control them, or bot which sells all your bitcoins by “mistake” because of faked exchange rate received&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;basic-simple-web-server-by-python&quot;&gt;Basic simple web server by Python&lt;/h2&gt;
+
+&lt;p&gt;Python run a web server and publish some messages that can be gotten by the https client on ESP8266.&lt;/p&gt;
+
+&lt;p&gt;ref: &lt;a href=&quot;https://docs.python.org/3/library/http.server.html&quot;&gt;https://docs.python.org/3/library/http.server.html&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="IoT" /><category term="Arduino" /><summary type="html">#ESP8266 wifi configuration with AP mode</summary></entry><entry><title type="html">简单的python web服务器（附编码设置）</title><link href="https://sonictl.github.io/python/2021/08/26/p20210826105201.html" rel="alternate" type="text/html" title="简单的python web服务器（附编码设置）" /><published>2021-08-26T10:52:01+08:00</published><updated>2021-08-26T10:52:01+08:00</updated><id>https://sonictl.github.io/python/2021/08/26/p20210826105201</id><content type="html" xml:base="https://sonictl.github.io/python/2021/08/26/p20210826105201.html">&lt;h3 id=&quot;a-basic-web-server-implemented-by-python36&quot;&gt;A basic web server implemented by python3.6&lt;/h3&gt;
 &lt;p&gt;Note: the &lt;strong&gt;encoding-related configuration&lt;/strong&gt; in line:&lt;/p&gt;
 
 &lt;p&gt;​         &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;self.send_header('Content-type','text/html; charset=utf-8')&lt;/code&gt;&lt;/p&gt;
@@ -40,7 +117,8 @@
 &lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HTTPServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serve_forever&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#server = HTTPServer(('0.0.0.0', 8080), handler)  # 0.0.0.0 for public accessible
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serve_forever&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;You can access the content by ‘127.0.0.1:8080’ in browser that running in local machine on which the python web is running on.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="python" /><summary type="html">A basic web server implemented by python3.6 Note: the encoding-related configuration in line:</summary></entry><entry><title type="html">中国计算机学会(CCF)推荐国际学术期刊目录(2019)</title><link href="https://sonictl.github.io/academy/2021/07/14/p20210714215528.html" rel="alternate" type="text/html" title="中国计算机学会(CCF)推荐国际学术期刊目录(2019)" /><published>2021-07-14T21:55:28+08:00</published><updated>2021-07-14T21:55:28+08:00</updated><id>https://sonictl.github.io/academy/2021/07/14/p20210714215528</id><content type="html" xml:base="https://sonictl.github.io/academy/2021/07/14/p20210714215528.html">&lt;p&gt;#中国计算机学会(CCF)推荐国际学术期刊目录(2019)&lt;/p&gt;
@@ -2673,129 +2751,4 @@ def _node2vec_inner(
 
 &lt;h3 id=&quot;the-newer-comer-jupyterlab&quot;&gt;the newer comer: jupyterLab&lt;/h3&gt;
 
-&lt;p&gt;https://jupyter.org/install&lt;/p&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">How to add conda env into jupyter notebook installed by pip ref: https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084</summary></entry><entry><title type="html">The Power of WordNet and How to Use It in Python</title><link href="https://sonictl.github.io/from_cnblogs/2021/03/08/p20210308150300.html" rel="alternate" type="text/html" title="The Power of WordNet and How to Use It in Python" /><published>2021-03-08T15:03:00+08:00</published><updated>2021-03-08T15:03:00+08:00</updated><id>https://sonictl.github.io/from_cnblogs/2021/03/08/p20210308150300</id><content type="html" xml:base="https://sonictl.github.io/from_cnblogs/2021/03/08/p20210308150300.html">&lt;h1 id=&quot;the-power-of-wordnet-and-how-to-use-it-in-python&quot;&gt;The Power of WordNet and How to Use It in Python&lt;/h1&gt;
-
-&lt;p&gt;Posted on &lt;a href=&quot;https://blog.xrds.acm.org/2017/07/power-wordnet-use-python/&quot;&gt;July 20, 2017&lt;/a&gt;  by  &lt;a href=&quot;https://blog.xrds.acm.org/author/prachikumar/&quot;&gt;Prachi Kumar&lt;/a&gt; in this &lt;a href=&quot;https://blog.xrds.acm.org/2017/07/power-wordnet-use-python/&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In this post, I am going to talk about the relations in WordNet (https://wordnet.princeton.edu) and how you can use these in a Python project. WordNet is a database of English words with different relations between the words.&lt;/p&gt;
-
-&lt;p&gt;Take a look at the next four sentences.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;“She went home and had pasta.”&lt;/li&gt;
-  &lt;li&gt;“Then she cleaned the kitchen and sat on the sofa.”&lt;/li&gt;
-  &lt;li&gt;“A little while later, she got up from the couch.”&lt;/li&gt;
-  &lt;li&gt;“She walked to her bed and in a few minutes she was snoring loudly.”&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In Natural Language Processing, we try to use computer programs  to find the meaning of sentences. In the above four sentences, with the  help of WordNet, a computer program will be able to identify the  following –&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;“pasta” is a type of dish.&lt;/li&gt;
-  &lt;li&gt;“kitchen” is a part of “home”.&lt;/li&gt;
-  &lt;li&gt;“sofa” is the same thing as “couch”.&lt;/li&gt;
-  &lt;li&gt;“snoring” implies “sleeping”.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Let’s get started with using WordNet in Python. It is included as a part of the NLTK (http://www.nltk.org/) corpus. To use it, we need to import it first.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from nltk.corpus import wordnet as wn
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This allows us to invoke WordNet by  simply typing “wn” instead of “wordnet”. Now let us explore some of the  relations that WordNet provides.&lt;/p&gt;
-
-&lt;h1 id=&quot;synonyms&quot;&gt;&lt;strong&gt;Synonyms&lt;/strong&gt;&lt;/h1&gt;
-
-&lt;p&gt;WordNet stores synonyms in the form of synsets where each word in the synset shares the same meaning. Basically, each synset is a group of  synonyms. Each synset has a definition associated with it. Relations are stored between different synsets as we’ll see in the next section.  Let’s explore synsets with an example.&lt;/p&gt;
-
-&lt;p&gt;Take the word ‘sofa’. The following line in Python gives all the synsets for ‘sofa’.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synsets('sofa') 
-[Synset('sofa.n.01')]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We have only one synset for ‘sofa’ which means that it has only one  context or meaning. Another word like ‘ocean’ will give two synsets  because it has two meanings – one as ‘a water body’ and the other as  ‘being limitless in quantity’.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synsets('ocean') 
-[Synset('ocean.n.01'), Synset('ocean.n.02')]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We can find the definition of a synset with the code given below.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synset('sofa.n.01').definition()
-u'an upholstered seat for more than one person'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To find all the words that share the same meaning as sofa, we need to find all the synonyms in the sofa synset.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synset('sofa.n.01').lemma_names()
-[u'sofa', u'couch', u'lounge']
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;As can be seen above, ‘couch’ and ‘sofa’ are synonyms and share the same meaning.&lt;/p&gt;
-
-&lt;h1 id=&quot;hyponyms-and-hypernyms&quot;&gt;&lt;strong&gt;Hyponyms and Hypernyms&lt;/strong&gt;&lt;/h1&gt;
-
-&lt;p&gt;Hyponyms and Hypernyms are specific and generalized concepts respectively.&lt;/p&gt;
-
-&lt;p&gt;For example, ‘beach house’ and ‘guest house’ are hyponyms of ‘house’. They are more specific concepts of ‘house’. And ‘house’ is a hypernym  of ‘guest house’ because it is the general concept.&lt;/p&gt;
-
-&lt;p&gt;‘Pasta’ is a hyponym of ‘dish’ and ‘dish’ is a hypernym of ‘pasta’.&lt;/p&gt;
-
-&lt;p&gt;Let’s look at the code.&lt;/p&gt;
-
-&lt;p&gt;After we find the synset whose hyponyms / hypernyms we want, the following code finds the hyponyms and hypernyms.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synset('pasta.n.01').hyponyms() 
-[Synset('cannelloni.n.01'), Synset('lasagna.n.01'), 
-Synset('macaroni_and_cheese.n.01'), Synset('spaghetti.n.01')]
-&amp;gt;&amp;gt;&amp;gt; wn.synset('pasta.n.01').hypernyms()
-[Synset('dish.n.02')]
-&amp;gt;&amp;gt;&amp;gt; wn.synset('dish.n.02').definition()
-u'a particular item of prepared food'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;As seen, we found the hyponyms and hypernym of pasta and it can be seen that pasta is a type of dish.&lt;/p&gt;
-
-&lt;h1 id=&quot;meronyms-and-holonyms&quot;&gt;&lt;strong&gt;Meronyms and Holonyms&lt;/strong&gt;&lt;/h1&gt;
-
-&lt;p&gt;Meronyms and Holonyms represent the part-whole relationship. The  meronym represents the part and the holonym represents the whole. For  example, ‘kitchen’ is a meronym of ‘home’(the kitchen is a part of the  home), ‘bread’ is a meronym of ‘sandwich’, and ‘sandwich’ is a holonym  of ‘bread’.&lt;/p&gt;
-
-&lt;p&gt;In Python, we have –&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synsets('kitchen') 
-[Synset('kitchen.n.01')]
-&amp;gt;&amp;gt;&amp;gt; wn.synset('kitchen.n.01').part_holonyms() 
-[Synset('dwelling.n.01')]
-&amp;gt;&amp;gt;&amp;gt; wn.synset('kitchen.n.01').part_meronyms() 
-[]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;From the above code, we see that ‘dwelling’ is a holonym of ‘kitchen’, and so ‘kitchen’ is a meronym (or a part) of ‘dwelling’&lt;/p&gt;
-
-&lt;p&gt;The ‘dwelling’ synset contains ‘home’ as one of its synonyms as seen below.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synset('dwelling.n.01').lemma_names()
-[u'dwelling', u'home', u'domicile', 
-u'abode', u'habitation', u'dwelling_house']
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;So we can figure out that the word ‘kitchen’ is a part of one’s ‘home’.&lt;/p&gt;
-
-&lt;h1 id=&quot;entailments&quot;&gt;&lt;strong&gt;Entailments&lt;/strong&gt;&lt;/h1&gt;
-
-&lt;p&gt;An entailment is an implication. For example, looking implies seeing. Buying implies choosing and paying.&lt;/p&gt;
-
-&lt;p&gt;We can find entailments as seen below in the code.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; wn.synset('snore.v.01').entailments()
-[Synset('sleep.v.01')]
-&amp;gt;&amp;gt;&amp;gt; wn.synset('buy.v.01').entailments()
-[Synset('choose.v.01'), Synset('pay.v.01')]
-&amp;gt;&amp;gt;&amp;gt; wn.synset('look.v.01').entailments()
-[Synset('see.v.01')]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We can see that sleeping is an entailment (implication) of snoring.  So in our earlier example when she was ‘snoring loudly’, it can be  inferred that she was asleep.&lt;/p&gt;
-
-&lt;p&gt;In this post, we have explored the basics of WordNet relations and  how to integrate WordNet in a Python project. There is still a lot more  that you can do with WordNet like finding the similarity between  synsets, converting a noun to its verb form, and much more. You can read more about using WordNet in Python here – http://www.nltk.org/howto/wordnet.html&lt;/p&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">The Power of WordNet and How to Use It in Python</summary></entry></feed>
+&lt;p&gt;https://jupyter.org/install&lt;/p&gt;</content><author><name>sonictl</name></author><category term="from_cnblogs" /><summary type="html">How to add conda env into jupyter notebook installed by pip ref: https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084</summary></entry></feed>
