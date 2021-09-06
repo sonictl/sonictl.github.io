@@ -1,12 +1,13 @@
-I"D<h2 id="-双线网络设置--">++++++ 双线网络设置  ++++++++</h2>
+I"<h2 id="-双线网络设置--">++++++ 双线网络设置  ++++++++</h2>
 
 <ol>
   <li>
-    <h3 id="wlan-设置跃点数1">Wlan 设置跃点数1</h3>
+    <h3 id="wlan-设置跃点数1-重要">Wlan 设置跃点数1 [重要]</h3>
+    <p>说明：这个使0.0.0.0的路由冲突时，可以优先走wlan</p>
   </li>
 </ol>
 
-<h2 id="-几个命令">### 几个命令：</h2>
+<h4 id="几个命令">几个命令：</h4>
 <p>查看本机ip等信息： <code class="language-plaintext highlighter-rouge">ipconfig </code>
    查看Route信息：<code class="language-plaintext highlighter-rouge">route print </code>
    配置route信息：</p>
@@ -17,17 +18,18 @@ route -p add 172.23.0.0  mask 255.255.255.128  172.23.15.129</p>
 临时添加（不带-p）：
 ```route add 172.23.0.0  mask 255.255.255.128 172.23.15.129
 route add 172.16.0.0  mask 255.255.255.128 172.23.15.129
-
 route add 172.16.0.0  mask 255.255.255.128 172.16.99.86
 </code></pre></div></div>
+
 <p>++++++++++++++++++++++++++++++</p>
 <h2 id="2021年9月6日103147更新">2021年9月6日10:31:47更新：</h2>
 <h3 id="1-首先删除默认路由-0000">1. 首先删除默认路由 0.0.0.0：</h3>
 <p><code class="language-plaintext highlighter-rouge">route delete 0.0.0.0</code></p>
 
 <h3 id="2-添加默认外网路由">2. 添加默认外网路由：</h3>
-<p><code class="language-plaintext highlighter-rouge">route add -p 0.0.0.0 mask 255.255.255.0 192.168.1.1</code>
-  说明： 192.168.1.1 (是你的外网网关)</p>
+<p><del><code class="language-plaintext highlighter-rouge">route add -p 0.0.0.0 mask 255.255.255.0 192.168.1.1</code></del>
+  说明： 192.168.1.1 (是你的外网网关)
+  这里会造成0.0.0.0的路由冲突（机器重启后），还是通过wlan的跃点数来设置！！</p>
 <h3 id="3-添加内网路由">3. 添加内网路由：</h3>
 <p><code class="language-plaintext highlighter-rouge">route add -p 10.16.0.0 mask 255.255.128.0 10.16.0.1   </code>
   说明：10.16.0.0 - 内网ip分配到的是 10.16.36.9， 这里取前2段，意思是这个网段内（内网网段）就走内网的网关10.16.36.9 。。。如果你的内网ip是  19.11.1.19， 那么相应的：19.11.0.0</p>
