@@ -5,17 +5,26 @@ date: 2019-10-17 10:06:00 +0800
 category: from_cnblogs
 slug: p20191017100600
 ---
+
+
+**Note:** Contents below may out-of-date. But the procedures are referable.
+
+
+
 **Avaliable version combinations for pyTorch/Tensorflow-gpu:**
 
-
+```
 python=3.6.5  CUDA=9.2.148  cuDNN=7.1.4  tf-gpu=1.9
+
 python=3.6.5  CUDA=9.1.85   cuDNN=7.1.3  tf-gpu=1.8
               CUDA=9.0.176  cudnn=7.3.1.20   tensorflow-gpu=1.12.0
               CUDA=9.0;     cuDNN=7.4.1      tensorflow-gpu=1.12.0； 
               cuda=9.0;     cudnn=7.5.0      tensorflow=1.8.0可以用的
-python=3.6.7  cuda=9.0;     cuDNN=7.4.2      tensorflow-gpu = 1.9.0    pytorch = 1.0.0
-                    cuda=9.0 cudnn=7.0.5
 
+python=3.6.7  cuda=9.0;     cuDNN=7.4.2      tensorflow-gpu = 1.9.0    pytorch = 1.0.0
+              cuda=9.0;     cudnn=7.0.5
+
+```
 
 =================
 
@@ -34,9 +43,9 @@ https://blog.csdn.net/lukaslong/article/details/81488219
 
 2. curl
   `sudo apt-get install curl`
-or:
+  or:
   `sudo apt install curl`
-check:
+  check:
   `curl --version`
 
 3. Anaconda
@@ -45,7 +54,7 @@ check:
 
 4. pip3(Optional)
   `sudo apt-get -y install python3-pip`
-or:
+  or:
   `sudo apt install python3-pip`
 
 5. Create Env:
