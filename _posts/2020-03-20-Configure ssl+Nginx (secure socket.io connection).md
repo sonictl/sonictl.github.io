@@ -36,7 +36,23 @@ slug: p20200320124100
 <img src="https://img2020.cnblogs.com/blog/780771/202003/780771-20200320203836864-1781511893.png" alt="chat pages" style="zoom:30%;" />
 For more details: https://socket.io/get-started/chat/
 
+### 1.2 Deploy a nodeJS app in hand
+
+You could install `node` and `npm`, download your dependencies by running `npm install` in the command line (first declare them within your `package.json`) only *then* users can run your script. This is how you do development in Node.js, or deploy to a development server. See [using npm](https://blog.risingstack.com/node-hero-npm-tutorial/). You could automate that with a shell script if that is what you are after.
+
+However, when distributing programs to end-users that might not be the best approach. Linux users are used to a package (.deb for instance) and Windows users are used to an .exe or a setup wizard.
+
+That is why I recommended the tools below. I also assumed you were targeting Windows as this is less of a problem is unix-like environments.
+
+If you want a single file (.exe), [pkg](https://github.com/zeit/pkg) and [nexe](https://github.com/nexe/nexe) are made for that purpose. These Node.js tools are used by the developer to **compile** JavaScript code into a single executable binary that is convenient for end-users and Windows deployment. The resulting .exe file is very light and does not require node to be installed on the end-user’s computers.
+
+[Electron](https://github.com/electron/electron) along with [electron-packager](https://github.com/electron-userland/electron-packager) can produce setup wizards, but it installs a lot of files even for the smallest program. Your program will include all of `node` and `webkit`, that is why it produces heavy installs.
+
+[NSIS](http://nsis.sourceforge.net/) can also create a setup wizard, it is simple and does common stuff well (copying files, running shell scripts).
+
+
 ## 2. Take nginx as a web server, make the nodejs app accessible
+
    Even though the Caddy is the convenient server for https and the certificate application. The nginx is still the wider-used solution for web service.
    ref: https://www.sitepoint.com/configuring-nginx-ssl-node-js/
 
@@ -90,7 +106,7 @@ IMPORTANT NOTES:
    ref: [streaming binary data using socket-io](https://blog.takeer.com/streaming-binary-data-using-socket-io/)
 
 ## 6. Bonus: request-response illustration figure
- ![](https://img2020.cnblogs.com/blog/780771/202005/780771-20200523084853262-1405977877.png)
+ <img src="/assets/images/image-20200523877.png" alt="img" style="zoom:80%;" />
 
 ----
 

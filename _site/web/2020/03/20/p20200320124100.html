@@ -111,7 +111,22 @@
 <p><img src="https://img2020.cnblogs.com/blog/780771/202003/780771-20200320203836864-1781511893.png" alt="chat pages" style="zoom:30%;" />
 For more details: https://socket.io/get-started/chat/</p>
 
+<h3 id="12-deploy-a-nodejs-app-in-hand">1.2 Deploy a nodeJS app in hand</h3>
+
+<p>You could install <code class="language-plaintext highlighter-rouge">node</code> and <code class="language-plaintext highlighter-rouge">npm</code>, download your dependencies by running <code class="language-plaintext highlighter-rouge">npm install</code> in the command line (first declare them within your <code class="language-plaintext highlighter-rouge">package.json</code>) only <em>then</em> users can run your script. This is how you do development in Node.js, or deploy to a development server. See <a href="https://blog.risingstack.com/node-hero-npm-tutorial/">using npm</a>. You could automate that with a shell script if that is what you are after.</p>
+
+<p>However, when distributing programs to end-users that might not be the best approach. Linux users are used to a package (.deb for instance) and Windows users are used to an .exe or a setup wizard.</p>
+
+<p>That is why I recommended the tools below. I also assumed you were targeting Windows as this is less of a problem is unix-like environments.</p>
+
+<p>If you want a single file (.exe), <a href="https://github.com/zeit/pkg">pkg</a> and <a href="https://github.com/nexe/nexe">nexe</a> are made for that purpose. These Node.js tools are used by the developer to <strong>compile</strong> JavaScript code into a single executable binary that is convenient for end-users and Windows deployment. The resulting .exe file is very light and does not require node to be installed on the end-user’s computers.</p>
+
+<p><a href="https://github.com/electron/electron">Electron</a> along with <a href="https://github.com/electron-userland/electron-packager">electron-packager</a> can produce setup wizards, but it installs a lot of files even for the smallest program. Your program will include all of <code class="language-plaintext highlighter-rouge">node</code> and <code class="language-plaintext highlighter-rouge">webkit</code>, that is why it produces heavy installs.</p>
+
+<p><a href="http://nsis.sourceforge.net/">NSIS</a> can also create a setup wizard, it is simple and does common stuff well (copying files, running shell scripts).</p>
+
 <h2 id="2-take-nginx-as-a-web-server-make-the-nodejs-app-accessible">2. Take nginx as a web server, make the nodejs app accessible</h2>
+
 <p>Even though the Caddy is the convenient server for https and the certificate application. The nginx is still the wider-used solution for web service.
    ref: https://www.sitepoint.com/configuring-nginx-ssl-node-js/</p>
 
@@ -169,7 +184,7 @@ of your certificates, run "certbot-auto renew"
 <p>ref: <a href="https://blog.takeer.com/streaming-binary-data-using-socket-io/">streaming binary data using socket-io</a></p>
 
 <h2 id="6-bonus-request-response-illustration-figure">6. Bonus: request-response illustration figure</h2>
-<p><img src="https://img2020.cnblogs.com/blog/780771/202005/780771-20200523084853262-1405977877.png" alt="" /></p>
+<p><img src="/assets/images/image-20200523877.png" alt="img" style="zoom:80%;" /></p>
 
 <hr />
 
