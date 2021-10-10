@@ -1,0 +1,314 @@
+I"cQ<h1 id="set-up-nginx-server-blocks-on-centos-7">Set Up Nginx Server Blocks on CentOS 7</h1>
+
+<p><a href="https://www.digitalocean.com/community/tags/nginx">Nginx</a><a href="https://www.digitalocean.com/community/tags/centos">CentOS</a></p>
+
+<ul>
+  <li>
+    <p>By <a href="https://www.digitalocean.com/community/users/jbarnett">Josh Barnett</a></p>
+
+    <p>Published on November 5, 2014</p>
+  </li>
+</ul>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>Nginx uses <strong>server blocks</strong> to manage configurations. Server blocks allow one server to <strong>host multiple domains or interfaces</strong>. How to serve different content to different visitors depending on which domains they are requesting:</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>access to centos7 server, has <code class="language-plaintext highlighter-rouge">sudo</code> privileges.</li>
+  <li>Nginx installed.</li>
+</ul>
+
+<p>Before you begin with this guide, there are a few steps that need to be completed first.</p>
+
+<p>You will need access to a CentOS 7 server with a non-root user that has <code class="language-plaintext highlighter-rouge">sudo</code> privileges. If you haven’t configured this yet, you can run through the <a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-7">CentOS 7 initial server setup guide</a> to create this account.</p>
+
+<p>You will also need to have Nginx installed in order to configure server blocks for it. If you want an entire LEMP (Linux, Nginx, MySQL, and PHP) stack on your server, you can follow our guide on <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-centos-7">setting up a LEMP stack in CentOS 7</a>. If you only need Nginx, you can install it through Nginx’s <code class="language-plaintext highlighter-rouge">yum</code> repository:</p>
+
+<p>First, add the Nginx repository to your server’s list of software sources.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+</code></pre></div></div>
+
+<p>Now you can use <code class="language-plaintext highlighter-rouge">yum</code> to download and install Nginx.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install nginx
+</code></pre></div></div>
+
+<p>After these steps are complete, log in as your non-root user account through SSH and continue with the tutorial.</p>
+
+<p><strong>Note:</strong> The example configuration in this guide will make one server block for <code class="language-plaintext highlighter-rouge">example.com</code> and another for <code class="language-plaintext highlighter-rouge">example2.com</code>. These will be referenced throughout the guide, but you should substitute your own domains or values while following along. To learn how to set up your domain names with DigitalOcean, follow <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean">this link</a>.</p>
+
+<p>If you do not have any real domains to play with, we will show you how to test your server block configuration with dummy values near the end of the tutorial.</p>
+
+<h2 id="step-one--create-the-directory-structure">Step One — Create the Directory Structure</h2>
+
+<p>First, we need to make a directory structure that will hold the site data to serve to visitors.</p>
+
+<p>Our <strong>document root</strong> (the top-level directory that Nginx looks at to find content to serve) will be set to individual directories in the <code class="language-plaintext highlighter-rouge">/var/www</code> directory. We will create a directory here for each of the server blocks that we plan on making.</p>
+
+<p>Within each of these directories, we will create an <code class="language-plaintext highlighter-rouge">html</code> directory that will hold our actual files. This gives us some flexibility in our hosting.</p>
+
+<p>We can make these directories using the <code class="language-plaintext highlighter-rouge">mkdir</code> command (with a <code class="language-plaintext highlighter-rouge">-p</code> flag that allows us to create a folder with a nested folder inside of it):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkdir -p /var/www/example.com/html
+sudo mkdir -p /var/www/example2.com/html
+</code></pre></div></div>
+
+<p>Remember that the portions in red represent the domain names that we want to serve from our VPS.</p>
+
+<h3 id="grant-permissions">Grant Permissions</h3>
+
+<p>We now have the directory structure for our files, but they are owned by our <code class="language-plaintext highlighter-rouge">root</code> user. If we want our regular user to be able to modify files in our web directories, we can change the ownership with <code class="language-plaintext highlighter-rouge">chown</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chown -R $USER:$USER /var/www/example.com/html
+sudo chown -R $USER:$USER /var/www/example2.com/html
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">$USER</code> variable will take the value of the user you are currently logged in as when you submit the command. By doing this, our regular user now owns the <code class="language-plaintext highlighter-rouge">public_html</code> subdirectories where we will be storing our content.</p>
+
+<p>We should also modify our permissions a little bit to ensure that read access is permitted to the general web directory, and all of the files and folders inside, so that pages can be served correctly:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod -R 755 /var/www
+</code></pre></div></div>
+
+<p>Your web server should now have the permissions it needs to serve content, and your user should be able to create content within the appropriate folders.</p>
+
+<h2 id="step-two--prepare-web-pages-for-each-site">Step Two — Prepare Web Pages for Each Site</h2>
+
+<p>Now that we have our directory structure in place, let’s create some content to serve.</p>
+
+<p>Because this is just for demonstration and testing, our pages will be very simple. We are just going to make an <code class="language-plaintext highlighter-rouge">index.html</code> page for each site that identifies that specific domain.</p>
+
+<p>Let’s start with <code class="language-plaintext highlighter-rouge">example.com</code>. We can open up an <code class="language-plaintext highlighter-rouge">index.html</code> file in our editor by typing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /var/www/example.com/html/index.html
+</code></pre></div></div>
+
+<p>In this file, create a simple HTML document that indicates the site that the page is connected to. For this guide, the file for our first domain will look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to Example.com!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Success! The example.com server block is working!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>Save and close the file when you are finished.</p>
+
+<p>We can copy this file to use as the template for our second site’s <code class="language-plaintext highlighter-rouge">index.html</code> by typing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /var/www/example.com/html/index.html /var/www/example2.com/html/index.html
+</code></pre></div></div>
+
+<p>Now let’s open that file and modify the relevant pieces of information:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /var/www/example2.com/html/index.html
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to Example2.com!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Success! The example2.com server block is working!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>Save and close this file as well. You now have the pages necessary to test the server block configuration.</p>
+
+<h2 id="step-three--create-new-server-block-files">Step Three — Create New Server Block Files</h2>
+
+<p>Server block files are what specify the configuration of our separate sites and dictate how the Nginx web server will respond to various domain requests.</p>
+
+<p>To begin, we will need to set up the directory that our server blocks will be stored in, as well as the directory that tells Nginx that a server block is ready to serve to visitors. The <code class="language-plaintext highlighter-rouge">sites-available</code> directory will keep all of our server block files, while the <code class="language-plaintext highlighter-rouge">sites-enabled</code> directory will hold symbolic links to server blocks that we want to publish. We can make both directories by typing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkdir /etc/nginx/sites-available
+sudo mkdir /etc/nginx/sites-enabled
+</code></pre></div></div>
+
+<p><strong>Note:</strong> This directory layout was introduced by Debian contributors, but we are including it here for added flexibility with managing our server blocks (as it’s easier to temporarily enable and disable server blocks this way).</p>
+
+<p>Next, we should tell Nginx to look for server blocks in the <code class="language-plaintext highlighter-rouge">sites-enabled</code> directory. To accomplish this, we will edit Nginx’s main configuration file and add a line declaring an optional directory for additional configuration files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div></div>
+
+<p>Add these lines to the end of the <code class="language-plaintext highlighter-rouge">http {}</code> block:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include /etc/nginx/sites-enabled/*.conf;
+server_names_hash_bucket_size 64;
+</code></pre></div></div>
+
+<p>The first line instructs Nginx to look for server blocks in the <code class="language-plaintext highlighter-rouge">sites-enabled</code> directory, while the second line increases the amount of memory that is allocated to parsing domain names (since we are now using multiple domains).</p>
+
+<p>When you are finished making these changes, you can save and close the file. We are now ready to create our first server block file.</p>
+
+<h3 id="create-the-first-server-block-file">Create the First Server Block File</h3>
+
+<p>By default, Nginx contains one server block called <code class="language-plaintext highlighter-rouge">default.conf</code> which we can use as a template for our own configurations. We can create our first server block config file by copying over the default file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /etc/nginx/conf.d/default.conf /etc/nginx/sites-available/example.com.conf
+</code></pre></div></div>
+
+<p>Now, open the new file in your text editor with root privileges:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/example.com.conf
+</code></pre></div></div>
+
+<p><strong>Note:</strong> Due to the configurations that we have outlined, all server block files <em>must</em> end in <code class="language-plaintext highlighter-rouge">.conf</code>.</p>
+
+<p>Ignoring the commented lines, the file will look similar to this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen  80;
+    server_name localhost;
+
+    location / {
+        root  /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    error_page  500 502 503 504  /50x.html;
+    location = /50x.html {
+        root  /usr/share/nginx/html;
+    }
+}
+</code></pre></div></div>
+
+<p>The first thing that we’re going to have to adjust is the <code class="language-plaintext highlighter-rouge">server_name</code>, which tells Nginx which requests to point to this server block. We’ll declare the main server name, <code class="language-plaintext highlighter-rouge">example.com</code>, as well as an additional alias to <code class="language-plaintext highlighter-rouge">www.example.com</code>, so that both <code class="language-plaintext highlighter-rouge">www.</code> and non-<code class="language-plaintext highlighter-rouge">www.</code> requests are served the same content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server_name example.com www.example.com;
+</code></pre></div></div>
+
+<p><strong>Note:</strong> Each Nginx statement must end with a semi-colon (<code class="language-plaintext highlighter-rouge">;</code>), so check each of your statement lines if you are running into problems later on.</p>
+
+<p>Next, we want to modify the document root, specified by the <code class="language-plaintext highlighter-rouge">root</code> directive. Point it to the site’s document root that you created:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root /var/www/example.com/html;
+</code></pre></div></div>
+
+<p>We’ll also want to add a <code class="language-plaintext highlighter-rouge">try_files</code> command that ends with a 404 error if the desired filename or directory is not found:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try_files $uri $uri/ =404;
+</code></pre></div></div>
+
+<p>When you are finished, your file will look something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen  80;
+
+    server_name example.com www.example.com;
+
+    location / {
+        root  /var/www/example.com/html;
+        index  index.html index.htm;
+        try_files $uri $uri/ =404;
+    }
+
+    error_page  500 502 503 504  /50x.html;
+    location = /50x.html {
+        root  /usr/share/nginx/html;
+    }
+}
+</code></pre></div></div>
+
+<p>That is all we need for a basic configuration, so save and close the file to exit.</p>
+
+<h3 id="create-the-second-server-block-file">Create the Second Server Block File</h3>
+
+<p>Now that we have our first server block file established, we can create our second one by copying that file and adjusting it as needed.</p>
+
+<p>Start by copying it with <code class="language-plaintext highlighter-rouge">cp</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-available/example2.com.conf
+</code></pre></div></div>
+
+<p>Open the new file with root privileges in your text editor:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/example2.com.conf
+</code></pre></div></div>
+
+<p>You now need to modify all of the pieces of information to reference your second domain. When you are finished, your second server block file may look something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen  80;
+
+    server_name example2.com www.example2.com;
+
+    location / {
+        root  /var/www/example2.com/html;
+        index  index.html index.htm;
+        try_files $uri $uri/ =404;
+    }
+
+    error_page  500 502 503 504  /50x.html;
+    location = /50x.html {
+        root  /usr/share/nginx/html;
+    }
+}
+</code></pre></div></div>
+
+<p>When you are finished making these changes, you can save and close the file.</p>
+
+<h2 id="step-four--enable-the-new-server-block-files">Step Four — Enable the New Server Block Files</h2>
+
+<p>Now that we have created our server block files, we need to enable them so that Nginx knows to serve them to visitors. To do this, we can create a symbolic link for each server block in the <code class="language-plaintext highlighter-rouge">sites-enabled</code> directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/example.com.conf
+sudo ln -s /etc/nginx/sites-available/example2.com.conf /etc/nginx/sites-enabled/example2.com.conf
+</code></pre></div></div>
+
+<p>When you are finished, restart Nginx to make these changes take effect:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<h2 id="step-five--set-up-local-hosts-file-optional">Step Five — Set Up Local Hosts File (Optional)</h2>
+
+<p>If you have been using example domains instead of actual domains to test this procedure, you can still test the functionality of your server blocks by temporarily modifying the <code class="language-plaintext highlighter-rouge">hosts</code> file on your local computer. This will intercept any requests for the domains that you configured and point them to your VPS server, just as the DNS system would do if you were using registered domains. However, this will only work from your local computer, and is simply useful for testing purposes.</p>
+
+<p><strong>Note:</strong> Make sure that you are operating on your local computer for these steps and not your VPS server. You will need access to the administrative credentials for that computer.</p>
+
+<p>If you are on a Mac or Linux computer, edit your local <code class="language-plaintext highlighter-rouge">hosts</code> file with administrative privileges by typing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/hosts
+</code></pre></div></div>
+
+<p>If you are on a Windows machine, you can find instructions on altering your hosts file <a href="http://support.microsoft.com/kb/923947">here</a>.</p>
+
+<p>The details that you need to add are the public IP address of your VPS followed by the domain that you want to use to reach that VPS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1   localhost
+127.0.1.1   guest-desktop
+server_ip_address example.com
+server_ip_address example2.com
+</code></pre></div></div>
+
+<p>This will direct any requests for <code class="language-plaintext highlighter-rouge">example.com</code> and <code class="language-plaintext highlighter-rouge">example2.com</code> on our local computer and send them to our server at <code class="language-plaintext highlighter-rouge">server_ip_address</code>.</p>
+
+<h2 id="step-six--test-your-results">Step Six — Test Your Results</h2>
+
+<p>Now that you have your server blocks configured, you can test your setup easily by going to the domains that you configured in your web browser:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://example.com
+</code></pre></div></div>
+
+<p>You should see a page that looks like this:</p>
+
+<p><img src="https://assets.digitalocean.com/articles/server_blocks_centos7/server_block_success.png" alt="Success! The example.com server block is working!" /></p>
+
+<p>Likewise, if you visit your other domains, you will see the files that you created for them.</p>
+
+<p>If all of the sites that you configured work well, then you have successfully configured your new Nginx server blocks on the same CentOS server.</p>
+
+<p>If you adjusted your home computer’s <code class="language-plaintext highlighter-rouge">hosts</code> file, you may want to delete the lines that you added now that you’ve verified that your configuration works. This will prevent your hosts file from being filled with entries that are not actually necessary.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>At this point, you should now have a single CentOS 7 server handling multiple sites with separate domains. You can expand this process by following the steps we outlined above to make additional server blocks later. There is no software limit on the number of domain names Nginx can handle, so feel free to make as many as your server is capable of handling.</p>
+:ET
