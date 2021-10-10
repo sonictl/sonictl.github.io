@@ -74,7 +74,12 @@
   <div class="post-content e-content" itemprop="articleBody">
     <h1 id="secure-the-nodejs-app-transmissions-by-ssl">secure the nodejs app transmissions by ssl</h1>
 
+<ul>
+  <li>For quick reference: Deploy simple_socket_chat on fresh VPS, jump to buttom of this article</li>
+</ul>
+
 <h2 id="1-make-a-simplest-socketio-app">1. make a simplest socket.io app</h2>
+
 <p>ref: https://socket.io/get-started/chat/</p>
 <h3 id="basic-nodejs-app">basic nodejs app:</h3>
 <ul>
@@ -378,6 +383,56 @@ server_names_hash_bucket_size 64; ``` 8. Create the First Server Block File: ```
 <p>modify the <code class="language-plaintext highlighter-rouge">yourQuestion</code> in the url above, and <code class="language-plaintext highlighter-rouge">digitalocean.com</code> will teach you well.</p>
 
 <hr />
+
+<h2 id="deploy-simple_socket_chat-on-fresh-vps">Deploy simple_socket_chat on fresh VPS</h2>
+<p>==================================
+For quick reference: Deploy simple_socket_chat on fresh VPS</p>
+
+<ol>
+  <li>
+    <p>install nodejs env with newer version
+ref: https://matthiashoys.wordpress.com/2020/01/15/how-to-upgrade-node-js-from-v6-to-v12-on-centos-linux-7/
+sudo yum module install nodejs
+node –version</p>
+  </li>
+  <li>
+    <p>npm install the simple_socket_chat
+cd to the nodejs proj folder
+$ npm install</p>
+  </li>
+  <li>
+    <p>test the nodejs app
+$ node app.js</p>
+  </li>
+  <li>
+    <p>deploy on nginx
+ref: This blog</p>
+  </li>
+  <li>
+    <p>ssl the web with certbot
+ ref: This blog</p>
+  </li>
+  <li>
+    <p>systemctl 
+ref: https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/
+ [Unit]
+ Description=hello_env.js - making your environment variables rad
+ Documentation=https://example.com
+ After=network.target</p>
+
+    <p>[Service]
+ Environment=NODE_PORT=3001
+ Type=simple
+ User=ubuntu
+ ExecStart=/usr/bin/node /home/ubuntu/hello_env.js
+ Restart=on-failure</p>
+
+    <p>Install]
+ WantedBy=multi-user.target</p>
+  </li>
+</ol>
+
+<p>===================================</p>
 
     
 
