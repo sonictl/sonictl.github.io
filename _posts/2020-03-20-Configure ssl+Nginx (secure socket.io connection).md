@@ -336,19 +336,23 @@ For quick reference: Deploy simple_socket_chat on fresh VPS
 
 6. systemctl 
    ref: https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/
-	[Unit]
-	Description=hello_env.js - making your environment variables rad
-	Documentation=https://example.com
-	After=network.target
 
-	[Service]
-	Environment=NODE_PORT=3001
-	Type=simple
-	User=ubuntu
-	ExecStart=/usr/bin/node /home/ubuntu/hello_env.js
-	Restart=on-failure
+```
+[Unit]
+Description=hello_env.js - making your environment variables rad
+Documentation=https://example.com
+After=network.target
 
-	Install]
-	WantedBy=multi-user.target
+[Service]
+Environment=NODE_PORT=3001
+Type=simple
+User=ubuntu
+ExecStart=/usr/bin/node /home/ubuntu/hello_env.js
+Restart=on-failure
 
-===================================
+[Install]
+WantedBy=multi-user.target
+```
+
+
+

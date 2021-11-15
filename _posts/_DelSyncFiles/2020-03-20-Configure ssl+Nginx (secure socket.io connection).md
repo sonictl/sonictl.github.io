@@ -7,7 +7,11 @@ slug: p20200320124100
 ---
 # secure the nodejs app transmissions by ssl
 
+- For quick reference: Deploy simple_socket_chat on fresh VPS, jump to buttom of this article
+
+
 ## 1. make a simplest socket.io app 
+
    ref: https://socket.io/get-started/chat/
 ### basic nodejs app:
    - use the Node.JS web framework `express` to html as client end.
@@ -307,3 +311,44 @@ modify the `yourQuestion` in the url above, and `digitalocean.com` will teach yo
 
 
 ----
+
+## Deploy simple_socket_chat on fresh VPS
+==================================
+For quick reference: Deploy simple_socket_chat on fresh VPS
+
+1. install nodejs env with newer version
+   ref: https://matthiashoys.wordpress.com/2020/01/15/how-to-upgrade-node-js-from-v6-to-v12-on-centos-linux-7/
+   sudo yum module install nodejs
+   node --version
+
+2. npm install the simple_socket_chat
+   cd to the nodejs proj folder
+   $ npm install
+
+3. test the nodejs app
+   $ node app.js
+
+4. deploy on nginx
+   ref: This blog
+
+5. ssl the web with certbot
+	ref: This blog
+
+6. systemctl 
+   ref: https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/
+	[Unit]
+	Description=hello_env.js - making your environment variables rad
+	Documentation=https://example.com
+	After=network.target
+
+	[Service]
+	Environment=NODE_PORT=3001
+	Type=simple
+	User=ubuntu
+	ExecStart=/usr/bin/node /home/ubuntu/hello_env.js
+	Restart=on-failure
+
+	Install]
+	WantedBy=multi-user.target
+
+===================================

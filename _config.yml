@@ -54,7 +54,12 @@ defaults:
       author: sonictl
       commenting: open
 
+# collections:
+#   projects:
+#     output: true
+#     permalink: /projects/:path/
 
+    
 # advanced settings: https://github.com/jekyll/minima
 # show_excerpts: true   # 显示摘要 This is dangerous!! cause errors in index.html
 

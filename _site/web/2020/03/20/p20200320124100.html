@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Configure ssl+Nginx (secure socket.io connection)" />
 <script type="application/ld+json">
-{"headline":"Configure ssl+Nginx (secure socket.io connection)","dateModified":"2020-03-20T12:41:00+08:00","datePublished":"2020-03-20T12:41:00+08:00","author":{"@type":"Person","name":"sonictl"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/web/2020/03/20/p20200320124100.html"},"description":"secure the nodejs app transmissions by ssl","@type":"BlogPosting","url":"https://sonictl.github.io/web/2020/03/20/p20200320124100.html","@context":"https://schema.org"}</script>
+{"description":"secure the nodejs app transmissions by ssl","headline":"Configure ssl+Nginx (secure socket.io connection)","dateModified":"2020-03-20T12:41:00+08:00","datePublished":"2020-03-20T12:41:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/web/2020/03/20/p20200320124100.html"},"url":"https://sonictl.github.io/web/2020/03/20/p20200320124100.html","author":{"@type":"Person","name":"sonictl"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -414,25 +414,26 @@ ref: This blog</p>
   </li>
   <li>
     <p>systemctl 
-ref: https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/
- [Unit]
- Description=hello_env.js - making your environment variables rad
- Documentation=https://example.com
- After=network.target</p>
-
-    <p>[Service]
- Environment=NODE_PORT=3001
- Type=simple
- User=ubuntu
- ExecStart=/usr/bin/node /home/ubuntu/hello_env.js
- Restart=on-failure</p>
-
-    <p>Install]
- WantedBy=multi-user.target</p>
+ref: https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/</p>
   </li>
 </ol>
 
-<p>===================================</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Unit]
+Description=hello_env.js - making your environment variables rad
+Documentation=https://example.com
+After=network.target
+
+[Service]
+Environment=NODE_PORT=3001
+Type=simple
+User=ubuntu
+ExecStart=/usr/bin/node /home/ubuntu/hello_env.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div></div>
+
 
     
 

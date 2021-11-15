@@ -1,0 +1,62 @@
+I"%
+<p><strong>First, PIP</strong></p>
+
+<p>1, add a source</p>
+
+<p>For example, add SJTU Source https://mirror.sjtu.edu.cn/pypi/web/simple：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip config set global.index-url https://mirror.sjtu.edu.cn/pypi/web/simple
+</code></pre></div></div>
+
+<p>If SET has multiple times, it seems to be only saved the mirror source of the last set.</p>
+
+<p>2, delete the source</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip config unset global.index-url
+</code></pre></div></div>
+
+<p>3, check which source now</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip config list
+</code></pre></div></div>
+
+<p><strong>Second, Conda</strong></p>
+
+<p>1, add a source</p>
+
+<p>For example, Tsinghua Source:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+
+</code></pre></div></div>
+<p>SJTU:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda config --add channels https://mirror.sjtu.edu.cn/anaconda/
+
+e.g.
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/main
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/mro
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/msys2
+pkgs/pro: (deprecated) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/pro
+pkgs/r: (empty) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/r
+</code></pre></div></div>
+<p><a href="https://mirrors.sjtug.sjtu.edu.cn/docs/anaconda">read more</a></p>
+
+<p>2, delete the source</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda config --remove-key channels
+</code></pre></div></div>
+
+<p>3, See which sources are used now</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda config --show channels
+</code></pre></div></div>
+
+<p>Can also use</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda config --show-sources
+</code></pre></div></div>
+
+:ET
