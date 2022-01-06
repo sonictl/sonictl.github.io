@@ -1,0 +1,187 @@
+I"<h1 id="nodejs-realtime-communication-with-nodemcu-with-socketio">Node.js realtime communication with NodeMCU with socket.io</h1>
+
+<p>Reference: https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio</p>
+
+<h3 id="goal-of-this-post">Goal of this post</h3>
+
+<p>Establish a real-time communication between a server and the NodeMCU, this can be really useful like a situation where the server has to notify the client asynchronously,</p>
+
+<h3 id="lets-get-started-with-the-back-end">Let’s get started with the back-end</h3>
+
+<p>We are going to use a Node server, where we can integrate Socket.io init. <a href="https://nodejs.org/en/download/">Install</a> Node.js if you haven’t it yet.</p>
+
+<p>In node, we ‘ll be using the framework called <a href="https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm">express</a> to deal with the communication with HTTP requests. Then integrate socket.io and start listening to events defined.</p>
+
+<p>Create a new directory and create a file named as package.json where we specify the node packages that’s going to be used.</p>
+
+<p>Add these dependencies to be installed</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+ "dependencies": {
+  "express": "^4.17.1",
+  "socket.io": "^2.2.0"
+ }
+}
+</code></pre></div></div>
+
+<p>Now install the dependencies</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install or yarn install
+</code></pre></div></div>
+
+<p>It will create a folder named as node-modules inside your working directory containing a lot of files including those dependencies</p>
+
+<h3 id="configure-the-nodejs-server">Configure the Node.js Server</h3>
+
+<p>Now create a file named as <strong>index.js</strong> ( can be in any name as you wish )</p>
+
+<p>In <strong>index.js</strong> file, require express and HTTP and socket.io as listed below</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// express framwork for a basic http server
+var app = require('express')();
+// create the http server
+var http = require('http').createServer(app);
+// require the socket.io and bind it to a port 
+var io = require('socket.io')(3005);
+</code></pre></div></div>
+
+<p>Now attach the socket.io variable with the HTTP server created</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>io.attach(http, {
+ pingInterval: 10000,
+ pingTimeout: 5000,
+ cookie: false
+});
+</code></pre></div></div>
+
+<h3 id="listen-for-socketio-events">Listen for Socket.io Events</h3>
+
+<p>Now we just need to listen to an event and log it for debugging. the timeout is just a function which emits an event called <strong>reply</strong> after each 5 seconds.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>io.on('connection', function (socket) {
+
+  console.log('user connected');
+
+  socket.on('disconnect', function () {
+    console.log('user disconnected');
+  });
+  socket.on('message', function (msg) {
+   console.log("message: "+msg);
+  });
+  timeout();
+});
+
+function timeout() {
+  setTimeout(function () {
+   io.emit('reply',"A message from server");
+    timeout();
+  }, 5000);
+}
+</code></pre></div></div>
+
+<p>Finally we just start listening on the HTTP server created By</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http.listen();
+</code></pre></div></div>
+
+<p>this will start listening on a ephemeral port or you can specify a port itself,Now the Server is almost set up</p>
+
+<h3 id="on-the-nodemcu-side">On the NodeMCU Side</h3>
+
+<p>Let’s try to deal with the NodeMCU module, for that we will be using the IDE provided by Arduino to make it easier.</p>
+
+<p>Install the packages and the board details to Arduino IDE, I recommend you to follow this <a href="https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/">link</a> if you have not set up the IDE to work with NodeMCU</p>
+
+<p>Now open Arduino IDE and go to tools</p>
+
+<ul>
+  <li>Select the proper board, in my case its NodeMCU 0.9 (ESP-12 module ),</li>
+  <li>Set the upload speed, 11500 ( can vary according to the port and the board )</li>
+  <li>Set the Port where the device has been connected</li>
+</ul>
+
+<h3 id="connect-to-wifi">Connect to wifi</h3>
+
+<p>We are set to start now,</p>
+
+<p>First, we have to connect to a wifi network, for that, we are going to use a library called</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;ESP8266WiFi.h&gt;
+</code></pre></div></div>
+
+<p>Go to tools -&gt; manage libraries then , search for the ESP8266wifi and install it by clicking it. once it is installed we are ready to connect to the wifi network</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void setup() {
+ WiFi.begin("network-ssid", "password-to-network");
+ Serial.print("Connecting");
+ while (WiFi.status() != WL_CONNECTED)
+ {
+  delay(500);
+  Serial.print(".");
+ }
+ Serial.println();
+
+ Serial.print("Connected, IP address: ");
+ Serial.println(WiFi.localIP());
+}
+</code></pre></div></div>
+
+<p>Follow this <a href="http://salphuric-nova.test/wink/posts/,https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html">link</a> for more details on configuring the wifi, but this would be enough to work with.</p>
+
+<h3 id="install-socketio-client-to-nodemcu">Install Socket.io Client to NodeMCU</h3>
+
+<p>Again go to manage library and search for, SocketIoClient And install it, Now we can use this library to connect to the server we have created.inlcude the headers as below</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;WebSocketsClient.h&gt;
+#include &lt;SocketIoClient.h&gt;
+</code></pre></div></div>
+
+<p>Create a global variable called socketIO, so it can be accessed in any function.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SocketIoClient socketIO;
+</code></pre></div></div>
+
+<p>Then we need to connect to the server using the server address, in this case the ip address of my PC where it runs the node server.</p>
+
+<p>Finally, listen for events from the server. And emit events if needed.</p>
+
+<p>After connecting to wifi</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // server address, port and URL
+  socketIO.begin("the ip address or domain", 3005);
+  // event handler for the event message
+  socketIO.on("reply",messageEventHandler);
+</code></pre></div></div>
+
+<p>Where messageEvent handler is ,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void messageEventHandler(const char * payload, size_t length) {
+ Serial.printf("got message: %s\n", payload);
+}
+</code></pre></div></div>
+
+<p>Now we should get the message printed in the serial monitor,</p>
+
+<p>So to start the listening, we need to call the loop function of socket.io client inside the loop function in Arduino.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void loop() {
+     socketIO.loop();
+}
+</code></pre></div></div>
+
+<p>But when we want to emit something to the server, we can do it by calling the method call to emit where it requires to give the event name and the payload, for example, let’s emit something every 6 seconds.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uint64_t messageTimestamp;
+void loop() {
+  
+  socketIO.loop();
+  uint64_t now = millis();
+  if(now - messageTimestamp &gt; 6000) {
+    messageTimestamp = now;
+    // Send event     
+  socketIO.emit("message", "\"this is a message from the client\"");   
+  }    
+}
+</code></pre></div></div>
+
+:ET
