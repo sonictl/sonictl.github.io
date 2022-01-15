@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension"
+title:  "[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension"
 date: 2022-01-11 21:09:54 +0800
 categories: jekyll
 slug: p20220111210954

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform"
-date: 2022-01-14 14:01:54 +0800
+date: 2022-01-15 14:01:54 +0800
 categories: jekyll
 slug: p20220115140154
 ---

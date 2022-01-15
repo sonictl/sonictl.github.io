@@ -1,12 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-15T14:05:54+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</title><link href="https://sonictl.github.io/jekyll/2022/01/15/p20220115140154.html" rel="alternate" type="text/html" title="Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform" /><published>2022-01-15T14:01:54+08:00</published><updated>2022-01-15T14:01:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/15/p20220115140154</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/15/p20220115140154.html">&lt;h1 id=&quot;start-a-lvgl-project-on-esp32-with-vscode-platformio-on-arduino-platform&quot;&gt;Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-15T14:20:24+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32_lvgl]Tips for getting started with lvgl project on ESP32</title><link href="https://sonictl.github.io/jekyll/2022/01/15/p20220115140254.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Tips for getting started with lvgl project on ESP32" /><published>2022-01-15T14:02:54+08:00</published><updated>2022-01-15T14:02:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/15/p20220115140254</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/15/p20220115140254.html">&lt;h1 id=&quot;tips-for-getting-started-with-lvgl-project-on-esp32&quot;&gt;Tips for getting started with lvgl project on ESP32&lt;/h1&gt;
+
+&lt;p&gt;Before you get started with lvgl on ESP32, the first problem is which SDK(firmware platform) is going to be based on.
+You may dev ESP32 project based on Arduino or ESP-IDF(espreessif officially offered).&lt;/p&gt;
+
+&lt;p&gt;There are two pathes at least to implement ESP32 project. By the way, the esp32_library for arduino can be used as a submoduel(component) of ESP-IDF SDK.&lt;/p&gt;
+
+&lt;h2 id=&quot;path1-esp-idf-develop-esp32-lvgl-project-with-vscode-platformio-and-esp-idf&quot;&gt;path1: ESP-IDF: Develop ESP32 lvgl project with vsCode, platformIO and ESP-IDF&lt;/h2&gt;
+&lt;p&gt;before start, you need to know how to implement a “Hello world” or “LED blinking” project using the vsCode+platformIO+ESP_IDF&lt;/p&gt;
+
+&lt;h2 id=&quot;path2-arduino-develop-esp32-lvgl-project-with-vscode-platformio-and-arduino&quot;&gt;path2: Arduino: Develop ESP32 lvgl project with vsCode, platformIO and Arduino&lt;/h2&gt;
+
+&lt;p&gt;Arduino platform support lvgl not perfectly. You may meet version_conflict problems and obtain tough feeling when compile error exists.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;path1&lt;/strong&gt; is recommended.&lt;/p&gt;
+
+&lt;p&gt;======= read more about lvgl =========
+https://docs.lvgl.io/latest/en/html/get-started/arduino.html
+https://github.com/lvgl/lvgl/tree/master/demos/widgets
+https://github.com/lvgl/lv_port_esp32
+https://github.com/lvgl/lv_platformio&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Tips for getting started with lvgl project on ESP32</summary></entry><entry><title type="html">[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</title><link href="https://sonictl.github.io/jekyll/2022/01/15/p20220115140154.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform" /><published>2022-01-15T14:01:54+08:00</published><updated>2022-01-15T14:01:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/15/p20220115140154</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/15/p20220115140154.html">&lt;h1 id=&quot;start-a-lvgl-project-on-esp32-with-vscode-platformio-on-arduino-platform&quot;&gt;Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;WARING&lt;/strong&gt; : The version confilict problem may crazy you if you play lvgl on Arduino platform.
-Fortunately, this post gives you one solution for version_conflict problem.&lt;/p&gt;
+Fortunately, this post offers you one solution for version_conflict problem.&lt;/p&gt;
 
-&lt;p&gt;This is the sister post for ‘Complile the lvgl sample proj in vsCode with ESP-IDF extension’. The difference is the dev-kit based on Arduino vs ESP-IDF.&lt;/p&gt;
+&lt;p&gt;This is the sister post for ‘&lt;strong&gt;Complile the lvgl sample proj in vsCode with ESP-IDF extension&lt;/strong&gt;’. The difference is the dev-kit based on &lt;strong&gt;Arduino&lt;/strong&gt; vs &lt;strong&gt;ESP-IDF&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Here, we use Arduino + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.&lt;/p&gt;
+&lt;p&gt;Here, we use &lt;strong&gt;Arduino&lt;/strong&gt; + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.&lt;/p&gt;
 
 &lt;h3 id=&quot;prerequisit&quot;&gt;Prerequisit&lt;/h3&gt;
 &lt;ul&gt;
@@ -189,7 +209,7 @@ Fortunately, this post gives you one solution for version_conflict problem.&lt;/
      https://www.cxybb.com/article/qq_45516773/119673328&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</summary></entry><entry><title type="html">Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title><link href="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html" rel="alternate" type="text/html" title="Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension" /><published>2022-01-11T21:09:54+08:00</published><updated>2022-01-11T21:09:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/11/p20220111210954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html">&lt;h1 id=&quot;complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension&quot;&gt;Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</summary></entry><entry><title type="html">[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title><link href="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension" /><published>2022-01-11T21:09:54+08:00</published><updated>2022-01-11T21:09:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/11/p20220111210954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html">&lt;h1 id=&quot;complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension&quot;&gt;Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension&lt;/h1&gt;
 
 &lt;p&gt;If you’ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the &lt;strong&gt;section 1&lt;/strong&gt; and &lt;strong&gt;section 2&lt;/strong&gt;. Directly check the lvgl example project &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; cloning/configure/build/etc. steps in &lt;strong&gt;section 3&lt;/strong&gt;.&lt;/p&gt;
 
@@ -738,49 +758,4 @@ route add 172.16.0.0  mask 255.255.255.128 172.16.99.86
 
 &lt;p&gt;Python run a web server and publish some messages that can be gotten by the https client on ESP8266.&lt;/p&gt;
 
-&lt;p&gt;ref: &lt;a href=&quot;https://docs.python.org/3/library/http.server.html&quot;&gt;https://docs.python.org/3/library/http.server.html&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="IoT" /><category term="Arduino" /><summary type="html">#ESP8266 wifi configuration with AP mode</summary></entry><entry><title type="html">简单的python web服务器（附编码设置）</title><link href="https://sonictl.github.io/python/2021/08/26/p20210826105201.html" rel="alternate" type="text/html" title="简单的python web服务器（附编码设置）" /><published>2021-08-26T10:52:01+08:00</published><updated>2021-08-26T10:52:01+08:00</updated><id>https://sonictl.github.io/python/2021/08/26/p20210826105201</id><content type="html" xml:base="https://sonictl.github.io/python/2021/08/26/p20210826105201.html">&lt;h3 id=&quot;a-basic-web-server-implemented-by-python36&quot;&gt;A basic web server implemented by python3.6&lt;/h3&gt;
-&lt;p&gt;Note: the &lt;strong&gt;encoding-related configuration&lt;/strong&gt; in line:&lt;/p&gt;
-
-&lt;p&gt;​         &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;self.send_header(&apos;Content-type&apos;,&apos;text/html; charset=utf-8&apos;)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;注意：python web服务器 编码问题&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;csv&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;http.server&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BaseHTTPRequestHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HTTPServer&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BaseHTTPRequestHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;        &amp;lt;html&amp;gt;
-        &amp;lt;meta content=&quot;text/html;charset=utf-8&quot; http-equiv=&quot;Content-Type&quot;&amp;gt;
-        &amp;lt;meta content=&quot;utf-8&quot; http-equiv=&quot;encoding&quot;&amp;gt;
-        &amp;lt;body&amp;gt;
-        &amp;lt;p&amp;gt;Hello, I am great Chinese!&amp;lt;/p&amp;gt;
-        &amp;lt;/body&amp;gt;
-        &amp;lt;/html&amp;gt;
-    &apos;&apos;&apos;&lt;/span&gt;
-    
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parse_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;my_content.csv&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;r&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;do_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Content-type&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;text/html; charset=utf-8&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end_headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;#message = &apos;Hello beijing 北京&apos;
-&lt;/span&gt;        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;#self.wfile.write(self.Page.encode(&apos;utf-8&apos;))
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;__main__&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HTTPServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#server = HTTPServer((&apos;0.0.0.0&apos;, 8080), handler)  # 0.0.0.0 for public accessible
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serve_forever&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can access the content by ‘127.0.0.1:8080’ in browser that running in local machine on which the python web is running on.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="python" /><summary type="html">A basic web server implemented by python3.6 Note: the encoding-related configuration in line:</summary></entry></feed>
+&lt;p&gt;ref: &lt;a href=&quot;https://docs.python.org/3/library/http.server.html&quot;&gt;https://docs.python.org/3/library/http.server.html&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="IoT" /><category term="Arduino" /><summary type="html">#ESP8266 wifi configuration with AP mode</summary></entry></feed>
