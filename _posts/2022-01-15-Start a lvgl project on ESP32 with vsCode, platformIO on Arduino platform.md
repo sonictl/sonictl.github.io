@@ -46,9 +46,9 @@ in condition of vsCode+platformIO configured, do the steps blow:
     `.pio/libdeps/esp32doit-devkit-v1/lv_examples/lv_demo_conf_template.h`
 
    rename them as `lv_conf.h` and `lv_demo_conf.h` respectively.
-       
+
    Here, we don't need to edit the two conf files for tesing the TFT_eSPI while needing to edit it in the next step for lvgl testing.
-    
+
    Try to build the project and the 5 lines of text will be displayed on TFT screen. ;-)
    as below:
    ![img](https://img-blog.csdnimg.cn/4e3b4ac58ed44318a6dceba0c4fe2f27.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NTE2Nzcz,size_16,color_FFFFFF,t_70)
@@ -151,7 +151,9 @@ in condition of vsCode+platformIO configured, do the steps blow:
 ```
       - replace the .pio/libdeps with the whole `.pio/libdeps` given by seller
          Build : Success
-    
+```
+ #### Method2:
+```
       - replace the 
             .pio/libdeps/TFT_eSPI
             .pio/libdeps/lvgl
@@ -167,7 +169,7 @@ in condition of vsCode+platformIO configured, do the steps blow:
             Build : Success.
 ```
 
-#### Method2:
+#### Method3:
 ```
       - replace the
             .pio/libdeps/lvgl
@@ -186,7 +188,9 @@ in condition of vsCode+platformIO configured, do the steps blow:
             `  .pio/libdeps/esp32doit-devkit-v1/lv_examples/src/lv_demo_widgets/assets/img_demo_widgets_avatar.c`
             `  .pio/libdeps/esp32doit-devkit-v1/lv_examples/src/lv_demo_widgets/assets/img_lvgl_logo.c`
             Edit the line 4 `#include "lvgl/lvgl.h"` into `#include "lvgl.h"`
-
+            Build : Success.
+```
+### More analysis:
             Further compare the `.pio/libdeps/lvgl` with buildable `.pio/libdeps/lvgl`, A large amount of modifications exists.
             I don't know which version of lvgl does the buildable `.pio/libdeps/lvgl`. Now temporaryly use the seller offered `.pio/libdeps/lvgl`. :(
             Looks like we need to use the lvgl given by seller.
@@ -194,14 +198,20 @@ in condition of vsCode+platformIO configured, do the steps blow:
             Further compare teh `.pio/libdeps/TFT_eSPI`. Looks like the buildable TFT_eSPI uses v2.3.70
             Restore the TFT_eSPI with platformio given. replace the `User_Setup.h` with that offered by seller.
             Build Success.
-```
 
-========================================================================================================
-=========================================================================================================
- ref:https://docs.lvgl.io/latest/en/html/get-started/arduino.html 
-     https://www.bilibili.com/read/cv13793415
-     https://www.cxybb.com/article/qq_45516773/119673328
 
-```
+-----
 
-```
+### References and resources:
+ - https://docs.lvgl.io/latest/en/html/get-started/arduino.html 
+ - https://www.bilibili.com/read/cv13793415
+ - https://www.cxybb.com/article/qq_45516773/119673328
+
+#### The seller-given files are packed in "LVGL For ESP32 PlatformIO", which can be downloaded from:
+
+1. https://pan.baidu.com/s/1-1P31U7mmJ_GIKT6cSZxxw   (PIN code: 3aj6)
+
+2. https://app.mediafire.com/cfw9dsgklxs5g (international visitor)
+
+----
+

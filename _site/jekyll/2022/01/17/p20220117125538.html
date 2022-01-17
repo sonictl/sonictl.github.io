@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Getting started with MicroPython with NodeMCU(ESP8266) board | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Getting started with MicroPython with NodeMCU(ESP8266) board" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Getting started with MicroPython with NodeMCU(ESP8266) board" />
+<meta property="og:description" content="Getting started with MicroPython with NodeMCU(ESP8266) board" />
+<link rel="canonical" href="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" />
+<meta property="og:url" content="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-17T12:55:38+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Getting started with MicroPython with NodeMCU(ESP8266) board" />
+<script type="application/ld+json">
+{"description":"Getting started with MicroPython with NodeMCU(ESP8266) board","headline":"Getting started with MicroPython with NodeMCU(ESP8266) board","dateModified":"2022-01-17T12:55:38+08:00","datePublished":"2022-01-17T12:55:38+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html"},"url":"https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html","author":{"@type":"Person","name":"sonictl"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header><main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Getting started with MicroPython with NodeMCU(ESP8266) board</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2022-01-17T12:55:38+08:00" itemprop="datePublished">
+        Jan 17, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- add this block for math equation support >>>>-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- <<<< add above block for math equation support -->
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#jekyll">jekyll</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="getting-started-with-micropython-with-nodemcuesp8266-board">Getting started with MicroPython with NodeMCU(ESP8266) board</h1>
+
+<h2 id="1-follow-the-official-tutorial-to-flash-the-micropython-firmware">1. Follow the official tutorial to flash the MicroPython firmware</h2>
+
+<p>Link:</p>
+
+<ul>
+  <li>https://docs.micropython.org/en/latest/esp8266/quickref.html</li>
+  <li>https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro</li>
+</ul>
+
+<p>Comands you may need:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool.py --port /dev/tty.usbserial-14120 erase_flash
+$ esptool.py --port /dev/tty.usbserial-14120 --baud 460800 write_flash --flash_size=detect -fm dout 0  esp8266-20210902-v1.17.bin
+</code></pre></div></div>
+
+<p>you’ll receive message from ESP8266 on serial monitor such as puTTy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>microPython v1.17 on 2021-09-02; ESP module with ESP8266
+Type "help()" for more information.
+</code></pre></div></div>
+
+<p>micropython script can be run in the REPL shell.</p>
+
+<p>The Adafruit <code class="language-plaintext highlighter-rouge">ampy</code> tool gives you more function and recommended to use it. https://learn.adafruit.com/micropython-basics-load-files-and-run-code</p>
+
+<p>Go to use vsCode to develop micropython project after you tested the MCU’s REPL in puTTy.</p>
+
+<h2 id="2-vscode--micropython_vscode_extension-for-micropython-development">2. vsCode + microPython_vsCode_extension for micropython development</h2>
+
+<p>Create a new project using this extension. In vscode, cmd+shift+P and enter micropythonIDE, you’ll see the Run, Stop, and Getting started functions.</p>
+
+<p><img src="/assets/images/image-20220117120039545.png" alt="image-20220117120039545" /></p>
+
+<p>edit the main.py</p>
+
+<p><span style="color:red">Stop the code running before flashing the code into board. </span> Use this extension to stop/start a code running on board.</p>
+
+<h2 id="3-vscode--pymakr--micropy-cli-for-micropython-project-development">3. vsCode + Pymakr + micropy-cli for micropython project development</h2>
+
+<p><strong>Warning:</strong> On my Mac OSX, the Pymakr is not working stably. You may meet terminal not launching problem. Instead, the micropython vsCode extension is recommended on OSX. The Pymakr cannot list the usbSerial port (CH340 chip) on my osx.</p>
+
+<p>Next notes are following this blog post: https://lemariva.com/blog/2018/12/micropython-visual-studio-code-as-ide</p>
+
+<h4 id="21-install-the-pymakr-vscode-extension">2.1 install the Pymakr vscode extension</h4>
+
+<p>Pymakr requires node.js installed.</p>
+
+<p>After installation, the Pymakr Console will open, and you should have new commands at the bottom bar. TERMINAL will show you:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome to the Pymakr plugin! Use the buttons on the left bottom to access all features and commands.
+This is how you get started:
+ 1: Open 'Global Settings' (we went ahead and did that for you)
+ 2: Connect a pycom board to your USB and the terminal will auto-connect to it (you can skip step 3 and 4 now)
+ 3: If you want to connect over WiFi, disable auto_connect and fill in the correct IP or serial port of your Pycom board in 'address'
+     (When using serial, you can also use the 'List serial ports' to find the correct serial port)
+ 4: Connect using the 'Connect' command or the 'Pymakr Console' button
+ 5: Open a micropython project with main.py and boot.py files
+ 6: Start running files and uploading your code 
+
+</code></pre></div></div>
+
+<p>Configure it with  <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> and search for <code class="language-plaintext highlighter-rouge">Pymakr &gt; Global Settings</code> for all projects, or <code class="language-plaintext highlighter-rouge">Pymakr &gt; Project Settings</code> for one project.</p>
+
+<p>For more info, refer: https://randomnerdtutorials.com/micropython-esp32-esp8266-vs-code-pymakr/#connecting</p>
+
+<p>After the configuration, test by connecting the board with dev-PC machine.</p>
+
+<p>Create a folder, open it with vsCode, and create the two files below in it.</p>
+
+<ul>
+  <li><strong>boot.py</strong>: runs before user’s code, it sets up configuration and initializations;</li>
+  <li><strong>main.py</strong>: the main script that contains your code. It is executed immediately after the <em>boot.py</em>.</li>
+</ul>
+
+<p>Upload the code onto board: Click the <code class="language-plaintext highlighter-rouge">upload</code> button after the main.py edited and saved.</p>
+
+<p><strong>Important note:</strong></p>
+
+<ul>
+  <li>
+    <p>To make further changes (uploading a new code), press <strong>CTRL</strong>+<strong>C</strong> to stop any running code. You won’t be able to upload new code if the ESP is running another code.</p>
+  </li>
+  <li>
+    <p>You also won’t be able to execute any other commands while the board is running a code. If the prompt (»&gt;) is not displayed, it means the board is running a code.</p>
+  </li>
+</ul>
+
+<h4 id="fix-the-pymakr-extension-bug">fix the pyMakr extension bug:</h4>
+
+<p>follow the link: https://lemariva.com/blog/2018/12/micropython-visual-studio-code-as-ide#vscode-pymakr-error-update-01082019-560219</p>
+
+<p>The problem of <em>usbSerial port not listed</em> is still not solved.</p>
+
+<h4 id="23-install-the--micropy-cli-python-module-to-get-more-powerful-utilities">2.3 install the  <code class="language-plaintext highlighter-rouge">micropy-cli</code> Python module to get more powerful utilities</h4>
+
+<p>more powerful utilities such as intellisense, auto-complete, etc can be offered by <code class="language-plaintext highlighter-rouge">micropy-cli</code> module.</p>
+
+<p>Follow this blog post: https://lemariva.com/blog/2019/08/micropython-vsc-ide-intellisense</p>
+
+<p>Activate the microPython virtual env that contains <code class="language-plaintext highlighter-rouge">python3.x</code> and <code class="language-plaintext highlighter-rouge">pip</code>.</p>
+
+<p>install the module with <code class="language-plaintext highlighter-rouge">pip install --upgrade micropy-cli</code></p>
+
+<p>After installing the <code class="language-plaintext highlighter-rouge">micropy-cli</code> module, you can open VSCode and then, open the folder in which you have your project. Then, using the Terminal that you got on VSCode (if you don’t see it, hit on <code class="language-plaintext highlighter-rouge">Ctrl+\</code>` (Ctrl + back-tick character), or click the ‘+’ button on the right, or drag the lower horizontal bar up) and type the following to search and install a MicroPython stub (ESP8266 here).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>micropy stubs search esp8266
+</code></pre></div></div>
+
+<p>use cmd <code class="language-plaintext highlighter-rouge">micropy stubs add esp8266-micropython-1.11.0</code> to install the latest stub for ESP8266</p>
+
+<p>follow the link: https://lemariva.com/blog/2019/08/micropython-vsc-ide-intellisense#installing-micropy-cli-398769</p>
+
+
+    
+
+
+
+
+
+
+
+
+<div id="new-comment" style="background-color:#EAEDED">
+<!-- <h3>Comment to this blog</h3> -->
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="p20220117125538">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Leave your thoughts in this box."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed) </span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)  </span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+</div>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+  </div>
+
+
+  <a class="u-url" href="/jekyll/2022/01/17/p20220117125538.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Love lights the one who deserves.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

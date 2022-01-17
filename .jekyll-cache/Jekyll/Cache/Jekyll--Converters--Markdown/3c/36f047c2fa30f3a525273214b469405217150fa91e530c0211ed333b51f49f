@@ -1,0 +1,115 @@
+I"X<h1 id="getting-started-with-micropython-with-nodemcuesp8266-board">Getting started with MicroPython with NodeMCU(ESP8266) board</h1>
+
+<h2 id="1-follow-the-official-tutorial-to-flash-the-micropython-firmware">1. Follow the official tutorial to flash the MicroPython firmware</h2>
+
+<p>Link:</p>
+
+<ul>
+  <li>https://docs.micropython.org/en/latest/esp8266/quickref.html</li>
+  <li>https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro</li>
+</ul>
+
+<p>Comands you may need:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool.py --port /dev/tty.usbserial-14120 erase_flash
+$ esptool.py --port /dev/tty.usbserial-14120 --baud 460800 write_flash --flash_size=detect -fm dout 0  esp8266-20210902-v1.17.bin
+</code></pre></div></div>
+
+<p>you’ll receive message from ESP8266 on serial monitor such as puTTy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>microPython v1.17 on 2021-09-02; ESP module with ESP8266
+Type "help()" for more information.
+</code></pre></div></div>
+
+<p>micropython script can be run in the REPL shell.</p>
+
+<p>The Adafruit <code class="language-plaintext highlighter-rouge">ampy</code> tool gives you more function and recommended to use it. https://learn.adafruit.com/micropython-basics-load-files-and-run-code</p>
+
+<p>Go to use vsCode to develop micropython project after you tested the MCU’s REPL in puTTy.</p>
+
+<h2 id="2-vscode--micropython_vscode_extension-for-micropython-development">2. vsCode + microPython_vsCode_extension for micropython development</h2>
+
+<p>Create a new project using this extension. In vscode, cmd+shift+P and enter micropythonIDE, you’ll see the Run, Stop, and Getting started functions.</p>
+
+<p><img src="/assets/images/image-20220117120039545.png" alt="image-20220117120039545" /></p>
+
+<p>edit the main.py</p>
+
+<p><span style="color:red">Stop the code running before flashing the code into board. </span> Use this extension to stop/start a code running on board.</p>
+
+<h2 id="3-vscode--pymakr--micropy-cli-for-micropython-project-development">3. vsCode + Pymakr + micropy-cli for micropython project development</h2>
+
+<p><strong>Warning:</strong> On my Mac OSX, the Pymakr is not working stably. You may meet terminal not launching problem. Instead, the micropython vsCode extension is recommended on OSX. The Pymakr cannot list the usbSerial port (CH340 chip) on my osx.</p>
+
+<p>Next notes are following this blog post: https://lemariva.com/blog/2018/12/micropython-visual-studio-code-as-ide</p>
+
+<h4 id="21-install-the-pymakr-vscode-extension">2.1 install the Pymakr vscode extension</h4>
+
+<p>Pymakr requires node.js installed.</p>
+
+<p>After installation, the Pymakr Console will open, and you should have new commands at the bottom bar. TERMINAL will show you:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome to the Pymakr plugin! Use the buttons on the left bottom to access all features and commands.
+This is how you get started:
+ 1: Open 'Global Settings' (we went ahead and did that for you)
+ 2: Connect a pycom board to your USB and the terminal will auto-connect to it (you can skip step 3 and 4 now)
+ 3: If you want to connect over WiFi, disable auto_connect and fill in the correct IP or serial port of your Pycom board in 'address'
+     (When using serial, you can also use the 'List serial ports' to find the correct serial port)
+ 4: Connect using the 'Connect' command or the 'Pymakr Console' button
+ 5: Open a micropython project with main.py and boot.py files
+ 6: Start running files and uploading your code 
+
+</code></pre></div></div>
+
+<p>Configure it with  <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> and search for <code class="language-plaintext highlighter-rouge">Pymakr &gt; Global Settings</code> for all projects, or <code class="language-plaintext highlighter-rouge">Pymakr &gt; Project Settings</code> for one project.</p>
+
+<p>For more info, refer: https://randomnerdtutorials.com/micropython-esp32-esp8266-vs-code-pymakr/#connecting</p>
+
+<p>After the configuration, test by connecting the board with dev-PC machine.</p>
+
+<p>Create a folder, open it with vsCode, and create the two files below in it.</p>
+
+<ul>
+  <li><strong>boot.py</strong>: runs before user’s code, it sets up configuration and initializations;</li>
+  <li><strong>main.py</strong>: the main script that contains your code. It is executed immediately after the <em>boot.py</em>.</li>
+</ul>
+
+<p>Upload the code onto board: Click the <code class="language-plaintext highlighter-rouge">upload</code> button after the main.py edited and saved.</p>
+
+<p><strong>Important note:</strong></p>
+
+<ul>
+  <li>
+    <p>To make further changes (uploading a new code), press <strong>CTRL</strong>+<strong>C</strong> to stop any running code. You won’t be able to upload new code if the ESP is running another code.</p>
+  </li>
+  <li>
+    <p>You also won’t be able to execute any other commands while the board is running a code. If the prompt (»&gt;) is not displayed, it means the board is running a code.</p>
+  </li>
+</ul>
+
+<h4 id="fix-the-pymakr-extension-bug">fix the pyMakr extension bug:</h4>
+
+<p>follow the link: https://lemariva.com/blog/2018/12/micropython-visual-studio-code-as-ide#vscode-pymakr-error-update-01082019-560219</p>
+
+<p>The problem of <em>usbSerial port not listed</em> is still not solved.</p>
+
+<h4 id="23-install-the--micropy-cli-python-module-to-get-more-powerful-utilities">2.3 install the  <code class="language-plaintext highlighter-rouge">micropy-cli</code> Python module to get more powerful utilities</h4>
+
+<p>more powerful utilities such as intellisense, auto-complete, etc can be offered by <code class="language-plaintext highlighter-rouge">micropy-cli</code> module.</p>
+
+<p>Follow this blog post: https://lemariva.com/blog/2019/08/micropython-vsc-ide-intellisense</p>
+
+<p>Activate the microPython virtual env that contains <code class="language-plaintext highlighter-rouge">python3.x</code> and <code class="language-plaintext highlighter-rouge">pip</code>.</p>
+
+<p>install the module with <code class="language-plaintext highlighter-rouge">pip install --upgrade micropy-cli</code></p>
+
+<p>After installing the <code class="language-plaintext highlighter-rouge">micropy-cli</code> module, you can open VSCode and then, open the folder in which you have your project. Then, using the Terminal that you got on VSCode (if you don’t see it, hit on <code class="language-plaintext highlighter-rouge">Ctrl+\</code>` (Ctrl + back-tick character), or click the ‘+’ button on the right, or drag the lower horizontal bar up) and type the following to search and install a MicroPython stub (ESP8266 here).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>micropy stubs search esp8266
+</code></pre></div></div>
+
+<p>use cmd <code class="language-plaintext highlighter-rouge">micropy stubs add esp8266-micropython-1.11.0</code> to install the latest stub for ESP8266</p>
+
+<p>follow the link: https://lemariva.com/blog/2019/08/micropython-vsc-ide-intellisense#installing-micropy-cli-398769</p>
+
+:ET

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform"
+title:  "[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform"
 date: 2022-01-15 14:01:54 +0800
 categories: jekyll
 slug: p20220115140154
@@ -8,11 +8,11 @@ slug: p20220115140154
 # Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform
 
 **WARING** : The version confilict problem may crazy you if you play lvgl on Arduino platform.
-Fortunately, this post gives you one solution for version_conflict problem.
+Fortunately, this post offers you one solution for version_conflict problem.
 
-This is the sister post for 'Complile the lvgl sample proj in vsCode with ESP-IDF extension'. The difference is the dev-kit based on Arduino vs ESP-IDF.
+This is the sister post for '**Complile the lvgl sample proj in vsCode with ESP-IDF extension**'. The difference is the dev-kit based on **Arduino** vs **ESP-IDF**.
 
-Here, we use Arduino + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.
+Here, we use **Arduino** + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.
 
 ### Prerequisit
   - knowledge and experience about develop ESP32 basic blink project using vsCode+platformIO

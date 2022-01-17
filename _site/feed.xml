@@ -1,5 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-15T14:20:24+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32_lvgl]Tips for getting started with lvgl project on ESP32</title><link href="https://sonictl.github.io/jekyll/2022/01/15/p20220115140254.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Tips for getting started with lvgl project on ESP32" /><published>2022-01-15T14:02:54+08:00</published><updated>2022-01-15T14:02:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/15/p20220115140254</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/15/p20220115140254.html">&lt;h1 id=&quot;tips-for-getting-started-with-lvgl-project-on-esp32&quot;&gt;Tips for getting started with lvgl project on ESP32&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-17T12:57:31+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">Getting started with MicroPython with NodeMCU(ESP8266) board</title><link href="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" rel="alternate" type="text/html" title="Getting started with MicroPython with NodeMCU(ESP8266) board" /><published>2022-01-17T12:55:38+08:00</published><updated>2022-01-17T12:55:38+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/17/p20220117125538</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html">&lt;h1 id=&quot;getting-started-with-micropython-with-nodemcuesp8266-board&quot;&gt;Getting started with MicroPython with NodeMCU(ESP8266) board&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-follow-the-official-tutorial-to-flash-the-micropython-firmware&quot;&gt;1. Follow the official tutorial to flash the MicroPython firmware&lt;/h2&gt;
+
+&lt;p&gt;Link:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://docs.micropython.org/en/latest/esp8266/quickref.html&lt;/li&gt;
+  &lt;li&gt;https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Comands you may need:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ esptool.py --port /dev/tty.usbserial-14120 erase_flash
+$ esptool.py --port /dev/tty.usbserial-14120 --baud 460800 write_flash --flash_size=detect -fm dout 0  esp8266-20210902-v1.17.bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;you’ll receive message from ESP8266 on serial monitor such as puTTy:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;microPython v1.17 on 2021-09-02; ESP module with ESP8266
+Type &quot;help()&quot; for more information.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;micropython script can be run in the REPL shell.&lt;/p&gt;
+
+&lt;p&gt;The Adafruit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ampy&lt;/code&gt; tool gives you more function and recommended to use it. https://learn.adafruit.com/micropython-basics-load-files-and-run-code&lt;/p&gt;
+
+&lt;p&gt;Go to use vsCode to develop micropython project after you tested the MCU’s REPL in puTTy.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-vscode--micropython_vscode_extension-for-micropython-development&quot;&gt;2. vsCode + microPython_vsCode_extension for micropython development&lt;/h2&gt;
+
+&lt;p&gt;Create a new project using this extension. In vscode, cmd+shift+P and enter micropythonIDE, you’ll see the Run, Stop, and Getting started functions.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20220117120039545.png&quot; alt=&quot;image-20220117120039545&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;edit the main.py&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;Stop the code running before flashing the code into board. &lt;/span&gt; Use this extension to stop/start a code running on board.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-vscode--pymakr--micropy-cli-for-micropython-project-development&quot;&gt;3. vsCode + Pymakr + micropy-cli for micropython project development&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; On my Mac OSX, the Pymakr is not working stably. You may meet terminal not launching problem. Instead, the micropython vsCode extension is recommended on OSX. The Pymakr cannot list the usbSerial port (CH340 chip) on my osx.&lt;/p&gt;
+
+&lt;p&gt;Next notes are following this blog post: https://lemariva.com/blog/2018/12/micropython-visual-studio-code-as-ide&lt;/p&gt;
+
+&lt;h4 id=&quot;21-install-the-pymakr-vscode-extension&quot;&gt;2.1 install the Pymakr vscode extension&lt;/h4&gt;
+
+&lt;p&gt;Pymakr requires node.js installed.&lt;/p&gt;
+
+&lt;p&gt;After installation, the Pymakr Console will open, and you should have new commands at the bottom bar. TERMINAL will show you:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Welcome to the Pymakr plugin! Use the buttons on the left bottom to access all features and commands.
+This is how you get started:
+ 1: Open &apos;Global Settings&apos; (we went ahead and did that for you)
+ 2: Connect a pycom board to your USB and the terminal will auto-connect to it (you can skip step 3 and 4 now)
+ 3: If you want to connect over WiFi, disable auto_connect and fill in the correct IP or serial port of your Pycom board in &apos;address&apos;
+     (When using serial, you can also use the &apos;List serial ports&apos; to find the correct serial port)
+ 4: Connect using the &apos;Connect&apos; command or the &apos;Pymakr Console&apos; button
+ 5: Open a micropython project with main.py and boot.py files
+ 6: Start running files and uploading your code 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Configure it with  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+Shift+P&lt;/code&gt; and search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pymakr &amp;gt; Global Settings&lt;/code&gt; for all projects, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pymakr &amp;gt; Project Settings&lt;/code&gt; for one project.&lt;/p&gt;
+
+&lt;p&gt;For more info, refer: https://randomnerdtutorials.com/micropython-esp32-esp8266-vs-code-pymakr/#connecting&lt;/p&gt;
+
+&lt;p&gt;After the configuration, test by connecting the board with dev-PC machine.&lt;/p&gt;
+
+&lt;p&gt;Create a folder, open it with vsCode, and create the two files below in it.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;boot.py&lt;/strong&gt;: runs before user’s code, it sets up configuration and initializations;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;main.py&lt;/strong&gt;: the main script that contains your code. It is executed immediately after the &lt;em&gt;boot.py&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Upload the code onto board: Click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;upload&lt;/code&gt; button after the main.py edited and saved.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important note:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;To make further changes (uploading a new code), press &lt;strong&gt;CTRL&lt;/strong&gt;+&lt;strong&gt;C&lt;/strong&gt; to stop any running code. You won’t be able to upload new code if the ESP is running another code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You also won’t be able to execute any other commands while the board is running a code. If the prompt (»&amp;gt;) is not displayed, it means the board is running a code.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fix-the-pymakr-extension-bug&quot;&gt;fix the pyMakr extension bug:&lt;/h4&gt;
+
+&lt;p&gt;follow the link: https://lemariva.com/blog/2018/12/micropython-visual-studio-code-as-ide#vscode-pymakr-error-update-01082019-560219&lt;/p&gt;
+
+&lt;p&gt;The problem of &lt;em&gt;usbSerial port not listed&lt;/em&gt; is still not solved.&lt;/p&gt;
+
+&lt;h4 id=&quot;23-install-the--micropy-cli-python-module-to-get-more-powerful-utilities&quot;&gt;2.3 install the  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;micropy-cli&lt;/code&gt; Python module to get more powerful utilities&lt;/h4&gt;
+
+&lt;p&gt;more powerful utilities such as intellisense, auto-complete, etc can be offered by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;micropy-cli&lt;/code&gt; module.&lt;/p&gt;
+
+&lt;p&gt;Follow this blog post: https://lemariva.com/blog/2019/08/micropython-vsc-ide-intellisense&lt;/p&gt;
+
+&lt;p&gt;Activate the microPython virtual env that contains &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3.x&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;install the module with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install --upgrade micropy-cli&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After installing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;micropy-cli&lt;/code&gt; module, you can open VSCode and then, open the folder in which you have your project. Then, using the Terminal that you got on VSCode (if you don’t see it, hit on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+\&lt;/code&gt;` (Ctrl + back-tick character), or click the ‘+’ button on the right, or drag the lower horizontal bar up) and type the following to search and install a MicroPython stub (ESP8266 here).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;micropy stubs search esp8266
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;use cmd &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;micropy stubs add esp8266-micropython-1.11.0&lt;/code&gt; to install the latest stub for ESP8266&lt;/p&gt;
+
+&lt;p&gt;follow the link: https://lemariva.com/blog/2019/08/micropython-vsc-ide-intellisense#installing-micropy-cli-398769&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Getting started with MicroPython with NodeMCU(ESP8266) board</summary></entry><entry><title type="html">[ESP32_lvgl]Tips for getting started with lvgl project on ESP32</title><link href="https://sonictl.github.io/jekyll/2022/01/15/p20220115140254.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Tips for getting started with lvgl project on ESP32" /><published>2022-01-15T14:02:54+08:00</published><updated>2022-01-15T14:02:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/15/p20220115140254</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/15/p20220115140254.html">&lt;h1 id=&quot;tips-for-getting-started-with-lvgl-project-on-esp32&quot;&gt;Tips for getting started with lvgl project on ESP32&lt;/h1&gt;
 
 &lt;p&gt;Before you get started with lvgl on ESP32, the first problem is which SDK(firmware platform) is going to be based on.
 You may dev ESP32 project based on Arduino or ESP-IDF(espreessif officially offered).&lt;/p&gt;
@@ -159,8 +271,9 @@ Fortunately, this post offers you one solution for version_conflict problem.&lt;
 &lt;p&gt;#### Method1:&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      - replace the .pio/libdeps with the whole `.pio/libdeps` given by seller
          Build : Success
-    
-      - replace the 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;#### Method2:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      - replace the 
             .pio/libdeps/TFT_eSPI
             .pio/libdeps/lvgl
             .pio/libdeps/lv_examples/lv_demo_conf.h
@@ -175,7 +288,7 @@ Fortunately, this post offers you one solution for version_conflict problem.&lt;
             Build : Success.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;method2&quot;&gt;Method2:&lt;/h4&gt;
+&lt;h4 id=&quot;method3&quot;&gt;Method3:&lt;/h4&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      - replace the
             .pio/libdeps/lvgl
             .pio/libdeps/lv_examples/lv_demo_conf.h
@@ -193,23 +306,39 @@ Fortunately, this post offers you one solution for version_conflict problem.&lt;
             `  .pio/libdeps/esp32doit-devkit-v1/lv_examples/src/lv_demo_widgets/assets/img_demo_widgets_avatar.c`
             `  .pio/libdeps/esp32doit-devkit-v1/lv_examples/src/lv_demo_widgets/assets/img_lvgl_logo.c`
             Edit the line 4 `#include &quot;lvgl/lvgl.h&quot;` into `#include &quot;lvgl.h&quot;`
+            Build : Success.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;more-analysis&quot;&gt;More analysis:&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        Further compare the `.pio/libdeps/lvgl` with buildable `.pio/libdeps/lvgl`, A large amount of modifications exists.
+        I don&apos;t know which version of lvgl does the buildable `.pio/libdeps/lvgl`. Now temporaryly use the seller offered `.pio/libdeps/lvgl`. :(
+        Looks like we need to use the lvgl given by seller.
 
-            Further compare the `.pio/libdeps/lvgl` with buildable `.pio/libdeps/lvgl`, A large amount of modifications exists.
-            I don&apos;t know which version of lvgl does the buildable `.pio/libdeps/lvgl`. Now temporaryly use the seller offered `.pio/libdeps/lvgl`. :(
-            Looks like we need to use the lvgl given by seller.
-    
-            Further compare teh `.pio/libdeps/TFT_eSPI`. Looks like the buildable TFT_eSPI uses v2.3.70
-            Restore the TFT_eSPI with platformio given. replace the `User_Setup.h` with that offered by seller.
-            Build Success.
+        Further compare teh `.pio/libdeps/TFT_eSPI`. Looks like the buildable TFT_eSPI uses v2.3.70
+        Restore the TFT_eSPI with platformio given. replace the `User_Setup.h` with that offered by seller.
+        Build Success.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1&gt;========================================================================================================&lt;/h1&gt;
-&lt;p&gt;ref:https://docs.lvgl.io/latest/en/html/get-started/arduino.html 
-     https://www.bilibili.com/read/cv13793415
-     https://www.cxybb.com/article/qq_45516773/119673328&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</summary></entry><entry><title type="html">[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title><link href="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension" /><published>2022-01-11T21:09:54+08:00</published><updated>2022-01-11T21:09:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/11/p20220111210954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html">&lt;h1 id=&quot;complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension&quot;&gt;Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension&lt;/h1&gt;
+&lt;h3 id=&quot;references-and-resources&quot;&gt;References and resources:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://docs.lvgl.io/latest/en/html/get-started/arduino.html&lt;/li&gt;
+  &lt;li&gt;https://www.bilibili.com/read/cv13793415&lt;/li&gt;
+  &lt;li&gt;https://www.cxybb.com/article/qq_45516773/119673328&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;the-seller-given-files-are-packed-in-lvgl-for-esp32-platformio-which-can-be-downloaded-from&quot;&gt;The seller-given files are packed in “LVGL For ESP32 PlatformIO”, which can be downloaded from:&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://pan.baidu.com/s/1-1P31U7mmJ_GIKT6cSZxxw   (PIN code: 3aj6)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://app.mediafire.com/cfw9dsgklxs5g (international visitor)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</summary></entry><entry><title type="html">[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title><link href="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension" /><published>2022-01-11T21:09:54+08:00</published><updated>2022-01-11T21:09:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/11/p20220111210954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html">&lt;h1 id=&quot;complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension&quot;&gt;Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension&lt;/h1&gt;
 
 &lt;p&gt;If you’ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the &lt;strong&gt;section 1&lt;/strong&gt; and &lt;strong&gt;section 2&lt;/strong&gt;. Directly check the lvgl example project &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; cloning/configure/build/etc. steps in &lt;strong&gt;section 3&lt;/strong&gt;.&lt;/p&gt;
 
@@ -681,81 +810,4 @@ route add 172.16.0.0  mask 255.255.255.128 172.16.99.86
 
 &lt;hr /&gt;
 
-&lt;p&gt;如果发现外网访问的速度比较慢，需要设置在网络配置里面修改wifi的自动活跃度大于有线的活跃度，可以解决这个问题&lt;/p&gt;</content><author><name>sonictl</name></author><category term="运维" /><summary type="html">++++++ 双线网络设置 ++++++++</summary></entry><entry><title type="html">ESP8266 wifi configuration with AP mode</title><link href="https://sonictl.github.io/iot/arduino/2021/08/26/p20210826204201.html" rel="alternate" type="text/html" title="ESP8266 wifi configuration with AP mode" /><published>2021-08-26T20:42:01+08:00</published><updated>2021-08-26T20:42:01+08:00</updated><id>https://sonictl.github.io/iot/arduino/2021/08/26/p20210826204201</id><content type="html" xml:base="https://sonictl.github.io/iot/arduino/2021/08/26/p20210826204201.html">&lt;p&gt;#ESP8266 wifi configuration with AP mode&lt;/p&gt;
-
-&lt;p&gt;Thanks for the github repository: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tzapu/WiFiManager&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Although we all know that we can use the AP mode to configure the wifi password for ESP8266, it still takes time to implement the specific code line by line. Now, with the help of this project, I just need to share the steps to get this project running on our own ESP8266 chip.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; that the ESP8266 SmartConfig is another covenient way for wifi password broadcasting while the android app seems not supported by my HomonyOS phone.&lt;/p&gt;
-
-&lt;h2 id=&quot;wifikit8&quot;&gt;wifikit8&lt;/h2&gt;
-
-&lt;p&gt;https://heltec.org/product/wifi-kit-8/&lt;/p&gt;
-
-&lt;p&gt;with esp8266 as the MCU on board.&lt;/p&gt;
-
-&lt;h2 id=&quot;platformio-on-vs-code&quot;&gt;PlatformIO on VS Code&lt;/h2&gt;
-
-&lt;p&gt;reference: &lt;a href=&quot;https://www.electronicshub.org/programming-esp8266-using-vs-code-and-platformio/&quot;&gt;Getting start with Platform on VS_Code&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;monitor_speed = 115200&lt;/code&gt; into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;p&gt;Here I have an example code in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.cpp&lt;/code&gt; for testing:&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;Arduino.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#define ledPin 4
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// put your setup code here, to run once:&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;115200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// put your main code here, to run repeatedly:&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LED is ON!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ledPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LED is OFF!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Once you have successfully implemented your first Arduino proj. with the help of PlatformIO on VSCode, go ahead to read the next section of WiFiManger.&lt;/p&gt;
-
-&lt;h2 id=&quot;wifimanager&quot;&gt;WiFiManager&lt;/h2&gt;
-
-&lt;h3 id=&quot;install-the-libray-in-platformio&quot;&gt;Install the libray in PlatformIO&lt;/h3&gt;
-
-&lt;p&gt;reference: &lt;a href=&quot;https://github.com/tzapu/WiFiManager#install-using-platformio&quot;&gt;install tutorial&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;in VSCode, goto: PlO_home » libraries » search the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tzapu WiFiManger&lt;/code&gt; , and add it to your project.&lt;/p&gt;
-
-&lt;h3 id=&quot;basic-exaple-code&quot;&gt;Basic exaple code&lt;/h3&gt;
-
-&lt;p&gt;The basic &lt;a href=&quot;https://github.com/tzapu/WiFiManager/blob/master/examples/Basic/Basic.ino&quot;&gt;example&lt;/a&gt; helps you get started.&lt;/p&gt;
-
-&lt;h2 id=&quot;https-client&quot;&gt;HTTPS client&lt;/h2&gt;
-
-&lt;p&gt;reference: &lt;a href=&quot;https://buger.dread.cz/simple-esp8266-https-client-without-verification-of-certificate-fingerprint.html&quot;&gt;ESP8266 HTTPS client without cert fingerprint&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ESP8266HTTPClient requires server certificate fingerprint hardcoded (or provided somehow) in your sketch to be able to connect. This is not an issue until the certificate on the server is renewed. So here the no-cert https client is used.&lt;/p&gt;
-
-&lt;h4 id=&quot;when-avoid-this-method-that-without-certificate&quot;&gt;When avoid this method that without certificate?&lt;/h4&gt;
-
-&lt;p&gt;Really don’t use this when:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;any kind of personal or sensitive data are involved / transfered - like passwords, keys, personal messages&lt;/li&gt;
-  &lt;li&gt;faked value / information may cause damage - like turning on all heaters in your house during your 2 weeks long summer vacation because somebody faked the API you are using to control them, or bot which sells all your bitcoins by “mistake” because of faked exchange rate received&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;basic-simple-web-server-by-python&quot;&gt;Basic simple web server by Python&lt;/h2&gt;
-
-&lt;p&gt;Python run a web server and publish some messages that can be gotten by the https client on ESP8266.&lt;/p&gt;
-
-&lt;p&gt;ref: &lt;a href=&quot;https://docs.python.org/3/library/http.server.html&quot;&gt;https://docs.python.org/3/library/http.server.html&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="IoT" /><category term="Arduino" /><summary type="html">#ESP8266 wifi configuration with AP mode</summary></entry></feed>
+&lt;p&gt;如果发现外网访问的速度比较慢，需要设置在网络配置里面修改wifi的自动活跃度大于有线的活跃度，可以解决这个问题&lt;/p&gt;</content><author><name>sonictl</name></author><category term="运维" /><summary type="html">++++++ 双线网络设置 ++++++++</summary></entry></feed>
