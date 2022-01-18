@@ -9,7 +9,7 @@ slug: p20211126182011
 
 Attiny 85 board:
 
-![image-20211126180807011](/Users/sonic/Blog_sonictl.github.io/Posts_for_publish/assets/images/image-20211126180807011.png)
+![image-20211126180807011](/assets/images/image-20211126180807011.png)
 
 这款迷你开发板带了6个IO口，4个ADC，I2C通信结构等资源，已经能应付很多控制场景了。
 

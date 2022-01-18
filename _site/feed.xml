@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-18T19:07:56+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-18T19:24:58+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
 </subtitle><author><name>sonictl</name></author><entry><title type="html">Getting started with MicroPython with NodeMCU(ESP8266) board</title><link href="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" rel="alternate" type="text/html" title="Getting started with MicroPython with NodeMCU(ESP8266) board" /><published>2022-01-17T12:55:38+08:00</published><updated>2022-01-17T12:55:38+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/17/p20220117125538</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html">&lt;h1 id=&quot;getting-started-with-micropython-with-nodemcuesp8266-board&quot;&gt;Getting started with MicroPython with NodeMCU(ESP8266) board&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-follow-the-official-tutorial-to-flash-the-micropython-firmware&quot;&gt;1. Follow the official tutorial to flash the MicroPython firmware&lt;/h2&gt;
@@ -578,56 +578,7 @@ void loop() {
 
 &lt;p&gt;使用VScode + platformIO ， 在Arduino框架下进行开发。睡眠模式探究&lt;/p&gt;
 
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;step1-新增或编辑博文&quot;&gt;step1: 新增或编辑博文：&lt;/h3&gt;
-
-&lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;&lt;strong&gt;cmmad + shift +S&lt;/strong&gt; 复制本模板&lt;/span&gt;，&lt;strong&gt;再&lt;/strong&gt;编辑内容。。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;添加图片：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;添加图片到 /assets/images  会自动同步到  jekyll_proj_root/assets/images, 博文的图片地址：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/assets/images/***.jpg&lt;/code&gt; 。本地预览会不显示，要预览可在图片path前加个“.”&lt;/p&gt;
-
-&lt;p&gt;参考md code: ` &lt;img src=&quot;/assets/images/image-20200523877.png&quot; alt=&quot;img&quot; /&gt;`&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;![Tux, the Linux mascot](/assets/images/tux.png)&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;step2-保存blog&quot;&gt;step2: 保存blog：&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;若： &lt;strong&gt;非私密博文&lt;/strong&gt;：保存到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public_posts&lt;/code&gt;， 运行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sync folders&lt;/code&gt; app，自动同步到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekylly_proj/_posts&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;若： &lt;strong&gt;私密博文&lt;/strong&gt;：保存到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_private_posts&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;stpe3-生成jekyll-web站点以更新&quot;&gt;stpe3: 生成jekyll web站点以更新&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /Users/sonic/Blog_sonictl.github.io/jekylly_proj
-bundle exec jekyll serve # --watch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /Users/sonic/Blog_sonictl.github.io
-./2. run_jekyll_local_svr.command  &lt;span class=&quot;c&quot;&gt;# this bash script will build web and start jekyll service: localhost:4000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;非私密博文发布到web&quot;&gt;非私密博文发布到web:&lt;/h2&gt;
-
-&lt;p&gt;运行2个.command文件即可:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /Users/sonic/Blog_sonictl.github.io
-./3. git_pull_merge_local.command    &lt;span class=&quot;c&quot;&gt;# merge the remote comments data with local firstly&lt;/span&gt;
-./4. publish_to_github_page.command  &lt;span class=&quot;c&quot;&gt;# git add . &amp;amp;&amp;amp; git commit &amp;amp;&amp;amp; git push&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;or in Terminal：&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /Users/sonic/Blog_sonictl.github.io/jekylly_proj
-bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve &lt;span class=&quot;c&quot;&gt;# --watch&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#new Terminal Tab (⌘T):&lt;/span&gt;
-git status   &lt;span class=&quot;c&quot;&gt;# for check&lt;/span&gt;
-git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;new cmit&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin main
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Attiny85 Arduino SleepMode 睡眠模式使用笔记</summary></entry><entry><title type="html">PIP and CONDA Add and Remove Mirror Source 配置软件源</title><link href="https://sonictl.github.io/jekyll/2021/11/15/p20211115215455.html" rel="alternate" type="text/html" title="PIP and CONDA Add and Remove Mirror Source 配置软件源" /><published>2021-11-15T21:55:30+08:00</published><updated>2021-11-15T21:55:30+08:00</updated><id>https://sonictl.github.io/jekyll/2021/11/15/p20211115215455</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/11/15/p20211115215455.html">&lt;p&gt;&lt;strong&gt;First, PIP&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Attiny85 Arduino SleepMode 睡眠模式使用笔记</summary></entry><entry><title type="html">PIP and CONDA Add and Remove Mirror Source 配置软件源</title><link href="https://sonictl.github.io/jekyll/2021/11/15/p20211115215455.html" rel="alternate" type="text/html" title="PIP and CONDA Add and Remove Mirror Source 配置软件源" /><published>2021-11-15T21:55:30+08:00</published><updated>2021-11-15T21:55:30+08:00</updated><id>https://sonictl.github.io/jekyll/2021/11/15/p20211115215455</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/11/15/p20211115215455.html">&lt;p&gt;&lt;strong&gt;First, PIP&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;1, add a source&lt;/p&gt;
 

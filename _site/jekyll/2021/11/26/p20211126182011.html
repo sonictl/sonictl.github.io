@@ -84,55 +84,6 @@
 
 <hr />
 
-<h3 id="step1-新增或编辑博文">step1: 新增或编辑博文：</h3>
-
-<p><span style="color:red"><strong>cmmad + shift +S</strong> 复制本模板</span>，<strong>再</strong>编辑内容。。</p>
-
-<p><strong>添加图片：</strong></p>
-
-<p>添加图片到 /assets/images  会自动同步到  jekyll_proj_root/assets/images, 博文的图片地址：<code class="language-plaintext highlighter-rouge">/assets/images/***.jpg</code> 。本地预览会不显示，要预览可在图片path前加个“.”</p>
-
-<p>参考md code: ` <img src="/assets/images/image-20200523877.png" alt="img" />`</p>
-
-<p><code class="language-plaintext highlighter-rouge">![Tux, the Linux mascot](/assets/images/tux.png)</code></p>
-
-<h3 id="step2-保存blog">step2: 保存blog：</h3>
-
-<ul>
-  <li>若： <strong>非私密博文</strong>：保存到 <code class="language-plaintext highlighter-rouge">public_posts</code>， 运行 <code class="language-plaintext highlighter-rouge">sync folders</code> app，自动同步到<code class="language-plaintext highlighter-rouge">jekylly_proj/_posts</code></li>
-  <li>若： <strong>私密博文</strong>：保存到 <code class="language-plaintext highlighter-rouge">local_private_posts</code></li>
-</ul>
-
-<h3 id="stpe3-生成jekyll-web站点以更新">stpe3: 生成jekyll web站点以更新</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /Users/sonic/Blog_sonictl.github.io/jekylly_proj
-bundle exec jekyll serve # --watch
-</code></pre></div></div>
-
-<p>or</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /Users/sonic/Blog_sonictl.github.io
-./2. run_jekyll_local_svr.command  <span class="c"># this bash script will build web and start jekyll service: localhost:4000</span>
-</code></pre></div></div>
-
-<h2 id="非私密博文发布到web">非私密博文发布到web:</h2>
-
-<p>运行2个.command文件即可:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /Users/sonic/Blog_sonictl.github.io
-./3. git_pull_merge_local.command    <span class="c"># merge the remote comments data with local firstly</span>
-./4. publish_to_github_page.command  <span class="c"># git add . &amp;&amp; git commit &amp;&amp; git push</span>
-</code></pre></div></div>
-
-<p>or in Terminal：</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /Users/sonic/Blog_sonictl.github.io/jekylly_proj
-bundle <span class="nb">exec </span>jekyll serve <span class="c"># --watch</span>
-<span class="c">#new Terminal Tab (⌘T):</span>
-git status   <span class="c"># for check</span>
-git add <span class="nb">.</span> <span class="o">&amp;&amp;</span> git commit <span class="nt">-m</span> <span class="s1">'new cmit'</span> <span class="o">&amp;&amp;</span> git push <span class="nt">-u</span> origin main
-</code></pre></div></div>
-
 
     
 
