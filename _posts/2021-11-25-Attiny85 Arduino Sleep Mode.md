@@ -9,7 +9,7 @@ slug: p20211126182011
 
 Attiny 85 board:
 
-![image-20211126180807011](/Users/sonic/Blog_sonictl.github.io/Posts_for_publish/assets/images/image-20211126180807011.png)
+![image-20211126180807011](/assets/images/image-20211126180807011.png)
 
 这款迷你开发板带了6个IO口，4个ADC，I2C通信结构等资源，已经能应付很多控制场景了。
 
@@ -33,7 +33,7 @@ Attiny 85 board:
 
 添加图片到 /assets/images  会自动同步到  jekyll_proj_root/assets/images, 博文的图片地址：`/assets/images/***.jpg` 。本地预览会不显示，要预览可在图片path前加个“.” 
 
-参考md code: ` ![img](/asserts/images/image-20200523877.png)` 
+参考md code: ` ![img](/assets/images/image-20200523877.png)` 
 
 `![Tux, the Linux mascot](/assets/images/tux.png)`
 
