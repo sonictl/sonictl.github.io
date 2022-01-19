@@ -1,5 +1,448 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-18T19:24:58+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">Getting started with MicroPython with NodeMCU(ESP8266) board</title><link href="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" rel="alternate" type="text/html" title="Getting started with MicroPython with NodeMCU(ESP8266) board" /><published>2022-01-17T12:55:38+08:00</published><updated>2022-01-17T12:55:38+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/17/p20220117125538</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html">&lt;h1 id=&quot;getting-started-with-micropython-with-nodemcuesp8266-board&quot;&gt;Getting started with MicroPython with NodeMCU(ESP8266) board&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-19T22:54:29+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</title><link href="https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard" /><published>2022-01-19T22:15:45+08:00</published><updated>2022-01-19T22:15:45+08:00</updated><id>https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545</id><content type="html" xml:base="https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html">&lt;h1 id=&quot;esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard&quot;&gt;[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard&lt;/h1&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of contents:&lt;/h2&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Table of contents:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#1-some-basic-concepts&quot;&gt;1 Some basic concepts&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#2-the-one-lvmicropython&quot;&gt;2 The one: lv_micropython&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#3-quick-use-of-lvmicropython&quot;&gt;3 Quick use of lv_micropython&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#31--build-micropython-for-linux-port-optional-for-newbie&quot;&gt;3.1  Build micropython for Linux port (optional for newbie):&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#32-building-lvmicropython-micropython-fork-for-esp32-port&quot;&gt;3.2 Building &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; micropython fork for ESP32 port:&lt;/a&gt;
+     &lt;a href=&quot;#321-install-the-esp-idf-sdk&quot;&gt;3.2.1 install the ESP-IDF sdk&lt;/a&gt;
+        &lt;a href=&quot;#get-esp-idf-v42&quot;&gt;Get ESP-IDF v4.2&lt;/a&gt;
+        &lt;a href=&quot;#set-up-the-environment-variables&quot;&gt;Set up the environment variables&lt;/a&gt;
+     &lt;a href=&quot;#322-build-the-lvmicropython-firmware&quot;&gt;3.2.2 Build the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; firmware&lt;/a&gt;
+     &lt;a href=&quot;#323-flashing-the-lvmicropython-firmware&quot;&gt;3.2.3 Flashing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; firmware&lt;/a&gt;
+     &lt;a href=&quot;#324-getting-a-python-prompt-on-the-device&quot;&gt;3.2.4 Getting a Python prompt on the device&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#4-confiture-wifi-and-use-the-board&quot;&gt;4 Confiture wifi and use the board&lt;/a&gt;
+&lt;a href=&quot;#reference-and-read-more&quot;&gt;Reference and read more&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;First, thanks for this blog post: &lt;a href=&quot;https://blog.lvgl.io/2019-02-20/micropython-bindings&quot;&gt;Micropython + LittlevGL&lt;/a&gt; written by amirgon on Feb, 2019.&lt;/p&gt;
+
+&lt;p&gt;Micropython Binding for LittlevGL (&lt;a href=&quot;https://github.com/lvgl/lv_binding_micropython&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_binding_micropython&lt;/code&gt;&lt;/a&gt;) was designed to make it simple to use LittlevGL with Micropython. It plays as a bridge between micropython and lvgl libraries.&lt;/p&gt;
+
+&lt;p&gt;In principle &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_binding_micropython&lt;/code&gt; can support any micropython fork.&lt;/p&gt;
+
+&lt;p&gt;To add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_binding_micropython&lt;/code&gt; to some Micropython fork you need to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_binding_micropython&lt;/code&gt; under Micropython lib as a git submodule.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I tested all the implementations and configurations with commands in Ubuntu20.04 virtual machine.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-some-basic-concepts&quot;&gt;1 Some basic concepts&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Before continue, we need to know some concepts:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;what is a micropython fork?&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;a fork is like a unix distribution. or a micropython that complied/built from fork-and-modified code. “There are many micropython forks for a variety of systems and hardware platforms not supported in the mainline.” – &lt;a href=&quot;https://en.wikipedia.org/wiki/MicroPython&quot;&gt;wikipedia_page&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;What is a git submodule?&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;In Git you can add a submodule to a repository. This is basically “a repository embedded in your main repository”. A git submodule is a record within a host git repository that points to a specific commit in another external repository.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;How to add some repository under Micropython lib as a git submodule?&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;You can refer to &lt;a href=&quot;https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Managing Python dependencies with git submodules&lt;/code&gt;&lt;/a&gt; and the commands they used shows you some concepts about submodule:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add {github_repo} {local_path}&lt;/code&gt;
+Example:&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add https://github.com/Kif11/logger modules/logger&lt;/code&gt;
+  or:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add https://github.com/lvgl/lvgl libs/lvgl&lt;/code&gt;
+To understand the submodule, you can see this picture:
+&lt;img src=&quot;/assets/images/image-20220118220911083.png&quot; alt=&quot;image-20220118220911083&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;what is micropython binding module?&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In order to have access to C libraries from Python, a dynamic-link library can be written in C in such a way that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CPython&lt;/code&gt; will treat it as a module (you will be able to import it in your Python programs). The Python/C API allows the library to define functions that are written in C but still callable from Python. The API is very powerful and provides functions to manipulate all Python data types and access the internals of the interpreter.&lt;/p&gt;
+
+  &lt;p&gt;I didn’t find accureate definitions about micropython binding module, however, readers can guess that the binding module should be a C/python bridge library.&lt;/p&gt;
+
+  &lt;p&gt;For more info, refer: https://stackoverflow.com/questions/10202306/python-bindings-how-does-it-work&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;what is a micropython port?&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A port will typically contain definitions for multiple “boards”, each of which is a specific piece of hardware that that port can run on, e.g. a development kit or device.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So,&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Before compile the lvgl_contained micropython, you need to do:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;add some lines to Micropython Makefile in order to create LittlevGL Binding module&lt;/li&gt;
+  &lt;li&gt;add the new lvgl module to Micropython by editing mpconfigport.h, in order to compile LittlevGL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ref: &lt;a href=&quot;https://docs.micropython.org/en/v1.17/develop/cmodules.html?highlight=mpconfigport#micropython-external-c-modules&quot;&gt;MicroPython external C modules&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;2-the-one-lv_micropython&quot;&gt;2 The one: lv_micropython&lt;/h3&gt;
+
+&lt;p&gt;As an example, &lt;a href=&quot;https://blog.lvgl.io/2019-02-20/micropython-bindings&quot;&gt;Amirgon&lt;/a&gt; has created the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; - a Micropython fork with LittlevGL binding. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; usually be used directly by developers. Let’s see how to use it for ESP32 board. Can use it as it is, or as an example of how to integrate LittlevGL with Micropython.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/littlevgl/lv_micropython&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt;&lt;/a&gt; can currently be used with &lt;strong&gt;LittlevGL&lt;/strong&gt; on the &lt;strong&gt;unix port&lt;/strong&gt; and on the &lt;strong&gt;ESP32 port&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;LittlevGL needs drivers for the display and for the input device. The Micropython binding contains some example drivers that are registered and used on &lt;a href=&quot;https://github.com/littlevgl/lv_micropython&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SDL unix drivers (display and mouse)&lt;/li&gt;
+  &lt;li&gt;ILI9341 driver for ESP32.&lt;/li&gt;
+  &lt;li&gt;Raw Resistive Touch for ESP32 (ADC connected to screen directly, no touch IC)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For details about the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt;: https://github.com/lvgl/lv_micropython&lt;/p&gt;
+
+&lt;h3 id=&quot;3-quick-use-of-lv_micropython&quot;&gt;3 Quick use of lv_micropython&lt;/h3&gt;
+
+&lt;p&gt;First, testing the building for Unix(Linux) port:&lt;/p&gt;
+
+&lt;h4 id=&quot;31--build-micropython-for-linux-port-optional-for-newbie&quot;&gt;3.1  Build micropython for Linux port (optional for newbie):&lt;/h4&gt;
+
+&lt;p&gt;Here, I tested all the commands below on a virtual machine running Ubuntu 20.04.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sudo apt-get install build-essential libreadline-dev libffi-dev git pkg-config libsdl2-2.0-0 libsdl2-dev python3.7 parallel&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;251MB will be occupied.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cd ~/Downloads
+git clone https://github.com/lvgl/lv_micropython.git
+cd lv_micropython
+git submodule update –init –recursive lib/lv_bindings&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;waiting for the updating of submodules&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;make -C mpy-cross&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;it shows:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make: Entering directory &apos;/home/user/Downloads/lv_micropython/mpy-cross&apos;
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+LVGL-GEN build/lvgl/lv_mpy.c
+cp ../lib/lv_bindings/driver/png/lodepng/lodepng.cpp build/lodepng/lodepng.c
+LODEPNG-GEN build/lodepng/mp_lodepng.c
+mkdir -p build/genhdr
+GEN build/genhdr/mpversion.h
+GEN build/genhdr/moduledefs.h
+...
+mkdir -p build/py/
+mkdir -p build/shared/runtime/
+CC ../py/mpstate.c
+CC ../py/nlr.c
+CC ../py/nlrx86.c
+CC ../py/nlrx64.c
+CC ../py/nlrthumb.c
+...
+CC main.c
+CC gccollect.c
+CC ../shared/runtime/gchelper_generic.c
+LINK mpy-cross
+   text	   data	    bss	    dec	    hex	filename
+ 410368	  37952	    896	 449216	  6dac0	mpy-cross
+make: Leaving directory &apos;/home/user/Downloads/lv_micropython/mpy-cross&apos;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;make -C ports/unix submodules&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It shows:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make: Entering directory &apos;/home/user/Downloads/lv_micropython/ports/unix&apos;
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+Updating submodules: lib/axtls lib/berkeley-db-1.xx lib/libffi
+Submodule &apos;lib/axtls&apos; (https://github.com/micropython/axtls.git) registered for path &apos;../../lib/axtls&apos;
+Submodule &apos;lib/berkeley-db-1.xx&apos; (https://github.com/pfalcon/berkeley-db-1.xx) registered for path &apos;../../lib/berkeley-db-1.xx&apos;
+Submodule &apos;lib/libffi&apos; (https://github.com/atgreen/libffi) registered for path &apos;../../lib/libffi&apos;
+Cloning into &apos;/home/user/Downloads/lv_micropython/lib/axtls&apos;...
+Cloning into &apos;/home/user/Downloads/lv_micropython/lib/berkeley-db-1.xx&apos;...
+Cloning into &apos;/home/user/Downloads/lv_micropython/lib/libffi&apos;...
+Submodule path &apos;../../lib/axtls&apos;: checked out &apos;531cab9c278c947d268bd4c94ecab9153a961b43&apos;
+Submodule path &apos;../../lib/berkeley-db-1.xx&apos;: checked out &apos;35aaec4418ad78628a3b935885dd189d41ce779b&apos;
+Submodule path &apos;../../lib/libffi&apos;: checked out &apos;e9de7e35f2339598b16cbb375f9992643ed81209&apos;
+make: Leaving directory &apos;/home/user/Downloads/lv_micropython/ports/unix&apos;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;make -C ports/unix&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It shows:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make: Entering directory &apos;/home/user/Downloads/lv_micropython/ports/unix&apos;
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+LVGL-GEN build-standard/lvgl/lv_mpy.c
+cp ../../lib/lv_bindings/driver/png/lodepng/lodepng.cpp build-standard/lodepng/lodepng.c
+LODEPNG-GEN build-standard/lodepng/mp_lodepng.c
+mkdir -p build-standard/genhdr
+GEN build-standard/genhdr/mpversion.h
+GEN build-standard/genhdr/moduledefs.h
+...
+mkdir -p build-standard/build-standard/lvgl/
+...
+CC ../../lib/lv_bindings/driver/SDL/modSDL.c
+CC ../../lib/lv_bindings/driver/linux/modfb.c
+LINK micropython
+   text	   data	    bss	    dec	    hex	filename
+1452759	 206648	   6568	1665975	 196bb7	micropython
+make: Leaving directory &apos;/home/user/Downloads/lv_micropython/ports/unix&apos;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can run the build result by:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;./ports/unix/micropython&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For further testing, comment out the last three lines for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/lv_bindings/examples/advanced_demo.py&lt;/code&gt;, and run the demo by the command:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;./ports/unix/micropython ./lib/lv_bindings/examples/advanced_demo.py&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You’ll see a window shows up:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20220119174750811.png&quot; alt=&quot;image-20220119174750811&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Congrates!&lt;/p&gt;
+
+&lt;h4 id=&quot;32-building-lv_micropython-micropython-fork-for-esp32-port&quot;&gt;3.2 Building &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; micropython fork for ESP32 port:&lt;/h4&gt;
+
+&lt;p&gt;For building a port of MicroPython to the Espressif ESP32 series of microcontrollers. It uses the ESP-IDF framework. The MicroPython runs as a task under FreeRTOS.&lt;/p&gt;
+
+&lt;p&gt;Reference: https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md#setting-up-the-toolchain-and-esp-idf&lt;/p&gt;
+
+&lt;p&gt;MicroPython on ESP32 requires the Espressif IDF version 4 (IoT development framework, aka SDK). The ESP-IDF includes the libraries and RTOS needed to manage the ESP32 microcontroller, as well as a way to manage the required build environment and toolchains needed to build the firmware.&lt;/p&gt;
+
+&lt;h5 id=&quot;321-install-the-esp-idf-sdk&quot;&gt;3.2.1 install the ESP-IDF sdk&lt;/h5&gt;
+
+&lt;p&gt;To install the ESP-IDF the full instructions can be found at the Espressif Getting Started guide: &lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/en/release-v4.2/esp32/get-started/index.html#installation-step-by-step&quot;&gt;installation step by step&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For my vm ubuntu, I follow the installing prerequests tools with next command:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get install git wget flex bison gperf python3 python3-pip python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Adding user to dialout on Linux&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;sudo usermod -a -G dialout $USER&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&quot;get-esp-idf-v42&quot;&gt;Get ESP-IDF v4.2&lt;/h6&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;mkdir -p ~/esp
+cd ~/esp
+git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Set up the tools for esp32&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cd ~/esp/esp-idf
+./install.sh esp32&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h6 id=&quot;set-up-the-environment-variables&quot;&gt;Set up the environment variables&lt;/h6&gt;
+&lt;p&gt;need to add tools to the PATH environment variable. ESP-IDF provides &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;export.sh&lt;/code&gt; script which does that.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;. $HOME/esp/esp-idf/export.sh&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;add the below line into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;, then restart terminal.
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alias get_idf=&apos;. $HOME/esp/esp-idf/export.sh&apos;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;322-build-the-lv_micropython-firmware&quot;&gt;3.2.2 Build the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; firmware&lt;/h5&gt;
+&lt;p&gt;cd to the root of this repository &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd $HOME/Downloads/lv_micropython&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;make -C mpy-cross&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Then to build MicroPython for the ESP32 run:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cd ports/esp32
+ make submodules&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git submodule update --init ../../lib/berkeley-db-1.xx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;make&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;it shows:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;idf.py -D MICROPY_BOARD=GENERIC -B build-GENERIC  build
+Executing action: all (aliases: build)
+Running cmake in directory /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC
+Executing &quot;cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DESP_PLAT
+...
+MPY webrepl_setup.py
+MPY websocket_helper.py
+MPY neopixel.py
+GEN /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC/frozen_content.c
+[1447/1447] Generating binary image from built executable
+esptool.py v3.1-dev
+Merged 2 ELF sections
+Generated /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC/micropython.bin
+
+Project build complete. To flash, run this command:
+/home/user/.espressif/python_env/idf4.2_py3.8_env/bin/python ../../../../esp/esp-idf/components/esptool_py/esptool/esptool.py -p (PORT) -b 460800 --before default_reset --after hard_reset --chip esp32  write_flash --flash_mode dio --flash_size detect --flash_freq 40m 0x1000 build-GENERIC/bootloader/bootloader.bin 0x8000 build-GENERIC/partition_table/partition-table.bin 0x10000 build-GENERIC/micropython.bin
+or run &apos;idf.py -p (PORT) flash&apos;
+bootloader  @0x001000    22576  (    6096 remaining)
+partitions  @0x008000     3072  (    1024 remaining)
+application @0x010000  2258256  (  101040 remaining)
+total                  2323792
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will produce a combined &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;firmware.bin&lt;/code&gt; image in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build-GENERIC/&lt;/code&gt; subdirectory (this firmware image is made up of: bootloader.bin, partitions.bin and micropython.bin).&lt;/p&gt;
+
+&lt;p&gt;However I obtains two &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bin&lt;/code&gt; files:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ll build-GENERIC/*.bin
+-rw-rw-r-- 1 xxx 2319696 1月  19 20:53 firmware.bin
+-rw-rw-r-- 1 xxx 2258256 1月  19 20:53 micropython.bin
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;323-flashing-the-lv_micropython-firmware&quot;&gt;3.2.3 Flashing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; firmware&lt;/h5&gt;
+
+&lt;p&gt;on ubuntu, you may need to use this command to add permission for $USER to access the usbSerial port:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo adduser $USER dialout&lt;/code&gt;
+This will add the current user to the dialout group. Login and out it to take effect.&lt;/p&gt;
+
+&lt;p&gt;Erase the flash completely:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd $HOME/Downloads/lv_micropython/ports/esp32
+$ get_idf
+$ make erase
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;picocom -b 115200 /dev/ttyUSB0&lt;/code&gt; to test the communication if you meet “connection time out” error when erasing.
+after erasing, you’ll see:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Serial port /dev/ttyUSB0
+Connecting........_
+Chip is ESP32-D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 4c:eb:d6:7d:0b:44
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Erasing flash (this may take a while)...
+Chip erase completed successfully in 9.2s
+Hard resetting via RTS pin...
+Done
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To flash the MicroPython firmware to your ESP32 use:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make deploy&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;you’ll see:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;idf.py -D MICROPY_BOARD=GENERIC -B build-GENERIC  -p /dev/ttyUSB0 -b 460800 flash
+Executing action: flash
+Running ninja in directory /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC
+Executing &quot;ninja flash&quot;...
+[2/5] Performing build step for &apos;bootloader&apos;
+ninja: no work to do.
+[2/3] cd /home/user/esp/esp-idf/components/esptool_py &amp;amp;&amp;amp; /usr/bin/cm...C&quot; -P /home/user/esp/esp-idf/components/esptool_py/run_esptool.cmake
+esptool.py esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x8000 partition_table/partition-table.bin 0x1000 bootloader/bootloader.bin 0x10000 micropython.bin
+esptool.py v3.1-dev
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 4c:eb:d6:7d:0b:44
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00001000 to 0x00006fff...
+Flash will be erased from 0x00010000 to 0x00237fff...
+Compressed 3072 bytes to 117...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (117 compressed) at 0x00008000 in 0.1 seconds (effective 476.7 kbit/s)...
+Hash of data verified.
+Compressed 22576 bytes to 14067...
+Writing at 0x00001000... (100 %)
+Wrote 22576 bytes (14067 compressed) at 0x00001000 in 0.8 seconds (effective 221.6 kbit/s)...
+Hash of data verified.
+Compressed 2258256 bytes to 1423672...
+Writing at 0x00010000... (1 %)
+Writing at 0x000194cc... (2 %)
+Writing at 0x000210ff... (3 %)
+...
+Writing at 0x00231716... (100 %)
+Wrote 2258256 bytes (1423672 compressed) at 0x00010000 in 52.4 seconds (effective 344.7 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Done
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note: the above “make” commands are thin wrappers (like and alias) for the underlying &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idf.py&lt;/code&gt; build tool that is part of the ESP-IDF. You can instead use idf.py directly.&lt;/p&gt;
+
+&lt;h5 id=&quot;324-getting-a-python-prompt-on-the-device&quot;&gt;3.2.4 Getting a Python prompt on the device&lt;/h5&gt;
+&lt;p&gt;You can get a prompt via the serial port, via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev/ttyUART0&lt;/code&gt;, which is the same UART that is used for programming the firmware. The baudrate for the REPL is 115200 and you can use a tools such as:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ picocom -b 115200 /dev/ttyUSB0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ miniterm.py /dev/ttyUSB0 115200
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You can also use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idf.py monitor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After get python prompt, type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;help()&lt;/code&gt; shows the Control Commands.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20220119220949837.png&quot; alt=&quot;image-20220119220949837&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-confiture-wifi-and-use-the-board&quot;&gt;4 Confiture wifi and use the board&lt;/h3&gt;
+&lt;p&gt;go to link &lt;a href=&quot;https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md#configuring-the-wifi-and-using-the-board&quot;&gt;configure wifi and use the board&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;reference-and-read-more&quot;&gt;Reference and read more&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Reference: https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;more info about micropython lvgl development: https://github.com/lvgl/lv_micropython&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;more info about replanting on ARM board: &lt;a href=&quot;https://blog.csdn.net/qq_34440409/article/details/118421452&quot;&gt;支持LVGL的micropython固件编译（二）arm板移植&lt;/a&gt;  (in Chinese)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>sonictl</name></author><category term="embedded" /><category term="esp32" /><category term="lvgl" /><summary type="html">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</summary></entry><entry><title type="html">Getting started with MicroPython with NodeMCU(ESP8266) board</title><link href="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" rel="alternate" type="text/html" title="Getting started with MicroPython with NodeMCU(ESP8266) board" /><published>2022-01-17T12:55:38+08:00</published><updated>2022-01-17T12:55:38+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/17/p20220117125538</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html">&lt;h1 id=&quot;getting-started-with-micropython-with-nodemcuesp8266-board&quot;&gt;Getting started with MicroPython with NodeMCU(ESP8266) board&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-follow-the-official-tutorial-to-flash-the-micropython-firmware&quot;&gt;1. Follow the official tutorial to flash the MicroPython firmware&lt;/h2&gt;
 
@@ -656,109 +1099,4 @@ After typing the password for your account, press “Return” (enter).&lt;/p&gt
 
 &lt;p&gt;Keyboard  Maestro 软件很是强大。&lt;/p&gt;
 
-&lt;p&gt;ReadMore: &lt;a href=&quot;https://sspai.com/post/36442&quot;&gt;Keyboard Maestro 入门指南&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">终于解决单手向右删除的痛点</summary></entry><entry><title type="html">win10双线网络设置</title><link href="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/09/06/p20210906104646.html" rel="alternate" type="text/html" title="win10双线网络设置" /><published>2021-09-06T10:46:46+08:00</published><updated>2021-09-06T10:46:46+08:00</updated><id>https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/09/06/p20210906104646</id><content type="html" xml:base="https://sonictl.github.io/%E8%BF%90%E7%BB%B4/2021/09/06/p20210906104646.html">&lt;h2 id=&quot;-双线网络设置--&quot;&gt;++++++ 双线网络设置  ++++++++&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;wlan-设置跃点数1-重要&quot;&gt;Wlan 设置跃点数1 [重要]&lt;/h3&gt;
-    &lt;p&gt;说明：这个使0.0.0.0的路由冲突时，可以优先走wlan&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;几个命令&quot;&gt;几个命令：&lt;/h4&gt;
-&lt;p&gt;查看本机ip等信息： &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipconfig &lt;/code&gt;
-   查看Route信息：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;route print &lt;/code&gt;
-   配置route信息：&lt;/p&gt;
-
-&lt;p&gt;```             目标IP段          掩码             默认网关
-route -p add 172.23.0.0  mask 255.255.255.128  172.23.15.129&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---------
-临时添加（不带-p）：
-```route add 172.23.0.0  mask 255.255.255.128 172.23.15.129
-route add 172.16.0.0  mask 255.255.255.128 172.23.15.129
-route add 172.16.0.0  mask 255.255.255.128 172.16.99.86
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;++++++++++++++++++++++++++++++&lt;/p&gt;
-&lt;h2 id=&quot;2021年9月6日103147更新&quot;&gt;2021年9月6日10:31:47更新：&lt;/h2&gt;
-&lt;h3 id=&quot;1-首先删除默认路由-0000&quot;&gt;1. 首先删除默认路由 0.0.0.0：&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;route delete 0.0.0.0&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;2-添加默认外网路由&quot;&gt;2. 添加默认外网路由：&lt;/h3&gt;
-&lt;p&gt;&lt;del&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;route add -p 0.0.0.0 mask 255.255.255.0 192.168.1.1&lt;/code&gt;&lt;/del&gt;
-  说明： 192.168.1.1 (是你的外网网关)
-  这里会造成0.0.0.0的路由冲突（机器重启后），还是通过wlan的跃点数来设置！！&lt;/p&gt;
-&lt;h3 id=&quot;3-添加内网路由&quot;&gt;3. 添加内网路由：&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;route add -p 10.16.0.0 mask 255.255.128.0 10.16.0.1   &lt;/code&gt;
-  说明：10.16.0.0 - 内网ip分配到的是 10.16.36.9， 这里取前2段，意思是这个网段内（内网网段）就走内网的网关10.16.36.9 。。。如果你的内网ip是  19.11.1.19， 那么相应的：19.11.0.0&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  此处我的ip是：
-    IPv4 地址 . . . . . . . . . . . . : 10.16.36.9
-    子网掩码  . . . . . . . . . . . . : 255.255.128.0
-    默认网关. . . . . . . . . . . . . : 10.16.0.1
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;参考&quot;&gt;参考：&lt;/h1&gt;
-
-&lt;h1 id=&quot;win10-双网卡设置内网和外网同时访问&quot;&gt;win10 双网卡设置内网和外网同时访问&lt;/h1&gt;
-
-&lt;p&gt;2019-11-19	 &lt;a href=&quot;https://www.shuzhiduo.com/link/bzc1TlowMks1Vw==&quot;&gt;原文&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;当前环境是内网使用固定ip-用有线连接-外网自动获取ip使用wifi&quot;&gt;当前环境是内网使用固定ip, 用有线连接; 外网自动获取IP,使用wifi&lt;/h3&gt;
-
-&lt;p&gt;cmd窗口下运行route print -4 打印路由信息&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vYmxvZy8xNjc2MDA1LzIwMTkxMS8xNjc2MDA1LTIwMTkxMTE5MDgxMTEwODY3LTM0OTk5NTI3NC5wbmc=.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;首先删除 所有0.0.0.0的路由,也就是默认设置&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;route delete 0.0.0.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;添加设置外网路由(0.0.0.0 默认)走无线&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;route -p add 0.0.0.0 mask 0.0.0.0 172.16.8.1 metric 2 if 14
-#此网关为外网路由，可根据自己的外网网关进行调整
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;添加指定的ip段到内网&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;route -p add 172.16.0.0 mask 255.255.255.0 172.16.2.254 metric 1 if 19
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;-p 是为了设置为静态永久路由，防止重启时配置消失&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vYmxvZy8xNjc2MDA1LzIwMTkxMS8xNjc2MDA1LTIwMTkxMTE5MDgxMzQ2NTI5LTE3NTU5MzE4NzgucG5n.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;因为上面我们添加的是静态路由，所以，&lt;strong&gt;重起后，tcp/ip设置里的默认网络会成为活动网关&lt;/strong&gt;，这样也会造成路由冲突，所以，需要把内网的tcp/ip设置里的网关去掉&lt;/p&gt;
-
-&lt;p&gt;由于我这里需要访问的内网ip地址为172.16.0.99，因此我添加了172.16.0.0网段，使用内网路由&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;route -p add 172.16.0.0 mask 255.255.255.0 172.16.2.254
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHBzL2ltZzIwMTguY25ibG9ncy5jb20vYmxvZy8xNjc2MDA1LzIwMTkxMS8xNjc2MDA1LTIwMTkxMTE5MDgxMzUyNzI3LTgyMDgzNTE3MC5wbmc=.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;但是在此设置过程中发现不能访问172.16.0.55的内网ip地址了. 【啥意思？？】&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;win10 路由参数说明&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Interface List: 网络卡列表Active Routes: 活动路由Network Destination: 目的网段Netmask: 子网掩码，与目的网段共同定义了此条路由适用的网络地址Gateway: 网关，又称下一跳路由器，在发送IP数据包时，网关定义了针对特定的网络目的地址，数据包发送到的下一跳服务器Interface: 接口，接口定义了针对特定的网络目的地址，本地计算机用于发送数据包的网络接口Metric: 跳数，跳数用于指出路由的成本，通常情况下代表到达目标地址所需要经过的跳跃数量，一个跳数代表经过一个路由器。跳数越低，代表路由成本越低，优先级越高Persistent Routes: 手动配置静态路由
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;命令说明&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;route print: 打印当前的路由表route delete：删除一条路由route add: 增加一条路由, 如果最后加上 –p 选项，表示永久增加静态路由，重启后不会失效route change: 更改一条路由
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;如果发现外网访问的速度比较慢，需要设置在网络配置里面修改wifi的自动活跃度大于有线的活跃度，可以解决这个问题&lt;/p&gt;</content><author><name>sonictl</name></author><category term="运维" /><summary type="html">++++++ 双线网络设置 ++++++++</summary></entry></feed>
+&lt;p&gt;ReadMore: &lt;a href=&quot;https://sspai.com/post/36442&quot;&gt;Keyboard Maestro 入门指南&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">终于解决单手向右删除的痛点</summary></entry></feed>
