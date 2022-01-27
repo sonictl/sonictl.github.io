@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>[ESP32_lvgl] Run a menu component | Combine Art and Sciences</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="[ESP32_lvgl] Run a menu component" />
+<meta name="author" content="sonictl" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="[ESP32_lvgl] Run a menu component This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32." />
+<meta property="og:description" content="[ESP32_lvgl] Run a menu component This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32." />
+<link rel="canonical" href="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html" />
+<meta property="og:url" content="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html" />
+<meta property="og:site_name" content="Combine Art and Sciences" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-22T17:44:07+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[ESP32_lvgl] Run a menu component" />
+<script type="application/ld+json">
+{"description":"[ESP32_lvgl] Run a menu component This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.","headline":"[ESP32_lvgl] Run a menu component","dateModified":"2022-01-22T17:44:07+08:00","datePublished":"2022-01-22T17:44:07+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html"},"url":"https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html","author":{"@type":"Person","name":"sonictl"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Combine Art and Sciences</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/categories/">Categories</a></div>
+      </nav></div>
+</header><main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">[ESP32_lvgl] Run a menu component</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2022-01-22T17:44:07+08:00" itemprop="datePublished">
+        Jan 22, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">sonictl</span></span></p>
+  </header>
+
+  <!-- add this block for math equation support >>>>-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- <<<< add above block for math equation support -->
+
+  <!-- categories start >>>> -->
+  <div class="post-categories">
+  
+  
+  <a href="//categories/#embeded">embeded</a>
+  
+  
+  </div>
+  <!-- categories end <<<<< -->
+
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="esp32_lvgl-run-a-menu-component">[ESP32_lvgl] Run a menu component</h1>
+<p>This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.</p>
+
+<p>After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Other than the toy – micropython.</p>
+
+<h2 id="1-motivation-and-value-of-this-post">1. Motivation and value of this post</h2>
+<p>After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board. But for beginners, from running demo to developing the specific project, they may meet some little but not-easy-to-solve difficalties. They need to be familiar with the code structure of demo.</p>
+
+<p>This article is the path from demo to developing your own LVGL ESP32 project. So you can really start your own project after reading this blog post.</p>
+
+<h2 id="2-basic-intro-and-environment">2. Basic intro and environment</h2>
+<p>I use the <strong>vsCode</strong> and <strong>ESP-IDF vscode extension</strong> for all the development work. 
+Refered tutorial is: 
+[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension. <a href="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html">this link</a></p>
+
+<p>After successfully run the demo on your board, try to use the code below:</p>
+<ul>
+  <li>find 100+ simple examples here: https://docs.lvgl.io/master/examples.html</li>
+  <li>They are from here https://github.com/lvgl/lvgl/tree/master/examples</li>
+</ul>
+
+<h2 id="3-what-the-example-code-has-no-main-function">3. What? the example code has no main() function?</h2>
+<p>Let’s discuss the one menu exmple’s code. In the link above, you can find the ‘one menu’ example as below:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include "../lv_examples.h"
+#if LV_BUILD_EXAMPLES &amp;&amp; LV_USE_BTN
+</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">btn_event_cb</span><span class="p">(</span><span class="n">lv_event_t</span> <span class="o">*</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">lv_event_code_t</span> <span class="n">code</span> <span class="o">=</span> <span class="n">lv_event_get_code</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+    <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">lv_event_get_target</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">code</span> <span class="o">==</span> <span class="n">LV_EVENT_CLICKED</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="cm">/*Get the first child of the button which is the label and change its text*/</span>
+        <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">label</span> <span class="o">=</span> <span class="n">lv_obj_get_child</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">lv_label_set_text_fmt</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s">"Button: %d"</span><span class="p">,</span> <span class="n">cnt</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Create a button with a label and react on click event.
+ */</span>
+<span class="kt">void</span> <span class="nf">lv_example_get_started_1</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">lv_btn_create</span><span class="p">(</span><span class="n">lv_scr_act</span><span class="p">());</span>     <span class="cm">/*Add a button the current screen*/</span>
+    <span class="n">lv_obj_set_pos</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>      <span class="cm">/*Set its position*/</span>
+    <span class="n">lv_obj_set_size</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>    <span class="cm">/*Set its size*/</span>
+    <span class="n">lv_obj_add_event_cb</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">btn_event_cb</span><span class="p">,</span> <span class="n">LV_EVENT_ALL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>           <span class="cm">/*Assign a callback to the button*/</span>
+
+    <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">label</span> <span class="o">=</span> <span class="n">lv_label_create</span><span class="p">(</span><span class="n">btn</span><span class="p">);</span>  <span class="cm">/*Add a label to the button*/</span>
+    <span class="n">lv_label_set_text</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s">"Button"</span><span class="p">);</span>       <span class="cm">/*Set the labels text*/</span>
+    <span class="n">lv_obj_center</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cp">#endif
+</span></code></pre></div></div>
+
+<p>If you put the code into <code class="language-plaintext highlighter-rouge">main.c</code>, it will not compile.</p>
+
+<p>See the <code class="language-plaintext highlighter-rouge">main.c</code>  code in <code class="language-plaintext highlighter-rouge">lv_port_ESP32/main/main.c</code> <a href="https://github.com/lvgl/lv_port_esp32/blob/master/main/main.c">here_link</a></p>
+
+<p>Digest the code line by line with the tips in <a href="https://docs.lvgl.io/latest/en/html/get-started/quick-overview.html#quick-overview">this quick start page</a></p>
+
+<p>I copy it here:</p>
+
+<blockquote>
+  <h2 id="add-lvgl-into-your-project">Add LVGL into your project</h2>
+
+  <p>The following steps show how to setup LVGL on an embedded system with a display and a touchpad.</p>
+
+  <ul>
+    <li><a href="https://github.com/lvgl/lvgl/archive/master.zip">Download</a> or Clone the library from GitHub with <code class="language-plaintext highlighter-rouge">git clone https://github.com/lvgl/lvgl.git</code></li>
+    <li>Copy the <code class="language-plaintext highlighter-rouge">lvgl</code> folder into your project</li>
+    <li>Copy <code class="language-plaintext highlighter-rouge">lvgl/lv_conf_template.h</code> as <code class="language-plaintext highlighter-rouge">lv_conf.h</code> next to the <code class="language-plaintext highlighter-rouge">lvgl</code> folder, change the first <code class="language-plaintext highlighter-rouge">#if 0</code> to <code class="language-plaintext highlighter-rouge">1</code> to enable the file’s content and set at least <code class="language-plaintext highlighter-rouge">LV_HOR_RES_MAX</code>, <code class="language-plaintext highlighter-rouge">LV_VER_RES_MAX</code> and <code class="language-plaintext highlighter-rouge">LV_COLOR_DEPTH</code> defines.</li>
+    <li>Include <code class="language-plaintext highlighter-rouge">lvgl/lvgl.h</code> where you need to use LVGL related functions.</li>
+    <li>Call <code class="language-plaintext highlighter-rouge">lv_tick_inc(x)</code> every <code class="language-plaintext highlighter-rouge">x</code> milliseconds <strong>in a Timer or Task</strong> (<code class="language-plaintext highlighter-rouge">x</code> should be between 1 and 10). It is required for the internal timing of LVGL. Alternatively, configure <code class="language-plaintext highlighter-rouge">LV_TICK_CUSTOM</code> (see <code class="language-plaintext highlighter-rouge">lv_conf.h</code>) so that LVGL can retrieve the current time directly.</li>
+    <li>Call <code class="language-plaintext highlighter-rouge">lv_init()</code></li>
+    <li>Create a display buffer for LVGL. LVGL will render the graphics here first, and seed the rendered image to the display. The buffer size can be set freely but 1/10 screen size is a good starting point.</li>
+  </ul>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>static lv_disp_buf_t disp_buf;
+static lv_color_t buf[LV_HOR_RES_MAX * LV_VER_RES_MAX / 10];                     /*Declare a buffer for 1/10 screen size*/
+lv_disp_buf_init(&amp;disp_buf, buf, NULL, LV_HOR_RES_MAX * LV_VER_RES_MAX / 10);    /*Initialize the display buffer*/
+</code></pre></div>  </div>
+
+  <ul>
+    <li>Implement and register a function which can <strong>copy the rendered image</strong> to an area of your display:</li>
+  </ul>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lv_disp_drv_t disp_drv;               /*Descriptor of a display driver*/
+lv_disp_drv_init(&amp;disp_drv);          /*Basic initialization*/
+disp_drv.flush_cb = my_disp_flush;    /*Set your driver function*/
+disp_drv.buffer = &amp;disp_buf;          /*Assign the buffer to the display*/
+lv_disp_drv_register(&amp;disp_drv);      /*Finally register the driver*/
+
+void my_disp_flush(lv_disp_drv_t * disp, const lv_area_t * area, lv_color_t * color_p)
+{
+   int32_t x, y;
+   for(y = area-&gt;y1; y &lt;= area-&gt;y2; y++) {
+       for(x = area-&gt;x1; x &lt;= area-&gt;x2; x++) {
+           set_pixel(x, y, *color_p);  /* Put a pixel to the display.*/
+           color_p++;
+       }
+   }
+
+   lv_disp_flush_ready(disp);         /* Indicate you are ready with the flushing*/
+}
+</code></pre></div>  </div>
+
+  <ul>
+    <li>Implement and register a function which can <strong>read an input device</strong>. E.g. for a touch pad:</li>
+  </ul>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lv_indev_drv_t indev_drv;                  /*Descriptor of a input device driver*/
+lv_indev_drv_init(&amp;indev_drv);             /*Basic initialization*/
+indev_drv.type = LV_INDEV_TYPE_POINTER;    /*Touch pad is a pointer-like device*/
+indev_drv.read_cb = my_touchpad_read;      /*Set your driver function*/
+lv_indev_drv_register(&amp;indev_drv);         /*Finally register the driver*/
+
+bool my_touchpad_read(lv_indev_t * indev, lv_indev_data_t * data)
+{
+   data-&gt;state = touchpad_is_pressed() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+   if(data-&gt;state == LV_INDEV_STATE_PR) touchpad_get_xy(&amp;data-&gt;point.x, &amp;data-&gt;point.y);
+
+   return false; /*Return `false` because we are not buffering and no more data to read*/
+}
+</code></pre></div>  </div>
+
+  <ul>
+    <li>Call <code class="language-plaintext highlighter-rouge">lv_task_handler()</code> periodically every few milliseconds in the main <code class="language-plaintext highlighter-rouge">while(1)</code> loop, in Timer interrupt or in an Operation system task. It will redraw the screen if required, handle input devices etc.</li>
+  </ul>
+</blockquote>
+
+<p>The <code class="language-plaintext highlighter-rouge">create_demo_application()</code> function in <code class="language-plaintext highlighter-rouge">lv_port_ESP32/main/main.c</code> is managing the GUI component. Modify it using the code of the ‘one menu’ example like below:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="kt">void</span> <span class="nf">create_demo_application</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">//     /* When using a monochrome display we only show "Hello World" centered on the</span>
+<span class="c1">//      * screen */</span>
+<span class="c1">// #if defined CONFIG_LV_TFT_DISPLAY_MONOCHROME || defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7735S</span>
+
+    <span class="cm">/* use a pretty small demo for monochrome displays */</span>
+    <span class="cm">/* Get the current screen  */</span>
+    <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">scr</span> <span class="o">=</span> <span class="n">lv_disp_get_scr_act</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="cm">/*Create a Label on the currently active screen*/</span>
+    <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">label1</span> <span class="o">=</span>  <span class="n">lv_label_create</span><span class="p">(</span><span class="n">scr</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="cm">/*Modify the Label's text*/</span>
+    <span class="n">lv_label_set_text</span><span class="p">(</span><span class="n">label1</span><span class="p">,</span> <span class="s">"Hello</span><span class="se">\n</span><span class="s">World"</span><span class="p">);</span>
+    <span class="n">lv_obj_align</span><span class="p">(</span><span class="n">label1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">LV_ALIGN_CENTER</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// Align the label to center, NULL-align on parent component(screen), 0,0 - x,y offset</span>
+
+    <span class="cm">/* The second component, a counting Buttom*/</span>
+    <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">lv_btn_create</span><span class="p">(</span><span class="n">lv_scr_act</span><span class="p">(),</span> <span class="nb">NULL</span><span class="p">);</span>     <span class="cm">/*Add a button the current screen*/</span>
+    <span class="n">lv_obj_set_pos</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>                            <span class="cm">/*Set its position*/</span>
+    <span class="n">lv_obj_set_size</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>                          <span class="cm">/*Set its size*/</span>
+    <span class="n">lv_obj_set_event_cb</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">btn_event_cb</span><span class="p">);</span>                 <span class="cm">/*Assign a callback to the button*/</span>
+    <span class="n">lv_obj_t</span> <span class="o">*</span> <span class="n">label</span> <span class="o">=</span> <span class="n">lv_label_create</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>          <span class="cm">/*Add a label to the button*/</span>
+    <span class="n">lv_label_set_text</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s">"Lab of artificial intelligence"</span><span class="p">);</span>                     <span class="cm">/*Set the labels text*/</span>
+
+
+<span class="c1">// #else</span>
+<span class="c1">//     /* Otherwise we show the selected demo */</span>
+
+<span class="c1">//     #if defined CONFIG_LV_USE_DEMO_WIDGETS</span>
+<span class="c1">//         lv_demo_widgets();</span>
+<span class="c1">//     #elif defined CONFIG_LV_USE_DEMO_KEYPAD_AND_ENCODER</span>
+<span class="c1">//         lv_demo_keypad_encoder();</span>
+<span class="c1">//     #elif defined CONFIG_LV_USE_DEMO_BENCHMARK</span>
+<span class="c1">//         lv_demo_benchmark();</span>
+<span class="c1">//     #elif defined CONFIG_LV_USE_DEMO_STRESS</span>
+<span class="c1">//         lv_demo_stress();</span>
+<span class="c1">//     #else</span>
+<span class="c1">//         #error "No demo application selected."</span>
+<span class="c1">//     #endif</span>
+<span class="c1">// #endif</span>
+    <span class="c1">// lv_demo_widgets();</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>You can get what you want on your TFT screen. Like below:</p>
+
+<p><img src="/assets/images/image-20220127223244264.png" alt="image-20220127223244264" /></p>
+
+<h2 id="the-embarrassing-situation-of-embedded-development">The embarrassing situation of embedded development</h2>
+
+<p>Different board, different cpu, different driver chip etc. cause the variety of situation for code configuration.</p>
+
+<p>No <code class="language-plaintext highlighter-rouge">main.c</code> that works for all board. This result in that the example code is code patch for highly-customized  <code class="language-plaintext highlighter-rouge">main.c</code>. There is no <code class="language-plaintext highlighter-rouge">main.c</code> that can be given as an example.</p>
+
+<p>It’s difficult for the maintainer to give a <code class="language-plaintext highlighter-rouge">main.c</code> that contains example code and compilable for each board.</p>
+
+<p>The existance of <code class="language-plaintext highlighter-rouge">lv_port_esp32</code> is good news for ESP32_lvgl development. Starting from modifying this proj. is a good start for ESP32 board with touch screen.</p>
+
+
+    
+
+
+
+
+
+
+
+
+<div id="new-comment" style="background-color:#EAEDED">
+<!-- <h3>Comment to this blog</h3> -->
+
+<form action="/fake" method="post" id="commentform" class="form-horizontal">
+
+  <fieldset id="commentfields" style="position: relative">
+    <input name="redirect" type="hidden" value="https://sonictl.github.io/thanks">
+    <input name="post_id" type="hidden" value="p20220122174407">
+    <input name="comment-site" type="hidden" value="https://sonictl.github.io">
+
+    <textarea name="message" style=" min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;" id="message" placeholder="Leave your thoughts in this box."></textarea>
+
+    <label for="name">Name/alias* <span>(displayed) </span></label>
+    <input type="text" name="name" id="name" placeholder="Name" /></br>
+
+    <label for="email">Email* <span>(not shown)  </span></label>
+    <input type="text" name="email" id="email" placeholder="myemail@somedomain.com" /></br>
+
+    <label for="url">Website <span>(Optional, displayed)</span></label>
+    <input type="text" name="url" id="url" placeholder="https://mywebsite.com" /></br>
+
+    
+    <button onclick="setupForm()" type="button" class="btn btn-primary" id="commentbutton">Comment</button>
+    
+
+  </fieldset>
+</form>
+
+</div>
+
+<script>
+    function setupForm() {
+      var status = document.getElementById('commentstatus')
+      status.innerText = ''
+
+      var requiredIds = [ 'message', 'email', 'name']
+      var missing = requiredIds.filter(id => document.getElementById(id).value.length < 3)
+      if (missing.length > 0) {
+        status.innerText = 'Some required fields are missing - (' + missing.join(', ') + ')'
+        return
+      }
+
+      var button = document.getElementById('commentbutton')
+      if (button.innerText != 'Confirm comment') {
+        button.innerText = 'Confirm comment'
+        return
+      }
+
+      var form = document.getElementById('commentform')
+      form.action = 'https://jekyll-comments.azurewebsites.net/api/PostComment'
+      button.innerText = 'Posting...'
+      button.disabled = true
+      form.submit()
+      var fields = document.getElementById('commentfields')                                         
+      fields.disabled = true
+    }
+  </script>
+<div id="commentstatus" style="clear:both" class="status"></div>
+
+
+  </div>
+
+
+  <a class="u-url" href="/embeded/2022/01/22/p20220122174407.html" hidden></a>
+</article>
+
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Combine Art and Sciences</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">sonictl</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyll</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Love lights the one who deserves.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

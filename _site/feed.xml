@@ -1,5 +1,200 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-19T22:54:29+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</title><link href="https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard" /><published>2022-01-19T22:15:45+08:00</published><updated>2022-01-19T22:15:45+08:00</updated><id>https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545</id><content type="html" xml:base="https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html">&lt;h1 id=&quot;esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard&quot;&gt;[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-27T22:42:29+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32_lvgl] Run a menu component</title><link href="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html" rel="alternate" type="text/html" title="[ESP32_lvgl] Run a menu component" /><published>2022-01-22T17:44:07+08:00</published><updated>2022-01-22T17:44:07+08:00</updated><id>https://sonictl.github.io/embeded/2022/01/22/p20220122174407</id><content type="html" xml:base="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html">&lt;h1 id=&quot;esp32_lvgl-run-a-menu-component&quot;&gt;[ESP32_lvgl] Run a menu component&lt;/h1&gt;
+&lt;p&gt;This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.&lt;/p&gt;
+
+&lt;p&gt;After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Other than the toy – micropython.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-motivation-and-value-of-this-post&quot;&gt;1. Motivation and value of this post&lt;/h2&gt;
+&lt;p&gt;After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board. But for beginners, from running demo to developing the specific project, they may meet some little but not-easy-to-solve difficalties. They need to be familiar with the code structure of demo.&lt;/p&gt;
+
+&lt;p&gt;This article is the path from demo to developing your own LVGL ESP32 project. So you can really start your own project after reading this blog post.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-basic-intro-and-environment&quot;&gt;2. Basic intro and environment&lt;/h2&gt;
+&lt;p&gt;I use the &lt;strong&gt;vsCode&lt;/strong&gt; and &lt;strong&gt;ESP-IDF vscode extension&lt;/strong&gt; for all the development work. 
+Refered tutorial is: 
+[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension. &lt;a href=&quot;https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html&quot;&gt;this link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After successfully run the demo on your board, try to use the code below:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;find 100+ simple examples here: https://docs.lvgl.io/master/examples.html&lt;/li&gt;
+  &lt;li&gt;They are from here https://github.com/lvgl/lvgl/tree/master/examples&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-what-the-example-code-has-no-main-function&quot;&gt;3. What? the example code has no main() function?&lt;/h2&gt;
+&lt;p&gt;Let’s discuss the one menu exmple’s code. In the link above, you can find the ‘one menu’ example as below:&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;../lv_examples.h&quot;
+#if LV_BUILD_EXAMPLES &amp;amp;&amp;amp; LV_USE_BTN
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;btn_event_cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lv_event_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_event_code_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_event_get_code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_event_get_target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LV_EVENT_CLICKED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;cm&quot;&gt;/*Get the first child of the button which is the label and change its text*/&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_obj_get_child&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lv_label_set_text_fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Button: %d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+ * Create a button with a label and react on click event.
+ */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lv_example_get_started_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_btn_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lv_scr_act&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;     &lt;span class=&quot;cm&quot;&gt;/*Add a button the current screen*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_set_pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;      &lt;span class=&quot;cm&quot;&gt;/*Set its position*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_set_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;    &lt;span class=&quot;cm&quot;&gt;/*Set its size*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_add_event_cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;btn_event_cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LV_EVENT_ALL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;           &lt;span class=&quot;cm&quot;&gt;/*Assign a callback to the button*/&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_label_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;cm&quot;&gt;/*Add a label to the button*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_label_set_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Button&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;       &lt;span class=&quot;cm&quot;&gt;/*Set the labels text*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#endif
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you put the code into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt;, it will not compile.&lt;/p&gt;
+
+&lt;p&gt;See the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt;  code in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_ESP32/main/main.c&lt;/code&gt; &lt;a href=&quot;https://github.com/lvgl/lv_port_esp32/blob/master/main/main.c&quot;&gt;here_link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Digest the code line by line with the tips in &lt;a href=&quot;https://docs.lvgl.io/latest/en/html/get-started/quick-overview.html#quick-overview&quot;&gt;this quick start page&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I copy it here:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;add-lvgl-into-your-project&quot;&gt;Add LVGL into your project&lt;/h2&gt;
+
+  &lt;p&gt;The following steps show how to setup LVGL on an embedded system with a display and a touchpad.&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://github.com/lvgl/lvgl/archive/master.zip&quot;&gt;Download&lt;/a&gt; or Clone the library from GitHub with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone https://github.com/lvgl/lvgl.git&lt;/code&gt;&lt;/li&gt;
+    &lt;li&gt;Copy the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lvgl&lt;/code&gt; folder into your project&lt;/li&gt;
+    &lt;li&gt;Copy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lvgl/lv_conf_template.h&lt;/code&gt; as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_conf.h&lt;/code&gt; next to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lvgl&lt;/code&gt; folder, change the first &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#if 0&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; to enable the file’s content and set at least &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LV_HOR_RES_MAX&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LV_VER_RES_MAX&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LV_COLOR_DEPTH&lt;/code&gt; defines.&lt;/li&gt;
+    &lt;li&gt;Include &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lvgl/lvgl.h&lt;/code&gt; where you need to use LVGL related functions.&lt;/li&gt;
+    &lt;li&gt;Call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_tick_inc(x)&lt;/code&gt; every &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; milliseconds &lt;strong&gt;in a Timer or Task&lt;/strong&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; should be between 1 and 10). It is required for the internal timing of LVGL. Alternatively, configure &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LV_TICK_CUSTOM&lt;/code&gt; (see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_conf.h&lt;/code&gt;) so that LVGL can retrieve the current time directly.&lt;/li&gt;
+    &lt;li&gt;Call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_init()&lt;/code&gt;&lt;/li&gt;
+    &lt;li&gt;Create a display buffer for LVGL. LVGL will render the graphics here first, and seed the rendered image to the display. The buffer size can be set freely but 1/10 screen size is a good starting point.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;static lv_disp_buf_t disp_buf;
+static lv_color_t buf[LV_HOR_RES_MAX * LV_VER_RES_MAX / 10];                     /*Declare a buffer for 1/10 screen size*/
+lv_disp_buf_init(&amp;amp;disp_buf, buf, NULL, LV_HOR_RES_MAX * LV_VER_RES_MAX / 10);    /*Initialize the display buffer*/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Implement and register a function which can &lt;strong&gt;copy the rendered image&lt;/strong&gt; to an area of your display:&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lv_disp_drv_t disp_drv;               /*Descriptor of a display driver*/
+lv_disp_drv_init(&amp;amp;disp_drv);          /*Basic initialization*/
+disp_drv.flush_cb = my_disp_flush;    /*Set your driver function*/
+disp_drv.buffer = &amp;amp;disp_buf;          /*Assign the buffer to the display*/
+lv_disp_drv_register(&amp;amp;disp_drv);      /*Finally register the driver*/
+
+void my_disp_flush(lv_disp_drv_t * disp, const lv_area_t * area, lv_color_t * color_p)
+{
+   int32_t x, y;
+   for(y = area-&amp;gt;y1; y &amp;lt;= area-&amp;gt;y2; y++) {
+       for(x = area-&amp;gt;x1; x &amp;lt;= area-&amp;gt;x2; x++) {
+           set_pixel(x, y, *color_p);  /* Put a pixel to the display.*/
+           color_p++;
+       }
+   }
+
+   lv_disp_flush_ready(disp);         /* Indicate you are ready with the flushing*/
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Implement and register a function which can &lt;strong&gt;read an input device&lt;/strong&gt;. E.g. for a touch pad:&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lv_indev_drv_t indev_drv;                  /*Descriptor of a input device driver*/
+lv_indev_drv_init(&amp;amp;indev_drv);             /*Basic initialization*/
+indev_drv.type = LV_INDEV_TYPE_POINTER;    /*Touch pad is a pointer-like device*/
+indev_drv.read_cb = my_touchpad_read;      /*Set your driver function*/
+lv_indev_drv_register(&amp;amp;indev_drv);         /*Finally register the driver*/
+
+bool my_touchpad_read(lv_indev_t * indev, lv_indev_data_t * data)
+{
+   data-&amp;gt;state = touchpad_is_pressed() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+   if(data-&amp;gt;state == LV_INDEV_STATE_PR) touchpad_get_xy(&amp;amp;data-&amp;gt;point.x, &amp;amp;data-&amp;gt;point.y);
+
+   return false; /*Return `false` because we are not buffering and no more data to read*/
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_task_handler()&lt;/code&gt; periodically every few milliseconds in the main &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;while(1)&lt;/code&gt; loop, in Timer interrupt or in an Operation system task. It will redraw the screen if required, handle input devices etc.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create_demo_application()&lt;/code&gt; function in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_ESP32/main/main.c&lt;/code&gt; is managing the GUI component. Modify it using the code of the ‘one menu’ example like below:&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_demo_application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     /* When using a monochrome display we only show &quot;Hello World&quot; centered on the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//      * screen */&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// #if defined CONFIG_LV_TFT_DISPLAY_MONOCHROME || defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7735S&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/* use a pretty small demo for monochrome displays */&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/* Get the current screen  */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_disp_get_scr_act&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/*Create a Label on the currently active screen*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;lv_label_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/*Modify the Label&apos;s text*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_label_set_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LV_ALIGN_CENTER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Align the label to center, NULL-align on parent component(screen), 0,0 - x,y offset&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/* The second component, a counting Buttom*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_btn_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lv_scr_act&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;     &lt;span class=&quot;cm&quot;&gt;/*Add a button the current screen*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_set_pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;                            &lt;span class=&quot;cm&quot;&gt;/*Set its position*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_set_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;                          &lt;span class=&quot;cm&quot;&gt;/*Set its size*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_set_event_cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;btn_event_cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;                 &lt;span class=&quot;cm&quot;&gt;/*Assign a callback to the button*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_obj_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lv_label_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;          &lt;span class=&quot;cm&quot;&gt;/*Add a label to the button*/&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;lv_label_set_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Lab of artificial intelligence&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;                     &lt;span class=&quot;cm&quot;&gt;/*Set the labels text*/&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;// #else&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     /* Otherwise we show the selected demo */&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//     #if defined CONFIG_LV_USE_DEMO_WIDGETS&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//         lv_demo_widgets();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     #elif defined CONFIG_LV_USE_DEMO_KEYPAD_AND_ENCODER&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//         lv_demo_keypad_encoder();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     #elif defined CONFIG_LV_USE_DEMO_BENCHMARK&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//         lv_demo_benchmark();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     #elif defined CONFIG_LV_USE_DEMO_STRESS&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//         lv_demo_stress();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     #else&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//         #error &quot;No demo application selected.&quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     #endif&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// #endif&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// lv_demo_widgets();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can get what you want on your TFT screen. Like below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/image-20220127223244264.png&quot; alt=&quot;image-20220127223244264&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-embarrassing-situation-of-embedded-development&quot;&gt;The embarrassing situation of embedded development&lt;/h2&gt;
+
+&lt;p&gt;Different board, different cpu, different driver chip etc. cause the variety of situation for code configuration.&lt;/p&gt;
+
+&lt;p&gt;No &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt; that works for all board. This result in that the example code is code patch for highly-customized  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt;. There is no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt; that can be given as an example.&lt;/p&gt;
+
+&lt;p&gt;It’s difficult for the maintainer to give a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt; that contains example code and compilable for each board.&lt;/p&gt;
+
+&lt;p&gt;The existance of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; is good news for ESP32_lvgl development. Starting from modifying this proj. is a good start for ESP32 board with touch screen.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="embeded" /><summary type="html">[ESP32_lvgl] Run a menu component This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.</summary></entry><entry><title type="html">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</title><link href="https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard" /><published>2022-01-19T22:15:45+08:00</published><updated>2022-01-19T22:15:45+08:00</updated><id>https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545</id><content type="html" xml:base="https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html">&lt;h1 id=&quot;esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard&quot;&gt;[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard&lt;/h1&gt;
 
 &lt;h2 id=&quot;table-of-contents&quot;&gt;Table of contents:&lt;/h2&gt;
 
@@ -50,20 +245,28 @@
 
 &lt;p&gt;&lt;em&gt;What is a git submodule?&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
+
   &lt;p&gt;In Git you can add a submodule to a repository. This is basically “a repository embedded in your main repository”. A git submodule is a record within a host git repository that points to a specific commit in another external repository.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;em&gt;How to add some repository under Micropython lib as a git submodule?&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;You can refer to &lt;a href=&quot;https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Managing Python dependencies with git submodules&lt;/code&gt;&lt;/a&gt; and the commands they used shows you some concepts about submodule:
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add {github_repo} {local_path}&lt;/code&gt;
-Example:&lt;/p&gt;
 
-  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add https://github.com/Kif11/logger modules/logger&lt;/code&gt;
-  or:
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add https://github.com/lvgl/lvgl libs/lvgl&lt;/code&gt;
-To understand the submodule, you can see this picture:
-&lt;img src=&quot;/assets/images/image-20220118220911083.png&quot; alt=&quot;image-20220118220911083&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+
+  &lt;p&gt;You can refer to &lt;a href=&quot;https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Managing Python dependencies with git submodules&lt;/code&gt;&lt;/a&gt; and the commands they used shows you some concepts about submodule:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add {github_repo} {local_path}&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;Example:&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add https://github.com/Kif11/logger modules/logger&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;or:&lt;/p&gt;
+
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git submodule add https://github.com/lvgl/lvgl libs/lvgl&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;To understand the submodule, you can see this picture:&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/images/image-20220118220911083.png&quot; alt=&quot;image-20220118220911083&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;em&gt;what is micropython binding module?&lt;/em&gt;&lt;/p&gt;
@@ -125,10 +328,14 @@ To understand the submodule, you can see this picture:
 &lt;p&gt;251MB will be occupied.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;cd ~/Downloads
-git clone https://github.com/lvgl/lv_micropython.git
-cd lv_micropython
-git submodule update –init –recursive lib/lv_bindings&lt;/p&gt;
+  &lt;p&gt;cd ~/Downloads&lt;/p&gt;
+
+  &lt;p&gt;git clone https://github.com/lvgl/lv_micropython.git&lt;/p&gt;
+
+  &lt;p&gt;cd lv_micropython&lt;/p&gt;
+
+  &lt;p&gt;git submodule update –init –recursive lib/lv_bindings&lt;/p&gt;
+
 &lt;/blockquote&gt;
 
 &lt;p&gt;waiting for the updating of submodules&lt;/p&gt;
@@ -250,16 +457,19 @@ make: Leaving directory &apos;/home/user/Downloads/lv_micropython/ports/unix&apo
 &lt;h6 id=&quot;get-esp-idf-v42&quot;&gt;Get ESP-IDF v4.2&lt;/h6&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;mkdir -p ~/esp
-cd ~/esp
-git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git&lt;/p&gt;
+  &lt;p&gt;mkdir -p ~/esp&lt;/p&gt;
+
+  &lt;p&gt;cd ~/esp&lt;/p&gt;
+
+  &lt;p&gt;git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Set up the tools for esp32&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;cd ~/esp/esp-idf
-./install.sh esp32&lt;/p&gt;
+  &lt;p&gt;cd ~/esp/esp-idf&lt;/p&gt;
+
+  &lt;p&gt;./install.sh esp32&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h6 id=&quot;set-up-the-environment-variables&quot;&gt;Set up the environment variables&lt;/h6&gt;
@@ -273,7 +483,9 @@ git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git&
  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alias get_idf=&apos;. $HOME/esp/esp-idf/export.sh&apos;&lt;/code&gt;&lt;/p&gt;
 
 &lt;h5 id=&quot;322-build-the-lv_micropython-firmware&quot;&gt;3.2.2 Build the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; firmware&lt;/h5&gt;
-&lt;p&gt;cd to the root of this repository &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd $HOME/Downloads/lv_micropython&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;cd to the root of this repository:
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd $HOME/Downloads/lv_micropython&lt;/code&gt;
+ make the mpy-cross&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;make -C mpy-cross&lt;/p&gt;
@@ -282,9 +494,12 @@ git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git&
 &lt;p&gt;Then to build MicroPython for the ESP32 run:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;cd ports/esp32
- make submodules&lt;/p&gt;
+  &lt;p&gt;cd ports/esp32&lt;/p&gt;
+
+  &lt;p&gt;make submodules&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;you’ll see:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git submodule update --init ../../lib/berkeley-db-1.xx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -292,6 +507,13 @@ git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git&
 &lt;blockquote&gt;
   &lt;p&gt;make&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;or, for ILI9341 screen driver compatible:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; cd $HOME/Downloads/lv_micropython
+ make -C ports/esp32 LV_CFLAGS=&quot;-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1&quot; BOARD=GENERIC
+ make -C ports/esp32 deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;it shows:&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;idf.py -D MICROPY_BOARD=GENERIC -B build-GENERIC  build
@@ -360,6 +582,8 @@ Done
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;strong&gt;Tips:&lt;/strong&gt; You may meet the “time out connecting fatal” when using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;make erase&lt;/code&gt; in ubuntu guest vm. I finally use the ESP-IDF vsCode extension to successfully erase the flash of my ESP32 DevKit_v1_board.&lt;/p&gt;
+
 &lt;p&gt;To flash the MicroPython firmware to your ESP32 use:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make deploy&lt;/code&gt;&lt;/p&gt;
@@ -419,9 +643,19 @@ Done
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ picocom -b 115200 /dev/ttyUSB0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;or&lt;/p&gt;
+
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ miniterm.py /dev/ttyUSB0 115200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You can also use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idf.py monitor&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Tips:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl-A, ctrl-X&lt;/code&gt; will terminate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;picocom&lt;/code&gt; session.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can also use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idf.py monitor&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;After get python prompt, type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;help()&lt;/code&gt; shows the Control Commands.&lt;/p&gt;
 
@@ -442,7 +676,42 @@ Done
   &lt;li&gt;
     &lt;p&gt;more info about replanting on ARM board: &lt;a href=&quot;https://blog.csdn.net/qq_34440409/article/details/118421452&quot;&gt;支持LVGL的micropython固件编译（二）arm板移植&lt;/a&gt;  (in Chinese)&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>sonictl</name></author><category term="embedded" /><category term="esp32" /><category term="lvgl" /><summary type="html">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</summary></entry><entry><title type="html">Getting started with MicroPython with NodeMCU(ESP8266) board</title><link href="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" rel="alternate" type="text/html" title="Getting started with MicroPython with NodeMCU(ESP8266) board" /><published>2022-01-17T12:55:38+08:00</published><updated>2022-01-17T12:55:38+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/17/p20220117125538</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html">&lt;h1 id=&quot;getting-started-with-micropython-with-nodemcuesp8266-board&quot;&gt;Getting started with MicroPython with NodeMCU(ESP8266) board&lt;/h1&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;issue-fixing-after-flashing&quot;&gt;Issue fixing after flashing&lt;/h2&gt;
+
+&lt;p&gt;I met &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RuntimeError: ili9341 micropython driver requires defining LV_COLOR_DEPTH=16&lt;/code&gt; when using REPL with my esp32_TFTscreen board driven by ILI9341.
+Add the next configure into command for firmware building. Refer: https://github.com/lvgl/lv_micropython/README.md&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;LV_CFLAGS=”-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Refer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3.2.2 Build the lv_micropython firmware&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;you may need to delete the build-XXX folder under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython/ports/esp32/&lt;/code&gt; before re-build the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;firmware.bin&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from ili9XXX import ili9341
+&amp;gt;&amp;gt;&amp;gt; disp = ili9341()
+Single buffer
+ILI9341 initialization completed
+Enable backlight
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When you see the above lines in REPL, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LV_COLOR_DEPTH=16&lt;/code&gt; parameter for ILI9341 is successfully added.&lt;/p&gt;
+
+&lt;h3 id=&quot;finally-giving-up&quot;&gt;Finally giving up&lt;/h3&gt;
+
+&lt;p&gt;Micropython developing lvgl powered UI for ESP32 seems a joke.&lt;/p&gt;
+
+&lt;p&gt;I spent one hour for running an example micropython lvgl code, but failed. Nothing shown on TFT screen.&lt;/p&gt;
+
+&lt;p&gt;This experience of building / deploying micropython tells me that micropython is a tool, if large lib such as lvgl is depended, your micropython project will be tough.&lt;/p&gt;
+
+&lt;p&gt;c++ is still the right way to play with embedded projects. micropython is a tool for simple control and simple logic.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="embedded" /><category term="esp32" /><category term="lvgl" /><summary type="html">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</summary></entry><entry><title type="html">Getting started with MicroPython with NodeMCU(ESP8266) board</title><link href="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html" rel="alternate" type="text/html" title="Getting started with MicroPython with NodeMCU(ESP8266) board" /><published>2022-01-17T12:55:38+08:00</published><updated>2022-01-17T12:55:38+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/17/p20220117125538</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/17/p20220117125538.html">&lt;h1 id=&quot;getting-started-with-micropython-with-nodemcuesp8266-board&quot;&gt;Getting started with MicroPython with NodeMCU(ESP8266) board&lt;/h1&gt;
 
 &lt;h2 id=&quot;1-follow-the-official-tutorial-to-flash-the-micropython-firmware&quot;&gt;1. Follow the official tutorial to flash the MicroPython firmware&lt;/h2&gt;
 
@@ -1095,8 +1364,4 @@ pkgs/r: (empty) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/
 &lt;p&gt;Terminal WILL NOT show the password as you type it.
 After typing the password for your account, press “Return” (enter).&lt;/p&gt;
 
-&lt;h4 id=&quot;4-youre-all-done-yes-it-really-is-that-easy-now-just-go-into-your-system-preferences--users--groups--reset-your-password-to-any-password-youd-like&quot;&gt;4. You’re all done! Yes, it really is that easy. Now, just go into your System Preferences &amp;gt; Users &amp;amp; Groups &amp;amp; reset your password to any password you’d like.&lt;/h4&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</summary></entry><entry><title type="html">Keyboard Maestro: Mac电脑效率神器</title><link href="https://sonictl.github.io/jekyll/2021/10/28/p20211028175806.html" rel="alternate" type="text/html" title="Keyboard Maestro: Mac电脑效率神器" /><published>2021-10-28T17:58:06+08:00</published><updated>2021-10-28T17:58:06+08:00</updated><id>https://sonictl.github.io/jekyll/2021/10/28/p20211028175806</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/10/28/p20211028175806.html">&lt;h1 id=&quot;终于解决单手向右删除的痛点&quot;&gt;终于解决单手向右删除的痛点&lt;/h1&gt;
-
-&lt;p&gt;Keyboard  Maestro 软件很是强大。&lt;/p&gt;
-
-&lt;p&gt;ReadMore: &lt;a href=&quot;https://sspai.com/post/36442&quot;&gt;Keyboard Maestro 入门指南&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">终于解决单手向右删除的痛点</summary></entry></feed>
+&lt;h4 id=&quot;4-youre-all-done-yes-it-really-is-that-easy-now-just-go-into-your-system-preferences--users--groups--reset-your-password-to-any-password-youd-like&quot;&gt;4. You’re all done! Yes, it really is that easy. Now, just go into your System Preferences &amp;gt; Users &amp;amp; Groups &amp;amp; reset your password to any password you’d like.&lt;/h4&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</summary></entry></feed>

@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"sonictl"},"description":"[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard","url":"https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html","headline":"[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard","dateModified":"2022-01-19T22:15:45+08:00","datePublished":"2022-01-19T22:15:45+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html"},"@context":"https://schema.org"}</script>
+{"description":"[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard","headline":"[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard","dateModified":"2022-01-19T22:15:45+08:00","datePublished":"2022-01-19T22:15:45+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html"},"url":"https://sonictl.github.io/embedded/esp32/lvgl/2022/01/19/p20220119221545.html","author":{"@type":"Person","name":"sonictl"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -129,20 +129,28 @@
 
 <p><em>What is a git submodule?</em></p>
 <blockquote>
+
   <p>In Git you can add a submodule to a repository. This is basically “a repository embedded in your main repository”. A git submodule is a record within a host git repository that points to a specific commit in another external repository.</p>
 </blockquote>
 
 <p><em>How to add some repository under Micropython lib as a git submodule?</em></p>
-<blockquote>
-  <p>You can refer to <a href="https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html"><code class="language-plaintext highlighter-rouge">Managing Python dependencies with git submodules</code></a> and the commands they used shows you some concepts about submodule:
-<code class="language-plaintext highlighter-rouge">git submodule add {github_repo} {local_path}</code>
-Example:</p>
 
-  <p><code class="language-plaintext highlighter-rouge">git submodule add https://github.com/Kif11/logger modules/logger</code>
-  or:
-<code class="language-plaintext highlighter-rouge">git submodule add https://github.com/lvgl/lvgl libs/lvgl</code>
-To understand the submodule, you can see this picture:
-<img src="/assets/images/image-20220118220911083.png" alt="image-20220118220911083" /></p>
+<blockquote>
+
+  <p>You can refer to <a href="https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html"><code class="language-plaintext highlighter-rouge">Managing Python dependencies with git submodules</code></a> and the commands they used shows you some concepts about submodule:
+<code class="language-plaintext highlighter-rouge">git submodule add {github_repo} {local_path}</code></p>
+
+  <p>Example:</p>
+
+  <p><code class="language-plaintext highlighter-rouge">git submodule add https://github.com/Kif11/logger modules/logger</code></p>
+
+  <p>or:</p>
+
+  <p><code class="language-plaintext highlighter-rouge">git submodule add https://github.com/lvgl/lvgl libs/lvgl</code></p>
+
+  <p>To understand the submodule, you can see this picture:</p>
+
+  <p><img src="/assets/images/image-20220118220911083.png" alt="image-20220118220911083" /></p>
 </blockquote>
 
 <p><em>what is micropython binding module?</em></p>
@@ -204,10 +212,14 @@ To understand the submodule, you can see this picture:
 <p>251MB will be occupied.</p>
 
 <blockquote>
-  <p>cd ~/Downloads
-git clone https://github.com/lvgl/lv_micropython.git
-cd lv_micropython
-git submodule update –init –recursive lib/lv_bindings</p>
+  <p>cd ~/Downloads</p>
+
+  <p>git clone https://github.com/lvgl/lv_micropython.git</p>
+
+  <p>cd lv_micropython</p>
+
+  <p>git submodule update –init –recursive lib/lv_bindings</p>
+
 </blockquote>
 
 <p>waiting for the updating of submodules</p>
@@ -329,16 +341,19 @@ make: Leaving directory '/home/user/Downloads/lv_micropython/ports/unix'
 <h6 id="get-esp-idf-v42">Get ESP-IDF v4.2</h6>
 
 <blockquote>
-  <p>mkdir -p ~/esp
-cd ~/esp
-git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git</p>
+  <p>mkdir -p ~/esp</p>
+
+  <p>cd ~/esp</p>
+
+  <p>git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git</p>
 </blockquote>
 
 <p>Set up the tools for esp32</p>
 
 <blockquote>
-  <p>cd ~/esp/esp-idf
-./install.sh esp32</p>
+  <p>cd ~/esp/esp-idf</p>
+
+  <p>./install.sh esp32</p>
 </blockquote>
 
 <h6 id="set-up-the-environment-variables">Set up the environment variables</h6>
@@ -352,7 +367,9 @@ git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git<
  <code class="language-plaintext highlighter-rouge">alias get_idf='. $HOME/esp/esp-idf/export.sh'</code></p>
 
 <h5 id="322-build-the-lv_micropython-firmware">3.2.2 Build the <code class="language-plaintext highlighter-rouge">lv_micropython</code> firmware</h5>
-<p>cd to the root of this repository <code class="language-plaintext highlighter-rouge">cd $HOME/Downloads/lv_micropython</code></p>
+<p>cd to the root of this repository:
+ <code class="language-plaintext highlighter-rouge">cd $HOME/Downloads/lv_micropython</code>
+ make the mpy-cross</p>
 
 <blockquote>
   <p>make -C mpy-cross</p>
@@ -361,9 +378,12 @@ git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git<
 <p>Then to build MicroPython for the ESP32 run:</p>
 
 <blockquote>
-  <p>cd ports/esp32
- make submodules</p>
+  <p>cd ports/esp32</p>
+
+  <p>make submodules</p>
 </blockquote>
+
+<p>you’ll see:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git submodule update --init ../../lib/berkeley-db-1.xx
 </code></pre></div></div>
@@ -371,6 +391,13 @@ git clone -b release/v4.2 –recursive https://github.com/espressif/esp-idf.git<
 <blockquote>
   <p>make</p>
 </blockquote>
+
+<p>or, for ILI9341 screen driver compatible:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cd $HOME/Downloads/lv_micropython
+ make -C ports/esp32 LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1" BOARD=GENERIC
+ make -C ports/esp32 deploy
+</code></pre></div></div>
 
 <p>it shows:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>idf.py -D MICROPY_BOARD=GENERIC -B build-GENERIC  build
@@ -439,6 +466,8 @@ Done
 
 </code></pre></div></div>
 
+<p><strong>Tips:</strong> You may meet the “time out connecting fatal” when using <code class="language-plaintext highlighter-rouge">make erase</code> in ubuntu guest vm. I finally use the ESP-IDF vsCode extension to successfully erase the flash of my ESP32 DevKit_v1_board.</p>
+
 <p>To flash the MicroPython firmware to your ESP32 use:</p>
 
 <p><code class="language-plaintext highlighter-rouge">$ make deploy</code></p>
@@ -498,9 +527,19 @@ Done
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ picocom -b 115200 /dev/ttyUSB0
 </code></pre></div></div>
 <p>or</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ miniterm.py /dev/ttyUSB0 115200
 </code></pre></div></div>
-<p>You can also use <code class="language-plaintext highlighter-rouge">idf.py monitor</code>.</p>
+<p>Tips:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ctrl-A, ctrl-X</code> will terminate <code class="language-plaintext highlighter-rouge">picocom</code> session.</p>
+  </li>
+  <li>
+    <p>You can also use <code class="language-plaintext highlighter-rouge">idf.py monitor</code>.</p>
+  </li>
+</ul>
 
 <p>After get python prompt, type <code class="language-plaintext highlighter-rouge">help()</code> shows the Control Commands.</p>
 
@@ -522,6 +561,41 @@ Done
     <p>more info about replanting on ARM board: <a href="https://blog.csdn.net/qq_34440409/article/details/118421452">支持LVGL的micropython固件编译（二）arm板移植</a>  (in Chinese)</p>
   </li>
 </ul>
+
+<hr />
+
+<h2 id="issue-fixing-after-flashing">Issue fixing after flashing</h2>
+
+<p>I met <code class="language-plaintext highlighter-rouge">RuntimeError: ili9341 micropython driver requires defining LV_COLOR_DEPTH=16</code> when using REPL with my esp32_TFTscreen board driven by ILI9341.
+Add the next configure into command for firmware building. Refer: https://github.com/lvgl/lv_micropython/README.md</p>
+
+<blockquote>
+  <p>LV_CFLAGS=”-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1”</p>
+</blockquote>
+
+<p>Refer <code class="language-plaintext highlighter-rouge">3.2.2 Build the lv_micropython firmware</code></p>
+
+<p>you may need to delete the build-XXX folder under <code class="language-plaintext highlighter-rouge">lv_micropython/ports/esp32/</code> before re-build the <code class="language-plaintext highlighter-rouge">firmware.bin</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; from ili9XXX import ili9341
+&gt;&gt;&gt; disp = ili9341()
+Single buffer
+ILI9341 initialization completed
+Enable backlight
+
+</code></pre></div></div>
+
+<p>When you see the above lines in REPL, the <code class="language-plaintext highlighter-rouge">LV_COLOR_DEPTH=16</code> parameter for ILI9341 is successfully added.</p>
+
+<h3 id="finally-giving-up">Finally giving up</h3>
+
+<p>Micropython developing lvgl powered UI for ESP32 seems a joke.</p>
+
+<p>I spent one hour for running an example micropython lvgl code, but failed. Nothing shown on TFT screen.</p>
+
+<p>This experience of building / deploying micropython tells me that micropython is a tool, if large lib such as lvgl is depended, your micropython project will be tough.</p>
+
+<p>c++ is still the right way to play with embedded projects. micropython is a tool for simple control and simple logic.</p>
 
 
     

@@ -35,7 +35,7 @@ slug: p20220119221545
      [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
      [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
 
-[4 Confiture wifi and use the board:](#4-confiture-wifi-and-use-the-board)
+[4 Confiture wifi and use the board](#4-confiture-wifi-and-use-the-board)
 [Reference and read more](#reference-and-read-more)
 
 ---
@@ -413,7 +413,7 @@ After get python prompt, type `help()` shows the Control Commands.
 
 ![image-20220119220949837](/assets/images/image-20220119220949837.png)
 
-### 4 Confiture wifi and use the board:
+### 4 Confiture wifi and use the board
 go to link [configure wifi and use the board](https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md#configuring-the-wifi-and-using-the-board)
 
 
