@@ -1,21 +1,21 @@
 ---
 layout: post
-title:  "[ESP32_lvgl] Run a menu component"
+title:  "[ESP32_lvgl] From demo to own UI component with lvgl on ESP32"
 date: 2022-01-22 17:44:07 +0800
 categories: embeded
 slug: p20220122174407
 ---
-# [ESP32_lvgl] Run a menu component
+# [ESP32_lvgl] From demo to own UI component with lvgl on ESP32
 This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.
 
-After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Other than the toy -- micropython.
+After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Rather than the toy -- micropython.
 
 ## 1. Motivation and value of this post
 After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board. But for beginners, from running demo to developing the specific project, they may meet some little but not-easy-to-solve difficalties. They need to be familiar with the code structure of demo.
 
 This article is the path from demo to developing your own LVGL ESP32 project. So you can really start your own project after reading this blog post.
 
-## 2. Basic intro and environment
+## 2. Basic introduction and environment
 I use the **vsCode** and **ESP-IDF vscode extension** for all the development work. 
 Refered tutorial is: 
 \[ESP32_lvgl\]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension. [this link](https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html)
@@ -25,7 +25,7 @@ After successfully run the demo on your board, try to use the code below:
  - They are from here https://github.com/lvgl/lvgl/tree/master/examples
 
 ## 3. What? the example code has no main() function?
-Let's discuss the one menu exmple's code. In the link above, you can find the 'one menu' example as below:
+Let's discuss the [one menu exmple's code](https://docs.lvgl.io/master/examples.html). In the link above, you can find the 'one menu' example as below:
 
 ```c++
 #include "../lv_examples.h"
