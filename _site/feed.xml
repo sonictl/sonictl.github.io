@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-28T13:15:34+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-29T09:36:55+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
 </subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32_lvgl] From demo to own UI component with lvgl on ESP32</title><link href="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html" rel="alternate" type="text/html" title="[ESP32_lvgl] From demo to own UI component with lvgl on ESP32" /><published>2022-01-22T17:44:07+08:00</published><updated>2022-01-22T17:44:07+08:00</updated><id>https://sonictl.github.io/embeded/2022/01/22/p20220122174407</id><content type="html" xml:base="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html">&lt;h1 id=&quot;esp32_lvgl-from-demo-to-own-ui-component-with-lvgl-on-esp32&quot;&gt;[ESP32_lvgl] From demo to own UI component with lvgl on ESP32&lt;/h1&gt;
 &lt;p&gt;This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.&lt;/p&gt;
 
@@ -16,8 +16,8 @@ Refered tutorial is:
 
 &lt;p&gt;After successfully run the demo on your board, try to use the code below:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;find 100+ simple examples here: https://docs.lvgl.io/master/examples.html&lt;/li&gt;
-  &lt;li&gt;They are from here https://github.com/lvgl/lvgl/tree/master/examples&lt;/li&gt;
+  &lt;li&gt;find 100+ simple examples here: &lt;a href=&quot;https://docs.lvgl.io/master/examples.html&quot;&gt;https://docs.lvgl.io/master/examples.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;They are from here: &lt;a href=&quot;https://github.com/lvgl/lvgl/tree/master/examples&quot;&gt;https://github.com/lvgl/lvgl/tree/master/examples&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;3-what-the-example-code-has-no-main-function&quot;&gt;3. What? the example code has no main() function?&lt;/h2&gt;
@@ -62,7 +62,7 @@ Refered tutorial is:
 
 &lt;p&gt;See the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt;  code in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_ESP32/main/main.c&lt;/code&gt; &lt;a href=&quot;https://github.com/lvgl/lv_port_esp32/blob/master/main/main.c&quot;&gt;here_link&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Digest the code line by line with the tips in &lt;a href=&quot;https://docs.lvgl.io/latest/en/html/get-started/quick-overview.html#quick-overview&quot;&gt;this quick start page&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Try to read and understand the code line by line with the tips in &lt;a href=&quot;https://docs.lvgl.io/latest/en/html/get-started/quick-overview.html#quick-overview&quot;&gt;this quick start page&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I copy it here:&lt;/p&gt;
 

@@ -21,8 +21,8 @@ Refered tutorial is:
 \[ESP32_lvgl\]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension. [this link](https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html)
 
 After successfully run the demo on your board, try to use the code below:
- - find 100+ simple examples here: https://docs.lvgl.io/master/examples.html
- - They are from here https://github.com/lvgl/lvgl/tree/master/examples
+ - find 100+ simple examples here: [https://docs.lvgl.io/master/examples.html](https://docs.lvgl.io/master/examples.html)
+ - They are from here: [https://github.com/lvgl/lvgl/tree/master/examples](https://github.com/lvgl/lvgl/tree/master/examples)
 
 ## 3. What? the example code has no main() function?
 Let's discuss the [one menu exmple's code](https://docs.lvgl.io/master/examples.html). In the link above, you can find the 'one menu' example as below:
@@ -69,7 +69,7 @@ If you put the code into `main.c`, it will not compile.
 
 See the `main.c`  code in `lv_port_ESP32/main/main.c` [here_link](https://github.com/lvgl/lv_port_esp32/blob/master/main/main.c)
 
-Digest the code line by line with the tips in [this quick start page](https://docs.lvgl.io/latest/en/html/get-started/quick-overview.html#quick-overview)
+Try to read and understand the code line by line with the tips in [this quick start page](https://docs.lvgl.io/latest/en/html/get-started/quick-overview.html#quick-overview)
 
 I copy it here:
 

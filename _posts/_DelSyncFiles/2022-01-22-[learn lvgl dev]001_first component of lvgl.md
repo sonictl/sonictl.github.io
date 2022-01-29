@@ -8,7 +8,7 @@ slug: p20220122174407
 # [ESP32_lvgl] From demo to own UI component with lvgl on ESP32
 This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.
 
-After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Other than the toy -- micropython.
+After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Rather than the toy -- micropython.
 
 ## 1. Motivation and value of this post
 After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board. But for beginners, from running demo to developing the specific project, they may meet some little but not-easy-to-solve difficalties. They need to be familiar with the code structure of demo.
