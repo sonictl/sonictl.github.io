@@ -1,0 +1,29 @@
+I"d<h1 id="how-to-extend-the-ubuntu-guest-oss-hard-disk-for-virtualbox-on-mac">How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac</h1>
+
+<h2 id="steps">Steps:</h2>
+
+<ul>
+  <li>
+    <p>resize the VDI file on Mac OS: <a href="https://osxdaily.com/2015/04/07/how-to-resize-a-virtualbox-vdi-or-vhd-file-on-mac-os-x/">How to Resize a VirtualBox VDI or VHD File on Mac OS X</a></p>
+  </li>
+  <li>
+    <p>boot the Ubuntu with the image(ISO) and Gparted(resize the partition).</p>
+
+    <p><strong>Note:</strong> firstly resize the extension partition (/dev/sda2), then resize the partition (/dev/sda5)</p>
+
+    <p><a href="https://technology.amis.nl/platform/virtualization-and-oracle-vm/ubuntu-vm-virtualbox-increase-size-disk-make-smaller-exports-distribution/">Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution</a></p>
+  </li>
+  <li>
+    <p>reboot the ubuntu with local vdi file and check the result.</p>
+  </li>
+</ul>
+
+<h2 id="references">references:</h2>
+
+<p><a href="https://osxdaily.com/2015/04/07/how-to-resize-a-virtualbox-vdi-or-vhd-file-on-mac-os-x/">How to Resize a VirtualBox VDI or VHD File on Mac OS X</a></p>
+
+<p><a href="https://technology.amis.nl/platform/virtualization-and-oracle-vm/ubuntu-vm-virtualbox-increase-size-disk-make-smaller-exports-distribution/">Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution</a></p>
+
+<p><a href="https://www.tecklyfe.com/how-to-partition-format-and-mount-a-disk-on-ubuntu-20-04/">How to Partition, Format, and Mount a Disk on Ubuntu 20.04 Using Command Line</a></p>
+
+:ET

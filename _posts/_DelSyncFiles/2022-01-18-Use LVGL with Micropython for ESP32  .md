@@ -57,17 +57,25 @@ To add `lv_binding_micropython` to some Micropython fork you need to add `lv_bin
  > a fork is like a unix distribution. or a micropython that complied/built from fork-and-modified code. "There are many micropython forks for a variety of systems and hardware platforms not supported in the mainline." -- [wikipedia_page](https://en.wikipedia.org/wiki/MicroPython). 
 
  *What is a git submodule?*
+ > 
  > In Git you can add a submodule to a repository. This is basically "a repository embedded in your main repository". A git submodule is a record within a host git repository that points to a specific commit in another external repository.
 
  *How to add some repository under Micropython lib as a git submodule?*
+ 
+ > 
  > You can refer to [`Managing Python dependencies with git submodules`](https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html) and the commands they used shows you some concepts about submodule:
  > `git submodule add {github_repo} {local_path}`
+ > 
  > Example:
  >
  > `git submodule add https://github.com/Kif11/logger modules/logger`
+ > 
  >   or:
+ > 
  > `git submodule add https://github.com/lvgl/lvgl libs/lvgl`
+ > 
  > To understand the submodule, you can see this picture:
+ > 
  > ![image-20220118220911083](/assets/images/image-20220118220911083.png)
 
 
@@ -124,9 +132,13 @@ Here, I tested all the commands below on a virtual machine running Ubuntu 20.04.
 251MB will be occupied.
 
 > cd ~/Downloads
+> 
 > git clone https://github.com/lvgl/lv_micropython.git
+> 
 > cd lv_micropython
+> 
 > git submodule update --init --recursive lib/lv_bindings
+> 
 
 waiting for the updating of submodules
 
@@ -239,12 +251,15 @@ Adding user to dialout on Linux
 ###### Get ESP-IDF v4.2
 
  > mkdir -p ~/esp
+ > 
  > cd ~/esp
+ > 
  > git clone -b release/v4.2 --recursive https://github.com/espressif/esp-idf.git
 
  Set up the tools for esp32
 
  > cd ~/esp/esp-idf
+ > 
  > ./install.sh esp32
 
 
@@ -257,20 +272,33 @@ Adding user to dialout on Linux
  `alias get_idf='. $HOME/esp/esp-idf/export.sh'`
 
 ##### 3.2.2 Build the `lv_micropython` firmware
- cd to the root of this repository `cd $HOME/Downloads/lv_micropython`
+ cd to the root of this repository:
+ `cd $HOME/Downloads/lv_micropython`
+ make the mpy-cross
 
  > make -C mpy-cross
 
  Then to build MicroPython for the ESP32 run:
 
  >  cd ports/esp32
+ > 
  >  make submodules
+
+you'll see:
 
 ```
 git submodule update --init ../../lib/berkeley-db-1.xx
 ```
 
  >  make
+
+or, for ILI9341 screen driver compatible:
+
+ ```
+ cd $HOME/Downloads/lv_micropython
+ make -C ports/esp32 LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1" BOARD=GENERIC
+ make -C ports/esp32 deploy
+ ```
 
 it shows:
 ```
@@ -343,6 +371,8 @@ Done
 
 ```
 
+**Tips:** You may meet the "time out connecting fatal" when using `make erase` in ubuntu guest vm. I finally use the ESP-IDF vsCode extension to successfully erase the flash of my ESP32 DevKit_v1_board. 
+
 To flash the MicroPython firmware to your ESP32 use:
 
 `$ make deploy`
@@ -404,10 +434,15 @@ You can get a prompt via the serial port, via `/dev/ttyUART0`, which is the same
 $ picocom -b 115200 /dev/ttyUSB0
 ```
 or
+
 ```
 $ miniterm.py /dev/ttyUSB0 115200
 ```
-You can also use `idf.py monitor`.
+Tips:
+
+- `ctrl-A, ctrl-X` will terminate `picocom` session.
+
+- You can also use `idf.py monitor`.
 
 After get python prompt, type `help()` shows the Control Commands.
 
@@ -428,5 +463,37 @@ go to link [configure wifi and use the board](https://github.com/lvgl/lv_micropy
 
 
 
+----
 
+## Issue fixing after flashing
+
+I met `RuntimeError: ili9341 micropython driver requires defining LV_COLOR_DEPTH=16` when using REPL with my esp32_TFTscreen board driven by ILI9341.
+Add the next configure into command for firmware building. Refer: https://github.com/lvgl/lv_micropython/README.md
+
+ > LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1" 
+
+Refer `3.2.2 Build the lv_micropython firmware`
+
+you may need to delete the build-XXX folder under `lv_micropython/ports/esp32/` before re-build the `firmware.bin`
+
+```
+>>> from ili9XXX import ili9341
+>>> disp = ili9341()
+Single buffer
+ILI9341 initialization completed
+Enable backlight
+
+```
+
+When you see the above lines in REPL, the `LV_COLOR_DEPTH=16` parameter for ILI9341 is successfully added.
+
+### Finally giving up
+
+Micropython developing lvgl powered UI for ESP32 seems a joke.
+
+I spent one hour for running an example micropython lvgl code, but failed. Nothing shown on TFT screen.
+
+This experience of building / deploying micropython tells me that micropython is a tool, if large lib such as lvgl is depended, your micropython project will be tough.
+
+c++ is still the right way to play with embedded projects. micropython is a tool for simple control and simple logic.
 

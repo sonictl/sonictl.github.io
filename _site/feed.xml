@@ -1,5 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-01-29T09:37:41+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32_lvgl] From demo to own UI component with lvgl on ESP32</title><link href="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html" rel="alternate" type="text/html" title="[ESP32_lvgl] From demo to own UI component with lvgl on ESP32" /><published>2022-01-22T17:44:07+08:00</published><updated>2022-01-22T17:44:07+08:00</updated><id>https://sonictl.github.io/embeded/2022/01/22/p20220122174407</id><content type="html" xml:base="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html">&lt;h1 id=&quot;esp32_lvgl-from-demo-to-own-ui-component-with-lvgl-on-esp32&quot;&gt;[ESP32_lvgl] From demo to own UI component with lvgl on ESP32&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-02-07T19:21:24+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac</title><link href="https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102.html" rel="alternate" type="text/html" title="How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac" /><published>2022-02-06T23:11:02+08:00</published><updated>2022-02-06T23:11:02+08:00</updated><id>https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102</id><content type="html" xml:base="https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102.html">&lt;h1 id=&quot;how-to-extend-the-ubuntu-guest-oss-hard-disk-for-virtualbox-on-mac&quot;&gt;How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac&lt;/h1&gt;
+
+&lt;h2 id=&quot;steps&quot;&gt;Steps:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;resize the VDI file on Mac OS: &lt;a href=&quot;https://osxdaily.com/2015/04/07/how-to-resize-a-virtualbox-vdi-or-vhd-file-on-mac-os-x/&quot;&gt;How to Resize a VirtualBox VDI or VHD File on Mac OS X&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;boot the Ubuntu with the image(ISO) and Gparted(resize the partition).&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; firstly resize the extension partition (/dev/sda2), then resize the partition (/dev/sda5)&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://technology.amis.nl/platform/virtualization-and-oracle-vm/ubuntu-vm-virtualbox-increase-size-disk-make-smaller-exports-distribution/&quot;&gt;Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;reboot the ubuntu with local vdi file and check the result.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;references:&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://osxdaily.com/2015/04/07/how-to-resize-a-virtualbox-vdi-or-vhd-file-on-mac-os-x/&quot;&gt;How to Resize a VirtualBox VDI or VHD File on Mac OS X&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://technology.amis.nl/platform/virtualization-and-oracle-vm/ubuntu-vm-virtualbox-increase-size-disk-make-smaller-exports-distribution/&quot;&gt;Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tecklyfe.com/how-to-partition-format-and-mount-a-disk-on-ubuntu-20-04/&quot;&gt;How to Partition, Format, and Mount a Disk on Ubuntu 20.04 Using Command Line&lt;/a&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="virtualbox" /><summary type="html">How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac</summary></entry><entry><title type="html">[ESP32_lvgl] From demo to own UI component with lvgl on ESP32</title><link href="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html" rel="alternate" type="text/html" title="[ESP32_lvgl] From demo to own UI component with lvgl on ESP32" /><published>2022-01-22T17:44:07+08:00</published><updated>2022-01-22T17:44:07+08:00</updated><id>https://sonictl.github.io/embeded/2022/01/22/p20220122174407</id><content type="html" xml:base="https://sonictl.github.io/embeded/2022/01/22/p20220122174407.html">&lt;h1 id=&quot;esp32_lvgl-from-demo-to-own-ui-component-with-lvgl-on-esp32&quot;&gt;[ESP32_lvgl] From demo to own UI component with lvgl on ESP32&lt;/h1&gt;
 &lt;p&gt;This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.&lt;/p&gt;
 
 &lt;p&gt;After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Rather than the toy – micropython.&lt;/p&gt;
@@ -212,13 +238,20 @@ bool my_touchpad_read(lv_indev_t * indev, lv_indev_data_t * data)
 
 &lt;p&gt;&lt;a href=&quot;#31--build-micropython-for-linux-port-optional-for-newbie&quot;&gt;3.1  Build micropython for Linux port (optional for newbie):&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;#32-building-lvmicropython-micropython-fork-for-esp32-port&quot;&gt;3.2 Building &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; micropython fork for ESP32 port:&lt;/a&gt;
-     &lt;a href=&quot;#321-install-the-esp-idf-sdk&quot;&gt;3.2.1 install the ESP-IDF sdk&lt;/a&gt;
-        &lt;a href=&quot;#get-esp-idf-v42&quot;&gt;Get ESP-IDF v4.2&lt;/a&gt;
-        &lt;a href=&quot;#set-up-the-environment-variables&quot;&gt;Set up the environment variables&lt;/a&gt;
-     &lt;a href=&quot;#322-build-the-lvmicropython-firmware&quot;&gt;3.2.2 Build the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; firmware&lt;/a&gt;
-     &lt;a href=&quot;#323-flashing-the-lvmicropython-firmware&quot;&gt;3.2.3 Flashing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; firmware&lt;/a&gt;
-     &lt;a href=&quot;#324-getting-a-python-prompt-on-the-device&quot;&gt;3.2.4 Getting a Python prompt on the device&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#32-building-lvmicropython-micropython-fork-for-esp32-port&quot;&gt;3.2 Building &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_micropython&lt;/code&gt; micropython fork for ESP32 port:&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)
+ 
+    [Get ESP-IDF v4.2](#get-esp-idf-v42)
+    
+    [Set up the environment variables](#set-up-the-environment-variables)
+    
+ [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)
+ 
+ [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
+ 
+ [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;#4-confiture-wifi-and-use-the-board&quot;&gt;4 Confiture wifi and use the board&lt;/a&gt;
 &lt;a href=&quot;#reference-and-read-more&quot;&gt;Reference and read more&lt;/a&gt;&lt;/p&gt;
@@ -232,7 +265,7 @@ bool my_touchpad_read(lv_indev_t * indev, lv_indev_data_t * data)
 
 &lt;p&gt;To add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_binding_micropython&lt;/code&gt; to some Micropython fork you need to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_binding_micropython&lt;/code&gt; under Micropython lib as a git submodule.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I tested all the implementations and configurations with commands in Ubuntu20.04 virtual machine.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; In this blog, all the implementations, commands and configurations were tested in Ubuntu20.04 virtual machine.&lt;/p&gt;
 
 &lt;h3 id=&quot;1-some-basic-concepts&quot;&gt;1 Some basic concepts&lt;/h3&gt;
 
@@ -1087,16 +1120,80 @@ Fortunately, this post offers you one solution for version_conflict problem.&lt;
 
   &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~//vsCodePlatformIO/udrDev_proj/espIDF_vscode_lvgl_port_esp32
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;open vscode, cmd+shift+P (mac), ESP-IDF: import ESP-IDF proj.&lt;/p&gt;
+&lt;p&gt;open vscode, &lt;strong&gt;cmd+shift+P&lt;/strong&gt; (mac), ESP-IDF: import ESP-IDF proj.&lt;/p&gt;
 
-&lt;p&gt;import the folder of that proj repository.&lt;/p&gt;
+&lt;p&gt;import the folder of that proj repository. You may need to open that folder and directly edit it. The import function seems not working.&lt;/p&gt;
 
-&lt;p&gt;cmd+shift+P (mac), ESP-IDF: SDK configuration editor(menuconfig)
-  configure the project. and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sdkconfig&lt;/code&gt; file will be updated each time the configuration saved.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;cmd+shift+P&lt;/strong&gt; (mac), ESP-IDF: SDK configuration editor(menuconfig)&lt;/p&gt;
+
+&lt;p&gt;configure the project. and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sdkconfig&lt;/code&gt; file will be updated each time the configuration saved.&lt;/p&gt;
 
 &lt;p&gt;Build, flash, etc. using the bottom bar of vscode UI, given by ESP-IDF_vscode_extension.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;You may meet difficulties in searching for the right configurations for your ESP32 dev board.&lt;/em&gt; Rightly choose the VSPI/HSPI, TFT controller, etc. is nontrivial. Ask the board offerer if needs.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension</summary></entry><entry><title type="html">Node.js realtime communication with ESP8266 via socket.io</title><link href="https://sonictl.github.io/jekyll/2022/01/05/p20220105221954.html" rel="alternate" type="text/html" title="Node.js realtime communication with ESP8266 via socket.io" /><published>2022-01-05T22:19:54+08:00</published><updated>2022-01-05T22:19:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/05/p20220105221954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/05/p20220105221954.html">&lt;h1 id=&quot;nodejs-realtime-communication-with-nodemcu-with-socketio&quot;&gt;Node.js realtime communication with NodeMCU with socket.io&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;  &lt;strong&gt;You may meet difficulties in searching for the right configurations&lt;/strong&gt; for your ESP32 dev board. Rightly choose the VSPI/HSPI, TFT controller, etc. is nontrivial. Ask the board offerer if needs.&lt;/p&gt;
+
+&lt;p&gt;Here, I offer one, which is for my board with ILI9341 and XPT2046:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Later on, for testing, I did some fresh installing and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; initiallization for development other project on Ubuntu and Win11.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Some notes for steps:&lt;/p&gt;
+
+&lt;h4 id=&quot;ubuntu-2004-fresh-install-vscode-and-esp-idf-extension-start-new-development-from-lv_port_esp32&quot;&gt;Ubuntu 20.04: fresh install vscode and esp-idf extension, start new development from lv_port_esp32&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;\1. install the esp-idf vscode extension.&lt;/p&gt;
+
+&lt;p&gt;\2. git clone recursively with components for the repo: lv_port_esp32&lt;/p&gt;
+
+&lt;p&gt;\3. open the repo lv_port_esp32 in vsCode&lt;/p&gt;
+
+&lt;p&gt;\4. esp-idf: configure sdk for this proj (copy the sdkconfig file from fine-tuned proj that works well on your board)&lt;/p&gt;
+
+&lt;p&gt;\5. build, flash and test the demo given by lv_port_esp32&lt;/p&gt;
+
+&lt;p&gt;\6. modify the code below:&lt;/p&gt;
+
+&lt;p&gt;​        6.1: add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#include &quot;../components/lv_examples/lv_examples/lv_examples.h&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​        6.2: in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create_demo_application&lt;/code&gt; function, comment out &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_demo_widgets();&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​        6.3: add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_ex_get_started_1();&lt;/code&gt; at the end of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create_demo_application&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;\7. build, falsh and test the modified proj.&lt;/p&gt;
+
+&lt;p&gt;Tips: in ubuntu, development configurations are smooth. While in microsoft Win11, not smooth with bash, terminal, and esp-idf.&lt;/p&gt;
+
+&lt;h4 id=&quot;windows11-fresh-install-vscode-and-esp-idf-extension-start-new-development-from-lv_port_esp32&quot;&gt;Windows11: Fresh install vscode and esp-idf extension, start new development from lv_port_esp32&lt;/h4&gt;
+
+&lt;p&gt;I try to freshly start a esp-idf lvgl proj i.e. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; on windows11, but failed
+Steps below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;install vsCode&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;install esp-idf vscode extension
+ … meet the error: “restart esp-idf extension to launch the wizard” …&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;install git&lt;/p&gt;
+
+&lt;p&gt;in git_bash, cd to the workspace for esp-idf projects&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;git clone –recurse-submodules https://github.com/lvgl/lv_port_esp32.git&lt;/p&gt;
+
+    &lt;p&gt;…cloning into &lt;workspace&gt;/lv_port_esp32... (cloning needs proxy)&lt;/workspace&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The error: “restart esp-idf extension to launch the wizard” will not disappear after restarting vsCode over and over again.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension</summary></entry><entry><title type="html">Node.js realtime communication with ESP8266 via socket.io</title><link href="https://sonictl.github.io/jekyll/2022/01/05/p20220105221954.html" rel="alternate" type="text/html" title="Node.js realtime communication with ESP8266 via socket.io" /><published>2022-01-05T22:19:54+08:00</published><updated>2022-01-05T22:19:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/05/p20220105221954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/05/p20220105221954.html">&lt;h1 id=&quot;nodejs-realtime-communication-with-nodemcu-with-socketio&quot;&gt;Node.js realtime communication with NodeMCU with socket.io&lt;/h1&gt;
 
 &lt;p&gt;Reference: https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio&lt;/p&gt;
 
@@ -1348,20 +1445,4 @@ pkgs/r: (empty) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/
 &lt;p&gt;Can also use&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda config --show-sources
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">First, PIP</summary></entry><entry><title type="html">Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</title><link href="https://sonictl.github.io/jekyll/2021/11/10/p20211110170635.html" rel="alternate" type="text/html" title="Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required." /><published>2021-11-10T17:06:35+08:00</published><updated>2021-11-10T17:06:35+08:00</updated><id>https://sonictl.github.io/jekyll/2021/11/10/p20211110170635</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/11/10/p20211110170635.html">&lt;h2 id=&quot;use-short-passwords-on-macos-big-sur-four-characters-not-required&quot;&gt;Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.&lt;/h2&gt;
-
-&lt;p&gt;If you’re an Apple user and have macOS Big Sur, Catalina or Mojave installed on your machine you’ve probably realized you can’t use a password shorter than 4 characters anymore…&lt;/p&gt;
-
-&lt;p&gt;Luckily, here is the easy fix.&lt;/p&gt;
-
-&lt;h4 id=&quot;1-open-terminal-on-your-machine&quot;&gt;1. Open “Terminal” on your machine.&lt;/h4&gt;
-
-&lt;h4 id=&quot;2-type-this-command--press-return-enter&quot;&gt;2. Type this command &amp;amp; press Return (enter):&lt;/h4&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`pwpolicy -clearaccountpolicies`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;3-terminal-will-ask-you-to-enter-the-password-for-your-admin-profile&quot;&gt;3. Terminal will ask you to enter the password for your admin profile.&lt;/h4&gt;
-&lt;p&gt;Terminal WILL NOT show the password as you type it.
-After typing the password for your account, press “Return” (enter).&lt;/p&gt;
-
-&lt;h4 id=&quot;4-youre-all-done-yes-it-really-is-that-easy-now-just-go-into-your-system-preferences--users--groups--reset-your-password-to-any-password-youd-like&quot;&gt;4. You’re all done! Yes, it really is that easy. Now, just go into your System Preferences &amp;gt; Users &amp;amp; Groups &amp;amp; reset your password to any password you’d like.&lt;/h4&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">First, PIP</summary></entry></feed>

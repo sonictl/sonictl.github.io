@@ -28,11 +28,17 @@ slug: p20220119221545
    [3.1  Build micropython for Linux port (optional for newbie):](#31--build-micropython-for-linux-port-optional-for-newbie)
 
    [3.2 Building `lv_micropython` micropython fork for ESP32 port:](#32-building-lvmicropython-micropython-fork-for-esp32-port)
+   
      [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)
+     
         [Get ESP-IDF v4.2](#get-esp-idf-v42)
+        
         [Set up the environment variables](#set-up-the-environment-variables)
+        
      [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)
+     
      [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
+     
      [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
 
 [4 Confiture wifi and use the board](#4-confiture-wifi-and-use-the-board)
@@ -47,7 +53,8 @@ In principle `lv_binding_micropython` can support any micropython fork.
 
 To add `lv_binding_micropython` to some Micropython fork you need to add `lv_binding_micropython` under Micropython lib as a git submodule.
 
-**Note:** I tested all the implementations and configurations with commands in Ubuntu20.04 virtual machine.
+**Note:** In this blog, all the implementations, commands and configurations were tested in Ubuntu20.04 virtual machine.
+
 
 ### 1 Some basic concepts
 
@@ -61,7 +68,7 @@ To add `lv_binding_micropython` to some Micropython fork you need to add `lv_bin
  > In Git you can add a submodule to a repository. This is basically "a repository embedded in your main repository". A git submodule is a record within a host git repository that points to a specific commit in another external repository.
 
  *How to add some repository under Micropython lib as a git submodule?*
- 
+
  > 
  > You can refer to [`Managing Python dependencies with git submodules`](https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html) and the commands they used shows you some concepts about submodule:
  > `git submodule add {github_repo} {local_path}`

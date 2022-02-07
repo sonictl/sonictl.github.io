@@ -46,14 +46,73 @@ If you've go through esp-idf vscode extension installation, esp-idf blink exampl
 
   cd ~//vsCodePlatformIO/udrDev_proj/espIDF_vscode_lvgl_port_esp32
 ```
-  open vscode, cmd+shift+P (mac), ESP-IDF: import ESP-IDF proj.
+  open vscode, **cmd+shift+P** (mac), ESP-IDF: import ESP-IDF proj.
 
-  import the folder of that proj repository.
+  import the folder of that proj repository. You may need to open that folder and directly edit it. The import function seems not working.
 
-  cmd+shift+P (mac), ESP-IDF: SDK configuration editor(menuconfig)
+  **cmd+shift+P** (mac), ESP-IDF: SDK configuration editor(menuconfig)
+
   configure the project. and the `sdkconfig` file will be updated each time the configuration saved.
 
   Build, flash, etc. using the bottom bar of vscode UI, given by ESP-IDF_vscode_extension.
 
-  *You may meet difficulties in searching for the right configurations for your ESP32 dev board.* Rightly choose the VSPI/HSPI, TFT controller, etc. is nontrivial. Ask the board offerer if needs.
+**Note:**  **You may meet difficulties in searching for the right configurations** for your ESP32 dev board. Rightly choose the VSPI/HSPI, TFT controller, etc. is nontrivial. Ask the board offerer if needs.
+
+Here, I offer one, which is for my board with ILI9341 and XPT2046:
+
+
+
+---
+
+**Later on, for testing, I did some fresh installing and `lv_port_esp32` initiallization for development other project on Ubuntu and Win11.**
+
+Some notes for steps:
+
+#### Ubuntu 20.04: fresh install vscode and esp-idf extension, start new development from lv_port_esp32
+
+**Steps**:
+
+   \1. install the esp-idf vscode extension.
+
+   \2. git clone recursively with components for the repo: lv_port_esp32
+
+   \3. open the repo lv_port_esp32 in vsCode
+
+   \4. esp-idf: configure sdk for this proj (copy the sdkconfig file from fine-tuned proj that works well on your board)
+
+   \5. build, flash and test the demo given by lv_port_esp32
+
+   \6. modify the code below:
+
+​        6.1: add `#include "../components/lv_examples/lv_examples/lv_examples.h"`
+
+​        6.2: in `create_demo_application` function, comment out `lv_demo_widgets();` 
+
+​        6.3: add `lv_ex_get_started_1();` at the end of `create_demo_application` function.
+
+   \7. build, falsh and test the modified proj.
+
+Tips: in ubuntu, development configurations are smooth. While in microsoft Win11, not smooth with bash, terminal, and esp-idf.
+
+#### Windows11: Fresh install vscode and esp-idf extension, start new development from lv_port_esp32
+
+I try to freshly start a esp-idf lvgl proj i.e. `lv_port_esp32` on windows11, but failed
+Steps below:
+
+-  install vsCode
+
+-  install esp-idf vscode extension
+    ... meet the error: "restart esp-idf extension to launch the wizard" ...
+
+  install git
+
+  in git_bash, cd to the workspace for esp-idf projects
+
+- git clone --recurse-submodules https://github.com/lvgl/lv_port_esp32.git
+
+  ...cloning into <workspace>/lv_port_esp32... (cloning needs proxy)
+
+The error: "restart esp-idf extension to launch the wizard" will not disappear after restarting vsCode over and over again.
+
+
 

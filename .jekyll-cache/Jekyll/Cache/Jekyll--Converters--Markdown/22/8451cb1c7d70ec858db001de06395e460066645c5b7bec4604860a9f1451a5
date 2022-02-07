@@ -1,0 +1,113 @@
+I",<h1 id="complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension">Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension</h1>
+
+<p>If you’ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the <strong>section 1</strong> and <strong>section 2</strong>. Directly check the lvgl example project <code class="language-plaintext highlighter-rouge">lv_port_esp32</code> cloning/configure/build/etc. steps in <strong>section 3</strong>.</p>
+
+<h2 id="implement-a-hello-world-or-led-blinking-project-using-the-vscodeplatformioesp_idf">Implement a “Hello world” or “LED blinking” project using the vsCode+platformIO+ESP_IDF</h2>
+
+<p><strong>Prerequisit:</strong> Go through the official “get started with ESP-IDF” tutorial (<strong>highly recomemded</strong>, <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">link</a>)</p>
+
+<h3 id="section-1-install-the-esp-idf-vscode-extension">section 1. install the esp-idf vscode extension</h3>
+
+<p>Note: if you have go through the official “get started with ESP-IDF” tutorial (<strong>highly recomemded</strong>, <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">link</a>), you can specify the path of ESP-IDF code and tools when install the ESP-IDF vscode extension. If your machine/PC has no ESP-IDF downloaded, just keep the default options when installing the ESP-IDF vscode extension</p>
+
+<p>tip for esp-idf tool path: 
+   <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#customizing-the-tools-installation-path">Customizing the tools installation path</a>
+   default path for IDF_TOOLS_PATH: $HOME/.espressif/tools</p>
+
+<p>After ESP-IDF vscode extension is installed and configured, it supports for all actions related to ESP-IDF namely build, flash, monitor, debug, tracing, core-dump, System Trace Viewer, etc.</p>
+
+<p>Review the <a href="https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/toc.md">tutorials</a> for ESP-IDF Visual Studio Code Extension to learn how to use all features.</p>
+
+<h3 id="section-2-follow-the-tutorial-for-first-hello-world-proj">section 2. follow the tutorial for first “hello world” proj.</h3>
+<p>Follow <a href="https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/basic_use.md">this tutorial</a>
+  in the vscode window, open the panel with shortcuts: cmd+shift+P (mac) or click vscode‘s menu <code class="language-plaintext highlighter-rouge">View</code> -&gt; <code class="language-plaintext highlighter-rouge">Command Palette</code>
+  enter ESP-IDF, the panel will show the options about ESP_IDF.</p>
+
+<p>e.g.  go to panel: ESP-IDF: Show Examples Projects</p>
+
+<p>more steps:
+    You can debug ESP-IDF projects as shown in the <a href="https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/debugging.md">debug tutorial</a>.</p>
+
+<h3 id="section-3-clone-a-third-party-code-repository-and-configurebuildetc-with-the-esp_idf_vscode_ext">section 3. clone a third-party code repository and configure/build/etc with the ESP_IDF_vscode_ext.</h3>
+
+<p>Take the <a href="https://github.com/lvgl/lv_port_esp32">lv_port_esp32</a> as an example:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git clone <span class="nt">--recurse-submodules</span> https://github.com/lvgl/lv_port_esp32.git
+
+  <span class="nb">cd</span> ~//vsCodePlatformIO/udrDev_proj/espIDF_vscode_lvgl_port_esp32
+</code></pre></div></div>
+<p>open vscode, <strong>cmd+shift+P</strong> (mac), ESP-IDF: import ESP-IDF proj.</p>
+
+<p>import the folder of that proj repository. You may need to open that folder and directly edit it. The import function seems not working.</p>
+
+<p><strong>cmd+shift+P</strong> (mac), ESP-IDF: SDK configuration editor(menuconfig)</p>
+
+<p>configure the project. and the <code class="language-plaintext highlighter-rouge">sdkconfig</code> file will be updated each time the configuration saved.</p>
+
+<p>Build, flash, etc. using the bottom bar of vscode UI, given by ESP-IDF_vscode_extension.</p>
+
+<p><strong>Note:</strong>  <strong>You may meet difficulties in searching for the right configurations</strong> for your ESP32 dev board. Rightly choose the VSPI/HSPI, TFT controller, etc. is nontrivial. Ask the board offerer if needs.</p>
+
+<p>Here, I offer one, which is for my board with ILI9341 and XPT2046:</p>
+
+<hr />
+
+<p><strong>Later on, for testing, I did some fresh installing and <code class="language-plaintext highlighter-rouge">lv_port_esp32</code> initiallization for development other project on Ubuntu and Win11.</strong></p>
+
+<p>Some notes for steps:</p>
+
+<h4 id="ubuntu-2004-fresh-install-vscode-and-esp-idf-extension-start-new-development-from-lv_port_esp32">Ubuntu 20.04: fresh install vscode and esp-idf extension, start new development from lv_port_esp32</h4>
+
+<p><strong>Steps</strong>:</p>
+
+<p>\1. install the esp-idf vscode extension.</p>
+
+<p>\2. git clone recursively with components for the repo: lv_port_esp32</p>
+
+<p>\3. open the repo lv_port_esp32 in vsCode</p>
+
+<p>\4. esp-idf: configure sdk for this proj (copy the sdkconfig file from fine-tuned proj that works well on your board)</p>
+
+<p>\5. build, flash and test the demo given by lv_port_esp32</p>
+
+<p>\6. modify the code below:</p>
+
+<p>​        6.1: add <code class="language-plaintext highlighter-rouge">#include "../components/lv_examples/lv_examples/lv_examples.h"</code></p>
+
+<p>​        6.2: in <code class="language-plaintext highlighter-rouge">create_demo_application</code> function, comment out <code class="language-plaintext highlighter-rouge">lv_demo_widgets();</code></p>
+
+<p>​        6.3: add <code class="language-plaintext highlighter-rouge">lv_ex_get_started_1();</code> at the end of <code class="language-plaintext highlighter-rouge">create_demo_application</code> function.</p>
+
+<p>\7. build, falsh and test the modified proj.</p>
+
+<p>Tips: in ubuntu, development configurations are smooth. While in microsoft Win11, not smooth with bash, terminal, and esp-idf.</p>
+
+<h4 id="windows11-fresh-install-vscode-and-esp-idf-extension-start-new-development-from-lv_port_esp32">Windows11: Fresh install vscode and esp-idf extension, start new development from lv_port_esp32</h4>
+
+<p>I try to freshly start a esp-idf lvgl proj i.e. <code class="language-plaintext highlighter-rouge">lv_port_esp32</code> on windows11, but failed
+Steps below:</p>
+
+<ul>
+  <li>
+    <p>install vsCode</p>
+  </li>
+  <li>
+    <p>install esp-idf vscode extension
+ … meet the error: “restart esp-idf extension to launch the wizard” …</p>
+  </li>
+</ul>
+
+<p>install git</p>
+
+<p>in git_bash, cd to the workspace for esp-idf projects</p>
+
+<ul>
+  <li>
+    <p>git clone –recurse-submodules https://github.com/lvgl/lv_port_esp32.git</p>
+
+    <p>…cloning into <workspace>/lv_port_esp32... (cloning needs proxy)</workspace></p>
+  </li>
+</ul>
+
+<p>The error: “restart esp-idf extension to launch the wizard” will not disappear after restarting vsCode over and over again.</p>
+
+:ET
