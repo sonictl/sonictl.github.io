@@ -70,16 +70,16 @@ Here, I offer one, which is for my board with ILI9341 and XPT2046:
 CONFIG_LV_HOR_RES_MAX=320
 CONFIG_LV_VER_RES_MAX=240
 
-# Theme usage
+# Theme usage (can only check one)
 CONFIG_LV_THEME_EMPTY=y
 CONFIG_LV_THEME_TEMPLATE=y
 CONFIG_LV_THEME_MONO=y
 
-# CONFIG_LV_THEME_DEFAULT_FLAG_LIGHT is not set
+# CONFIG_LV_THEME_DEFAULT_FLAG_LIGHT is not set (the LIGHT is optional)
 CONFIG_LV_THEME_DEFAULT_FLAG_DARK=y
 
 
-# CONFIG_DISPLAY_ORIENTATION_PORTRAIT is not set
+# CONFIG_DISPLAY_ORIENTATION_PORTRAIT is not set (set depends on your situation)
 CONFIG_DISPLAY_ORIENTATION_LANDSCAPE_INVERTED=y
 CONFIG_LV_DISPLAY_ORIENTATION=3
 
@@ -158,7 +158,6 @@ path: Component config > LVGL TFT Display controller > Display orientation
 path: Component config > LVGL TFT Display controller > Select predefined board pinouts
   ESP32 Devkit v1 with 30 pins
 
-
 path: Component config > LVGL TFT Display controller > Display Pin Assignments
   check: Enable control of the display backlight by using an GPIO.
   check: Is backlight turn on with a HIGH (1) logic level?
@@ -218,7 +217,7 @@ keep default configure display Pin Assignments:
   33
 ```
 
-
+About configuration, read more about [pre-configuration for some boards.](https://github.com/lvgl/lv_port_esp32/blob/master/PRECONFIGURED_KITS.md)
 
 ---
 

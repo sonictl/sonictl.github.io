@@ -60,6 +60,164 @@ If you've go through esp-idf vscode extension installation, esp-idf blink exampl
 
 Here, I offer one, which is for my board with ILI9341 and XPT2046:
 
+```
+# === some configuration parameters modified for my board ====
+
+# lv_examples configuration
+# CONFIG_LV_DEMO_WIDGETS_SLIDESHOW is not set
+
+# LVGL configuration
+CONFIG_LV_HOR_RES_MAX=320
+CONFIG_LV_VER_RES_MAX=240
+
+# Theme usage
+CONFIG_LV_THEME_EMPTY=y
+CONFIG_LV_THEME_TEMPLATE=y
+CONFIG_LV_THEME_MONO=y
+
+# CONFIG_LV_THEME_DEFAULT_FLAG_LIGHT is not set
+CONFIG_LV_THEME_DEFAULT_FLAG_DARK=y
+
+
+# CONFIG_DISPLAY_ORIENTATION_PORTRAIT is not set
+CONFIG_DISPLAY_ORIENTATION_LANDSCAPE_INVERTED=y
+CONFIG_LV_DISPLAY_ORIENTATION=3
+
+# CONFIG_LV_PREDEFINED_PINS_NONE is not set
+CONFIG_LV_PREDEFINED_PINS_30=y
+
+#
+# Display Pin Assignments
+#
+CONFIG_LV_ENABLE_BACKLIGHT_CONTROL=y
+CONFIG_LV_BACKLIGHT_ACTIVE_LVL=y
+CONFIG_LV_DISP_PIN_BCKL=33
+
+#
+# LVGL Touch controller
+#
+CONFIG_LV_TOUCH_CONTROLLER=1
+# CONFIG_LV_TOUCH_CONTROLLER_NONE is not set
+CONFIG_LV_TOUCH_CONTROLLER_XPT2046=y
+CONFIG_LV_TOUCH_DRIVER_PROTOCOL_SPI=y
+CONFIG_LV_TOUCH_CONTROLLER_SPI_HSPI=y
+# CONFIG_LV_TOUCH_CONTROLLER_SPI_VSPI is not set
+#
+# Touchpanel (XPT2046) Pin Assignments
+#
+CONFIG_LV_TOUCH_SPI_MISO=12
+CONFIG_LV_TOUCH_SPI_MOSI=13
+CONFIG_LV_TOUCH_SPI_CLK=14
+CONFIG_LV_TOUCH_SPI_CS=27
+CONFIG_LV_TOUCH_PIN_IRQ=25
+# end of Touchpanel (XPT2046) Pin Assignments
+#
+# Touchpanel Configuration (XPT2046)
+#
+CONFIG_LV_TOUCH_X_MIN=200
+CONFIG_LV_TOUCH_Y_MIN=120
+CONFIG_LV_TOUCH_X_MAX=1900
+CONFIG_LV_TOUCH_Y_MAX=1900
+# CONFIG_LV_TOUCH_XY_SWAP is not set
+# CONFIG_LV_TOUCH_INVERT_X is not set
+CONFIG_LV_TOUCH_INVERT_Y=y
+CONFIG_LV_TOUCH_DETECT_IRQ=y
+# CONFIG_LV_TOUCH_DETECT_IRQ_PRESSURE is not set
+# CONFIG_LV_TOUCH_DETECT_PRESSURE is not set
+# end of Touchpanel Configuration (XPT2046)
+
+CONFIG_IPC_TASK_STACK_SIZE=1024
+CONFIG_MB_TIMER_PORT_ENABLED=y
+
+
+
+
+
+```
+
+in **sdkconfig GUI given by ESP-IDF**, you can configure below as same effects by above parameters:
+
+```
+#####################################
+# go to esp-idf extension GUI for sdkconfig
+
+path: Component config > lv_examples configuration
+  unCheck: Slide demo widgets automatically.
+  
+path: component config > LVGL configuration
+  Maximal horizontal resolution to support by the library = 320
+  Maximal vertical resolution to support by the library   = 240
+
+path: component config > LVGL configuration > theme usage > Enable theme usage, always enable at least one theme
+  Check all themes
+  Select theme default flag : dark
+
+path: Component config > LVGL TFT Display controller > Display orientation
+  LANDSCAPE_INVERTED
+
+path: Component config > LVGL TFT Display controller > Select predefined board pinouts
+  ESP32 Devkit v1 with 30 pins
+
+
+path: Component config > LVGL TFT Display controller > Display Pin Assignments
+  check: Enable control of the display backlight by using an GPIO.
+  check: Is backlight turn on with a HIGH (1) logic level?
+  GPIO for Backlight Control = 33
+
+
+path: Component config > LVGL Touch controller > Select a touch panel controller model.
+  select: XPT2046
+  select: Touch Controller SPI Bus. = HSPI
+    
+configure XPT2046 Pin Assignments:
+  CONFIG_LV_TOUCH_SPI_MISO=12
+  CONFIG_LV_TOUCH_SPI_MOSI=13
+  CONFIG_LV_TOUCH_SPI_CLK=14
+  CONFIG_LV_TOUCH_SPI_CS=27
+  CONFIG_LV_TOUCH_PIN_IRQ=25
+
+path: Component config > LVGL Touch controller > Touchpanel Configuration (XPT2046)
+  uncheck: Swap XY.
+  uncheck: Invert X coordinate value.
+  check: Invert Y coordinate value.
+  Select touch detection method. = IRQ pin only
+
+path: Component config > IPC (Inter-Processor Call) > Inter-Processor Call (IPC) task stack size
+  1024
+
+path: Component config > Modbus configuration
+  check: Modbus stack use timer for 3.5T symbol time measurement
+         If this option is set the Modbus stack uses timer for T3.5 time measurement. Else the internal UART TOUT timeout is used for 3.5T symbol time measurement.
+
+# Some notes:
+keep default configure display Pin Assignments:
+  Component config
+  LVGL TFT Display controller
+  Display Pin Assignments
+  GPIO for MOSI (Master Out Slave In)
+  13
+
+  GPIO for MISO (Master In Slave Out)
+  GPIO for CLK (SCK / Serial Clock)
+  14
+
+  Use CS signal to control the display
+  GPIO for CS (Slave Select)
+  15
+
+  Use DC signal to control the display
+  GPIO for DC (Data / Command)
+  2
+  GPIO for Reset
+  4
+
+  Enable control of the display backlight by using an GPIO.
+
+  Is backlight turn on with a HIGH (1) logic level?
+  GPIO for Backlight Control
+  33
+```
+
 
 
 ---
@@ -78,7 +236,7 @@ Some notes for steps:
 
    \3. open the repo lv_port_esp32 in vsCode
 
-   \4. esp-idf: configure sdk for this proj (copy the sdkconfig file from fine-tuned proj that works well on your board)
+   \4. esp-idf: configure sdk for this proj (refer above parameters, or, copy the sdkconfig file from fine-tuned proj that works well on your board)
 
    \5. build, flash and test the demo given by lv_port_esp32
 

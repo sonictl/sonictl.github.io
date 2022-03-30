@@ -1,5 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-02-07T22:05:12+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac</title><link href="https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102.html" rel="alternate" type="text/html" title="How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac" /><published>2022-02-06T23:11:02+08:00</published><updated>2022-02-06T23:11:02+08:00</updated><id>https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102</id><content type="html" xml:base="https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102.html">&lt;h1 id=&quot;how-to-extend-the-ubuntu-guest-oss-hard-disk-for-virtualbox-on-mac&quot;&gt;How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-03-30T10:19:50+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32]import esp-idf components</title><link href="https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944.html" rel="alternate" type="text/html" title="[ESP32]import esp-idf components" /><published>2022-02-12T21:39:44+08:00</published><updated>2022-02-12T21:39:44+08:00</updated><id>https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944</id><content type="html" xml:base="https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944.html">&lt;p&gt;import esp-idf components:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;p&gt;import the components is easy: git clone , mkdir &lt;proj_dir&gt;/components, and copy into &lt;proj_dir&gt;/components&lt;/proj_dir&gt;&lt;/proj_dir&gt;&lt;/p&gt;
+
+      &lt;p&gt;The git repos and commands that I used for this testing:&lt;/p&gt;
+
+      &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/natanaeljr/esp32-I2Cbus.git I2Cbus
+git clone https://github.com/natanaeljr/esp32-MPU-driver.git MPUdriver
+mkdir -p &amp;lt;proj_path&amp;gt;/components
+mv I2Cbus &amp;lt;proj_path&amp;gt;/components
+mv MPUdriver &amp;lt;proj_path&amp;gt;/components
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
+
+      &lt;p&gt;for more, refer: https://github.com/natanaeljr/esp32-MPU-driver&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;Do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sdkconfig&lt;/code&gt; for the right chip and protocal for the imported component&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello_world_main.c&lt;/code&gt; is renamed, rename it in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;proj_dir&amp;gt;/main/CMakeLists.txt&lt;/code&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;</content><author><name>sonictl</name></author><category term="esp32" /><category term="embedded" /><summary type="html">import esp-idf components:</summary></entry><entry><title type="html">How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac</title><link href="https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102.html" rel="alternate" type="text/html" title="How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac" /><published>2022-02-06T23:11:02+08:00</published><updated>2022-02-06T23:11:02+08:00</updated><id>https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102</id><content type="html" xml:base="https://sonictl.github.io/virtualbox/2022/02/06/p20220206231102.html">&lt;h1 id=&quot;how-to-extend-the-ubuntu-guest-oss-hard-disk-for-virtualbox-on-mac&quot;&gt;How to extend the Ubuntu guest OS’s hard disk for VirtualBox on Mac&lt;/h1&gt;
 
 &lt;h2 id=&quot;steps&quot;&gt;Steps:&lt;/h2&gt;
 
@@ -1143,16 +1168,16 @@ Fortunately, this post offers you one solution for version_conflict problem.&lt;
 CONFIG_LV_HOR_RES_MAX=320
 CONFIG_LV_VER_RES_MAX=240
 
-# Theme usage
+# Theme usage (can only check one)
 CONFIG_LV_THEME_EMPTY=y
 CONFIG_LV_THEME_TEMPLATE=y
 CONFIG_LV_THEME_MONO=y
 
-# CONFIG_LV_THEME_DEFAULT_FLAG_LIGHT is not set
+# CONFIG_LV_THEME_DEFAULT_FLAG_LIGHT is not set (the LIGHT is optional)
 CONFIG_LV_THEME_DEFAULT_FLAG_DARK=y
 
 
-# CONFIG_DISPLAY_ORIENTATION_PORTRAIT is not set
+# CONFIG_DISPLAY_ORIENTATION_PORTRAIT is not set (set depends on your situation)
 CONFIG_DISPLAY_ORIENTATION_LANDSCAPE_INVERTED=y
 CONFIG_LV_DISPLAY_ORIENTATION=3
 
@@ -1230,7 +1255,6 @@ path: Component config &amp;gt; LVGL TFT Display controller &amp;gt; Display ori
 path: Component config &amp;gt; LVGL TFT Display controller &amp;gt; Select predefined board pinouts
   ESP32 Devkit v1 with 30 pins
 
-
 path: Component config &amp;gt; LVGL TFT Display controller &amp;gt; Display Pin Assignments
   check: Enable control of the display backlight by using an GPIO.
   check: Is backlight turn on with a HIGH (1) logic level?
@@ -1289,6 +1313,8 @@ keep default configure display Pin Assignments:
   GPIO for Backlight Control
   33
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;About configuration, read more about &lt;a href=&quot;https://github.com/lvgl/lv_port_esp32/blob/master/PRECONFIGURED_KITS.md&quot;&gt;pre-configuration for some boards.&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1543,62 +1569,4 @@ void loop() {
 
 &lt;p&gt;使用VScode + platformIO ， 在Arduino框架下进行开发。睡眠模式探究&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Attiny85 Arduino SleepMode 睡眠模式使用笔记</summary></entry><entry><title type="html">PIP and CONDA Add and Remove Mirror Source 配置软件源</title><link href="https://sonictl.github.io/jekyll/2021/11/15/p20211115215455.html" rel="alternate" type="text/html" title="PIP and CONDA Add and Remove Mirror Source 配置软件源" /><published>2021-11-15T21:55:30+08:00</published><updated>2021-11-15T21:55:30+08:00</updated><id>https://sonictl.github.io/jekyll/2021/11/15/p20211115215455</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/11/15/p20211115215455.html">&lt;p&gt;&lt;strong&gt;First, PIP&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1, add a source&lt;/p&gt;
-
-&lt;p&gt;For example, add SJTU Source https://mirror.sjtu.edu.cn/pypi/web/simple：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip config set global.index-url https://mirror.sjtu.edu.cn/pypi/web/simple
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If SET has multiple times, it seems to be only saved the mirror source of the last set.&lt;/p&gt;
-
-&lt;p&gt;2, delete the source&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip config unset global.index-url
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;3, check which source now&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip config list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Second, Conda&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1, add a source&lt;/p&gt;
-
-&lt;p&gt;For example, Tsinghua Source:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-conda config --set show_channel_urls yes
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;SJTU:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda config --add channels https://mirror.sjtu.edu.cn/anaconda/
-
-e.g.
-conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/free
-conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/main
-conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/mro
-conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/msys2
-pkgs/pro: (deprecated) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/pro
-pkgs/r: (empty) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/r
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://mirrors.sjtug.sjtu.edu.cn/docs/anaconda&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2, delete the source&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda config --remove-key channels
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;3, See which sources are used now&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda config --show channels
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Can also use&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda config --show-sources
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">First, PIP</summary></entry></feed>
+&lt;hr /&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Attiny85 Arduino SleepMode 睡眠模式使用笔记</summary></entry></feed>
