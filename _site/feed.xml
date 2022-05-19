@@ -1,5 +1,390 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-03-30T10:19:50+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
-</subtitle><author><name>sonictl</name></author><entry><title type="html">[ESP32]import esp-idf components</title><link href="https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944.html" rel="alternate" type="text/html" title="[ESP32]import esp-idf components" /><published>2022-02-12T21:39:44+08:00</published><updated>2022-02-12T21:39:44+08:00</updated><id>https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944</id><content type="html" xml:base="https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944.html">&lt;p&gt;import esp-idf components:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sonictl.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sonictl.github.io/" rel="alternate" type="text/html" /><updated>2022-05-19T18:17:21+08:00</updated><id>https://sonictl.github.io/feed.xml</id><title type="html">Combine Art and Sciences</title><subtitle>Love lights the one who deserves.
+</subtitle><author><name>sonictl</name></author><entry><title type="html">How to use LittleFS on ESP32 with PlatformIO</title><link href="https://sonictl.github.io/jekyll/2022/05/17/p20220517111954.html" rel="alternate" type="text/html" title="How to use LittleFS on ESP32 with PlatformIO" /><published>2022-05-17T11:19:54+08:00</published><updated>2022-05-17T11:19:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/05/17/p20220517111954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/05/17/p20220517111954.html">&lt;h1 id=&quot;how-to-use-littlefs-on-esp32-with-vscodeplatfromio&quot;&gt;How to use LittleFS on ESP32 with vsCode+platfromIO&lt;/h1&gt;
+
+&lt;p&gt;As a suplement of this tutorial &lt;a href=&quot;https://randomnerdtutorials.com/esp8266-nodemcu-vs-code-platformio-littlefs/&quot;&gt;How to use LittleFS on ESP8266&lt;/a&gt; I follows some reference and examples to build this blog.&lt;/p&gt;
+
+&lt;p&gt;Get to konw some basic introductions about SPIFFS and &lt;a href=&quot;https://www.mischianti.org/2021/04/01/esp32-integrated-littlefs-filesystem-5/#LittleFS_File_System&quot;&gt;LittleFS&lt;/a&gt; on ESP8266 and ESP32 is necessary for a noob.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: Most of the functions for SPIFFS operations are compatible for LittleFS.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;follow the tutorials one by one:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- SPIFFS for ESP8266
+- SPIFFS for ESP32
+- LittleFS for ESP8266
+- LittleFS for ESP32
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;LittleFS is newly introduced into ESP32 SDK (Aug 2021) . By May2022, the default ESP32-arduino SDK  (arduino-esp32 core) usd by platformIO  is version 1.0.3, which is not supporting LittleFS originally. You’ll meet that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;LittleFS.h&amp;gt;&lt;/code&gt; is missing.&lt;/p&gt;
+
+&lt;p&gt;Next, discuss how to upload littleFS files with platform IO.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-esp32-build-and-upload-littlefs-filesystem-image-with-platformio&quot;&gt;2. ESP32: Build and upload LittleFS filesystem image with platformIO&lt;/h2&gt;
+
+&lt;p&gt;Ref: &lt;a href=&quot;https://www.mischianti.org/2021/04/01/esp32-integrated-littlefs-filesystem-5/&quot;&gt;ESP32 integrated littleFS file system&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Different version of arduino-esp32 core will have different way of using littlefs file system.
+   So, in vsCode+platformIO IDE, framework of Arduino, on ESP32, using littlefs is a little more tricky.&lt;/p&gt;
+
+&lt;p&gt;we have two ways (two versions of core), you can select:&lt;/p&gt;
+
+&lt;h3 id=&quot;way1-create-a-esp32-proj-in-platformio-rely-on-default-arduino-esp32-core-v1xx-&quot;&gt;way1: Create a ESP32 proj in platformio, rely on default arduino-esp32 core (v1.x.x) —&lt;/h3&gt;
+
+&lt;p&gt;in arduino-esp32 core of version 1.0.x, there is no library for littleFS. while&lt;a href=&quot;https://github.com/lorol/LITTLEFS&quot;&gt; this repo&lt;/a&gt; offers.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;create a project with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt;as below&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[env:esp32dev]
+platform = espressif32
+board = esp32dev
+framework = arduino
+monitor_speed = 115200
+upload_speed = 230400
+board_build.filesystem = littlefs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data&lt;/code&gt; folder under root of project&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;create /data/test1.txt file with random letters.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create /data/subfolder/test2.txt with random letters.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;in platfomio’s task list, run &lt;strong&gt;Build Filesystem Image&lt;/strong&gt; task. You may see:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; Executing task: platformio run --target buildfs --environment esp32dev &amp;lt;
+  
+Processing esp32dev (platform: espressif32; board: esp32dev; framework: arduino)
+...
+...
+...
+Building in release mode
+Building FS image from &apos;data&apos; directory to .pio/build/esp32dev/littlefs.bin
+/subfolder/test2.txt
+/test1.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;in platformio’s task list, run &lt;strong&gt;Upload Filesystem Image&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;use the code from &lt;a href=&quot;https://github.com/espressif/arduino-esp32/blob/master/libraries/LittleFS/examples/LITTLEFS_PlatformIO/src/main.cpp&quot;&gt;library example&lt;/a&gt;, build and upload to ESP32 board to test. If you see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subfolder&lt;/code&gt; in the output under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DIR&lt;/code&gt; list. It looks like littleFS is rightly built.&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Listing directory: /
+Listing directory: /
+  FILE: /file1.txt  SIZE: 3  LAST WRITE: 2020-10-06 15:10:33
+  DIR : subfolder  LAST WRITE: 2022-05-19 05:33:49
+  DIR : /testfolder  LAST WRITE: 2020-10-06 15:10:33
+  FILE: test1.txt  SIZE: 55  LAST WRITE: 2022-05-19 05:33:56
+Creating Dir: /mydir
+Creating Dir: /mydir
+Dir created
+Dir created
+Writing file: /mydir/hello2.txt
+Writing file: /mydir/hello2.txt
+- file written
+  
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;way2-using-littlefs-for-esp32-with-platformio-on-arduino-esp32-core-of-version-203-&quot;&gt;way2: Using LittleFS for ESP32 with platformio on arduino-esp32 core of version 2.0.3 —&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;to use the arduino-esp32 core of version 2.0.x in platformIO, add/replace the platformio.ini file with two lines below:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;platform = https://github.com/platformio/platform-espressif32.git#feature/arduino-upstream
+platform_packages = framework-arduinoespressif32 @ https://github.com/espressif/arduino-esp32.git#2.0.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;create ‘data’ folder at proj root&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create ‘subfolder’ under ‘data’ : &lt;proj. root=&quot;&quot;&gt;/data/subfolder, and put random files into data and subfolder like:&lt;/proj.&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/data/test.txt
+/data/subfolder/test2.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Put &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mklittlefs&lt;/code&gt; in root of proj.. download that exe for your OS &lt;a href=&quot;https://github.com/earlephilhower/mklittlefs/releases&quot;&gt;from a zipped binary here&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;put the &lt;a href=&quot;https://github.com/espressif/arduino-esp32/blob/master/libraries/LittleFS/examples/LITTLEFS_PlatformIO/littlefsbuilder.py&quot;&gt;littlefsbuilder.py&lt;/a&gt; in proj. root.&lt;/p&gt;
+
+    &lt;p&gt;Add to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extra_scripts = littlefsbuilder.py&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;This py makes PlatformIO believe it has created a SPIFFS.&lt;/p&gt;
+
+    &lt;p&gt;My littlefsbuilder.py (OSX for mac) :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Import(&quot;env&quot;)
+print(&quot; &amp;lt;littlefsbuilder.py&amp;gt;: make platformIO believes that it crates a SPIFFS filesystem.&quot;)
+env.Replace( MKSPIFFSTOOL=env.get(&quot;PROJECT_DIR&quot;) + &apos;/mklittlefs&apos; )  # PlatformIO now believes it has actually created a SPIFFS
+   
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;run &lt;strong&gt;Build filesystem&lt;/strong&gt; and &lt;strong&gt;Upload filesystem&lt;/strong&gt; in platformIO task list.&lt;/p&gt;
+
+    &lt;p&gt;terminal log for build filesystem:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Building in release mode
+ &amp;lt;littlefsbuilder.py&amp;gt;: make platformIO believes that it crates a SPIFFS filesystem.
+Building SPIFFS image from &apos;data&apos; directory to .pio/build/esp32dev/spiffs.bin
+/subfolder/test2.txt
+/test.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For more details, follow this readme file: &lt;a href=&quot;https://github.com/espressif/arduino-esp32/blob/master/libraries/LittleFS/examples/LITTLEFS_PlatformIO/README.md&quot;&gt;README.md&lt;/a&gt; . and refer README in &lt;a href=&quot;https://github.com/lorol/LITTLEFS&quot;&gt;this repo&lt;/a&gt; .&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;compare the diff on diff filesystems:&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;/assets/images/image-20220519175936884.png&quot; alt=&quot;image-20220519175936884&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">How to use LittleFS on ESP32 with vsCode+platfromIO</summary></entry><entry><title type="html">Install and Configure Fail2Ban On CentOS 7</title><link href="https://sonictl.github.io/jekyll/2022/03/30/p20220330110904.html" rel="alternate" type="text/html" title="Install and Configure Fail2Ban On CentOS 7" /><published>2022-03-30T11:09:04+08:00</published><updated>2022-03-30T11:09:04+08:00</updated><id>https://sonictl.github.io/jekyll/2022/03/30/p20220330110904</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/03/30/p20220330110904.html">&lt;h1 id=&quot;install-fail2ban-on-centos-7&quot;&gt;Install Fail2Ban On CentOS 7&lt;/h1&gt;
+
+&lt;p&gt;Posted on December 13, 2019 by &lt;a href=&quot;https://www.liquidweb.com/kb/author/dsinger/&quot;&gt;David Singer&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-fail2ban&quot;&gt;What Is Fail2Ban?&lt;/h2&gt;
+
+&lt;p&gt;Fail2ban is an open-source software that actively scans the servers log files in real-time for any brute force login attempts, and if found, summarily blocks the attack using the servers firewall software (firewalld or iptables). Fail2Ban runs as a background process and continuously scans the log files for unusual login patterns and security breach attempts.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;In order to install Fail2Ban on CentOS 7, we first need to enable the EPEL (Extra Packages for Enterprise Linux) repository. The following commands will be run as the root user.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# yum install epel-release
+[root@host ~]# yum install fail2ban fail2ban-systemd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can also &lt;a href=&quot;https://github.com/fail2ban/fail2ban&quot;&gt;install Fail2ban&lt;/a&gt; by &lt;a href=&quot;https://www.liquidweb.com/kb/create-clone-repo-github-ubuntu-18-04/&quot;&gt;cloning&lt;/a&gt; the software from GitHub.&lt;/p&gt;
+
+&lt;h3 id=&quot;configuration&quot;&gt;Configuration&lt;/h3&gt;
+
+&lt;p&gt;Once fail2ban is installed, we need to configure and adjust the software with an updated jail.local configuration file. As a side note, the fail2ban software stores its configuration files within the /etc/fail2ban folder. The jail.local file supersedes the jail.conf file and is normally used to verify your custom updates are safe.&lt;/p&gt;
+
+&lt;p&gt;First, we will make a copy of the “jail.conf” file and re-save it with the name “jail.local”:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# cp -pf /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we will need to edit the jail.local file in Vim using the following command.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# vim /etc/fail2ban/jail.local
+[DEFAULT]
+
+# &quot;ignoreip&quot; can be an IP address, a CIDR mask or a DNS host. Fail2ban will not
+# ban a host which matches an address in this list. Several addresses can be
+# defined using space separator.
+ignoreip = 127.0.0.1
+
+# Override /etc/fail2ban/jail.d/00-firewalld.conf:
+banaction = iptables-multiport
+
+# &quot;bantime&quot; is the number of seconds that a host is banned.
+bantime  = 600
+
+# A host is banned if it has generated &quot;maxretry&quot; during the last &quot;findtime&quot;
+# seconds.
+findtime  = 600
+
+# &quot;maxretry&quot; is the number of failures before a host get banned.
+maxretry = 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add your local IP address onto the &lt;strong&gt;&lt;em&gt;ignoreip&lt;/em&gt;&lt;/strong&gt; line.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-a-jail-file-to-protect-ssh-access&quot;&gt;Add A Jail File To Protect SSH Access&lt;/h2&gt;
+
+&lt;p&gt;Next, we need to create and edit a new file in Vim called sshd.local.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# touch /etc/fail2ban/jail.d/sshd.local &amp;amp;&amp;amp; chmod +x /etc/fail2ban/jail.d/sshd.local
+
+[root@host ~]# vim /etc/fail2ban/jail.d/sshd.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After this, we add the following lines of code.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[sshd]
+enabled = true
+port = ssh
+#action = firewallcmd-ipset
+logpath = %(sshd_log)s
+maxretry = 5
+bantime = 86400
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ensure that the parameter ‘enabled’ is set to ‘true’. In order to enable protection, set to True, To disable protection, set it to False. The filter parameter on line 167 in the jail.conf file&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;filter = %(__name__)s[mode=%(mode)s]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;checks the sshd configuration file against this setting located in the path /etc/fail2ban/filter.d/sshd.conf.&lt;/p&gt;
+
+&lt;p&gt;The action of this parameter is used to define the IP address needing to be banned using the filter available in the /etc/fail2ban/action.d/firewallcmd-ipset.conf file.&lt;/p&gt;
+
+&lt;p&gt;Additionally, the SSH port parameter may be modified to a new value to match your SSH settings. If you are using port 22, there is no need for a change in this parameter. Other parameters include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Logpath: Logpath defines the path where the log file will be stored. This log file is scanned by Fail2Ban.&lt;/li&gt;
+  &lt;li&gt;Maxretry: Maxetry is used to define the max limit of failed login entries.&lt;/li&gt;
+  &lt;li&gt;Bantime: The bantime parameter is used to define the number of seconds a host will be banned.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;fail2ban-services&quot;&gt;Fail2Ban Services&lt;/h2&gt;
+
+&lt;p&gt;If you are not running the CentOS Firewall (&lt;a href=&quot;https://www.liquidweb.com/kb/how-to-start-and-enable-firewalld-on-centos-7/&quot;&gt;firewalld&lt;/a&gt;), enable it:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# systemctl enable firewalld
+[root@host ~]# systemctl start firewalld
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run the following commands to enable and start the Fail2Ban software on the server.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# systemctl enable fail2ban
+[root@host ~]# systemctl start fail2ban
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;fal2ban-status&quot;&gt;Fal2Ban Status&lt;/h2&gt;
+
+&lt;p&gt;To check the status of the Fail2Ban jails, run the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# fail2ban-client status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The result should be similar to this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# fail2ban-client status
+Status
+|- Number of jail: 1
+`- Jail list: sshd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;unbanning-an-ip-address&quot;&gt;Unbanning An IP Address&lt;/h2&gt;
+
+&lt;p&gt;In order to manually remove an IP address from the banned list, use the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@host ~]# fail2ban-client set sshd unbanip IPADDRESS
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will remove the IP.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Install Fail2Ban On CentOS 7</summary></entry><entry><title type="html">Fixing certbot does not know where nginx is located in your server</title><link href="https://sonictl.github.io/jekyll/2022/03/30/p20220330101954.html" rel="alternate" type="text/html" title="Fixing certbot does not know where nginx is located in your server" /><published>2022-03-30T10:19:54+08:00</published><updated>2022-03-30T10:19:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/03/30/p20220330101954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/03/30/p20220330101954.html">&lt;h1 id=&quot;fixing-certbot-does-not-know-where-nginx-is-located-in-your-server&quot;&gt;Fixing certbot does not know where nginx is located in your server&lt;/h1&gt;
+
+&lt;p&gt;If your certbot does not know how to auto configure ssl for your host, you can refer below.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-cause-of-this-problem&quot;&gt;The cause of this problem&lt;/h2&gt;
+
+&lt;p&gt;Mine is because the installation path of nginx is not the default one， such as /etc/nginx or /usr/bin/nginx&lt;/p&gt;
+
+&lt;h2 id=&quot;solution1-create-a-link-to-your-path-of-nginx-manually-assign-path-of-conf-files&quot;&gt;solution1: create a link to your path of nginx, manually assign path of conf files.&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The systemd service file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/systemd/system/nginx.service&lt;/code&gt; may need change.&lt;/li&gt;
+  &lt;li&gt;Carefully change the path of /etc/nginx/nginx.conf and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include path&lt;/code&gt; in it.&lt;/li&gt;
+  &lt;li&gt;use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ln -s&lt;/code&gt; command to create link from certbot known location to real location of conf file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;#### An Example:&lt;/p&gt;
+
+&lt;p&gt;The executable binary of nginx is: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sbin/nginx&lt;/code&gt; and the real conf path is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/conf/&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    $ ln -s /etc/nginx/sbin/nginx /usr/bin/nginx
+    $ ln -s /etc/nginx/conf/ /etc/nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;you’ll see  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sbin/nginx -c /etc/nginx/conf/nginx.conf&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx.service&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim /etc/systemd/system/nginx.service &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;modify:&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; /etc/nginx/conf/nginx.conf -&amp;gt; /etc/nginx/nginx.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;if the .service file contains &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx -t&lt;/code&gt; modify it into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx -t -c &amp;lt;path of nginx conf file&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;solution2-use-certbot-certonly-and-conf-file-for-nginx-server-node&quot;&gt;solution2: Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;certbot certonly&lt;/code&gt; and conf file for nginx server node:&lt;/h2&gt;
+
+&lt;p&gt;cmd: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;certbot certonly&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;answer the prompts given by certbot. If you meet &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;could not bind port 80&lt;/code&gt; error, stop the nginx service that using 80 port.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Congratulations! 
+Your certificate and chain have been saved at:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/letsencrypt/live/&amp;lt;your_domain_name&amp;gt;/fullchain.pem&lt;/code&gt;
+Your key file has been saved at:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/letsencrypt/live/&amp;lt;your_domain_name&amp;gt;/privkey.pem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;a-conf-file-for-nginx-web-server&quot;&gt;A conf file for nginx web server&lt;/h2&gt;
+
+&lt;p&gt;replace &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;your_domain_name&amp;gt;&lt;/code&gt; with your domain name
+  refer the sample below for your nginx config file such as ` &lt;your_domain_name&gt;.conf`&lt;/your_domain_name&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+    server_name &amp;lt;your_domain_name&amp;gt;;
+
+    location / {
+      proxy_pass http://localhost:3000;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection &apos;upgrade&apos;;
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+    }
+
+    listen 443 ssl; 
+    ssl_certificate     /etc/letsencrypt/live/&amp;lt;your_domain_name&amp;gt;/fullchain.pem; 
+
+    ssl_certificate_key /etc/letsencrypt/live/&amp;lt;your_domain_name&amp;gt;/privkey.pem; 
+    #include /etc/letsencrypt/options-ssl-nginx.conf; 
+    #ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; 
+
+}
+
+server {
+    if ($host = &amp;lt;your_domain_name&amp;gt;) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name &amp;lt;your_domain_name&amp;gt;;
+    listen 80;
+    return 404; # managed by Certbot
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	server {
+	  listen       80;
+	  listen       443 ssl;
+	  server_name  &amp;lt;your domain name&amp;gt;;
+
+	  ssl_certificate      /etc/letsencrypt/live/&amp;lt;your_domain_name&amp;gt;/fullchain.pem; 
+	  ssl_certificate_key  /etc/letsencrypt/live/&amp;lt;your_domain_name&amp;gt;/privkey.pem; 
+
+	  location / {
+		proxy_pass http://localhost:2000;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection &apos;upgrade&apos;;
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	  }
+	}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;for-solution2-renewal-the-cert-for-a-spec-domain&quot;&gt;For solution2: Renewal the cert for a spec domain&lt;/h3&gt;
+
+&lt;p&gt;cmd: ` certbot certonly -d &lt;your_domain_name&gt; `
+  follow the prompt and renewal.&lt;/your_domain_name&gt;&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Fixing certbot does not know where nginx is located in your server</summary></entry><entry><title type="html">[ESP32]import esp-idf components</title><link href="https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944.html" rel="alternate" type="text/html" title="[ESP32]import esp-idf components" /><published>2022-02-12T21:39:44+08:00</published><updated>2022-02-12T21:39:44+08:00</updated><id>https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944</id><content type="html" xml:base="https://sonictl.github.io/esp32/embedded/2022/02/12/p20220212213944.html">&lt;p&gt;import esp-idf components:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;ol&gt;
@@ -1108,465 +1493,4 @@ Fortunately, this post offers you one solution for version_conflict problem.&lt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;hr /&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</summary></entry><entry><title type="html">[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title><link href="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html" rel="alternate" type="text/html" title="[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension" /><published>2022-01-11T21:09:54+08:00</published><updated>2022-01-11T21:09:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/11/p20220111210954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/11/p20220111210954.html">&lt;h1 id=&quot;complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension&quot;&gt;Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension&lt;/h1&gt;
-
-&lt;p&gt;If you’ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the &lt;strong&gt;section 1&lt;/strong&gt; and &lt;strong&gt;section 2&lt;/strong&gt;. Directly check the lvgl example project &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; cloning/configure/build/etc. steps in &lt;strong&gt;section 3&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;implement-a-hello-world-or-led-blinking-project-using-the-vscodeplatformioesp_idf&quot;&gt;Implement a “Hello world” or “LED blinking” project using the vsCode+platformIO+ESP_IDF&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Prerequisit:&lt;/strong&gt; Go through the official “get started with ESP-IDF” tutorial (&lt;strong&gt;highly recomemded&lt;/strong&gt;, &lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html&quot;&gt;link&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1-install-the-esp-idf-vscode-extension&quot;&gt;section 1. install the esp-idf vscode extension&lt;/h3&gt;
-
-&lt;p&gt;Note: if you have go through the official “get started with ESP-IDF” tutorial (&lt;strong&gt;highly recomemded&lt;/strong&gt;, &lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html&quot;&gt;link&lt;/a&gt;), you can specify the path of ESP-IDF code and tools when install the ESP-IDF vscode extension. If your machine/PC has no ESP-IDF downloaded, just keep the default options when installing the ESP-IDF vscode extension&lt;/p&gt;
-
-&lt;p&gt;tip for esp-idf tool path: 
-   &lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#customizing-the-tools-installation-path&quot;&gt;Customizing the tools installation path&lt;/a&gt;
-   default path for IDF_TOOLS_PATH: $HOME/.espressif/tools&lt;/p&gt;
-
-&lt;p&gt;After ESP-IDF vscode extension is installed and configured, it supports for all actions related to ESP-IDF namely build, flash, monitor, debug, tracing, core-dump, System Trace Viewer, etc.&lt;/p&gt;
-
-&lt;p&gt;Review the &lt;a href=&quot;https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/toc.md&quot;&gt;tutorials&lt;/a&gt; for ESP-IDF Visual Studio Code Extension to learn how to use all features.&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2-follow-the-tutorial-for-first-hello-world-proj&quot;&gt;section 2. follow the tutorial for first “hello world” proj.&lt;/h3&gt;
-&lt;p&gt;Follow &lt;a href=&quot;https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/basic_use.md&quot;&gt;this tutorial&lt;/a&gt;
-  in the vscode window, open the panel with shortcuts: cmd+shift+P (mac) or click vscode‘s menu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;View&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Command Palette&lt;/code&gt;
-  enter ESP-IDF, the panel will show the options about ESP_IDF.&lt;/p&gt;
-
-&lt;p&gt;e.g.  go to panel: ESP-IDF: Show Examples Projects&lt;/p&gt;
-
-&lt;p&gt;more steps:
-    You can debug ESP-IDF projects as shown in the &lt;a href=&quot;https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/debugging.md&quot;&gt;debug tutorial&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;section-3-clone-a-third-party-code-repository-and-configurebuildetc-with-the-esp_idf_vscode_ext&quot;&gt;section 3. clone a third-party code repository and configure/build/etc with the ESP_IDF_vscode_ext.&lt;/h3&gt;
-
-&lt;p&gt;Take the &lt;a href=&quot;https://github.com/lvgl/lv_port_esp32&quot;&gt;lv_port_esp32&lt;/a&gt; as an example:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  git clone &lt;span class=&quot;nt&quot;&gt;--recurse-submodules&lt;/span&gt; https://github.com/lvgl/lv_port_esp32.git
-
-  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~//vsCodePlatformIO/udrDev_proj/espIDF_vscode_lvgl_port_esp32
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;open vscode, &lt;strong&gt;cmd+shift+P&lt;/strong&gt; (mac), ESP-IDF: import ESP-IDF proj.&lt;/p&gt;
-
-&lt;p&gt;import the folder of that proj repository. You may need to open that folder and directly edit it. The import function seems not working.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;cmd+shift+P&lt;/strong&gt; (mac), ESP-IDF: SDK configuration editor(menuconfig)&lt;/p&gt;
-
-&lt;p&gt;configure the project. and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sdkconfig&lt;/code&gt; file will be updated each time the configuration saved.&lt;/p&gt;
-
-&lt;p&gt;Build, flash, etc. using the bottom bar of vscode UI, given by ESP-IDF_vscode_extension.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;  &lt;strong&gt;You may meet difficulties in searching for the right configurations&lt;/strong&gt; for your ESP32 dev board. Rightly choose the VSPI/HSPI, TFT controller, etc. is nontrivial. Ask the board offerer if needs.&lt;/p&gt;
-
-&lt;p&gt;Here, I offer one, which is for my board with ILI9341 and XPT2046:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# === some configuration parameters modified for my board ====
-
-# lv_examples configuration
-# CONFIG_LV_DEMO_WIDGETS_SLIDESHOW is not set
-
-# LVGL configuration
-CONFIG_LV_HOR_RES_MAX=320
-CONFIG_LV_VER_RES_MAX=240
-
-# Theme usage (can only check one)
-CONFIG_LV_THEME_EMPTY=y
-CONFIG_LV_THEME_TEMPLATE=y
-CONFIG_LV_THEME_MONO=y
-
-# CONFIG_LV_THEME_DEFAULT_FLAG_LIGHT is not set (the LIGHT is optional)
-CONFIG_LV_THEME_DEFAULT_FLAG_DARK=y
-
-
-# CONFIG_DISPLAY_ORIENTATION_PORTRAIT is not set (set depends on your situation)
-CONFIG_DISPLAY_ORIENTATION_LANDSCAPE_INVERTED=y
-CONFIG_LV_DISPLAY_ORIENTATION=3
-
-# CONFIG_LV_PREDEFINED_PINS_NONE is not set
-CONFIG_LV_PREDEFINED_PINS_30=y
-
-#
-# Display Pin Assignments
-#
-CONFIG_LV_ENABLE_BACKLIGHT_CONTROL=y
-CONFIG_LV_BACKLIGHT_ACTIVE_LVL=y
-CONFIG_LV_DISP_PIN_BCKL=33
-
-#
-# LVGL Touch controller
-#
-CONFIG_LV_TOUCH_CONTROLLER=1
-# CONFIG_LV_TOUCH_CONTROLLER_NONE is not set
-CONFIG_LV_TOUCH_CONTROLLER_XPT2046=y
-CONFIG_LV_TOUCH_DRIVER_PROTOCOL_SPI=y
-CONFIG_LV_TOUCH_CONTROLLER_SPI_HSPI=y
-# CONFIG_LV_TOUCH_CONTROLLER_SPI_VSPI is not set
-#
-# Touchpanel (XPT2046) Pin Assignments
-#
-CONFIG_LV_TOUCH_SPI_MISO=12
-CONFIG_LV_TOUCH_SPI_MOSI=13
-CONFIG_LV_TOUCH_SPI_CLK=14
-CONFIG_LV_TOUCH_SPI_CS=27
-CONFIG_LV_TOUCH_PIN_IRQ=25
-# end of Touchpanel (XPT2046) Pin Assignments
-#
-# Touchpanel Configuration (XPT2046)
-#
-CONFIG_LV_TOUCH_X_MIN=200
-CONFIG_LV_TOUCH_Y_MIN=120
-CONFIG_LV_TOUCH_X_MAX=1900
-CONFIG_LV_TOUCH_Y_MAX=1900
-# CONFIG_LV_TOUCH_XY_SWAP is not set
-# CONFIG_LV_TOUCH_INVERT_X is not set
-CONFIG_LV_TOUCH_INVERT_Y=y
-CONFIG_LV_TOUCH_DETECT_IRQ=y
-# CONFIG_LV_TOUCH_DETECT_IRQ_PRESSURE is not set
-# CONFIG_LV_TOUCH_DETECT_PRESSURE is not set
-# end of Touchpanel Configuration (XPT2046)
-
-CONFIG_IPC_TASK_STACK_SIZE=1024
-CONFIG_MB_TIMER_PORT_ENABLED=y
-
-
-
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;in &lt;strong&gt;sdkconfig GUI given by ESP-IDF&lt;/strong&gt;, you can configure below as same effects by above parameters:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#####################################
-# go to esp-idf extension GUI for sdkconfig
-
-path: Component config &amp;gt; lv_examples configuration
-  unCheck: Slide demo widgets automatically.
-  
-path: component config &amp;gt; LVGL configuration
-  Maximal horizontal resolution to support by the library = 320
-  Maximal vertical resolution to support by the library   = 240
-
-path: component config &amp;gt; LVGL configuration &amp;gt; theme usage &amp;gt; Enable theme usage, always enable at least one theme
-  Check all themes
-  Select theme default flag : dark
-
-path: Component config &amp;gt; LVGL TFT Display controller &amp;gt; Display orientation
-  LANDSCAPE_INVERTED
-
-path: Component config &amp;gt; LVGL TFT Display controller &amp;gt; Select predefined board pinouts
-  ESP32 Devkit v1 with 30 pins
-
-path: Component config &amp;gt; LVGL TFT Display controller &amp;gt; Display Pin Assignments
-  check: Enable control of the display backlight by using an GPIO.
-  check: Is backlight turn on with a HIGH (1) logic level?
-  GPIO for Backlight Control = 33
-
-
-path: Component config &amp;gt; LVGL Touch controller &amp;gt; Select a touch panel controller model.
-  select: XPT2046
-  select: Touch Controller SPI Bus. = HSPI
-    
-configure XPT2046 Pin Assignments:
-  CONFIG_LV_TOUCH_SPI_MISO=12
-  CONFIG_LV_TOUCH_SPI_MOSI=13
-  CONFIG_LV_TOUCH_SPI_CLK=14
-  CONFIG_LV_TOUCH_SPI_CS=27
-  CONFIG_LV_TOUCH_PIN_IRQ=25
-
-path: Component config &amp;gt; LVGL Touch controller &amp;gt; Touchpanel Configuration (XPT2046)
-  uncheck: Swap XY.
-  uncheck: Invert X coordinate value.
-  check: Invert Y coordinate value.
-  Select touch detection method. = IRQ pin only
-
-path: Component config &amp;gt; IPC (Inter-Processor Call) &amp;gt; Inter-Processor Call (IPC) task stack size
-  1024
-
-path: Component config &amp;gt; Modbus configuration
-  check: Modbus stack use timer for 3.5T symbol time measurement
-         If this option is set the Modbus stack uses timer for T3.5 time measurement. Else the internal UART TOUT timeout is used for 3.5T symbol time measurement.
-
-# Some notes:
-keep default configure display Pin Assignments:
-  Component config
-  LVGL TFT Display controller
-  Display Pin Assignments
-  GPIO for MOSI (Master Out Slave In)
-  13
-
-  GPIO for MISO (Master In Slave Out)
-  GPIO for CLK (SCK / Serial Clock)
-  14
-
-  Use CS signal to control the display
-  GPIO for CS (Slave Select)
-  15
-
-  Use DC signal to control the display
-  GPIO for DC (Data / Command)
-  2
-  GPIO for Reset
-  4
-
-  Enable control of the display backlight by using an GPIO.
-
-  Is backlight turn on with a HIGH (1) logic level?
-  GPIO for Backlight Control
-  33
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;About configuration, read more about &lt;a href=&quot;https://github.com/lvgl/lv_port_esp32/blob/master/PRECONFIGURED_KITS.md&quot;&gt;pre-configuration for some boards.&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;Later on, for testing, I did some fresh installing and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; initiallization for development other project on Ubuntu and Win11.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Some notes for steps:&lt;/p&gt;
-
-&lt;h4 id=&quot;ubuntu-2004-fresh-install-vscode-and-esp-idf-extension-start-new-development-from-lv_port_esp32&quot;&gt;Ubuntu 20.04: fresh install vscode and esp-idf extension, start new development from lv_port_esp32&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Steps&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;p&gt;\1. install the esp-idf vscode extension.&lt;/p&gt;
-
-&lt;p&gt;\2. git clone recursively with components for the repo: lv_port_esp32&lt;/p&gt;
-
-&lt;p&gt;\3. open the repo lv_port_esp32 in vsCode&lt;/p&gt;
-
-&lt;p&gt;\4. esp-idf: configure sdk for this proj (refer above parameters, or, copy the sdkconfig file from fine-tuned proj that works well on your board)&lt;/p&gt;
-
-&lt;p&gt;\5. build, flash and test the demo given by lv_port_esp32&lt;/p&gt;
-
-&lt;p&gt;\6. modify the code below:&lt;/p&gt;
-
-&lt;p&gt;​        6.1: add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#include &quot;../components/lv_examples/lv_examples/lv_examples.h&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;​        6.2: in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create_demo_application&lt;/code&gt; function, comment out &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_demo_widgets();&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;​        6.3: add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_ex_get_started_1();&lt;/code&gt; at the end of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create_demo_application&lt;/code&gt; function.&lt;/p&gt;
-
-&lt;p&gt;\7. build, falsh and test the modified proj.&lt;/p&gt;
-
-&lt;p&gt;Tips: in ubuntu, development configurations are smooth. While in microsoft Win11, not smooth with bash, terminal, and esp-idf.&lt;/p&gt;
-
-&lt;h4 id=&quot;windows11-fresh-install-vscode-and-esp-idf-extension-start-new-development-from-lv_port_esp32&quot;&gt;Windows11: Fresh install vscode and esp-idf extension, start new development from lv_port_esp32&lt;/h4&gt;
-
-&lt;p&gt;I try to freshly start a esp-idf lvgl proj i.e. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lv_port_esp32&lt;/code&gt; on windows11, but failed
-Steps below:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;install vsCode&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;install esp-idf vscode extension
- … meet the error: “restart esp-idf extension to launch the wizard” …&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;install git&lt;/p&gt;
-
-&lt;p&gt;in git_bash, cd to the workspace for esp-idf projects&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;git clone –recurse-submodules https://github.com/lvgl/lv_port_esp32.git&lt;/p&gt;
-
-    &lt;p&gt;…cloning into &lt;workspace&gt;/lv_port_esp32... (cloning needs proxy)&lt;/workspace&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The error: “restart esp-idf extension to launch the wizard” will not disappear after restarting vsCode over and over again.&lt;/p&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension</summary></entry><entry><title type="html">Node.js realtime communication with ESP8266 via socket.io</title><link href="https://sonictl.github.io/jekyll/2022/01/05/p20220105221954.html" rel="alternate" type="text/html" title="Node.js realtime communication with ESP8266 via socket.io" /><published>2022-01-05T22:19:54+08:00</published><updated>2022-01-05T22:19:54+08:00</updated><id>https://sonictl.github.io/jekyll/2022/01/05/p20220105221954</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2022/01/05/p20220105221954.html">&lt;h1 id=&quot;nodejs-realtime-communication-with-nodemcu-with-socketio&quot;&gt;Node.js realtime communication with NodeMCU with socket.io&lt;/h1&gt;
-
-&lt;p&gt;Reference: https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio&lt;/p&gt;
-
-&lt;h3 id=&quot;goal-of-this-post&quot;&gt;Goal of this post&lt;/h3&gt;
-
-&lt;p&gt;Establish a real-time communication between a server and the NodeMCU, this can be really useful like a situation where the server has to notify the client asynchronously,&lt;/p&gt;
-
-&lt;h3 id=&quot;lets-get-started-with-the-back-end&quot;&gt;Let’s get started with the back-end&lt;/h3&gt;
-
-&lt;p&gt;We are going to use a Node server, where we can integrate Socket.io init. &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;Install&lt;/a&gt; Node.js if you haven’t it yet.&lt;/p&gt;
-
-&lt;p&gt;In node, we ‘ll be using the framework called &lt;a href=&quot;https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm&quot;&gt;express&lt;/a&gt; to deal with the communication with HTTP requests. Then integrate socket.io and start listening to events defined.&lt;/p&gt;
-
-&lt;p&gt;Create a new directory and create a file named as package.json where we specify the node packages that’s going to be used.&lt;/p&gt;
-
-&lt;p&gt;Add these dependencies to be installed&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
- &quot;dependencies&quot;: {
-  &quot;express&quot;: &quot;^4.17.1&quot;,
-  &quot;socket.io&quot;: &quot;^2.2.0&quot;
- }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now install the dependencies&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install or yarn install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It will create a folder named as node-modules inside your working directory containing a lot of files including those dependencies&lt;/p&gt;
-
-&lt;h3 id=&quot;configure-the-nodejs-server&quot;&gt;Configure the Node.js Server&lt;/h3&gt;
-
-&lt;p&gt;Now create a file named as &lt;strong&gt;index.js&lt;/strong&gt; ( can be in any name as you wish )&lt;/p&gt;
-
-&lt;p&gt;In &lt;strong&gt;index.js&lt;/strong&gt; file, require express and HTTP and socket.io as listed below&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// express framwork for a basic http server
-var app = require(&apos;express&apos;)();
-// create the http server
-var http = require(&apos;http&apos;).createServer(app);
-// require the socket.io and bind it to a port 
-var io = require(&apos;socket.io&apos;)(3005);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now attach the socket.io variable with the HTTP server created&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;io.attach(http, {
- pingInterval: 10000,
- pingTimeout: 5000,
- cookie: false
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;listen-for-socketio-events&quot;&gt;Listen for Socket.io Events&lt;/h3&gt;
-
-&lt;p&gt;Now we just need to listen to an event and log it for debugging. the timeout is just a function which emits an event called &lt;strong&gt;reply&lt;/strong&gt; after each 5 seconds.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;io.on(&apos;connection&apos;, function (socket) {
-
-  console.log(&apos;user connected&apos;);
-
-  socket.on(&apos;disconnect&apos;, function () {
-    console.log(&apos;user disconnected&apos;);
-  });
-  socket.on(&apos;message&apos;, function (msg) {
-   console.log(&quot;message: &quot;+msg);
-  });
-  timeout();
-});
-
-function timeout() {
-  setTimeout(function () {
-   io.emit(&apos;reply&apos;,&quot;A message from server&quot;);
-    timeout();
-  }, 5000);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Finally we just start listening on the HTTP server created By&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http.listen();
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;this will start listening on a ephemeral port or you can specify a port itself,Now the Server is almost set up&lt;/p&gt;
-
-&lt;h3 id=&quot;on-the-nodemcu-side&quot;&gt;On the NodeMCU Side&lt;/h3&gt;
-
-&lt;p&gt;Let’s try to deal with the NodeMCU module, for that we will be using the IDE provided by Arduino to make it easier.&lt;/p&gt;
-
-&lt;p&gt;Install the packages and the board details to Arduino IDE, I recommend you to follow this &lt;a href=&quot;https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/&quot;&gt;link&lt;/a&gt; if you have not set up the IDE to work with NodeMCU&lt;/p&gt;
-
-&lt;p&gt;Now open Arduino IDE and go to tools&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Select the proper board, in my case its NodeMCU 0.9 (ESP-12 module ),&lt;/li&gt;
-  &lt;li&gt;Set the upload speed, 11500 ( can vary according to the port and the board )&lt;/li&gt;
-  &lt;li&gt;Set the Port where the device has been connected&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;connect-to-wifi&quot;&gt;Connect to wifi&lt;/h3&gt;
-
-&lt;p&gt;We are set to start now,&lt;/p&gt;
-
-&lt;p&gt;First, we have to connect to a wifi network, for that, we are going to use a library called&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;ESP8266WiFi.h&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Go to tools -&amp;gt; manage libraries then , search for the ESP8266wifi and install it by clicking it. once it is installed we are ready to connect to the wifi network&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void setup() {
- WiFi.begin(&quot;network-ssid&quot;, &quot;password-to-network&quot;);
- Serial.print(&quot;Connecting&quot;);
- while (WiFi.status() != WL_CONNECTED)
- {
-  delay(500);
-  Serial.print(&quot;.&quot;);
- }
- Serial.println();
-
- Serial.print(&quot;Connected, IP address: &quot;);
- Serial.println(WiFi.localIP());
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Follow this &lt;a href=&quot;http://salphuric-nova.test/wink/posts/,https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html&quot;&gt;link&lt;/a&gt; for more details on configuring the wifi, but this would be enough to work with.&lt;/p&gt;
-
-&lt;h3 id=&quot;install-socketio-client-to-nodemcu&quot;&gt;Install Socket.io Client to NodeMCU&lt;/h3&gt;
-
-&lt;p&gt;Again go to manage library and search for, SocketIoClient And install it, Now we can use this library to connect to the server we have created.inlcude the headers as below&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;WebSocketsClient.h&amp;gt;
-#include &amp;lt;SocketIoClient.h&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Create a global variable called socketIO, so it can be accessed in any function.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SocketIoClient socketIO;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then we need to connect to the server using the server address, in this case the ip address of my PC where it runs the node server.&lt;/p&gt;
-
-&lt;p&gt;Finally, listen for events from the server. And emit events if needed.&lt;/p&gt;
-
-&lt;p&gt;After connecting to wifi&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  // server address, port and URL
-  socketIO.begin(&quot;the ip address or domain&quot;, 3005);
-  // event handler for the event message
-  socketIO.on(&quot;reply&quot;,messageEventHandler);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Where messageEvent handler is ,&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void messageEventHandler(const char * payload, size_t length) {
- Serial.printf(&quot;got message: %s\n&quot;, payload);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now we should get the message printed in the serial monitor,&lt;/p&gt;
-
-&lt;p&gt;So to start the listening, we need to call the loop function of socket.io client inside the loop function in Arduino.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void loop() {
-     socketIO.loop();
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;But when we want to emit something to the server, we can do it by calling the method call to emit where it requires to give the event name and the payload, for example, let’s emit something every 6 seconds.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uint64_t messageTimestamp;
-void loop() {
-  
-  socketIO.loop();
-  uint64_t now = millis();
-  if(now - messageTimestamp &amp;gt; 6000) {
-    messageTimestamp = now;
-    // Send event     
-  socketIO.emit(&quot;message&quot;, &quot;\&quot;this is a message from the client\&quot;&quot;);   
-  }    
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Node.js realtime communication with NodeMCU with socket.io</summary></entry><entry><title type="html">Attiny85 Arduino SleepMode 睡眠模式使用笔记</title><link href="https://sonictl.github.io/jekyll/2021/11/26/p20211126182011.html" rel="alternate" type="text/html" title="Attiny85 Arduino SleepMode 睡眠模式使用笔记" /><published>2021-11-26T18:06:42+08:00</published><updated>2021-11-26T18:06:42+08:00</updated><id>https://sonictl.github.io/jekyll/2021/11/26/p20211126182011</id><content type="html" xml:base="https://sonictl.github.io/jekyll/2021/11/26/p20211126182011.html">&lt;h2 id=&quot;attiny85-arduino-sleepmode-睡眠模式使用笔记&quot;&gt;Attiny85 Arduino SleepMode 睡眠模式使用笔记&lt;/h2&gt;
-
-&lt;p&gt;Attiny 85 board:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/image-20211126180807011.png&quot; alt=&quot;image-20211126180807011&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这款迷你开发板带了6个IO口，4个ADC，I2C通信结构等资源，已经能应付很多控制场景了。&lt;/p&gt;
-
-&lt;p&gt;使用VScode + platformIO ， 在Arduino框架下进行开发。睡眠模式探究&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Attiny85 Arduino SleepMode 睡眠模式使用笔记</summary></entry></feed>
+&lt;hr /&gt;</content><author><name>sonictl</name></author><category term="jekyll" /><summary type="html">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</summary></entry></feed>

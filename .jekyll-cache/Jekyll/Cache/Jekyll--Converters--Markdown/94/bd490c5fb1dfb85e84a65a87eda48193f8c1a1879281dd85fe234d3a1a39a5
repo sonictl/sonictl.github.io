@@ -1,0 +1,111 @@
+I"W<h1 id="fixing-certbot-does-not-know-where-nginx-is-located-in-your-server">Fixing certbot does not know where nginx is located in your server</h1>
+
+<p>If your certbot does not know how to auto configure ssl for your host, you can refer below.</p>
+
+<h2 id="the-cause-of-this-problem">The cause of this problem</h2>
+
+<p>Mine is because the installation path of nginx is not the default one， such as /etc/nginx or /usr/bin/nginx</p>
+
+<h2 id="solution1-create-a-link-to-your-path-of-nginx-manually-assign-path-of-conf-files">solution1: create a link to your path of nginx, manually assign path of conf files.</h2>
+
+<ul>
+  <li>The systemd service file <code class="language-plaintext highlighter-rouge">/etc/systemd/system/nginx.service</code> may need change.</li>
+  <li>Carefully change the path of /etc/nginx/nginx.conf and the <code class="language-plaintext highlighter-rouge">include path</code> in it.</li>
+  <li>use <code class="language-plaintext highlighter-rouge">ln -s</code> command to create link from certbot known location to real location of conf file.</li>
+</ul>
+
+<p>#### An Example:</p>
+
+<p>The executable binary of nginx is: <code class="language-plaintext highlighter-rouge">/etc/nginx/sbin/nginx</code> and the real conf path is <code class="language-plaintext highlighter-rouge">/etc/nginx/conf/</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ ln -s /etc/nginx/sbin/nginx /usr/bin/nginx
+    $ ln -s /etc/nginx/conf/ /etc/nginx
+</code></pre></div></div>
+<p>you’ll see  <code class="language-plaintext highlighter-rouge">/etc/nginx/sbin/nginx -c /etc/nginx/conf/nginx.conf</code> in <code class="language-plaintext highlighter-rouge">nginx.service</code> file.</p>
+
+<p><code class="language-plaintext highlighter-rouge">vim /etc/systemd/system/nginx.service </code></p>
+
+<p>modify:<code class="language-plaintext highlighter-rouge"> /etc/nginx/conf/nginx.conf -&gt; /etc/nginx/nginx.conf</code></p>
+
+<p>if the .service file contains <code class="language-plaintext highlighter-rouge">nginx -t</code> modify it into <code class="language-plaintext highlighter-rouge">nginx -t -c &lt;path of nginx conf file&gt;</code></p>
+
+<h2 id="solution2-use-certbot-certonly-and-conf-file-for-nginx-server-node">solution2: Use <code class="language-plaintext highlighter-rouge">certbot certonly</code> and conf file for nginx server node:</h2>
+
+<p>cmd: <code class="language-plaintext highlighter-rouge">certbot certonly</code></p>
+
+<p>answer the prompts given by certbot. If you meet <code class="language-plaintext highlighter-rouge">could not bind port 80</code> error, stop the nginx service that using 80 port.</p>
+
+<ul>
+  <li>Congratulations! 
+Your certificate and chain have been saved at:
+<code class="language-plaintext highlighter-rouge">/etc/letsencrypt/live/&lt;your_domain_name&gt;/fullchain.pem</code>
+Your key file has been saved at:
+<code class="language-plaintext highlighter-rouge">/etc/letsencrypt/live/&lt;your_domain_name&gt;/privkey.pem</code></li>
+</ul>
+
+<h2 id="a-conf-file-for-nginx-web-server">A conf file for nginx web server</h2>
+
+<p>replace <code class="language-plaintext highlighter-rouge">&lt;your_domain_name&gt;</code> with your domain name
+  refer the sample below for your nginx config file such as ` <your_domain_name>.conf`</your_domain_name></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    server_name &lt;your_domain_name&gt;;
+
+    location / {
+      proxy_pass http://localhost:3000;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+    }
+
+    listen 443 ssl; 
+    ssl_certificate     /etc/letsencrypt/live/&lt;your_domain_name&gt;/fullchain.pem; 
+
+    ssl_certificate_key /etc/letsencrypt/live/&lt;your_domain_name&gt;/privkey.pem; 
+    #include /etc/letsencrypt/options-ssl-nginx.conf; 
+    #ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; 
+
+}
+
+server {
+    if ($host = &lt;your_domain_name&gt;) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name &lt;your_domain_name&gt;;
+    listen 80;
+    return 404; # managed by Certbot
+}
+
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	server {
+	  listen       80;
+	  listen       443 ssl;
+	  server_name  &lt;your domain name&gt;;
+
+	  ssl_certificate      /etc/letsencrypt/live/&lt;your_domain_name&gt;/fullchain.pem; 
+	  ssl_certificate_key  /etc/letsencrypt/live/&lt;your_domain_name&gt;/privkey.pem; 
+
+	  location / {
+		proxy_pass http://localhost:2000;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection 'upgrade';
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	  }
+	}
+</code></pre></div></div>
+
+<h3 id="for-solution2-renewal-the-cert-for-a-spec-domain">For solution2: Renewal the cert for a spec domain</h3>
+
+<p>cmd: ` certbot certonly -d <your_domain_name> `
+  follow the prompt and renewal.</your_domain_name></p>
+
+:ET

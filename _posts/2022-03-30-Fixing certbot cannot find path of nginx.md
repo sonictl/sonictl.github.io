@@ -33,6 +33,8 @@ you'll see  `/etc/nginx/sbin/nginx -c /etc/nginx/conf/nginx.conf` in `nginx.serv
 
 modify:` /etc/nginx/conf/nginx.conf -> /etc/nginx/nginx.conf`
 
+if the .service file contains `nginx -t` modify it into `nginx -t -c <path of nginx conf file>`
+
 
 
 ## solution2: Use `certbot certonly` and conf file for nginx server node:
