@@ -8,8 +8,8 @@
 <meta property="og:title" content="delete content on the right of cursor, Mac" />
 <meta name="author" content="sonictl" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="delete content on the right of cursor, Mac" />
-<meta property="og:description" content="delete content on the right of cursor, Mac" />
+<meta name="description" content="Forward delete content on the right of cursor, Mac" />
+<meta property="og:description" content="Forward delete content on the right of cursor, Mac" />
 <link rel="canonical" href="https://sonictl.github.io/from_cnblogs/2018/07/13/p20180713042000.html" />
 <meta property="og:url" content="https://sonictl.github.io/from_cnblogs/2018/07/13/p20180713042000.html" />
 <meta property="og:site_name" content="Combine Art and Sciences" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="delete content on the right of cursor, Mac" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"sonictl"},"@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2018/07/13/p20180713042000.html","description":"delete content on the right of cursor, Mac","headline":"delete content on the right of cursor, Mac","dateModified":"2018-07-13T04:20:00+08:00","datePublished":"2018-07-13T04:20:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2018/07/13/p20180713042000.html"},"@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"sonictl"},"@type":"BlogPosting","url":"https://sonictl.github.io/from_cnblogs/2018/07/13/p20180713042000.html","description":"Forward delete content on the right of cursor, Mac","headline":"delete content on the right of cursor, Mac","dateModified":"2018-07-13T04:20:00+08:00","datePublished":"2018-07-13T04:20:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sonictl.github.io/from_cnblogs/2018/07/13/p20180713042000.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sonictl.github.io/feed.xml" title="Combine Art and Sciences" /></head>
 <body><header class="site-header" role="banner">
@@ -72,9 +72,25 @@
 
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="delete-content-on-the-right-of-cursor-mac">delete content on the right of cursor, Mac</h2>
+    <h2 id="forward-delete-content-on-the-right-of-cursor-mac">Forward delete content on the right of cursor, Mac</h2>
 
-<p>It’s not convenient to press <code class="language-plaintext highlighter-rouge">Fn</code>+<code class="language-plaintext highlighter-rouge">delete</code> to delete content on the right of cursor, on Macintosh.</p>
+<p>It’s not convenient to press <code class="language-plaintext highlighter-rouge">Fn</code>+<code class="language-plaintext highlighter-rouge">delete</code> to delete content on the right of cursor, on Macintosh. They’re too faraway.</p>
+
+<h4 id="forward-deleting">Forward Deleting</h4>
+
+<p>For instance: 
+  For test: <code class="language-plaintext highlighter-rouge">ab|cd</code>, the cursor is between <code class="language-plaintext highlighter-rouge">b</code> and <code class="language-plaintext highlighter-rouge">c</code>,  <strong>deleteForward</strong> makes the text  <code class="language-plaintext highlighter-rouge">ab|cd</code> into <code class="language-plaintext highlighter-rouge">ab|d</code> .</p>
+
+<h3 id="use-mastero-keyboard-tool">Use Mastero Keyboard tool:</h3>
+
+<p><strong>Adding the Macro for DeleteForward</strong></p>
+
+<p><img src="/assets/images/image-201807130420001001.png" alt="image-20220519175936884" style="zoom:50%;" /></p>
+
+<p><strong>For adding the action, select ‘KeyStroke’:</strong> 
+<img src="/assets/images/image-201807130420001002.png" alt="image-20220519175936884" style="zoom:50%;" /></p>
+
+<h4 id="another-method-using-karabiner-tool-not-tested">Another method using Karabiner tool (not tested)</h4>
 
 <p>Use Karabiner to remap <code class="language-plaintext highlighter-rouge">RightShift</code>+<code class="language-plaintext highlighter-rouge">delete</code> to <code class="language-plaintext highlighter-rouge">Fn</code>+<code class="language-plaintext highlighter-rouge">delete</code> so that we can only one right hand to implement that deleting backward.</p>
 

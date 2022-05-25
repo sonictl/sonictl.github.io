@@ -1,0 +1,26 @@
+I"x<h2 id="forward-delete-content-on-the-right-of-cursor-mac">Forward delete content on the right of cursor, Mac</h2>
+
+<p>It’s not convenient to press <code class="language-plaintext highlighter-rouge">Fn</code>+<code class="language-plaintext highlighter-rouge">delete</code> to delete content on the right of cursor, on Macintosh. They’re too faraway.</p>
+
+<h4 id="forward-deleting">Forward Deleting</h4>
+
+<p>For instance: 
+  For test: <code class="language-plaintext highlighter-rouge">ab|cd</code>, the cursor is between <code class="language-plaintext highlighter-rouge">b</code> and <code class="language-plaintext highlighter-rouge">c</code>,  <strong>deleteForward</strong> makes the text  <code class="language-plaintext highlighter-rouge">ab|cd</code> into <code class="language-plaintext highlighter-rouge">ab|d</code> .</p>
+
+<h3 id="use-mastero-keyboard-tool">Use Mastero Keyboard tool:</h3>
+
+<p><strong>Adding the Macro for DeleteForward</strong></p>
+
+<p><img src="/assets/images/image-201807130420001001.png" alt="image-20220519175936884" style="zoom:50%;" /></p>
+
+<p><strong>For adding the action, select ‘KeyStroke’:</strong> 
+<img src="/assets/images/image-201807130420001002.png" alt="image-20220519175936884" style="zoom:50%;" /></p>
+
+<h4 id="another-method-using-karabiner-tool-not-tested">Another method using Karabiner tool (not tested)</h4>
+
+<p>Use Karabiner to remap <code class="language-plaintext highlighter-rouge">RightShift</code>+<code class="language-plaintext highlighter-rouge">delete</code> to <code class="language-plaintext highlighter-rouge">Fn</code>+<code class="language-plaintext highlighter-rouge">delete</code> so that we can only one right hand to implement that deleting backward.</p>
+
+<p>Edit the json ~/.config/karabiner/karabiner.json</p>
+
+<p>ReInstall this app to make it take effect. Sounds strange but i didn’t find approprate way to take it effect.</p>
+:ET
