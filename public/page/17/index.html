@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>My New Hugo Site</title>
+  <link rel="canonical" href="http://example.org/" />
+  
+    <link
+      href="/index.xml"
+      rel="alternate"
+      type="application/rss+xml"
+      title="My New Hugo Site"
+    />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="My New Hugo Site" />
+  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://example.org/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="My New Hugo Site" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://example.org/" />
+
+  
+  
+    <link rel="icon" href="http://example.org/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize@1.0.0/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    
+    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+    
+  
+</head>
+
+  <body>
+    <script>
+  const currentTheme = window.localStorage.getItem('theme')
+  if (currentTheme === "dark") {
+    document.body.classList.toggle("theme-dark");
+  } else if (currentTheme == "light") {
+    document.body.classList.toggle("theme-light");
+  }
+</script>
+<header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
+          <span>My New Hugo Site</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20191017100300/" title="【GPU】ubuntu 18.4 install GPU">【GPU】ubuntu 18.4 install GPU</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>put the below into inst_gpu.sh file:
+#!/bin/bash ## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04 ### steps #### # verify the system has a cuda-capable gpu # download and install the nvidia cuda toolkit and cudnn # setup environmental variables # verify the installation # CUDA 9.0 requires NVIDIA driver version 384 or above ### ### to verify your gpu is cuda enable check lspci | grep -i nvidia ### gcc compiler is required for development using the cuda toolkit.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20191017100300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-17T10:03:00&#43;0800" class="date">October 17, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20191011030000/" title="weighted choice in python">weighted choice in python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>对列表按概率采样 Input: a collection C of elements and a probability distribution p over C; Output: an element chosen at random from C according to p. C有n 个元素，1-n, 概率 (p = (p[1], &hellip;, p[n])。 我们只有random.random()函数，它会给我们均匀分布的[0,1]上的一个float. 基本思想是分割[0,1]into n segments of length p[1] &hellip; p[n] ( ∑ p[i] = 1) . 如果均匀地在[0,1]上打点，那它在第i个segment上停住的概率就是p[i]. 因此可以用random.random()函数来实现。查看停止的地方在[0,1]的哪个位置，然后返回其所在的那个segment index. python如下实现：
+ref: https://scaron.info/blog/python-weighted-choice.html
+对列表按概率采样 import random import collections def weighted_choice(seq, weights): assert len(weights) == len(seq) assert abs(1. - sum(weights)) &lt; 1e-6 x = random.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20191011030000/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-11T03:00:00&#43;0800" class="date">October 11, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20191010052600/" title="python绘制图的度分布柱状图, draw graph degree histogram with Python">python绘制图的度分布柱状图, draw graph degree histogram with Python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>图的度数分布 import collections import matplotlib.pyplot as plt import networkx as nx G = nx.gnp_random_graph(100, 0.02) degree_sequence = sorted([d for n, d in G.degree()], reverse=True) # degree sequence # print &#34;Degree sequence&#34;, degree_sequence degreeCount = collections.Counter(degree_sequence) deg, cnt = zip(*degreeCount.items()) # #as an alternation, you can pick out the top N items for the plot: #d = sorted(degreeCount.items(), key=lambda item:item[1], reverse=True)[:30] # pick out the up 30 items from counter #deg = [i[0] for i in d] #cnt = [i[1] for i in d] fig, ax = plt.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20191010052600/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-10T05:26:00&#43;0800" class="date">October 10, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20191009112400/" title="一波儿networkx 读写edgelist，给节点加attribute的操作">一波儿networkx 读写edgelist，给节点加attribute的操作</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>一波儿networkx 读写edgelist，给节点加attribute的操作 read more: nx official: Reading and writing graphs
+import numpy as np import networkx as nx import operator G1 = nx.DiGraph(name=&#39;network1&#39;) # Directed Graph #networkx 导入edgelist with open(net1_path, &#39;r&#39;) as edgeReader: # 从文件中读取edgelist生成Graph of networkx for line in edgeReader.readlines(): edges_net1.append(tuple(map(int, line.strip().split(&#39; &#39;)))) G1.add_edges_from(edges_net1) print(&#39;\n== info of net1 original: &#39;) print(nx.info(G1)) triad_list_net1 = [] for i in edges_net1: triad = tuple([i[0], i[1], i[0]+i[1]]) triad_list_net1.append(triad) # list of triads triad_list_net1.sort(key=operator.itemgetter(2)) # sort the list by the 3rd item of triad isgt_dict1 = dict(zip(G1.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20191009112400/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-09T11:24:00&#43;0800" class="date">October 09, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20191009065200/" title="The list of list is modified unexpected, python">The list of list is modified unexpected, python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>Be careful! The list of list is modified unexpected, python # code patch A: list = [1,2,3,4,5,6,7] print(&#39;list A :&#39;, list) for i in list: temp = i if i &gt; 5: temp = i + 10000 print(&#39;list A\&#39;:&#39;, list) # code patch B: list = [[1],[2],[3],[4],[5],[6],[7]] new_list = [] print(&#39;\nlist B : &#39;,list) for i in list: temp = i # will this allocate a new RAM space for var &#39;temp&#39;?</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20191009065200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-09T06:52:00&#43;0800" class="date">October 09, 2019</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/16/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/16/">16</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/17/">17</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/18/">18</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/47/">47</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/18/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://example.org/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2023 My New Hugo Site
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

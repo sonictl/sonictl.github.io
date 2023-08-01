@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on My New Hugo Site</title>
+    <link>http://example.org/categories/python/</link>
+    <description>Recent content in python on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Aug 2021 10:52:01 +0800</lastBuildDate><atom:link href="http://example.org/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>简单的python web服务器（附编码设置）</title>
+      <link>http://example.org/posts/p20210826105201/</link>
+      <pubDate>Thu, 26 Aug 2021 10:52:01 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210826105201/</guid>
+      <description>A basic web server implemented by python3.6 Note: the encoding-related configuration in line:
+​ self.send_header(&#39;Content-type&#39;,&#39;text/html; charset=utf-8&#39;)
+注意：python web服务器 编码问题
+import csv from http.server import BaseHTTPRequestHandler, HTTPServer class handler(BaseHTTPRequestHandler): Page = &amp;#39;&amp;#39;&amp;#39;\ &amp;lt;html&amp;gt; &amp;lt;meta content=&amp;#34;text/html;charset=utf-8&amp;#34; http-equiv=&amp;#34;Content-Type&amp;#34;&amp;gt; &amp;lt;meta content=&amp;#34;utf-8&amp;#34; http-equiv=&amp;#34;encoding&amp;#34;&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Hello, I am great Chinese!&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; &amp;#39;&amp;#39;&amp;#39; def parse_csv(self): lines = [] with open(&amp;#39;my_content.csv&amp;#39;, &amp;#39;r&amp;#39;) as file: reader = csv.reader(file) for row in reader: lines.append(row) file.close() return str(lines[0]) def do_GET(self): self.</description>
+    </item>
+    
+  </channel>
+</rss>

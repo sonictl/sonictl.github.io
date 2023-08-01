@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>My New Hugo Site</title>
+  <link rel="canonical" href="http://example.org/" />
+  
+    <link
+      href="/index.xml"
+      rel="alternate"
+      type="application/rss+xml"
+      title="My New Hugo Site"
+    />
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="My New Hugo Site" />
+  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://example.org/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="My New Hugo Site" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://example.org/" />
+
+  
+  
+    <link rel="icon" href="http://example.org/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize@1.0.0/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    
+    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+    
+  
+</head>
+
+  <body>
+    <script>
+  const currentTheme = window.localStorage.getItem('theme')
+  if (currentTheme === "dark") {
+    document.body.classList.toggle("theme-dark");
+  } else if (currentTheme == "light") {
+    document.body.classList.toggle("theme-light");
+  }
+</script>
+<header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
+          <span>My New Hugo Site</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20210616133400/" title="High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)">High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>deepwalk、node2vec的高性能优化 转自知乎： https://zhuanlan.zhihu.com/p/348778146
+原作者：马东什么
+首先是graph的存储问题，看了很多实现node2vec或deepwalk的library，大都是以networkx或是类似的python class对象为graph的存储形式进行开发，首先我们需要知道目前单机版的deepwalk和node2vec的主要的性能瓶颈在random walk部分，因为底层的word2vec基本上都是直接调用的gensim的word2vec（gensim的word2vec基于c++开发，目前新版的gensim的word2vec的fast version使用了cython代替了原来的一些逻辑实现，个人感觉从word2vec层面再去做优化太复杂了，也很难比gensim做的更好，除此之外另一个思路就是用tf.keras或torch来实现word2vec，借用gpu的算力来试图击败gensim，然而看完这几篇，我心灰意冷了：
+Word2vec on GPU slower than CPU · Issue #13048 · tensorflow/tensorflow[github.comDoes Gensim library support GPU acceleration?stackoverflow.com![图标](https://pic1.zhimg.com/v2-2d47e939feed796bcf7483d306661c88_ipico.jpghttps://www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/www.reddit.com
+）
+graph通常以相互引用的内存指针的方式存储在内存中，这意味着每个节点在内存中都位于不同的位置，这种基于基于链表的思想，使得内存访问的速度成为了主要的瓶颈，因为每次从一个节点移动到另一个节点，都需要在内存中寻址和查询，一种更好的方式是把节点都打包到数组中，因为数据的内存地址一般是连续的，在内存访问上的开销要小很多；（这里还没有提到networkx本身用纯python编写导致的较低效的编译效率问题，具体可见：
+马东什么：为什么python这么慢？numba解决了什么问题？
+）
+一个较好的解决方案就是使用scipy.sparse.csr_matrix对graph进行存储和后续的访问等，
+csr_matrix可见下：
+马东什么：scipy sparse 中稀疏矩阵的常见存储方式zhuanlan.zhihu.com
+可以看到，通过将graph转化为csr_matrix，利用其巧妙地存储方式，可以大大提高节点和节点之间的访问效率。
+下面就来看一个非常nice的小众的graph library，csr_graph和nodevectors，nodevectors基本上是对csr_graph做的封装，底层的逻辑直接使用了csr_graph的接口api，所以直接研究csr_graph即可。
+VHRanger/CSRGraphgithub.com![图标](https://pic4.zhimg.com/v2-9b74ff2ecca657554aa17776a6083d37_ipico.jpg
+整个csr graph的核心在于graph的重构：
+class csrgraph(): &#34;&#34;&#34; This top level python class either calls external JIT&#39;ed methods or methods from the JIT&#39;ed internal graph &#34;&#34;&#34; def __init__(self, data, nodenames=None, copy=True, threads=0): &#34;&#34;&#34; A class for larger graphs.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20210616133400/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-06-16T13:34:00&#43;0800" class="date">June 16, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20210615130300/" title="How to add conda env into jupyter notebook installed by pip">How to add conda env into jupyter notebook installed by pip</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>How to add conda env into jupyter notebook installed by pip ref: https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084
+If your linux server has no Anaconda installed but conda installed. You don&rsquo;t want to install Anaconda for just installing jupyter notebook. You just installed jupyter notebook with pip3 with this link
+1. check the env on which jupyter notebook is runing: which pip3 where pip3 #for windows cmd
+2. add your Conda environment to your jupyter notebook: Step 1: Create a Conda environment.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20210615130300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-06-15T13:03:00&#43;0800" class="date">June 15, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20210308150300/" title="The Power of WordNet and How to Use It in Python">The Power of WordNet and How to Use It in Python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>The Power of WordNet and How to Use It in Python Posted on July 20, 2017 by Prachi Kumar in this link
+In this post, I am going to talk about the relations in WordNet (https://wordnet.princeton.edu) and how you can use these in a Python project. WordNet is a database of English words with different relations between the words.
+Take a look at the next four sentences.
+“She went home and had pasta.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20210308150300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-03-08T15:03:00&#43;0800" class="date">March 08, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20210308135300/" title="背单词app测评，2018年">背单词app测评，2018年</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>TFT测评丨所有好用的背单词app一网打尽 TFT小组 （微信号：cmu_doers）
+发表于 2018年06月27日
+阅读 6.1K
+分享 30
+平均阅读时长为 2分钟
+无论你是要考四六级、雅思、托福还是GRE，有经验的人总是会告诉你：“先买本单词书把单词背了再说。”
+一个通俗的说法是：背了单词不一定能把英语考试考好，但是不背单词一定不能把英语考试考好（这一点尤其体现在GRE考试中）。
+有些人依赖直接捧着纸质书背单词，但是仍然有相当一部分同学喜欢用APP背单词。
+那么问题来了，APP Store的词汇类APP简直令人眼花缭乱，到底哪个最适合我
+啊？
+TFT为你找到了10款优质单词APP，总有一款适合你！
+Lingvist
+推荐指数：★★★★
+优点：APP Store评分超高，界面非常漂亮。一次把 AI 运用在语言学习方面的优秀尝试，基于“间隔学习理论“和”智能演算法“，据说是“真正突破了‘遗忘曲线’“。它最大的优点在于用户几乎感受不到背单词的挫败感，其它词汇类APP都会用打卡来激励用户坚持下去，但是对于有些用户来说，久而久之打卡本身变成了一种痛苦。而在Lingvist中，AI根据你的个人情况给你挑的单词、安排的复习进度可以让你几乎感受不到背单词的痛苦。此外，你不仅可以用Lingvist来背英语，还可以背西班牙语、法语等。
+缺点：对于喜欢挑战自我的用户来说，AI给你挑的单词可能会太简单，不适合背GRE单词；免费版每天能背的单词有限，升级需要付费。
+扇贝单词
+推荐指数：★★★★
+优点：我从七年前就开始用扇贝，当时觉得这款APP相当惊艳。界面干净、没有广告。有英文解释、例句、词根、有他人笔记，结合扇贝新闻，我的词汇量几年内得到了大量提高。
+**缺点：**单词的释义经常出现错误，有的单词只有偏僻的释义，却没有常用的释义。
+Supermemo（电脑端）
+推荐指数：★★★★★
+（TFT后台花一分钱购买《GRE还你命1000》课程可以送Supermemo安装包和单词包噢！）
+优点：论坛上人人被推荐次数最多的背单词软件，据说算法非常非常科学。单词包可以自制，也可以下载别人制作的。结合别人制作的《再要你命三千》的单词包，可以短时间高效把GRE核心单词背个十几遍。我当时每天中午在这个软件上花一小时时间，把三千和Magoosh核心1000词背了四十多遍，后来考GRE就几乎没有不认识的词了。
+缺点：推荐电脑端的原因是因为手机端收费，目前电脑端只有Windows用户可以使用。
+Quizlet
+推荐指数：★★★★☆
+优点：可以背自己制作的单词表（各种语言皆可）或者是学科名词，特别适合拿来制作完全属于自己的单词本（比如做题时遇到不会的词可以放进来），用了这个我就把扇贝单词弃了。里面所有的单词/名词和其对应的解释都是我自己加的。因为自己最了解自己，知道自己哪个义项不熟悉，所以写解释的时候针对自己的薄弱环节按照自己最好背的方式写，背起来效率很高，对单词的掌握也更加全面。我个人很喜欢加着词根来背，有时也用它来背数学公式和政治经济名词。
+缺点：自己添加单词有点麻烦，对于比较懒的同学来说只能背别人做好的单词本。
+人人词典和不背单词
+推荐指数：★★★★
+优点：这两个APP最大的优点就是它们的“海量有声例句”，每个例句来自各种电影和电视剧，比如你一点开“recite“这个单词的例句就能听见哈利波特说话，适合爱看电影和电视剧、想在背单词的同时练练听力和口语的用户。
+缺点：除了上面这个优点之外我感觉它们和其它背单词软件没有不同之处。
+百词斩
+推荐指数：★★★
+优点：每个单词的配图、例句中脑洞大开的发音都很有趣，让背单词的过程不再枯燥。可以通过英文选意、中文选词、听音辩义等7种方式复习单词，巩固记忆。文案和音效十分特别，充满江湖侠客气息，很好地契合了“斩”字。
+缺点：太过依赖图片联想记忆，一张图片很难把一个单词的各种用法解释荆楚，经常出现把图片记住了，单词却忘了的状况。
+沪江开心词场
+推荐指数：★★★
+优点：游戏化的闯关、PK背单词模式，根据背单词的不同表现可以得到不同的奖励，很有趣，不会感到枯燥。语种很全，包括英语、日语、法语、韩语、德语、西班牙语等等。
+缺点：不能集中查看单词的释义、例句。界面比较花哨，不太适合小编这种老年人。
+知米背单词
+推荐指数：★★★★☆
+优点：适合学习单词的词根、用法，还可以进行单词的造句练习，学习时间长但是效果好。每个单词都有搭配的短语，运用情景记忆来背单词。辅助功能强大：单词锁屏、屏幕取词、词汇助记、词根词缀、相关单词等等，并且可以自己修改单词释义。可以通过熟词巩固、听音复习、生词全拼等方式复习单词。还有像扇贝单词那样的打卡小组，督促自己每日背单词。
+缺点：单词只有美式发音（如果这也算的话）。
+微软必应词典
+推荐指数：★★★★
+优点：适用于查询并记忆阅读过程中遇到的生词。把查词与背单词相结合，单词释义、词组、例句丰富，联想词功能强大。
+缺点：收录的词书较少，学习和复习形式单一，复习进度需要自己规划。
+单词日记
+推荐指数：★★★★
+优点：适用于深入学习单词及其用法，学得慢而精。界面简洁。单词释义详细：中英文释义+双语例句+影视剧视频例句，看完视频后还有思考题，能够学习到一些实用的表达。有多种复习方式，可以自选难度。
+缺点：不能离线学习，收录的词书较少。</p>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20210308135300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-03-08T13:53:00&#43;0800" class="date">March 08, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://example.org/posts/p20210305145900/" title="split your cpp code into multiple files">split your cpp code into multiple files</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>split your cpp code into multiple files reference: http://cse230.artifice.cc/lecture/splitting-code.html
+understande the #include The compiler will substitute #include with the actual contents of the file xyz.
+the header files the .h file is called the header files. People often use the header file as the one included. Header files usually have the ending .h and source files usually have the ending .cpp
+A header file contains only class and function declarations.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://example.org/posts/p20210305145900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-03-05T14:59:00&#43;0800" class="date">March 05, 2021</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/6/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/6/">6</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/7/">7</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/8/">8</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/47/">47</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/8/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://example.org/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2023 My New Hugo Site
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

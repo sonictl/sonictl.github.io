@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT Arduino on My New Hugo Site</title>
+    <link>http://example.org/categories/iot-arduino/</link>
+    <description>Recent content in IoT Arduino on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Dec 2022 18:19:54 +0800</lastBuildDate><atom:link href="http://example.org/categories/iot-arduino/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to assign wifi passcode to ESP32/8266 chips</title>
+      <link>http://example.org/posts/p20221202181954/</link>
+      <pubDate>Fri, 02 Dec 2022 18:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20221202181954/</guid>
+      <description>Sumerizing: The ways and implementations for assigning wifi passcode to ESP32/ESP8266 MCU Assigning WiFi pass code to ESP chip is ubiqutous.
+To summerize, we can do it with ways listed below:
+AP mode: A web running on chip, Chip working as Station mode. Bluethooth. (ESP8266 has no bluetooth moduel.) ESP Touch App with ESP smartConfig© solution. (5G Hz is not supported.) others, such as AP-STA link by routers, AP by cellphone, wifi manag-frame broadcasting.</description>
+    </item>
+    
+    <item>
+      <title>How to assign wifi passcode to ESP32/8266 chips</title>
+      <link>http://example.org/posts/p20221202181954/</link>
+      <pubDate>Fri, 02 Dec 2022 18:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20221202181954/</guid>
+      <description>Sumerizing: The ways and implementations for assigning wifi passcode to ESP32/ESP8266 MCU Assigning WiFi pass code to ESP chip is ubiqutous.
+To summerize, we can do it with ways listed below:
+AP mode: A web running on chip, Chip working as Station mode. Bluethooth. (ESP8266 has no bluetooth moduel.) ESP Touch App with ESP smartConfig© solution. (5G Hz is not supported.) others, such as AP-STA link by routers, AP by cellphone, wifi manag-frame broadcasting.</description>
+    </item>
+    
+    <item>
+      <title>ESP8266 wifi configuration with AP mode</title>
+      <link>http://example.org/posts/p20210826204201/</link>
+      <pubDate>Thu, 26 Aug 2021 20:42:01 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210826204201/</guid>
+      <description>#ESP8266 wifi configuration with AP mode
+Thanks for the github repository: tzapu/WiFiManager
+Although we all know that we can use the AP mode to configure the wifi password for ESP8266, it still takes time to implement the specific code line by line. Now, with the help of this project, I just need to share the steps to get this project running on our own ESP8266 chip.
+Note that the ESP8266 SmartConfig is another covenient way for wifi password broadcasting.</description>
+    </item>
+    
+  </channel>
+</rss>

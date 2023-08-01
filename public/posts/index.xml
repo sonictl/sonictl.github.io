@@ -1,0 +1,2657 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My New Hugo Site</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Aug 2023 17:50:39 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>http://example.org/posts/2023-08-01-my-first-hugo-post/</link>
+      <pubDate>Tue, 01 Aug 2023 17:50:39 +0800</pubDate>
+      
+      <guid>http://example.org/posts/2023-08-01-my-first-hugo-post/</guid>
+      <description>I have install and create a hugo site with theme: hugo_eiio
+with operations like:
+hugo new site sonictl.github.io cd sonictl.github.io/themes git clone https://github.com/leonhe/hugo_eiio cd .. echo &amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34; &amp;gt;&amp;gt; hugo.toml hugo server by following this https://gohugo.io/getting-started/quick-start/
+add blog content: hugo new posts/my-first-post.md this create a new file under content/posts
+Note the draft value in the front matter of your post.
+if its value == true, You can run either of the following commands to include draft content.</description>
+    </item>
+    
+    <item>
+      <title>How to assign wifi passcode to ESP32/8266 chips</title>
+      <link>http://example.org/posts/p20221202181954/</link>
+      <pubDate>Fri, 02 Dec 2022 18:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20221202181954/</guid>
+      <description>Sumerizing: The ways and implementations for assigning wifi passcode to ESP32/ESP8266 MCU Assigning WiFi pass code to ESP chip is ubiqutous.
+To summerize, we can do it with ways listed below:
+AP mode: A web running on chip, Chip working as Station mode. Bluethooth. (ESP8266 has no bluetooth moduel.) ESP Touch App with ESP smartConfig© solution. (5G Hz is not supported.) others, such as AP-STA link by routers, AP by cellphone, wifi manag-frame broadcasting.</description>
+    </item>
+    
+    <item>
+      <title>How to assign wifi passcode to ESP32/8266 chips</title>
+      <link>http://example.org/posts/p20221202181954/</link>
+      <pubDate>Fri, 02 Dec 2022 18:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20221202181954/</guid>
+      <description>Sumerizing: The ways and implementations for assigning wifi passcode to ESP32/ESP8266 MCU Assigning WiFi pass code to ESP chip is ubiqutous.
+To summerize, we can do it with ways listed below:
+AP mode: A web running on chip, Chip working as Station mode. Bluethooth. (ESP8266 has no bluetooth moduel.) ESP Touch App with ESP smartConfig© solution. (5G Hz is not supported.) others, such as AP-STA link by routers, AP by cellphone, wifi manag-frame broadcasting.</description>
+    </item>
+    
+    <item>
+      <title>稚晖君软硬件环境配置整理</title>
+      <link>http://example.org/posts/p20221124233353/</link>
+      <pubDate>Thu, 24 Nov 2022 23:33:53 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20221124233353/</guid>
+      <description>稚晖君软硬件环境配置整理 宝藏up主，稚晖君。很厉害。真全栈，从产品到机械到电路到软件，这就是那种真的聪明，一学就会的。 做的东西也是功能颜值双在线，审美还是很棒的，剪的视频也很棒。 先把他软件篇和硬件篇的视频总结一下，备用。
+1. 软件环境 总结来自稚晖君软件篇视频.
+项目
+XMind ZEN : 思维导图 Typora : markdown 有道云笔记：同步，私有云图床 电路
+AD：主要设计工具 Eagle：转换一些开源的eagle格式PCB文档 fritzing：EDA软件，也可以用作矢量风格说明软件 机械
+Rhinocores：参数化建模，不适合不规则曲面 Fusion360：全能 Cinema4D KeyShot：仿真 inkScape：矢量图轨迹 ArtCAM：生成雕刻机的刀路文件 软件
+Visual Studio Android Studio：手机APP开发 Jetbrain全家桶 pycharm：python Rider：C#开发 Clion：C &amp;amp; C++ Unity：3D仿真 Keil CubeMX Arduino KendryteIDE：K210 Processing：数字多媒体艺术 matlab：建模仿真 其他
+XShell &amp;amp; Xftp 串口调试助手 &amp;amp; 网络调试助手 Cmake GitGUI CoolFormat：代码格式 IDA：反编译 wireshark：网络抓包 SerialChart：串口绘图 Netron：图形化查看神经网络模型 beyond Compare：代码比对 2. 硬件环境 总结来自稚晖君的硬件篇视频
+电脑桌：转角桌（右边电脑区+左边电工区） 电脑区
+iQniX红轴机械键盘 Xbox one 个人服务器 电工区</description>
+    </item>
+    
+    <item>
+      <title>How to find the innovative ideas for a new paper</title>
+      <link>http://example.org/posts/p20220810091954/</link>
+      <pubDate>Thu, 28 Jul 2022 09:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220810091954/</guid>
+      <description>Let me share some thoughts bout creating academic research paper.
+How to find the innovative ideas for a new paper A new idea is believed by the newbee PhD student a precious seed for his/her paper. And the papers are believed as their lifesaver for their tough days.
+Solution:
+a. adjust the mindset. A book named as ‘phD grind’ written by Philip Guo may helps.
+b. In your research area, hack up a classical work, a hot research work, a gorgeous work or a work you just want to hack up.</description>
+    </item>
+    
+    <item>
+      <title>How to use LittleFS on ESP32 with PlatformIO</title>
+      <link>http://example.org/posts/p20220517111954/</link>
+      <pubDate>Tue, 17 May 2022 11:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220517111954/</guid>
+      <description>How to use LittleFS on ESP32 with vsCode+platfromIO As a suplement of this tutorial How to use LittleFS on ESP8266 I follows some reference and examples to build this blog.
+Get to konw some basic introductions about SPIFFS and LittleFS on ESP8266 and ESP32 is necessary for a noob.
+Note: Most of the functions for SPIFFS operations are compatible for LittleFS.
+follow the tutorials one by one:
+- SPIFFS for ESP8266 - SPIFFS for ESP32 - LittleFS for ESP8266 - LittleFS for ESP32 LittleFS is newly introduced into ESP32 SDK (Aug 2021) .</description>
+    </item>
+    
+    <item>
+      <title>Install and Configure Fail2Ban On CentOS 7</title>
+      <link>http://example.org/posts/p20220330110904/</link>
+      <pubDate>Wed, 30 Mar 2022 11:09:04 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220330110904/</guid>
+      <description>Install Fail2Ban On CentOS 7 Posted on December 13, 2019 by David Singer
+What Is Fail2Ban? Fail2ban is an open-source software that actively scans the servers log files in real-time for any brute force login attempts, and if found, summarily blocks the attack using the servers firewall software (firewalld or iptables). Fail2Ban runs as a background process and continuously scans the log files for unusual login patterns and security breach attempts.</description>
+    </item>
+    
+    <item>
+      <title>Fixing certbot does not know where nginx is located in your server</title>
+      <link>http://example.org/posts/p20220330101954/</link>
+      <pubDate>Wed, 30 Mar 2022 10:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220330101954/</guid>
+      <description>Fixing certbot does not know where nginx is located in your server If your certbot does not know how to auto configure ssl for your host, you can refer below.
+The cause of this problem Mine is because the installation path of nginx is not the default one， such as /etc/nginx or /usr/bin/nginx
+solution1: create a link to your path of nginx, manually assign path of conf files. The systemd service file /etc/systemd/system/nginx.</description>
+    </item>
+    
+    <item>
+      <title>[ESP32]import esp-idf components</title>
+      <link>http://example.org/posts/p20220212213944/</link>
+      <pubDate>Sat, 12 Feb 2022 21:39:44 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220212213944/</guid>
+      <description>import esp-idf components:
+import the components is easy: git clone , mkdir &amp;lt;proj_dir&amp;gt;/components, and copy into &amp;lt;proj_dir&amp;gt;/components
+The git repos and commands that I used for this testing:
+git clone https://github.com/natanaeljr/esp32-I2Cbus.git I2Cbus git clone https://github.com/natanaeljr/esp32-MPU-driver.git MPUdriver mkdir -p &amp;lt;proj_path&amp;gt;/components mv I2Cbus &amp;lt;proj_path&amp;gt;/components mv MPUdriver &amp;lt;proj_path&amp;gt;/components for more, refer: https://github.com/natanaeljr/esp32-MPU-driver
+Do sdkconfig for the right chip and protocal for the imported component
+if the hello_world_main.c is renamed, rename it in &amp;lt;proj_dir&amp;gt;/main/CMakeLists.txt</description>
+    </item>
+    
+    <item>
+      <title>How to extend the Ubuntu guest OS&#39;s hard disk for VirtualBox on Mac</title>
+      <link>http://example.org/posts/p20220206231102/</link>
+      <pubDate>Sun, 06 Feb 2022 23:11:02 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220206231102/</guid>
+      <description>How to extend the Ubuntu guest OS&amp;rsquo;s hard disk for VirtualBox on Mac Steps: resize the VDI file on Mac OS: How to Resize a VirtualBox VDI or VHD File on Mac OS X
+boot the Ubuntu with the image(ISO) and Gparted(resize the partition).
+Note: firstly resize the extension partition (/dev/sda2), then resize the partition (/dev/sda5)
+Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution</description>
+    </item>
+    
+    <item>
+      <title>[ESP32_lvgl] From demo to own UI component with lvgl on ESP32</title>
+      <link>http://example.org/posts/p20220122174407/</link>
+      <pubDate>Sat, 22 Jan 2022 17:44:07 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220122174407/</guid>
+      <description>[ESP32_lvgl] From demo to own UI component with lvgl on ESP32 This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.
+After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Rather than the toy &amp;ndash; micropython.
+1. Motivation and value of this post After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board.</description>
+    </item>
+    
+    <item>
+      <title>[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</title>
+      <link>http://example.org/posts/p20220119221545/</link>
+      <pubDate>Wed, 19 Jan 2022 22:15:45 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220119221545/</guid>
+      <description>[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard Table of contents: [TOC]
+Table of contents:
+1 Some basic concepts
+2 The one: lv_micropython
+3 Quick use of lv_micropython
+3.1 Build micropython for Linux port (optional for newbie):
+3.2 Building lv_micropython micropython fork for ESP32 port:
+[3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk) [Get ESP-IDF v4.2](#get-esp-idf-v42) [Set up the environment variables](#set-up-the-environment-variables) [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware) [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware) [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device) 4 Confiture wifi and use the board Reference and read more</description>
+    </item>
+    
+    <item>
+      <title>Getting started with MicroPython with NodeMCU(ESP8266) board</title>
+      <link>http://example.org/posts/p20220117125538/</link>
+      <pubDate>Mon, 17 Jan 2022 12:55:38 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220117125538/</guid>
+      <description>Getting started with MicroPython with NodeMCU(ESP8266) board 1. Follow the official tutorial to flash the MicroPython firmware Link:
+https://docs.micropython.org/en/latest/esp8266/quickref.html https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro Comands you may need:
+$ esptool.py --port /dev/tty.usbserial-14120 erase_flash $ esptool.py --port /dev/tty.usbserial-14120 --baud 460800 write_flash --flash_size=detect -fm dout 0 esp8266-20210902-v1.17.bin you&amp;rsquo;ll receive message from ESP8266 on serial monitor such as puTTy:
+microPython v1.17 on 2021-09-02; ESP module with ESP8266 Type &amp;#34;help()&amp;#34; for more information. micropython script can be run in the REPL shell.</description>
+    </item>
+    
+    <item>
+      <title>[ESP32_lvgl]Tips for getting started with lvgl project on ESP32</title>
+      <link>http://example.org/posts/p20220115140254/</link>
+      <pubDate>Sat, 15 Jan 2022 14:02:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220115140254/</guid>
+      <description>Tips for getting started with lvgl project on ESP32 Before you get started with lvgl on ESP32, the first problem is which SDK(firmware platform) is going to be based on. You may dev ESP32 project based on Arduino or ESP-IDF(espreessif officially offered).
+There are two pathes at least to implement ESP32 project. By the way, the esp32_library for arduino can be used as a submoduel(component) of ESP-IDF SDK.
+path1: ESP-IDF: Develop ESP32 lvgl project with vsCode, platformIO and ESP-IDF before start, you need to know how to implement a &amp;ldquo;Hello world&amp;rdquo; or &amp;ldquo;LED blinking&amp;rdquo; project using the vsCode+platformIO+ESP_IDF</description>
+    </item>
+    
+    <item>
+      <title>[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</title>
+      <link>http://example.org/posts/p20220115140154/</link>
+      <pubDate>Sat, 15 Jan 2022 14:01:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220115140154/</guid>
+      <description>Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform WARING : The version confilict problem may crazy you if you play lvgl on Arduino platform. Fortunately, this post offers you one solution for version_conflict problem.
+This is the sister post for &amp;lsquo;Complile the lvgl sample proj in vsCode with ESP-IDF extension&amp;rsquo;. The difference is the dev-kit based on Arduino vs ESP-IDF.
+Here, we use Arduino + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.</description>
+    </item>
+    
+    <item>
+      <title>[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title>
+      <link>http://example.org/posts/p20220111210954/</link>
+      <pubDate>Tue, 11 Jan 2022 21:09:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220111210954/</guid>
+      <description>Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension If you&amp;rsquo;ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the section 1 and section 2. Directly check the lvgl example project lv_port_esp32 cloning/configure/build/etc. steps in section 3.
+Implement a &amp;ldquo;Hello world&amp;rdquo; or &amp;ldquo;LED blinking&amp;rdquo; project using the vsCode+platformIO+ESP_IDF Prerequisit: Go through the official &amp;ldquo;get started with ESP-IDF&amp;rdquo; tutorial (highly recomemded, link)</description>
+    </item>
+    
+    <item>
+      <title>Node.js realtime communication with ESP8266 via socket.io</title>
+      <link>http://example.org/posts/p20220105221954/</link>
+      <pubDate>Wed, 05 Jan 2022 22:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20220105221954/</guid>
+      <description>Node.js realtime communication with NodeMCU with socket.io Reference: https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio
+Goal of this post Establish a real-time communication between a server and the NodeMCU, this can be really useful like a situation where the server has to notify the client asynchronously,
+Let’s get started with the back-end We are going to use a Node server, where we can integrate Socket.io init. Install Node.js if you haven’t it yet.
+In node, we ‘ll be using the framework called express to deal with the communication with HTTP requests.</description>
+    </item>
+    
+    <item>
+      <title>Attiny85 Arduino SleepMode 睡眠模式使用笔记</title>
+      <link>http://example.org/posts/p20211126182011/</link>
+      <pubDate>Fri, 26 Nov 2021 18:06:42 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20211126182011/</guid>
+      <description>Attiny85 Arduino SleepMode 睡眠模式使用笔记 Attiny 85 board:
+这款迷你开发板带了6个IO口，4个ADC，I2C通信结构等资源，已经能应付很多控制场景了。
+使用VScode + platformIO ， 在Arduino框架下进行开发。睡眠模式探究</description>
+    </item>
+    
+    <item>
+      <title>PIP and CONDA Add and Remove Mirror Source 配置软件源</title>
+      <link>http://example.org/posts/p20211115215455/</link>
+      <pubDate>Mon, 15 Nov 2021 21:55:30 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20211115215455/</guid>
+      <description>First, PIP
+1, add a source
+For example, add SJTU Source https://mirror.sjtu.edu.cn/pypi/web/simple：
+pip config set global.index-url https://mirror.sjtu.edu.cn/pypi/web/simple If SET has multiple times, it seems to be only saved the mirror source of the last set.
+2, delete the source
+pip config unset global.index-url 3, check which source now
+pip config list Second, Conda
+1, add a source
+For example, Tsinghua Source:
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.</description>
+    </item>
+    
+    <item>
+      <title>Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</title>
+      <link>http://example.org/posts/p20211110170635/</link>
+      <pubDate>Wed, 10 Nov 2021 17:06:35 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20211110170635/</guid>
+      <description>Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required. If you’re an Apple user and have macOS Big Sur, Catalina or Mojave installed on your machine you’ve probably realized you can’t use a password shorter than 4 characters anymore…
+Luckily, here is the easy fix.
+1. Open “Terminal” on your machine. 2. Type this command &amp;amp; press Return (enter): `pwpolicy -clearaccountpolicies` 3. Terminal will ask you to enter the password for your admin profile.</description>
+    </item>
+    
+    <item>
+      <title>Keyboard Maestro: Mac电脑效率神器</title>
+      <link>http://example.org/posts/p20211028175806/</link>
+      <pubDate>Thu, 28 Oct 2021 17:58:06 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20211028175806/</guid>
+      <description>终于解决单手向右删除的痛点 Keyboard Maestro 软件很是强大。
+ReadMore: Keyboard Maestro 入门指南</description>
+    </item>
+    
+    <item>
+      <title>win10双线网络设置</title>
+      <link>http://example.org/posts/p20210906104646/</link>
+      <pubDate>Mon, 06 Sep 2021 10:46:46 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210906104646/</guid>
+      <description>++++++ 双线网络设置 ++++++++ Wlan 设置跃点数1 [重要] 说明：这个使0.0.0.0的路由冲突时，可以优先走wlan 几个命令： 查看本机ip等信息： ipconfig 查看Route信息：route print 配置route信息：
+route -p add 172.23.0.0 mask 255.255.255.128 172.23.15.129 临时添加（不带-p）：
+route add 172.16.0.0 mask 255.255.255.128 172.23.15.129 route add 172.16.0.0 mask 255.255.255.128 172.16.99.86 ++++++++++++++++++++++++++++++
+2021年9月6日10:31:47更新： 1. 首先删除默认路由 0.0.0.0： route delete 0.0.0.0
+2. 添加默认外网路由： route add -p 0.0.0.0 mask 255.255.255.0 192.168.1.1 说明： 192.168.1.1 (是你的外网网关) 这里会造成0.0.0.0的路由冲突（机器重启后），还是通过wlan的跃点数来设置！！
+3. 添加内网路由： route add -p 10.16.0.0 mask 255.255.128.0 10.16.0.1 说明：10.16.0.0 - 内网ip分配到的是 10.16.36.9， 这里取前2段，意思是这个网段内（内网网段）就走内网的网关10.16.36.9 。。。如果你的内网ip是 19.11.1.19， 那么相应的：19.</description>
+    </item>
+    
+    <item>
+      <title>ESP8266 wifi configuration with AP mode</title>
+      <link>http://example.org/posts/p20210826204201/</link>
+      <pubDate>Thu, 26 Aug 2021 20:42:01 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210826204201/</guid>
+      <description>#ESP8266 wifi configuration with AP mode
+Thanks for the github repository: tzapu/WiFiManager
+Although we all know that we can use the AP mode to configure the wifi password for ESP8266, it still takes time to implement the specific code line by line. Now, with the help of this project, I just need to share the steps to get this project running on our own ESP8266 chip.
+Note that the ESP8266 SmartConfig is another covenient way for wifi password broadcasting.</description>
+    </item>
+    
+    <item>
+      <title>简单的python web服务器（附编码设置）</title>
+      <link>http://example.org/posts/p20210826105201/</link>
+      <pubDate>Thu, 26 Aug 2021 10:52:01 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210826105201/</guid>
+      <description>A basic web server implemented by python3.6 Note: the encoding-related configuration in line:
+​ self.send_header(&#39;Content-type&#39;,&#39;text/html; charset=utf-8&#39;)
+注意：python web服务器 编码问题
+import csv from http.server import BaseHTTPRequestHandler, HTTPServer class handler(BaseHTTPRequestHandler): Page = &amp;#39;&amp;#39;&amp;#39;\ &amp;lt;html&amp;gt; &amp;lt;meta content=&amp;#34;text/html;charset=utf-8&amp;#34; http-equiv=&amp;#34;Content-Type&amp;#34;&amp;gt; &amp;lt;meta content=&amp;#34;utf-8&amp;#34; http-equiv=&amp;#34;encoding&amp;#34;&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Hello, I am great Chinese!&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; &amp;#39;&amp;#39;&amp;#39; def parse_csv(self): lines = [] with open(&amp;#39;my_content.csv&amp;#39;, &amp;#39;r&amp;#39;) as file: reader = csv.reader(file) for row in reader: lines.append(row) file.close() return str(lines[0]) def do_GET(self): self.</description>
+    </item>
+    
+    <item>
+      <title>中国计算机学会(CCF)推荐国际学术期刊目录(2019)</title>
+      <link>http://example.org/posts/p20210714215528/</link>
+      <pubDate>Wed, 14 Jul 2021 21:55:28 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210714215528/</guid>
+      <description>#中国计算机学会(CCF)推荐国际学术期刊目录(2019)
+Table of contents 中国计算机学会(CCF)推荐国际学术期刊目录(2019) (数据库/数据挖掘/内容检索) （人工智能） （交叉/综合/新兴） （计算机体系结构/并行与分布计算/存储系统） （计算机网络） （网络与信息安全） （软件工程/系统软件/程序设计语言） （计算机科学理论） （计算机图形学与多媒体） （人机交互与普适计算） (数据库/数据挖掘/内容检索) 一、A类 ####### 序号 刊物简称 刊物全称 出版社 网址
+1 TODS ACM Transactions on Database Systems ACM http://dblp.uni-trier.de/db/journals/tods/ 2 TOIS ACM Transactions on Information Systems ACM http://dblp.uni-trier.de/db/journals/tois/ 3 TKDE IEEE Transactions on Knowledge and Data Engineering IEEE http://dblp.uni-trier.de/db/journals/tkde/ 4 VLDBJ The VLDB Journal Springer http://dblp.uni-trier.de/db/journals/vldb/ 二、B类 序号 刊物简称 刊物全称 出版社 网址 (^1) TKDD ACM Transactions on Knowledge Discovery from Data ACM http://dblp.</description>
+    </item>
+    
+    <item>
+      <title>中国计算机学会(CCF)推荐国际学术会议目录(2019)</title>
+      <link>http://example.org/posts/p20210714214759/</link>
+      <pubDate>Wed, 14 Jul 2021 21:47:59 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210714214759/</guid>
+      <description>中国计算机学会(CCF)推荐国际学术会议目录(2019) (数据库／数据挖掘／内容检索) 一、A类 序号 会议简称 会议全称 出版社 网址 (^1) SIGMOD ACM Conference on Management of Data ACM http://dblp.uni-trier.de/db/conf/sigmod/ (^2) SIGKDD ACM Knowledge Discovery and Data Mining ACM http://dblp.uni-trier.de/db/conf/kdd/ (^3) ICDE IEEE International Conference on Data Engineering IEEE http://dblp.uni-trier.de/db/conf/icde/ (^4) SIGIR International Conference on Research on Development in Information Retrieval ACM http://dblp.uni-trier.de/db/conf/sigir/ (^5) VLDB International Conference on Very Large Data Bases Morgan Kaufmann//ACM http://dblp.uni-trier.de/db/conf/vldb/
+二、B类 序号 会议简称 会议全称 出版社 网址 (^1) CIKM ACM International Conference on Information and Knowledge Management ACM http://dblp.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Graph Convolutional Networks as an Amateur</title>
+      <link>http://example.org/posts/p20210714075338/</link>
+      <pubDate>Wed, 14 Jul 2021 07:53:38 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210714075338/</guid>
+      <description>Getting started with Graph Convolutional Networks as an Amateur https://zhuanlan.zhihu.com/p/27587371
+https://www.cnblogs.com/wangxiaocvpr/p/8306519.html
+https://www.cnblogs.com/wangxiaocvpr/p/8299336.html
+https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780
+GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：
+本篇：一个高层级的GCN介绍 谱图卷积的半监督学习 最基本的代码实现GCN &amp;ndash; 一个高层级的GCN介绍 In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。 ref link in Chinese中文
+看看GCN的输入是啥 Given a graph $G = (V, E)$ , a GCN takes as input:
+adjacency matrix $\mathbf{A}$ of $G$. N × N an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$, where N is the number of nodes and F⁰ is the number of input features for each node 图示是一个例子</description>
+    </item>
+    
+    <item>
+      <title>install usbmount on debian for orangePi / raspberryPi</title>
+      <link>http://example.org/posts/p20210706080201/</link>
+      <pubDate>Tue, 06 Jul 2021 08:02:01 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210706080201/</guid>
+      <description>install usbmount on debian for orangePi / raspberryPi USBmount was removed from Debian a while back because the version from the repositories no longer works. It&amp;rsquo;s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).</description>
+    </item>
+    
+    <item>
+      <title>Implementing comment for jekyll blog with github pull request</title>
+      <link>http://example.org/posts/p20210701170100/</link>
+      <pubDate>Thu, 01 Jul 2021 17:01:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210701170100/</guid>
+      <description>利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request 1. The refered blogs: https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/ The github repos that needed:
+https://github.com/damieng/jekyll-blog-comments This is for the static layout/html contents supporting comment functions. https://github.com/haacked/jekyll-blog-comments-azure This is for the dynamic Azure Function code, which is forked from: https://github.com/Azure-Functions/jekyll-blog-comments 2. Steps and notes for jekyll comment box building The idea is use data files in Jekyll to store comments and some liquid templates to render them.</description>
+    </item>
+    
+    <item>
+      <title>抛弃清华源，使用SJTU的镜像 for Anaconda</title>
+      <link>http://example.org/posts/p20210617132500/</link>
+      <pubDate>Thu, 17 Jun 2021 13:25:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210617132500/</guid>
+      <description>使用SJTU的Anaconda镜像 清华TUNA的Anaconda镜像不稳，好的时候一切顺利，坏的时候一个24K的包下5分钟；Anaconda的官方源则更惨，连repo.json都下不下来； 今天又是清华的源大姨妈的一天：Pytorch下载到100MB就超时，折腾了三个小时也装不上。而同在华东的SJTU的镜像就很稳定，这次全线换成SJTU啦。
+首先执行
+conda config --set show_channel_urls yes 在/usr下生成.condarc文件，然后将其内容替换为
+channels: - defaults show_channel_urls: true channel_alias: https://anaconda.mirrors.sjtug.sjtu.edu.cn default_channels: - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/main - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/free - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/r - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/pro - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/msys2 custom_channels: conda-forge: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud msys2: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud bioconda: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud menpo: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud pytorch: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud simpleitk: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud 再运行conda clean -i清除索引缓存即可。 终于装上Pytorch了，可喜可贺😂</description>
+    </item>
+    
+    <item>
+      <title>High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)</title>
+      <link>http://example.org/posts/p20210616133400/</link>
+      <pubDate>Wed, 16 Jun 2021 13:34:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210616133400/</guid>
+      <description>deepwalk、node2vec的高性能优化 转自知乎： https://zhuanlan.zhihu.com/p/348778146
+原作者：马东什么
+首先是graph的存储问题，看了很多实现node2vec或deepwalk的library，大都是以networkx或是类似的python class对象为graph的存储形式进行开发，首先我们需要知道目前单机版的deepwalk和node2vec的主要的性能瓶颈在random walk部分，因为底层的word2vec基本上都是直接调用的gensim的word2vec（gensim的word2vec基于c++开发，目前新版的gensim的word2vec的fast version使用了cython代替了原来的一些逻辑实现，个人感觉从word2vec层面再去做优化太复杂了，也很难比gensim做的更好，除此之外另一个思路就是用tf.keras或torch来实现word2vec，借用gpu的算力来试图击败gensim，然而看完这几篇，我心灰意冷了：
+Word2vec on GPU slower than CPU · Issue #13048 · tensorflow/tensorflow[github.comDoes Gensim library support GPU acceleration?stackoverflow.com![图标](https://pic1.zhimg.com/v2-2d47e939feed796bcf7483d306661c88_ipico.jpghttps://www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/www.reddit.com
+）
+graph通常以相互引用的内存指针的方式存储在内存中，这意味着每个节点在内存中都位于不同的位置，这种基于基于链表的思想，使得内存访问的速度成为了主要的瓶颈，因为每次从一个节点移动到另一个节点，都需要在内存中寻址和查询，一种更好的方式是把节点都打包到数组中，因为数据的内存地址一般是连续的，在内存访问上的开销要小很多；（这里还没有提到networkx本身用纯python编写导致的较低效的编译效率问题，具体可见：
+马东什么：为什么python这么慢？numba解决了什么问题？
+）
+一个较好的解决方案就是使用scipy.sparse.csr_matrix对graph进行存储和后续的访问等，
+csr_matrix可见下：
+马东什么：scipy sparse 中稀疏矩阵的常见存储方式zhuanlan.zhihu.com
+可以看到，通过将graph转化为csr_matrix，利用其巧妙地存储方式，可以大大提高节点和节点之间的访问效率。
+下面就来看一个非常nice的小众的graph library，csr_graph和nodevectors，nodevectors基本上是对csr_graph做的封装，底层的逻辑直接使用了csr_graph的接口api，所以直接研究csr_graph即可。
+VHRanger/CSRGraphgithub.com![图标](https://pic4.zhimg.com/v2-9b74ff2ecca657554aa17776a6083d37_ipico.jpg
+整个csr graph的核心在于graph的重构：
+class csrgraph(): &amp;#34;&amp;#34;&amp;#34; This top level python class either calls external JIT&amp;#39;ed methods or methods from the JIT&amp;#39;ed internal graph &amp;#34;&amp;#34;&amp;#34; def __init__(self, data, nodenames=None, copy=True, threads=0): &amp;#34;&amp;#34;&amp;#34; A class for larger graphs.</description>
+    </item>
+    
+    <item>
+      <title>How to add conda env into jupyter notebook installed by pip</title>
+      <link>http://example.org/posts/p20210615130300/</link>
+      <pubDate>Tue, 15 Jun 2021 13:03:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210615130300/</guid>
+      <description>How to add conda env into jupyter notebook installed by pip ref: https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084
+If your linux server has no Anaconda installed but conda installed. You don&amp;rsquo;t want to install Anaconda for just installing jupyter notebook. You just installed jupyter notebook with pip3 with this link
+1. check the env on which jupyter notebook is runing: which pip3 where pip3 #for windows cmd
+2. add your Conda environment to your jupyter notebook: Step 1: Create a Conda environment.</description>
+    </item>
+    
+    <item>
+      <title>The Power of WordNet and How to Use It in Python</title>
+      <link>http://example.org/posts/p20210308150300/</link>
+      <pubDate>Mon, 08 Mar 2021 15:03:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210308150300/</guid>
+      <description>The Power of WordNet and How to Use It in Python Posted on July 20, 2017 by Prachi Kumar in this link
+In this post, I am going to talk about the relations in WordNet (https://wordnet.princeton.edu) and how you can use these in a Python project. WordNet is a database of English words with different relations between the words.
+Take a look at the next four sentences.
+“She went home and had pasta.</description>
+    </item>
+    
+    <item>
+      <title>背单词app测评，2018年</title>
+      <link>http://example.org/posts/p20210308135300/</link>
+      <pubDate>Mon, 08 Mar 2021 13:53:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210308135300/</guid>
+      <description>TFT测评丨所有好用的背单词app一网打尽 TFT小组 （微信号：cmu_doers）
+发表于 2018年06月27日
+阅读 6.1K
+分享 30
+平均阅读时长为 2分钟
+无论你是要考四六级、雅思、托福还是GRE，有经验的人总是会告诉你：“先买本单词书把单词背了再说。”
+一个通俗的说法是：背了单词不一定能把英语考试考好，但是不背单词一定不能把英语考试考好（这一点尤其体现在GRE考试中）。
+有些人依赖直接捧着纸质书背单词，但是仍然有相当一部分同学喜欢用APP背单词。
+那么问题来了，APP Store的词汇类APP简直令人眼花缭乱，到底哪个最适合我
+啊？
+TFT为你找到了10款优质单词APP，总有一款适合你！
+Lingvist
+推荐指数：★★★★
+优点：APP Store评分超高，界面非常漂亮。一次把 AI 运用在语言学习方面的优秀尝试，基于“间隔学习理论“和”智能演算法“，据说是“真正突破了‘遗忘曲线’“。它最大的优点在于用户几乎感受不到背单词的挫败感，其它词汇类APP都会用打卡来激励用户坚持下去，但是对于有些用户来说，久而久之打卡本身变成了一种痛苦。而在Lingvist中，AI根据你的个人情况给你挑的单词、安排的复习进度可以让你几乎感受不到背单词的痛苦。此外，你不仅可以用Lingvist来背英语，还可以背西班牙语、法语等。
+缺点：对于喜欢挑战自我的用户来说，AI给你挑的单词可能会太简单，不适合背GRE单词；免费版每天能背的单词有限，升级需要付费。
+扇贝单词
+推荐指数：★★★★
+优点：我从七年前就开始用扇贝，当时觉得这款APP相当惊艳。界面干净、没有广告。有英文解释、例句、词根、有他人笔记，结合扇贝新闻，我的词汇量几年内得到了大量提高。
+**缺点：**单词的释义经常出现错误，有的单词只有偏僻的释义，却没有常用的释义。
+Supermemo（电脑端）
+推荐指数：★★★★★
+（TFT后台花一分钱购买《GRE还你命1000》课程可以送Supermemo安装包和单词包噢！）
+优点：论坛上人人被推荐次数最多的背单词软件，据说算法非常非常科学。单词包可以自制，也可以下载别人制作的。结合别人制作的《再要你命三千》的单词包，可以短时间高效把GRE核心单词背个十几遍。我当时每天中午在这个软件上花一小时时间，把三千和Magoosh核心1000词背了四十多遍，后来考GRE就几乎没有不认识的词了。
+缺点：推荐电脑端的原因是因为手机端收费，目前电脑端只有Windows用户可以使用。
+Quizlet
+推荐指数：★★★★☆
+优点：可以背自己制作的单词表（各种语言皆可）或者是学科名词，特别适合拿来制作完全属于自己的单词本（比如做题时遇到不会的词可以放进来），用了这个我就把扇贝单词弃了。里面所有的单词/名词和其对应的解释都是我自己加的。因为自己最了解自己，知道自己哪个义项不熟悉，所以写解释的时候针对自己的薄弱环节按照自己最好背的方式写，背起来效率很高，对单词的掌握也更加全面。我个人很喜欢加着词根来背，有时也用它来背数学公式和政治经济名词。
+缺点：自己添加单词有点麻烦，对于比较懒的同学来说只能背别人做好的单词本。
+人人词典和不背单词
+推荐指数：★★★★
+优点：这两个APP最大的优点就是它们的“海量有声例句”，每个例句来自各种电影和电视剧，比如你一点开“recite“这个单词的例句就能听见哈利波特说话，适合爱看电影和电视剧、想在背单词的同时练练听力和口语的用户。
+缺点：除了上面这个优点之外我感觉它们和其它背单词软件没有不同之处。
+百词斩
+推荐指数：★★★
+优点：每个单词的配图、例句中脑洞大开的发音都很有趣，让背单词的过程不再枯燥。可以通过英文选意、中文选词、听音辩义等7种方式复习单词，巩固记忆。文案和音效十分特别，充满江湖侠客气息，很好地契合了“斩”字。
+缺点：太过依赖图片联想记忆，一张图片很难把一个单词的各种用法解释荆楚，经常出现把图片记住了，单词却忘了的状况。
+沪江开心词场
+推荐指数：★★★
+优点：游戏化的闯关、PK背单词模式，根据背单词的不同表现可以得到不同的奖励，很有趣，不会感到枯燥。语种很全，包括英语、日语、法语、韩语、德语、西班牙语等等。
+缺点：不能集中查看单词的释义、例句。界面比较花哨，不太适合小编这种老年人。
+知米背单词
+推荐指数：★★★★☆
+优点：适合学习单词的词根、用法，还可以进行单词的造句练习，学习时间长但是效果好。每个单词都有搭配的短语，运用情景记忆来背单词。辅助功能强大：单词锁屏、屏幕取词、词汇助记、词根词缀、相关单词等等，并且可以自己修改单词释义。可以通过熟词巩固、听音复习、生词全拼等方式复习单词。还有像扇贝单词那样的打卡小组，督促自己每日背单词。
+缺点：单词只有美式发音（如果这也算的话）。
+微软必应词典
+推荐指数：★★★★
+优点：适用于查询并记忆阅读过程中遇到的生词。把查词与背单词相结合，单词释义、词组、例句丰富，联想词功能强大。
+缺点：收录的词书较少，学习和复习形式单一，复习进度需要自己规划。
+单词日记
+推荐指数：★★★★
+优点：适用于深入学习单词及其用法，学得慢而精。界面简洁。单词释义详细：中英文释义+双语例句+影视剧视频例句，看完视频后还有思考题，能够学习到一些实用的表达。有多种复习方式，可以自选难度。
+缺点：不能离线学习，收录的词书较少。</description>
+    </item>
+    
+    <item>
+      <title>split your cpp code into multiple files</title>
+      <link>http://example.org/posts/p20210305145900/</link>
+      <pubDate>Fri, 05 Mar 2021 14:59:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210305145900/</guid>
+      <description>split your cpp code into multiple files reference: http://cse230.artifice.cc/lecture/splitting-code.html
+understande the #include The compiler will substitute #include with the actual contents of the file xyz.
+the header files the .h file is called the header files. People often use the header file as the one included. Header files usually have the ending .h and source files usually have the ending .cpp
+A header file contains only class and function declarations.</description>
+    </item>
+    
+    <item>
+      <title>For quick reference: Configure VSCode for Python</title>
+      <link>http://example.org/posts/p20210301115300/</link>
+      <pubDate>Mon, 01 Mar 2021 11:53:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20210301115300/</guid>
+      <description>For quick reference: Configure VSCode for Python in command line/Terminal, the environment manager such as conda is correctly installed and configured.
+Create proj. folder Run vs code in terminal/cmd, cd to the proj. folder and run code . vsCode UI: File &amp;raquo; Open Folder Note: By starting VS Code in a folder, that folder becomes your &amp;ldquo;workspace&amp;rdquo;. VS Code stores settings that are specific to that workspace in .vscode/settings.json, which are separate from user settings that are stored globally.</description>
+    </item>
+    
+    <item>
+      <title>IoT platforms that deserves to be noticed</title>
+      <link>http://example.org/posts/p20201225125300/</link>
+      <pubDate>Fri, 25 Dec 2020 12:53:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20201225125300/</guid>
+      <description>IoT platforms that deserves to be noticed When you are developing an IoT project, you often need to connect, communicate, and collect real-time data from sensors, cameras, and actuators to other devices. Then this bridge becomes especially important. It needs to be deployed easily and efficiently, and it needs to be low cost, secure, and accessible to the world. Here are a few platforms that may allow you to quickly deploy such a bridge to support your IoT projects.</description>
+    </item>
+    
+    <item>
+      <title>【未显示首页】Access IOT (Arduino) from anywhere remotely</title>
+      <link>http://example.org/posts/p20201218154500/</link>
+      <pubDate>Fri, 18 Dec 2020 15:45:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20201218154500/</guid>
+      <description>How to Access Arduino Video Stream Over Internet
+I&amp;rsquo;m working on an Arduino project that capture video and stream the video via web service. The ESP32-CAM moduel is ready-to-use and it provide a web service in LAN (e.g. access it via 192.168.1.11).
+I hope to access this video streaming web service from Internet. I&amp;rsquo;m familiar with the process of accessing local network service via LAN exposing services like FRP or Ngrok.</description>
+    </item>
+    
+    <item>
+      <title>Draw graph(network) with nx_pydot in networkx</title>
+      <link>http://example.org/posts/p20200723012300/</link>
+      <pubDate>Thu, 23 Jul 2020 01:23:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200723012300/</guid>
+      <description>Draw graph(network) with nx_pydot in networkx with nx_pydot in nx.drawing, we can have more plotting style of network/ tree/ graph.
+Here is a simple sample:
+import networkx as nx g=nx.DiGraph() edgelist = [(0, 1), (1, 12), (2, 12), (3, 17), (4, 11), (5, 4), (6, 10), (7, 12), (8, 14), (9, 14), (10, 11), (11, 14), (12, 11), (13, 17), (14, -1), (15, -1), (16, 10), (17, 11), (18, -1)] g.</description>
+    </item>
+    
+    <item>
+      <title>How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux</title>
+      <link>http://example.org/posts/p20200709092700/</link>
+      <pubDate>Thu, 09 Jul 2020 09:27:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200709092700/</guid>
+      <description>How to Share Wired Internet Via Wi-Fi and Vice Versa on Linux Aaron KiliApril 15, 2020 CategoriesNetworking Commands Leave a comment
+In this article, you will learn how to share a wired (Ethernet) internet connection via a wireless hotspot and also how to share a wireless internet connection via a wired connection on a Linux desktop.
+This article requires you to have at least two computers: a Linux desktop/laptop with a wireless card and an Ethernet port, then another computer (which may not necessarily be running Linux) with either a wireless card and/or an Ethernet port.</description>
+    </item>
+    
+    <item>
+      <title>Deluge: Enables BT download on your Raspberry Pi</title>
+      <link>http://example.org/posts/p20200706084600/</link>
+      <pubDate>Mon, 06 Jul 2020 08:46:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200706084600/</guid>
+      <description>写在前面：Arm板卡上的 BT 下载器得可以通过web进行操作才比较方便。所以人家推荐了 Deluge 这款工具。 references: Installing Deluge on the Raspberry Pi 7 Best BitTorrent Clients for Linux in 2020
+Installing Deluge on the Raspberry Pi by Emmet Jul 30, 2019 Updated May 03, 2020 Beginner
+In this Raspberry Pi Deluge project, we will show you how to set up the popular Deluge torrent client on the Pi.
+Throughout this tutorial, we will be showing you how to install and configure the Deluge torrent client alongside the Deluge web interface.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu一键设置全局proxy</title>
+      <link>http://example.org/posts/p20200704115201/</link>
+      <pubDate>Sat, 04 Jul 2020 11:52:01 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200704115201/</guid>
+      <description>Ubuntu「一键」设置全局代理 sonictl note: the DNS problem may be still there. Except proxychains. WSL (Windows Subsystem for Linux) or Ubuntu is OK for this tutorial. Other linux can also try this.
+1. Windows first Proxifier &amp;ndash;&amp;gt; Clash
+Walls on UWP apps: Use Fiddler WinConfig tool to disable it.
+WSL:
+使用 SSTap 直接接管 Windows 除了 Windows 系统进程以外的网络层，当然也包括 WSL Proxifier 并不能实现对 WSL 启用代理 相对最完美的方法是使用 Proxychains, 但不方便 直接在终端配置 proxy， 如果在WSL上使用的app不多。 2. Linux, WSL： Configure proxy in Terminal two lines of cmds：</description>
+    </item>
+    
+    <item>
+      <title>你还在想用 nextCloud 自建NAS? 何不试试P2P Sync?</title>
+      <link>http://example.org/posts/p20200701142700/</link>
+      <pubDate>Wed, 01 Jul 2020 14:27:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200701142700/</guid>
+      <description>你还在想用 nextCloud 自建NAS? 何不试试P2P Sync? Are you still using nextcloud as your NAS solutions？ Why not use P2P Sync? Why do you need to ditch nextcloud, owncloud, seafile? In a word, it&amp;rsquo;s too heavy! Deployment trouble! Synchronization requires too much intranet penetration, simple port mappings often lead to file synchronization errors, and deployments on ARM don&amp;rsquo;t always guarantee Smooth, blah blah blah various holes.
+Peer-to-Peer Sync Try VerySync, a product based on the P2P Sync design philosophy, which was born to be placed on your router, your computer and your laptop.</description>
+    </item>
+    
+    <item>
+      <title>screen 命令使用 keep session running after ssh logout</title>
+      <link>http://example.org/posts/p20200630064400/</link>
+      <pubDate>Tue, 30 Jun 2020 06:44:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200630064400/</guid>
+      <description>screen 命令使用 ref: https://handerfly.github.io/linux/2019/03/31/Screan%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8/
+彻底搞清楚screen 命令使用 Posted by BenderFly on March 31, 2019
+screen 是一个非常有用的命令，提供从单个 SSH 会话中使用多个 shell 窗口（会话）的能力。当会话被分离或网络中断时，screen 会话中启动的进程仍将运行，你可以随时重新连接到 screen 会话. screen is a very useful command that provides the ability to use multiple shells from a single SSH session. The ability to window (session). When a session is separated or the network is interrupted, the processes started in the screen session will still be running, and you can always reconnect to the screen Sessions</description>
+    </item>
+    
+    <item>
+      <title>你真的了解大学吗？如何选择报考大学，写在2020高考之前</title>
+      <link>http://example.org/posts/p20200617034500/</link>
+      <pubDate>Wed, 17 Jun 2020 03:45:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200617034500/</guid>
+      <description>. . .
+你真的认为大学的牛逼与否是看高考分数排名？是看某个权威杂志发布的专业排名？ . . .
+什么是排名？能不能有点自己的判断？ 我的指标： 1. 大学的综合能力看什么： 两院院士人数 国家自然科学基金（各种项目，比如重点项目，杰青项目）的获取资助个数。 待续。 2. 专业能力看什么： 某个专业国际最顶级，最权威期刊、会议，论文数。 某个专业下，是否有杰青（这一条就说明问题了） 博导的博士毕业人数，招录人数，历年统计。（这一条可以发现很多问题😀，人说我考大学，看博导作甚？博导就是专业能力的代表。） </description>
+    </item>
+    
+    <item>
+      <title>Zotero: add a history feature for paper viewing  为Zotero添加论文跳转历史记录功能</title>
+      <link>http://example.org/posts/p20200614035200/</link>
+      <pubDate>Sun, 14 Jun 2020 03:52:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200614035200/</guid>
+      <description>During my time with Zotero, I&amp;rsquo;ve really enjoyed its various features and the 300MB of file sync space is able to be extended by modifying the path to a synchronized folder under oneDrive or dropBox. reference: Extending Zotero&amp;rsquo;s syncing folder size by DropBox
+However, I often get lost when jumping between papers. After jumping from paper A to paper B, I am unable to go back to paper A if I forget its name.</description>
+    </item>
+    
+    <item>
+      <title>Free Dynamic DNS service 免费的动态dns服务</title>
+      <link>http://example.org/posts/p20200525233200/</link>
+      <pubDate>Mon, 25 May 2020 23:32:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200525233200/</guid>
+      <description>才发现原来有免费的动态dns服务 noip.com spdyn.de https://duckdns.org https://freedns.afraid.org
+noip.com: </description>
+    </item>
+    
+    <item>
+      <title>仅打印网页中我想要的部分？</title>
+      <link>http://example.org/posts/p20200519100900/</link>
+      <pubDate>Tue, 19 May 2020 10:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200519100900/</guid>
+      <description>Only print the element you 仅打印网页中我想要的部分 Edit web pages prior to printing. Delete, hide and format elements. Edit text. Remove adverts and sidebars. 在打印前编辑网页。删除、隐藏和格式化元素。编辑文本。删除广告和边栏。
+Use the Chrome Extension: Print Edit WE </description>
+    </item>
+    
+    <item>
+      <title>Deploy seafile on aarch64 (arm64) board with docker (Failed)</title>
+      <link>http://example.org/posts/p20200518224300/</link>
+      <pubDate>Mon, 18 May 2020 22:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200518224300/</guid>
+      <description>#Deploy seafile on aarch64 (arm64) board with docker (Failed):
+在Arm64或aarch64板卡上通过docker安装seafile (未成功) This failure may due that the image does not support the aarch64 architecture. If the host is x86 or amd64 architecture, things suppose to be better. 未成功启动container。问题原因可能在于docker image 不支持aarch64架构，换作 amd64 或 x86应该会好起来。
+1. Get ready docker Check your system: $ uname -s Linux $ uname -m aarch64 $ docker --version Docker version 18.09.1, build 4c52b90 Install Docker: ref_this 2. Install seafile with docker: run commands after read the whole content of this blog.</description>
+    </item>
+    
+    <item>
+      <title>Install seafile server, Armbian arch64 (Failed)</title>
+      <link>http://example.org/posts/p20200518135800/</link>
+      <pubDate>Mon, 18 May 2020 13:58:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200518135800/</guid>
+      <description>Install seafile server, Armbian arch64 I write this to ask you to give it up. This is a note with failed result. Just use docker if you wanna quick&amp;amp;smooth deployment.
+Download binary package Visit our download page, download the latest server package:
+reference:
+https://seafile.gitbook.io/seafile-server-manual/deploying-seafile-under-linux/deploying-seafile-with-sqlite
+https://forum.seafile.com/t/compilation-arm64-done/6170
+cd mkdir -p Downloads/seafile wget hhttps://cdn.iklive.eu/tcb13/2018/seafile-server_6.3.0_arm64.tar.gz Deploy you may need sudo -i first
+mkdir haiwen mv seafile-server_*.tar.gz haiwen cd haiwen # after moving seafile-server_* to this directory tar -xzf seafile-server_*.</description>
+    </item>
+    
+    <item>
+      <title>Deploy NextCloudPi (ncp) docker on aarch64 (arm64) board</title>
+      <link>http://example.org/posts/p20200518124500/</link>
+      <pubDate>Mon, 18 May 2020 12:45:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200518124500/</guid>
+      <description>Deploy NextCloudPi(ncp) docker on aarch64 board 在Arm64或aarch64架构的板卡上使用Docker布署NextCloudPi云盘服务 About &amp;ldquo;arm64 vs aarch64&amp;rdquo;, just Google it.
+Reference: Get started with NextCloudPi (ncp) installation via docker: https://docs.nextcloudpi.com/en/how-to-get-started-with-ncp-docker/ Docker installation, on aarch64, ref: https://www.cnblogs.com/sonictl/p/12909874.html 1. Install ncp with docker: If you wanna firstly have a taste in LAN network env.:
+docker run -d -p 4443:4443 -p 443:443 -p 80:80 -v ncdata:/data --name nextcloudpi ownyourbits/nextcloudpi 127.0.0.1 If you have a domain name:
+docker run -d -p 4443:4443 -p 443:443 -p 80:80 -v ncdata:/data --name nextcloudpi ownyourbits/nextcloudpi $YOUR_Domain 2.</description>
+    </item>
+    
+    <item>
+      <title>Install Docker-compose, armbian, aarch64</title>
+      <link>http://example.org/posts/p20200518043900/</link>
+      <pubDate>Mon, 18 May 2020 04:39:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200518043900/</guid>
+      <description>Install Docker-compose, armbian, aarch64 reference:
+aarch64安装Docker Compose Docker 17.03.2-ce on Arm64 (Aarch64) Debian 1. Check your system $ uname -s Linux $ uname -m aarch64 $ docker --version Docker version 18.09.1, build 4c52b90 reference: https://www.huaweicloud.com/kunpeng/software/dockercompose.html
+2. Compile Follow the link above and test after finished.
+3. Test bash commands and result for reference:
+root@bbhost:/usr/local/src/docker-compose-aarch64# docker run docker-compose-aarch64-builder root@bbhost:/usr/local/src/docker-compose-aarch64# find / -name &amp;#34;docker-compose-Linux-aarch64&amp;#34; /var/lib/docker/volumes/7ea3070ed7150ec80bd98ee7a09875cd891b98c2f570a656685dbd231dbb31be/_data/docker-compose-Linux-aarch64 /var/lib/docker/overlay2/83f1b21fb322a2f5b3eda68d2ae785c7fff1eaa14d36b6bcbd3df7ea89775501/diff/build/dockercompose/docker-compose-Linux-aarch64 root@bbhost:/usr/local/src/docker-compose-aarch64# /var/lib/docker/volumes/7ea3070ed7150ec80bd98ee7a09875cd891b98c2f570a656685dbd231dbb31be/_data/docker-compose-Linux-aarch64 --version docker-compose version 1.22.0, build e20d808e you may create a symlink for better convenience:</description>
+    </item>
+    
+    <item>
+      <title>实时监控linux主机网络活动，上传下载速度</title>
+      <link>http://example.org/posts/p20200518043100/</link>
+      <pubDate>Mon, 18 May 2020 04:31:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200518043100/</guid>
+      <description>实时监控linux主机网络活动，上传下载速度 16 Useful Bandwidth Monitoring Tools to Analyze Network Usage in Linux by Aaron Kili | Published: September 20, 2018 | Last Updated: February 13, 2020 ref: https://www.tecmint.com/linux-network-bandwidth-monitoring-tools/
+Linux Certifications - RHCSA / RHCE Certification | Ansible Automation Certification | LFCS / LFCE Certification Are you having problems monitoring your Linux network bandwidth usage? Do you need help? It’s important that you are able to visualize what is happening in your network in order to understand and resolve whatever is causing network slowness or simply to keep an eye on your network.</description>
+    </item>
+    
+    <item>
+      <title>block SSH attacks on Linux with denyhosts (centOS7)</title>
+      <link>http://example.org/posts/p20200507095000/</link>
+      <pubDate>Thu, 07 May 2020 09:50:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200507095000/</guid>
+      <description>How To Install and Configure DenyHosts in CentOS 7 for preventing the violent cracking on ssh 防止ssh被暴力破解：denyhost工具 DenyHosts is an open-source python-based tool developed by Phil Schwartz intended to prevent brute-force attacks and dictionary-based attacks on SSH servers. It is a log-based security tool. It is simple and the ability to configure rules manually.
+DenyHosts is widely used as an alternative to Fail2ban. If there have been too many invalid SSH login attempts it assume that it’s brute-force attacks or dictionary-based attacks and prevents the IP address from making any further attempts by adding it to /etc/hosts.</description>
+    </item>
+    
+    <item>
+      <title>ASCII Camera</title>
+      <link>http://example.org/posts/p20200503024300/</link>
+      <pubDate>Sun, 03 May 2020 02:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200503024300/</guid>
+      <description>https://andrei.codes/
+ASCII Camera Transforms your webcam stream into a real-time ASCII representation using WebRTC APIs. Requires webcam and WebRTC enabled browser.
+Predator Vision Transforms your webcam stream into a real-time movement-triggered heatmap representation. Requires webcam and WebRTC enabled browser.
+........................................ . .....,/((#####%#%%##((/*,,*////((/////*,.................. .... ..... ............... ............................................,*(###(##%%#######%%%#%#####%###%%%%%#%%###(//***,.......... ... ..... ............... ....................................... .*(###%&amp;amp;%%%%%%%%%%%&amp;amp;%&amp;amp;%%&amp;amp;%%%%&amp;amp;%%%&amp;amp;%%%&amp;amp;%%%%%%%%%%%%&amp;amp;&amp;amp;%%%#(/,..,..... ........... ............... .....................................,/##%%%%%%%%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%&amp;amp;%%%&amp;amp;&amp;amp;%%%%%%%%%%%((*,,***..... . .................................,/#%%%%&amp;amp;%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@@@@@@@@&amp;amp;@@@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%&amp;amp;&amp;amp;&amp;amp;%%%%%%%&amp;amp;%%%%%%%%%%%%#/,**,... ...................... ....,,/#%%%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@@@@@@@&amp;amp;&amp;amp;@&amp;amp;&amp;amp;@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%%%%%%%%%%%%%%%###/*,.. .. ............................,/%%%%&amp;amp;&amp;amp;%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@&amp;amp;&amp;amp;&amp;amp;@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%%%%%%&amp;amp;&amp;amp;%%%##(*. ................ ........./##%%&amp;amp;%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@@@@@@&amp;amp;@@@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%&amp;amp;&amp;amp;&amp;amp;%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%&amp;amp;%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%&amp;amp;%###(*,... .......................,/###%%&amp;amp;&amp;amp;@@&amp;amp;&amp;amp;&amp;amp;@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%&amp;amp;&amp;amp;&amp;amp;%%%%%#(*,.. .....................,./##%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%&amp;amp;%%%(*,.. ....................,/(#%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%%%%%%%%%%%%%%%%%%%%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%(*,.. ...................,/(#%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@@@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%&amp;amp;%%%%%%#############################%%%%%%%%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%(*, ...................*(%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@@@@&amp;amp;%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%###(((((//((///////////////////////////((((####%%%%%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%#*.. ..................,(#%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;@&amp;amp;@@&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%%##((((/////////////////************//////////////(((((####%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%*. ..................*#%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%%%##((((////////////////*******************///////////////////((#%%%&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;&amp;amp;%%&amp;amp;&amp;amp;&amp;amp;%%%/. . .</description>
+    </item>
+    
+    <item>
+      <title>Mac OSX Catalina: can’t be opened because Apple cannot check for malicious software</title>
+      <link>http://example.org/posts/p20200428075900/</link>
+      <pubDate>Tue, 28 Apr 2020 07:59:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200428075900/</guid>
+      <description>Mac OSX Catalina: can’t be opened because Apple cannot check for malicious software macOS cannot verify that this app is free from malware.
+Solution:
+check with Security&amp;amp;Privacy settings under System Preferences to lift the Gatekeeper blocks, and fix alert messages. when you are using Catalina, the warning message reappears every time you open the non-notarized app open Terminal and run the cmd below xattr -d com.apple.quarantine /Applications/&amp;lt;your App&amp;#39;s Name&amp;gt;.app e.g.: xattr -d com.</description>
+    </item>
+    
+    <item>
+      <title>手机—— “精神糖（Psycho Candy）”</title>
+      <link>http://example.org/posts/p20200418033500/</link>
+      <pubDate>Sat, 18 Apr 2020 03:35:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200418033500/</guid>
+      <description>手机—— “精神糖（Psycho Candy）” 糖吃多了会对身体有很多害处，但糖却对味觉有强大的吸引力。
+手机，越来越超越它本该承载的通讯功能，太多的信息、app和精心设计的用户操作体验，给人的精神带来愉悦与嗜欲。
+你在睡前是否会玩会手机，感觉像是吸口大烟，吸了就舒服了。
+你在起床前是否会刷一会新闻或朋友圈？不刷感觉心理有缺失感。
+这种现象需引起重视，一不小心就会让本该过得更有效的时光从指间悄悄流逝，更别提眼镜和颈椎上带来的伤害。
+你会发现那些信息、动态刷过之后，对生活没有任何益处，生命被浪费，换来的是精神的嗜手机欲得以满足而已。
+不要让手机进入卧室，会减轻这一“精神糖果”对人生的妨害。</description>
+    </item>
+    
+    <item>
+      <title>todo: t-SNE</title>
+      <link>http://example.org/posts/p20200417084700/</link>
+      <pubDate>Fri, 17 Apr 2020 08:47:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200417084700/</guid>
+      <description>ref: https://github.com/oreillymedia/t-SNE-tutorial</description>
+    </item>
+    
+    <item>
+      <title>Linux 网络、Daemon、systemd 相关命令</title>
+      <link>http://example.org/posts/p20200414041400/</link>
+      <pubDate>Tue, 14 Apr 2020 04:14:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200414041400/</guid>
+      <description>=== CentOS 7+ 网络、Daemon 相关命令 === 包含了centos system 中 firewalld, port occupation, systemd service management 相关常用命令。
+1. firewalld `firewall-cmd --permanent --add-port=100/tcp ` # open specific port `firewall-cmd --permanent --add-port=200-300/tcp` `firewall-cmd --permanent --add-service=http`	# open port for service `firewall-cmd --reload` # take changes into effect `firewall-cmd --list-ports` # check the ports opened. `firewall-cmd --list-services`	# check the service ` iptables-save`	# check all currently applied rules 2. port netstat -tlunp	# display all ports opened in host lsof -i	# list the network open ports netstat -lptu	# the process that owns them netstat -tulpn	# You can add &amp;quot; | grep &amp;quot;kw1\|kw2\|kw3&#39; &amp;quot; for keywords grep 3.</description>
+    </item>
+    
+    <item>
+      <title>Linux or Mac, List of the Port occupation</title>
+      <link>http://example.org/posts/p20200404134100/</link>
+      <pubDate>Sat, 04 Apr 2020 13:41:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200404134100/</guid>
+      <description>Mac, List of the Port occupation lsof -iTCP -sTCP:LISTEN -n -P
+Usage of lsof command, for the port management | |
+10 lsof Command Examples in Linux: lsof meaning ‘LiSt Open Files’ is used to find out which files are open by which process. One of the reason to use lsof command is when a disk cannot be unmounted as it says the files are being used. Or some port is occupied.</description>
+    </item>
+    
+    <item>
+      <title>concatenate of numpy</title>
+      <link>http://example.org/posts/p20200401094900/</link>
+      <pubDate>Wed, 01 Apr 2020 09:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200401094900/</guid>
+      <description>You may first use np.concatenate &amp;gt;&amp;gt;&amp;gt; a = np.array([[1, 2], [3, 4]]) &amp;gt;&amp;gt;&amp;gt; b = np.array([[5, 6]]) &amp;gt;&amp;gt;&amp;gt; np.concatenate((a, b), axis=0) array([[1, 2], [3, 4], [5, 6]]) &amp;gt;&amp;gt;&amp;gt; np.concatenate((a, b.T), axis=1) array([[1, 2, 5], [3, 4, 6]]) &amp;gt;&amp;gt;&amp;gt; np.concatenate((a, b), axis=None) array([1, 2, 3, 4, 5, 6]) Don&amp;rsquo;t forget np.append: np.append is usually used for concatenating vectors: Examples
+&amp;gt;&amp;gt;&amp;gt; &amp;gt;&amp;gt;&amp;gt; np.append([1, 2, 3], [[4, 5, 6], [7, 8, 9]]) array([1, 2, 3, .</description>
+    </item>
+    
+    <item>
+      <title>Configure ssl&#43;Nginx (secure socket.io connection)</title>
+      <link>http://example.org/posts/p20200320124100/</link>
+      <pubDate>Fri, 20 Mar 2020 12:41:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200320124100/</guid>
+      <description>secure the nodejs app transmissions by ssl For quick reference: Deploy simple_socket_chat on fresh VPS, jump to buttom of this article 1. make a simplest socket.io app ref: https://socket.io/get-started/chat/
+basic nodejs app: use the Node.JS web framework express to html as client end. create a package.json manifest file that describes our project npm install express@4.15.2 create an index.js file that will setup our application The index.js file supply the html content of &amp;ldquo;Hello world&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>nginxBasic: Set up server blocks on CentOS 7</title>
+      <link>http://example.org/posts/p20200319192011/</link>
+      <pubDate>Thu, 19 Mar 2020 19:19:54 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200319192011/</guid>
+      <description>Set Up Nginx Server Blocks on CentOS 7 NginxCentOS
+By Josh Barnett
+Published on November 5, 2014
+Introduction Nginx uses server blocks to manage configurations. Server blocks allow one server to host multiple domains or interfaces. How to serve different content to different visitors depending on which domains they are requesting:
+Prerequisites access to centos7 server, has sudo privileges. Nginx installed. Before you begin with this guide, there are a few steps that need to be completed first.</description>
+    </item>
+    
+    <item>
+      <title>Flask on Google Colab, A free web app server</title>
+      <link>http://example.org/posts/p20200310151700/</link>
+      <pubDate>Tue, 10 Mar 2020 15:17:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200310151700/</guid>
+      <description>Flask on Google Colab Colab is strong and famous by its support of GPU/TPU. However, with Flask, it can be a web app server. That&amp;rsquo;s very cool!
+Ngrok Expose the localhost to a public temporary url that can be shared with all around the world. That&amp;rsquo;s so cool!
+But how? Flask on Google Colab: https://medium.com/@kshitijvijay271199/flask-on-google-colab-f6525986797b Transform Google Colab to a GPU instance with full SSH access: https://imadelhanafi.com/posts/google_colal_server/ Flask Chatroom on Colab: https://colab.</description>
+    </item>
+    
+    <item>
+      <title>手把手教你搭建一个GAN（生成对抗网络）模型</title>
+      <link>http://example.org/posts/p20200217134300/</link>
+      <pubDate>Mon, 17 Feb 2020 13:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200217134300/</guid>
+      <description>手把手教你搭建一个GAN（生成对抗网络）模型 这个教程用 Keras 实现一个简单的GAN （生成对抗网络）模型. 基于这个:mnistGAN项目，我们将用到Keras 这个python 库。
+将用到的python packages:
+keras: 神经网络模型相关 matplotlib: 画图 tensorflow: keras运行基础 tqdm: 进度条 Talk is cheap, show me the code.
+1. 导入包： import os import numpy as np import matplotlib.pyplot as plt from tqdm import tqdm from keras.layers import Input # input layer from keras.models import Model, Sequential from keras.layers.core import Dense, Dropout from keras.layers.advanced_activations import LeakyReLU from keras.datasets import mnist from keras.optimizers import Adam from keras import initializers 2.</description>
+    </item>
+    
+    <item>
+      <title>[转]Python 解析 PDF 文本和表格的四大方法介绍</title>
+      <link>http://example.org/posts/p20200131150800/</link>
+      <pubDate>Fri, 31 Jan 2020 15:08:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200131150800/</guid>
+      <description>Python 解析 PDF 文本和表格的四大方法介绍 == code for paper and NSFC Proj. parsing==: https://gitee.com/sonica/pdf_parsing
+看到一个不错的知识文章，和大家分享一下： 很多文件为了安全都会存成 PDF 格式，比如有的论文、技术文档、书籍等等，程序读取这些文档内容带来了很多麻烦。Python 目前解析 PDF 的扩展包有很多，这里将对比介绍 PyPDF2、pdfplumber、pdfminer3k 以及 Camelot，告诉你哪个是好用的 PDF 解析工具。 本文使用的案例 PDF 文档下载链接： 链接：
+https://pan.baidu.com/s/1zH7vY47AqBYKM0XbdABbUA 提取码：xhem
+另外，获取 PDF 文档之后，会发现 PDF 文档中的换行符是以行的位置相同的，而不是跟段落相同。
+1. PyPDF2 解析 PDF 文档 这里主要参考了 2019-03-07，Usman Malik 写的一篇文章：
+Python for NLP: Working with Text and PDF Files
+使用 Python 安装 PyPDF2 扩展包：
+pip install PyPDF2 #---------OR conda install -c conda-forge pypdf2 读取 PDF 文件</description>
+    </item>
+    
+    <item>
+      <title>Combine two graphs: nx.compose</title>
+      <link>http://example.org/posts/p20200118012700/</link>
+      <pubDate>Sat, 18 Jan 2020 01:27:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20200118012700/</guid>
+      <description>nx.compose nx.compose Return a new graph of G composed with H. Composition is the simple union of the node sets and edge sets. ref link</description>
+    </item>
+    
+    <item>
+      <title>Storage Location for Unpacked Chrome Extensions</title>
+      <link>http://example.org/posts/p20191228225200/</link>
+      <pubDate>Sat, 28 Dec 2019 22:52:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191228225200/</guid>
+      <description>Storage Location for Unpacked Extensions Extension engine does not explicitly change their location or add a reference to its local paths, they are left in the place where there are selected from in all Operating Systems.
+Ex: If i load a unpacked Extension from E:\Chrome Extension the unpacked Extension is still in the same location
+Storage Location for Packed Extensions Navigate to chrome://version/ and look for Profile Path, it is your default directory and Extensions Folder is where all the extensions, apps, themes are stored</description>
+    </item>
+    
+    <item>
+      <title>node2vec 调节不同节点的pq值</title>
+      <link>http://example.org/posts/p20191225022600/</link>
+      <pubDate>Wed, 25 Dec 2019 02:26:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191225022600/</guid>
+      <description>要对不同节点配置不同的pq值，需要sampling_strategy这个参数配合。通过dict_my_strategy传入一个字典即可。
+import networkx as nx import matplotlib.pyplot as plt from node2vec import Node2Vec G = nx.les_miserables_graph() # nx.draw_networkx(G, with_labels=True) # draw the graph, simplest way. # nx.draw_spring(G, with_labels = True) # plt.show() dict_my_strategy = {&amp;#39;Myriel&amp;#39;:{&amp;#39;p&amp;#39;:10, &amp;#39;q&amp;#39;:0.1}} # use this dict to regulate the p,q for specific nodes. print(&amp;#39; walking...&amp;#39;) node2vec = Node2Vec(G, dimensions=16, walk_length=20, num_walks=10, p=1, q=1, workers=1, sampling_strategy=dict_my_strategy) # Embed nodes print(&amp;#39; training...&amp;#39;) model = node2vec.fit(window=4, min_count=1) </description>
+    </item>
+    
+    <item>
+      <title>TeamViewer的替代品：realVNC</title>
+      <link>http://example.org/posts/p20191224035100/</link>
+      <pubDate>Tue, 24 Dec 2019 03:51:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191224035100/</guid>
+      <description>TeamViewer的替代品：realVNC official web: realvnc: https://www.realvnc.com/
+steps: 在需要被控制的PC上装上realVNC的服务软件（real VNC server）download 在控制端PC上装上realVNC的客户端（real VNC viewer) download 在 realvnc.com 网站上注册账户。 2个电脑的应用上都登入账户，并在服务端设置访问密码，即可远程控制。 ps:
+免费的个人版没法互相传输文件，剪贴板里的text是可以分享的。 修复了TeamViewer上 mac 控制 remote 的Ctrl + / 无效的问题。 速度还可以，作为teamviewer的一个补充还是不错的。 </description>
+    </item>
+    
+    <item>
+      <title>Introduction of Generator in Python</title>
+      <link>http://example.org/posts/p20191216034900/</link>
+      <pubDate>Mon, 16 Dec 2019 03:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191216034900/</guid>
+      <description>Python中生成器的原理与使用详解 原创牛大财有大才 发布于2018-09-05 14:36:38
+0.range() 函数，其功能是创建一个整数列表，一般用在 for 循环中 语法格式：range(start, stop, step)，参数使用参考如下：
+*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2.</description>
+    </item>
+    
+    <item>
+      <title>Excel: assign label to scatter chart using specific cell values</title>
+      <link>http://example.org/posts/p20191210060300/</link>
+      <pubDate>Tue, 10 Dec 2019 06:03:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191210060300/</guid>
+      <description>ref: https://www.get-digital-help.com/custom-data-labels-in-x-y-scatter-chart/
+Improve your X Y Scatter Chart with custom data labels Author: Oscar Cronquist Article last updated on February 25, 2019
+The picture above shows a chart that has custom data labels, they are linked to specific cell values.
+What&amp;rsquo;s on this page
+How to apply custom data labels in Excel 2013 and later versions How to add data label shapes How to rearrange data labels Video Download Excel file Workaround for earlier Excel versions Excel Macro - Apply custom data labels Where to copy the code How to use macro Download Excel file This means that you can build a dynamic chart and automatically change the labels depending on what is shown on the chart.</description>
+    </item>
+    
+    <item>
+      <title>reverse/inverse a mapping but with multiple values for each key</title>
+      <link>http://example.org/posts/p20191107141900/</link>
+      <pubDate>Thu, 07 Nov 2019 14:19:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191107141900/</guid>
+      <description>reverse/inverse a mapping but with multiple values for each key multi mappping dictionary , reverse/inverse
+&amp;#39;&amp;#39;&amp;#39; mrg_dictionary: {15: {16, 19, 21, 23}, 22: {18}} inv_merging_led_dict: {16: 15, 19: 15, 21: 15, 23: 15, 18: 22} mrg_dictionary --&amp;gt; inv_merging_led_dict &amp;#39;&amp;#39;&amp;#39; mrg_dictionary = {15: {16, 19, 21, 23}, 22: {18}} inv_merging_led_dict = {value:key for key in mrg_dictionary for value in mrg_dictionary[key]} print(inv_merging_led_dict) &amp;#39;&amp;#39;&amp;#39; inv_merging_led_dict: {16: 15, 19: 15, 21: 15, 23: 15, 18: 22} mrg_dictionary: {15: {16, 19, 21, 23}, 22: {18}} inv_merging_led_dict --&amp;gt; mrg_dictionary &amp;#39;&amp;#39;&amp;#39; valueset = set(inv_merging_led_dict.</description>
+    </item>
+    
+    <item>
+      <title>Installing MacOS to VirtualBox</title>
+      <link>http://example.org/posts/p20191028140700/</link>
+      <pubDate>Mon, 28 Oct 2019 14:07:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191028140700/</guid>
+      <description>https://medium.com/@twister.mr/installing-macos-to-virtualbox-1fcc5cf22801</description>
+    </item>
+    
+    <item>
+      <title>compile and link C/CPP programs on Mac</title>
+      <link>http://example.org/posts/p20191028103200/</link>
+      <pubDate>Mon, 28 Oct 2019 10:32:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191028103200/</guid>
+      <description>ref: https://stackoverflow.com/questions/29987716/cannot-use-gsl-library-on-macos-ld-symbols-not-found-for-architecture-x86-6
+Indeed, as @trojanfoe and @bergercookie said you have to compile your file and then link it to the library. As explained in compile and link, for that particular example: First compile the file: gcc -Wall -I/usr/local/include -c example.c -o example.o second, link it to the library: gcc -L/usr/local/lib example.o -lgsl -o example where of course, /usr/local/lib should be replaced for the path where you have gsl installed. The example file is excutable.</description>
+    </item>
+    
+    <item>
+      <title>【GPU】Install CUDA on Mac</title>
+      <link>http://example.org/posts/p20191023132300/</link>
+      <pubDate>Wed, 23 Oct 2019 13:23:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191023132300/</guid>
+      <description>Install CUDA on Mac This instruction is following the Online Documentation for CUDA Toolkit.
+Some notifications for tf-gpu installation:
+After tf 1.2, the source code building becomes the only way of installation of TensorFlow-GPU in Mac OSX. link And tensorFlow nolonger support GPU on OSX. 这带来了很多安装的不确定性和难度。 从源码安装是可能的途径，但是有人制作whl放在网上供下载。github link python=3.6.5 CUDA=9.2.148 cuDNN=7.1.4 tf-gpu=1.9 可参考的一个配置选项，来自pyTorch社区 1.1 系统要求：
+Cuda 兼容的 GPU OSX 10.13 Clang 编译器 和 toolchain 安装自Xcode CUDA Toolkit: https://developer.nvidia.com/cuda-toolkit-archive Guided by: Online Documentation</description>
+    </item>
+    
+    <item>
+      <title>python代码执行bash命令 -- python3 cook book</title>
+      <link>http://example.org/posts/p20191020123500/</link>
+      <pubDate>Sun, 20 Oct 2019 12:35:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191020123500/</guid>
+      <description>python代码执行bash命令相关 &amp;ndash; python3 cook book refer: https://python3-cookbook.readthedocs.io/zh_CN/latest/c13/p06_executing_external_command_and_get_its_output.html
+执行外部命令并获取它的输出 问题 执行一个外部命令并以Python字符串的形式获取执行结果。 解决方案 使用 `subprocess.check_output()` 函数。例如： import subprocess out_bytes = subprocess.check_output([&amp;#39;netstat&amp;#39;,&amp;#39;-a&amp;#39;]) 上段代码执行指定的命令，并将执行结果以字节字符串的形式返回。 如果你需要文本形式的返回，加一个解码步骤即可。例如：
+out_text = out_bytes.decode(&amp;#39;utf-8&amp;#39;) 如果被执行的命令以非零码返回，就会抛出异常。 下面的例子捕获错误并获取返回码：
+try: out_bytes = subprocess.check_output([&amp;#39;cmd&amp;#39;,&amp;#39;arg1&amp;#39;,&amp;#39;arg2&amp;#39;]) except subprocess.CalledProcessError as e: out_bytes = e.output # Output generated before error code = e.returncode # Return code Quick Example Code: import subprocess cmd = [&amp;#39;netstat&amp;#39;,&amp;#39;-a&amp;#39;] try: out_bytes = subprocess.check_output(cmd) out_text = out_bytes.decode(&amp;#39;utf-8&amp;#39;) except subprocess.CalledProcessError as e: out_bytes = e.output # Output generated before error code = e.</description>
+    </item>
+    
+    <item>
+      <title>twint 安装及使用</title>
+      <link>http://example.org/posts/p20191019133500/</link>
+      <pubDate>Sat, 19 Oct 2019 13:35:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191019133500/</guid>
+      <description>分享这个post是自己方便查，还有中文网界对这个东西介绍太少。 更多的就看github项目twint吧。
+Installation: git+pip3:
+git clone https://github.com/twintproject/twint.git pip3 install -r requirements.txt pip3 install twint or pip3+pipenv:
+pip3 install --user --upgrade -e git+https://github.com/twintproject/twint.git@origin/master#egg=twint pipenv install -e git+https://github.com/twintproject/twint.git#egg=twint You may meet module cannot found error when you try to run twint after installation. On ubuntu, add ~/.local/bin into your PATH by:
+export PATH=$PATH:~/.local/bin You may edit ~/.bashrc file to permanately add the &amp;lsquo;~/.local/bin&amp;rsquo; into your PATH.
+Usage: Running the twint cmd with arguments can give you results.</description>
+    </item>
+    
+    <item>
+      <title>【GPU】Install pyTorch GPU on Ubuntu16.04</title>
+      <link>http://example.org/posts/p20191017100600/</link>
+      <pubDate>Thu, 17 Oct 2019 10:06:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191017100600/</guid>
+      <description>Note: Contents below may out-of-date. But the procedures are referable.
+Avaliable version combinations for pyTorch/Tensorflow-gpu:
+python=3.6.5 CUDA=9.2.148 cuDNN=7.1.4 tf-gpu=1.9 python=3.6.5 CUDA=9.1.85 cuDNN=7.1.3 tf-gpu=1.8 CUDA=9.0.176 cudnn=7.3.1.20 tensorflow-gpu=1.12.0 CUDA=9.0; cuDNN=7.4.1 tensorflow-gpu=1.12.0； cuda=9.0; cudnn=7.5.0 tensorflow=1.8.0可以用的 python=3.6.7 cuda=9.0; cuDNN=7.4.2 tensorflow-gpu = 1.9.0 pytorch = 1.0.0 cuda=9.0; cudnn=7.0.5 =================
+================= Install: CUDA=9.0 CUDNN=7.0.5 http://www.twistedwg.com/2018/06/15/cuda9_cudnn7.html https://blog.csdn.net/lukaslong/article/details/81488219
+================= 注意python3, pip3, Follow pyTorch web: https://pytorch.org/get-started/locally/
+UPDATE: sudo apt update sudo apt upgrade
+curl sudo apt-get install curl or: sudo apt install curl check: curl --version</description>
+    </item>
+    
+    <item>
+      <title>【GPU】Install Tensorflow GPU with CUDA 10.1 for python on Windows</title>
+      <link>http://example.org/posts/p20191017100400/</link>
+      <pubDate>Thu, 17 Oct 2019 10:04:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191017100400/</guid>
+      <description>How to install Tensorflow GPU with CUDA 10.1 for python on Windows 在cuda 10.0的windows上安装Tensorflow GPU, python ref: https://www.pytorials.com/how-to-install-tensorflow-gpu-with-cuda-10-0-for-python-on-windows/ But the above link is too complicated and the success is not garanteed.
+Before start, Notations neet to know: 20190825: Note the cuda10.1 is NOT supported by pyTorch by now. Want pyTorch? recommend: cuda10.0
+Install Tensorflow GPU with CUDA 10.1 for python on Windows Tasks （四位爷）:
+Install visual studio Install Cuda (i.e., Cuda ToolKit) Install cuDNN Install tensorflow 那么问题是，这四位爷的版本得对上。 所以就有人做了这个东西：https://github.</description>
+    </item>
+    
+    <item>
+      <title>【GPU】ubuntu 18.4 install GPU</title>
+      <link>http://example.org/posts/p20191017100300/</link>
+      <pubDate>Thu, 17 Oct 2019 10:03:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191017100300/</guid>
+      <description>put the below into inst_gpu.sh file:
+#!/bin/bash ## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04 ### steps #### # verify the system has a cuda-capable gpu # download and install the nvidia cuda toolkit and cudnn # setup environmental variables # verify the installation # CUDA 9.0 requires NVIDIA driver version 384 or above ### ### to verify your gpu is cuda enable check lspci | grep -i nvidia ### gcc compiler is required for development using the cuda toolkit.</description>
+    </item>
+    
+    <item>
+      <title>weighted choice in python</title>
+      <link>http://example.org/posts/p20191011030000/</link>
+      <pubDate>Fri, 11 Oct 2019 03:00:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191011030000/</guid>
+      <description>对列表按概率采样 Input: a collection C of elements and a probability distribution p over C; Output: an element chosen at random from C according to p. C有n 个元素，1-n, 概率 (p = (p[1], &amp;hellip;, p[n])。 我们只有random.random()函数，它会给我们均匀分布的[0,1]上的一个float. 基本思想是分割[0,1]into n segments of length p[1] &amp;hellip; p[n] ( ∑ p[i] = 1) . 如果均匀地在[0,1]上打点，那它在第i个segment上停住的概率就是p[i]. 因此可以用random.random()函数来实现。查看停止的地方在[0,1]的哪个位置，然后返回其所在的那个segment index. python如下实现：
+ref: https://scaron.info/blog/python-weighted-choice.html
+对列表按概率采样 import random import collections def weighted_choice(seq, weights): assert len(weights) == len(seq) assert abs(1. - sum(weights)) &amp;lt; 1e-6 x = random.</description>
+    </item>
+    
+    <item>
+      <title>python绘制图的度分布柱状图, draw graph degree histogram with Python</title>
+      <link>http://example.org/posts/p20191010052600/</link>
+      <pubDate>Thu, 10 Oct 2019 05:26:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191010052600/</guid>
+      <description>图的度数分布 import collections import matplotlib.pyplot as plt import networkx as nx G = nx.gnp_random_graph(100, 0.02) degree_sequence = sorted([d for n, d in G.degree()], reverse=True) # degree sequence # print &amp;#34;Degree sequence&amp;#34;, degree_sequence degreeCount = collections.Counter(degree_sequence) deg, cnt = zip(*degreeCount.items()) # #as an alternation, you can pick out the top N items for the plot: #d = sorted(degreeCount.items(), key=lambda item:item[1], reverse=True)[:30] # pick out the up 30 items from counter #deg = [i[0] for i in d] #cnt = [i[1] for i in d] fig, ax = plt.</description>
+    </item>
+    
+    <item>
+      <title>一波儿networkx 读写edgelist，给节点加attribute的操作</title>
+      <link>http://example.org/posts/p20191009112400/</link>
+      <pubDate>Wed, 09 Oct 2019 11:24:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191009112400/</guid>
+      <description>一波儿networkx 读写edgelist，给节点加attribute的操作 read more: nx official: Reading and writing graphs
+import numpy as np import networkx as nx import operator G1 = nx.DiGraph(name=&amp;#39;network1&amp;#39;) # Directed Graph #networkx 导入edgelist with open(net1_path, &amp;#39;r&amp;#39;) as edgeReader: # 从文件中读取edgelist生成Graph of networkx for line in edgeReader.readlines(): edges_net1.append(tuple(map(int, line.strip().split(&amp;#39; &amp;#39;)))) G1.add_edges_from(edges_net1) print(&amp;#39;\n== info of net1 original: &amp;#39;) print(nx.info(G1)) triad_list_net1 = [] for i in edges_net1: triad = tuple([i[0], i[1], i[0]+i[1]]) triad_list_net1.append(triad) # list of triads triad_list_net1.sort(key=operator.itemgetter(2)) # sort the list by the 3rd item of triad isgt_dict1 = dict(zip(G1.</description>
+    </item>
+    
+    <item>
+      <title>The list of list is modified unexpected, python</title>
+      <link>http://example.org/posts/p20191009065200/</link>
+      <pubDate>Wed, 09 Oct 2019 06:52:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191009065200/</guid>
+      <description>Be careful! The list of list is modified unexpected, python # code patch A: list = [1,2,3,4,5,6,7] print(&amp;#39;list A :&amp;#39;, list) for i in list: temp = i if i &amp;gt; 5: temp = i + 10000 print(&amp;#39;list A\&amp;#39;:&amp;#39;, list) # code patch B: list = [[1],[2],[3],[4],[5],[6],[7]] new_list = [] print(&amp;#39;\nlist B : &amp;#39;,list) for i in list: temp = i # will this allocate a new RAM space for var &amp;#39;temp&amp;#39;?</description>
+    </item>
+    
+    <item>
+      <title>Graph Convolutional Network</title>
+      <link>http://example.org/posts/p20191008124300/</link>
+      <pubDate>Tue, 08 Oct 2019 12:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191008124300/</guid>
+      <description>How to do Deep Learning on Graphs with Graph Convolutional Networks https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780
+scientific internet may need.</description>
+    </item>
+    
+    <item>
+      <title>Check the port occupy on Mac OSX</title>
+      <link>http://example.org/posts/p20191006092300/</link>
+      <pubDate>Sun, 06 Oct 2019 09:23:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20191006092300/</guid>
+      <description>Check the port occupy on Mac OSX lsof -i :7070
+COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME sivoxy 64888 wgg 6u IPv4 0x6ddd270 0t0 TCP *:gds_db (LISTEN) We have the PID of that app occupying port.
+Locating the executable file of that PID ps xuwww -p PID
+PID (64888) is the process id you are looking. for More help on pscommand you can find with
+man ps</description>
+    </item>
+    
+    <item>
+      <title>Change the environment variable for python code running</title>
+      <link>http://example.org/posts/p20190926041600/</link>
+      <pubDate>Thu, 26 Sep 2019 04:16:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190926041600/</guid>
+      <description>python程序运行中改变环境变量: Trying to change the way the loader works for a running Python is very tricky; probably OS/version dependent; may not work. One work-around that might help in some circumstances is to launch a sub-process that changes the environment parameter using a shell script and then launch a new Python using the shell.
+So, before the python code is executed, the env var is loaded.
+Ref: https://stackoverflow.com/questions/1178094/change-current-process-environments-ld-library-path
+But how to launch a sub-process that changes the environment parameter: You can ref: https://stackoverflow.</description>
+    </item>
+    
+    <item>
+      <title>basic deepwalk</title>
+      <link>http://example.org/posts/p20190916132000/</link>
+      <pubDate>Mon, 16 Sep 2019 13:20:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190916132000/</guid>
+      <description>Get to know How deepwalk works by this project. Two steps: 1. gen the graph, and gen the corpus on the graph via random walk. 2. use the corpus generated by step1 to fit the Word2vec model and calculate the similarity of two nodes.
+Project link: https://gitee.com/sonica/basic-deepwalk
+Read more about develop word2vec model with python: https://machinelearningmastery.com/develop-word-embeddings-python-gensim/ This blog will tell you:
+How to train your own word2vec word embedding model on text data.</description>
+    </item>
+    
+    <item>
+      <title>kwargs - Key words arguments in python function</title>
+      <link>http://example.org/posts/p20190908074900/</link>
+      <pubDate>Sun, 08 Sep 2019 07:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190908074900/</guid>
+      <description>This is a tutorial of how to use *args and **kwargs For defining the default value of arguments that is not assigned in key words when calling the function:
+def func(**keywargs): if &amp;#39;my_word&amp;#39; not in keywargs: word = &amp;#39;default_msg&amp;#39; print(word) else: word = keywargs[&amp;#39;my_word&amp;#39;] print(word) call this by:
+func() func(my_word=&amp;#39;love&amp;#39;) you&amp;rsquo;ll get:
+default_msg love read more about *args and **kwargs in python: https://www.digitalocean.com/community/tutorials/how-to-use-args-and-kwargs-in-python-3
+Add more about default value if arg key is not assigned:</description>
+    </item>
+    
+    <item>
+      <title>Graph Neural Networks for Computer Vision</title>
+      <link>http://example.org/posts/p20190907135500/</link>
+      <pubDate>Sat, 07 Sep 2019 13:55:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190907135500/</guid>
+      <description>Graph Neural Networks for Computer Vision I was attracted by this image: This is an inspiring image and it was posted in this article: Tutorial on Graph Neural Networks for Computer Vision and Beyond (Part 1) written by Boris, a PhD student at University of Guelph. Link: https://medium.com/@BorisAKnyazev/tutorial-on-graph-neural-networks-for-computer-vision-and-beyond-part-1-3d9fada3b80d
+The figure I attached above is showing some possibilities that using the graph structure to represent the version components in a fuzzy way.</description>
+    </item>
+    
+    <item>
+      <title>Convert Adjacency matrix into edgelist</title>
+      <link>http://example.org/posts/p20190904122400/</link>
+      <pubDate>Wed, 04 Sep 2019 12:24:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190904122400/</guid>
+      <description>Table of Contents [Edge List &amp;lt;&amp;ndash; Adjacency Matrix](# Edge List &amp;lt;&amp;ndash; Adjacency Matrix) [Edge List &amp;ndash;&amp;gt; Adjacency Matrix](# Edge List &amp;ndash;&amp;gt; Adjacency Matrix) [About Adjacency List](#About Adjacency List) Edge List &amp;lt;&amp;ndash; Adjacency Matrix &amp;#39;&amp;#39;&amp;#39; ref: https://www.cnblogs.com/sonictl/p/10688533.html convert adjMatrix into edgelist: &amp;#39;data/unweighted_edgelist.number&amp;#39; or &amp;#39;data/weighted_edgelist.number&amp;#39;&amp;#39; input: adjacency matrix with delimiter=&amp;#39;, &amp;#39; it can process: - Unweighted directed graph - Weighted directed graph output: edgelist (unweighted and weighted) &amp;#39;&amp;#39;&amp;#39; import numpy as np import networkx as nx # -------DIRECTED Graph, Unweighted----------- # Unweighted directed graph: a = np.</description>
+    </item>
+    
+    <item>
+      <title>Mac 日常使用tips</title>
+      <link>http://example.org/posts/p20190823110700/</link>
+      <pubDate>Fri, 23 Aug 2019 11:07:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190823110700/</guid>
+      <description>29190923: 【Mac快捷键】光标及 delete 删除光标右侧文字 Ctrl + a = home Ctrl + e = end Ctrl + p = 上 Ctrl + n = 下 Ctrl + b = 左 Ctrl + f = 右 Ctrl + d = delete 删除光标右侧文字
+20180725： windows标准的键盘连接了mac如何映射键盘？最大的好处是可以向后删除，还可以一键PageUP, PageDown ref: https://support.apple.com/zh-cn/HT202676 Win-&amp;gt; Command Alt -&amp;gt; Alt Ctrl-&amp;gt; control
+Mission Control: Ctrl+↑, Ctrl+←, Ctrl+→ LaunchPad: Win+F10, Or: Fn + Win + F10 in case the FnLk is not activated.</description>
+    </item>
+    
+    <item>
+      <title>否定中医者多犯这个根本错误</title>
+      <link>http://example.org/posts/p20190823040400/</link>
+      <pubDate>Fri, 23 Aug 2019 04:04:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190823040400/</guid>
+      <description>否定中医者多犯这个根本错误 拿西方现代科学体系来评价所有的事物，包括中医。这是对西方现代科学体系的迷信。 无论是中医还是西医，都是为了解决人类健康问题。就像2个娃娃在妈妈面前，不是说娃娃A说娃娃B的做派不符合娃娃A，那你娃娃B就完全错了。而是在问题妈妈面前，谁能解决问题，谁即是可取。
+无论是中医还是西医，都有其长短。拿亲身的经历举个中医行，西医不行的例子：本人由一次感冒引发肺炎，经西医抗生素治疗，病征消失大半，但咳嗽一直不得好转。西医对此解释是“炎症引起气道高反应”，从而刺激咳嗽回路因此咳嗽。这并没有错，但是如何施治？西医的检验和治疗方法都用遍了，持续4-5个月的咳嗽一直不得好转。以上都是三甲医院呼吸科专科医生提供的诊疗建议。
+那么中医怎么看待这个问题？中医根据痰液的颜色等指征诊断为脾湿所致肺经紊乱，建议以六君子汤治疗十天。吃药致第五、六天时依然不见好转，心生疑虑，至第九天，见效。至第十天，病情得以完全控制，咳嗽不见。
+从本例来讲，娃娃A、B都在问题妈妈面前给出了自己的解决方案，娃娃A对于主要炎症的起因解释和治疗是快捷准确的，但对于最终关键的咳嗽问题，娃娃B的方案得到问题妈妈的肯定，而不是娃娃A。
+当然，对于切身经历的此次咳嗽，我本人还有很多自己的观察和思考。其中最关键的一点，我发现，消化系统的健康状况确实对呼吸系统的健康状况有很大影响。这在目前的西医呼吸科相关研究中，并未见提到。
+回到主题，少抨击中医，尽管中医曾出现很多谬误，西医曾经的谬误也很多。只是，摒弃狭隘的是非对错观，拥抱“实践检验真理”的朴素科学观。认识世界要讲事实，论述世界要讲逻辑，简单的拿“娃娃B不符合娃娃A”去说“娃娃B”是完全错误的，这是一种幼稚的方法和手段，经不起推敲。中医大师施今墨所倡导的“中西医结合”，的确是值得采取的科学态度。
+另外要警惕的是，由于中医是中华文化中很重要的一部分，西方敌对势力可利用抨击中医，以达到不可告人的目的。例如借此瓦解中华文化、降低中国人的民族认同感等。</description>
+    </item>
+    
+    <item>
+      <title>Setting proxy for Windows CMD and Linux Terminal</title>
+      <link>http://example.org/posts/p20190726021700/</link>
+      <pubDate>Fri, 26 Jul 2019 02:17:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190726021700/</guid>
+      <description>I found my blog is deleted by platform! WTF? I shall transfer all my blogs to a SECURE place! As soon as possible!! Jun 07, 2021
+setting proxy for Windows CMD and Linux Terminal First ref(log in as owner): https://www.cnblogs.com/sonictl/diary/2021/06/07/14859534.html
+Linux Terminal: set http_proxy=http://127.0.0.1:8118 set https_proxy=http://127.0.0.1:8118
+set http_proxy= set https_proxy=
+more ref: Setting proxy for apt from terminal
+Windows CMD: format: set HTTP_PROXY=http://user:password@proxy.domain.com:port
+examples: set HTTP_PROXY=http://127.0.0.1:8118 set HTTPS_PROXY=http://127.0.0.1:8118
+Use Privoxy to transfer SOCKS to HTTP/HTTPS.</description>
+    </item>
+    
+    <item>
+      <title>Raspbian 在虚拟机上运行，运行Flask，供宿主机访问</title>
+      <link>http://example.org/posts/p20190722082500/</link>
+      <pubDate>Mon, 22 Jul 2019 08:25:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190722082500/</guid>
+      <description>Raspbian 在虚拟机上运行，启动Flask，供宿主机访问 参考ref 1, 在virtualbox上跑起来Raspbian OS 参考ref 2, 在Raspbian上安装并运行Falsk, 注意要外网访问得有个参数 &amp;ndash;host=0.0.0.0 参考ref 3, 用端口映射方法将内网ip暴露给宿主机。 映射主机 192.168.56.5556 到 宿主机 0.0.0.0:5000 在主机浏览器访问：192.168.56.5556 即可看到下图： **reference: ** http://www.penguintutor.com/raspberrypi/rpi-desktop-virtualbox https://flask.palletsprojects.com/en/1.0.x/quickstart/ https://www.cnblogs.com/Reyzal/p/7743747.html</description>
+    </item>
+    
+    <item>
+      <title>gensim Load embeddings</title>
+      <link>http://example.org/posts/p20190721025300/</link>
+      <pubDate>Sun, 21 Jul 2019 02:53:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190721025300/</guid>
+      <description>gensim package from gensim.models.keyedvectors import KeyedVectors twitter_embedding_path = &amp;#39;twitter_embedding.emb&amp;#39; twitter_vocab_path = &amp;#39;twitter_model.vocab&amp;#39; foursquare_embedding_path = &amp;#39;foursquare_embedding.emb&amp;#39; foursquare_vocab_path = &amp;#39;foursquare_model.vocab&amp;#39; # load the embedding vector using gensim x_vectors = KeyedVectors.load_word2vec_format(foursquare_embedding_path, binary=False, fvocab=foursquare_vocab_path) y_vectors = KeyedVectors.load_word2vec_format(twitter_embedding_path, binary=False, fvocab=twitter_vocab_path) print(&amp;#39;type(x_vectors)&amp;#39;, type(x_vectors)) print(&amp;#39;type(x_vectors.vocab)&amp;#39;, type(x_vectors.vocab)) print(&amp;#39;type(x_vectors.vocab.keys())&amp;#39;, type(x_vectors.vocab.keys())) Content in &amp;rsquo;twitter_embedding.emb&amp;rsquo;:
+5120 64 BarackObama -0.079930 0.106491 -0.075812 -0.026447 &amp;hellip; mashable 0.046692 -0.038019 -0.055519 &amp;hellip; &amp;hellip;
+Content in &amp;rsquo;twitter_model.vocab&amp;rsquo;:
+BarackObama 3475971 mashable 2668606 JonahLupton 2515250 instagram 2359886 TheEllenShow 2292545 cnnbrk 2157283 nytimes 2141588 foursquare 2021352</description>
+    </item>
+    
+    <item>
+      <title>keras及神经网络，以简单实例入门</title>
+      <link>http://example.org/posts/p20190704033500/</link>
+      <pubDate>Thu, 04 Jul 2019 03:35:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190704033500/</guid>
+      <description>由浅入深，深入浅出。还给你reference了很多，如果你想要更多。
+迄今为止看到最棒的，最值得follow的入门tutorial:
+https://realpython.com/python-keras-text-classification/
+↑由浅入深，深入浅出。还给你reference了很多，如果你想要更多。
+重点中的重点，得记录一下，好多csdn的blog都不负责地只贴图，不讲咋看图：
+You can see that we have trained our model for too long since the training set reached 100% accuracy. A good way to see when the model starts overfitting is when the loss of the validation data starts rising again. This tends to be a good point to stop the model. You can see this around 20-40 epochs in this training. 机器翻译：您可以看到，自从训练集达到100%的准确率以后，我们对模型的训练时间太长了。查看模型何时开始过拟合的一个好方法是验证数据的损失何时开始再次上升。这往往是一个停止模型的好点。你可以在这个训练中看到20-40个迭代周期。
+这也很重要： 扩展阅读：
+一个官方IMDB数据集上的教程：Keras with IMDB 知乎：AI从入门到放弃-BP神经网络算法推导及代码实现笔记 </description>
+    </item>
+    
+    <item>
+      <title>人工神经网络，以实例入门</title>
+      <link>http://example.org/posts/p20190630133200/</link>
+      <pubDate>Sun, 30 Jun 2019 13:32:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190630133200/</guid>
+      <description>ref: https://zhuanlan.zhihu.com/p/38006693
+由浅入深，深入浅出。😝</description>
+    </item>
+    
+    <item>
+      <title>proxy 2个工具： privoxy and proxifier</title>
+      <link>http://example.org/posts/p20190629140700/</link>
+      <pubDate>Sat, 29 Jun 2019 14:07:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190629140700/</guid>
+      <description>privoxy and proxifier privoxy - 把socks proxy 暴露成http proxy proxifier - Let All system flow go through proxy </description>
+    </item>
+    
+    <item>
+      <title>自建云存储：Nextcloud vs. ownCloud vs. Seafile (moved to https://sonictl.github.io)</title>
+      <link>http://example.org/posts/p20190608235700/</link>
+      <pubDate>Sat, 08 Jun 2019 23:57:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190608235700/</guid>
+      <description>Self-hosted Cloud Storage: Nextcloud vs. ownCloud vs. Seafile Updated at 2020-07-05 11:00: If you meet usability issues, consider Alternatives: VerySync(微力同步), Resilio Sync, Syncthing, Tresorit, Pydio, ownCloud, rsync, GoodSync. Why do you need to ditch nextcloud, owncloud, seafile, blabla&amp;hellip;
+Updated at 2020-05-19 07:36: I recently used seafile and nextCloud. tried deploying them. But what I&amp;rsquo;ve found: the advantage of nextCloud is that the developers seem to be more responsible, the disadvantage is that it doesn&amp;rsquo;t allow users to register their own accounts and requires administrators to open new ones.</description>
+    </item>
+    
+    <item>
+      <title>常用数学符号的 LaTeX 表示方法</title>
+      <link>http://example.org/posts/p20190530123100/</link>
+      <pubDate>Thu, 30 May 2019 12:31:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190530123100/</guid>
+      <description>常用数学符号的 LaTeX 表示方法 My notes: 空格间隙设置表：
+** 两个quad空格** a \qquad b $a \qquad b$ 两个m的宽度 quad空格 a \quad b $a \quad b$ 一个m的宽度 大空格 a\ b $a\ b$ 1/3m宽度 中等空格 a;b $a;b$ 2/7m宽度 小空格 a,b $a,b$ 1/6m宽度 没有空格 ab $ab,$ 紧贴 a!b $a!b$ 缩进1/6m宽度 正下方的下标 $\min \limits_{a,b} a x^2 + 2b$ : $\min \limits_{a,b} a x^2 + 2b$
+** Mathematical Fonts ** Let $ \mathcal{T} $ be a topological space, a basis is defined as \mathcal{B} = \{B_{\alpha} \in \mathcal{T}\, |\, U = \bigcup B_{\alpha} \forall U \in \mathcal{T} \} Let $ \mathcal{T} $ be a topological space, a basis is defined as $ \mathcal{B} = {B_{\alpha} \in \mathcal{T}, |, U = \bigcup B_{\alpha} \forall U \in \mathcal{T} } $</description>
+    </item>
+    
+    <item>
+      <title>中国计算机学会推荐国际学术会议和期刊目录(2019)</title>
+      <link>http://example.org/posts/p20190524032200/</link>
+      <pubDate>Fri, 24 May 2019 03:22:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190524032200/</guid>
+      <description>中国计算机学会推荐国际学术会议和期刊目录 （2019年）中国计算机学会推荐国际学术会议和期刊目录 中国计算机学会推荐国际学术期刊 (数据库/数据挖掘/内容检索) 一、A类 序号 刊物简称 刊物全称 出版社 网址 1 TODS ACM Transactions on Database Systems ACM http://dblp.uni-trier.de/db/journals/tods/ 2 TOIS ACM Transactions on Information Systems ACM http://dblp.uni-trier.de/db/journals/tois/ 3 TKDE IEEE Transactions on Knowledge and Data Engineering IEEE http://dblp.uni-trier.de/db/journals/tkde/ 4 VLDBJ The VLDB Journal Springer http://dblp.uni-trier.de/db/journals/vldb/ 二、B类 序号 刊物简称 刊物全称 出版社 网址 (^1) TKDD ACM Transactions on Knowledge Discovery from Data ACM http://dblp.uni-trier.de/db/journals/tkdd/ (^2) TWEB ACM Transactions on the Web ACM http://dblp.</description>
+    </item>
+    
+    <item>
+      <title>python assert</title>
+      <link>http://example.org/posts/p20190516070200/</link>
+      <pubDate>Thu, 16 May 2019 07:02:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190516070200/</guid>
+      <description>检查条件，如果不满足，则提示。
+assert os.path.isdir(my_Path), &amp;#39;dir path error&amp;#39; refer python 异常: 8. Errors and Exceptionshttps://docs.python.org/3/tutorial/errors.html
+. . . . . . . . .</description>
+    </item>
+    
+    <item>
+      <title>The component and implementation of a basic gradient descent in python</title>
+      <link>http://example.org/posts/p20190425130200/</link>
+      <pubDate>Thu, 25 Apr 2019 13:02:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190425130200/</guid>
+      <description>in my impression, the gradient descent is for finding the independent variable that can get the minimum/maximum value of an objective function. So we need an obj. function: $\mathcal{L}$
+an obj. function: $\mathcal{L}$ The gradient of $\mathcal{L}: 2x+2$ $\Delta x$ , The value of idependent variable needs to be updated: $x \leftarrow x+\Delta x$ 1. the $\mathcal{L}$ is a context function: $f(x)=x^2+2x+1$ how to find the $x_0$ that makes the $f(x)$ has the minimum value, via gradient descent?</description>
+    </item>
+    
+    <item>
+      <title>文本与网络中的幂率分布</title>
+      <link>http://example.org/posts/p20190410091000/</link>
+      <pubDate>Wed, 10 Apr 2019 09:10:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190410091000/</guid>
+      <description>问题背景：在大量文本中，对每个单词的出现次数进行统计，可以得到一张单词出现次数的表格。如：
+word #existance #of word with same existance a 100,000 20 an 100,000 20 boy 99,888 19 cat 99,877 18 &amp;hellip; &amp;hellip; &amp;hellip; dog 5000 3000 eat 4000 3000 &amp;hellip; &amp;hellip; &amp;hellip; folkloristic 20 80000 wacky 10 80000 zannichelliaceae 1 90009 后面2列，可据此形成二维坐标中的某个点。比如出现次数为100,000的单词，有20个。则对应坐标的横轴100,000，纵轴20.
+将所有的行都在坐标中标注，并去掉重复的标注点，即可得到如下的图：
+文本中的幂率分布即如下现象：
+可以看到具有低出现次数的单词（横坐标较小），数量很大（纵坐标较大）。反之，具有高出现次数的单词，比如a, of, with, for &amp;hellip; 数量并不多。而且在幂坐标系里，基本呈现线性，这就是所谓的幂率分布。
+可看成是一排学生，出现的次数相当于学生的身高。那些身高很高的学生个数并不多，而身高不高的学生数量庞大。大量单词仅仅出现少量的几次。
+对于Random Walk爬取的context， 其节点出现的频率与具有此频率的节点个数之间，也服从类似word 的幂率分布，这是DeepWalk拿来说事儿的根基。如图： 。
+网络节点的度分布与power law 看一个netGAN 论文（ICML2018）中的图： 度数小的节点，位于x轴左侧，数量较大，y轴上侧。度数大的节点，位于x轴右侧，在y轴上处于值较小的位置，及数量较少。</description>
+    </item>
+    
+    <item>
+      <title>有向图变无向图并存储</title>
+      <link>http://example.org/posts/p20190403040600/</link>
+      <pubDate>Wed, 03 Apr 2019 04:06:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190403040600/</guid>
+      <description>有向图变无向图并存储 Transform directed graph into undirected graph.
+&amp;#39;&amp;#39;&amp;#39; &amp;#39;&amp;#39;&amp;#39; import networkx as nx edgelist_path = &amp;#39;fq_following.number&amp;#39; edgelist=[] with open(edgelist_path, &amp;#39;r&amp;#39;) as edgelistX_reader: # input anchor for bind for line in edgelistX_reader.readlines(): temp_array = line.strip().split(&amp;#39; &amp;#39;) # edgelist.append(list(map(int, temp_array))) # for netX, directly append edgelistX_reader.close() nodeID_set = set() # set for store the nodes for i in edgelist: nodeID_set.add(i[0]) # nodeID_set.add(i[1]) # edges = [tuple(e) for e in edgelist] node_names = [n for n in nodeID_set] G = nx.</description>
+    </item>
+    
+    <item>
+      <title>python标签值标准化到[0-(#class-1)]（重新编码标签）</title>
+      <link>http://example.org/posts/p20190402115000/</link>
+      <pubDate>Tue, 02 Apr 2019 11:50:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190402115000/</guid>
+      <description>python 处理标签常常需要将一组标签映射到一组数字，数字还要求连续。 比如 [&amp;lsquo;a&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;, &amp;lsquo;a&amp;rsquo;, &amp;lsquo;a&amp;rsquo;, &amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;] ==(a-&amp;gt;0, b-&amp;gt;1, c-&amp;gt;2)=&amp;gt; [0, 1, 2, 0, 0, 1, 2]。 为了便于本文被搜索，加个关键词：重新编码
+可以用sklearn.preprocessing.LabelEncoder()这个函数。
+以数字标签为例： from sklearn import preprocessing le = preprocessing.LabelEncoder() le.fit([1,2,2,6,3]) #获取标签值#
+In [2]: le.classes_ Out[2]: array([1, 2, 3, 6]) #将标签值标准化#
+In [3]: le.transform([1,1,3,6,2]) Out[3]: array([0, 0, 2, 3, 1], dtype=int64) #将标准化的标签值反转# 即“反向编码”：
+In [4]: le.inverse_transform([0, 0, 2, 3, 1]) Out[4]: array([1, 1, 3, 6, 2]) 非数字型标签值标准化： In [5]: from sklearn import preprocessing .</description>
+    </item>
+    
+    <item>
+      <title>Why the Anaconda command prompt is the first choice in windows?</title>
+      <link>http://example.org/posts/p20190310132400/</link>
+      <pubDate>Sun, 10 Mar 2019 13:24:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190310132400/</guid>
+      <description>为什么在windows里，首选的conda命令行工具是Anaconda command prompt？
+In windows, what&amp;rsquo;s the difference between command prompt and anaconda prompt Anaconda command prompt is just like command prompt, but it makes sure that you are able to use anaconda and conda commands from the prompt, without having to change directories or your path.
+When you start Anaconda command prompt, you&amp;rsquo;ll notice that it adds/(&amp;ldquo;prepends&amp;rdquo;) a bunch of locations to your PATH. These locations contain commands and scripts that you can run.</description>
+    </item>
+    
+    <item>
+      <title>[转]Python 的列表解析式，集合解析式，字典解析式</title>
+      <link>http://example.org/posts/p20190307032200/</link>
+      <pubDate>Thu, 07 Mar 2019 03:22:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190307032200/</guid>
+      <description>Python 的列表解析式，集合解析式，字典解析式 这三种都是 python 里面的语法糖。
+语法糖，Syntactic Sugar，就是为了写程序时候少出错，发明的一些简便的方法，但不影响这个语法的功能。
+（我第一反应是 HP 里面的 chocolate frog，哈哈哈)
+1. 列表解析式 list comprehension 通常我们定义有内容 list 时，想对内容进行一些计算再放进去，除了使用 for 循环迭代出列表内的元素，进行计算再放进去，还可以在列表内直接写解析式计算。
+1.1 普通版：[expression for i in iterable] 比如，要求 1-10 的每个数字的算术平方根组成的集合。
+用 for 循环的话：
+lst = [] for i in range(1, 11): i = i ** 0.5 #不用pow()是因为这样计算比较快 lst.append(i) 这样看起来就比较繁琐。 用列表解析式的话，就相当于把上面的内容都浓缩起来：
+lst = [ i**0.5 for i in range(1,11) ] 这样看起来就很清爽，前面是要对 i 做的处理，后面是 i 从哪里迭代，这些都用中括号 [ ] 括起来，是生成一个列表。
+1.2 进阶版 [expression for i in iterable if… for j in iterable if… …] 前面还是表达式，但是后面写的是双循环，还有判断条件，就是符合条件的再进前面的表达式。</description>
+    </item>
+    
+    <item>
+      <title>由《把兴趣当职业到底靠不靠谱》想到的</title>
+      <link>http://example.org/posts/p20190307020700/</link>
+      <pubDate>Thu, 07 Mar 2019 02:07:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190307020700/</guid>
+      <description>由《把兴趣当职业到底靠不靠谱》想到的 2018年，梁宏达在他的《梁知》节目中讨论了一期关于职业发展相关的话题，“把兴趣当职业到底靠不靠谱”。
+节目中他举了几个把兴趣当职业的例子，都是失败的案例。他总结的原因是：对某个事情产生的兴趣往往来自于做这些事情的人们身上所披的外在的光环。而当你真正了解到、接触到这些事情以后，往往会被其中的艰辛、困难等等吓跑或者吃不消。
+他举了名企高管辞职开咖啡馆遇到经营难题的例子、自己爱好乒乓球接触到专业训练时体力不支的例子、郎朗练习钢琴对高强度练习的反感最终坚持下来的例子。等。
+他说，人们真正对工作有兴趣，不应该是“爱一行，干一行”， 而是“干一行，爱一行”。意思是只有将工作干好了，得到同行和社会的肯定了，兴趣自然就来了。评论区里网友就说了，说我能做出别人做不出的数学题，自己对数学的兴趣就萌生了。
+总结起来，职业选择时，考虑个人兴趣时，老梁认为切忌因为只看到某个职业的外在而忽略了其背后的艰辛和对个人能力天赋的要求。如果根据这样产生的兴趣而选择自己一生的职业，往往会入行以后不满意自己的职业。而很多由兴趣出发的职业选择都会遇到这样的问题。所以，多数从兴趣出发的职业选择往往是不靠谱的。
+我想，对绝大多数人来说，职业选择应该首先是个人谋生的手段。如果还需要谋生，即需要社会对个人的认可，而不是个人对社会的挑选。中心在于环境和社会，不是个人。 这牵涉的问题应该是如何看待个人和世界的关系问题。如果一个人以个人为中心，那么他会更倾向于满足自己内心的诉求去做出行为选择，包括职业选择。反过来，以社会为中心和主体，他的选择会迎合社会发展需要，比如选择普遍高薪和人才相对紧缺的行业。
+节目中透露出来的一个推论就是，谋生的职业往往是不舒适的，而兴趣往往是带来舒适感的。这二者存在着天生的矛盾。个人没有能力改变社会让谋生变成一个舒适的过程，工作中总有各种因素导致不如意。那么问题就成了工作不如意时，如何进行个人心态调适。
+顺境中成长的人，往往太关心自我的感受，牺牲和奉献为其忽略。而这对于职业发展来说，往往是不可或缺的。</description>
+    </item>
+    
+    <item>
+      <title>装python package 时，conda提示会升级python2到python3，那可能是你的windows不支持py2env下的此包。</title>
+      <link>http://example.org/posts/p20190115130900/</link>
+      <pubDate>Tue, 15 Jan 2019 13:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190115130900/</guid>
+      <description>装python package 时，conda提示会升级python2到python3， 那可能是你的windows不支持py2env下的此包。比如：win 下，tensorflow就不支持py2的环境。你要装tf就必须升级python2 到 python3. 而代码又是用python2 写的，就出这问题了。</description>
+    </item>
+    
+    <item>
+      <title>Mac 启用NTFS</title>
+      <link>http://example.org/posts/p20190108082400/</link>
+      <pubDate>Tue, 08 Jan 2019 08:24:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20190108082400/</guid>
+      <description>How to Enable NTFS Write Support in Mac OS X http://osxdaily.com/2013/10/02/enable-ntfs-write-support-mac-os-x/</description>
+    </item>
+    
+    <item>
+      <title>python3&#43;2 不换行打印，多用于进度条 process bar</title>
+      <link>http://example.org/posts/p20181213132800/</link>
+      <pubDate>Thu, 13 Dec 2018 13:28:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20181213132800/</guid>
+      <description>用tqdm包实现进度条： tqdm基本用法：
+from time import sleep from tqdm import tqdm for i in tqdm(range(10000)): sleep(0.01) tqdm更多用法：https://blog.csdn.net/langb2014/article/details/54798823
+python3 不换行打印，多用于进度条 process bar process = 0 # process bar for i in user: process += 1 print(&amp;#34;\rProcess: %f &amp;#34; % (process/len(user)), end=&amp;#39;&amp;#39;) process_code() 更多样式：
+proc += 1 print(&amp;#39;\r loading... %.2f %%&amp;#39; % (process/len(user)*100), end=&amp;#39;&amp;#39;) python2: 对于py2来讲，主要起作用的是末尾的逗号：
+print &amp;#39;\r loading... {:.3f}&amp;#39; .format( (float(proces))/len(user)*100 ) , print(&amp;#39;%.3f&amp;#39; % 1.12345678) # Let&amp;#39;s take 3 decimal places print&amp;#39;{:.</description>
+    </item>
+    
+    <item>
+      <title>面向的phthon2&#43;3 的场景,Anaconda 安装&#43;环境配置&#43;管理</title>
+      <link>http://example.org/posts/p20181127033400/</link>
+      <pubDate>Tue, 27 Nov 2018 03:34:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20181127033400/</guid>
+      <description>standard procedure in pyCharm for creating environment when Anaconda installed Create a conda env via pyCharm open pyCharm
+create new project &amp;ndash; select Conda as New env using.
+Locations: ~\Anaconda_x\envs\py3env PythonVersion: python3.6 (python2.x as alternate) Conda Excutable: ~\Anaconda_x\Scripts\conda.exe :ballot_box_with_check:⊙Make available to all projects you can open terminal tab(Alt + F12) in pyCharm and manage the packages using conda commands. For instance, run the commands below for installing the numpy package:</description>
+    </item>
+    
+    <item>
+      <title>How can I manage the modules for python2 when python3 installed as well. In OSX</title>
+      <link>http://example.org/posts/p20181120080400/</link>
+      <pubDate>Tue, 20 Nov 2018 08:04:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20181120080400/</guid>
+      <description>ref: https://stackoverflow.com/questions/53385448/how-can-i-manage-the-modules-for-python2-when-python3-installed-as-well-in-osx
+I&amp;rsquo;m using OSX and I installed python3 with anaconda installed. In my OSX, there exists two versions of python, i.e. python2 and python3.
+I managed the modules in anaconda which only affect modules in python3. But how can I manage(install, delete, update) the modules for python2?
+I&amp;rsquo;ve checked some posts about &amp;lsquo;python2 is at /usr/bin/python&amp;rsquo; . So it&amp;rsquo;s ok to use python2 by &amp;lsquo;/usr/bin/python&amp;rsquo; without configuring alias. But, how can I manage(install, delete, update) the modules for python2 when python3 installed as well.</description>
+    </item>
+    
+    <item>
+      <title>Google Colab Notebook 的外部文件引用配置</title>
+      <link>http://example.org/posts/p20181030120900/</link>
+      <pubDate>Tue, 30 Oct 2018 12:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20181030120900/</guid>
+      <description>Google Colab Notebook 的外部文件引用配置 Reference: How to upload the file and read Google Colab
+先装工具：google-drive-ocamlfuse
+!apt-get install -y -qq software-properties-common python-software-properties module-init-tools !add-apt-repository -y ppa:alessandro-strada/ppa 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null !apt-get update -qq 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null !apt-get -y install -qq google-drive-ocamlfuse fuse from google.colab import auth auth.authenticate_user() from oauth2client.client import GoogleCredentials creds = GoogleCredentials.get_application_default() import getpass !google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret} &amp;lt; /dev/null 2&amp;gt;&amp;amp;1 | grep URL vcode = getpass.getpass() !echo {vcode} | google-drive-ocamlfuse -headless -id={creds.</description>
+    </item>
+    
+    <item>
+      <title>Zotero 容量满了，用云盘自动同步 - Extending Zotero&#39;s syncing folder size by DropBox</title>
+      <link>http://example.org/posts/p20180930101000/</link>
+      <pubDate>Sun, 30 Sep 2018 10:10:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180930101000/</guid>
+      <description>Zotero 容量满了，用云盘自动同步
+就同步“storage&amp;quot; 那个文件夹就行了。
+https://www.zotero.org/support/sync#alternative_syncing_solutions https://forums.zotero.org/discussion/29831/what-is-this-pipes-folder-in-my-zotero-folder
+What you should do, is In Zotero re-locate the data directory back out of the Google Drive folder (same instructions as you followed previously). Close Zotero/Firefox.
+Disable Google Drive syncing
+In Google Drive folder, move (not copy) the &amp;ldquo;storage&amp;rdquo; folder out of the Zotero data directory somewhere else inside the Google Drive folder.
+Move the Zotero data directory out of Google Drive folder to the folder you selected above in Zotero.</description>
+    </item>
+    
+    <item>
+      <title>用python &#43; networkx探索和分析网络数据</title>
+      <link>http://example.org/posts/p20180919131000/</link>
+      <pubDate>Wed, 19 Sep 2018 13:10:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180919131000/</guid>
+      <description>Edited by Markdown
+Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart, &amp;ldquo;Exploring and Analyzing Network Data with Python,&amp;rdquo; The Programming Historian 6 (2017), https://programminghistorian.org/en/lessons/exploring-and-analyzing-network-data-with-python.
+只是一个笔记，细节要看原文。
+用python探索和分析网络数据 Table of Contents 目标和要求 [数据准备 和 NetworkX 安装](#数据准备 和 NetworkX 安装) 获取数据和基本的操作 进一步分析 [添加属性](#Add attributes) 网络度量分析 The Shape of the Network 最短路径 找出最大component 并生成子图 triadic closure Centrality 度数 特征值中心性 介数中心性 社区发现 导出数据和做结论 目标和要求 **Goals:**做完这里的步骤，你将得到如下技能：
+使用Python的NetworkX 包来分析一个网络。 通过分析一个humanities network data来得到以下几点： 网络结构和path length 找到重要的或中心的节点 找到社区和subgroups 通过量化网络分析的方法，你将可以回答像这样的问题： What is the overall structure of the network?</description>
+    </item>
+    
+    <item>
+      <title>从诠释学到数据到网络:历史来源的数据提取和网络可视化</title>
+      <link>http://example.org/posts/p20180916101600/</link>
+      <pubDate>Sun, 16 Sep 2018 10:16:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180916101600/</guid>
+      <description>从诠释学到数据到网络:历史来源的数据提取和网络可视化 reference：From Hermeneutics to Data to Networks: Data Extraction and Network Visualization of Historical Sources
+本教程介绍如何通过使用定性数据分析(QDA)和社会网络分析(SNA)中开发的非技术方法从历史来源提取网络数据(人员、机构、地点等)，以及如何使用平台无关的、特别易于使用的Palladio将这些数据可视化。
+Table of Contents 简介和案例 [编码方案coding scheme](#编码方案coding scheme) 用Palladio可视化 可视化后的附加值 其他可视化工具 简介和案例 网络可视化可以帮助人文学者揭示文本来源中隐藏的、复杂的模式和结构。本教程解释了如何使用Qualitative Data Analysis (QDA) and Social Network Analysis (SNA)中开发的非技术方法从历史来源提取网络数据(人员、机构、地点等)， 及怎样使用一个独立与平台的、易用的可视化工具Palladiolink来可视化网络。
+图1:Palladio中的网络可视化以及在本教程结束时您将能够创建的内容。
+上图显示的是拉尔夫·诺伊曼(Ralph Neumann)网络中的一段摘录，特别是他与那些在1943年至1945年期间帮助过他和他妹妹的人之间的联系。您可以很容易地修改图表，并询问:谁以哪种方式提供了帮助? 什么时候帮助的? 谁与谁有联系?
+This tutorial:
+data extraction from unstructured text shows one way to visualize it using Palladio 案例背景 这是一个人类学phD的研究案例的一部分，比如，作者研究这样的问题：
+社会关系在多大程度上可以解释为什么普通人愿意冒险帮助别人? 这种关系如何使人们能够在资源有限的情况下提供这些帮助? 社会关系如何帮助犹太难民在地下生存? 在这个项目中，网络可视化帮助我发现了迄今为止被遗忘但非常重要的联系人经纪人，突出了犹太难民作为联系人经纪人的整体意义，并且在1942年到1945年间，帮助了大约1400人，总共有5000次。
+下面我将介绍的编码方案是我在博士项目（二战期间关于秘密支持网络）中的一个简化版本。
+编码方案coding scheme 在可视化网络关系时，首先也是最困难的挑战之一是决定谁应该是网络的一部分，以及选择的参与者之间的关系将被编码。这可能需要一些时间来弄清楚，并且可能是一个迭代的过程，因为您需要平衡您的研究兴趣和假设与您的文本中的信息的可用性，并以严格的和必要的简化编码方案来表示。
+在这个过程中主要的问题是:
+两个参与者之间关系的哪些方面是相关的? 谁是网络的一部分?谁不是呢? 哪些属性重要?</description>
+    </item>
+    
+    <item>
+      <title>delete content on the right of cursor, Mac</title>
+      <link>http://example.org/posts/p20180713042000/</link>
+      <pubDate>Fri, 13 Jul 2018 04:20:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180713042000/</guid>
+      <description>Forward delete content on the right of cursor, Mac It&amp;rsquo;s not convenient to press Fn+delete to delete content on the right of cursor, on Macintosh. They&amp;rsquo;re too faraway.
+Forward Deleting For instance: For test: ab|cd, the cursor is between b and c, deleteForward makes the text ab|cd into ab|d .
+Use Mastero Keyboard tool: Adding the Macro for DeleteForward
+For adding the action, select &amp;lsquo;KeyStroke&amp;rsquo;: Another method using Karabiner tool (not tested) Use Karabiner to remap RightShift+delete to Fn+delete so that we can only one right hand to implement that deleting backward.</description>
+    </item>
+    
+    <item>
+      <title>markdown工具对比： 作业部落 vs Typora</title>
+      <link>http://example.org/posts/p20180708102100/</link>
+      <pubDate>Sun, 08 Jul 2018 10:21:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180708102100/</guid>
+      <description>2者都挺优秀的，但是在具体使用时还是遇到一些问题：
+功能 作业部落 Typora 图片调整大小 × √ how to 在线同步，易于分享 √ × pdf对emoji的支持 × √ pdf的text view: View pdf as a text file 时，对中文的支持，这个影响pdf内搜索中文的性能，以及分享上传后是否会乱码。 √ × 代码语法支持高亮 × √ </description>
+    </item>
+    
+    <item>
+      <title>win7&#43;win10系统使用日常经验集锦</title>
+      <link>http://example.org/posts/p20180522034400/</link>
+      <pubDate>Tue, 22 May 2018 03:44:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180522034400/</guid>
+      <description>请保留此份 Cmd Markdown 的欢迎稿兼使用说明， 当然你也可以使用彩色字体。 或者使用小体字。 或者使用大体字。 如需撰写新稿件，点击顶部工具栏右侧的 新文稿 或者使用快捷键 Ctrl+Alt+N。
+罗技M720鼠标连接从蓝牙换成优联的方法 最近使用罗技M720鼠标，挺不错的，可以连接三个设备，切换很方便，不过有个小问题挺困扰的，就是重设某一个连接，例如鼠标1档连接蓝牙，2档连接优联，现在想将1档换成优联，2档换成蓝牙就不知道怎么做了，搜了半天也没找到方法，最后自己摸索着切换成功，分享一下操作步骤：
+安装优联配置程序。https://support.logi.com/hc/zh-cn/articles/360025297913 在优联配置程序里取消已有的优联配对，在Win系统设置里取消鼠标蓝牙配对。 （此步最好插一个usb鼠标方便操作） 拔掉优联适配器关闭蓝牙，鼠标调到1档关闭鼠标电源。 插上优联适配器，打开优联配置程序点击配对新设备，打开鼠标电源等待两三秒后1档就自动连接为优联了。 （这个方法可能不是最佳的，不过是可行的，另外罗技的其它可切换连接的鼠标应该也适用吧）
+键盘鼠标共享效率工具-Synergy 鼠标跨屏工具 Synergy. 支持Linux,Mac,Windows。 v1.5 之后就是收费版本了。
+word 2016 通配符（wildcard）查找和替换 使用()可以指定内容位置，然后用\1\2来操作它们。 比如对于 &amp;quot;9&amp;quot;、 &amp;quot;10&amp;quot; 这种【被英文引号的数字】，想要替换所有的左侧引号为中文的左引号“；右侧引号为中文的右引号”， 首先需要用数字通配符[0-9]找到数字。对于左引号，用&amp;quot;[0-9]可以找到，但是为了替换，给它加上括号，用(&amp;quot;)([0-9])。这样，第一个括号里的内容就可以通过\1来调用， 第二个括号里的内容就可以通过\2来调用。在替换栏就填写“\2这样就只替换了左边的引号，保留了\2所代表的数字。
+查找：(&amp;quot;)([0-9]) 替换：“\2
+&amp;ndash;
+查找：([0-9])&amp;quot; 替换：(\1)”
+即可解决。 参考1：https://wordmvp.com/FAQs/General/UsingWildcards.htm 参考2：https://www.cnblogs.com/whchensir/p/5180793.html
+word 2016 公式的格式和编号，交叉引用 1） 关于格式：公式居中，编号靠右。使用Tabs（制表符），设置制表符的对齐方式为居中、靠右。即可解决。网上一搜一大把。 2） 关于编号：编号就Reference &amp;ndash;&amp;gt; 新增caption &amp;ndash;&amp;gt; New Label, 填“（” . 其他的设置自己多试几次，比如分隔符，包括上一级编号等。 3） 关于交叉引用：直接引用会把公式内容包含进去，这里使用插入书签（BookMark）的方法。选中每一个编号，新建书签。再引用书签。 这个交叉引用是比较低效，但是没找到别的办法。搞了一下午，shit!
+windows实时网速监控小软件traffic monitor Introduction to TrafficMonitor Traffic Monitor is a Windows platform for Internet speed monitoring hover window software, can display the current Internet speed, CPU and memory utilization, support for embedded in the taskbar display, support for changing the skin, historical traffic statistics and other functions.</description>
+    </item>
+    
+    <item>
+      <title>浅谈高维数据可视化中的降维方法</title>
+      <link>http://example.org/posts/p20180520014900/</link>
+      <pubDate>Sun, 20 May 2018 01:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180520014900/</guid>
+      <description>浅谈高维数据可视化中的降维方法 来源：[link]: https://blog.csdn.net/u011001084/article/details/51396447
+我们生活在三维空间中，很难直接理解三维以上的空间（爱因斯坦等牛人除外）。但是爱因斯坦这样的人毕竟在人群中是少数，对大多数人来说，高维数据如何进行可视化呢？
+聪明的人可以用其他的视觉通道对一些维度进行视觉编码，比如颜色、形状、朝向、体积、半径、表面覆盖物等等。。。不过有两个很显然的问题，1）用户理解起来，不那么方便了。可能要想半天才能反应过来，因为要对这些视觉通道进行一一的反编码，记住这些本身就挺难的。2）维度比较大，不多说，就十几维，恐怕视觉通道已经捉襟见肘，不够用了。
+那咋办呢？目前，对高维数据进行可视化主要有三大类方法。
+得益于机器学习的发展，降维的方法越来越多。把维度降到2或者3，就可以用非常传统的散点图来将结果进行可视化了。但是降维带来的问题也是显然的，降维的初衷是将原始维度中冗余无用的信息滤掉，不过这个过程很可能不能避免的将有用的信息也丢失掉了。 为了避免上面的问题，第二类方法决定不降维了，直接用散点矩阵把维度直接的两两关系全部展现出来，，这样用户就可以很清楚的看到维度之间的两两关系了嘛。但是你很快就头疼了，10维的散点矩阵，足足有100个小的散点图，这可咋看呀！ 第三种方法呢，是想不降维，但同时也不希望出现太多的图让用户去看，最好就一张图。典型的代表方法有平行坐标轴、RadViz、Star coordinates等，以及最近华人学者曹楠老师提出来的UnTangle Map【1】，感兴趣的可以看后面列出来的参考文献。 这篇博客主要介绍第一类方法，降维。线性和非线性各选两三种有代表性的方法讲述。降维方法的分类见下图： 线性降维方法 PCA 可能大部分人接触的第一个降维方法都是PCA，PCA是一种线性的降维方法，举一个二维特征的例子，见下图。这两个特征之间存在着很明显的线性关系，检测出这些线性关系，并且去除它是PCA的目标。具体到下面的这个图，如果我们把x1,x2坐标系换成u1，u2 ，可以看到u1反应了特征的主要变化，而u2的变化比较小，几乎可以忽略不计，那么就可以用u1一个维度代表x1，x2 两个维度，也就达到了降维的目的。
+我承认，目前比较火的图像、视频、文字等多媒体数据大多是在一个非线性的流形上或者附近，PCA作为一种线性的降维方法可能不太使用了。但是PCA依然是不可替代的，比如去年IEEE Vis年会中的可视分析（VAST2015）最佳论文就颁给了一个使用PCA来做动态网络分析的工作【2】。
+LDA 与PCA保持数据信息不同，LDA是为了使得降维后的数据点尽可能地容易被区分。既然是线性的，那么就是希望找到映射向量a， 使得 a‘X后的数据点能够保持以下两种性质：
+同类数据点尽可能接近 不同类数据点尽可能分开 为了显示与PCA的区别，在网上找来了下面的图，PCA找到的是轴2，LDA找到的是轴1. LDA与PCA的目标不同，LDA希望降维后数据可以很容易的被分开。
+近期也看了一篇Pacific Visualization 2016里利用LDA进行高维子空间的维度重建相关工作的论文【3】。
+非线性降维方法 MDS MDS中文名叫多维尺度分析，主要考虑的是成对样本间的相似性，主要思想是用成对样本的相似性来构建合适的低维空间，使得样本在低维空间的距离和高位空间中的距离尽可能的保持一致。非常合理但是有很对的思想。根据样本是否可计量，可分为Metric MDS和Nonmetric MDS。目标函数是每对低维空间中的欧式距离与高维空间中相似度差的平方和，最小化目标函数，用一些数值优化方法来得到最优解。
+Isomap Isomap的理论框架是MDS，但是高维空间中的距离变了，不再是欧式距离了，而是用测地线距离代替了欧式距离。所谓的测地线，就是流形上加速度为零的曲线，等同于欧式空间中的直线。如下图所示，s曲面上蓝色和红色的两点，欧式距离很小，而实际上他们之间没有路，因此必须沿着曲面走完测地线，所以他们之间的距离很大。
+SNE &amp;amp; t-SNE 这两种方法是Hinton组【4】提出的，可以说是state-of-art的方法。SNE想法与MDS类似，也是想将高维空间中的邻居信息保存到低维空间中，不过SNE的心比较小，它不是将所有点对直接的距离都保存下来，它只想将跟附近的邻居在一起，其他的离他本来就很远的点，根本不care。他的做法是将高维空间中点与点之间的欧式距离转化成条件概率，来代表相似度。低维空间中，也同样计算出这样一个概率。现在有了两个概率分布，怎么衡量他们之间的相似度呢？用KL散度！
+KL散度是不平衡的，KL(p||q)与KL(q||p)不相对，这意味着不同种类的点对之间的距离错误在低维空间中没有得到同等对待。因此，symmetric SNE被提出来了。
+t-SNE对于SNE改进是将高维空间中的欧氏距离换成了高斯分布，低维空间中，使用了heavy-tailed student t-distribution。带来了两个优点：
+t-SNE的梯度强烈抵制不相似的点对在低维空间中被建模成距离很近。 尽管引入了不相似点对之间强烈的排斥，排斥力不会走向无穷。 t-SNE主要包括两个步骤：第一、t-SNE构建一个高维对象之间的概率分布，使得相似的对象有更高的概率被选择，而不相似的对象有较低的概率被选择。第二，t-SNE在低维空间里在构建这些点的概率分布，使得这两个概率分布之间尽可能的相似，同样也是来度量两个分布之间的相似性。
+t-SNE可以将MNIST手写数字集几乎完全分开。在线尝试：http://scienceai.github.io/tsne-js/
+t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期刚结束的WWW 2016上，华人学者唐健提出的LargeViz【5】，速度比t-SNE快了近30倍，想法很好！这种好的工作，比改改深度学习中网络的结构，调调参数，水一百篇论文更有意义！
+参考文献 【1】Nan Cao, Yu-Ru Lin, and David Gotz ，UnTangle Map: Visual Analysis of Probabilistic Multi-Label Data ，IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL.</description>
+    </item>
+    
+    <item>
+      <title>NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)</title>
+      <link>http://example.org/posts/p20180515082700/</link>
+      <pubDate>Tue, 15 May 2018 08:27:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180515082700/</guid>
+      <description>NEU(Fst Network Embedding Enhancement via High Order Proximity Approximation)
+NEU：通过对高阶相似性的近似，加持快速网络嵌入 NRL的框架总结 First, Clarify the notations and formalize the problem of NRL. Then, Introduce the concept of k-order proximity. Finally, Summarize an NRL framework based on proximity matrix factorization and show that the aforementioned NRL methods fall into the category. 定义本文处理的图是无权无向图。这也是他的局限性。这是一个NEU算法的缺点!
+对角阵 $D_{ii}=d_i$是$v_i$节点的度。$A=D^{-1} \widetilde A$ ，是对邻接矩阵$\widetilde A$的归一化结果。 Laplacian Matrix: $\widetilde L = D - \widetilde A$, 这是把$\widetilde A$全取反再在对角线上加上$v_i$的度数。 Normalized Laplacian Matrix: $ L = D^{-\frac{1}{2}}\widetilde L D^{-\frac{1}{2}} $</description>
+    </item>
+    
+    <item>
+      <title>不用MathType, 如何在Mac Word中插入公式</title>
+      <link>http://example.org/posts/p20180512004400/</link>
+      <pubDate>Sat, 12 May 2018 00:44:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180512004400/</guid>
+      <description>不用MathType, 如何在Mac Word中插入公式 找了好久都找不到MathType的破解版，不得不使用免费清爽的MarkDown编辑工具Typora_for_Mac. 我是很喜欢Typora的风格和功能。用它和MarkDown的LaTeX语法编辑好公式，再导出.docx文件，将需要的公式复制进word即可。趁现在Typora还在Beta版，免费，赶紧用。
+找了好久都找不到MathType的破解版，不得不使用免费清爽的MarkDown编辑工具Typora_for_Mac. 我是很喜欢Typora的风格和功能。用它和MarkDown的LaTeX语法编辑好公式，再导出.docx文件，将需要的公式复制进word即可。趁现在Typora还在Beta版，免费，赶紧用。
+找了好久都找不到MathType的破解版，不得不使用免费清爽的MarkDown编辑工具Typora_for_Mac. 我是很喜欢Typora的风格和功能。用它和MarkDown的LaTeX语法编辑好公式，再导出.docx文件，将需要的公式复制进word即可。趁现在Typora还在Beta版，免费，赶紧用。
+Mathtype for mac 破解版怎么安装呢？Mathtype for mac 破解版序列号怎么获得？Mathtype for mac有的用户埋怨只能使用30天，今天小编就找了一个破解版的，让大家能免费的长期用下去，在上传的文件里面带有序列号生成器，下面小编就详细的教大怎么安装Mathtype。
+软件名称： Mathtype for Mac 6.7build 14072800 破解版 苹果电脑版 软件大小： 12.6MB 更新时间： 2015-07-21 软件名称： Mathtype for Mac(数学学习软件) 6.7 build 14072800 苹果电脑版 软件大小： 29.6MB 更新时间： 2015-07-21 第一步：打开下载的Mathtype for mac 破解版文件。
+第二步：点击左边的安装文件，会得到提示，下图所示：
+第三步：选择好，然后会在弹出提示窗口，点击继续，如下图所示：
+第四步：因为暂时只有英文版的，所以选择英文版，点击继续安装，如下图所示：
+第五步：会弹出提示窗，要求同意软件许可协议，点击同意，选择继续，如下图所示：
+第六步：输入用户密码，继续安装软件，如下图所示：
+第七步：这是最重要的一步，现在打开下载文件中的MTkey文件，获取序列号，选择第二个选项，按照小编的方法粘贴复制进去，如下图所示：
+第八步：继续进行安装。
+第九步：会有提示，这个提示没关系，继续点击下一步，然后就会完成所有安装步骤。
+第十步：安装完成，正常使用，小编亲测截图，如下图所示：</description>
+    </item>
+    
+    <item>
+      <title>智慧和道德</title>
+      <link>http://example.org/posts/p20180417034200/</link>
+      <pubDate>Tue, 17 Apr 2018 03:42:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180417034200/</guid>
+      <description>有关智慧，我想对他们说的是：不管你是在研究什么事物，还是在思考任何观点，只问你自己，事实是什么，以及这些事实所证实的真理是什么。永远不要让自己被自己所更愿意相信的、或者认为人们相信了、会对社会更加有益的东西所影响。只是单单地去审视，什么才是事实。这是我想说的，关乎智慧的一点。
+我想对他们说的有关道德的一点，十分简单。我要说：爱是明智的，恨是愚蠢的。在这个日益紧密相连的世界，我们必须学会容忍彼此，我们必须学会接受这样一个事实：**总会有人说出我们不想听的话。只有这样，我们才有可能共同生存。**而假如我们想要共存，而非共亡，我们就必须学会这种宽容与忍让，因为它们对于人类在这个星球上的存续，是至关重要的。
+——伯特兰.罗素</description>
+    </item>
+    
+    <item>
+      <title>Install Python on Mac (Anaconda)</title>
+      <link>http://example.org/posts/p20180416103500/</link>
+      <pubDate>Mon, 16 Apr 2018 10:35:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180416103500/</guid>
+      <description>Install Python on Mac (Anaconda) 标签（空格分隔）： 运维
+This blog is copy from the link: https://medium.com/@GalarnykMichael/install-python-on-mac-anaconda-ccd9f2014072
+The install pycharm and anaconda tutorial is here.
+As I&amp;rsquo;m now transfering from PC to Mac, I&amp;rsquo;m getting used to work on Mac, which is a suffering process. Oah&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>对数几率回归-Logistic Regression</title>
+      <link>http://example.org/posts/p20180413121200/</link>
+      <pubDate>Fri, 13 Apr 2018 12:12:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180413121200/</guid>
+      <description>Finally, I&amp;rsquo;d use English for excercise and for conveniently type in the equations without switch. Table of content:
+[TOC]
+Recall, Implement and Experiment for Logistic Regression 1. Recall the Linear Model Linear regression is for learing the parameter of $\boldsymbol{w}$ and $\boldsymbol{b}$ for: $$ f(x_i) = wx_i + b,,,, \mathrm{and ,, let ,,} f(x_i) \simeq y_i$$
+2. Logistic regression Logistic regression is a linear model for classfy data. The generalized linear model equation:</description>
+    </item>
+    
+    <item>
+      <title>LINE 论文笔记 - 【结硬寨，打呆仗】</title>
+      <link>http://example.org/posts/p20180410094200/</link>
+      <pubDate>Tue, 10 Apr 2018 09:42:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180410094200/</guid>
+      <description>作者：玛卡瑞纳_a63b链接：https://www.jianshu.com/p/8bb4cd0df840來源：简书
+新加入的顶点如何处理？</description>
+    </item>
+    
+    <item>
+      <title>公式for TinyMCE 编辑器@ cnblogs.com</title>
+      <link>http://example.org/posts/p20180404082900/</link>
+      <pubDate>Wed, 04 Apr 2018 08:29:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180404082900/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Notes on Noise Contrastive Estimation and Negative Sampling</title>
+      <link>http://example.org/posts/p20180404081800/</link>
+      <pubDate>Wed, 04 Apr 2018 08:18:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180404081800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Word2vec 梳理</title>
+      <link>http://example.org/posts/p20180327081100/</link>
+      <pubDate>Tue, 27 Mar 2018 08:11:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180327081100/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Strandbeest mechanism and Leg mechanism</title>
+      <link>http://example.org/posts/p20180322123200/</link>
+      <pubDate>Thu, 22 Mar 2018 12:32:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180322123200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>网络表示学习Network Representation Learning/Embedding</title>
+      <link>http://example.org/posts/p20180222134700/</link>
+      <pubDate>Thu, 22 Feb 2018 13:47:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20180222134700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>禁用firefox 56自动更新</title>
+      <link>http://example.org/posts/p20171227130300/</link>
+      <pubDate>Wed, 27 Dec 2017 13:03:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20171227130300/</guid>
+      <description>firefox 56支持旧式扩展，这很科学~~ 它却自动更新，简单地关了也不行，很是牛氓！ ==========
+-备份C:\Users\用户名\AppData\Roaming\Mozilla\Firefox\Profiles 文件夹。
+-卸载FF57，重启，用everything搜索所有ff残留文件，删除，安装56.0.2，断网运行FF，关闭FF 将配置文件覆盖回。
+-断网运行FF，设置里关闭自动更新，about：config里false以下3项： app.update.auto app.update.enabled app.update.service.enabled
+-还有一个重要任务：
+Edit the file prefs.js, located in %APPDATA%\Mozilla\Firefox\Profiles\xyz.default\ which usually translates to C:\Users\username\AppData\Roaming\Mozilla\Firefox\Profiles\xyz.default\ (Note: username and xyz will vary) Make sure the line user_pref(&amp;ldquo;app.update.enabled&amp;rdquo;, false); is present in the file; if it isn&amp;rsquo;t, add it or modify it. Ignore the warning that this file should not be edited Save and close the file. OK. Optional: Note the button &amp;ldquo;Check for updates&amp;rdquo; in the &amp;ldquo;About Firefox&amp;rdquo; dialog box.</description>
+    </item>
+    
+    <item>
+      <title>用bayes公式进行机器学习的经典案例</title>
+      <link>http://example.org/posts/p20171215032500/</link>
+      <pubDate>Fri, 15 Dec 2017 03:25:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20171215032500/</guid>
+      <description>用bayes公式进行机器学习的经典案例 从本科时候（大约9年前）刚接触Bayes公式，只知道P(A|B)×P(B) = P(AB) = P(B|A)×P(A)
+到硕士期间，机器学习课上对P(B|A)P(A)冠以“先验概率”，而不知“先验”二字到底从何而来。
+再到工作了几年之后重回校园，重新拾起对求知的热情，重新用向小白讲述Bayes公式的态度，讲述自己对它最朴素的理解。尽量让像我一样刚入门的小白同学们，能用生活中最朴素的例子找到bayes公式中，“先验”二字的由来。
+要理解bayes公式，需从全概率公式讲起：
+$$ P(A_i|B)=\frac {P(B|A_i)P(A_i)}{\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j)} $$ 其中的全概率公式： $$ \displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B) $$
+这里，可理解： $$ A_j \rightarrow Class_j \text{ 这是你样本可能从属的类别/本质/属性} B \rightarrow Events/Data \text{ 这是你看到的样本的表象} $$
+2.我的进一步理解 2.1 设有一幅扑克牌（这是一种等概率的情况） 摸到一张J,想知道它属于♥️这一类的概率。 这里，A是现象，是观察到的属性。♥️，♣️，♦️，♠️是对所有除了大王小王外的扑克牌的四个类别。 任务就是要根据现象J，对这张牌进行归类，求这张牌属于♥️这一类的概率。
+$$ P(A|B) \text{就是看到J的情况下，属于} \heartsuit \text{的概率} $$ 这是我们要求的量。 $$ P(A|B)=\frac {P(B|A)P(A)}{P(B)} $$ P(B|A) - 在已知♥️的牌中，有几个j，显然，1/13
+P(A) - 在整副牌中，红桃出现的概率：13/54
+P(B) - 在整副牌中，J出现的概率：4/54 这里这个P(B)可以是如下公式计算的： $$ \displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B) $$ 即，A_j代表的是♥️，♣️，♦️，♠️中的某一个类别。例如，j=1， 我们认为是♥️，则，P(B|A1) = 1/13 P(A1) = 13/54 此时， $$ P(B|A_1) \times P(A_1) = \frac1{13} \times \frac {13}{54} = \frac{1}{54} $$ 当 j = 1,2,3,4 时，由于这里每个 $$ P(B|A_j) $$ 都是相等的，所以 $$ P(B) = 4 \times \frac{1}{54} = \frac{4}{54} $$ 所以，上面的P(A|B) 就能算出来了。因为P(B|A) ，P(A) ，P(B)都知道了。</description>
+    </item>
+    
+    <item>
+      <title>bayes公式 - 再从零开始理解</title>
+      <link>http://example.org/posts/p20171214151400/</link>
+      <pubDate>Thu, 14 Dec 2017 15:14:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20171214151400/</guid>
+      <description>bayes公式与机器学习 - 再从零开始理解 从本科时候（大约9年前）刚接触Bayes公式，只知道P(A|B)×P(B) = P(AB) = P(B|A)×P(A)
+到硕士期间，机器学习课上对P(B|A)P(A)冠以“先验概率”，而不知“先验”二字到底从何而来。
+再到工作了几年之后重回校园，重新拾起对求知的热情，重新用向小白讲述Bayes公式的态度，让自己对它有最朴素的理解。尽量让像我一样刚入门的小白同学们，能用生活中最朴素的例子找到bayes公式中，“先验”二字的由来。
+要理解bayes公式，需从全概率公式讲起：
+$$ P(A_i|B)=\frac {P(B|A_i)P(A_i)}{\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j)} $$ 其中的全概率公式： $$ \displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B) $$
+这里，可理解：
+$A_j \rightarrow Class_j$ (这是你样本可能从属的类别)
+$B \rightarrow Events \space or \space Data $ (这是你看到的样本的表象)
+2.进一步理解 2.1 设有一幅扑克牌（这是一种等概率的情况） 摸到一张J,想知道它属于♥️这一类的概率。 这里，A是现象，是观察到的属性。♥️，♣️，♦️，♠️是对所有除了大王小王外的扑克牌的四个类别。 任务就是要根据现象J，对这张牌进行归类，求这张牌属于♥️这一类的概率。
+$$ P(A|B) \text{就是看到J的情况下，属于} \heartsuit \text{的概率} $$ 这是我们要求的量。 $$ P(A|B)=\frac {P(B|A)P(A)}{P(B)} $$ $P(B|A)$ - 在已知♥️的牌中，有几个J,显然，1/13
+$P(A)$ - 在整副牌中，红桃出现的概率：13/54
+$P(B)$ - 在整副牌中，J出现的概率：4/54 这里这个P(B)可以是如下公式计算的： $$ \displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B) $$ 即，$A_j$代表的是♥️，♣️，♦️，♠️中的某一个类别。例如，j=1， 我们认为是♥️，则，P(B|A1) = 1/13 P(A1) = 13/54 此时， $$ P(B|A_1) \times P(A_1) = \frac1{13} \times \frac {13}{54} = \frac{1}{54} $$ 当 j = 1,2,3,4 时，由于这里每个 $ P(B|A_j) $ 都是相等的，所以 $$ P(B) = 4 \times \frac{1}{54} = \frac{4}{54} $$ 所以，上面的P(A|B) 就能算出来了。因为P(B|A) ，P(A) ，P(B)都知道了。</description>
+    </item>
+    
+    <item>
+      <title>Running a jupyter notebook server</title>
+      <link>http://example.org/posts/p20171106015600/</link>
+      <pubDate>Mon, 06 Nov 2017 01:56:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20171106015600/</guid>
+      <description>你也许需要服务器运行jupyter notebook
+阿里云： https://yq.aliyun.com/articles/98527
+关于更安全的证书访问： http://jupyter-notebook.readthedocs.io/en/stable/public_server.html</description>
+    </item>
+    
+    <item>
+      <title>关于文献检索与下载</title>
+      <link>http://example.org/posts/p20171012143100/</link>
+      <pubDate>Thu, 12 Oct 2017 14:31:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20171012143100/</guid>
+      <description> 来源： 谷歌学术 谷歌学术（镜像） cnki.net （一般从学校内网都能登录进去查文献，下文献） 学霸图书馆（终极疗法） 百度学术（你还在用“百度学术”? Are you kidding me?）
+谷歌学术（镜像）： http://ac.scmor.com/ 学霸图书馆 http://xuebalib.com 进去买个钻石会员，以前不通畅的那些国外SCI ， WebOfKnowledge 等等，都顺畅了！ （我恨自己知道得太晚！！！）
+基本的检索期刊的影响因子的方法，SCI 分区的方法，自己google。
+看到下图的时候，我已然内牛满面。。。 </description>
+    </item>
+    
+    <item>
+      <title>寻找cost函数最小值：梯度下降与最小二乘法</title>
+      <link>http://example.org/posts/p20170831094700/</link>
+      <pubDate>Thu, 31 Aug 2017 09:47:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170831094700/</guid>
+      <description>Editted by MarkDown
+寻找cost函数最小值：梯度下降与最小二乘法 参考：最小二乘法小结&amp;ndash;刘建平
+背景： 目标函数 = Σ（观测值-理论值）2
+观测值就是我们的多组样本，理论值就是我们的假设拟合函数。目标函数也就是在机器学习中常说的损失函数，我们的目标是得到使目标函数最小化时候的拟合函数的模型。
+最小二乘法的局限性和适用场景　从上面可以看出，最小二乘法适用简洁高效，比梯度下降这样的迭代法似乎方便很多。但是这里我们就聊聊最小二乘法的局限性。 首先，最小二乘法需要计算$\mathbf{X}^\mathbf{T}\mathbf{X}$的逆矩阵，有可能它的逆矩阵不存在，这样就没有办法直接用最小二乘法了，此时梯度下降法仍然可以使用。当然，我们可以通过对样本数据进行整理，去掉冗余特征。让$\mathbf{X}^\mathbf{T}\mathbf{X}$的行列式不为0，然后继续使用最小二乘法。 第二，当样本特征n非常的大的时候，计算$\mathbf{X}^\mathbf{T}\mathbf{X}$的逆矩阵是一个非常耗时的工作（nxn的矩阵求逆），甚至不可行。此时以梯度下降为代表的迭代法仍然可以使用。那这个n到底多大就不适合最小二乘法呢？如果你没有很多的分布式大数据计算资源，建议超过10000个特征就用迭代法吧。或者通过主成分分析降低特征的维度后再用最小二乘法。 第三，如果拟合函数不是线性的，这时无法使用最小二乘法，需要通过一些技巧转化为线性才能使用，此时梯度下降仍然可以用。 第四，讲一些特殊情况。当样本量m很少，小于特征数n的时候，这时拟合方程是欠定的，常用的优化方法都无法去拟合数据。当样本量m等于特征说n的时候，用方程组求解就可以了。当m大于n时，拟合方程是超定的，也就是我们常用与最小二乘法的场景了。</description>
+    </item>
+    
+    <item>
+      <title>python数组和矩阵使用总结 (moved to https://sonictl.github.io/)</title>
+      <link>http://example.org/posts/p20170821124100/</link>
+      <pubDate>Mon, 21 Aug 2017 12:41:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170821124100/</guid>
+      <description>print(a.shape, &amp;lsquo;a shape&amp;rsquo;) print(b.shape, &amp;lsquo;b shape&amp;rsquo;)
+a = np.append(a, b, axis=0) a = np.append(a, c, axis=0)
+print(a.shape, &amp;lsquo;a append b&amp;rsquo;) print(a.shape, &amp;lsquo;a append b append c&amp;rsquo;) print(a*b) #正常的矩阵积 # [[13 20] # [ 5 8]]
+#而array应用矩阵乘法，则需要numpy里面的dot命令 : print(np.dot(c,d)) # [[13 20] # [ 5 8]]</description>
+    </item>
+    
+    <item>
+      <title>改变jupyter notebook默认初始文件路径 - 关于快捷方式</title>
+      <link>http://example.org/posts/p20170821030800/</link>
+      <pubDate>Mon, 21 Aug 2017 03:08:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170821030800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Markdown中插入数学公式的方法</title>
+      <link>http://example.org/posts/p20170818081800/</link>
+      <pubDate>Fri, 18 Aug 2017 08:18:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170818081800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Essay Writting 阅读列表</title>
+      <link>http://example.org/posts/p20170817003200/</link>
+      <pubDate>Thu, 17 Aug 2017 00:32:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170817003200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>[转载]人工神经网络快速入门</title>
+      <link>http://example.org/posts/p20170815011700/</link>
+      <pubDate>Tue, 15 Aug 2017 01:17:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170815011700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Faster RCNN原理分析（二）：Region Proposal Networks详解</title>
+      <link>http://example.org/posts/p20170811064800/</link>
+      <pubDate>Fri, 11 Aug 2017 06:48:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170811064800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Python ：数据结构</title>
+      <link>http://example.org/posts/p20170806122200/</link>
+      <pubDate>Sun, 06 Aug 2017 12:22:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170806122200/</guid>
+      <description>Firefox 28.0+ Chrome 29.0+ Internet Explorer 11+ Opera 17.0+ Browsers not listed, including Safari, are supported via the styling under the Old browsers comments below. / .hbox { / Old browsers / display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: stretch; display: -moz-box; -moz-box-orient: horizontal; -moz-box-align: stretch; display: box; box-orient: horizontal; box-align: stretch; / Modern browsers / display: flex; flex-direction: row; align-items: stretch; } .hbox &amp;gt; * { / Old browsers / -webkit-box-flex: 0; -moz-box-flex: 0; box-flex: 0; / Modern browsers / flex: none; } .</description>
+    </item>
+    
+    <item>
+      <title>Quick Search Articles in My Blog</title>
+      <link>http://example.org/posts/p20170731235400/</link>
+      <pubDate>Mon, 31 Jul 2017 23:54:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170731235400/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>文件查重工具 ultraCompare 和 UltraFinder 用法 (moved to https://sonictl.github.io)</title>
+      <link>http://example.org/posts/p20170731233900/</link>
+      <pubDate>Mon, 31 Jul 2017 23:39:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170731233900/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>配置httpd(Apache)服务器</title>
+      <link>http://example.org/posts/p20170731102300/</link>
+      <pubDate>Mon, 31 Jul 2017 10:23:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170731102300/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ubuntu上virtualbox无法找到usb设备【解决】</title>
+      <link>http://example.org/posts/p20170730122100/</link>
+      <pubDate>Sun, 30 Jul 2017 12:21:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170730122100/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>try or install Ubuntu on MeegoPad T01</title>
+      <link>http://example.org/posts/p20170730020000/</link>
+      <pubDate>Sun, 30 Jul 2017 02:00:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170730020000/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Git 2-客户端命令on Linux：</title>
+      <link>http://example.org/posts/p20170728141100/</link>
+      <pubDate>Fri, 28 Jul 2017 14:11:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170728141100/</guid>
+      <description> #使用-&amp;lt;span style=&amp;quot;color: #000000;&amp;quot;&amp;gt;v选项，显示远程主机的网址。 &amp;amp;gt;&amp;amp;gt;git remote show &amp;amp;lt;主机名&amp;amp;gt; # 查看主机详细信息：git remote show origin&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/pre&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Git 1-服务端搭建 Setting up a Git Server in CentOS 6.5</title>
+      <link>http://example.org/posts/p20170723142400/</link>
+      <pubDate>Sun, 23 Jul 2017 14:24:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170723142400/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>正则表达式-使用说明Regular Expression How To (Perl, Python, etc)</title>
+      <link>http://example.org/posts/p20170702080100/</link>
+      <pubDate>Sun, 02 Jul 2017 08:01:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170702080100/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>一个全栈Web/移动App开发学习路径</title>
+      <link>http://example.org/posts/p20170620091800/</link>
+      <pubDate>Tue, 20 Jun 2017 09:18:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170620091800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>使用Linux命令行测试网速</title>
+      <link>http://example.org/posts/p20170611135200/</link>
+      <pubDate>Sun, 11 Jun 2017 13:52:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170611135200/</guid>
+      <description>speedtest-cli是一个用Python编写的轻量级Linux命令行工具，在Python2.4至3.4版本下均可运行。它基于Speedtest.net的基础架构来测量网络的上/下行速率。安装speedtest-cli很简单——只需要下载其Python脚本文件。</description>
+    </item>
+    
+    <item>
+      <title>使用Hexo &#43; Github Pages搭建个人独立博客</title>
+      <link>http://example.org/posts/p20170527034700/</link>
+      <pubDate>Sat, 27 May 2017 03:47:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170527034700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Geany 编辑器打开 高亮所选单词 功能</title>
+      <link>http://example.org/posts/p20170527031400/</link>
+      <pubDate>Sat, 27 May 2017 03:14:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170527031400/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://example.org/posts/p20170527025800/</link>
+      <pubDate>Sat, 27 May 2017 02:58:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170527025800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>启动ML时的资源</title>
+      <link>http://example.org/posts/p20170419013000/</link>
+      <pubDate>Wed, 19 Apr 2017 01:30:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170419013000/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>关于SVM</title>
+      <link>http://example.org/posts/p20170417033400/</link>
+      <pubDate>Mon, 17 Apr 2017 03:34:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170417033400/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>机器学习算法一览</title>
+      <link>http://example.org/posts/p20170417013500/</link>
+      <pubDate>Mon, 17 Apr 2017 01:35:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170417013500/</guid>
+      <description> dataset上，怎么捣鼓都有好的方法。但是当数据量和特征样本空间膨胀非常厉害时，很多东西就没有那么好使了，至少是一个很耗时的过程。举个例子说，我们现在重新生成一份数据集，但是这次，我们生成更多的数据，更高的特征维度，而分类的类别也提高到5。
+validation：简单解释一下，estimator每次只会拿下一个待训练batch在本次做评估，然后训练完之后，再在这个batch上做一次评估，看看是否有优化。
+&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>基于Keras的自动驾驶技术的车轮转向角度的可视化</title>
+      <link>http://example.org/posts/p20170216071500/</link>
+      <pubDate>Thu, 16 Feb 2017 07:15:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170216071500/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>机器学习知识体系</title>
+      <link>http://example.org/posts/p20170216020900/</link>
+      <pubDate>Thu, 16 Feb 2017 02:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20170216020900/</guid>
+      <description>2 - 编程语言</description>
+    </item>
+    
+    <item>
+      <title>重新指派usb转串口模块在linux系统中的设备调用名称</title>
+      <link>http://example.org/posts/p20160321084300/</link>
+      <pubDate>Mon, 21 Mar 2016 08:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20160321084300/</guid>
+      <description>Command: &amp;gt;&amp;gt; lsusb This lists your usb devices and &amp;quot;067b:2303&amp;quot;,for instance, as its ID or: &amp;gt;&amp;gt; ls -l /sys/bus/usb-serial/devices An other locations worth exploring are /sys/class/tty/
+Write this to /etc/udev/rules.d/50-usb.rules
+SUBSYSTEM==&amp;quot;tty&amp;quot;, ATTRS{idVendor}==&amp;quot;19d2&amp;quot;, ATTRS{idProduct}==&amp;quot;0031&amp;quot;, SYMLINK+=&amp;quot;ONDA&amp;quot; SUBSYSTEM==&amp;quot;tty&amp;quot;, ATTRS{idVendor}==&amp;quot;12d1&amp;quot;, ATTRS{idProduct}==&amp;quot;14ac&amp;quot;, SYMLINK+=&amp;quot;HUAWEI&amp;quot; Reboot. Now you can use /dev/ONDA to get to your ONDA device. If you want non-root users to be able to use these, then add , MODE=&amp;quot;0666&amp;quot; to the end of each line.</description>
+    </item>
+    
+    <item>
+      <title>ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS</title>
+      <link>http://example.org/posts/p20160229061000/</link>
+      <pubDate>Mon, 29 Feb 2016 06:10:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20160229061000/</guid>
+      <description>def callback(data): rospy.loginfo(rospy.get_caller_id() + &amp;quot;callback:I heard %s&amp;quot;, data.data) #resp_str = &amp;quot;resp_str: I heard: &amp;quot; + data.data talker(data)
+def listener():
+# In ROS, nodes are uniquely named. If two nodes with the same # node are launched, the previous one is kicked off. The # anonymous=True flag means that rospy will choose a unique # name for our &amp;amp;#39;listener&amp;amp;#39; node so that multiple listeners can # run simultaneously. http://blog.csdn.net/sonictl rospy.init_node(&amp;amp;#39;responsor&amp;amp;#39;, anonymous=True) rospy.</description>
+    </item>
+    
+    <item>
+      <title>ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port</title>
+      <link>http://example.org/posts/p20160202062400/</link>
+      <pubDate>Tue, 02 Feb 2016 06:24:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20160202062400/</guid>
+      <description>//r2serial.cpp
+// communicate via RS232 serial with a remote uController. // communicate with ROS using String type messages. // subscribe to command messages from ROS // publish command responses to ROS
+// program parameters - ucontroller# (0,1), serial port, baud rate
+//Thread main // Subscribe to ROS String messages and send as commands to uController //Thread receive // Wait for responses from uController and publish as a ROS messages</description>
+    </item>
+    
+    <item>
+      <title>ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM - ROSMapModify - ROS地图修改</title>
+      <link>http://example.org/posts/p20160202055700/</link>
+      <pubDate>Tue, 02 Feb 2016 05:57:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20160202055700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM</title>
+      <link>http://example.org/posts/p20160202055600/</link>
+      <pubDate>Tue, 02 Feb 2016 05:56:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20160202055600/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS进阶学习笔记（10）- 搭建自己的Turtlebot(5) - Interactive Makers</title>
+      <link>http://example.org/posts/p20151223091000/</link>
+      <pubDate>Wed, 23 Dec 2015 09:10:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20151223091000/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS进阶学习手记 7.2 -- RViz仿真实例2:Create SmartCar</title>
+      <link>http://example.org/posts/p20150729050400/</link>
+      <pubDate>Wed, 29 Jul 2015 05:04:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150729050400/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS Industrial 简介</title>
+      <link>http://example.org/posts/p20150725152800/</link>
+      <pubDate>Sat, 25 Jul 2015 15:28:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150725152800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS进阶学习手记 7 -- RViz仿真实例1</title>
+      <link>http://example.org/posts/p20150724074600/</link>
+      <pubDate>Fri, 24 Jul 2015 07:46:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150724074600/</guid>
+      <description> &amp;lt;node name=&amp;quot;arbotix&amp;quot; pkg=&amp;quot;arbotix_python&amp;quot; type=&amp;quot;arbotix_driver&amp;quot; output=&amp;quot;screen&amp;quot;&amp;gt; &amp;lt;rosparam command=&amp;quot;delete&amp;quot; param=&amp;quot;/arbotix&amp;quot; /&amp;gt; &amp;lt;rosparam file=&amp;quot;$(find exbotxi_bringup)/config/fake_irobot_create_arbotix.yaml&amp;quot; command=&amp;quot;load&amp;quot; /&amp;gt; &amp;lt;param name=&amp;quot;sim&amp;quot; value=&amp;quot;true&amp;quot;/&amp;gt; &amp;lt;remap from=&amp;quot;cmd_vel&amp;quot; to=&amp;quot;mobile_base/commands/velocity&amp;quot;/&amp;gt; &amp;lt;/node&amp;gt;
+&amp;lt;node name=&amp;quot;robot_state_publisher&amp;quot; pkg=&amp;quot;robot_state_publisher&amp;quot; type=&amp;quot;state_publisher&amp;quot;&amp;gt; &amp;lt;param name=&amp;quot;publish_frequency&amp;quot; type=&amp;quot;double&amp;quot; value=&amp;quot;8.0&amp;quot; /&amp;gt; &amp;lt;/node&amp;gt;
+&amp;lt;node pkg=&amp;quot;topic_tools&amp;quot; type=&amp;quot;mux&amp;quot; name=&amp;quot;exbotxi_mux1&amp;quot; args=&amp;quot;mobile_base/commands/velocity cmd_vel_mux/input/teleop&amp;quot; /&amp;gt; &amp;lt;node pkg=&amp;quot;topic_tools&amp;quot; type=&amp;quot;mux&amp;quot; name=&amp;quot;exbotxi_mux2&amp;quot; args=&amp;quot;mobile_base/commands/velocity cmd_vel&amp;quot; /&amp;gt; &amp;lt;/launch&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>用网线直连的两台PC上的虚拟机通过网线通信的配置</title>
+      <link>http://example.org/posts/p20150722082300/</link>
+      <pubDate>Wed, 22 Jul 2015 08:23:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150722082300/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS学习手记 - 2.1: Create and Build ROS Package 生成包（Python）</title>
+      <link>http://example.org/posts/p20150712094900/</link>
+      <pubDate>Sun, 12 Jul 2015 09:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150712094900/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS学习手记 9 -- 阶段性复习</title>
+      <link>http://example.org/posts/p20150712093300/</link>
+      <pubDate>Sun, 12 Jul 2015 09:33:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150712093300/</guid>
+      <description> &amp;lt;div class=&amp;quot;markdown_views&amp;quot;&amp;gt;&amp;lt;h1 id=&amp;quot;ros-阶段性总结&amp;quot;&amp;gt;ROS 阶段性总结&amp;lt;/h1&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>ROS学习手记 - 8 编写ROS的Publisher and Subscriber</title>
+      <link>http://example.org/posts/p20150710065200/</link>
+      <pubDate>Fri, 10 Jul 2015 06:52:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150710065200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS学习手记 - 7 创建ROS msg &amp;amp; srv</title>
+      <link>http://example.org/posts/p20150710060200/</link>
+      <pubDate>Fri, 10 Jul 2015 06:02:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150710060200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed</title>
+      <link>http://example.org/posts/p20150709015800/</link>
+      <pubDate>Thu, 09 Jul 2015 01:58:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150709015800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>ROS学习手记 - 5 理解ROS中的基本概念_Services and Parameters</title>
+      <link>http://example.org/posts/p20150707023000/</link>
+      <pubDate>Tue, 07 Jul 2015 02:30:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150707023000/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Ruby学习笔记7: 添加身份验证（adding Authentication）</title>
+      <link>http://example.org/posts/p20150521054700/</link>
+      <pubDate>Thu, 21 May 2015 05:47:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150521054700/</guid>
+      <description>Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39; gem &#39;rails&#39;, &#39;4.1.1&#39;
+Use sqlite3 as the database for Active Record gem &#39;sqlite3&#39;, &#39;1.3.9&#39;
+Use SCSS for stylesheets gem &#39;sass-rails&#39;, &#39;4.0.3&#39;
+Use Uglifier as compressor for JavaScript assets gem &#39;uglifier&#39;, &#39;1.3.0&#39;
+Use CoffeeScript for .js.coffee assets and views gem &#39;coffee-rails&#39;, &#39;4.0.0&#39;
+See https://github.com/sstephenson/execjs#readme for more supported runtimes gem &#39;therubyracer&#39;, platforms: :ruby gem &#39;paperclip&#39;, &#39;4.2.0&#39;
+Use jquery as the JavaScript library gem &#39;jquery-rails&#39;, &#39;3.</description>
+    </item>
+    
+    <item>
+      <title>Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互</title>
+      <link>http://example.org/posts/p20150519064900/</link>
+      <pubDate>Tue, 19 May 2015 06:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150519064900/</guid>
+      <description>$ art = Category.create(name: &amp;amp;#39;Art&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/eb/144-la_fuente_de_Monforte_V.jpg&amp;amp;#39;) home_and_living = Category.create(name: &amp;amp;#39;Home &amp;amp;amp; Living&amp;amp;#39;, thumburl: &amp;amp;#39;http://ihomedecorsideas.com/wp-content/uploads/2014/04/diy_network_homemade_coat_rack_.jpg&amp;amp;#39;) jewelry = Category.create(name: &amp;amp;#39;Jewelry&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/f/ff/Midyat_Silver_Jewelry_1310103_Nevit.jpg&amp;amp;#39;) women = Category.create(name: &amp;amp;#39;Women&amp;amp;#39;, thumburl: &amp;amp;#39;https://c1.staticflickr.com/9/8255/8660920433_57a184d9d1_z.jpg&amp;amp;#39;) men = Category.create(name: &amp;amp;#39;Men&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/d/d5/Fullbrogue_(Grenson).jpg&amp;amp;#39;) kids = Category.create(name: &amp;amp;#39;Kids&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/e0/Artist%27s_Paint_Brushes_Adapted_With_Photoshop._Surrey_UK.jpg&amp;amp;#39;) vintage = Category.create(name: &amp;amp;#39;Vintage&amp;amp;#39;, thumburl: &amp;amp;#39;https://c2.staticflickr.com/8/7402/9426557291_139134efaa_z.jpg&amp;amp;#39;) weddings = Category.create(name: &amp;amp;#39;Weddings&amp;amp;#39;, thumburl: &amp;amp;#39;http://hostingessence.com/wp-content/uploads/2012/04/green-wedding.jpg&amp;amp;#39;) craft_supplies = Category.create(name: &#39;Craft Supplies&#39;, thumburl: &#39;http://bit.ly/1w1uPow&#39;)
+#Art Product.create(product_name: &#39;Russian Acrylic&#39;, description: &#39;Acrylic on Canvas&#39;, price: 59.00, thumburl: &#39;http://bit.</description>
+    </item>
+    
+    <item>
+      <title>Ruby学习笔记5: 动态web app的建立 （2）</title>
+      <link>http://example.org/posts/p20150513122000/</link>
+      <pubDate>Wed, 13 May 2015 12:20:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150513122000/</guid>
+      <description>resources :categories get &#39;categories/:id/delete&#39; =&amp;gt; &#39;categories#delete&#39;, :as =&amp;gt; :categories_delete end**show.html.erb:&amp;lt;%= render &#39;shared/topnav&#39; %&amp;gt; &amp;lt;p&amp;gt; &amp;lt;strong&amp;gt;Name:&amp;lt;/strong&amp;gt; &amp;lt;%= @category.name %&amp;gt; &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt; &amp;lt;strong&amp;gt;Thumburl:&amp;lt;/strong&amp;gt; &amp;lt;%= image_tag @category.thumburl %&amp;gt; &amp;lt;/p&amp;gt;
+&amp;lt;%= link_to &#39;Edit&#39;, edit_category_path(@category) %&amp;gt; | &amp;lt;%= link_to &#39;Back&#39;, categories_path %&amp;gt;
+&amp;lt;%= render &#39;shared/footer&#39; %&amp;gt;**request in browser: http://localhost:8000/categories/1 we get: 我们再请求一些url如： localhost:8000/categories/2 能得到对应的改变。 这里我就有个疑问，为何routes.rb文件里没有体现出任何对 url 请求的处理的代码，比如，它怎么区分 /categories 和 /categories/1 这俩请求的
+&amp;lt;div class=&amp;quot;field&amp;quot;&amp;gt; &amp;lt;%= f.label :thumburl %&amp;gt;&amp;lt;br&amp;gt; &amp;lt;%= f.url_field :thumburl %&amp;gt; &amp;lt;!&amp;ndash;rails we can use url_field for things like urls&amp;ndash;&amp;gt; &amp;lt;/div&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby学习笔记4: 动态web app的建立</title>
+      <link>http://example.org/posts/p20150507153800/</link>
+      <pubDate>Thu, 07 May 2015 15:38:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150507153800/</guid>
+      <description>$ art = Category.create(name: &amp;amp;#39;Art&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/eb/144-la_fuente_de_Monforte_V.jpg&amp;amp;#39;) home_and_living = Category.create(name: &amp;amp;#39;Home &amp;amp;amp; Living&amp;amp;#39;, thumburl: &amp;amp;#39;http://ihomedecorsideas.com/wp-content/uploads/2014/04/diy_network_homemade_coat_rack_.jpg&amp;amp;#39;) jewelry = Category.create(name: &amp;amp;#39;Jewelry&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/f/ff/Midyat_Silver_Jewelry_1310103_Nevit.jpg&amp;amp;#39;) women = Category.create(name: &amp;amp;#39;Women&amp;amp;#39;, thumburl: &amp;amp;#39;https://c1.staticflickr.com/9/8255/8660920433_57a184d9d1_z.jpg&amp;amp;#39;) men = Category.create(name: &amp;amp;#39;Men&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/d/d5/Fullbrogue_(Grenson).jpg&amp;amp;#39;) kids = Category.create(name: &amp;amp;#39;Kids&amp;amp;#39;, thumburl: &amp;amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/e0/Artist%27s_Paint_Brushes_Adapted_With_Photoshop._Surrey_UK.jpg&amp;amp;#39;) vintage = Category.create(name: &amp;amp;#39;Vintage&amp;amp;#39;, thumburl: &amp;amp;#39;https://c2.staticflickr.com/8/7402/9426557291_139134efaa_z.jpg&amp;amp;#39;) weddings = Category.create(name: &amp;amp;#39;Weddings&amp;amp;#39;, thumburl: &amp;amp;#39;http://hostingessence.com/wp-content/uploads/2012/04/green-wedding.jpg&amp;amp;#39;) Add your category here def show end
+def new end
+def edit end
+def delete end end然后我们就要来写这些methods里的具体的语句。
+def show end</description>
+    </item>
+    
+    <item>
+      <title>Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向）</title>
+      <link>http://example.org/posts/p20150506140500/</link>
+      <pubDate>Wed, 06 May 2015 14:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150506140500/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>对互联网垂直社交产品的分析</title>
+      <link>http://example.org/posts/p20150505071900/</link>
+      <pubDate>Tue, 05 May 2015 07:19:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150505071900/</guid>
+      <description>社交产品是对每个个体自身人性的迎合、利诱和放大。如果说世界上最复杂的是人性，那么创业项目里最复杂的自然就是社交产品。互联网创业最有意思又最深奥的就是社交类产品。 一款好的社交产品一定是能够迎合人类七宗罪中的其中之一的，比如他觉得Facebook迎合的是傲慢/自负，人们把一些精挑细选的东西用粉饰后的方式表现给他们的关注者们，以此来获得一种虚荣感。 人类七宗罪（好色、暴食、贪婪、懒惰、愤怒、嫉妒、傲慢） 从七宗罪类型的人类原始需求出发的产品，好处是能够迅速吸引用户，形成病毒传播，但坏处是可持续性差，社区氛围维持难度高，和留存低。 更重要的是要像放风筝一样，利用七宗罪反过来的把社区向正面塑造。日常生活中的交往是一样的，哪怕你再喜欢一个人，也是要一步步循序渐进。 懂得生活的人，会从身边的旁枝末节中体会生活，而不是每天只高谈阔论。懂得追女孩子的人，与其每天都在献殷勤、表白和宣誓，不如找点事情一起做，找个共同话题一起聊天。容易交朋友的人，也是一样，都是有自己的兴趣和专长，这样大家才有话聊，才能在交谈中更加深入的了解彼此。 所有社交产品表面上要解决的核心问题只有一个，那就是牵线搭桥、制造媒介，最终让用户基于这个平台上的媒介形成更好的互动和关系的留存。 “知乎”给人们制造的媒介是问答 “YY”或“9158”给人们制造的媒介是视频娱乐内容 “豆瓣”给人们制造的媒介是影音书 “Nice”是潮流文化和标签式媒介 “陌陌”最早兴起的媒介其实就是地理位置因素 “会会”的媒介是用户的行业和背景与相约聊天的主题。 交往的过程需要这些媒介，要让用户之间有话聊，有源源不断的内容产生，内容消费，并且形成关系链条。 有甚者，有一些社交产品跳过了媒介，直接把人和人的关系引向了结果，比如直接可供任何人线下约饭的产品或是单纯根据照片挑选配对类的产品我都觉得是非常粗暴、违反人类正常交往习惯和不可持续的。 社交类产品还有一个需要注意的事情是“媒介的即时性”。 每种媒介的作用和效果都不同。媒介的选择非常重要，直接影响了最终产品和社区的形态。一种双向多边的，每个人都能低成本生产和消费内容的媒介才是最理想的。 垂直社交产品的意义并没有那么大。结果就是社交产品往往是几年出一个大的，也是个赢家通吃的市场。所以在最开始的时候就要想好抓的是用户的什么痛点和原始需求，又该用怎样的媒介来引导。 脉脉、会会、知乎、Linkedin、“Same”、“陪我”、“抱抱”</description>
+    </item>
+    
+    <item>
+      <title>Ruby学习笔记2 ： 一个简单的Ruby网站，搭建ruby环境</title>
+      <link>http://example.org/posts/p20150505025400/</link>
+      <pubDate>Tue, 05 May 2015 02:54:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150505025400/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Patrick Hughes - 错觉3D雕塑艺术</title>
+      <link>http://example.org/posts/p20150504084200/</link>
+      <pubDate>Mon, 04 May 2015 08:42:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150504084200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Ruby学习笔记1 -- 基本语法和数据类型, Class</title>
+      <link>http://example.org/posts/p20150424075900/</link>
+      <pubDate>Fri, 24 Apr 2015 07:59:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150424075900/</guid>
+      <description>sum = 5 + 1.4 puts sum
+correct = 1 == 1 puts correct puts cities[1];	#print out the SECOND city
+#{ ? , ? , ? }
+&amp;quot;key&amp;quot; &amp;quot;key&amp;quot; =&amp;gt; value access: HashName[ &amp;quot;key&amp;quot; ] = value def hello puts &amp;quot;hello&amp;quot; end
+end
+person1 = Person.new person1.hello
+person2 = Person.new person2.hello
+def initialize(name, age) @name = name @age = age end
+def intro puts &amp;quot;My name is #{@name} and I am #{@age} years old&amp;quot; end</description>
+    </item>
+    
+    <item>
+      <title>Javascript学习笔记5 - 滑动Slides</title>
+      <link>http://example.org/posts/p20150422021200/</link>
+      <pubDate>Wed, 22 Apr 2015 02:12:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150422021200/</guid>
+      <description>}); // Click Slides -- Show next slide $(&amp;amp;#39;.arrow-next&amp;amp;#39;).click(function(){//select var currentSlide = $(&amp;amp;#39;.active-slide&amp;amp;#39;); var nextSlide = currentSlide.next(); if (nextSlide.length ===0) nextSlide = $(&amp;amp;#39;.slide&amp;amp;#39;).first(); currentSlide.fadeOut(600); nextSlide.fadeIn(600); currentSlide.removeClass(&amp;amp;#39;active-slide&amp;amp;#39;);//注意这里没有&amp;amp;quot;.&amp;amp;quot; nextSlide.addClass(&amp;amp;#39;active-slide&amp;amp;#39;); //让点点的颜色跟随变化 var currentDot = $(&amp;amp;#39;.active-dot&amp;amp;#39;); var nextDot = currentDot.next(); if (nextDot.length === 0) nextDot = $(&amp;amp;#39;.dot&amp;amp;#39;).first(); currentDot.removeClass(&amp;amp;#39;active-dot&amp;amp;#39;); nextDot.addClass(&amp;amp;#39;active-dot&amp;amp;#39;); }); // Click Slides -- show previous slide $(&amp;amp;#39;.arrow-prev&amp;amp;#39;).click(function(){//select var currentSlide = $(&amp;amp;#39;.active-slide&amp;amp;#39;); var prevSlide = currentSlide.prev(); if (prevSlide.length === 0) prevSlide = $(&amp;amp;#39;.slide&amp;amp;#39;).last(); currentSlide.</description>
+    </item>
+    
+    <item>
+      <title>php学习笔记1——使用phpStudy进行php运行环境搭建与测试。</title>
+      <link>http://example.org/posts/p20150107074500/</link>
+      <pubDate>Wed, 07 Jan 2015 07:45:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20150107074500/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Linux配置和管理msyql命令</title>
+      <link>http://example.org/posts/p20141230071400/</link>
+      <pubDate>Tue, 30 Dec 2014 07:14:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141230071400/</guid>
+      <description>配置和管理msyql： 1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024 关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。 2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &amp;ndash;user=mysql &amp;amp; 查看mysql版本：mysqladmin -u root -p version 注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart 3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格 4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中 5. 允许root远程登陆： 1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql; 2）从所有主机：grant all privileges on . to root@&amp;quot;%&amp;quot; identified by &amp;quot;passw0rd&amp;quot; with grant option; 3）从指定主机：grant all privileges on . to root@&amp;quot;192.168.11.205&amp;quot; identified by &amp;quot;passw0rd&amp;quot; with grant option; flush privileges; 4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user; 6. 创建数据库，创建user： 1) 建库：create database test1; 2) 建用户，赋权：grant all privileges on test1.</description>
+    </item>
+    
+    <item>
+      <title>win7 CMD登录本机MySQL数据库管理</title>
+      <link>http://example.org/posts/p20141212011800/</link>
+      <pubDate>Fri, 12 Dec 2014 01:18:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141212011800/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>干净win7要做几步才能运行第一个Spring MVC 写的动态web程序</title>
+      <link>http://example.org/posts/p20141129123100/</link>
+      <pubDate>Sat, 29 Nov 2014 12:31:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141129123100/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>The difference between Spring Tool Suite and Spring IDE</title>
+      <link>http://example.org/posts/p20141129095900/</link>
+      <pubDate>Sat, 29 Nov 2014 09:59:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141129095900/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建</title>
+      <link>http://example.org/posts/p20141126073700/</link>
+      <pubDate>Wed, 26 Nov 2014 07:37:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141126073700/</guid>
+      <description> 9）jstl 的标签： 10）数据库记录： @GenerateValue @Id public int getId(){ return Id; } &amp;hellip;//后面就是其他参数的Get Set 方法 }&amp;lt;/pre&amp;gt;&amp;lt;br&amp;gt; 如图： </description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记11 —— 后端返回json格式数据</title>
+      <link>http://example.org/posts/p20141125032100/</link>
+      <pubDate>Tue, 25 Nov 2014 03:21:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141125032100/</guid>
+      <description>//6. 查一个用户 show.jsp @RequestMapping(value=&amp;amp;quot;/{username}&amp;amp;quot;, method=RequestMethod.GET, params=&amp;amp;quot;jsoon&amp;amp;quot;) @ResponseBody	//这里要加一行 public User show(@PathVariable String username){ //声明中没有了Model //model.addAttribute(&amp;amp;quot;user1&amp;amp;quot;,users.get(username)); return users.get(username); //不返回String了，返回user对象 }&amp;lt;/pre&amp;gt;&amp;lt;br&amp;gt; 说明，以上代码中：</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息</title>
+      <link>http://example.org/posts/p20141120093100/</link>
+      <pubDate>Thu, 20 Nov 2014 09:31:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141120093100/</guid>
+      <description>&amp;amp;lt;!-- DispatcherServlet Context: defines this servlet&amp;amp;#39;s request-processing infrastructure --&amp;amp;gt; &amp;amp;lt;!-- Scans within the base package of the application for @Components to configure as beans --&amp;amp;gt; &amp;amp;lt;!-- @Controller, @Service, @Configuration, etc. --&amp;amp;gt; &amp;amp;lt;context:component-scan base-package=&amp;amp;quot;edu.bit.myhello&amp;amp;quot; /&amp;amp;gt; &amp;amp;lt;!-- Enables the Spring MVC @Controller programming model --&amp;amp;gt; &amp;amp;lt;mvc:annotation-driven /&amp;amp;gt; &amp;amp;lt;!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory --&amp;amp;gt; &amp;amp;lt;bean class=&amp;amp;quot;org.springframework.web.servlet.view.InternalResourceViewResolver&amp;amp;quot;&amp;amp;gt; &amp;amp;lt;property name=&amp;amp;quot;prefix&amp;amp;quot; value=&amp;amp;quot;/WEB-INF/views/&amp;amp;quot; /&amp;amp;gt; &amp;amp;lt;property name=&amp;amp;quot;suffix&amp;amp;quot; value=&amp;amp;quot;.jsp&amp;amp;quot; /&amp;amp;gt; &amp;amp;lt;/bean&amp;amp;gt; &amp;amp;lt;bean id = &amp;amp;quot;exceptionResolver&amp;amp;quot; class=&amp;amp;quot;org.</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记9 —— 实现简单的用户管理（4）用户登录显示局部异常信息</title>
+      <link>http://example.org/posts/p20141120065200/</link>
+      <pubDate>Thu, 20 Nov 2014 06:52:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141120065200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</title>
+      <link>http://example.org/posts/p20141120060200/</link>
+      <pubDate>Thu, 20 Nov 2014 06:02:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141120060200/</guid>
+      <description> public UserException(String arg0, Throwable arg1, boolean arg2, boolean arg3) { super(arg0, arg1, arg2, arg3); // TODO Auto-generated constructor stub } public UserException(String arg0, Throwable arg1) { super(arg0, arg1); // TODO Auto-generated constructor stub } public UserException(String arg0) { super(arg0); // TODO Auto-generated constructor stub } public UserException(Throwable arg0) { super(arg0); // TODO Auto-generated constructor stub }&amp;lt;/pre&amp;gt;&amp;lt;br&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>SFTP 常用命令 —— SecureCRT版本</title>
+      <link>http://example.org/posts/p20141028033700/</link>
+      <pubDate>Tue, 28 Oct 2014 03:37:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141028033700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记3 - 利用Default Annotation 模式获取请求，使Controller与View对应，并传值。</title>
+      <link>http://example.org/posts/p20141027031400/</link>
+      <pubDate>Mon, 27 Oct 2014 03:14:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141027031400/</guid>
+      <description>&amp;amp;lt;!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory --&amp;amp;gt; &amp;amp;lt;resources mapping=&amp;amp;quot;/resources/**&amp;amp;quot; location=&amp;amp;quot;/resources/&amp;amp;quot; /&amp;amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;br&amp;gt; @Controller//@Controller注入 public class HelloController {
+//表示用哪个url请求来对应本方法： @RequestMapping({&amp;amp;quot;/hello&amp;amp;quot;,&amp;amp;quot;/&amp;amp;quot;}) public String hello(){ System.out.println(&amp;amp;quot;Hello, HelloController&amp;amp;quot;); return &amp;amp;quot;hello00&amp;amp;quot;;	//返回一个hello字串，会调用WEB-INF/views/hello00.jsp进行显示。 } }</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记2 - 利用Spring Tool Suite创建一个web 项目</title>
+      <link>http://example.org/posts/p20141024082200/</link>
+      <pubDate>Fri, 24 Oct 2014 08:22:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141024082200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Spring MVC 学习笔记1 - First Helloworld by Eclipse【&amp;amp; - java web 开发Tips集锦】</title>
+      <link>http://example.org/posts/p20141023094500/</link>
+      <pubDate>Thu, 23 Oct 2014 09:45:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141023094500/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>jsp 传多个值给后端</title>
+      <link>http://example.org/posts/p20141022060900/</link>
+      <pubDate>Wed, 22 Oct 2014 06:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141022060900/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>如何使32位Win7支持超过4GB的内存，而不装64位</title>
+      <link>http://example.org/posts/p20141015073300/</link>
+      <pubDate>Wed, 15 Oct 2014 07:33:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141015073300/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Configure First SpringMVC project in IntelliJ IDEA(fail)</title>
+      <link>http://example.org/posts/p20141011073600/</link>
+      <pubDate>Sat, 11 Oct 2014 07:36:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141011073600/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>使用 intellij idea 进行远程调试</title>
+      <link>http://example.org/posts/p20141010031700/</link>
+      <pubDate>Fri, 10 Oct 2014 03:17:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20141010031700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>超酷的Prezi在线ppt制作网站</title>
+      <link>http://example.org/posts/p20140804152600/</link>
+      <pubDate>Mon, 04 Aug 2014 15:26:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20140804152600/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>网站搜索引擎优化SEO策略及相关工具资源</title>
+      <link>http://example.org/posts/p20140619074900/</link>
+      <pubDate>Thu, 19 Jun 2014 07:49:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20140619074900/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>关于封装Dll为Web Service技术方案的讨论</title>
+      <link>http://example.org/posts/p20140125035200/</link>
+      <pubDate>Sat, 25 Jan 2014 03:52:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20140125035200/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>什么是 web 开发</title>
+      <link>http://example.org/posts/p20140121095300/</link>
+      <pubDate>Tue, 21 Jan 2014 09:53:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20140121095300/</guid>
+      <description>什么是 web 开发 这几天因为工作需要，了解了一下Web development 的技术路线，来源自 en.wikipedia.org/wiki/Web_development 本着互联网开放分享的态度，我是一边翻译一边学习。 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- “web 开发”是在因特网www或者在局域网a private network上建立站点的各种方法的宽泛总称。 web 开发可以从 开发一个最简单的纯文本的静态单页面 到 很复杂的基于web的internet 应用、电子商 务、和社交网络服务。一个更综合性更完善性的归纳可以把web 开发分为为： web 设计， web 内容开发， 客户端联络， 客户端/服务器端 脚本开发， web 服务， 网络安全配置， 和 电子商务开发（比如支付服务）。 （相关词条还有更深层次的解释，有空我可以后续学习并翻译出来） 在web 专业领域，“web 开发”一般是指 在网站建设中，那些无关页面设计的工作：写 Markup 标记语 言和写代码。 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; 【以上是有关 定义 咯】 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; 对于大的组织或公司，web 开发团队可以由几百个开发者（web开发人员）组成。小点的组织只需要单一 的长期工或者合同制的web master, 或者兼职。比如 图形设计， 信息系统 工程人员。web开发会是几个部门之 间的协同工作，而不是某个特定的designated部门的某个业务区域（domain）。 ===== 目 录 ===== 1.web 开发作为一个产业industry 2.web 开发的一些典型的领域 2.1 客户端开发 2.2 服务器端开发 2.3 客户端+服务器端 2.</description>
+    </item>
+    
+    <item>
+      <title>Android手机图片路径</title>
+      <link>http://example.org/posts/p20131206120600/</link>
+      <pubDate>Fri, 06 Dec 2013 12:06:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20131206120600/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>下载Chrome独立版（alternate/offline Installer）的地方</title>
+      <link>http://example.org/posts/p20131204120900/</link>
+      <pubDate>Wed, 04 Dec 2013 12:09:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20131204120900/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>有关Firefox/Chrome的问题汇总</title>
+      <link>http://example.org/posts/p20131127112700/</link>
+      <pubDate>Wed, 27 Nov 2013 11:27:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20131127112700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Linux常用各类设置、常用配置、日常使用、常用、使用技巧，集锦</title>
+      <link>http://example.org/posts/p20131023011500/</link>
+      <pubDate>Wed, 23 Oct 2013 01:15:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20131023011500/</guid>
+      <description>========== 参考格式 （新增记录时，复制粘贴在下）=============
+【日期】： 《标题》 参考链接ref1:
+参考链接ref2:
+正文：
+=== some useful set timeZone, 设置时区，定时输出bash script
+#!/bin/bash while true do now=&amp;#34;$(date)&amp;#34; printf &amp;#34;Current date and time %s\n&amp;#34; &amp;#34;$now&amp;#34; sleep 2 done # ============================ timedatectl list-timezones | grep Shanghai sudo timedatectl set-timezone Asia/Shanghai # ========= 安装微力同步 ========= installed verysync at IP:8886 by: #(如果需要指定索引存放位置请在最后面添加-d 路径 如 -d /data/verysync) curl http://www.verysync.com/shell/verysync-linux-installer/go-installer.sh &amp;gt; verysync-installer.sh chmod +x verysync-installer.sh sudo ./verysync-installer.sh # =================== === 【2021-07-09】Linux之挂载新的硬盘：分区，格式化 参考链接ref1: Link of HUAWEI Cloud</description>
+    </item>
+    
+    <item>
+      <title>好用的 FTP 软件之 FileZilla 技巧教程</title>
+      <link>http://example.org/posts/p20131018094500/</link>
+      <pubDate>Fri, 18 Oct 2013 09:45:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20131018094500/</guid>
+      <description>FTP 软件之 FileZilla教程 使用教程参考：http://163.26.161.1/~yilinteacher/wwwict/flash/FileZilla.swf （1）如何设置传输完成后关机</description>
+    </item>
+    
+    <item>
+      <title>使用html和CSS进行网页网站设计 -- 简明步骤</title>
+      <link>http://example.org/posts/p20130930154200/</link>
+      <pubDate>Mon, 30 Sep 2013 15:42:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130930154200/</guid>
+      <description>网页制作流程： 1. 心中有规划，网站的骨架结构，页面布局layout. 2. 创建一个用于创建模板dwt的html页： main.html 3. 制作main.html: (1) 在html文件中依次建立 &amp;lt;div id = &amp;quot;outter&amp;quot;&amp;gt; &amp;hellip; &amp;lt;/div&amp;gt; &amp;lt;div id = &amp;quot;wraper&amp;quot;&amp;gt; &amp;hellip; &amp;lt;/div&amp;gt; &amp;lt;div id = &amp;quot;top&amp;quot;&amp;gt; &amp;hellip; &amp;lt;/div&amp;gt; &amp;lt;div id = &amp;quot;banner&amp;quot;&amp;gt; &amp;hellip; &amp;lt;/div&amp;gt; &amp;lt;div id = &amp;quot;navigator&amp;quot;&amp;gt; &amp;hellip; &amp;lt;/div&amp;gt; &amp;lt;div id = &amp;quot;content&amp;quot;&amp;gt; &amp;hellip; &amp;lt;/div&amp;gt; &amp;lt;div id = &amp;quot;footer&amp;quot;&amp;gt; &amp;hellip; &amp;lt;/div&amp;gt; 等等分区。 (2) 往分区中填入文字图片等内容。 (3) 新建一个css文件，在Dreamweaver下，CSS Designer(Shift+F11) -&amp;gt; &amp;quot;+&amp;quot; -&amp;gt; 新建并附加一个css样式表文件： ../style/style.css (4) 编辑style.css，通过点击左上角切换html代码和css代码。 (5) 通过margin, width, float, padding, 等等css语句，进行layout border, background-color, font-family, font-size, 或者使用class的概念，进行细分。 对于h1 html body p标签，亦可使用css, 和class 例( .</description>
+    </item>
+    
+    <item>
+      <title>C语言键盘按键无阻塞侦测:kbhit()</title>
+      <link>http://example.org/posts/p20130713154100/</link>
+      <pubDate>Sat, 13 Jul 2013 15:41:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130713154100/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Static / Const 的概念</title>
+      <link>http://example.org/posts/p20130709025600/</link>
+      <pubDate>Tue, 09 Jul 2013 02:56:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130709025600/</guid>
+      <description> void func() { static int x = 0; // x is initialized only once across three calls of func() printf(&amp;quot;%d\n&amp;quot;, x); // outputs the value of x x = x + 1; }
+int main(int argc, char *argv[]) { func(); // prints 0 func(); // prints 1 func(); // prints 2 return 0; } </description>
+    </item>
+    
+    <item>
+      <title>Connecting wifi from the command line, ubuntu or embedding ubuntu</title>
+      <link>http://example.org/posts/p20130207170500/</link>
+      <pubDate>Thu, 07 Feb 2013 17:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130207170500/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ）</title>
+      <link>http://example.org/posts/p20130204202400/</link>
+      <pubDate>Mon, 04 Feb 2013 20:24:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130204202400/</guid>
+      <description>变量名：JAVA_HOME 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
+变量名: path 变量值: ;%JAVA_HOME%\bin ;%JAVA_HOME%\jre\bin 变量名：classpath 变量值: ;%JAVA_HOME%\lib ;%JAVA_HOME%\lib\tools.jar
+（For my backup:）&amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;	&amp;lt;/span&amp;gt;JAVA_HOME &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;	&amp;lt;/span&amp;gt;F:\Program Files\Java\jdk1.8.0_20 //java jdk 1.8 &amp;lt;span style=&amp;quot;white-space:pre&amp;quot;&amp;gt;	&amp;lt;/span&amp;gt;C:\Program Files\Java\jdk1.7.0_67 //java jdk 1.7
+&amp;lt;span style=&amp;quot;white-space: pre;&amp;quot;&amp;gt;	&amp;lt;/span&amp;gt;path &amp;lt;span style=&amp;quot;white-space: pre;&amp;quot;&amp;gt;	&amp;lt;/span&amp;gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+&amp;lt;span style=&amp;quot;white-space: pre;&amp;quot;&amp;gt;	&amp;lt;/span&amp;gt;classpath &amp;lt;span style=&amp;quot;white-space: pre;&amp;quot;&amp;gt;	&amp;lt;/span&amp;gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
+&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;下面检验是否配置成功，运行cmd命令，在出现的对话框输入”java“命令，如果出现以下结果，则表明配置成功。&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;用法: java [-options] class [args&amp;hellip;] (执行类) 或 java [-options] -jar jarfile [args&amp;hellip;] (执行 jar 文件) 其中选项包括: -d32 使用 32 位数据模型 (如果可用) -d64 使用 64 位数据模型 (如果可用) -client 选择 &amp;quot;client&amp;quot; VM -server 选择 &amp;quot;server&amp;quot; VM 默认 VM 是 client.</description>
+    </item>
+    
+    <item>
+      <title>MATLAB 笔记，关于Filter函数的功能和使用，求simple（冲激）和unit step（阶跃）响应</title>
+      <link>http://example.org/posts/p20130120152700/</link>
+      <pubDate>Sun, 20 Jan 2013 15:27:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120152700/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>直接型FIR滤波器的C语言实现</title>
+      <link>http://example.org/posts/p20130120152500/</link>
+      <pubDate>Sun, 20 Jan 2013 15:25:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120152500/</guid>
+      <description> for (j = 0; j &amp;lt; N; j++) { sum = 0; for (i = 0; i &amp;lt; n; i++) sum += x[j-i] * h[i]; y[j] = sum &amp;gt;&amp;gt; 15; } }乘法器使用次数：N*n
+for (j = 0; j &amp;lt; n; j++) { for (i = 0; i &amp;lt; N; i++) { sum = 0; sum = h[j] * x[i] y[i] += sum &amp;gt;&amp;gt; 15; } } }乘法器使用次数：N*n
+for (j = N; j &amp;gt; 0; j&amp;ndash;) { sum = 0; for (i = n; i &amp;gt; 0; i&amp;ndash;) sum += x[j-i] * h[i]; y[j] = sum &amp;gt;&amp;gt; 15; } } </description>
+    </item>
+    
+    <item>
+      <title>使用Gnu gprof进行Linux平台下的程序分析</title>
+      <link>http://example.org/posts/p20130120152200/</link>
+      <pubDate>Sun, 20 Jan 2013 15:22:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120152200/</guid>
+      <description>http://www.pcdog.com/edu/linux/18/10/u231314_1.html http://www.pcdog.com/edu/linux/18/10/u231314_2.html http://www.pcdog.com/edu/linux/18/10/u231314_3.html Compile source .c code for analysis, Create executable file: </description>
+    </item>
+    
+    <item>
+      <title>【技术】C语言传递指针到函数 About transfer pointer into function</title>
+      <link>http://example.org/posts/p20130120151100/</link>
+      <pubDate>Sun, 20 Jan 2013 15:11:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120151100/</guid>
+      <description>//--- Prepare the value of k[] ---- kArr[0] = 87; // kArr = [0:1:15] ; length_kArr = 16 kArr[1] = 96; // 770*num_data/fs ... kArr[7] = 204; //--------Process the data by calling the usr_function: goertzel() ---- goertzel(data_Re, data_Im, num_data, kArr, length_kArr); ///////////// The difinition of usr_function in the file &amp;amp;quot;user.c&amp;amp;quot;/////////// void goertzel(float addr_Re[], float addr_Im[], int N, int kArr[], int length_kArr) { // Input the data for processing: // Here we can use &amp;amp;quot;static float array[.</description>
+    </item>
+    
+    <item>
+      <title>Goertzel Algorith(戈策尔算法）用于检出特定输入频率</title>
+      <link>http://example.org/posts/p20130120150600/</link>
+      <pubDate>Sun, 20 Jan 2013 15:06:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120150600/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>关于微编程（Microprogramming）的简史</title>
+      <link>http://example.org/posts/p20130120150100/</link>
+      <pubDate>Sun, 20 Jan 2013 15:01:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120150100/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Dinero cache simulator-Computer Architecture</title>
+      <link>http://example.org/posts/p20130120145500/</link>
+      <pubDate>Sun, 20 Jan 2013 14:55:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120145500/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>在Ubuntu12.04上安装SimpleScalar的方法</title>
+      <link>http://example.org/posts/p20130120145300/</link>
+      <pubDate>Sun, 20 Jan 2013 14:53:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130120145300/</guid>
+      <description>【技术】在Ubuntu12.04上安装SimpleScalar的方法</description>
+    </item>
+    
+    <item>
+      <title>win7与VMware/VBox下linux共享文件夹方法</title>
+      <link>http://example.org/posts/p20130104220100/</link>
+      <pubDate>Fri, 04 Jan 2013 22:01:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130104220100/</guid>
+      <description>在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。 采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。 采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl 一般需要安装linux-header，执行命令如下： sudo apt-get install linux-headers-uname -r 最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。 如果使用secureCRT连接不到你的虚机， Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start</description>
+    </item>
+    
+    <item>
+      <title>MATLAB动画显示串口数据【实例】（修正链接）</title>
+      <link>http://example.org/posts/p20130103183200/</link>
+      <pubDate>Thu, 03 Jan 2013 18:32:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/p20130103183200/</guid>
+      <description>function callback(s,BytesAvailable,p) global i; global t; global x; global m;
+% p = plot(t,m,&amp;hellip; % &#39;EraseMode&#39;,&#39;background&#39;,&#39;MarkerSize&#39;,5); out = fscanf(s) %read data from s
+data = str2num(out); if data&amp;amp;gt;-2 &amp;amp;amp; data &amp;amp;lt; 2 %detect if data is legal % disp(&amp;amp;#39;*******data comes! \n&amp;amp;#39;); t=[t 0.01*2*pi*i]; %0 0.1 0.2 0.3.. %Matrix 1*(i+1), column is increasing m=[m data]; %Matrix 2*(i+1), 2row, i+1 column. %http://blog.csdn.net/sonictl %set(p(1),&amp;amp;#39;XData&amp;amp;#39;,t,&amp;amp;#39;YData&amp;amp;#39;,m(1,:)) %set(p(2),&amp;amp;#39;XData&amp;amp;#39;,t,&amp;amp;#39;YData&amp;amp;#39;,m(2,:)) set(p,&amp;amp;#39;XData&amp;amp;#39;,t,&amp;amp;#39;YData&amp;amp;#39;,m(1,:)) %http://blog.csdn.net/sonictl drawnow x = x + 3.6/360*2*pi; % x = x+0.</description>
+    </item>
+    
+    <item>
+      <title>[转载]Matlab中使用Plot函数动态画图方法总结</title>
+      <link>http://example.org/posts/p20130102192300/</link>
+      <pubDate>Wed, 02 Jan 2013 19:23:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/p20130102192300/</guid>
+      <description> </description>
+    </item>
+    
+  </channel>
+</rss>

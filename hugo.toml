@@ -1,0 +1,115 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Combine Art and Sciences'
+theme = 'fluency'
+
+
+
+
+enableRobotsTXT = true
+
+summaryLength = 80
+
+pygmentsUseClasses = true  # enable theme-defined highlight style
+
+pygmentsCodefences = true
+
+hasCJKLanguage = false
+
+enableEmoji = true
+
+ignoreErrors = [
+  "error-remote-getjson",
+  "error-missing-instagram-accesstoken"
+]
+
+[minify]
+  disableSVG = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  author = "Hugo Author"
+  description = "A fluent Hugo theme for writers and bloggers."
+  mainSections = [ "posts" ]
+  disableSocialShare = false
+  disableIndexSummary = false
+  disableAnchorHeading = false
+  disableBreadcrumb = false
+  disableComment = true
+  disableCommentByType = [ "page" ]
+  thirdPartyComment = """ this is your comment """
+  mathRender = true
+
+  [params.pageSize]
+    index = 10
+    list = 2000
+    archives = 20
+
+# menus: More info about hugo menus, please refer to Hugo - Menus.
+[[menu.main]] 
+  identifier = "posts"
+  name = "posts"
+  url = "posts/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "tags"
+  name = "tags"
+  url = "tags/"
+  weight = 2
+
+[[menu.main]]
+  identifier = "archives"
+  name = "archives"
+  url = "archives/"
+  weight = 3
+
+[[menu.main]]
+  identifier = "about"
+  name = "about"
+  url = "about/"
+  weight = 4
+
+[[menu.footer]]
+  identifier = "twitter"
+  url = "https://twitter.com/gohugoio"
+  name = "Twitter"
+
+[[menu.footer]]
+  identifier = "github"
+  url = "https://github.com/gohugoio"
+  name = "Github"
+
+[privacy.disqus]
+  disable = false
+
+[privacy.googleAnalytics]
+  anonymizeIP = false
+  disable = false
+  respectDoNotTrack = false
+  useSessionStorage = false
+
+[privacy.instagram]
+  disable = false
+  simple = false
+
+[privacy.twitter]
+  disable = false
+  enableDNT = false
+  simple = false
+
+[privacy.vimeo]
+  disable = false
+  enableDNT = false
+  simple = false
+
+[privacy.youtube]
+  disable = false
+  privacyEnhanced = false
+
