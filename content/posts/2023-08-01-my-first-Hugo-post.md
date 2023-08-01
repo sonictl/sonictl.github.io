@@ -64,3 +64,11 @@ I am using `fluency` theme for now, but you may need to transfer the `yaml` spec
 
 Ref [https://gohugo.io/hosting-and-deployment/hosting-on-github/](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
 
+Note you may use the "workflow" mechanism of github to deploy your site.
+
+I met the error about `.gitsubmodule` saying that my `hugo_eiio` theme is not added into it. fix it and note to add theme with `git add submodule` rather than `git clone` in the future.
+
+Refer about deploy Hugo site onto github pages: https://gohugo.io/hosting-and-deployment/hosting-on-github/
+
+
+
