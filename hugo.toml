@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://sonictl.github.io/'
 languageCode = 'en-us'
 title = 'Combine Art and Sciences'
 theme = 'fluency'
@@ -35,7 +35,8 @@ ignoreErrors = [
 
 [params]
   author = "Hugo Author"
-  description = "A fluent Hugo theme for writers and bloggers."
+  favicon = "/favicon.ico" 
+  description = "A fluency Hugo theme for writers and bloggers."
   mainSections = [ "posts" ]
   disableSocialShare = false
   disableIndexSummary = false

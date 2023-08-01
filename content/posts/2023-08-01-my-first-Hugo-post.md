@@ -8,16 +8,15 @@ slug: p20230801203712
 
 
 
-### Below is installing and creating a hugo site with theme=hugo_eiio
+### Below is installing and creating a hugo site with theme=fluency
 
 with operations like:
 
 ```
     hugo new site sonictl.github.io
-    cd sonictl.github.io/themes
-    git clone https://github.com/leonhe/hugo_eiio
-    cd ..
-    echo "theme = 'ananke'" >> hugo.toml
+    cd sonictl.github.io
+    git submodule add https://github.com/wayjam/hugo-theme-fluency.git themes/fluency
+    echo "theme = 'fluency'" >> hugo.toml
     hugo server
     
 ```
@@ -66,9 +65,19 @@ Ref [https://gohugo.io/hosting-and-deployment/hosting-on-github/](https://gohugo
 
 Note you may use the "workflow" mechanism of github to deploy your site.
 
-I met the error about `.gitsubmodule` saying that my `hugo_eiio` theme is not added into it. fix it and note to add theme with `git add submodule` rather than `git clone` in the future.
+I met the error about `.gitsubmodule` saying that my `hugo_eiio` theme is not added into it. fix it and note to add theme with `git add submodule` rather than `git clone` in the future. See: [submodule for hugo themes](https://www.andrewhoog.com/post/git-submodule-for-hugo-themes/)
 
-Refer about deploy Hugo site onto github pages: https://gohugo.io/hosting-and-deployment/hosting-on-github/
+Refer about deploy Hugo site with `workflow` onto github pages: https://gohugo.io/hosting-and-deployment/hosting-on-github/
+
+
+
+## Todo:
+
+ [ ] change icon of tag.
+
+ [ ] add comment.
+
+ [ ] beautilize, like pictures.
 
 
 
