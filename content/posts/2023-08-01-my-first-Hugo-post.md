@@ -96,9 +96,26 @@ Refer: [setting-up-hugo-to-use-google-analytics](http://cloudywithachanceofdevop
 
 
 
-## todo
+## Add pictures in blog post
 
- [ ] - test pictures in blog post
+ in your `Hugo_root/static/img_test.png` , the picture will be online at `your_domain_name_of_blog/img_test.png` . So, you can manage your image's path:
+
+![test_image](https://sonictl.github.io/img/android-chrome-192x192.png)
 
 
+
+Here I use:
+
+ `https://sonictl.github.io/img/android-chrome-192x192.png`
+
+ for a picture saved at:
+
+` <hugo Root Folder>/static/img/android-chrome-192x192.png`
+
+
+![test_image](/static/img/android-chrome-192x192.png)
+
+![test_image](/img/android-chrome-192x192.png)
+
+## Todo
 
