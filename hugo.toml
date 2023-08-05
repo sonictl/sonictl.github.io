@@ -43,9 +43,12 @@ ignoreErrors = [
   disableIndexSummary = false
   disableAnchorHeading = false
   disableBreadcrumb = false
-  disableComment = true
+
+  disableComment = false
+  enableComment = true
   disableCommentByType = [ "page" ]
   thirdPartyComment = """ this is your comment """
+  
   mathRender = true
 
   [params.pageSize]
