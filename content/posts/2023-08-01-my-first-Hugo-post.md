@@ -118,10 +118,13 @@ Here I use:
 This is also work (**Recommended**): 
 
 ```markdown
-![test_image](/static/img/android-chrome-192x192.png)
+![test_image](/img/android-chrome-192x192.png)
 ```
 
 
 
-## Todo
+## References:
 
+References: for deeper Hugo usage:
+
+https://gohugo.io/content-management/page-resources/
