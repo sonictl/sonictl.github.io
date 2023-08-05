@@ -113,9 +113,15 @@ Here I use:
 ` <hugo Root Folder>/static/img/android-chrome-192x192.png`
 
 
-![test_image](/static/img/android-chrome-192x192.png)
-
 ![test_image](/img/android-chrome-192x192.png)
+
+This is also work (**Recommended**): 
+
+```markdown
+![test_image](/static/img/android-chrome-192x192.png)
+```
+
+
 
 ## Todo
 
