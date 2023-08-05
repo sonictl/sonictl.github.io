@@ -47,7 +47,7 @@ ignoreErrors = [
   disableComment = false
   enableComment = true
   disableCommentByType = [ "page" ]
-  thirdPartyComment = """ this is your comment """
+  #thirdPartyComment = """ this is your comment """
   
   mathRender = true
 
