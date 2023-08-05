@@ -55,6 +55,14 @@ The cmd `hugo server ` will start the blog web server locally and let your check
 
 I am using `fluency` theme for now, but you may need to transfer the `yaml` spec configurations into `toml` spec, you can search online with the `yaml to toml`.
 
+About the theme:
+
+```
+The theme folder is actually a git submodule that I cloned directly from the hugo-classic theme GitHub repository, I don’t want to edit any files under that folder directly. If I were to edit files there, I would have uncommitted changes to my git submodule, and that can become a pain to manage being the submodule is not based off of a repository I own or want to commit changes to.theme folder is actually a git submodule that I cloned directly from the hugo-classic theme GitHub repository, I don’t want to edit any files under that folder directly. If I were to edit files there, I would have uncommitted changes to my git submodule, and that can become a pain to manage being the submodule is not based off of a repository I own or want to commit changes to.
+```
+
+Refer: [setting-up-hugo-to-use-google-analytics](http://cloudywithachanceofdevops.com/posts/2018/05/17/setting-up-google-analytics-on-hugo/#setting-up-hugo-to-use-google-analytics)
+
 
 
 ## Publish into the Internet with `git` commands
@@ -71,13 +79,26 @@ Refer about deploy Hugo site with `workflow` onto github pages: https://gohugo.i
 
 
 
-## Todo:
+## More about modifiying static partial to enable Google Analytics
 
- [ ] change icon of tag.
+The way Hugo handles `partials` is that it looks in two places in a specific order to figure out what needs to be used. That order is:
 
- [ ] add comment.
+```bash
+1. layouts/partials/*<PARTIALNAME>.html
+2. themes/<THEME>/layouts/partials/*<PARTIALNAME>.html
+```
 
- [ ] beautilize, like pictures.
+So,  we can create a copy of the theme’s `header.html` or `head.html` file, throw it in our `layouts/partials/` folder in the root of our Hugo site, and it will **override** the `header.html` file in our theme’s `layouts/partials` folder **without overwriting it**. Powerful stuff!
+
+Once we have that new `header.html` file, we can add the code to it that will enable the internal Hugo template for Google Analytics on our site without disturbing the code of the theme. 
+
+Refer: [setting-up-hugo-to-use-google-analytics](http://cloudywithachanceofdevops.com/posts/2018/05/17/setting-up-google-analytics-on-hugo/#setting-up-hugo-to-use-google-analytics)
+
+
+
+## todo
+
+ [ ] - test pictures in blog post
 
 
 
