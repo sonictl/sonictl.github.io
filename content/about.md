@@ -1,0 +1,16 @@
+---
+title: "About"
+Description: "Combine Art and Sciences!"
+layout: "about"
+---
+
+**About this blog**
+
+This is a personal blog that shares thoughts and techniques. 
+
+The author has experiences about academics, robots, data sciences and artificiall intelligence.
+
+He is dedicated to the pursuit of beauty and wisdom.
+
+Constructive comments are welcomed.
+
