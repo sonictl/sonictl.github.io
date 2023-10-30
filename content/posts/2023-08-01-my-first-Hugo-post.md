@@ -79,7 +79,7 @@ Refer about deploy Hugo site with `workflow` onto github pages: https://gohugo.i
 
 
 
-## More about modifiying static partial to enable Google Analytics
+## More about modifiying static artial to enable Google Analytics
 
 The way Hugo handles `partials` is that it looks in two places in a specific order to figure out what needs to be used. That order is:
 
