@@ -2,7 +2,7 @@
 layout: post
 title:  "The URL tricks to download YouTube videos"
 date: 2023-11-07 17:48:53 +0800
-categories: embedded
+categories: daily_use
 slug: p20231107174853
 ---
 
