@@ -7,13 +7,39 @@ slug: p20220330101954
 ---
 # Fixing certbot does not know where nginx is located in your server
 
-If your certbot does not know how to auto configure ssl for your host, you can refer below.
+If your certbot cannot auto configure ssl for your host:
 
 ## The cause of this problem
 
   Mine is because the installation path of nginx is not the default one， such as /etc/nginx or /usr/bin/nginx
 
-## solution1: create a link to your path of nginx, manually assign path of conf files.
+
+## When Certbot is unable to automatically configure your web:
+
+  Follow the GPT's answer:
+
+```
+ME: 
+  Certbot doesn't know how to automatically configure the web server on this system.
+
+GPT:
+  If Certbot is unable to automatically configure your web server, it usually means that it couldn't identify the web server software and configuration on your system. To address this issue, you may need to specify the web server and its configuration manually when running Certbot.
+  command:
+    certbot --apache
+  or:
+    certbot --nginx
+
+ME:
+  The requested nginx plugin does not appear to be installed.
+
+GPT:
+  Install Certbot and the Nginx plugin using the following command:
+    apt install certbot python3-certbot-nginx
+    certbot --nginx
+
+```
+
+## solution 2: create a link to your path of nginx, manually assign path of conf files.
 
   - The systemd service file `/etc/systemd/system/nginx.service` may need change.
   - Carefully change the path of /etc/nginx/nginx.conf and the `include path` in it.
@@ -37,7 +63,7 @@ if the .service file contains `nginx -t` modify it into `nginx -t -c <path of ng
 
 
 
-## solution2: Use `certbot certonly` and conf file for nginx server node:
+## solution 3: Use `certbot certonly` and conf file for nginx server node:
 
   cmd: `certbot certonly`
 
@@ -113,7 +139,7 @@ and
 ```
 
 
-### For solution2: Renewal the cert for a spec domain
+### For solution 3: Renewal the cert for a spec domain
 
   cmd: ` certbot certonly -d <your_domain_name> `
   follow the prompt and renewal.

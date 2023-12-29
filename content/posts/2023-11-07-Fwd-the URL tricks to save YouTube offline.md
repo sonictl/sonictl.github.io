@@ -18,7 +18,7 @@ youtube.com/watch?v=C6MVEwl0ceI&t=2s -> ssyoutube.com/watch?v=C6MVEwl0ceI&t=2s
 
 youtube.com/watch?v=C6MVEwl0ceI&t=2s -> youpak.com/watch?v=C6MVEwl0ceI&t=2s
 
-### Method 3: Change YouTube to `youtubepp`
+### ~~Method 3: Change YouTube to `youtubepp`~~
 
 youtube.com/watch?v=C6MVEwl0ceI&t=2s -> youtubepp.com/watch?v=C6MVEwl0ceI&t=2s
 

@@ -10,7 +10,7 @@ This is a personal blog that shares thoughts and techniques.
 
 The author has experiences about academics, robots, data sciences and artificiall intelligence.
 
-He is dedicated to the pursuit of beauty and wisdom.
+He is dedicated to the pursuit of aesthetics and wisdom.
 
 Constructive comments are welcomed.
 
