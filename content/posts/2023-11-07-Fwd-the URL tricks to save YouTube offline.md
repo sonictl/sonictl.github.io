@@ -31,3 +31,9 @@ youtube.com/watch?v=C6MVEwl0ceI&t=2s -> pwnyoutube.com/watch?v=C6MVEwl0ceI&t=2s
 **Are there any video quality restrictions when downloading from YouTube**
 
 The quality of the downloaded YouTube video can depend on several factors, including the original video quality and the tool or service you’re using for the download. Most downloading tools offer different resolution options to choose from, typically ranging from 144p to 1080p or even 4K if the original video supports it. However, higher resolution videos will take longer to download and use up more storage space. So, while there are no inherent restrictions, practical considerations may affect the quality of downloaded videos.](https://towardsdatascience.com/3-ways-to-convert-python-app-into-apk-77f4c9cd55af#Any%20Examples?)
+
+## Py lib for youtube video downloading
+
+https://github.com/pytube/pytube
+
+PyTube is a library for python code to obtaining the youtube videos and subtitles.
