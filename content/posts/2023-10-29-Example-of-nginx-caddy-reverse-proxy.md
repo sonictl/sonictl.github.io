@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Example of Nginx Reverse Proxy Configuration"
+title:  "Example of Reverse Proxy Configuration - Nginx & Caddy"
 date: 2023-10-29 10:19:54 +0800
 categories: embedded
 slug: p20231029101954
@@ -41,6 +41,27 @@ server {
         proxy_set_header    Connection          $connection_upgrade;
         proxy_pass          http://127.0.0.1:9000/;
     }
+}
+```
+
+### Example of Caddy Reverse Proxy Configuration
+
+```
+# This is a comment
+yourdomain.com {
+  # This is also a comment
+  reverse_proxy /myroute localhost:2024
+
+  # May take option1/option2 either:
+
+  #  option1: a static web server for `index.html` in /var/www/mysite
+  root * /var/www/mysite
+  file_server
+
+  #  option2:
+  reverse_proxy https://www.abc.com {
+        header_up Host {upstream_hostport}
+  }
 }
 ```
 
