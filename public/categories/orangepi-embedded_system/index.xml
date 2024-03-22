@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>orangePi embedded_system on My New Hugo Site</title>
-    <link>http://example.org/categories/orangepi-embedded_system/</link>
-    <description>Recent content in orangePi embedded_system on My New Hugo Site</description>
+    <title>orangePi embedded_system on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/orangepi-embedded_system/</link>
+    <description>Recent content in orangePi embedded_system on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Jul 2021 08:02:01 +0800</lastBuildDate><atom:link href="http://example.org/categories/orangepi-embedded_system/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 08:02:01 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/orangepi-embedded_system/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>install usbmount on debian for orangePi / raspberryPi</title>
-      <link>http://example.org/posts/p20210706080201/</link>
+      <link>https://sonictl.github.io/posts/p20210706080201/</link>
       <pubDate>Tue, 06 Jul 2021 08:02:01 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20210706080201/</guid>
-      <description>install usbmount on debian for orangePi / raspberryPi USBmount was removed from Debian a while back because the version from the repositories no longer works. It&amp;rsquo;s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).</description>
+      <guid>https://sonictl.github.io/posts/p20210706080201/</guid>
+      <description>install usbmount on debian for orangePi / raspberryPi USBmount was removed from Debian a while back because the version from the repositories no longer works. It&amp;rsquo;s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).
+Start by installing Git and downloading the latest USBmount Git code:</description>
     </item>
     
   </channel>

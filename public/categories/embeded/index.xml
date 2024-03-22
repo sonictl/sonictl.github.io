@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>embeded on My New Hugo Site</title>
-    <link>http://example.org/categories/embeded/</link>
-    <description>Recent content in embeded on My New Hugo Site</description>
+    <title>embeded on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/embeded/</link>
+    <description>Recent content in embeded on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jan 2022 17:44:07 +0800</lastBuildDate><atom:link href="http://example.org/categories/embeded/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 17:44:07 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/embeded/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[ESP32_lvgl] From demo to own UI component with lvgl on ESP32</title>
-      <link>http://example.org/posts/p20220122174407/</link>
+      <link>https://sonictl.github.io/posts/p20220122174407/</link>
       <pubDate>Sat, 22 Jan 2022 17:44:07 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220122174407/</guid>
+      <guid>https://sonictl.github.io/posts/p20220122174407/</guid>
       <description>[ESP32_lvgl] From demo to own UI component with lvgl on ESP32 This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.
 After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Rather than the toy &amp;ndash; micropython.
-1. Motivation and value of this post After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board.</description>
+1. Motivation and value of this post After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board. But for beginners, from running demo to developing the specific project, they may meet some little but not-easy-to-solve difficalties.</description>
     </item>
     
   </channel>

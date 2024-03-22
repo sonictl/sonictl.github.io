@@ -18,20 +18,40 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" public UserException(String arg0, Throwable arg1, boolean arg2, boolean arg3) { super(arg0, arg1, arg2, arg3); // TODO Auto-generated constructor stub } public UserException(String arg0, Throwable arg1) { super(arg0, arg1); // TODO Auto-generated constructor stub } public UserException(String arg0) { super(arg0); // TODO Auto-generated constructor stub } public UserException(Throwable arg0) { super(arg0); // TODO Auto-generated constructor stub }&lt;/pre&gt;&lt;br&gt; " />
-  <meta name="author" content="">
+  <meta name="description" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 增删改查，login
+1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp
+表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。
+&lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt; username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt; password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt; &lt;input type=&quot;submit&quot;/&gt; &lt;/form&gt; 2. userController.java
+login.jsp点击“submit”以后，将访问userController里的login方法：Public String login(){ }
+· 指定进入method的条件
+· 指定进入method的参数
+· 异常处理1：用户名不存在， 异常处理2：密码不正确
+· 把User存到Session中 【？】
+·&nbsp;
+@RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的 public String login(String username, String password, HttpSession session){	//传2个参数进来, 1st:username 2nd:password //第3个参数是指定Session注入的 if (!users.containsKey(username)){	//异常处理1.如果不包含，则用户名不存在 //创建一个异常处理.java,见下“3. 需要一个处理异常的class” throw new UserException(&quot;Username does not exist! &quot;); } User u = users." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20141120060200/" />
+  <title>Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20141120060200/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" public UserException(String arg0, Throwable arg1, boolean arg2, boolean arg3) { super(arg0, arg1, arg2, arg3); // TODO Auto-generated constructor stub } public UserException(String arg0, Throwable arg1) { super(arg0, arg1); // TODO Auto-generated constructor stub } public UserException(String arg0) { super(arg0); // TODO Auto-generated constructor stub } public UserException(Throwable arg0) { super(arg0); // TODO Auto-generated constructor stub }&lt;/pre&gt;&lt;br&gt; " />
+  <meta property="og:description" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 增删改查，login
+1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp
+表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。
+&lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt; username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt; password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt; &lt;input type=&quot;submit&quot;/&gt; &lt;/form&gt; 2. userController.java
+login.jsp点击“submit”以后，将访问userController里的login方法：Public String login(){ }
+· 指定进入method的条件
+· 指定进入method的参数
+· 异常处理1：用户名不存在， 异常处理2：密码不正确
+· 把User存到Session中 【？】
+·&nbsp;
+@RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的 public String login(String username, String password, HttpSession session){	//传2个参数进来, 1st:username 2nd:password //第3个参数是指定Session注入的 if (!users.containsKey(username)){	//异常处理1.如果不包含，则用户名不存在 //创建一个异常处理.java,见下“3. 需要一个处理异常的class” throw new UserException(&quot;Username does not exist! &quot;); } User u = users." />
   <meta property="og:title" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20141120060200/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20141120060200/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +62,23 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 | My New Hugo Site" />
-  <meta name="twitter:description" content=" public UserException(String arg0, Throwable arg1, boolean arg2, boolean arg3) { super(arg0, arg1, arg2, arg3); // TODO Auto-generated constructor stub } public UserException(String arg0, Throwable arg1) { super(arg0, arg1); // TODO Auto-generated constructor stub } public UserException(String arg0) { super(arg0); // TODO Auto-generated constructor stub } public UserException(Throwable arg0) { super(arg0); // TODO Auto-generated constructor stub }&lt;/pre&gt;&lt;br&gt; " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20141120060200/" />
+  <meta name="twitter:title" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 增删改查，login
+1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp
+表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。
+&lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt; username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt; password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt; &lt;input type=&quot;submit&quot;/&gt; &lt;/form&gt; 2. userController.java
+login.jsp点击“submit”以后，将访问userController里的login方法：Public String login(){ }
+· 指定进入method的条件
+· 指定进入method的参数
+· 异常处理1：用户名不存在， 异常处理2：密码不正确
+· 把User存到Session中 【？】
+·&nbsp;
+@RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的 public String login(String username, String password, HttpSession session){	//传2个参数进来, 1st:username 2nd:password //第3个参数是指定Session注入的 if (!users.containsKey(username)){	//异常处理1.如果不包含，则用户名不存在 //创建一个异常处理.java,见下“3. 需要一个处理异常的class” throw new UserException(&quot;Username does not exist! &quot;); } User u = users." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20141120060200/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +95,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +165,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +235,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20141120060200/">Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</a>
+  <a href="https://sonictl.github.io/posts/p20141120060200/">Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</a>
 </li>
 
 </ol>
@@ -220,8 +303,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-a min to read</span>
+2 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,7 +357,59 @@ a min to read</span>
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
+          <h3>Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</h3>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">增删改查，login</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"></span></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_1_5888629"  code_snippet_id="526239" snippet_file_name="blog_20141120_1_5888629" name="code" class="html">&lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt;
+   username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
+   password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt;
+   &lt;input type=&quot;submit&quot;/&gt;
+&lt;/form&gt;</pre>
+<p></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">2. userController.java</span><br>
+</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>login.jsp点击“submit”以后，将访问userController里的login方法：Public
+ String login(){ }<br>
+<span style="white-space:pre"></span>· 指定进入method的条件<br>
+<span style="white-space:pre"></span>· 指定进入method的参数<br>
+<span style="white-space:pre"></span>· 异常处理1：用户名不存在， 异常处理2：密码不正确<br>
+<span style="white-space:pre"></span>· 把User存到Session中 【？】<br>
+</span></span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>·&nbsp;</span></span></p>
+<p></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_2_2140409"  code_snippet_id="526239" snippet_file_name="blog_20141120_2_2140409" name="code" class="java">@RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的
+	public String login(String username, String password, HttpSession session){	//传2个参数进来, 1st:username 2nd:password
+//第3个参数是指定Session注入的
+		if (!users.containsKey(username)){	//异常处理1.如果不包含，则用户名不存在
+			//创建一个异常处理.java,见下“3. 需要一个处理异常的class”
+			throw new UserException(&quot;Username does not exist! &quot;);
+		}
+			User u = users.get(username);	//得到username
+		if (!u.getPassword().equals(password) )	{//if 不相等， 说明密码不正确:
+			throw new UserException(&quot;Password does not match!&quot;);
+		}
+		//把user 存到Session中:
+		session.setAttribute(&quot;loginUser&quot;,u);
+		return &quot;redirect:/user/users&quot;;	//login success, jump to user/users
+	}</pre><br>
+<span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"></span>
+<p></p>
+<p>3. 需要一个处理异常的class</p>
+<p><span style="color:rgb(102,102,102); font-size:14px; line-height:24px"><span style="font-family:Arial; white-space:pre"></span><strong>·&nbsp;</strong><span style="font-family:Arial">新建一个class:</span><br>
+<span style="font-family:Arial; white-space:pre"></span>&nbsp;&nbsp;<span style="font-family:Arial">Name: UserException.class</span><br>
+<span style="font-family:Arial; white-space:pre"></span>&nbsp;&nbsp;<span style="font-family:Arial">Superclass: java.lang.RuntimExcption</span><br>
+<span style="font-family:Arial; white-space:pre"></span><strong>·&nbsp;</strong><span style="font-family:Arial">Add Default Version ID: 代码：&nbsp;</span><span style="font-family:Courier New; background-color:rgb(204,204,204)">private static final long serialVersionUID
+ = 1L;</span></span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span><strong>·</strong>创建一个Constructors构造器 from Superclass: 右键-Resources-Generate Constructors from Superclass</span></p>
+<p style="text-indent:28px"><strong>&nbsp;</strong></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_3_5893557"  code_snippet_id="526239" snippet_file_name="blog_20141120_3_5893557" name="code" class="java">   package edu.bit.model;
+        public class UserException extends RuntimeException {
+        public UserException() {
+	        super();
+		// TODO Auto-generated constructor stub
+	}
 <pre><code>public UserException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
 	super(arg0, arg1, arg2, arg3);
 	// TODO Auto-generated constructor stub
@@ -250,7 +430,67 @@ public UserException(Throwable arg0) {
 	// TODO Auto-generated constructor stub
 }&lt;/pre&gt;&lt;br&gt;
 </code></pre>
-<!-- raw HTML omitted -->
+<p></p>
+<p style="text-indent:28px">==========至此，基本完成一个登陆操作的编写，但如果用户名不存在或密码不正确，将返回500错误，并按UserException(&quot;错误提示&quot;)提示错误 ========</p>
+<p style="text-indent:28px">测试链接： http://localhost:8080/myhello/login.jsp<br>
+<span style="white-space:pre"></span>500错误页截图：</p>
+<p style="text-indent:28px"><img src="http://img.blog.csdn.net/20141120140635213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+</p>
+<h3 style="text-indent:28px"><br>
+</h3>
+<p><a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/41312005" style="color:rgb(0,0,0); text-decoration:none; font-family:'Microsoft YaHei'; font-size:20px; line-height:30px">&nbsp;实现简单的用户管理（4.2）用户登录--显示局部异常信息</a></p>
+<h3></h3>
+<h3 style="margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px">
+第二部分：显示局部异常信息，而不是500错误页</h3>
+<p><span style="font-weight:normal; white-space:pre"></span><span style="font-weight:normal"><span style="white-space:pre"></span>1. 写一个方法，把UserException传进来。<br>
+<span style="white-space:pre"></span><span style="white-space:pre"></span>2. 映射方式：@ExceptionHandler (), 括号里value是UserException.class<br>
+<span style="white-space:pre"></span><span style="white-space:pre"></span>3. 传参进入UserException方法：(UserException ue, HttpServletRequest req)<br>
+<span style="white-space:pre"></span>-----//1.把 UserException传进来;<br>
+<span style="white-space:pre"></span>-----//2.不能用model来传&#20540;，因为不是RequestMapping，用HttpSeverletRequest req<br>
+<span style="white-space:pre"></span>4. 把异常对象存入HttpSeverletRequest req的e参数: &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New">req.setAttribute(&quot;e&quot;,ue);</span><br>
+<span style="white-space:pre"></span>5. 返回视图error: &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New">return error;</span><br>
+<span style="white-space:pre"></span><br>
+----实现代码-----<br>
+UserController.java中加入：</span></p>
+<p></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_1_3893429"  code_snippet_id="526239" snippet_file_name="blog_20141120_1_3893429" name="code" class="java">	/*
+	 * 显示局部的异常信息:仅仅只能处理这个控制器中的异常
+	 * 写一个方法，HandlerException, 把 UserException传进来
+	 */
+	@ExceptionHandler(value={UserException.class})	//用ExceptionHandler来映射，要处理的value是一个数组
+							//要处理一个对象就这样写，可处理多个对象。
+	public String handlerException(UserException ue, HttpServletRequest req){	
+				//1.把 UserException传进来;
+				//2.不能用model来传值，因为不是RequestMapping，用HttpSeverletRequest req
+		//把异常对象ue存进去：
+		req.setAttribute(&quot;e&quot;, ue);	//req 的 “e”参数，被set为 uexception
+		return &quot;error&quot;;
+	}</pre><br>
+<p>/WEB-INF/error.jsp中代码：<span style="font-family:Courier New">${e.message} </span>
+<span style="font-family:Arial">调取message信息：</span></p>
+<p></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_2_5095678"  code_snippet_id="526239" snippet_file_name="blog_20141120_2_5095678" name="code" class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+	&lt;title&gt;Error page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+	${e.message}  
+&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre><br>
+<br>
+<p></p>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
 
 
 
@@ -313,7 +553,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20141120060200%2f&title=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b08%20%e2%80%94%e2%80%94%20%e5%ae%9e%e7%8e%b0%e7%ae%80%e5%8d%95%e7%9a%84%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86%ef%bc%884%ef%bc%89%e7%94%a8%e6%88%b7%e7%99%bb%e5%bd%95">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141120060200%2f&title=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b08%20%e2%80%94%e2%80%94%20%e5%ae%9e%e7%8e%b0%e7%ae%80%e5%8d%95%e7%9a%84%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86%ef%bc%884%ef%bc%89%e7%94%a8%e6%88%b7%e7%99%bb%e5%bd%95">
           
 
 
@@ -339,7 +579,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 on twitter"
-          href="https://twitter.com/intent/tweet/?text=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b08%20%e2%80%94%e2%80%94%20%e5%ae%9e%e7%8e%b0%e7%ae%80%e5%8d%95%e7%9a%84%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86%ef%bc%884%ef%bc%89%e7%94%a8%e6%88%b7%e7%99%bb%e5%bd%95&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20141120060200%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b08%20%e2%80%94%e2%80%94%20%e5%ae%9e%e7%8e%b0%e7%ae%80%e5%8d%95%e7%9a%84%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86%ef%bc%884%ef%bc%89%e7%94%a8%e6%88%b7%e7%99%bb%e5%bd%95&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141120060200%2f&amp;hashtags=">
           
 
 
@@ -365,7 +605,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20141120060200%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141120060200%2f">
           
 
 
@@ -395,6 +635,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -402,6 +668,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -419,7 +695,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -430,7 +706,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

@@ -18,20 +18,50 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="配置和管理msyql： 1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024 关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。 2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp; 查看mysql版本：mysqladmin -u root -p version 注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart 3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格 4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中 5. 允许root远程登陆： 1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql; 2）从所有主机：grant all privileges on . to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option; 3）从指定主机：grant all privileges on . to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges; 4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user; 6. 创建数据库，创建user： 1) 建库：create database test1; 2) 建用户，赋权：grant all privileges on test1." />
-  <meta name="author" content="">
+  <meta name="description" content="配置和管理msyql：
+1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024
+关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。
+2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp;
+查看mysql版本：mysqladmin -u root -p version
+注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart
+3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格
+4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中
+5. 允许root远程登陆：
+1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql;
+2）从所有主机：grant all privileges on . to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option;
+3）从指定主机：grant all privileges on . to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges;
+4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user;
+6. 创建数据库，创建user：
+1) 建库：create database test1;
+2) 建用户，赋权：grant all privileges on test1." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>Linux配置和管理msyql命令 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20141230071400/" />
+  <title>Linux配置和管理msyql命令 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20141230071400/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="配置和管理msyql： 1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024 关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。 2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp; 查看mysql版本：mysqladmin -u root -p version 注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart 3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格 4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中 5. 允许root远程登陆： 1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql; 2）从所有主机：grant all privileges on . to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option; 3）从指定主机：grant all privileges on . to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges; 4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user; 6. 创建数据库，创建user： 1) 建库：create database test1; 2) 建用户，赋权：grant all privileges on test1." />
+  <meta property="og:description" content="配置和管理msyql：
+1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024
+关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。
+2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp;
+查看mysql版本：mysqladmin -u root -p version
+注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart
+3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格
+4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中
+5. 允许root远程登陆：
+1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql;
+2）从所有主机：grant all privileges on . to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option;
+3）从指定主机：grant all privileges on . to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges;
+4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user;
+6. 创建数据库，创建user：
+1) 建库：create database test1;
+2) 建用户，赋权：grant all privileges on test1." />
   <meta property="og:title" content="Linux配置和管理msyql命令" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20141230071400/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20141230071400/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +72,28 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Linux配置和管理msyql命令 | My New Hugo Site" />
-  <meta name="twitter:description" content="配置和管理msyql： 1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024 关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。 2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp; 查看mysql版本：mysqladmin -u root -p version 注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart 3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格 4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中 5. 允许root远程登陆： 1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql; 2）从所有主机：grant all privileges on . to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option; 3）从指定主机：grant all privileges on . to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges; 4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user; 6. 创建数据库，创建user： 1) 建库：create database test1; 2) 建用户，赋权：grant all privileges on test1." />
-  <meta name="twitter:domain" content="http://example.org/posts/p20141230071400/" />
+  <meta name="twitter:title" content="Linux配置和管理msyql命令 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="配置和管理msyql：
+1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024
+关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。
+2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp;
+查看mysql版本：mysqladmin -u root -p version
+注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart
+3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格
+4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中
+5. 允许root远程登陆：
+1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql;
+2）从所有主机：grant all privileges on . to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option;
+3）从指定主机：grant all privileges on . to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges;
+4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user;
+6. 创建数据库，创建user：
+1) 建库：create database test1;
+2) 建用户，赋权：grant all privileges on test1." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20141230071400/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +110,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +180,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +250,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20141230071400/">Linux配置和管理msyql命令</a>
+  <a href="https://sonictl.github.io/posts/p20141230071400/">Linux配置和管理msyql命令</a>
 </li>
 
 </ol>
@@ -222,6 +320,51 @@
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 2 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,75 +372,75 @@
       </div>
       <article class="post-entry content">
         
-          <p>配置和管理msyql：<!-- raw HTML omitted -->
-　　1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024<!-- raw HTML omitted -->
-　　关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。<!-- raw HTML omitted -->
-　　2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp;<!-- raw HTML omitted -->
-　　查看mysql版本：mysqladmin -u root -p version<!-- raw HTML omitted -->
-　　注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart<!-- raw HTML omitted -->
-　　3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格<!-- raw HTML omitted -->
-　　4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中<!-- raw HTML omitted -->
-　　5. 允许root远程登陆：<!-- raw HTML omitted -->
-　　1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql;<!-- raw HTML omitted -->
-　　2）从所有主机：grant all privileges on <em>.</em> to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option;<!-- raw HTML omitted -->
-　　3）从指定主机：grant all privileges on <em>.</em> to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges;<!-- raw HTML omitted -->
-　　4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user;<!-- raw HTML omitted -->
-　　6. 创建数据库，创建user：<!-- raw HTML omitted -->
-　　1) 建库：create database test1;<!-- raw HTML omitted -->
-　　2) 建用户，赋权：grant all privileges on test1.* to user_test@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option;<!-- raw HTML omitted -->
-　　3）删除数据库：drop database test1;<!-- raw HTML omitted -->
-　　7. 删除权限：<!-- raw HTML omitted -->
-　　1) revoke all privileges on test1.* from test1@&quot;%&quot;;<!-- raw HTML omitted -->
-　　2) use mysql;<!-- raw HTML omitted -->
-　　3) delete from user where user=&quot;root&quot; and host=&quot;%&quot;;<!-- raw HTML omitted -->
-　　4) flush privileges;<!-- raw HTML omitted -->
-　　8. 显示所有的数据库：show databases; 显示库中所有的表：show tables;<!-- raw HTML omitted -->
-　　9. 远程登录mysql：mysql -h ip -u user -p<!-- raw HTML omitted -->
-　　10. 设置字符集（以utf8为例）：<!-- raw HTML omitted -->
-　　1） 查看当前的编码：show variables like &lsquo;character%&rsquo;;<!-- raw HTML omitted -->
-　　2)　修改my.cnf，在[client]下添加default-character-set=utf8<!-- raw HTML omitted -->
-　　3） 在[server]下添加default-character-set=utf8，init_connect=&lsquo;SET NAMES utf8;&rsquo;<!-- raw HTML omitted -->
-　　4） 重启mysql。<!-- raw HTML omitted -->
-　　注：只有修改/etc下的my.cnf才能使client的设置起效，安装目录下的设置只能使server的设置有效。<!-- raw HTML omitted -->
-　　二进制安装的修改/etc/mysql/my.cnf即可<!-- raw HTML omitted -->
-　　11. 旧数据升级到utf8（旧数据以latin1为例）：<!-- raw HTML omitted -->
-　　1） 导出旧数据：mysqldump &ndash;default-character-set=latin1 -hlocalhost -uroot -B dbname &ndash;tables old_table &gt;old.sql<!-- raw HTML omitted -->
-　　2） 转换编码(Linux和UNIX)：iconv -t utf-8 -f gb2312 -c old.sql &gt; new.sql<!-- raw HTML omitted -->
-　　这里假定原表的数据为gb2312，也可以去掉-f，让iconv自动判断原来的字符集。<!-- raw HTML omitted -->
-　　3） 导入：修改new.sql，在插入或修改语句前加一句话：&quot;SET NAMES utf8;&quot;，并修改所有的gb2312为utf8，保存。<!-- raw HTML omitted -->
-　　mysql -hlocalhost -uroot -p dbname &lt; new.sql<!-- raw HTML omitted -->
-　　如果报max_allowed_packet的错误，是因为文件太大，mysql默认的这个参数是1M，修改my.cnf中的值即可（需要重启mysql)。<!-- raw HTML omitted -->
-　　12. 支持utf8的客户端：Mysql-Front,Navicat,PhpMyAdmin，Linux Shell（连接后执行SET NAMES utf8;后就可以读写utf8的数据了。10.4设置完毕后就不用再执行这句话了）<!-- raw HTML omitted -->
-　　13. 备份和恢复<!-- raw HTML omitted -->
-　　备份单个数据库：mysqldump -uroot -p -B dbname &gt; dbname.sql<!-- raw HTML omitted -->
-　　备份全部数据库：mysqldump -uroot -p &ndash;all-databases &gt; all.sql<!-- raw HTML omitted -->
-　　备份表： mysqldump -uroot -p -B dbname &ndash;table tablename &gt; tablename.sql<!-- raw HTML omitted -->
-　　恢复数据库：mysql -uroot -p &lt; name.sql<!-- raw HTML omitted -->
-　　恢复表：mysql -uroot -p dbname &lt; name.sql (必须指定数据库)<!-- raw HTML omitted -->
-　　14. 复制<!-- raw HTML omitted -->
-　　Mysql支持单向的异步复制，即一个服务器做主服务器，其他的一个或多个服务器做从服务器。复制是通过二进制日志实现的，主服务器写入，从服务器读取。可以实现多个主　　　　服务器，但是会碰到单个服务器不曾遇到的问题（不推荐）。<!-- raw HTML omitted -->
-　　1). 在主服务器上建立一个专门用来做复制的用户：grant replication slave on <em>.</em> to &lsquo;replicationuser&rsquo;@&lsquo;192.168.0.87&rsquo; identified by &lsquo;iverson&rsquo;;<!-- raw HTML omitted -->
-　　2). 刷新主服务器上所有的表和块写入语句：flush tables with read lock; 然后读取主服务器上的二进制二进制文件名和分支：SHOW MASTER STATUS;将File和Position的值记录下来。记录后关闭主服务器：mysqladmin -uroot -ppassw0rd shutdown<!-- raw HTML omitted -->
-　　如果输出为空，说明服务器没有启用二进制日志，在my.cnf文件中[mysqld]下添加log-bin=mysql-bin，重启后即有。<!-- raw HTML omitted -->
-　　3). 为主服务器建立快照（snapshot）<!-- raw HTML omitted -->
-　　需要为主服务器上的需要复制的数据库建立快照，Windows可以使用zip格式，Linux和Unix最好使用tar命令。然后上传到从服务器mysql的数据目录，并解压。<!-- raw HTML omitted -->
-　　cd mysql-data-dir<!-- raw HTML omitted -->
-　　tar cvzf mysql-snapshot.tar ./mydb<!-- raw HTML omitted -->
-　　注意：快照中不应该包含任何日志文件或*.info文件，只应该包含要复制的数据库的数据文件（<em>.frm和</em>.opt）文件。<!-- raw HTML omitted -->
-　　可以用数据库备份(mysqldump)为从服务器做一次数据恢复，保证数据的一致性。<!-- raw HTML omitted -->
-　　4). 确认主服务器上my.cnf文件的[mysqld]section包含log-bin选项和server-id，并启动主服务器：<!-- raw HTML omitted -->
-　　[mysqld]<!-- raw HTML omitted -->
-　　log-bin=mysql-bin<!-- raw HTML omitted -->
-　　server-id=1<!-- raw HTML omitted -->
-　　5). 停止从服务器，加入server-id，然后启动从服务器：<!-- raw HTML omitted -->
-　　[mysqld]<!-- raw HTML omitted -->
-　　server-id=2<!-- raw HTML omitted -->
-　　注：这里的server-id是从服务器的id，必须与主服务器和其他从服务器不一样。<!-- raw HTML omitted -->
-　　可以在从服务器的配置文件中加入read-only选项，这样从服务器就只接受来自主服务器的SQL，确保数据不会被其他途经修改。<!-- raw HTML omitted -->
-　　6). 在从服务器上执行如下语句，用系统真实值代替选项：<!-- raw HTML omitted -->
-　　change master to MASTER_HOST=&lsquo;master_host&rsquo;, MASTER_USER=&lsquo;replication_user&rsquo;,MASTER_PASSWORD=&lsquo;replication_pwd&rsquo;,<!-- raw HTML omitted -->
-　　MASTER_LOG_FILE=&lsquo;recorded_log_file_name&rsquo;,MASTER_LOG_POS=log_position;<!-- raw HTML omitted -->
-　　7). 启动从线程：mysql&gt; START SLAVE; 停止从线程：stop slave;（注意：主服务器的防火墙应该允许3306端口连接）<!-- raw HTML omitted -->
+          <p>配置和管理msyql：<br>
+　　1. 修改mysql最大连接数：cp support-files/my-mediuf，vim my.cnf，增加或修改max_connections=1024<br>
+　　关于my.cnf：mysql按照下列顺序搜索my.cnf:/etc,mysql安装目录，安装目录下的data。/etc下的是全局设置。<br>
+　　2. 启动mysql：/usr/local/mysql/bin/mysqld_safe &ndash;user=mysql &amp;<br>
+　　查看mysql版本：mysqladmin -u root -p version<br>
+　　注：网上安装或者二进制安装的可以直接使用如下命令启动和停止mysql: /etc/init.d/mysql start|stop|restart<br>
+　　3. 停止mysql：mysqladmin -uroot -ppassw0rd shutdown 注意，u,p后没有空格<br>
+　　4. 设置mysql自启动：把启动命令加入/etc/rc.local文件中<br>
+　　5. 允许root远程登陆：<br>
+　　1）本机登陆mysql：mysql -u root -p （-p一定要有）；改变数据库：use mysql;<br>
+　　2）从所有主机：grant all privileges on <em>.</em> to root@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option;<br>
+　　3）从指定主机：grant all privileges on <em>.</em> to root@&quot;192.168.11.205&quot; identified by &quot;passw0rd&quot; with grant option; flush privileges;<br>
+　　4) 进mysql库查看host为%的数据是否添加：use mysql; select * from user;<br>
+　　6. 创建数据库，创建user：<br>
+　　1) 建库：create database test1;<br>
+　　2) 建用户，赋权：grant all privileges on test1.* to user_test@&quot;%&quot; identified by &quot;passw0rd&quot; with grant option;<br>
+　　3）删除数据库：drop database test1;<br>
+　　7. 删除权限：<br>
+　　1) revoke all privileges on test1.* from test1@&quot;%&quot;;<br>
+　　2) use mysql;<br>
+　　3) delete from user where user=&quot;root&quot; and host=&quot;%&quot;;<br>
+　　4) flush privileges;<br>
+　　8. 显示所有的数据库：show databases; 显示库中所有的表：show tables;<br>
+　　9. 远程登录mysql：mysql -h ip -u user -p<br>
+　　10. 设置字符集（以utf8为例）：<br>
+　　1） 查看当前的编码：show variables like &lsquo;character%&rsquo;;<br>
+　　2)　修改my.cnf，在[client]下添加default-character-set=utf8<br>
+　　3） 在[server]下添加default-character-set=utf8，init_connect=&lsquo;SET NAMES utf8;&rsquo;<br>
+　　4） 重启mysql。<br>
+　　注：只有修改/etc下的my.cnf才能使client的设置起效，安装目录下的设置只能使server的设置有效。<br>
+　　二进制安装的修改/etc/mysql/my.cnf即可<br>
+　　11. 旧数据升级到utf8（旧数据以latin1为例）：<br>
+　　1） 导出旧数据：mysqldump &ndash;default-character-set=latin1 -hlocalhost -uroot -B dbname &ndash;tables old_table &gt;old.sql<br>
+　　2） 转换编码(Linux和UNIX)：iconv -t utf-8 -f gb2312 -c old.sql &gt; new.sql<br>
+　　这里假定原表的数据为gb2312，也可以去掉-f，让iconv自动判断原来的字符集。<br>
+　　3） 导入：修改new.sql，在插入或修改语句前加一句话：&quot;SET NAMES utf8;&quot;，并修改所有的gb2312为utf8，保存。<br>
+　　mysql -hlocalhost -uroot -p dbname &lt; new.sql<br>
+　　如果报max_allowed_packet的错误，是因为文件太大，mysql默认的这个参数是1M，修改my.cnf中的值即可（需要重启mysql)。<br>
+　　12. 支持utf8的客户端：Mysql-Front,Navicat,PhpMyAdmin，Linux Shell（连接后执行SET NAMES utf8;后就可以读写utf8的数据了。10.4设置完毕后就不用再执行这句话了）<br>
+　　13. 备份和恢复<br>
+　　备份单个数据库：mysqldump -uroot -p -B dbname &gt; dbname.sql<br>
+　　备份全部数据库：mysqldump -uroot -p &ndash;all-databases &gt; all.sql<br>
+　　备份表： mysqldump -uroot -p -B dbname &ndash;table tablename &gt; tablename.sql<br>
+　　恢复数据库：mysql -uroot -p &lt; name.sql<br>
+　　恢复表：mysql -uroot -p dbname &lt; name.sql (必须指定数据库)<br>
+　　14. 复制<br>
+　　Mysql支持单向的异步复制，即一个服务器做主服务器，其他的一个或多个服务器做从服务器。复制是通过二进制日志实现的，主服务器写入，从服务器读取。可以实现多个主　　　　服务器，但是会碰到单个服务器不曾遇到的问题（不推荐）。<br>
+　　1). 在主服务器上建立一个专门用来做复制的用户：grant replication slave on <em>.</em> to &lsquo;replicationuser&rsquo;@&lsquo;192.168.0.87&rsquo; identified by &lsquo;iverson&rsquo;;<br>
+　　2). 刷新主服务器上所有的表和块写入语句：flush tables with read lock; 然后读取主服务器上的二进制二进制文件名和分支：SHOW MASTER STATUS;将File和Position的值记录下来。记录后关闭主服务器：mysqladmin -uroot -ppassw0rd shutdown<br>
+　　如果输出为空，说明服务器没有启用二进制日志，在my.cnf文件中[mysqld]下添加log-bin=mysql-bin，重启后即有。<br>
+　　3). 为主服务器建立快照（snapshot）<br>
+　　需要为主服务器上的需要复制的数据库建立快照，Windows可以使用zip格式，Linux和Unix最好使用tar命令。然后上传到从服务器mysql的数据目录，并解压。<br>
+　　cd mysql-data-dir<br>
+　　tar cvzf mysql-snapshot.tar ./mydb<br>
+　　注意：快照中不应该包含任何日志文件或*.info文件，只应该包含要复制的数据库的数据文件（<em>.frm和</em>.opt）文件。<br>
+　　可以用数据库备份(mysqldump)为从服务器做一次数据恢复，保证数据的一致性。<br>
+　　4). 确认主服务器上my.cnf文件的[mysqld]section包含log-bin选项和server-id，并启动主服务器：<br>
+　　[mysqld]<br>
+　　log-bin=mysql-bin<br>
+　　server-id=1<br>
+　　5). 停止从服务器，加入server-id，然后启动从服务器：<br>
+　　[mysqld]<br>
+　　server-id=2<br>
+　　注：这里的server-id是从服务器的id，必须与主服务器和其他从服务器不一样。<br>
+　　可以在从服务器的配置文件中加入read-only选项，这样从服务器就只接受来自主服务器的SQL，确保数据不会被其他途经修改。<br>
+　　6). 在从服务器上执行如下语句，用系统真实值代替选项：<br>
+　　change master to MASTER_HOST=&lsquo;master_host&rsquo;, MASTER_USER=&lsquo;replication_user&rsquo;,MASTER_PASSWORD=&lsquo;replication_pwd&rsquo;,<br>
+　　MASTER_LOG_FILE=&lsquo;recorded_log_file_name&rsquo;,MASTER_LOG_POS=log_position;<br>
+　　7). 启动从线程：mysql&gt; START SLAVE; 停止从线程：stop slave;（注意：主服务器的防火墙应该允许3306端口连接）<br>
 　　验证：此时主服务器和从服务器上的数据应该是一致的，在主服务器上插入修改删除数据都会更新到从服务器上，建表，删表等也是一样的。</p>
 
 
@@ -361,7 +504,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share Linux配置和管理msyql命令 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20141230071400%2f&title=Linux%e9%85%8d%e7%bd%ae%e5%92%8c%e7%ae%a1%e7%90%86msyql%e5%91%bd%e4%bb%a4">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141230071400%2f&title=Linux%e9%85%8d%e7%bd%ae%e5%92%8c%e7%ae%a1%e7%90%86msyql%e5%91%bd%e4%bb%a4">
           
 
 
@@ -387,7 +530,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share Linux配置和管理msyql命令 on twitter"
-          href="https://twitter.com/intent/tweet/?text=Linux%e9%85%8d%e7%bd%ae%e5%92%8c%e7%ae%a1%e7%90%86msyql%e5%91%bd%e4%bb%a4&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20141230071400%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=Linux%e9%85%8d%e7%bd%ae%e5%92%8c%e7%ae%a1%e7%90%86msyql%e5%91%bd%e4%bb%a4&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141230071400%2f&amp;hashtags=">
           
 
 
@@ -413,7 +556,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share Linux配置和管理msyql命令 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20141230071400%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141230071400%2f">
           
 
 
@@ -443,6 +586,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -450,6 +619,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -467,7 +646,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -478,7 +657,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

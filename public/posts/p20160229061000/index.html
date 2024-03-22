@@ -18,24 +18,30 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="def callback(data): rospy.loginfo(rospy.get_caller_id() &#43; &quot;callback:I heard %s&quot;, data.data) #resp_str = &quot;resp_str: I heard: &quot; &#43; data.data talker(data)
-def listener():
-# In ROS, nodes are uniquely named. If two nodes with the same # node are launched, the previous one is kicked off. The # anonymous=True flag means that rospy will choose a unique # name for our &amp;#39;listener&amp;#39; node so that multiple listeners can # run simultaneously. http://blog.csdn.net/sonictl rospy.init_node(&amp;#39;responsor&amp;#39;, anonymous=True) rospy." />
-  <meta name="author" content="">
+  <meta name="description" content="Combine Subscriber and Publisher in Python, ROS
+This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming.
+This is very useful in ROS development.
+We will also discuss briefly how to build and modify a catkin package which is written by Python.
+Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/srcBuild it with the command: catkin_make, under the path: ~/catkin_ws/Source the catkin setup file under devel folder:
+$ source ~/catkin_ws/devel/setup.bash modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20160229061000/" />
+  <title>ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20160229061000/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="def callback(data): rospy.loginfo(rospy.get_caller_id() &#43; &quot;callback:I heard %s&quot;, data.data) #resp_str = &quot;resp_str: I heard: &quot; &#43; data.data talker(data)
-def listener():
-# In ROS, nodes are uniquely named. If two nodes with the same # node are launched, the previous one is kicked off. The # anonymous=True flag means that rospy will choose a unique # name for our &amp;#39;listener&amp;#39; node so that multiple listeners can # run simultaneously. http://blog.csdn.net/sonictl rospy.init_node(&amp;#39;responsor&amp;#39;, anonymous=True) rospy." />
+  <meta property="og:description" content="Combine Subscriber and Publisher in Python, ROS
+This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming.
+This is very useful in ROS development.
+We will also discuss briefly how to build and modify a catkin package which is written by Python.
+Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/srcBuild it with the command: catkin_make, under the path: ~/catkin_ws/Source the catkin setup file under devel folder:
+$ source ~/catkin_ws/devel/setup.bash modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx." />
   <meta property="og:title" content="ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20160229061000/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20160229061000/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -46,15 +52,18 @@ def listener():
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS | My New Hugo Site" />
-  <meta name="twitter:description" content="def callback(data): rospy.loginfo(rospy.get_caller_id() &#43; &quot;callback:I heard %s&quot;, data.data) #resp_str = &quot;resp_str: I heard: &quot; &#43; data.data talker(data)
-def listener():
-# In ROS, nodes are uniquely named. If two nodes with the same # node are launched, the previous one is kicked off. The # anonymous=True flag means that rospy will choose a unique # name for our &amp;#39;listener&amp;#39; node so that multiple listeners can # run simultaneously. http://blog.csdn.net/sonictl rospy.init_node(&amp;#39;responsor&amp;#39;, anonymous=True) rospy." />
-  <meta name="twitter:domain" content="http://example.org/posts/p20160229061000/" />
+  <meta name="twitter:title" content="ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Combine Subscriber and Publisher in Python, ROS
+This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming.
+This is very useful in ROS development.
+We will also discuss briefly how to build and modify a catkin package which is written by Python.
+Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/srcBuild it with the command: catkin_make, under the path: ~/catkin_ws/Source the catkin setup file under devel folder:
+$ source ~/catkin_ws/devel/setup.bash modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20160229061000/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -71,13 +80,42 @@ def listener():
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -112,13 +150,37 @@ def listener():
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -158,17 +220,17 @@ def listener():
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20160229061000/">ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS</a>
+  <a href="https://sonictl.github.io/posts/p20160229061000/">ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS</a>
 </li>
 
 </ol>
@@ -226,8 +288,53 @@ def listener():
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-2 mins to read</span>
+3 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -235,7 +342,32 @@ def listener():
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
+          <h1>Combine Subscriber and Publisher in Python, ROS<br>
+</h1>
+<p>This article will describe an example of Combining Subscriber and Publisher in Python in ROS programming.</p>
+<p>This is very useful in ROS development.</p>
+<p>We will also discuss briefly how to build and modify a catkin package which is written by Python.</p>
+<ul>
+<li>Create a catkin package with the command: catkin_create_pkg, under the path: ~/catkin_ws/src</li><li>Build it with the command: catkin_make, under the path: ~/catkin_ws/</li><li>Source the catkin setup file under devel folder:<br>
+<pre>$ source ~/catkin_ws/devel/setup.bash</pre>
+</li><li>modify the Python scripts file under the path: ~/catkin_ws/src/&lt;pkg_name&gt;/scripts/nodexxx.py</li><li>chmod &#43;x nodexxx.py</li><li>Run this package by Command:&nbsp; rosrun package_name nodexxx.py</li><li>Modify the CMakefile.txt for Python: <a target="_blank" target="_blank" href="http://wiki.ros.org/rospy_tutorials/Tutorials/Makefile">
+Writing a ROS Python Makefile</a><br>
+</li></ul>
+<p>More about Create and Build catkin ROS package: <a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/46764855#t5">
+This blog</a><br>
+</p>
+<p>The sourcecode for this Combining Subscriber and Publisher in Python is here:</p>
+<p></p>
+<pre code_snippet_id="1591986" snippet_file_name="blog_20160229_1_8422993" name="code" class="python">#!/usr/bin/env python
+# License removed for brevity
+&quot;&quot;&quot;
+	learn to write Subscriber and Listener in one python script.
+	Function Style
+	Author: Sonic http://blog.csdn.net/sonictl
+	Date: Feb 29, 2016	
+&quot;&quot;&quot;
+import rospy
+from std_msgs.msg import String
 <p>def callback(data):
 rospy.loginfo(rospy.get_caller_id() + &quot;callback:I heard %s&quot;, data.data)
 #resp_str = &quot;resp_str: I heard: &quot; + data.data
@@ -271,8 +403,11 @@ listener()
 #talker()
 except rospy.ROSInterruptException:
 pass
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+</pre></p>
+<p><br>
+</p>
+<p>20160614: I have to paste the next code for an other instance because this should be very good for learners:</p>
+<p><pre name="code" class="python">#!/usr/bin/env python
 <p>&quot;&quot;&quot; odom_ekf.py - Version 0.1 2012-07-08
 Republish the /robot_pose_ekf/odom_combined topic which is of type
 geometry_msgs/PoseWithCovarianceStamped as an equivalent message of
@@ -324,13 +459,15 @@ OdomEKF()
 rospy.spin()
 except:
 pass
-<!-- raw HTML omitted -->This program above is for Transfer a <!-- raw HTML omitted -->
-PoseWithCovarianceStamped<!-- raw HTML omitted --> typed topic &quot;input&quot; into <!-- raw HTML omitted -->
-Odometry<!-- raw HTML omitted --> typed topic which is named &quot;output&quot;. <!-- raw HTML omitted -->
+</pre>This program above is for Transfer a <span style="font-family:Courier New">
+PoseWithCovarianceStamped</span> typed topic &quot;input&quot; into <span style="font-family:Courier New">
+Odometry</span> typed topic which is named &quot;output&quot;. <br>
 We can learn how to initialize a node, declare a publisher, subscriber and how to use
-<!-- raw HTML omitted -->wait_for_message()<!-- raw HTML omitted --> function. The callback function pub_ekf_odom is called when input has data, and we can see how this function works to convert the data from <!-- raw HTML omitted -->PoseWithCovarianceStamped<!-- raw HTML omitted -->
-into <!-- raw HTML omitted -->Odometry<!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<span style="font-family:Courier New">wait_for_message()<span style="font-family:Arial"> function. The callback function pub_ekf_odom is called when input has data, and we can see how this function works to convert the data from <span style="font-family:Courier New">PoseWithCovarianceStamped</span>
+into <span style="font-family:Courier New">Odometry</span>.</span></span><br></p>
+</p>
+<br>
+<p></p>
 
 
 
@@ -393,7 +530,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20160229061000%2f&title=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8813%ef%bc%89%20-%20Combine%20Subscriber%20and%20Publisher%20in%20Python%2c%20ROS">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160229061000%2f&title=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8813%ef%bc%89%20-%20Combine%20Subscriber%20and%20Publisher%20in%20Python%2c%20ROS">
           
 
 
@@ -419,7 +556,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS on twitter"
-          href="https://twitter.com/intent/tweet/?text=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8813%ef%bc%89%20-%20Combine%20Subscriber%20and%20Publisher%20in%20Python%2c%20ROS&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20160229061000%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8813%ef%bc%89%20-%20Combine%20Subscriber%20and%20Publisher%20in%20Python%2c%20ROS&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160229061000%2f&amp;hashtags=">
           
 
 
@@ -445,7 +582,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share ROS 进阶学习笔记（13） - Combine Subscriber and Publisher in Python, ROS on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20160229061000%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160229061000%2f">
           
 
 
@@ -475,6 +612,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -482,6 +645,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -499,7 +672,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -510,7 +683,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

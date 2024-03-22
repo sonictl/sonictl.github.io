@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>运维 on My New Hugo Site</title>
-    <link>http://example.org/categories/%E8%BF%90%E7%BB%B4/</link>
-    <description>Recent content in 运维 on My New Hugo Site</description>
+    <title>运维 on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/%E8%BF%90%E7%BB%B4/</link>
+    <description>Recent content in 运维 on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Sep 2021 10:46:46 +0800</lastBuildDate><atom:link href="http://example.org/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Sep 2021 10:46:46 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>win10双线网络设置</title>
-      <link>http://example.org/posts/p20210906104646/</link>
+      <link>https://sonictl.github.io/posts/p20210906104646/</link>
       <pubDate>Mon, 06 Sep 2021 10:46:46 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20210906104646/</guid>
+      <guid>https://sonictl.github.io/posts/p20210906104646/</guid>
       <description>++++++ 双线网络设置 ++++++++ Wlan 设置跃点数1 [重要] 说明：这个使0.0.0.0的路由冲突时，可以优先走wlan 几个命令： 查看本机ip等信息： ipconfig 查看Route信息：route print 配置route信息：
 route -p add 172.23.0.0 mask 255.255.255.128 172.23.15.129 临时添加（不带-p）：
 route add 172.16.0.0 mask 255.255.255.128 172.23.15.129 route add 172.16.0.0 mask 255.255.255.128 172.16.99.86 ++++++++++++++++++++++++++++++
 2021年9月6日10:31:47更新： 1. 首先删除默认路由 0.0.0.0： route delete 0.0.0.0
 2. 添加默认外网路由： route add -p 0.0.0.0 mask 255.255.255.0 192.168.1.1 说明： 192.168.1.1 (是你的外网网关) 这里会造成0.0.0.0的路由冲突（机器重启后），还是通过wlan的跃点数来设置！！
-3. 添加内网路由： route add -p 10.16.0.0 mask 255.255.128.0 10.16.0.1 说明：10.16.0.0 - 内网ip分配到的是 10.16.36.9， 这里取前2段，意思是这个网段内（内网网段）就走内网的网关10.16.36.9 。。。如果你的内网ip是 19.11.1.19， 那么相应的：19.</description>
+3. 添加内网路由： route add -p 10.16.0.0 mask 255.255.128.0 10.16.0.1 说明：10.16.0.0 - 内网ip分配到的是 10.16.36.9， 这里取前2段，意思是这个网段内（内网网段）就走内网的网关10.16.36.9 。。。如果你的内网ip是 19.11.1.19， 那么相应的：19.11.0.0
+此处我的ip是： IPv4 地址 . . . . . . .</description>
     </item>
     
     <item>
       <title>nginxBasic: Set up server blocks on CentOS 7</title>
-      <link>http://example.org/posts/p20200319192011/</link>
+      <link>https://sonictl.github.io/posts/p20200319192011/</link>
       <pubDate>Thu, 19 Mar 2020 19:19:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20200319192011/</guid>
+      <guid>https://sonictl.github.io/posts/p20200319192011/</guid>
       <description>Set Up Nginx Server Blocks on CentOS 7 NginxCentOS
 By Josh Barnett
 Published on November 5, 2014
 Introduction Nginx uses server blocks to manage configurations. Server blocks allow one server to host multiple domains or interfaces. How to serve different content to different visitors depending on which domains they are requesting:
-Prerequisites access to centos7 server, has sudo privileges. Nginx installed. Before you begin with this guide, there are a few steps that need to be completed first.</description>
+Prerequisites access to centos7 server, has sudo privileges. Nginx installed. Before you begin with this guide, there are a few steps that need to be completed first.
+You will need access to a CentOS 7 server with a non-root user that has sudo privileges.</description>
     </item>
     
   </channel>

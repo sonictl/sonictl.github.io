@@ -18,20 +18,34 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。 采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。 采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl 一般需要安装linux-header，执行命令如下： sudo apt-get install linux-headers-uname -r 最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。 如果使用secureCRT连接不到你的虚机， Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start" />
-  <meta name="author" content="">
+  <meta name="description" content="在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。
+采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。
+采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl
+一般需要安装linux-header，执行命令如下：
+sudo apt-get install linux-headers-uname -r 最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。
+如果使用secureCRT连接不到你的虚机，
+Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start
+---------------------------------------- WIN7下Virtualbox虚拟Ubuntu, 共享文件夹设置 ---------------------------------------- sudo mount -t vboxsf games /mnt/share 找了好久找到一个比较完善的共享文件夹的方法 希望对大家有用&nbsp; 我ubuntu是新氧的ubuntu 9.04，sun vitualbox/ Ubuntu 12.04官方iso也亲测过。 1. 安装增强功能包(VBoxGuestAdditions) 打开虚拟机，设置ubuntu9.04，找到光驱选项加载VBoxGuestAdditions。iso.（该镜像就在虚拟机的安装目录下面），确定 运行ubuntu，在光驱下就会有VBoxGuestAdditions镜像，打开镜像，运行autorun.sh,系统就会自动安装,安装完毕后会提示要重启Ubuntu。 2. 设置共享文件夹 有两种设置共享文件夹的方法,1运行Ubuntu前对其进行设置,打开设置选项-数据空间,右边有加载文件夹选项,加载一个共享文件夹,比如D:\games,确定 2 在Ubuntu已经运行时加载,在Ubuntu界面的右下角有一个文件夹选,右击可以加载 3. 挂载共享文件夹 重新进入虚拟Ubuntu，在命令行终端下输入： sudo mkdir /mnt/shared sudo mount -t vboxsf games /mnt/shared 其中&quot;games&quot;是之前创建的共享文件夹的名字。 注意：当虚拟机linux系统关机以后，下次使用需要重新挂载。OK，现在Ubuntu和主机可以互传文件了。 &nbsp; &nbsp;假如您不想每一次都手动挂载，可以在/etc/fstab中添加一项 &nbsp; &nbsp; games /mnt/shared vboxsfrw,gid=100,uid=1000,auto 0 0 &nbsp; &nbsp; 这样就能够自动挂载了。 &nbsp; &nbsp; 或者你虚拟机linux系统不关机，关闭虚拟机的时候，选“save the machinestate.” 4. 卸载的话使用下面的命令： sudo umount -f /mnt/shared 注意： 共享文件夹的名称千万不要和挂载点的名称相同。比如，上面的挂载点是/mnt/shared，如果共享文件夹的名字也是shared的话，在挂载的时候就会出现如下的错误信息(看http://www." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>win7与VMware/VBox下linux共享文件夹方法 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20130104220100/" />
+  <title>win7与VMware/VBox下linux共享文件夹方法 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20130104220100/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。 采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。 采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl 一般需要安装linux-header，执行命令如下： sudo apt-get install linux-headers-uname -r 最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。 如果使用secureCRT连接不到你的虚机， Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start" />
+  <meta property="og:description" content="在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。
+采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。
+采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl
+一般需要安装linux-header，执行命令如下：
+sudo apt-get install linux-headers-uname -r 最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。
+如果使用secureCRT连接不到你的虚机，
+Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start
+---------------------------------------- WIN7下Virtualbox虚拟Ubuntu, 共享文件夹设置 ---------------------------------------- sudo mount -t vboxsf games /mnt/share 找了好久找到一个比较完善的共享文件夹的方法 希望对大家有用&nbsp; 我ubuntu是新氧的ubuntu 9.04，sun vitualbox/ Ubuntu 12.04官方iso也亲测过。 1. 安装增强功能包(VBoxGuestAdditions) 打开虚拟机，设置ubuntu9.04，找到光驱选项加载VBoxGuestAdditions。iso.（该镜像就在虚拟机的安装目录下面），确定 运行ubuntu，在光驱下就会有VBoxGuestAdditions镜像，打开镜像，运行autorun.sh,系统就会自动安装,安装完毕后会提示要重启Ubuntu。 2. 设置共享文件夹 有两种设置共享文件夹的方法,1运行Ubuntu前对其进行设置,打开设置选项-数据空间,右边有加载文件夹选项,加载一个共享文件夹,比如D:\games,确定 2 在Ubuntu已经运行时加载,在Ubuntu界面的右下角有一个文件夹选,右击可以加载 3. 挂载共享文件夹 重新进入虚拟Ubuntu，在命令行终端下输入： sudo mkdir /mnt/shared sudo mount -t vboxsf games /mnt/shared 其中&quot;games&quot;是之前创建的共享文件夹的名字。 注意：当虚拟机linux系统关机以后，下次使用需要重新挂载。OK，现在Ubuntu和主机可以互传文件了。 &nbsp; &nbsp;假如您不想每一次都手动挂载，可以在/etc/fstab中添加一项 &nbsp; &nbsp; games /mnt/shared vboxsfrw,gid=100,uid=1000,auto 0 0 &nbsp; &nbsp; 这样就能够自动挂载了。 &nbsp; &nbsp; 或者你虚拟机linux系统不关机，关闭虚拟机的时候，选“save the machinestate.” 4. 卸载的话使用下面的命令： sudo umount -f /mnt/shared 注意： 共享文件夹的名称千万不要和挂载点的名称相同。比如，上面的挂载点是/mnt/shared，如果共享文件夹的名字也是shared的话，在挂载的时候就会出现如下的错误信息(看http://www." />
   <meta property="og:title" content="win7与VMware/VBox下linux共享文件夹方法" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20130104220100/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20130104220100/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +56,20 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="win7与VMware/VBox下linux共享文件夹方法 | My New Hugo Site" />
-  <meta name="twitter:description" content="在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。 采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。 采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl 一般需要安装linux-header，执行命令如下： sudo apt-get install linux-headers-uname -r 最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。 如果使用secureCRT连接不到你的虚机， Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start" />
-  <meta name="twitter:domain" content="http://example.org/posts/p20130104220100/" />
+  <meta name="twitter:title" content="win7与VMware/VBox下linux共享文件夹方法 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。
+采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。
+采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl
+一般需要安装linux-header，执行命令如下：
+sudo apt-get install linux-headers-uname -r 最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。
+如果使用secureCRT连接不到你的虚机，
+Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start
+---------------------------------------- WIN7下Virtualbox虚拟Ubuntu, 共享文件夹设置 ---------------------------------------- sudo mount -t vboxsf games /mnt/share 找了好久找到一个比较完善的共享文件夹的方法 希望对大家有用&nbsp; 我ubuntu是新氧的ubuntu 9.04，sun vitualbox/ Ubuntu 12.04官方iso也亲测过。 1. 安装增强功能包(VBoxGuestAdditions) 打开虚拟机，设置ubuntu9.04，找到光驱选项加载VBoxGuestAdditions。iso.（该镜像就在虚拟机的安装目录下面），确定 运行ubuntu，在光驱下就会有VBoxGuestAdditions镜像，打开镜像，运行autorun.sh,系统就会自动安装,安装完毕后会提示要重启Ubuntu。 2. 设置共享文件夹 有两种设置共享文件夹的方法,1运行Ubuntu前对其进行设置,打开设置选项-数据空间,右边有加载文件夹选项,加载一个共享文件夹,比如D:\games,确定 2 在Ubuntu已经运行时加载,在Ubuntu界面的右下角有一个文件夹选,右击可以加载 3. 挂载共享文件夹 重新进入虚拟Ubuntu，在命令行终端下输入： sudo mkdir /mnt/shared sudo mount -t vboxsf games /mnt/shared 其中&quot;games&quot;是之前创建的共享文件夹的名字。 注意：当虚拟机linux系统关机以后，下次使用需要重新挂载。OK，现在Ubuntu和主机可以互传文件了。 &nbsp; &nbsp;假如您不想每一次都手动挂载，可以在/etc/fstab中添加一项 &nbsp; &nbsp; games /mnt/shared vboxsfrw,gid=100,uid=1000,auto 0 0 &nbsp; &nbsp; 这样就能够自动挂载了。 &nbsp; &nbsp; 或者你虚拟机linux系统不关机，关闭虚拟机的时候，选“save the machinestate.” 4. 卸载的话使用下面的命令： sudo umount -f /mnt/shared 注意： 共享文件夹的名称千万不要和挂载点的名称相同。比如，上面的挂载点是/mnt/shared，如果共享文件夹的名字也是shared的话，在挂载的时候就会出现如下的错误信息(看http://www." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20130104220100/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +86,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +156,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +226,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20130104220100/">win7与VMware/VBox下linux共享文件夹方法</a>
+  <a href="https://sonictl.github.io/posts/p20130104220100/">win7与VMware/VBox下linux共享文件夹方法</a>
 </li>
 
 </ol>
@@ -222,6 +296,51 @@
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 a min to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,19 +348,97 @@ a min to read</span>
       </div>
       <article class="post-entry content">
         
-          <p>在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。<!-- raw HTML omitted -->
-采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl<!-- raw HTML omitted -->
-一般需要安装linux-header，执行命令如下：<!-- raw HTML omitted -->
-sudo apt-get install linux-headers-<code>uname -r</code> <!-- raw HTML omitted -->
-最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-如果使用secureCRT连接不到你的虚机，<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+          <p>在Windows7系统环境下，用vmware安装好Ubuntu10.04系统后，Ubuntu默认是安装有Vmware Tools的。在这种情形下，有两种方法来共享Win7系统下的文件夹与文件。<br>
+<br>
+采用“拖拉”方式。Vmware很智能，可以直接将Win7下的文件拖进Ubuntu系统里。<br>
+采用“共享文件夹”方式。首先，在Vmware下，设定好Win7的共享文件夹路径。然后，在Ubuntu系统下，执行: sudo vmware-config-tools.pl<br>
+一般需要安装linux-header，执行命令如下：<br>
+sudo apt-get install linux-headers-<code>uname -r</code> <br>
+最后，在Ubuntu的/mnt/hgfs/文件夹下就可以看见Win7的文件了。<br>
+<br>
+<br>
+如果使用secureCRT连接不到你的虚机，<br>
+<br>
+Server版需要安装ssh-server，命令：sudo apt-get install openssh-server ，下次重启需要手动启动：sudo/etc/init.d/ssh start<br></p>
+<div style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<br>
+</div>
+<div style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+<img alt="微笑" src="http://static.blog.csdn.net/xheditor/xheditor_emot/default/smile.gif"><br>
+<br>
+<div id="sina_keyword_ad_area2" class="articalContent   ">
+<div>----------------------------------------</div>
+<div>WIN7下Virtualbox虚拟Ubuntu, 共享文件夹设置</div>
+<div>----------------------------------------</div>
+<div>sudo mount -t vboxsf games /mnt/share</div>
+<div><br>
+</div>
+<div>找了好久找到一个比较完善的共享文件夹的方法 希望对大家有用&nbsp;<wbr></div>
+<div>我ubuntu是新氧的ubuntu 9.04，sun vitualbox/ Ubuntu 12.04官方iso也亲测过。</div>
+<div><br>
+</div>
+<div>1. 安装增强功能包(VBoxGuestAdditions)</div>
+<div><br>
+</div>
+<div>打开虚拟机，设置ubuntu9.04，找到光驱选项加载VBoxGuestAdditions。iso.（该镜像就在虚拟机的安装目录下面），确定</div>
+<div><br>
+</div>
+<div>运行ubuntu，在光驱下就会有VBoxGuestAdditions镜像，打开镜像，运行autorun.sh,系统就会自动安装,安装完毕后会提示要重启Ubuntu。</div>
+<div><br>
+</div>
+<div>2. 设置共享文件夹</div>
+<div><br>
+</div>
+<div>有两种设置共享文件夹的方法,1运行Ubuntu前对其进行设置,打开设置选项-数据空间,右边有加载文件夹选项,加载一个共享文件夹,比如D:\games,确定</div>
+<div>2 在Ubuntu已经运行时加载,在Ubuntu界面的右下角有一个文件夹选,右击可以加载</div>
+<div><br>
+</div>
+<div>3. 挂载共享文件夹</div>
+<div><br>
+</div>
+<div>重新进入虚拟Ubuntu，在命令行终端下输入：</div>
+<div><br>
+</div>
+<div>sudo mkdir /mnt/shared</div>
+<div><br>
+</div>
+<div>sudo mount -t vboxsf games /mnt/shared</div>
+<div><br>
+</div>
+<div>其中&quot;games&quot;是之前创建的共享文件夹的名字。</div>
+<div><br>
+</div>
+<div>注意：当虚拟机linux系统关机以后，下次使用需要重新挂载。OK，现在Ubuntu和主机可以互传文件了。</div>
+<div><br>
+</div>
+<div>&nbsp;<wbr> &nbsp;<wbr>假如您不想每一次都手动挂载，可以在/etc/fstab中添加一项</div>
+<div><br>
+</div>
+<div>&nbsp;<wbr> &nbsp;<wbr> games /mnt/shared vboxsfrw,gid=100,uid=1000,auto 0 0</div>
+<div><br>
+</div>
+<div>&nbsp;<wbr> &nbsp;<wbr> 这样就能够自动挂载了。</div>
+<div><br>
+</div>
+<div>&nbsp;<wbr> &nbsp;<wbr> 或者你<span style="line-height:21px">虚拟机linux系统不关机，关闭虚拟机的时候，选“save the machinestate.”</span></div>
+<div><br>
+</div>
+<div>4. 卸载的话使用下面的命令：</div>
+<div><br>
+</div>
+<div>sudo umount -f /mnt/shared</div>
+<div><br>
+</div>
+<div>注意：</div>
+<div><br>
+</div>
+<div>共享文件夹的名称千万不要和挂载点的名称相同。比如，上面的挂载点是/mnt/shared，如果共享文件夹的名字也是shared的话，在挂载的时候就会出现如下的错误信息(看http://www.virtualbox.org/ticket/2265)：</div>
+<div><br>
+</div>
+<div>/sbin/mount.vboxsf: mounting failed with the error: Protocolerror</div>
+</div>
+<br>
+</div>
 
 
 
@@ -304,7 +501,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share win7与VMware/VBox下linux共享文件夹方法 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20130104220100%2f&title=win7%e4%b8%8eVMware%2fVBox%e4%b8%8blinux%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6%e5%a4%b9%e6%96%b9%e6%b3%95">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130104220100%2f&title=win7%e4%b8%8eVMware%2fVBox%e4%b8%8blinux%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6%e5%a4%b9%e6%96%b9%e6%b3%95">
           
 
 
@@ -330,7 +527,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share win7与VMware/VBox下linux共享文件夹方法 on twitter"
-          href="https://twitter.com/intent/tweet/?text=win7%e4%b8%8eVMware%2fVBox%e4%b8%8blinux%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6%e5%a4%b9%e6%96%b9%e6%b3%95&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20130104220100%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=win7%e4%b8%8eVMware%2fVBox%e4%b8%8blinux%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6%e5%a4%b9%e6%96%b9%e6%b3%95&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130104220100%2f&amp;hashtags=">
           
 
 
@@ -356,7 +553,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share win7与VMware/VBox下linux共享文件夹方法 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20130104220100%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130104220100%2f">
           
 
 
@@ -386,6 +583,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -393,6 +616,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -410,7 +643,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -421,7 +654,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

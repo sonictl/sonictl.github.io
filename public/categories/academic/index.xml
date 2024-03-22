@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>academic on My New Hugo Site</title>
-    <link>http://example.org/categories/academic/</link>
-    <description>Recent content in academic on My New Hugo Site</description>
+    <title>academic on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/academic/</link>
+    <description>Recent content in academic on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Jul 2022 09:19:54 +0800</lastBuildDate><atom:link href="http://example.org/categories/academic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Jul 2022 09:19:54 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/academic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to find the innovative ideas for a new paper</title>
-      <link>http://example.org/posts/p20220810091954/</link>
+      <link>https://sonictl.github.io/posts/p20220810091954/</link>
       <pubDate>Thu, 28 Jul 2022 09:19:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220810091954/</guid>
+      <guid>https://sonictl.github.io/posts/p20220810091954/</guid>
       <description>Let me share some thoughts bout creating academic research paper.
 How to find the innovative ideas for a new paper A new idea is believed by the newbee PhD student a precious seed for his/her paper. And the papers are believed as their lifesaver for their tough days.
 Solution:

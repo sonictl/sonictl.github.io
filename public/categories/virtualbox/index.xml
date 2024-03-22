@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>virtualbox on My New Hugo Site</title>
-    <link>http://example.org/categories/virtualbox/</link>
-    <description>Recent content in virtualbox on My New Hugo Site</description>
+    <title>virtualbox on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/virtualbox/</link>
+    <description>Recent content in virtualbox on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Feb 2022 23:11:02 +0800</lastBuildDate><atom:link href="http://example.org/categories/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Feb 2022 23:11:02 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/virtualbox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to extend the Ubuntu guest OS&#39;s hard disk for VirtualBox on Mac</title>
-      <link>http://example.org/posts/p20220206231102/</link>
+      <link>https://sonictl.github.io/posts/p20220206231102/</link>
       <pubDate>Sun, 06 Feb 2022 23:11:02 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220206231102/</guid>
+      <guid>https://sonictl.github.io/posts/p20220206231102/</guid>
       <description>How to extend the Ubuntu guest OS&amp;rsquo;s hard disk for VirtualBox on Mac Steps: resize the VDI file on Mac OS: How to Resize a VirtualBox VDI or VHD File on Mac OS X
 boot the Ubuntu with the image(ISO) and Gparted(resize the partition).
 Note: firstly resize the extension partition (/dev/sda2), then resize the partition (/dev/sda5)
-Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution</description>
+Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution
+reboot the ubuntu with local vdi file and check the result.</description>
     </item>
     
   </channel>

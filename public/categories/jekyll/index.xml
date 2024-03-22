@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jekyll on My New Hugo Site</title>
-    <link>http://example.org/categories/jekyll/</link>
-    <description>Recent content in jekyll on My New Hugo Site</description>
+    <title>jekyll on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/jekyll/</link>
+    <description>Recent content in jekyll on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 May 2022 11:19:54 +0800</lastBuildDate><atom:link href="http://example.org/categories/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 May 2022 11:19:54 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to use LittleFS on ESP32 with PlatformIO</title>
-      <link>http://example.org/posts/p20220517111954/</link>
+      <link>https://sonictl.github.io/posts/p20220517111954/</link>
       <pubDate>Tue, 17 May 2022 11:19:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220517111954/</guid>
+      <guid>https://sonictl.github.io/posts/p20220517111954/</guid>
       <description>How to use LittleFS on ESP32 with vsCode+platfromIO As a suplement of this tutorial How to use LittleFS on ESP8266 I follows some reference and examples to build this blog.
 Get to konw some basic introductions about SPIFFS and LittleFS on ESP8266 and ESP32 is necessary for a noob.
 Note: Most of the functions for SPIFFS operations are compatible for LittleFS.
@@ -22,43 +22,46 @@ follow the tutorials one by one:
     
     <item>
       <title>Install and Configure Fail2Ban On CentOS 7</title>
-      <link>http://example.org/posts/p20220330110904/</link>
+      <link>https://sonictl.github.io/posts/p20220330110904/</link>
       <pubDate>Wed, 30 Mar 2022 11:09:04 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220330110904/</guid>
+      <guid>https://sonictl.github.io/posts/p20220330110904/</guid>
       <description>Install Fail2Ban On CentOS 7 Posted on December 13, 2019 by David Singer
-What Is Fail2Ban? Fail2ban is an open-source software that actively scans the servers log files in real-time for any brute force login attempts, and if found, summarily blocks the attack using the servers firewall software (firewalld or iptables). Fail2Ban runs as a background process and continuously scans the log files for unusual login patterns and security breach attempts.</description>
+What Is Fail2Ban? Fail2ban is an open-source software that actively scans the servers log files in real-time for any brute force login attempts, and if found, summarily blocks the attack using the servers firewall software (firewalld or iptables). Fail2Ban runs as a background process and continuously scans the log files for unusual login patterns and security breach attempts.
+Installation In order to install Fail2Ban on CentOS 7, we first need to enable the EPEL (Extra Packages for Enterprise Linux) repository.</description>
     </item>
     
     <item>
       <title>Fixing certbot does not know where nginx is located in your server</title>
-      <link>http://example.org/posts/p20220330101954/</link>
+      <link>https://sonictl.github.io/posts/p20220330101954/</link>
       <pubDate>Wed, 30 Mar 2022 10:19:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220330101954/</guid>
-      <description>Fixing certbot does not know where nginx is located in your server If your certbot does not know how to auto configure ssl for your host, you can refer below.
+      <guid>https://sonictl.github.io/posts/p20220330101954/</guid>
+      <description>Fixing certbot does not know where nginx is located in your server If your certbot cannot auto configure ssl for your host:
 The cause of this problem Mine is because the installation path of nginx is not the default one， such as /etc/nginx or /usr/bin/nginx
-solution1: create a link to your path of nginx, manually assign path of conf files. The systemd service file /etc/systemd/system/nginx.</description>
+When Certbot is unable to automatically configure your web: Follow the GPT&amp;rsquo;s answer:
+ME: Certbot doesn&amp;#39;t know how to automatically configure the web server on this system. GPT: If Certbot is unable to automatically configure your web server, it usually means that it couldn&amp;#39;t identify the web server software and configuration on your system.</description>
     </item>
     
     <item>
       <title>Getting started with MicroPython with NodeMCU(ESP8266) board</title>
-      <link>http://example.org/posts/p20220117125538/</link>
+      <link>https://sonictl.github.io/posts/p20220117125538/</link>
       <pubDate>Mon, 17 Jan 2022 12:55:38 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220117125538/</guid>
+      <guid>https://sonictl.github.io/posts/p20220117125538/</guid>
       <description>Getting started with MicroPython with NodeMCU(ESP8266) board 1. Follow the official tutorial to flash the MicroPython firmware Link:
 https://docs.micropython.org/en/latest/esp8266/quickref.html https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro Comands you may need:
 $ esptool.py --port /dev/tty.usbserial-14120 erase_flash $ esptool.py --port /dev/tty.usbserial-14120 --baud 460800 write_flash --flash_size=detect -fm dout 0 esp8266-20210902-v1.17.bin you&amp;rsquo;ll receive message from ESP8266 on serial monitor such as puTTy:
-microPython v1.17 on 2021-09-02; ESP module with ESP8266 Type &amp;#34;help()&amp;#34; for more information. micropython script can be run in the REPL shell.</description>
+microPython v1.17 on 2021-09-02; ESP module with ESP8266 Type &amp;#34;help()&amp;#34; for more information. micropython script can be run in the REPL shell.
+The Adafruit ampy tool gives you more function and recommended to use it.</description>
     </item>
     
     <item>
       <title>[ESP32_lvgl]Tips for getting started with lvgl project on ESP32</title>
-      <link>http://example.org/posts/p20220115140254/</link>
+      <link>https://sonictl.github.io/posts/p20220115140254/</link>
       <pubDate>Sat, 15 Jan 2022 14:02:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220115140254/</guid>
+      <guid>https://sonictl.github.io/posts/p20220115140254/</guid>
       <description>Tips for getting started with lvgl project on ESP32 Before you get started with lvgl on ESP32, the first problem is which SDK(firmware platform) is going to be based on. You may dev ESP32 project based on Arduino or ESP-IDF(espreessif officially offered).
 There are two pathes at least to implement ESP32 project. By the way, the esp32_library for arduino can be used as a submoduel(component) of ESP-IDF SDK.
 path1: ESP-IDF: Develop ESP32 lvgl project with vsCode, platformIO and ESP-IDF before start, you need to know how to implement a &amp;ldquo;Hello world&amp;rdquo; or &amp;ldquo;LED blinking&amp;rdquo; project using the vsCode+platformIO+ESP_IDF</description>
@@ -66,10 +69,10 @@ path1: ESP-IDF: Develop ESP32 lvgl project with vsCode, platformIO and ESP-IDF b
     
     <item>
       <title>[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</title>
-      <link>http://example.org/posts/p20220115140154/</link>
+      <link>https://sonictl.github.io/posts/p20220115140154/</link>
       <pubDate>Sat, 15 Jan 2022 14:01:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220115140154/</guid>
+      <guid>https://sonictl.github.io/posts/p20220115140154/</guid>
       <description>Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform WARING : The version confilict problem may crazy you if you play lvgl on Arduino platform. Fortunately, this post offers you one solution for version_conflict problem.
 This is the sister post for &amp;lsquo;Complile the lvgl sample proj in vsCode with ESP-IDF extension&amp;rsquo;. The difference is the dev-kit based on Arduino vs ESP-IDF.
 Here, we use Arduino + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.</description>
@@ -77,20 +80,21 @@ Here, we use Arduino + platformIO in vsCode for developing ESP32 SoC project wit
     
     <item>
       <title>[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title>
-      <link>http://example.org/posts/p20220111210954/</link>
+      <link>https://sonictl.github.io/posts/p20220111210954/</link>
       <pubDate>Tue, 11 Jan 2022 21:09:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220111210954/</guid>
+      <guid>https://sonictl.github.io/posts/p20220111210954/</guid>
       <description>Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension If you&amp;rsquo;ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the section 1 and section 2. Directly check the lvgl example project lv_port_esp32 cloning/configure/build/etc. steps in section 3.
-Implement a &amp;ldquo;Hello world&amp;rdquo; or &amp;ldquo;LED blinking&amp;rdquo; project using the vsCode+platformIO+ESP_IDF Prerequisit: Go through the official &amp;ldquo;get started with ESP-IDF&amp;rdquo; tutorial (highly recomemded, link)</description>
+Implement a &amp;ldquo;Hello world&amp;rdquo; or &amp;ldquo;LED blinking&amp;rdquo; project using the vsCode+platformIO+ESP_IDF Prerequisit: Go through the official &amp;ldquo;get started with ESP-IDF&amp;rdquo; tutorial (highly recomemded, link)
+section 1. install the esp-idf vscode extension Note: if you have go through the official &amp;ldquo;get started with ESP-IDF&amp;rdquo; tutorial (highly recomemded, link), you can specify the path of ESP-IDF code and tools when install the ESP-IDF vscode extension.</description>
     </item>
     
     <item>
       <title>Node.js realtime communication with ESP8266 via socket.io</title>
-      <link>http://example.org/posts/p20220105221954/</link>
+      <link>https://sonictl.github.io/posts/p20220105221954/</link>
       <pubDate>Wed, 05 Jan 2022 22:19:54 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220105221954/</guid>
+      <guid>https://sonictl.github.io/posts/p20220105221954/</guid>
       <description>Node.js realtime communication with NodeMCU with socket.io Reference: https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio
 Goal of this post Establish a real-time communication between a server and the NodeMCU, this can be really useful like a situation where the server has to notify the client asynchronously,
 Let’s get started with the back-end We are going to use a Node server, where we can integrate Socket.io init. Install Node.js if you haven’t it yet.
@@ -99,10 +103,10 @@ In node, we ‘ll be using the framework called express to deal with the communi
     
     <item>
       <title>Attiny85 Arduino SleepMode 睡眠模式使用笔记</title>
-      <link>http://example.org/posts/p20211126182011/</link>
+      <link>https://sonictl.github.io/posts/p20211126182011/</link>
       <pubDate>Fri, 26 Nov 2021 18:06:42 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20211126182011/</guid>
+      <guid>https://sonictl.github.io/posts/p20211126182011/</guid>
       <description>Attiny85 Arduino SleepMode 睡眠模式使用笔记 Attiny 85 board:
 这款迷你开发板带了6个IO口，4个ADC，I2C通信结构等资源，已经能应付很多控制场景了。
 使用VScode + platformIO ， 在Arduino框架下进行开发。睡眠模式探究</description>
@@ -110,10 +114,10 @@ In node, we ‘ll be using the framework called express to deal with the communi
     
     <item>
       <title>PIP and CONDA Add and Remove Mirror Source 配置软件源</title>
-      <link>http://example.org/posts/p20211115215455/</link>
+      <link>https://sonictl.github.io/posts/p20211115215455/</link>
       <pubDate>Mon, 15 Nov 2021 21:55:30 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20211115215455/</guid>
+      <guid>https://sonictl.github.io/posts/p20211115215455/</guid>
       <description>First, PIP
 1, add a source
 For example, add SJTU Source https://mirror.sjtu.edu.cn/pypi/web/simple：
@@ -123,38 +127,39 @@ pip config unset global.index-url 3, check which source now
 pip config list Second, Conda
 1, add a source
 For example, Tsinghua Source:
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.</description>
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --set show_channel_urls yes SJTU:
+conda config --add channels https://mirror.</description>
     </item>
     
     <item>
       <title>Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</title>
-      <link>http://example.org/posts/p20211110170635/</link>
+      <link>https://sonictl.github.io/posts/p20211110170635/</link>
       <pubDate>Wed, 10 Nov 2021 17:06:35 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20211110170635/</guid>
+      <guid>https://sonictl.github.io/posts/p20211110170635/</guid>
       <description>Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required. If you’re an Apple user and have macOS Big Sur, Catalina or Mojave installed on your machine you’ve probably realized you can’t use a password shorter than 4 characters anymore…
 Luckily, here is the easy fix.
-1. Open “Terminal” on your machine. 2. Type this command &amp;amp; press Return (enter): `pwpolicy -clearaccountpolicies` 3. Terminal will ask you to enter the password for your admin profile.</description>
+1. Open “Terminal” on your machine. 2. Type this command &amp;amp; press Return (enter): `pwpolicy -clearaccountpolicies` 3. Terminal will ask you to enter the password for your admin profile. Terminal WILL NOT show the password as you type it.</description>
     </item>
     
     <item>
       <title>Keyboard Maestro: Mac电脑效率神器</title>
-      <link>http://example.org/posts/p20211028175806/</link>
+      <link>https://sonictl.github.io/posts/p20211028175806/</link>
       <pubDate>Thu, 28 Oct 2021 17:58:06 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20211028175806/</guid>
+      <guid>https://sonictl.github.io/posts/p20211028175806/</guid>
       <description>终于解决单手向右删除的痛点 Keyboard Maestro 软件很是强大。
 ReadMore: Keyboard Maestro 入门指南</description>
     </item>
     
     <item>
       <title>Implementing comment for jekyll blog with github pull request</title>
-      <link>http://example.org/posts/p20210701170100/</link>
+      <link>https://sonictl.github.io/posts/p20210701170100/</link>
       <pubDate>Thu, 01 Jul 2021 17:01:00 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20210701170100/</guid>
+      <guid>https://sonictl.github.io/posts/p20210701170100/</guid>
       <description>利用pull request实现 jekyll 博客评论功能 Implementing comment for jekyll blog with github pull request 1. The refered blogs: https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/ The github repos that needed:
-https://github.com/damieng/jekyll-blog-comments This is for the static layout/html contents supporting comment functions. https://github.com/haacked/jekyll-blog-comments-azure This is for the dynamic Azure Function code, which is forked from: https://github.com/Azure-Functions/jekyll-blog-comments 2. Steps and notes for jekyll comment box building The idea is use data files in Jekyll to store comments and some liquid templates to render them.</description>
+https://github.com/damieng/jekyll-blog-comments This is for the static layout/html contents supporting comment functions. https://github.com/haacked/jekyll-blog-comments-azure This is for the dynamic Azure Function code, which is forked from: https://github.com/Azure-Functions/jekyll-blog-comments 2. Steps and notes for jekyll comment box building The idea is use data files in Jekyll to store comments and some liquid templates to render them. That all can be static.</description>
     </item>
     
   </channel>

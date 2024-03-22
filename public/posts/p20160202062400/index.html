@@ -18,26 +18,26 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="//r2serial.cpp
-// communicate via RS232 serial with a remote uController. // communicate with ROS using String type messages. // subscribe to command messages from ROS // publish command responses to ROS
-// program parameters - ucontroller# (0,1), serial port, baud rate
-//Thread main // Subscribe to ROS String messages and send as commands to uController //Thread receive // Wait for responses from uController and publish as a ROS messages" />
-  <meta name="author" content="">
+  <meta name="description" content="Communication with ROS through USART Serial Port
+We always need to communicate with ROS through serial port as we have many devices like sensors, touch-screen, actuators to be controlled through USART serial protocol.
+After some investigation, I found several ways that can make ROS work with the serial-port-devices:
+Use the package: rosserial. It seems like only the &quot;connected rosserial-enabled device&quot; can work upon that, including Aduino, Windows, XBee, etc.(ROS community said: rosserial is used with mcus that have rosserial code running on them." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20160202062400/" />
+  <title>ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20160202062400/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="//r2serial.cpp
-// communicate via RS232 serial with a remote uController. // communicate with ROS using String type messages. // subscribe to command messages from ROS // publish command responses to ROS
-// program parameters - ucontroller# (0,1), serial port, baud rate
-//Thread main // Subscribe to ROS String messages and send as commands to uController //Thread receive // Wait for responses from uController and publish as a ROS messages" />
+  <meta property="og:description" content="Communication with ROS through USART Serial Port
+We always need to communicate with ROS through serial port as we have many devices like sensors, touch-screen, actuators to be controlled through USART serial protocol.
+After some investigation, I found several ways that can make ROS work with the serial-port-devices:
+Use the package: rosserial. It seems like only the &quot;connected rosserial-enabled device&quot; can work upon that, including Aduino, Windows, XBee, etc.(ROS community said: rosserial is used with mcus that have rosserial code running on them." />
   <meta property="og:title" content="ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20160202062400/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20160202062400/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -48,16 +48,16 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port | My New Hugo Site" />
-  <meta name="twitter:description" content="//r2serial.cpp
-// communicate via RS232 serial with a remote uController. // communicate with ROS using String type messages. // subscribe to command messages from ROS // publish command responses to ROS
-// program parameters - ucontroller# (0,1), serial port, baud rate
-//Thread main // Subscribe to ROS String messages and send as commands to uController //Thread receive // Wait for responses from uController and publish as a ROS messages" />
-  <meta name="twitter:domain" content="http://example.org/posts/p20160202062400/" />
+  <meta name="twitter:title" content="ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Communication with ROS through USART Serial Port
+We always need to communicate with ROS through serial port as we have many devices like sensors, touch-screen, actuators to be controlled through USART serial protocol.
+After some investigation, I found several ways that can make ROS work with the serial-port-devices:
+Use the package: rosserial. It seems like only the &quot;connected rosserial-enabled device&quot; can work upon that, including Aduino, Windows, XBee, etc.(ROS community said: rosserial is used with mcus that have rosserial code running on them." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20160202062400/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -74,13 +74,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -115,13 +144,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -161,17 +214,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20160202062400/">ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port</a>
+  <a href="https://sonictl.github.io/posts/p20160202062400/">ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port</a>
 </li>
 
 </ol>
@@ -229,8 +282,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-4 mins to read</span>
+8 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -238,7 +336,75 @@
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
+          <h1>Communication with ROS through USART Serial Port<br>
+</h1>
+<p>We always need to communicate with ROS through serial port as we have many devices like sensors, touch-screen, actuators to be controlled through USART serial protocol.</p>
+<p>After some investigation, I found several ways that can make ROS work with the serial-port-devices:</p>
+<ul>
+<li>Use the package: <a target="_blank" target="_blank" href="http://wiki.ros.org/rosserial/">
+rosserial</a>. It seems like only the &quot;connected rosserial-enabled device&quot; can work upon that, including Aduino, Windows, XBee, etc.(<a target="_blank" target="_blank" href="http://answers.ros.org/question/225495/how-to-use-rosserial_python/?answer=225611#post-id-225611">ROS
+ community</a> said: rosserial is used with mcus that have rosserial code running on them.)<br>
+</li><li>Use the driver package: <a target="_blank" target="_blank" href="http://wiki.ros.org/serial/">
+serial</a>. It seems like a serial port driver for ROS programming. This should be the most free way but I didn't find out how to use it.</li><li>Use the package: <a target="_blank" target="_blank" href="http://wiki.ros.org/cereal_port">
+cereal_port</a>, a serial port library for ROS, you can find it in the<a target="_blank" target="_blank" href="http://www.ros.org/wiki/serial_communication/">serial_communication stack</a>, it's easy to use.</li><li>The package:<a target="_blank" target="_blank" href="http://www.ros.org/wiki/rosbridge"> rosbridge</a><em>may</em> also suit your needs (full disclosure, author of rosbridge here). Check out<a target="_blank" target="_blank" href="http://www.youtube.com/watch?v=lo2diadVEG4">this
+ video</a> of using rosbridge with an Arduino (though the principles apply to any uController).<br>
+</li><li>A simple approach is to write a ROS node that can read/write text messages exchanged with the microcontroller over a serial port and convert these serial messages to ROS style std_msgs/String messages.<strong>Here we are going to share this way first.<br>
+</strong></li><li>Kevin: a <a target="_blank" target="_blank" href="https://github.com/walchko/serial_node">
+service</a> given by Kevin. It seems to work pretty good. This works well cuz a lot of our serial stuff is sending a message and receiving a response back, instead of separate publish/subscribes.<a target="_blank" target="_blank" href="http://answers.ros.org/question/10114/how-can-ros-communicate-with-my-microcontroller/?sort=latest#sort-top">reference
+ web</a><br>
+</li><li><br>
+</li></ul>
+<p>A simple approach is to write a ROS node that can read/write text messages exchanged with the microcontroller over a serial port and convert these serial messages to ROS style std_msgs/String messages. Here we are going to share this way first. ref:<a target="_blank" target="_blank" href="http://answers.ros.org/question/10114/how-can-ros-communicate-with-my-microcontroller/?sort=latest#sort-top">reference
+ web</a>&nbsp;</p>
+<p>In that page, Bart says:<br>
+<strong>&quot;A simple approach is to write a ROS node that can read/write text messages exchanged with the microcontroller over a serial port and convert these serial messages to ROS style std_msgs/String messages. A separate ROS node can then be written to convert
+ the simple text messages to specific ROS message formats (cmd_vel, odom, etc) based on whatever message protocol was defined for the exchange with the microcontroller.</strong></p>
+<p><strong>Attached below is the source for code that I used for this purpose. There is nothing original in the code, but it may be helpful to someone new to ROS and Unix/Linux serial communication. Posting this type of a listing may be a bit unconventional
+ for this site as short answers are generally preferred. Hopefully no one is offended. I would be interested in hearing if there are other successful approaches to the problem.&quot;</strong></p>
+<h3>Let's implement this approach:</h3>
+<p>Enter the catkin workspace, build the package: (<a target="_blank" target="_blank" href="http://wiki.ros.org/catkin/Tutorials/CreatingPackage">tutorial page</a>)<br>
+</p>
+<pre><span style="font-family:Courier New">$ cd ~/catkin_ws/src
+$ catkin_create_pkg r2serial_driver std_msgs rospy roscpp
+$ cd ~/catkin_ws
+$ catkin_make</span>
+</pre>
+<p></p>
+<p class="line874">To add the workspace to your ROS environment you need to source the generated setup file:<span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-77"></span><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-78"></span></p>
+<p class="line867"><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-79"></span><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-80"></span></p>
+<pre><span class="anchor" id="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.line-1-7"></span><span style="font-family:Courier New">$ . ~/catkin_ws/devel/setup.bash
+$ cd ~/catkin_ws/src/r2serial_driver/src</span></pre>
+<p>Add a file: &quot;r2serial.cpp&quot;, Source code:<br>
+</p>
+<p></p>
+<pre code_snippet_id="1572730" snippet_file_name="blog_20160202_1_6250658" name="code" class="cpp">/*                                                                                                                       
+ * Copyright (c) 2010, Willow Garage, Inc.                                                                               
+ * All rights reserved.                                                                                                  
+ *                                                                                                                       
+ * Redistribution and use in source and binary forms, with or without                                                    
+ * modification, are permitted provided that the following conditions are met:                                           
+ *                                                                                                                       
+ *     * Redistributions of source code must retain the above copyright                                                  
+ *       notice, this list of conditions and the following disclaimer.                                                   
+ *     * Redistributions in binary form must reproduce the above copyright                                               
+ *       notice, this list of conditions and the following disclaimer in the                                             
+ *       documentation and/or other materials provided with the distribution.                                            
+ *     * Neither the name of the Willow Garage, Inc. nor the names of its                                                
+ *       contributors may be used to endorse or promote products derived from                                            
+ *       this software without specific prior written permission.                                                        
+ *                                                                                                                       
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;                                           
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE                                             
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE                                            
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE                                              
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR                                                   
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF                                                  
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS                                              
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN                                               
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)                                               
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE                                            
+ * POSSIBILITY OF SUCH DAMAGE.                                                                                           
+ */
 <p>//r2serial.cpp</p>
 <p>// communicate via RS232 serial with a remote uController.
 // communicate with ROS using String type messages.
@@ -419,8 +585,19 @@ ros::spin();</p>
 <p>fclose(fpSerial);
 ROS_INFO(&quot;r2Serial stopping&quot;);
 return 0;
-}<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+}</pre></p>
+<p>Modify the CMakeList.txt file:<br>
+</p>
+<pre><span style="font-family:Courier New">$ cd ~/catkin_ws/src/r2serial_driver
+$ gedit CMakeList.txt
+</span></pre>
+<p>add/modify these lines as below:</p>
+<p></p>
+<pre code_snippet_id="1572730" snippet_file_name="blog_20160202_2_9565708" name="code" class="plain">find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  rospy
+  std_msgs
+)
 <p>include_directories(
 ${catkin_INCLUDE_DIRS}
 )</p>
@@ -429,14 +606,58 @@ ${catkin_INCLUDE_DIRS}
 <p>target_link_libraries(r2serial_driver
 ${catkin_LIBRARIES}
 )</p>
-<p><!-- raw HTML omitted -->Save and Build the package again:<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p></pre>Save and Build the package again:<br></p>
+<p></p>
+<pre><span style="font-family:Courier New">$ cd ~/catkin_ws</span>
+<span style="font-family:Courier New">$ catkin_make -DCMAKE_BUILD_TYPE=Release </span></pre>
+<p></p>
+<p>He also offered a simple launch file that interfaces to two microcontrollers using two serial connections, put the code into<br>
+&nbsp; &quot;~/catkin_ws/src/r2serial_driver/launch/r2serial_driver.launch&quot; file:<br>
+</p>
+<p></p>
+<pre code_snippet_id="1572730" snippet_file_name="blog_20160202_3_8311972" name="code" class="html">&lt;launch&gt;
+  &lt;node pkg=&quot;r2serial_driver&quot; type=&quot;r2serial_driver&quot; name=&quot;r2serial0&quot; args=&quot;0 /dev/ttyUSB0 9600&quot; output=&quot;screen&quot; &gt;
+  &lt;remap from=&quot;ucCommand&quot; to=&quot;uc0Command&quot; /&gt;
+  &lt;remap from=&quot;ucResponse&quot; to=&quot;uc0Response&quot; /&gt;
+  &lt;/node&gt;
 <p>&lt;node pkg=&quot;r2serial_driver&quot; type=&quot;r2serial_driver&quot; name=&quot;r2serial1&quot; args=&quot;1 /dev/ttyUSB1 9600&quot; output=&quot;screen&quot; &gt;
 &lt;remap from=&quot;ucCommand&quot; to=&quot;uc1Command&quot; /&gt;
 &lt;remap from=&quot;ucResponse&quot; to=&quot;uc1Response&quot; /&gt;
 &lt;/node&gt;</p>
-<p>&lt;/launch&gt;<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>&lt;/launch&gt;</pre></p>
+<p>Usage:</p>
+<pre><span style="font-family:Courier New">$ rosrun r2serial_driver r2serial_driver 0 /dev/ttyUSB0 9600</span>
+</pre>
+<p>or</p>
+<pre><span style="font-family:Courier New">$ roslaunch r2serial_driver r2serial_driver.launch</span>
+</pre>
+<p>try:<br>
+</p>
+<pre><span style="font-family:Courier New">$ rostopic pub -r 1 /uc0Command std_msgs/String hello_my_serial
+$ rostopic echo /uc0Response</span></pre>
+You may also need to remap the /dev/ttyUSB* to some name you like cuz you may have several usb-serial devices.<br>
+If so, just Ref:<span style="font-size:12px"><span class="link_title"><a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/50947753">重新指派usb转串口模块在linux系统中的设备调用名称(English Version: remap your usb-serial devices' names in Linux
+ )</a></span></span><br>
+<br>
+<p>But <strong>Kevin</strong> mentioned a question: &quot;Interesting, but a lot of my serial stuff is send a message and receive a response back. Instead of separate publish/subscribes have you tried a service? That seems like it would work nicely for this.&quot;</p>
+<p>I also noticed a problem: <u><span style="color:#CC0000">The Linux's System RAM and CPU will be much costed by r2serial_driver when it is running.</span></u><br>
+</p>
+<p>Next time, we'll see how to use <a target="_blank" target="_blank" href="https://github.com/walchko/serial_node">
+Kevin's service</a> to play ROS serial communication.<br>
+</p>
+<h2>2. Use Service to play ROS-Serial communication</h2>
+<p>see this blog brother below...</p>
+<p><a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/51372534">http://blog.csdn.net/sonictl/article/details/51372534</a><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p></p>
+<p><br>
+</p>
 
 
 
@@ -499,7 +720,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20160202062400%2f&title=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8812%ef%bc%89%20-%20Communication%20with%20ROS%20through%20USART%20Serial%20Port">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160202062400%2f&title=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8812%ef%bc%89%20-%20Communication%20with%20ROS%20through%20USART%20Serial%20Port">
           
 
 
@@ -525,7 +746,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port on twitter"
-          href="https://twitter.com/intent/tweet/?text=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8812%ef%bc%89%20-%20Communication%20with%20ROS%20through%20USART%20Serial%20Port&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20160202062400%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=ROS%20%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8812%ef%bc%89%20-%20Communication%20with%20ROS%20through%20USART%20Serial%20Port&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160202062400%2f&amp;hashtags=">
           
 
 
@@ -551,7 +772,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20160202062400%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160202062400%2f">
           
 
 
@@ -581,6 +802,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -588,6 +835,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -605,7 +862,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -616,7 +873,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

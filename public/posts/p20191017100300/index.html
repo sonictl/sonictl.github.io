@@ -20,10 +20,10 @@
   <meta name="color-scheme" content="dark light">
   <meta name="description" content="put the below into inst_gpu.sh file:
 #!/bin/bash ## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04 ### steps #### # verify the system has a cuda-capable gpu # download and install the nvidia cuda toolkit and cudnn # setup environmental variables # verify the installation # CUDA 9.0 requires NVIDIA driver version 384 or above ### ### to verify your gpu is cuda enable check lspci | grep -i nvidia ### gcc compiler is required for development using the cuda toolkit." />
-  <meta name="author" content="">
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>【GPU】ubuntu 18.4 install GPU | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20191017100300/" />
+  <title>【GPU】ubuntu 18.4 install GPU | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20191017100300/" />
   
 
   
@@ -31,9 +31,9 @@
   <meta property="og:description" content="put the below into inst_gpu.sh file:
 #!/bin/bash ## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04 ### steps #### # verify the system has a cuda-capable gpu # download and install the nvidia cuda toolkit and cudnn # setup environmental variables # verify the installation # CUDA 9.0 requires NVIDIA driver version 384 or above ### ### to verify your gpu is cuda enable check lspci | grep -i nvidia ### gcc compiler is required for development using the cuda toolkit." />
   <meta property="og:title" content="【GPU】ubuntu 18.4 install GPU" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20191017100300/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20191017100300/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -44,14 +44,14 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="【GPU】ubuntu 18.4 install GPU | My New Hugo Site" />
+  <meta name="twitter:title" content="【GPU】ubuntu 18.4 install GPU | Combine Art and Sciences" />
   <meta name="twitter:description" content="put the below into inst_gpu.sh file:
 #!/bin/bash ## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04 ### steps #### # verify the system has a cuda-capable gpu # download and install the nvidia cuda toolkit and cudnn # setup environmental variables # verify the installation # CUDA 9.0 requires NVIDIA driver version 384 or above ### ### to verify your gpu is cuda enable check lspci | grep -i nvidia ### gcc compiler is required for development using the cuda toolkit." />
-  <meta name="twitter:domain" content="http://example.org/posts/p20191017100300/" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20191017100300/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -68,13 +68,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -109,13 +138,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -155,17 +208,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20191017100300/">【GPU】ubuntu 18.4 install GPU</a>
+  <a href="https://sonictl.github.io/posts/p20191017100300/">【GPU】ubuntu 18.4 install GPU</a>
 </li>
 
 </ol>
@@ -225,6 +278,51 @@
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 2 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -233,57 +331,57 @@
       <article class="post-entry content">
         
           <p>put the below into inst_gpu.sh file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### steps ####</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># verify the system has a cuda-capable gpu</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># download and install the nvidia cuda toolkit and cudnn</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># setup environmental variables</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># verify the installation</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># CUDA 9.0 requires NVIDIA driver version 384 or above</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">###</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### to verify your gpu is cuda enable check</span>
-</span></span><span style="display:flex;"><span>lspci | grep -i nvidia
-</span></span><span style="display:flex;"><span><span style="color:#75715e">### gcc compiler is required for development using the cuda toolkit. to verify the version of gcc install enter</span>
-</span></span><span style="display:flex;"><span>gcc --version
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># first get the PPA repository driver</span>
-</span></span><span style="display:flex;"><span>sudo add-apt-repository ppa:graphics-drivers/ppa
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># install nvidia driver </span>
-</span></span><span style="display:flex;"><span>sudo apt install nvidia-384 nvidia-384-dev
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># install other import packages</span>
-</span></span><span style="display:flex;"><span>sudo apt-get install g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># CUDA 9 requires gcc 6</span>
-</span></span><span style="display:flex;"><span>sudo apt install gcc-6
-</span></span><span style="display:flex;"><span>sudo apt install g++-6
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># downoad one of the &#34;runfile (local)&#34; installation packages from cuda toolkit archive </span>
-</span></span><span style="display:flex;"><span>wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># make the download file executable</span>
-</span></span><span style="display:flex;"><span>chmod +x cuda_9.0.176_384.81_linux-run 
-</span></span><span style="display:flex;"><span>sudo ./cuda_9.0.176_384.81_linux-run --override
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># answer following questions while installation begin</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># You are attempting to install on an unsupported configuration. Do you wish to continue? y</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 384.81? n</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install the CUDA 9.0 Toolkit? y</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># set up symlinks for gcc/g++</span>
-</span></span><span style="display:flex;"><span>sudo ln -s /usr/bin/gcc-6 /usr/local/cuda/bin/gcc
-</span></span><span style="display:flex;"><span>sudo ln -s /usr/bin/g++-6 /usr/local/cuda/bin/g++
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># setup your paths</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=/usr/local/cuda-9.0/bin:$PATH&#39;</span> &gt;&gt; ~/.bashrc
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH&#39;</span> &gt;&gt; ~/.bashrc
-</span></span><span style="display:flex;"><span>source ~/.bashrc
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># install cuDNN v7.2</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># in order to download cuDNN you have to regeistered here https://developer.nvidia.com/developer-program/signup</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># then download cuDNN v7.2 form https://developer.nvidia.com/cudnn</span>
-</span></span><span style="display:flex;"><span>CUDNN_TAR_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cudnn-9.0-linux-x64-v7.2.1.38&#34;</span>
-</span></span><span style="display:flex;"><span>wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.2.1/prod/9.0_20180806/<span style="color:#e6db74">${</span>CUDNN_TAR_FILE<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>tar -xzvf <span style="color:#e6db74">${</span>CUDNN_TAR_FILE<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># copy the following files into the cuda toolkit directory.</span>
-</span></span><span style="display:flex;"><span>sudo cp -P cuda/include/cudnn.h /usr/local/cuda-9.0/include
-</span></span><span style="display:flex;"><span>sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/
-</span></span><span style="display:flex;"><span>sudo chmod a+r /usr/local/cuda-9.0/lib64/libcudnn*
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># finally, to verify the installation, check</span>
-</span></span><span style="display:flex;"><span>nvidia-smi
-</span></span><span style="display:flex;"><span>nvcc -V
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">## This gist contains step by step instructions to install cuda v9.0 and cudnn 7.2 in ubuntu 18.04</span>
+</span></span><span class="line"><span class="cl"><span class="c1">### steps ####</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># verify the system has a cuda-capable gpu</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># download and install the nvidia cuda toolkit and cudnn</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># setup environmental variables</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># verify the installation</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># CUDA 9.0 requires NVIDIA driver version 384 or above</span>
+</span></span><span class="line"><span class="cl"><span class="c1">###</span>
+</span></span><span class="line"><span class="cl"><span class="c1">### to verify your gpu is cuda enable check</span>
+</span></span><span class="line"><span class="cl">lspci <span class="p">|</span> grep -i nvidia
+</span></span><span class="line"><span class="cl"><span class="c1">### gcc compiler is required for development using the cuda toolkit. to verify the version of gcc install enter</span>
+</span></span><span class="line"><span class="cl">gcc --version
+</span></span><span class="line"><span class="cl"><span class="c1"># first get the PPA repository driver</span>
+</span></span><span class="line"><span class="cl">sudo add-apt-repository ppa:graphics-drivers/ppa
+</span></span><span class="line"><span class="cl"><span class="c1"># install nvidia driver </span>
+</span></span><span class="line"><span class="cl">sudo apt install nvidia-384 nvidia-384-dev
+</span></span><span class="line"><span class="cl"><span class="c1"># install other import packages</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
+</span></span><span class="line"><span class="cl"><span class="c1"># CUDA 9 requires gcc 6</span>
+</span></span><span class="line"><span class="cl">sudo apt install gcc-6
+</span></span><span class="line"><span class="cl">sudo apt install g++-6
+</span></span><span class="line"><span class="cl"><span class="c1"># downoad one of the &#34;runfile (local)&#34; installation packages from cuda toolkit archive </span>
+</span></span><span class="line"><span class="cl">wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
+</span></span><span class="line"><span class="cl"><span class="c1"># make the download file executable</span>
+</span></span><span class="line"><span class="cl">chmod +x cuda_9.0.176_384.81_linux-run 
+</span></span><span class="line"><span class="cl">sudo ./cuda_9.0.176_384.81_linux-run --override
+</span></span><span class="line"><span class="cl"><span class="c1"># answer following questions while installation begin</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># You are attempting to install on an unsupported configuration. Do you wish to continue? y</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 384.81? n</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the CUDA 9.0 Toolkit? y</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># set up symlinks for gcc/g++</span>
+</span></span><span class="line"><span class="cl">sudo ln -s /usr/bin/gcc-6 /usr/local/cuda/bin/gcc
+</span></span><span class="line"><span class="cl">sudo ln -s /usr/bin/g++-6 /usr/local/cuda/bin/g++
+</span></span><span class="line"><span class="cl"><span class="c1"># setup your paths</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=/usr/local/cuda-9.0/bin:$PATH&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="c1"># install cuDNN v7.2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># in order to download cuDNN you have to regeistered here https://developer.nvidia.com/developer-program/signup</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># then download cuDNN v7.2 form https://developer.nvidia.com/cudnn</span>
+</span></span><span class="line"><span class="cl"><span class="nv">CUDNN_TAR_FILE</span><span class="o">=</span><span class="s2">&#34;cudnn-9.0-linux-x64-v7.2.1.38&#34;</span>
+</span></span><span class="line"><span class="cl">wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.2.1/prod/9.0_20180806/<span class="si">${</span><span class="nv">CUDNN_TAR_FILE</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">tar -xzvf <span class="si">${</span><span class="nv">CUDNN_TAR_FILE</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># copy the following files into the cuda toolkit directory.</span>
+</span></span><span class="line"><span class="cl">sudo cp -P cuda/include/cudnn.h /usr/local/cuda-9.0/include
+</span></span><span class="line"><span class="cl">sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/
+</span></span><span class="line"><span class="cl">sudo chmod a+r /usr/local/cuda-9.0/lib64/libcudnn*
+</span></span><span class="line"><span class="cl"><span class="c1"># finally, to verify the installation, check</span>
+</span></span><span class="line"><span class="cl">nvidia-smi
+</span></span><span class="line"><span class="cl">nvcc -V
 </span></span></code></pre></div>
 
 
@@ -346,7 +444,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share 【GPU】ubuntu 18.4 install GPU on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20191017100300%2f&title=%e3%80%90GPU%e3%80%91ubuntu%2018.4%20install%20GPU">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20191017100300%2f&title=%e3%80%90GPU%e3%80%91ubuntu%2018.4%20install%20GPU">
           
 
 
@@ -372,7 +470,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share 【GPU】ubuntu 18.4 install GPU on twitter"
-          href="https://twitter.com/intent/tweet/?text=%e3%80%90GPU%e3%80%91ubuntu%2018.4%20install%20GPU&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20191017100300%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=%e3%80%90GPU%e3%80%91ubuntu%2018.4%20install%20GPU&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20191017100300%2f&amp;hashtags=">
           
 
 
@@ -398,7 +496,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share 【GPU】ubuntu 18.4 install GPU on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20191017100300%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20191017100300%2f">
           
 
 
@@ -428,6 +526,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -435,6 +559,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -452,7 +586,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -463,7 +597,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

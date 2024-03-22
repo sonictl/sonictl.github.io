@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Academy on My New Hugo Site</title>
-    <link>http://example.org/categories/academy/</link>
-    <description>Recent content in Academy on My New Hugo Site</description>
+    <title>Academy on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/academy/</link>
+    <description>Recent content in Academy on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jul 2021 21:55:28 +0800</lastBuildDate><atom:link href="http://example.org/categories/academy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Jul 2021 21:55:28 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/academy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>中国计算机学会(CCF)推荐国际学术期刊目录(2019)</title>
-      <link>http://example.org/posts/p20210714215528/</link>
+      <link>https://sonictl.github.io/posts/p20210714215528/</link>
       <pubDate>Wed, 14 Jul 2021 21:55:28 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20210714215528/</guid>
+      <guid>https://sonictl.github.io/posts/p20210714215528/</guid>
       <description>#中国计算机学会(CCF)推荐国际学术期刊目录(2019)
 Table of contents 中国计算机学会(CCF)推荐国际学术期刊目录(2019) (数据库/数据挖掘/内容检索) （人工智能） （交叉/综合/新兴） （计算机体系结构/并行与分布计算/存储系统） （计算机网络） （网络与信息安全） （软件工程/系统软件/程序设计语言） （计算机科学理论） （计算机图形学与多媒体） （人机交互与普适计算） (数据库/数据挖掘/内容检索) 一、A类 ####### 序号 刊物简称 刊物全称 出版社 网址
-1 TODS ACM Transactions on Database Systems ACM http://dblp.uni-trier.de/db/journals/tods/ 2 TOIS ACM Transactions on Information Systems ACM http://dblp.uni-trier.de/db/journals/tois/ 3 TKDE IEEE Transactions on Knowledge and Data Engineering IEEE http://dblp.uni-trier.de/db/journals/tkde/ 4 VLDBJ The VLDB Journal Springer http://dblp.uni-trier.de/db/journals/vldb/ 二、B类 序号 刊物简称 刊物全称 出版社 网址 (^1) TKDD ACM Transactions on Knowledge Discovery from Data ACM http://dblp.</description>
+1 TODS ACM Transactions on Database Systems ACM http://dblp.uni-trier.de/db/journals/tods/ 2 TOIS ACM Transactions on Information Systems ACM http://dblp.uni-trier.de/db/journals/tois/ 3 TKDE IEEE Transactions on Knowledge and Data Engineering IEEE http://dblp.uni-trier.de/db/journals/tkde/ 4 VLDBJ The VLDB Journal Springer http://dblp.uni-trier.de/db/journals/vldb/ 二、B类 序号 刊物简称 刊物全称 出版社 网址 (^1) TKDD ACM Transactions on Knowledge Discovery from Data ACM http://dblp.uni-trier.de/db/journals/tkdd/ (^2) TWEB ACM Transactions on the Web ACM http://dblp.</description>
     </item>
     
     <item>
       <title>中国计算机学会(CCF)推荐国际学术会议目录(2019)</title>
-      <link>http://example.org/posts/p20210714214759/</link>
+      <link>https://sonictl.github.io/posts/p20210714214759/</link>
       <pubDate>Wed, 14 Jul 2021 21:47:59 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20210714214759/</guid>
+      <guid>https://sonictl.github.io/posts/p20210714214759/</guid>
       <description>中国计算机学会(CCF)推荐国际学术会议目录(2019) (数据库／数据挖掘／内容检索) 一、A类 序号 会议简称 会议全称 出版社 网址 (^1) SIGMOD ACM Conference on Management of Data ACM http://dblp.uni-trier.de/db/conf/sigmod/ (^2) SIGKDD ACM Knowledge Discovery and Data Mining ACM http://dblp.uni-trier.de/db/conf/kdd/ (^3) ICDE IEEE International Conference on Data Engineering IEEE http://dblp.uni-trier.de/db/conf/icde/ (^4) SIGIR International Conference on Research on Development in Information Retrieval ACM http://dblp.uni-trier.de/db/conf/sigir/ (^5) VLDB International Conference on Very Large Data Bases Morgan Kaufmann//ACM http://dblp.uni-trier.de/db/conf/vldb/
 二、B类 序号 会议简称 会议全称 出版社 网址 (^1) CIKM ACM International Conference on Information and Knowledge Management ACM http://dblp.</description>
     </item>

@@ -35,11 +35,11 @@ t-SNE对于SNE改进是将高维空间中的欧氏距离换成了高斯分布，
 t-SNE的梯度强烈抵制不相似的点对在低维空间中被建模成距离很近。 尽管引入了不相似点对之间强烈的排斥，排斥力不会走向无穷。 t-SNE主要包括两个步骤：第一、t-SNE构建一个高维对象之间的概率分布，使得相似的对象有更高的概率被选择，而不相似的对象有较低的概率被选择。第二，t-SNE在低维空间里在构建这些点的概率分布，使得这两个概率分布之间尽可能的相似，同样也是来度量两个分布之间的相似性。
 t-SNE可以将MNIST手写数字集几乎完全分开。在线尝试：http://scienceai.github.io/tsne-js/
 t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期刚结束的WWW 2016上，华人学者唐健提出的LargeViz【5】，速度比t-SNE快了近30倍，想法很好！这种好的工作，比改改深度学习中网络的结构，调调参数，水一百篇论文更有意义！
-参考文献 【1】Nan Cao, Yu-Ru Lin, and David Gotz ，UnTangle Map: Visual Analysis of Probabilistic Multi-Label Data ，IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL." />
-  <meta name="author" content="">
+参考文献 【1】Nan Cao, Yu-Ru Lin, and David Gotz ，UnTangle Map: Visual Analysis of Probabilistic Multi-Label Data ，IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL. 22, NO. 2, FEBRUARY 2016" />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>浅谈高维数据可视化中的降维方法 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20180520014900/" />
+  <title>浅谈高维数据可视化中的降维方法 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20180520014900/" />
   
 
   
@@ -61,11 +61,11 @@ t-SNE对于SNE改进是将高维空间中的欧氏距离换成了高斯分布，
 t-SNE的梯度强烈抵制不相似的点对在低维空间中被建模成距离很近。 尽管引入了不相似点对之间强烈的排斥，排斥力不会走向无穷。 t-SNE主要包括两个步骤：第一、t-SNE构建一个高维对象之间的概率分布，使得相似的对象有更高的概率被选择，而不相似的对象有较低的概率被选择。第二，t-SNE在低维空间里在构建这些点的概率分布，使得这两个概率分布之间尽可能的相似，同样也是来度量两个分布之间的相似性。
 t-SNE可以将MNIST手写数字集几乎完全分开。在线尝试：http://scienceai.github.io/tsne-js/
 t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期刚结束的WWW 2016上，华人学者唐健提出的LargeViz【5】，速度比t-SNE快了近30倍，想法很好！这种好的工作，比改改深度学习中网络的结构，调调参数，水一百篇论文更有意义！
-参考文献 【1】Nan Cao, Yu-Ru Lin, and David Gotz ，UnTangle Map: Visual Analysis of Probabilistic Multi-Label Data ，IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL." />
+参考文献 【1】Nan Cao, Yu-Ru Lin, and David Gotz ，UnTangle Map: Visual Analysis of Probabilistic Multi-Label Data ，IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL. 22, NO. 2, FEBRUARY 2016" />
   <meta property="og:title" content="浅谈高维数据可视化中的降维方法" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20180520014900/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20180520014900/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -76,7 +76,7 @@ t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="浅谈高维数据可视化中的降维方法 | My New Hugo Site" />
+  <meta name="twitter:title" content="浅谈高维数据可视化中的降维方法 | Combine Art and Sciences" />
   <meta name="twitter:description" content="浅谈高维数据可视化中的降维方法 来源：[link]: https://blog.csdn.net/u011001084/article/details/51396447
 我们生活在三维空间中，很难直接理解三维以上的空间（爱因斯坦等牛人除外）。但是爱因斯坦这样的人毕竟在人群中是少数，对大多数人来说，高维数据如何进行可视化呢？
 聪明的人可以用其他的视觉通道对一些维度进行视觉编码，比如颜色、形状、朝向、体积、半径、表面覆盖物等等。。。不过有两个很显然的问题，1）用户理解起来，不那么方便了。可能要想半天才能反应过来，因为要对这些视觉通道进行一一的反编码，记住这些本身就挺难的。2）维度比较大，不多说，就十几维，恐怕视觉通道已经捉襟见肘，不够用了。
@@ -94,12 +94,12 @@ t-SNE对于SNE改进是将高维空间中的欧氏距离换成了高斯分布，
 t-SNE的梯度强烈抵制不相似的点对在低维空间中被建模成距离很近。 尽管引入了不相似点对之间强烈的排斥，排斥力不会走向无穷。 t-SNE主要包括两个步骤：第一、t-SNE构建一个高维对象之间的概率分布，使得相似的对象有更高的概率被选择，而不相似的对象有较低的概率被选择。第二，t-SNE在低维空间里在构建这些点的概率分布，使得这两个概率分布之间尽可能的相似，同样也是来度量两个分布之间的相似性。
 t-SNE可以将MNIST手写数字集几乎完全分开。在线尝试：http://scienceai.github.io/tsne-js/
 t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期刚结束的WWW 2016上，华人学者唐健提出的LargeViz【5】，速度比t-SNE快了近30倍，想法很好！这种好的工作，比改改深度学习中网络的结构，调调参数，水一百篇论文更有意义！
-参考文献 【1】Nan Cao, Yu-Ru Lin, and David Gotz ，UnTangle Map: Visual Analysis of Probabilistic Multi-Label Data ，IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL." />
-  <meta name="twitter:domain" content="http://example.org/posts/p20180520014900/" />
+参考文献 【1】Nan Cao, Yu-Ru Lin, and David Gotz ，UnTangle Map: Visual Analysis of Probabilistic Multi-Label Data ，IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL. 22, NO. 2, FEBRUARY 2016" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20180520014900/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -116,13 +116,42 @@ t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -157,13 +186,37 @@ t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -203,17 +256,17 @@ t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20180520014900/">浅谈高维数据可视化中的降维方法</a>
+  <a href="https://sonictl.github.io/posts/p20180520014900/">浅谈高维数据可视化中的降维方法</a>
 </li>
 
 </ol>
@@ -273,6 +326,51 @@ t-SNE哪里都好，但是有一个致命的弱点，就是慢。不过，近期
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 a min to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -384,7 +482,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share 浅谈高维数据可视化中的降维方法 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20180520014900%2f&title=%e6%b5%85%e8%b0%88%e9%ab%98%e7%bb%b4%e6%95%b0%e6%8d%ae%e5%8f%af%e8%a7%86%e5%8c%96%e4%b8%ad%e7%9a%84%e9%99%8d%e7%bb%b4%e6%96%b9%e6%b3%95">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20180520014900%2f&title=%e6%b5%85%e8%b0%88%e9%ab%98%e7%bb%b4%e6%95%b0%e6%8d%ae%e5%8f%af%e8%a7%86%e5%8c%96%e4%b8%ad%e7%9a%84%e9%99%8d%e7%bb%b4%e6%96%b9%e6%b3%95">
           
 
 
@@ -410,7 +508,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share 浅谈高维数据可视化中的降维方法 on twitter"
-          href="https://twitter.com/intent/tweet/?text=%e6%b5%85%e8%b0%88%e9%ab%98%e7%bb%b4%e6%95%b0%e6%8d%ae%e5%8f%af%e8%a7%86%e5%8c%96%e4%b8%ad%e7%9a%84%e9%99%8d%e7%bb%b4%e6%96%b9%e6%b3%95&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20180520014900%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=%e6%b5%85%e8%b0%88%e9%ab%98%e7%bb%b4%e6%95%b0%e6%8d%ae%e5%8f%af%e8%a7%86%e5%8c%96%e4%b8%ad%e7%9a%84%e9%99%8d%e7%bb%b4%e6%96%b9%e6%b3%95&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20180520014900%2f&amp;hashtags=">
           
 
 
@@ -436,7 +534,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share 浅谈高维数据可视化中的降维方法 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20180520014900%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20180520014900%2f">
           
 
 
@@ -466,6 +564,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -473,6 +597,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -490,7 +624,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -501,7 +635,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

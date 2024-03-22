@@ -18,20 +18,64 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="2 - 编程语言" />
-  <meta name="author" content="">
+  <meta name="description" content="随着 2016 年 Alpha Go 在围棋击败李世石，2017 年初卡内基梅隆大学人工智能系统 Libratus 在长达20天的鏖战中，打败 4 名世界顶级德州扑克玩家，这标志着人工智能技术又达到了一个新的高峰。
+人工智能已经不再是在各大公司幕后提供各种智能推荐、语音识别算法的工具，它已经慢慢走向台前进入到平常百姓的视野之中。
+曾经有人描述人工智能就向一列缓缓开向人们的火车，一开始非常遥远而且看起来非常缓慢，它慢慢接近，直到人们清楚看到它的时候，它已经呼啸而过，把人远远抛在身后。现在似乎就是人们可以远远看到人工智能的时候，它已经发展数十年，但直到最近才引起广泛注意，随着大数据的积累、算法的改进、硬件的提升，人工智能可以在很多细分的领域成为专家，辅助人类甚至超过人类。
+接触一个领域的第一步是尽快的了解全貌并且搭建出相应的知识体系。大致提纲如下（后续不断补充）：
+&nbsp;
+1 - 数学 线性代数、微积分
+在整个机器学习过程中涉及大量矩阵运算和微积分导数的概念，因此建议初学者至少要有较为扎实的数学基础，对矩阵和微积分的概念了解比较清楚。否则在一些公式推导过程中会遇到较大障碍，而不断反复回来复习数学知识。
+2 - 编程语言
+2 - 编程语言 Python/R/Java/Matlab
+Python 已经成为机器学习的第一语言，至于为什么知乎(https://www.zhihu.com/question/30105838?sort=created)中有非常不错的解释。众多机器学习的框架都支持 Python API，所以学习机器学习，Python 语言语法估计是绕不过去。
+3 - Supervise learning 3 - Supervise learning
+Linear regression
+Logistic regression
+Neural network
+SVM
+监督学习指的是人们给机器一大堆标记好的数据，比如一大堆照片，标记出哪些是猫的照片，哪些不是，然后让机器自己学习归纳出算法，可以判断出其他照片是否是猫。目前这个领域算法代表：Linear regression, Logistic regression, Neural network, SVM等等。 4 - Unsupervise learning K-means
+PCA
+Anomaly detection
+非监督学习指的就是人们给机器一大堆没有标记的数据，让机器可以对数据进行分类、检测异常等。
+5 - Special topic Recommend system
+Large scale machine learning application
+一些特殊算法，例如推荐系统。常用于购物网站，可以根据你的过往购物或评分情况，来向你推荐商品。
+6 - Advice on machine learning" />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>机器学习知识体系 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20170216020900/" />
+  <title>机器学习知识体系 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20170216020900/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="2 - 编程语言" />
+  <meta property="og:description" content="随着 2016 年 Alpha Go 在围棋击败李世石，2017 年初卡内基梅隆大学人工智能系统 Libratus 在长达20天的鏖战中，打败 4 名世界顶级德州扑克玩家，这标志着人工智能技术又达到了一个新的高峰。
+人工智能已经不再是在各大公司幕后提供各种智能推荐、语音识别算法的工具，它已经慢慢走向台前进入到平常百姓的视野之中。
+曾经有人描述人工智能就向一列缓缓开向人们的火车，一开始非常遥远而且看起来非常缓慢，它慢慢接近，直到人们清楚看到它的时候，它已经呼啸而过，把人远远抛在身后。现在似乎就是人们可以远远看到人工智能的时候，它已经发展数十年，但直到最近才引起广泛注意，随着大数据的积累、算法的改进、硬件的提升，人工智能可以在很多细分的领域成为专家，辅助人类甚至超过人类。
+接触一个领域的第一步是尽快的了解全貌并且搭建出相应的知识体系。大致提纲如下（后续不断补充）：
+&nbsp;
+1 - 数学 线性代数、微积分
+在整个机器学习过程中涉及大量矩阵运算和微积分导数的概念，因此建议初学者至少要有较为扎实的数学基础，对矩阵和微积分的概念了解比较清楚。否则在一些公式推导过程中会遇到较大障碍，而不断反复回来复习数学知识。
+2 - 编程语言
+2 - 编程语言 Python/R/Java/Matlab
+Python 已经成为机器学习的第一语言，至于为什么知乎(https://www.zhihu.com/question/30105838?sort=created)中有非常不错的解释。众多机器学习的框架都支持 Python API，所以学习机器学习，Python 语言语法估计是绕不过去。
+3 - Supervise learning 3 - Supervise learning
+Linear regression
+Logistic regression
+Neural network
+SVM
+监督学习指的是人们给机器一大堆标记好的数据，比如一大堆照片，标记出哪些是猫的照片，哪些不是，然后让机器自己学习归纳出算法，可以判断出其他照片是否是猫。目前这个领域算法代表：Linear regression, Logistic regression, Neural network, SVM等等。 4 - Unsupervise learning K-means
+PCA
+Anomaly detection
+非监督学习指的就是人们给机器一大堆没有标记的数据，让机器可以对数据进行分类、检测异常等。
+5 - Special topic Recommend system
+Large scale machine learning application
+一些特殊算法，例如推荐系统。常用于购物网站，可以根据你的过往购物或评分情况，来向你推荐商品。
+6 - Advice on machine learning" />
   <meta property="og:title" content="机器学习知识体系" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20170216020900/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20170216020900/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +86,35 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="机器学习知识体系 | My New Hugo Site" />
-  <meta name="twitter:description" content="2 - 编程语言" />
-  <meta name="twitter:domain" content="http://example.org/posts/p20170216020900/" />
+  <meta name="twitter:title" content="机器学习知识体系 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="随着 2016 年 Alpha Go 在围棋击败李世石，2017 年初卡内基梅隆大学人工智能系统 Libratus 在长达20天的鏖战中，打败 4 名世界顶级德州扑克玩家，这标志着人工智能技术又达到了一个新的高峰。
+人工智能已经不再是在各大公司幕后提供各种智能推荐、语音识别算法的工具，它已经慢慢走向台前进入到平常百姓的视野之中。
+曾经有人描述人工智能就向一列缓缓开向人们的火车，一开始非常遥远而且看起来非常缓慢，它慢慢接近，直到人们清楚看到它的时候，它已经呼啸而过，把人远远抛在身后。现在似乎就是人们可以远远看到人工智能的时候，它已经发展数十年，但直到最近才引起广泛注意，随着大数据的积累、算法的改进、硬件的提升，人工智能可以在很多细分的领域成为专家，辅助人类甚至超过人类。
+接触一个领域的第一步是尽快的了解全貌并且搭建出相应的知识体系。大致提纲如下（后续不断补充）：
+&nbsp;
+1 - 数学 线性代数、微积分
+在整个机器学习过程中涉及大量矩阵运算和微积分导数的概念，因此建议初学者至少要有较为扎实的数学基础，对矩阵和微积分的概念了解比较清楚。否则在一些公式推导过程中会遇到较大障碍，而不断反复回来复习数学知识。
+2 - 编程语言
+2 - 编程语言 Python/R/Java/Matlab
+Python 已经成为机器学习的第一语言，至于为什么知乎(https://www.zhihu.com/question/30105838?sort=created)中有非常不错的解释。众多机器学习的框架都支持 Python API，所以学习机器学习，Python 语言语法估计是绕不过去。
+3 - Supervise learning 3 - Supervise learning
+Linear regression
+Logistic regression
+Neural network
+SVM
+监督学习指的是人们给机器一大堆标记好的数据，比如一大堆照片，标记出哪些是猫的照片，哪些不是，然后让机器自己学习归纳出算法，可以判断出其他照片是否是猫。目前这个领域算法代表：Linear regression, Logistic regression, Neural network, SVM等等。 4 - Unsupervise learning K-means
+PCA
+Anomaly detection
+非监督学习指的就是人们给机器一大堆没有标记的数据，让机器可以对数据进行分类、检测异常等。
+5 - Special topic Recommend system
+Large scale machine learning application
+一些特殊算法，例如推荐系统。常用于购物网站，可以根据你的过往购物或评分情况，来向你推荐商品。
+6 - Advice on machine learning" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20170216020900/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +131,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +201,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +271,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20170216020900/">机器学习知识体系</a>
+  <a href="https://sonictl.github.io/posts/p20170216020900/">机器学习知识体系</a>
 </li>
 
 </ol>
@@ -222,6 +341,51 @@
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 a min to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,10 +393,22 @@ a min to read</span>
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
-<p>2 - 编程语言<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-
+          <p>随着 2016 年 Alpha Go 在围棋击败李世石，2017 年初卡内基梅隆大学人工智能系统 Libratus 在长达20天的鏖战中，打败 4 名世界顶级德州扑克玩家，这标志着人工智能技术又达到了一个新的高峰。<br /><br /><br />人工智能已经不再是在各大公司幕后提供各种智能推荐、语音识别算法的工具，它已经慢慢走向台前进入到平常百姓的视野之中。<br /><br /><br />曾经有人描述人工智能就向一列缓缓开向人们的火车，一开始非常遥远而且看起来非常缓慢，它慢慢接近，直到人们清楚看到它的时候，它已经呼啸而过，把人远远抛在身后。现在似乎就是人们可以远远看到人工智能的时候，它已经发展数十年，但直到最近才引起广泛注意，随着大数据的积累、算法的改进、硬件的提升，人工智能可以在很多细分的领域成为专家，辅助人类甚至超过人类。<br /><br /><br />接触一个领域的第一步是尽快的了解全貌并且搭建出相应的知识体系。大致提纲如下（后续不断补充）：<br /><br /><img src="http://images2015.cnblogs.com/blog/780771/201702/780771-20170216104712285-1490319502.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<h2>1 - 数学</h2>
+<p><br /><br />线性代数、微<span style="font-family: Microsoft YaHei;">积分</span><br /><br />在整个机器学习过程中涉及大量矩阵运算和微积分导数的概念，因此建议初学者至少要有较为扎实的数学基础，对矩阵和微积分的概念了解比较清楚。否则在一些公式推导过程中会遇到较大障碍，而不断反复回来复习数学知识。<br />
+<p>2 - 编程语言</p></p>
+<h2>2 - 编程语言</h2>
+<p>Python/R/Java/Matlab<br /><br />Python 已经成为机器学习的第一语言，至于为什么知乎(https://www.zhihu.com/question/30105838?sort=created)中有非常不错的解释。众多机器学习的框架都支持 Python API，所以学习机器学习，Python 语言语法估计是绕不过去。<br /><br /><br /></p>
+<h2>3 - Supervise learning</h2>
+<p>
+3 - Supervise learning<br /><br />Linear regression<br /><br />Logistic regression<br /><br />Neural network<br /><br />SVM<br /><br />监督学习指的是人们给机器一大堆标记好的数据，比如一大堆照片，标记出哪些是猫的照片，哪些不是，然后让机器自己学习归纳出算法，可以判断出其他照片是否是猫。目前这个领域算法代表：Linear regression, Logistic regression, Neural network, SVM等等。 <br /><br /><br /></p>
+<h2>4 - Unsupervise learning</h2>
+<p> <br /><br />K-means<br /><br />PCA<br /><br />Anomaly detection<br /><br />非监督学习指的就是人们给机器一大堆没有标记的数据，让机器可以对数据进行分类、检测异常等。<br /><br /></p>
+<h2>5 - Special topic</h2>
+<p>Recommend system<br /><br />Large scale machine learning application<br /><br />一些特殊算法，例如推荐系统。常用于购物网站，可以根据你的过往购物或评分情况，来向你推荐商品。<br /><br />6 - Advice on machine learning<br />Bias/vairance<br /><br />Regulation<br /><br />Learning curve<br /><br />Error analysis<br /><br />Celling analysis<br /><br />机器学习的建议，包含参数正则化、学习曲线、错误分析、调参等。<br /><br /><br />7 - Deep Learning<br /><br />Neural Netwotk<br /><br />深度学习是近期机器学习的一个热门分支，模拟人类大脑的思维方式，可以极大的提高正确率，是近来机器学习的一个非常大的突破。<br /><br /><br />8 - Tools/Framework<br /><br />TensorFlow/Theano/Keras<br /><br />很多大厂就开源了一些机器学习的框架，基于这些框架可以很容易搭建机器学习的平台。<br /><br /><br />推荐的学习资料：<br /><br />Github上面有一份非常详尽的学习路径 (https://github.com/JustFollowUs/Machine-Learning) <br /><br />&nbsp;<br /><br />我个人推荐的几个经典资料：<br /><br /><strong>机器学习</strong><br />Andrew NG的Coursera的机器学习入门 (https://www.coursera.org/learn/machine-learning)：这个教程非常适合初学者，没有很高深的数学推导，Andrew也是业内大牛但非常谦逊，讲解非常浅显易懂。<br /><br />周志平的机器学习(https://book.douban.com/subject/26708119/)：号称最好的中文机器学习入门，这里有对这本书的详细评(https://www.zhihu.com/question/39945249)。<br /><br />几本经典著作：An Introduction to Statistical Learning，Pattern Recognition and Machine Learning，The Elements of Statistical Learning<br /><br /><br /><strong>深度学习</strong><br /><br />Neural Networks and Deep Learning：Michael Nielsen 用非常浅显易懂的方式介绍了神经网络和深度学习，并且提供了一个手写数字识别的例子，非常适合入门。<br /><br />UFLDL Tutorial I UFLDL Tutorial II：Andrew NG 主导的 Deep Learning 的学习资料，内容非常精炼，适合稍微有些基础的同学。<br /><br />Deep Learning：几位大神共同编写的关于深度学习的 free book。<br /><br /><br />从人工智能到机器学习，再到最近大热的深度学习，人们已经在这个领域研究了数十年，现在虽然取得一定的突破，但是离真正的人工智能还有非常长的距离。而且人工智能一定要跳出学术界的研究框架，结合工业界的应用，从2016年可以看到大量的实际应用场景，例如自动驾驶、Apple Siri、Amazon Echo、谷歌翻译等等，我相信未来人工智能领域极有可能成为下一代颠覆性的技术革命。</p>
+<p><strong>blog.csdn知识库</strong></p>
+<p>算法与数据结构知识库http://lib.csdn.net/base/datastructure<br />python知识库 http://lib.csdn.net/base/python<br />机器学习知识库http://lib.csdn.net/base/machinelearning<br />深度学习知识库http://lib.csdn.net/base/deeplearning<br />计算机视觉知识库http://lib.csdn.net/base/computervison<br />ApacheSpark知识库http://lib.csdn.net/base/spark<br />Hadoop知识库http://lib.csdn.net/base/hadoop<br />.NET知识库http://lib.csdn.net/base/dotnet</p>
 
 
         
@@ -294,7 +470,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share 机器学习知识体系 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20170216020900%2f&title=%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170216020900%2f&title=%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb">
           
 
 
@@ -320,7 +496,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share 机器学习知识体系 on twitter"
-          href="https://twitter.com/intent/tweet/?text=%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20170216020900%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9f%a5%e8%af%86%e4%bd%93%e7%b3%bb&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170216020900%2f&amp;hashtags=">
           
 
 
@@ -346,7 +522,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share 机器学习知识体系 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20170216020900%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170216020900%2f">
           
 
 
@@ -376,6 +552,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -383,6 +585,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -400,7 +612,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -411,7 +623,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

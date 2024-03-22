@@ -18,40 +18,40 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="" />
-  <meta name="author" content="">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/" />
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/" />
   
     <link
       href="/index.xml"
       rel="alternate"
       type="application/rss+xml"
-      title="My New Hugo Site"
+      title="Combine Art and Sciences"
     />
   
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:description" content="" />
-  <meta property="og:title" content="My New Hugo Site" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/" />
+  <meta property="og:url" content="https://sonictl.github.io/" />
   <meta property="og:locale" content="en-us" />
 
   
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="My New Hugo Site" />
-  <meta name="twitter:description" content="" />
-  <meta name="twitter:domain" content="http://example.org/" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -68,13 +68,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -109,13 +138,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -168,102 +221,260 @@
       
       <article class="post">
         <h3 class="title">
-          <a href="http://example.org/posts/p20191216034900/" title="Introduction of Generator in Python">Introduction of Generator in Python</a>
+          <a href="https://sonictl.github.io/posts/p20180417034200/" title="智慧和道德">智慧和道德</a>
         </h3>
         
           <div class="content summary">
-            <p>Python中生成器的原理与使用详解 原创牛大财有大才 发布于2018-09-05 14:36:38
-0.range() 函数，其功能是创建一个整数列表，一般用在 for 循环中 语法格式：range(start, stop, step)，参数使用参考如下：
-*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2.</p>
-            
-              <span class="hellip">&hellip;</span>
+            <p>有关智慧，我想对他们说的是：不管你是在研究什么事物，还是在思考任何观点，只问你自己，事实是什么，以及这些事实所证实的真理是什么。永远不要让自己被自己所更愿意相信的、或者认为人们相信了、会对社会更加有益的东西所影响。只是单单地去审视，什么才是事实。这是我想说的，关乎智慧的一点。
+我想对他们说的有关道德的一点，十分简单。我要说：爱是明智的，恨是愚蠢的。在这个日益紧密相连的世界，我们必须学会容忍彼此，我们必须学会接受这样一个事实：**总会有人说出我们不想听的话。只有这样，我们才有可能共同生存。**而假如我们想要共存，而非共亡，我们就必须学会这种宽容与忍让，因为它们对于人类在这个星球上的存续，是至关重要的。
+——伯特兰.罗素</p>
             
           </div>
-          <a class="readmore" href="http://example.org/posts/p20191216034900/" aria-label="READ MORE">READ MORE</a>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180417034200/" aria-label="READ MORE">READ MORE</a>
         
         <div class="date float-right">
           
-          <time datetime="2019-12-16T03:49:00&#43;0800" class="date">December 16, 2019</time>
+          <time datetime="2018-04-17T03:42:00&#43;0800" class="date">April 17, 2018</time>
         </div>
       </article>
       
       <article class="post">
         <h3 class="title">
-          <a href="http://example.org/posts/p20191210060300/" title="Excel: assign label to scatter chart using specific cell values">Excel: assign label to scatter chart using specific cell values</a>
+          <a href="https://sonictl.github.io/posts/p20180416103500/" title="Install Python on Mac (Anaconda)">Install Python on Mac (Anaconda)</a>
         </h3>
         
           <div class="content summary">
-            <p>ref: https://www.get-digital-help.com/custom-data-labels-in-x-y-scatter-chart/
-Improve your X Y Scatter Chart with custom data labels Author: Oscar Cronquist Article last updated on February 25, 2019
-The picture above shows a chart that has custom data labels, they are linked to specific cell values.
-What&rsquo;s on this page
-How to apply custom data labels in Excel 2013 and later versions How to add data label shapes How to rearrange data labels Video Download Excel file Workaround for earlier Excel versions Excel Macro - Apply custom data labels Where to copy the code How to use macro Download Excel file This means that you can build a dynamic chart and automatically change the labels depending on what is shown on the chart.</p>
-            
-              <span class="hellip">&hellip;</span>
+            <p>Install Python on Mac (Anaconda) 标签（空格分隔）： 运维
+This blog is copy from the link: https://medium.com/@GalarnykMichael/install-python-on-mac-anaconda-ccd9f2014072
+The install pycharm and anaconda tutorial is here.
+As I&rsquo;m now transfering from PC to Mac, I&rsquo;m getting used to work on Mac, which is a suffering process. Oah&hellip;</p>
             
           </div>
-          <a class="readmore" href="http://example.org/posts/p20191210060300/" aria-label="READ MORE">READ MORE</a>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180416103500/" aria-label="READ MORE">READ MORE</a>
         
         <div class="date float-right">
           
-          <time datetime="2019-12-10T06:03:00&#43;0800" class="date">December 10, 2019</time>
+          <time datetime="2018-04-16T10:35:00&#43;0800" class="date">April 16, 2018</time>
         </div>
       </article>
       
       <article class="post">
         <h3 class="title">
-          <a href="http://example.org/posts/p20191107141900/" title="reverse/inverse a mapping but with multiple values for each key">reverse/inverse a mapping but with multiple values for each key</a>
+          <a href="https://sonictl.github.io/posts/p20180413121200/" title="对数几率回归-Logistic Regression">对数几率回归-Logistic Regression</a>
         </h3>
         
           <div class="content summary">
-            <p>reverse/inverse a mapping but with multiple values for each key multi mappping dictionary , reverse/inverse
-&#39;&#39;&#39; mrg_dictionary: {15: {16, 19, 21, 23}, 22: {18}} inv_merging_led_dict: {16: 15, 19: 15, 21: 15, 23: 15, 18: 22} mrg_dictionary --&gt; inv_merging_led_dict &#39;&#39;&#39; mrg_dictionary = {15: {16, 19, 21, 23}, 22: {18}} inv_merging_led_dict = {value:key for key in mrg_dictionary for value in mrg_dictionary[key]} print(inv_merging_led_dict) &#39;&#39;&#39; inv_merging_led_dict: {16: 15, 19: 15, 21: 15, 23: 15, 18: 22} mrg_dictionary: {15: {16, 19, 21, 23}, 22: {18}} inv_merging_led_dict --&gt; mrg_dictionary &#39;&#39;&#39; valueset = set(inv_merging_led_dict.</p>
+            <p>Finally, I&rsquo;d use English for excercise and for conveniently type in the equations without switch. Table of content:
+[TOC]
+Recall, Implement and Experiment for Logistic Regression 1. Recall the Linear Model Linear regression is for learing the parameter of $\boldsymbol{w}$ and $\boldsymbol{b}$ for: $$ f(x_i) = wx_i + b,,,, \mathrm{and ,, let ,,} f(x_i) \simeq y_i$$
+2. Logistic regression Logistic regression is a linear model for classfy data. The generalized linear model equation:
+$$ y = g^{-1} (\boldsymbol{w}^T\boldsymbol{x} +b) $$ the $g(\cdot)$ is called the link function.</p>
             
               <span class="hellip">&hellip;</span>
             
           </div>
-          <a class="readmore" href="http://example.org/posts/p20191107141900/" aria-label="READ MORE">READ MORE</a>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180413121200/" aria-label="READ MORE">READ MORE</a>
         
         <div class="date float-right">
           
-          <time datetime="2019-11-07T14:19:00&#43;0800" class="date">November 07, 2019</time>
+          <time datetime="2018-04-13T12:12:00&#43;0800" class="date">April 13, 2018</time>
         </div>
       </article>
       
       <article class="post">
         <h3 class="title">
-          <a href="http://example.org/posts/p20191028140700/" title="Installing MacOS to VirtualBox">Installing MacOS to VirtualBox</a>
+          <a href="https://sonictl.github.io/posts/p20180410094200/" title="LINE 论文笔记 - 【结硬寨，打呆仗】">LINE 论文笔记 - 【结硬寨，打呆仗】</a>
         </h3>
         
           <div class="content summary">
-            <p>https://medium.com/@twister.mr/installing-macos-to-virtualbox-1fcc5cf22801</p>
+            <p>&nbsp;
+经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。
+困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。
+1. 问题定义 &nbsp; 定义1：Information Network: An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \equiv (v,u)$ and $w_{uv} \equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \not\equiv (v,u)$ and $w_{uv} \not\equiv w_{vu}$ .
+&nbsp; 定义2：First-order Proximity: 一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0.
+但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。
+&nbsp; 定义3：Second-order Proximity: 二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0.</p>
+            
+              <span class="hellip">&hellip;</span>
             
           </div>
-          <a class="readmore" href="http://example.org/posts/p20191028140700/" aria-label="READ MORE">READ MORE</a>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180410094200/" aria-label="READ MORE">READ MORE</a>
         
         <div class="date float-right">
           
-          <time datetime="2019-10-28T14:07:00&#43;0800" class="date">October 28, 2019</time>
+          <time datetime="2018-04-10T09:42:00&#43;0800" class="date">April 10, 2018</time>
         </div>
       </article>
       
       <article class="post">
         <h3 class="title">
-          <a href="http://example.org/posts/p20191028103200/" title="compile and link C/CPP programs on Mac">compile and link C/CPP programs on Mac</a>
+          <a href="https://sonictl.github.io/posts/p20180404082900/" title="公式for TinyMCE 编辑器@ cnblogs.com">公式for TinyMCE 编辑器@ cnblogs.com</a>
         </h3>
         
           <div class="content summary">
-            <p>ref: https://stackoverflow.com/questions/29987716/cannot-use-gsl-library-on-macos-ld-symbols-not-found-for-architecture-x86-6
-Indeed, as @trojanfoe and @bergercookie said you have to compile your file and then link it to the library. As explained in compile and link, for that particular example: First compile the file: gcc -Wall -I/usr/local/include -c example.c -o example.o second, link it to the library: gcc -L/usr/local/lib example.o -lgsl -o example where of course, /usr/local/lib should be replaced for the path where you have gsl installed. The example file is excutable.</p>
+            <p>&nbsp;
+编辑器截图：
+&nbsp;
+&nbsp;
+&nbsp;
+行内公式：\(&nbsp; f(x,y,z) = 3y^2 z \left( 3 + \frac{7x+5}{1 + y^2} \right)&nbsp; \)
+行间公式：\\(&nbsp; f(x,y,z) = 3y^2 z \left( 3 + \frac{7x+5}{1 + y^2} \right)&nbsp; \\)
+行内公式： $ f(x,y,z) = 3y^2 z \left( 3 + \frac{7x+5}{1 + y^2} \right) $
+行间公式：$$ f(x,y,z) = 3y^2 z \left( 3 + \frac{7x+5}{1 + y^2} \right) $$
+&nbsp;
+$$是行间公式，$是行内公式
+&nbsp;
+当然，设置一下这个是必要的。
+&nbsp;</p>
+            
+          </div>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180404082900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-04-04T08:29:00&#43;0800" class="date">April 04, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="https://sonictl.github.io/posts/p20180404081800/" title="Notes on Noise Contrastive Estimation and Negative Sampling">Notes on Noise Contrastive Estimation and Negative Sampling</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>Notes on Noise Contrastive Estimation and Negative Sampling ## 生成负样本&nbsp;
+在常见的关系抽取应用中，我们经常需要生成负样本来训练一个好的系统。如果没有负样本，系统会趋向于把所有的变量分类成正类。但是，在关系抽取中，并不容易找到足够的高质量的负样本（ground truth）。这种情况下，我们通常需要使用distant supervision来生成负样本。
+&nbsp; 负样本的生成多少可看成是一种艺术。以下讨论了几种常用的方法，还有些方法没有列出。
+&nbsp; - random sampling
+&nbsp; - incompatible relations
+&nbsp; - domain-specific knowledge
+## 随机抽样 Random samples
+&nbsp; 另一种产生负面证据的方法是在所有变量中随机抽取一小部分(people mention pairs in our spouse example),并将其标记为负面证据。
+&nbsp; 这可能会产生一些错误的负面例子，但是如果统计变量更有可能是错误的，那么随机抽样就会起作用。
+&nbsp; 例如，大多数人在句子中提到成对，但他们不是配偶，我们就可以在提及成对的人群中，随机抽取一小部分的，并把它们标记为错误的配偶关系的例子。
+&nbsp;
+## 不相容关系
+&nbsp; 不相容关系总是或常常是与我们想要抽取的关系冲突的。比如我们有2个实体，x &amp; y. 我们想抽取A关系，而B是与A不相容关系，我们有：
+&nbsp; &gt;&gt; B(x,y) =&gt; not A(x,y)
+&nbsp; 比如，我们要为"spouse"（配偶）关系生成负样本，我们可以使用非配偶关系来作为与之不相容的关系，比如parents, children, or siblings: 如果 x 是 y 的父母，那么x和y不能是夫妻。
+## 特定领域规则
+&nbsp; 有时，我们可以利用其他领域特定的知识来生成负样本。这些规则的设计很大程度上依赖于应用场景。例如，对于配偶关系，一个使用时间信息的领域特定规则是&ldquo;不同时活着的人不可能是配偶&rdquo;。Specifically, if a person x has birth_date later than y's death_date, then x and y cannot be spouses.</p>
             
               <span class="hellip">&hellip;</span>
             
           </div>
-          <a class="readmore" href="http://example.org/posts/p20191028103200/" aria-label="READ MORE">READ MORE</a>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180404081800/" aria-label="READ MORE">READ MORE</a>
         
         <div class="date float-right">
           
-          <time datetime="2019-10-28T10:32:00&#43;0800" class="date">October 28, 2019</time>
+          <time datetime="2018-04-04T08:18:00&#43;0800" class="date">April 04, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="https://sonictl.github.io/posts/p20180327081100/" title="Word2vec 梳理">Word2vec 梳理</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>&nbsp;
+&nbsp;
+这里只梳理 skip-gram 的points
+&nbsp; 目标： 根据已经出现的一个词，预测它的上下文
+&nbsp;
+1. 统计语言模型
+&nbsp;</p>
+            
+          </div>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180327081100/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-03-27T08:11:00&#43;0800" class="date">March 27, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="https://sonictl.github.io/posts/p20180322123200/" title="Strandbeest mechanism and Leg mechanism">Strandbeest mechanism and Leg mechanism</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>&nbsp;
+I have to say besides computer science study, I'm also interested in Leg mechanism.
+Share two keywords:
+&nbsp;&nbsp;&nbsp; Leg mechanism and the strandbeest mechanism
+There is an interesting github project doing the simulaion and you can play with it.
+&nbsp;&nbsp;&nbsp; https://github.com/robz/Linkages3
+&nbsp;
+The publisher Grand Illusions has shared a lot of creative toys. I get it from him at first.
+By the way, put another thing i like very much here: http://www.mechanicards.com
+&nbsp;</p>
+            
+          </div>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180322123200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-03-22T12:32:00&#43;0800" class="date">March 22, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="https://sonictl.github.io/posts/p20180222134700/" title="网络表示学习Network Representation Learning/Embedding">网络表示学习Network Representation Learning/Embedding</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>&nbsp;
+网络表示学习相关资料 网络表示学习（network representation learning，NRL）,也被称为图嵌入方法（graph embedding method，GEM）是这两年兴起的工作，目前很热，许多直接研究网络表示学习的工作和同时优化网络表示+下游任务的工作正在进行中。
+清华大学计算机系的一个学习组 新浪微博@涂存超 整理的论文列表：https://github.com/thunlp/NRLpapers，并一直持续更新着，里面详细的列举了最近几年有关网络表示学习（network representation learning/network embedding）比较有代表性的论文列表及其代码。
+☆陈启明整理的github列表&nbsp; https://github.com/chihming/awesome-network-embedding
+一篇综述性文章（University of Southern California (USC)）及其code： （1）文章： Goyal P, Ferrara E. Graph Embedding Techniques, Applications, and Performance: A Survey[J]. arXiv preprint arXiv:1705.02801, 2017. （2）代码： https://github.com/palash1992/GEM
+一篇博客： http://blog.csdn.net/Dark_Scope/article/details/74279582#0-tsina-1-3919-397232819ff9a47a7b7e80a40613cfe1
+一个github资料，里面有部分论文+code（大多数是python实现，matlab次之）： 四个slides：
+&nbsp;[(MLSS2017)网络表示学习]《Representation Learning with Networks》by Jure Leskovec [Stanford University] Part1:网页链接 Part2:网页链接 Part3:网页链接 Part4:网页链接 ​​​​
+&nbsp; https://pan.baidu.com/s/1nuB5Rex &nbsp; https://pan.baidu.com/s/1geUHeQB &nbsp; https://pan.baidu.com/s/1cwB7pc &nbsp;
+网络表示学习（DeepWalk，LINE，node2vec，SDNE） 原创 2017年07月24日 12:49:01 &nbsp; 详细的资料可以参考：网络表示学习相关资料
+1.传统：基于图的表示（又称为基于符号的表示） 如左图G =（V，E），用不同的符号命名不同的节点，用二维数组（邻接矩阵）的存储结构表示两节点间是否存在连边，存在为1，否则为0。
+&nbsp;
+缺点：长尾分布下大部分节点间没有关系，所以邻接矩阵非常稀疏，不利于存储计算。
+&nbsp;
+&nbsp;
+2.&nbsp;网络表示学习（Network Representation Learning，NRL），也称为图嵌入法（Graph Embedding Method，GEM）：用低维、稠密、实值的向量表示网络中的节点（含有语义关系，利于计算存储，不用再手动提特征（自适应性），且可以将异质信息投影到同一个低维空间中方便进行下游计算）。</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20180222134700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-02-22T13:47:00&#43;0800" class="date">February 22, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="https://sonictl.github.io/posts/p20171227130300/" title="禁用firefox 56自动更新">禁用firefox 56自动更新</a>
+        </h3>
+        
+          <div class="content summary">
+            <p>firefox 56支持旧式扩展，这很科学~~ 它却自动更新，简单地关了也不行，很是牛氓！ ==========
+-备份C:\Users\用户名\AppData\Roaming\Mozilla\Firefox\Profiles 文件夹。
+-卸载FF57，重启，用everything搜索所有ff残留文件，删除，安装56.0.2，断网运行FF，关闭FF 将配置文件覆盖回。
+-断网运行FF，设置里关闭自动更新，about：config里false以下3项： app.update.auto app.update.enabled app.update.service.enabled
+-还有一个重要任务：
+Edit the file prefs.js, located in %APPDATA%\Mozilla\Firefox\Profiles\xyz.default\ which usually translates to C:\Users\username\AppData\Roaming\Mozilla\Firefox\Profiles\xyz.default\ (Note: username and xyz will vary) Make sure the line user_pref(&ldquo;app.update.enabled&rdquo;, false); is present in the file; if it isn&rsquo;t, add it or modify it. Ignore the warning that this file should not be edited Save and close the file. OK. Optional: Note the button &ldquo;Check for updates&rdquo; in the &ldquo;About Firefox&rdquo; dialog box. Of course, DO NOT click it until you are prepared and ready to receive the update 由于56 到57 有重要安全更新，所以安全起见，还有一条路，用firefox的一个分支： https://www.</p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="https://sonictl.github.io/posts/p20171227130300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-12-27T13:03:00&#43;0800" class="date">December 27, 2017</time>
         </div>
       </article>
       
@@ -575,249 +786,7 @@ Indeed, as @trojanfoe and @bergercookie said you have to compile your file and t
       
 
       
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-    
-      
-      
-      
-      
-      
-        
-        
-      
-
-      
-        <li class="page-item  page-number"><a class="page-link" href="/page/47/">47</a></li>
+        <li class="page-item  page-number"><a class="page-link" href="/page/25/">25</a></li>
       
     
 
@@ -841,7 +810,17 @@ Indeed, as @trojanfoe and @bergercookie said you have to compile your file and t
     <ul class="links">
       
       <li>
-        <a class="nav-link navbar-button" href="http://example.org/index.xml" type="application/rss&#43;xml">RSS</a>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
+      
+      <li>
+        <a class="nav-link navbar-button" href="https://sonictl.github.io/index.xml" type="application/rss&#43;xml">RSS</a>
         </li>
       <li>
         <a
@@ -857,7 +836,7 @@ Indeed, as @trojanfoe and @bergercookie said you have to compile your file and t
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -868,7 +847,7 @@ Indeed, as @trojanfoe and @bergercookie said you have to compile your file and t
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
 
 
 

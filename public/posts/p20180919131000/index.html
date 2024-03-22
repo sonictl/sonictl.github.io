@@ -23,10 +23,10 @@ Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart
 只是一个笔记，细节要看原文。
 用python探索和分析网络数据 Table of Contents 目标和要求 [数据准备 和 NetworkX 安装](#数据准备 和 NetworkX 安装) 获取数据和基本的操作 进一步分析 [添加属性](#Add attributes) 网络度量分析 The Shape of the Network 最短路径 找出最大component 并生成子图 triadic closure Centrality 度数 特征值中心性 介数中心性 社区发现 导出数据和做结论 目标和要求 **Goals:**做完这里的步骤，你将得到如下技能：
 使用Python的NetworkX 包来分析一个网络。 通过分析一个humanities network data来得到以下几点： 网络结构和path length 找到重要的或中心的节点 找到社区和subgroups 通过量化网络分析的方法，你将可以回答像这样的问题： What is the overall structure of the network?" />
-  <meta name="author" content="">
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>用python &#43; networkx探索和分析网络数据 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20180919131000/" />
+  <title>用python &#43; networkx探索和分析网络数据 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20180919131000/" />
   
 
   
@@ -37,9 +37,9 @@ Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart
 用python探索和分析网络数据 Table of Contents 目标和要求 [数据准备 和 NetworkX 安装](#数据准备 和 NetworkX 安装) 获取数据和基本的操作 进一步分析 [添加属性](#Add attributes) 网络度量分析 The Shape of the Network 最短路径 找出最大component 并生成子图 triadic closure Centrality 度数 特征值中心性 介数中心性 社区发现 导出数据和做结论 目标和要求 **Goals:**做完这里的步骤，你将得到如下技能：
 使用Python的NetworkX 包来分析一个网络。 通过分析一个humanities network data来得到以下几点： 网络结构和path length 找到重要的或中心的节点 找到社区和subgroups 通过量化网络分析的方法，你将可以回答像这样的问题： What is the overall structure of the network?" />
   <meta property="og:title" content="用python &#43; networkx探索和分析网络数据" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20180919131000/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20180919131000/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -50,17 +50,17 @@ Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="用python &#43; networkx探索和分析网络数据 | My New Hugo Site" />
+  <meta name="twitter:title" content="用python &#43; networkx探索和分析网络数据 | Combine Art and Sciences" />
   <meta name="twitter:description" content="Edited by Markdown
 Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart, &ldquo;Exploring and Analyzing Network Data with Python,&rdquo; The Programming Historian 6 (2017), https://programminghistorian.org/en/lessons/exploring-and-analyzing-network-data-with-python.
 只是一个笔记，细节要看原文。
 用python探索和分析网络数据 Table of Contents 目标和要求 [数据准备 和 NetworkX 安装](#数据准备 和 NetworkX 安装) 获取数据和基本的操作 进一步分析 [添加属性](#Add attributes) 网络度量分析 The Shape of the Network 最短路径 找出最大component 并生成子图 triadic closure Centrality 度数 特征值中心性 介数中心性 社区发现 导出数据和做结论 目标和要求 **Goals:**做完这里的步骤，你将得到如下技能：
 使用Python的NetworkX 包来分析一个网络。 通过分析一个humanities network data来得到以下几点： 网络结构和path length 找到重要的或中心的节点 找到社区和subgroups 通过量化网络分析的方法，你将可以回答像这样的问题： What is the overall structure of the network?" />
-  <meta name="twitter:domain" content="http://example.org/posts/p20180919131000/" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20180919131000/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -77,13 +77,42 @@ Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -118,13 +147,37 @@ Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -164,17 +217,17 @@ Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20180919131000/">用python &#43; networkx探索和分析网络数据</a>
+  <a href="https://sonictl.github.io/posts/p20180919131000/">用python &#43; networkx探索和分析网络数据</a>
 </li>
 
 </ol>
@@ -234,6 +287,51 @@ Refered from: John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 11 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -313,9 +411,9 @@ John Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart, &ldquo;Explo
 <h2 id="数据准备-和-networkx-安装">数据准备 和 NetworkX 安装<a hidden class="heading-anchor" aria-hidden="true" href="#数据准备-和-networkx-安装">#</a></h2>
 <p>The file <a href="https://programminghistorian.org/assets/exploring-and-analyzing-network-data-with-python/quakers_nodelist.csv">quakers_nodelist.csv</a> is a list of early modern Quakers (nodes) and the file <a href="https://programminghistorian.org/assets/exploring-and-analyzing-network-data-with-python/quakers_edgelist.csv">quakers_edgelist.csv</a> is a list of relationships between those Quakers (edges). To download these files, simply right-click on the links and select “Save Link As…”.</p>
 <p><strong>networkx</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install networkx
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip3 install networkx
 </span></span></code></pre></div><p><strong>modularity</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install python-louvain<span style="color:#f92672">==</span>0.5
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip3 install python-louvain<span class="o">==</span>0.5
 </span></span></code></pre></div><p>Recently, NetworkX updated to version 2.0. If you’re running into any problems with the code below and have worked with NetworkX before, you might try updating both the above packages with <code>pip3 install networkx --upgrade</code> and <code>pip3 install python-louvain --upgrade</code>.</p>
 <p>你准备好了networkx 和 modularity package后，就可以开始写code了。
 如果遇到pyCharm环境中找不到module，参考如下：</p>
@@ -328,85 +426,85 @@ Do the steps:</p>
 </ul>
 </blockquote>
 <h2 id="获取数据和基本的操作">获取数据和基本的操作<a hidden class="heading-anchor" aria-hidden="true" href="#获取数据和基本的操作">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><p>导入我们需要的4个包，其中2个是刚刚安装的，2个是python built-in package.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> csv
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> operator <span style="color:#f92672">import</span> itemgetter
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> networkx <span style="color:#66d9ef">as</span> nx
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> community <span style="color:#75715e">#this is from python-louvain</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"></code></pre></div><p>导入我们需要的4个包，其中2个是刚刚安装的，2个是python built-in package.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">community</span> <span class="c1">#this is from python-louvain</span>
 </span></span></code></pre></div><p>下一步就是<strong>从文件导入数据</strong>，通常导数据进来比较费code，比analysis还要费。打开文件，读取edge list 和 node list：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;quakers_nodelist.csv&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> nodecsv: <span style="color:#75715e"># Open the file                       </span>
-</span></span><span style="display:flex;"><span>    nodereader <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>reader(nodecsv) <span style="color:#75715e"># Read the csv  </span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Retrieve the data (using Python list comprhension and list slicing to remove the header row, see footnote 3)</span>
-</span></span><span style="display:flex;"><span>    nodes <span style="color:#f92672">=</span> [n <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> nodereader][<span style="color:#ae81ff">1</span>:]                     
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>node_names <span style="color:#f92672">=</span> [n[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> nodes] <span style="color:#75715e"># Get a list of only the node names                                       </span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;quakers_edgelist.csv&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> edgecsv: <span style="color:#75715e"># Open the file</span>
-</span></span><span style="display:flex;"><span>    edgereader <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>reader(edgecsv) <span style="color:#75715e"># Read the csv     </span>
-</span></span><span style="display:flex;"><span>    edges <span style="color:#f92672">=</span> [tuple(e) <span style="color:#66d9ef">for</span> e <span style="color:#f92672">in</span> edgereader][<span style="color:#ae81ff">1</span>:] <span style="color:#75715e"># Retrieve the data</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(len(node_names))
-</span></span><span style="display:flex;"><span>print(len(edges))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;quakers_nodelist.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nodecsv</span><span class="p">:</span> <span class="c1"># Open the file                       </span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodereader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">nodecsv</span><span class="p">)</span> <span class="c1"># Read the csv  </span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Retrieve the data (using Python list comprhension and list slicing to remove the header row, see footnote 3)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodereader</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>                     
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">node_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">]</span> <span class="c1"># Get a list of only the node names                                       </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;quakers_edgelist.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">edgecsv</span><span class="p">:</span> <span class="c1"># Open the file</span>
+</span></span><span class="line"><span class="cl">    <span class="n">edgereader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">edgecsv</span><span class="p">)</span> <span class="c1"># Read the csv     </span>
+</span></span><span class="line"><span class="cl">    <span class="n">edges</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">edgereader</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># Retrieve the data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">node_names</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">))</span>
 </span></span></code></pre></div><p><strong>Appendix afterwards 2019-11-12: import graph by csv file:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>edges_csv_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;net_data/karate_club/graph_karate_edges_label1.csv&#39;</span>  <span style="color:#75715e"># import graph by csv file</span>
-</span></span><span style="display:flex;"><span>net_data <span style="color:#f92672">=</span> open(edges_csv_path, <span style="color:#e6db74">&#34;r&#34;</span>)
-</span></span><span style="display:flex;"><span>next(net_data, <span style="color:#66d9ef">None</span>)  <span style="color:#75715e"># skip the first line in the input file</span>
-</span></span><span style="display:flex;"><span>G <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>parse_edgelist(net_data, delimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>, create_using<span style="color:#f92672">=</span>nx<span style="color:#f92672">.</span>Graph(),
-</span></span><span style="display:flex;"><span>                      nodetype<span style="color:#f92672">=</span>int, data<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)  <span style="color:#75715e"># data=((&#39;weight&#39;, float),)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># import matplotlib.pyplot as plt</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># nx.draw_networkx(G, with_labels=True)  # draw the graph, simplest way.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># # nx.draw_spring(G, with_labels = True)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.show()</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># output to csv: (write/output the graph data/edges into csv file)</span>
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>write_edgelist(G, <span style="color:#e6db74">&#39;netME.csv&#39;</span>, delimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>, data<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)   <span style="color:#75715e"># note data = False will not write &#39;{}&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">edges_csv_path</span> <span class="o">=</span> <span class="s1">&#39;net_data/karate_club/graph_karate_edges_label1.csv&#39;</span>  <span class="c1"># import graph by csv file</span>
+</span></span><span class="line"><span class="cl"><span class="n">net_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">edges_csv_path</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">next</span><span class="p">(</span><span class="n">net_data</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># skip the first line in the input file</span>
+</span></span><span class="line"><span class="cl"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">parse_edgelist</span><span class="p">(</span><span class="n">net_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">create_using</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">nodetype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># data=((&#39;weight&#39;, float),)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># import matplotlib.pyplot as plt</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># nx.draw_networkx(G, with_labels=True)  # draw the graph, simplest way.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># # nx.draw_spring(G, with_labels = True)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># plt.show()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># output to csv: (write/output the graph data/edges into csv file)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">write_edgelist</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;netME.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># note data = False will not write &#39;{}&#39;</span>
 </span></span></code></pre></div><h4 id="draw-graph-with-position-dictionary">draw graph with position dictionary:<a hidden class="heading-anchor" aria-hidden="true" href="#draw-graph-with-position-dictionary">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> networkx <span style="color:#66d9ef">as</span> nx
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>G <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>les_miserables_graph()    <span style="color:#75715e"># use the les_miserables_graph()</span>
-</span></span><span style="display:flex;"><span>pos <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>spring_layout(G, k<span style="color:#f92672">=</span><span style="color:#ae81ff">0.42</span>, iterations<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)    <span style="color:#75715e"># more: networkx.drawing.layout.*</span>
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>draw(G, pos, with_labels<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># nx.draw_spring(G, with_labels = True)  #replaced by above 2 lines</span>
-</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
-</span></span><span style="display:flex;"><span>print(nx<span style="color:#f92672">.</span>info(G))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">les_miserables_graph</span><span class="p">()</span>    <span class="c1"># use the les_miserables_graph()</span>
+</span></span><span class="line"><span class="cl"><span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.42</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>    <span class="c1"># more: networkx.drawing.layout.*</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># nx.draw_spring(G, with_labels = True)  #replaced by above 2 lines</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 </span></span></code></pre></div><h3 id="networkx-基础创建graph">NetworkX 基础，创建Graph<a hidden class="heading-anchor" aria-hidden="true" href="#networkx-基础创建graph">#</a></h3>
 <p>Now you have your data as two Python lists: a list of nodes (<code>node_names</code>) and a list of edges (<code>edges</code>).</p>
 <ol>
 <li>create Graph object:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span> G <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>Graph()  <span style="color:#75715e">#create a Graph obj G, with nothing in it.</span>
-</span></span><span style="display:flex;"><span> <span style="color:#75715e"># add lists of nodes and edges like below:</span>
-</span></span><span style="display:flex;"><span> G<span style="color:#f92672">.</span>add_nodes_from(node_names)
-</span></span><span style="display:flex;"><span> G<span style="color:#f92672">.</span>add_edges_from(edges)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"> <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>  <span class="c1">#create a Graph obj G, with nothing in it.</span>
+</span></span><span class="line"><span class="cl"> <span class="c1"># add lists of nodes and edges like below:</span>
+</span></span><span class="line"><span class="cl"> <span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">node_names</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
 </span></span></code></pre></div><p>这是一种方法，更多的向Graph对象填值的方法要看<a href="https://networkx.github.io/documentation/stable/tutorial.html#adding-attributes-to-graphs-nodes-and-edges">networkX官方文档</a></p>
 <p>最后，你可以用<code>info</code>函数看看你刚创建的Graph的基本情况：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(nx<span style="color:#f92672">.</span>info(G))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 </span></span></code></pre></div><p>现在应该能看到这个Graph的一些基本的，表面的情况，但还远远不够。。</p>
 <h4 id="邻接矩阵的生成">邻接矩阵的生成<a hidden class="heading-anchor" aria-hidden="true" href="#邻接矩阵的生成">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> networkx <span style="color:#f92672">import</span> karate_club_graph, to_numpy_matrix
-</span></span><span style="display:flex;"><span>zkc <span style="color:#f92672">=</span> karate_club_graph()
-</span></span><span style="display:flex;"><span>order <span style="color:#f92672">=</span> sorted(list(zkc<span style="color:#f92672">.</span>nodes()))  <span style="color:#75715e"># order = [0,1,2,...]</span>
-</span></span><span style="display:flex;"><span>A <span style="color:#f92672">=</span> to_numpy_matrix(zkc, nodelist<span style="color:#f92672">=</span>order)   <span style="color:#75715e"># 输入一个nx.graph, this shows how to generate its adj_Matrix</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># degree matrix: 度矩阵的生成</span>
-</span></span><span style="display:flex;"><span>D <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(np<span style="color:#f92672">.</span>sum(A, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>))[<span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>D <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>matrix(np<span style="color:#f92672">.</span>diag(D))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">networkx</span> <span class="kn">import</span> <span class="n">karate_club_graph</span><span class="p">,</span> <span class="n">to_numpy_matrix</span>
+</span></span><span class="line"><span class="cl"><span class="n">zkc</span> <span class="o">=</span> <span class="n">karate_club_graph</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">order</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">zkc</span><span class="o">.</span><span class="n">nodes</span><span class="p">()))</span>  <span class="c1"># order = [0,1,2,...]</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">to_numpy_matrix</span><span class="p">(</span><span class="n">zkc</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>   <span class="c1"># 输入一个nx.graph, this shows how to generate its adj_Matrix</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># degree matrix: 度矩阵的生成</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
 </span></span></code></pre></div><h2 id="进一步分析">进一步分析<a hidden class="heading-anchor" aria-hidden="true" href="#进一步分析">#</a></h2>
 <h3 id="add-attributes">Add attributes<a hidden class="heading-anchor" aria-hidden="true" href="#add-attributes">#</a></h3>
 <p>光有了Nodes, &amp; edges还不够，还可以用networkx添加attributes到nodes&amp;edges.
 开始创建的list，<code>nodes</code>包含了你需要的信息。NetworkX provides two convenient functions for adding attributes to all of a Graph’s nodes or edges at once: <code>nx.set_node_attributes()</code> and <code>nx.set_edge_attributes()</code>. 但使用2者之前，要求你的数据是在<em>python dictionary</em>里。意思是，name是keys；attributes是values.每个attribute都要创建一个dictionary，用花括号{}:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hist_sig_dict <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>gender_dict <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>birth_dict <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>death_dict <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>id_dict <span style="color:#f92672">=</span> {}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">hist_sig_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">gender_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">birth_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">death_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">id_dict</span> <span class="o">=</span> <span class="p">{}</span>
 </span></span></code></pre></div><p>Now we can loop through our <code>nodes</code> list and add the appropriate items to each dictionary.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> node <span style="color:#f92672">in</span> nodes: <span style="color:#75715e"># Loop through the list, one row at a time</span>
-</span></span><span style="display:flex;"><span>    hist_sig_dict[node[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> node[<span style="color:#ae81ff">1</span>]
-</span></span><span style="display:flex;"><span>    gender_dict[node[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> node[<span style="color:#ae81ff">2</span>]
-</span></span><span style="display:flex;"><span>    birth_dict[node[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> node[<span style="color:#ae81ff">3</span>]
-</span></span><span style="display:flex;"><span>    death_dict[node[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> node[<span style="color:#ae81ff">4</span>]
-</span></span><span style="display:flex;"><span>    id_dict[node[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> node[<span style="color:#ae81ff">5</span>]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span> <span class="c1"># Loop through the list, one row at a time</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hist_sig_dict</span><span class="p">[</span><span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gender_dict</span><span class="p">[</span><span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">birth_dict</span><span class="p">[</span><span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">death_dict</span><span class="p">[</span><span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id_dict</span><span class="p">[</span><span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </span></span></code></pre></div><p>Now you have a set of dictionaries that you can use to add attributes to nodes in your Graph object. The <code>set_node_attributes</code> 函数有3个变量：</p>
 <ul>
 <li>the Graph to which you’re adding the attribute,</li>
@@ -414,14 +512,14 @@ Do the steps:</p>
 <li>the dictionary of id-attribute pairs.</li>
 </ul>
 <p>The code for adding your six attributes looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;historical_significance&#39;</span>, hist_sig_dict) <span style="color:#75715e">#新版的networkx把变量顺序换了一下，先是名，再放dict</span>
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;gender&#39;</span>, gender_dict)
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;birth_year&#39;</span>, birth_dict)
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;death_year&#39;</span>, death_dict)
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;sdfb_id&#39;</span>, id_dict)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;historical_significance&#39;</span><span class="p">,</span> <span class="n">hist_sig_dict</span><span class="p">)</span> <span class="c1">#新版的networkx把变量顺序换了一下，先是名，再放dict</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="n">gender_dict</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;birth_year&#39;</span><span class="p">,</span> <span class="n">birth_dict</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;death_year&#39;</span><span class="p">,</span> <span class="n">death_dict</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;sdfb_id&#39;</span><span class="p">,</span> <span class="n">id_dict</span><span class="p">)</span>
 </span></span></code></pre></div><p>至此，每个节点都有6个属性了，you can access them at any time.例如，你可以打出所有人的生日，通过loop through them and access the <code>birth_year</code> 属性。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> G<span style="color:#f92672">.</span>nodes(): <span style="color:#75715e"># Loop through every node, in our data &#34;n&#34; will be the name of the person</span>
-</span></span><span style="display:flex;"><span>    print(n, G<span style="color:#f92672">.</span>node[n][<span style="color:#e6db74">&#39;birth_year&#39;</span>]) <span style="color:#75715e"># Access every node by its name, and then by the attribute &#34;birth_year&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span> <span class="c1"># Loop through every node, in our data &#34;n&#34; will be the name of the person</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s1">&#39;birth_year&#39;</span><span class="p">])</span> <span class="c1"># Access every node by its name, and then by the attribute &#34;birth_year&#34;</span>
 </span></span></code></pre></div><p>现在您已经学习了如何创建图形对象并向其添加属性。在下一节中，您将了解NetworkX中可用的各种指标以及如何访问它们。但是放松，您现在已经学习了本教程其余部分所需的大部分代码!</p>
 <h2 id="网络度量分析">网络度量分析<a hidden class="heading-anchor" aria-hidden="true" href="#网络度量分析">#</a></h2>
 <p>当您开始处理新数据集时，最好对数据有一个大致的了解。第一步，如上所述，只是打开文件，看看里面是什么。因为这是一个网络，你知道会有节点和边，但是每个有多少个呢?哪些信息附加到每个节点或边?</p>
@@ -434,54 +532,54 @@ Force-directed network visualization of the Quaker data, created in Gephi</p>
 <p>There are lots of ways to visualize a network, and a <a href="https://en.wikipedia.org/wiki/Force-directed_graph_drawing">force-directed layout</a>, of which the above image is an example, is among the most common.</p>
 <p>除了visualization，看看network density吧. <strong>density</strong>是网络中实际边与网络中所有可能边的比率。
 the best way to do this is to store your metric in a variable for future reference, and print that variable.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>density <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>density(G)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Network density:&#34;</span>, density)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">density</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Network density:&#34;</span><span class="p">,</span> <span class="n">density</span><span class="p">)</span>
 </span></span></code></pre></div><h4 id="最短路径">最短路径<a hidden class="heading-anchor" aria-hidden="true" href="#最短路径">#</a></h4>
 <p>看名字就知道啥意思：A shortest path measurement calculates the shortest possible series of nodes and edges that stand between any two nodes. The Six Degrees of Kevin Bacon game, from which <a href="http://sixdegreesoffrancisbacon.com/">our project</a> takes its name, is basically a game of finding shortest paths (with a path length of six or less) from Kevin Bacon to any other actor.</p>
 <p>Let’s find the shortest path between Margaret Fell and George Whitehead:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fell_whitehead_path <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>shortest_path(G, source<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Margaret Fell&#34;</span>, target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;George Whitehead&#34;</span>)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Shortest path between Fell and Whitehead:&#34;</span>, fell_whitehead_path)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Length of that path:&#34;</span>, len(fell_whitehead_path)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e">#length of path</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fell_whitehead_path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&#34;Margaret Fell&#34;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&#34;George Whitehead&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Shortest path between Fell and Whitehead:&#34;</span><span class="p">,</span> <span class="n">fell_whitehead_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Length of that path:&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fell_whitehead_path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#length of path</span>
 </span></span></code></pre></div><p>这个执行比较费时，因为先要找出所有，在选出最短的。
 python还有一些玩shortest path 的工具，如最短路径、全局最短路径、是否存在路径等。请看文档：<a href="https://networkx.github.io/documentation/stable/reference/algorithms/shortest_paths.html">link</a>
 <code>diameter</code>: 图中最长的最短路径。用<code>nx.diameter(G)</code>，在Quaker网络里会报错，因为有孤立的边。</p>
 <h4 id="找出最大component并生成子图">找出最大component并生成子图<a hidden class="heading-anchor" aria-hidden="true" href="#找出最大component并生成子图">#</a></h4>
 <p>You can remedy this by first finding out if your Graph “is connected” (i.e. all one component) and, if not connected, finding the largest component and calculating diameter on that component alone. Here’s the code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># If your Graph has more than one component, this will return False:</span>
-</span></span><span style="display:flex;"><span>print(nx<span style="color:#f92672">.</span>is_connected(G))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Next, use nx.connected_components to get the list of components,</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># then use the max() command to find the largest one:</span>
-</span></span><span style="display:flex;"><span>components <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>connected_components(G)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;num of connected_components:&#39;</span>, nx<span style="color:#f92672">.</span>number_connected_components(G))
-</span></span><span style="display:flex;"><span>largest_component <span style="color:#f92672">=</span> max(components, key<span style="color:#f92672">=</span>len)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a &#34;subgraph&#34; of just the largest component</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then calculate the diameter of the subgraph, just like you did with density.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>subgraph <span style="color:#f92672">=</span> G<span style="color:#f92672">.</span>subgraph(largest_component)
-</span></span><span style="display:flex;"><span>diameter <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>diameter(subgraph)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Network diameter of largest component:&#34;</span>, diameter)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># If your Graph has more than one component, this will return False:</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">is_connected</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Next, use nx.connected_components to get the list of components,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># then use the max() command to find the largest one:</span>
+</span></span><span class="line"><span class="cl"><span class="n">components</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num of connected_components:&#39;</span><span class="p">,</span> <span class="n">nx</span><span class="o">.</span><span class="n">number_connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">largest_component</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a &#34;subgraph&#34; of just the largest component</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Then calculate the diameter of the subgraph, just like you did with density.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">subgraph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">largest_component</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">diameter</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">diameter</span><span class="p">(</span><span class="n">subgraph</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Network diameter of largest component:&#34;</span><span class="p">,</span> <span class="n">diameter</span><span class="p">)</span>
 </span></span></code></pre></div><h4 id="traverse-all-connected-components">Traverse all connected components:<a hidden class="heading-anchor" aria-hidden="true" href="#traverse-all-connected-components">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Traverse all connected components:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># gen the list of components </span>
-</span></span><span style="display:flex;"><span>compnt_list <span style="color:#f92672">=</span> []       <span style="color:#75715e"># list of component, each component is a set</span>
-</span></span><span style="display:flex;"><span>list_componet_size <span style="color:#f92672">=</span> []   <span style="color:#75715e"># list of size of each component, list of numbers</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> compnt_i <span style="color:#f92672">in</span> nx<span style="color:#f92672">.</span>connected_components(G):  <span style="color:#75715e"># type(compnet_i) = set</span>
-</span></span><span style="display:flex;"><span>    compnt_list<span style="color:#f92672">.</span>append(compnt_i)
-</span></span><span style="display:flex;"><span>    list_componet_size<span style="color:#f92672">.</span>append(len(compnt_i))
-</span></span><span style="display:flex;"><span>    print(compnt_i)
-</span></span><span style="display:flex;"><span>compnt_list<span style="color:#f92672">.</span>sort(key<span style="color:#f92672">=</span>len, reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>list_componet_size<span style="color:#f92672">.</span>sort(reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;list of size of componet (sorted):&#39;</span>, list_componet_size)
-</span></span><span style="display:flex;"><span>subgraph <span style="color:#f92672">=</span> G<span style="color:#f92672">.</span>subgraph(compnt_list[<span style="color:#ae81ff">2</span>]) <span style="color:#75715e"># create subgraph using the 3-th largest component </span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Traverse all connected components:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># gen the list of components </span>
+</span></span><span class="line"><span class="cl"><span class="n">compnt_list</span> <span class="o">=</span> <span class="p">[]</span>       <span class="c1"># list of component, each component is a set</span>
+</span></span><span class="line"><span class="cl"><span class="n">list_componet_size</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># list of size of each component, list of numbers</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">compnt_i</span> <span class="ow">in</span> <span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>  <span class="c1"># type(compnet_i) = set</span>
+</span></span><span class="line"><span class="cl">    <span class="n">compnt_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">compnt_i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list_componet_size</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">compnt_i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">compnt_i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">compnt_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">list_componet_size</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list of size of componet (sorted):&#39;</span><span class="p">,</span> <span class="n">list_componet_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">subgraph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">compnt_list</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># create subgraph using the 3-th largest component </span>
 </span></span></code></pre></div><h4 id="triadic-closure">triadic closure<a hidden class="heading-anchor" aria-hidden="true" href="#triadic-closure">#</a></h4>
 <p><strong>Triadic closure</strong> 是指如果2人正好认识同1个人，那么这2个人倾向于互相认识。这回造成三角形的闭环，completing a triangle in the visualization of three edges connecting Fox, Fell, and Whitehead. The number of these enclosed triangles in the network can be used to find clusters and communities of individuals that all know each other fairly well.</p>
 <p>计算triadic closure的方法叫<strong>clustering coefficient</strong>，because of this clustering tendency. 但在这里要用的概念叫<code>Transitivity</code>. Transitivity is the ratio of <em>all triangles</em> over all <em>possible triangles</em>.</p>
 <p>You can calculate transitivity in one line, the same way you calculated density:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>triadic_closure <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>transitivity(G)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Triadic closure:&#34;</span>, triadic_closure)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">triadic_closure</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">transitivity</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Triadic closure:&#34;</span><span class="p">,</span> <span class="n">triadic_closure</span><span class="p">)</span>
 </span></span></code></pre></div><p>Quaker网络中的transitivity = 0.1694左右，比density 0.0248 大，说明图不稠密，还有一些possible triangles to begin with. 也说明，那些有更高度数的nodes更倾向于存在在三角形中。也就是说，已经有很多连接的节点很可能是这些封闭三角形的一部分。为了支持这一点，您需要更多地注意具有高度数的节点。
 a good next step is to find which nodes are the most important ones in your network.</p>
 <h3 id="centrality">Centrality<a hidden class="heading-anchor" aria-hidden="true" href="#centrality">#</a></h3>
@@ -491,14 +589,14 @@ a good next step is to find which nodes are the most important ones in your netw
 <li>最简单直接常用的一个统计量，就是一个节点身上的边的数量。
 先创建一个包含degree的dictionary，作为attribute 添加到每个节点中。The keys are nodes and the values are centrality measures.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>degree_dict <span style="color:#f92672">=</span> dict(G<span style="color:#f92672">.</span>degree(G<span style="color:#f92672">.</span>nodes()))
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;degree&#39;</span>, degree_dict) <span style="color:#75715e">#注意参数顺序</span>
-</span></span><span style="display:flex;"><span>print(G<span style="color:#f92672">.</span>node[<span style="color:#e6db74">&#39;William Penn&#39;</span>]) <span style="color:#75715e">#see William Penn’s degree along with his other information </span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">degree_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="n">degree_dict</span><span class="p">)</span> <span class="c1">#注意参数顺序</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;William Penn&#39;</span><span class="p">])</span> <span class="c1">#see William Penn’s degree along with his other information </span>
 </span></span></code></pre></div><p>在你网络的所有节点<code>G.nodes()</code>的列表上，使用<code>G.degree()</code>方法。可看到console输出：</p>
 <pre tabindex="0"><code>{&#39;historical_significance&#39;: &#39;Quaker leader and founder of Pennsylvania&#39;, &#39;gender&#39;: &#39;male&#39;, &#39;birth_year&#39;: &#39;1644&#39;, &#39;death_year&#39;: &#39;1718&#39;, &#39;sdfb_id&#39;: &#39;10009531&#39;, &#39;degree&#39;: 18}
 </code></pre><p>如果你想画出 degree 的分布直方图，参考：<a href="https://www.cnblogs.com/sonictl/p/11647416.html">draw histogram</a></p>
 <p>在python可以任意sort一些值: 比如使用内建的<code>sourted()</code>函数来sort一个dictionary by its keys or values. 并找到top 20的nodes ranked by degree. 你需要用<code>itemgetter()</code>来帮你搞定。如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sorted_degree <span style="color:#f92672">=</span> sorted(degree_dict<span style="color:#f92672">.</span>items(), key<span style="color:#f92672">=</span>itemgetter(<span style="color:#ae81ff">1</span>), reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">sorted_degree</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">degree_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></span></code></pre></div><p>看<code>sorted()</code>的三个参数：</p>
 <ul>
 <li>第一个是 the dictionary you want to sort;</li>
@@ -506,35 +604,35 @@ a good next step is to find which nodes are the most important ones in your netw
 <li>第三个是 要不要Reverse. True -&gt; Highest be the first.降序</li>
 </ul>
 <p>建立了sorted list, 就可以loop through it, and use list slicing to get only the top 20 nodes:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Top 20 nodes by degree&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> d <span style="color:#f92672">in</span> sorted_degree[:<span style="color:#ae81ff">20</span>]:
-</span></span><span style="display:flex;"><span>    print d
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Top 20 nodes by degree&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">sorted_degree</span><span class="p">[:</span><span class="mi">20</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="n">d</span>
 </span></span></code></pre></div><p>其实你看到的度数高的人，那些hub，如William Penn, 他是 Quaker leader 确实很重要，但多数social networks have just few hubs, 剩下的不那么高的又怎样呢？ 很多时候那些高度数的节点带来的信息并不令人惊奇，比如 Penn or Quakerism co-founder Margaret Fell, with a degree of 13. 你会发现高度数的人基本上就是那些founder.</p>
 <p><strong>特征向量中心性</strong>
 <a href="https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.centrality.eigenvector_centrality.html">Eigenvector centrality</a> is a kind of extension of degree - 它考虑了本身的度数和它邻居的度数（但不是简单的比例关系，要用$Ax = \lambda x$算）。Eigenvector centrality cares if you are a hub, but it also cares how many hubs you are connected to. 对于了解哪些节点可以快速获取其他节点的信息，Eigenvector centrality就有用了。它被计算为从0到1的值：越接近1，中间度越大。如果你认识很多有关系的人，你可以很有效地传播信息。</p>
 <p><strong>介数中心性</strong>
 <a href="https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.centrality.betweenness_centrality.html">Betweenness centrality</a> is a bit different. <strong>介数中心性</strong> doesn’t care about the number of edges any one node. 介数中心性考虑的是所有的<strong>shortest paths that pass through a particular node</strong>. To do this, it must first calculate every possible shortest path in your network, so keep in mind that betweenness centrality will take longer to calculate than other centrality measures. 介数中心性(也以0到1的尺度表示)在查找<strong>连接网络中两个不同部分的节点</strong>方面相当出色。如果您是连接两个集群的唯一对象，那么这些集群之间的所有通信都必须经过您。与hub不同，这种节点通常称为<strong>broker</strong>代理。这个指标不是找到brokerage的唯一方法，还有别的系统化的方法。但它很简单，不是因为它占有边数多，而是它提供了一个不同groups之间的桥梁，cohesion.</p>
 <p>These two centrality measures are even simpler to run than degree—they don’t need to be fed a list of nodes, just the graph <code>G</code>. You can run them with these functions:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>eigenvector_dict <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>eigenvector_centrality(G) <span style="color:#75715e"># Run eigenvector centrality</span>
-</span></span><span style="display:flex;"><span>betweenness_dict <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>betweenness_centrality(G) <span style="color:#75715e"># Run betweenness centrality</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Assign each to an attribute in your network</span>
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;betweenness&#39;</span>, betweenness_dict)
-</span></span><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G, <span style="color:#e6db74">&#39;eigenvector&#39;</span>, eigenvector_dict)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">eigenvector_dict</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">eigenvector_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span> <span class="c1"># Run eigenvector centrality</span>
+</span></span><span class="line"><span class="cl"><span class="n">betweenness_dict</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span> <span class="c1"># Run betweenness centrality</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Assign each to an attribute in your network</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">betweenness_dict</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;eigenvector&#39;</span><span class="p">,</span> <span class="n">eigenvector_dict</span><span class="p">)</span>
 </span></span></code></pre></div><p>同样可以sort 这些量：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sorted_betweenness <span style="color:#f92672">=</span> sorted(betweenness_dict<span style="color:#f92672">.</span>items(), key<span style="color:#f92672">=</span>itemgetter(<span style="color:#ae81ff">1</span>), reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Top 20 nodes by betweenness centrality:&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> sorted_betweenness[:<span style="color:#ae81ff">20</span>]:
-</span></span><span style="display:flex;"><span>    print(b)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">sorted_betweenness</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">betweenness_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Top 20 nodes by betweenness centrality:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">sorted_betweenness</span><span class="p">[:</span><span class="mi">20</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </span></span></code></pre></div><p>你可以看到，有高度数的节点通常有高介数中心性，但看看Elizabeth Leavens 和 Mary Penington， 她们的度数分别为：2 &amp; 4, 在top20之外。 介数中心性分别为：0.027(17th) &amp; 0.024(20th)。在Python中进行这些计算的优点是可以快速比较两组计算。如果你想知道介数中心性高的节点中哪个节点度低呢?也就是说:哪些高介数中心性节点是意料之外的?您可以使用以上排序列表的组合:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#First get the top 20 nodes by betweenness as a list</span>
-</span></span><span style="display:flex;"><span>top_betweenness <span style="color:#f92672">=</span> sorted_betweenness[:<span style="color:#ae81ff">20</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Then find and print their degree</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> tb <span style="color:#f92672">in</span> top_betweenness: <span style="color:#75715e"># Loop through top_betweenness</span>
-</span></span><span style="display:flex;"><span>    degree <span style="color:#f92672">=</span> degree_dict[tb[<span style="color:#ae81ff">0</span>]] <span style="color:#75715e"># Use degree_dict to access a node&#39;s degree, see footnote 2</span>
-</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Name:&#34;</span>, tb[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;| Betweenness Centrality:&#34;</span>, tb[<span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#34;| Degree:&#34;</span>, degree)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#First get the top 20 nodes by betweenness as a list</span>
+</span></span><span class="line"><span class="cl"><span class="n">top_betweenness</span> <span class="o">=</span> <span class="n">sorted_betweenness</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Then find and print their degree</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">tb</span> <span class="ow">in</span> <span class="n">top_betweenness</span><span class="p">:</span> <span class="c1"># Loop through top_betweenness</span>
+</span></span><span class="line"><span class="cl">    <span class="n">degree</span> <span class="o">=</span> <span class="n">degree_dict</span><span class="p">[</span><span class="n">tb</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="c1"># Use degree_dict to access a node&#39;s degree, see footnote 2</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Name:&#34;</span><span class="p">,</span> <span class="n">tb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&#34;| Betweenness Centrality:&#34;</span><span class="p">,</span> <span class="n">tb</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&#34;| Degree:&#34;</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
 </span></span></code></pre></div><p>从这些结果可以证实，有些人，比如Leavens和Penington，中间度高，度低。这可能意味着，这些女性是重要的经纪人，将原本不同的部分联系在一起。你还可以了解到你已经认识的人的一些意想不到的事情——在这个列表中，你可以看到佩恩的degree比贵格会创始人乔治·福克斯低，但中间度更高。也就是说，仅仅认识更多的人并不够。</p>
 <p>这只触及了在Python中使用网络度量可以做的事情的表面。NetworkX提供了许多函数和度量，供您以各种组合方式使用，您可以使用Python以几乎无限的方式扩展这些度量。像Python编程语言或者R将给你灵活地探索你的网络计算方式，其他接口不能，通过允许你结合和比较你的网络与其他属性的统计结果数据(如日期和职业，一开始本教程时你就添加到网络了!)。</p>
 <h2 id="社区发现">社区发现<a hidden class="heading-anchor" aria-hidden="true" href="#社区发现">#</a></h2>
@@ -543,34 +641,34 @@ a good next step is to find which nodes are the most important ones in your netw
 <p>Modularity gives you an overall score of how fractious your network is, and that score can be used to <strong>partition</strong> the network and return the individual communities.</p>
 <p>Though we won’t cover it in this tutorial, it’s usually a good idea to get the global modularity score first to determine whether you’ll learn anything by partitioning your network according to modularity. To see the overall modularity score, take the communities you calculated with <code>communities = community.best_partition(G)</code> and run <code>global_modularity = community.modularity(communities, G)</code>. Then just <code>print(global_modularity)</code>.</p>
 <p>Community detection and partitioning in NetworkX requires a little more setup than some of the other metrics. There are some built-in approaches to community detection (like <a href="https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.flow.minimum_cut.html">minimum cut</a>, but modularity is not included with NetworkX. Fortunately there’s an <a href="https://github.com/taynaud/python-louvain/">additional python module</a> you can use with NetworkX, which you already installed and imported at the beginning of this tutorial. You can read the <a href="http://perso.crans.org/aynaud/communities/api.html">full documentation</a> for all of the functions the <strong>community</strong> module offers, but for most community detection purposes you’ll only want <code>best_partition()</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>communities <span style="color:#f92672">=</span> community<span style="color:#f92672">.</span>best_partition(G)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">communities</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">best_partition</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </span></span></code></pre></div><p>上面代码会创建一个字典，<code>best_partition()</code>要看适合这个graph的最合理的# of communities. 并给每个node assign一个编号，从0开始。就是每个node belong to 的编号。你可以add these values to nodes in the same way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>nx<span style="color:#f92672">.</span>set_node_attributes(G,<span style="color:#e6db74">&#39;modularity&#39;</span>,communities)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="s1">&#39;modularity&#39;</span><span class="p">,</span><span class="n">communities</span><span class="p">)</span>
 </span></span></code></pre></div><p>你可以把他们结合起来，比如你找找在modularity 0中，最大的eigenvector centrality是哪个Node:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># First get a list of just the nodes in that class</span>
-</span></span><span style="display:flex;"><span>class0 <span style="color:#f92672">=</span> [n <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> G<span style="color:#f92672">.</span>nodes() <span style="color:#66d9ef">if</span> G<span style="color:#f92672">.</span>node[n][<span style="color:#e6db74">&#39;modularity&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then create a dictionary of the eigenvector centralities of those nodes</span>
-</span></span><span style="display:flex;"><span>class0_eigenvector <span style="color:#f92672">=</span> {n:G<span style="color:#f92672">.</span>node[n][<span style="color:#e6db74">&#39;eigenvector&#39;</span>] <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> class0}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then sort that dictionary and print the first 5 results</span>
-</span></span><span style="display:flex;"><span>class0_sorted_by_eigenvector <span style="color:#f92672">=</span> sorted(class0_eigenvector<span style="color:#f92672">.</span>items(), key<span style="color:#f92672">=</span>itemgetter(<span style="color:#ae81ff">1</span>), reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Modularity Class 0 Sorted by Eigenvector Centrality:&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> node <span style="color:#f92672">in</span> class0_sorted_by_eigenvector[:<span style="color:#ae81ff">5</span>]:
-</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Name:&#34;</span>, node[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;| Eigenvector Centrality:&#34;</span>, node[<span style="color:#ae81ff">1</span>])
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># First get a list of just the nodes in that class</span>
+</span></span><span class="line"><span class="cl"><span class="n">class0</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s1">&#39;modularity&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Then create a dictionary of the eigenvector centralities of those nodes</span>
+</span></span><span class="line"><span class="cl"><span class="n">class0_eigenvector</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span><span class="n">G</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s1">&#39;eigenvector&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">class0</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Then sort that dictionary and print the first 5 results</span>
+</span></span><span class="line"><span class="cl"><span class="n">class0_sorted_by_eigenvector</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">class0_eigenvector</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Modularity Class 0 Sorted by Eigenvector Centrality:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">class0_sorted_by_eigenvector</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Name:&#34;</span><span class="p">,</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&#34;| Eigenvector Centrality:&#34;</span><span class="p">,</span> <span class="n">node</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </span></span></code></pre></div><p>使用特征向量中心性作为排序，可以让您了解这个模块化类中的重要人物。你会注意到，前五名中的大多数人，尤其是William Penn, William Bradford (<em>not</em> the Plymouth founder), and James Logan,都在美国呆了很长时间。Bradford and Tace Sowle都是著名的贵格会印刷商。只要稍加挖掘，我们就会发现，这群人属于一起，既有地理上的原因，也有职业上的原因。这表明模块化可能正在按照预期工作。<em>我想说的是，对于数据的背景理解很重要。</em></p>
 <p>在像这样的小型网络中，一个常见的任务是查找并列出所有模块化类及其成员。在较大的网络中，列表可能长得难以阅读，可以通过可视化网络并根据节点的模块类为其添加颜色。You can do this by manipulating the <code>communities</code> dictionary. You’ll need to reverse the <em>keys</em> and <em>values</em> of this dictionary so that the keys are the modularity class numbers and the values are lists of names. You can do so like this把这个dictionary的keys 和 values对调过来:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>modularity <span style="color:#f92672">=</span> {} <span style="color:#75715e"># Create a new, empty dictionary</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k,v <span style="color:#f92672">in</span> communities<span style="color:#f92672">.</span>items(): <span style="color:#75715e"># Loop through the community dictionary</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> v <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> modularity:
-</span></span><span style="display:flex;"><span>        modularity[v] <span style="color:#f92672">=</span> [k] <span style="color:#75715e"># Add a new key for a modularity class the code hasn&#39;t seen before</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>        modularity[v]<span style="color:#f92672">.</span>append(k) <span style="color:#75715e"># Append a name to the list for a modularity class the code has already seen</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k,v <span style="color:#f92672">in</span> modularity<span style="color:#f92672">.</span>items(): <span style="color:#75715e"># Loop through the new dictionary</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(v) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>: <span style="color:#75715e"># Filter out modularity classes with 2 or fewer nodes</span>
-</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;Class &#39;</span><span style="color:#f92672">+</span>str(k)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;:&#39;</span>, v) <span style="color:#75715e"># Print out the classes and their members</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">modularity</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># Create a new, empty dictionary</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">communities</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># Loop through the community dictionary</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">modularity</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">modularity</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="c1"># Add a new key for a modularity class the code hasn&#39;t seen before</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">modularity</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="c1"># Append a name to the list for a modularity class the code has already seen</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">modularity</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># Loop through the new dictionary</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span> <span class="c1"># Filter out modularity classes with 2 or fewer nodes</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Class &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="c1"># Print out the classes and their members</span>
 </span></span></code></pre></div><p>In the line <code>if len(v) &gt; 2</code>,我们把包含少于2个节点的modularity滤除了。</p>
 <p>单独使用NetworkX将使您走得更远，您可以通过直接使用数据找到关于模块化类的许多信息。但是，您几乎总是希望可视化数据(也许还希望将模块化表示为节点颜色)。在下一节中，您将了解如何导出NetworkX数据以供其他程序使用。</p>
 <h2 id="导出数据和做结论">导出数据和做结论<a hidden class="heading-anchor" aria-hidden="true" href="#导出数据和做结论">#</a></h2>
@@ -647,7 +745,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share 用python &#43; networkx探索和分析网络数据 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20180919131000%2f&title=%e7%94%a8python%20%2b%20networkx%e6%8e%a2%e7%b4%a2%e5%92%8c%e5%88%86%e6%9e%90%e7%bd%91%e7%bb%9c%e6%95%b0%e6%8d%ae">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20180919131000%2f&title=%e7%94%a8python%20%2b%20networkx%e6%8e%a2%e7%b4%a2%e5%92%8c%e5%88%86%e6%9e%90%e7%bd%91%e7%bb%9c%e6%95%b0%e6%8d%ae">
           
 
 
@@ -673,7 +771,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share 用python &#43; networkx探索和分析网络数据 on twitter"
-          href="https://twitter.com/intent/tweet/?text=%e7%94%a8python%20%2b%20networkx%e6%8e%a2%e7%b4%a2%e5%92%8c%e5%88%86%e6%9e%90%e7%bd%91%e7%bb%9c%e6%95%b0%e6%8d%ae&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20180919131000%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=%e7%94%a8python%20%2b%20networkx%e6%8e%a2%e7%b4%a2%e5%92%8c%e5%88%86%e6%9e%90%e7%bd%91%e7%bb%9c%e6%95%b0%e6%8d%ae&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20180919131000%2f&amp;hashtags=">
           
 
 
@@ -699,7 +797,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share 用python &#43; networkx探索和分析网络数据 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20180919131000%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20180919131000%2f">
           
 
 
@@ -729,6 +827,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -736,6 +860,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -753,7 +887,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -764,7 +898,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

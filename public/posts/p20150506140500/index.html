@@ -18,20 +18,32 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" " />
-  <meta name="author" content="">
+  <meta name="description" content="1. Rendering
+Rendering 是特别要告诉Controller 中的methods，要哪个view file来显示给用户。We can show Views as we wish!
+Earlier each one of our Views rendered based on the method specified in the Controller.
+If we write the following method:
+def render_demo end Rails will always look for the render_demo View. But if we write:
+def render_demo render :home end We can tell Rails to render the home View, as long as we have one. Rendering just tells Rails to show the View we specify.
+这里这个例子是这样的：" />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向） | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20150506140500/" />
+  <title>Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向） | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20150506140500/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" " />
+  <meta property="og:description" content="1. Rendering
+Rendering 是特别要告诉Controller 中的methods，要哪个view file来显示给用户。We can show Views as we wish!
+Earlier each one of our Views rendered based on the method specified in the Controller.
+If we write the following method:
+def render_demo end Rails will always look for the render_demo View. But if we write:
+def render_demo render :home end We can tell Rails to render the home View, as long as we have one. Rendering just tells Rails to show the View we specify.
+这里这个例子是这样的：" />
   <meta property="og:title" content="Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向）" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20150506140500/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20150506140500/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +54,19 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向） | My New Hugo Site" />
-  <meta name="twitter:description" content=" " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20150506140500/" />
+  <meta name="twitter:title" content="Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向） | Combine Art and Sciences" />
+  <meta name="twitter:description" content="1. Rendering
+Rendering 是特别要告诉Controller 中的methods，要哪个view file来显示给用户。We can show Views as we wish!
+Earlier each one of our Views rendered based on the method specified in the Controller.
+If we write the following method:
+def render_demo end Rails will always look for the render_demo View. But if we write:
+def render_demo render :home end We can tell Rails to render the home View, as long as we have one. Rendering just tells Rails to show the View we specify.
+这里这个例子是这样的：" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20150506140500/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +83,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +153,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +223,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20150506140500/">Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向）</a>
+  <a href="https://sonictl.github.io/posts/p20150506140500/">Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向）</a>
 </li>
 
 </ol>
@@ -220,8 +291,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-0 mins to read</span>
+a min to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,7 +345,72 @@
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
+          <p><br>
+</p>
+<h3>1. Rendering<br>
+</h3>
+<p>Rendering 是特别要告诉Controller 中的methods，要哪个view file来显示给用户。We can show Views as we wish!</p>
+<p></p>
+<p>Earlier each one of our Views rendered based on the method specified in the Controller.</p>
+<p>If we write the following method:</p>
+<pre><code class="lang-rb"><span class="function"><span class="keyword">def</span> <span class="title">render_demo</span></span>
+<span class="identifier"><span class="keyword">end</span></span>
+</code></pre>
+<p>Rails will always look for the render_demo View. But if we write:</p>
+<pre><code class="lang-rb"><span class="function"><span class="keyword">def</span> <span class="title">render_demo</span></span>
+  <span class="identifier">render</span> <span class="symbol">:<span class="identifier">home</span></span>
+<span class="identifier"><span class="keyword">end</span></span>
+</code></pre>
+<p>We can tell Rails to render the home View, as long as we have one. Rendering just tells Rails to show the View we specify.</p>
+这里这个例子是这样的：<br>
+1. 在pages_controller.rb文件中，加入一个method: render_demo<pre code_snippet_id="660614" snippet_file_name="blog_20150506_1_4172159"  code_snippet_id="660614" snippet_file_name="blog_20150506_1_4172159" name="code" class="ruby">class PagesController &lt; ApplicationController
+   def home
+   end
+   def erb_demo
+   end
+   def render_demo
+      render :home  #return home page. but return render_demo.html.erb if without this line
+   end
+&#160;end
+</pre>2. 在routes.rb文件中，加入一个route：pages/render_demo<pre code_snippet_id="660614" snippet_file_name="blog_20150506_2_8660352"  code_snippet_id="660614" snippet_file_name="blog_20150506_2_8660352" name="code" class="ruby">Rails.application.routes.draw do
+  get &#39;pages/home&#39;
+  root &#39;pages#home&#39;
+  get &#39;pages/erb_demo&#39;
+  get &#39;pages/render_demo&#39;
+end</pre>3. 在render_demo.html.erb文件中:<pre code_snippet_id="660614" snippet_file_name="blog_20150506_3_2724218"  code_snippet_id="660614" snippet_file_name="blog_20150506_3_2724218" name="code" class="ruby">  &lt;%= &quot;This is the render demo template.&quot; %&gt;
+</pre>4. 最后在浏览器中请求： localhost:8000/pages/render_demo&nbsp;&nbsp;&nbsp; ，可以得到homepage. 或得到&quot;This is the render
+ demo template&quot;<br>
+<p><br>
+</p>
+<p>---------------------</p>
+<h3>2. redirect<br>
+</h3>
+<p>另一个控制view内容的方法是redirect, 它跟rendering有点类&#20284;，不过它是重新发送一次request到一个different URL. redirect显示了一个不同的view,Redirecting 产生了一个全新的request.<br>
+<br>
+下面就是我们怎么在rails中使用redirect：<br>
+1. 在pages_controller.rb文件中，加入一个method: <br>
+<span style="font-family:Courier New"><span style="background-color:rgb(204,204,204)">def redirect_demo<br>
+&nbsp;&nbsp; redirect_to(:action =&gt; 'home')<br>
+end</span></span><br>
+<br>
+2. 在routes.rb 文件中，加入一个route: pages/redirect_demo<br>
+<br>
+3. 在 redirect_demo.html.erb 文件中，代码如下：<br>
+<span style="background-color:rgb(204,204,204)"><span style="font-family:Courier New">&lt;%= &quot;This is your redirect demo template&quot; %&gt;</span></span><br>
+</p>
+<p>----------------------</p>
+<p>到这里我们就掌握了利用Rails建立一个基本的Static Web App --- 静态web应用<br>
+</p>
+<p>接下来我们要接触动态应用。加油！<br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
 
 
 
@@ -292,7 +473,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向） on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20150506140500%2f&title=Ruby%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b03%ef%bc%9aRendering%ef%bc%88%e6%b8%b2%e6%9f%93%ef%bc%89%e5%92%8c%20Redirect%ef%bc%88%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%89">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20150506140500%2f&title=Ruby%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b03%ef%bc%9aRendering%ef%bc%88%e6%b8%b2%e6%9f%93%ef%bc%89%e5%92%8c%20Redirect%ef%bc%88%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%89">
           
 
 
@@ -318,7 +499,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向） on twitter"
-          href="https://twitter.com/intent/tweet/?text=Ruby%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b03%ef%bc%9aRendering%ef%bc%88%e6%b8%b2%e6%9f%93%ef%bc%89%e5%92%8c%20Redirect%ef%bc%88%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%89&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20150506140500%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=Ruby%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b03%ef%bc%9aRendering%ef%bc%88%e6%b8%b2%e6%9f%93%ef%bc%89%e5%92%8c%20Redirect%ef%bc%88%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%89&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20150506140500%2f&amp;hashtags=">
           
 
 
@@ -344,7 +525,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向） on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20150506140500%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20150506140500%2f">
           
 
 
@@ -374,6 +555,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -381,6 +588,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -398,7 +615,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -409,7 +626,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

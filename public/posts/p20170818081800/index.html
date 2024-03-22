@@ -18,20 +18,70 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" " />
-  <meta name="author" content="">
+  <meta name="description" content="Markdown中插入数学公式的方法 http://blog.csdn.net/xiahouzuoxin/article/details/26478179
+&nbsp; \$[你的公式Tex语法]\$ 或，行间公式：
+\$\$[你的公式Tex语法]\$\$
+&nbsp;注： \$ = $
+cnblogs:
+&nbsp;$$ \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$ \( \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&nbsp; \)&nbsp;
+$$ \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$ \( \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} \) 方法一：使用Google Chart的服务器 &lt;img src=&#34;http://chart.googleapis.com/chart?cht=tx&amp;chl= 在此插入Latex公式&#34; style=&#34;border:none;&#34;&gt; 一个例子，
+&lt;img src=&#34;http://chart.googleapis.com/chart?cht=tx&amp;chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&#34; style=&#34;border:none;&#34;&gt; 公式显示结果为：
+适用了下，Google Chart服务器的响应速度还可以，但据说可能复杂一些的Latex公式可能无法解析（参考[2]）。
+方法二：使用forkosh服务器 forkosh上提供了关于Latex公式的一份简短而很有用的帮助，参考[1]和[3].
+使用forkosh插入公式的方法是
+&lt;img src=&#34;http://www.forkosh.com/mathtex.cgi? 在此处插入Latex公式&#34;&gt; 给个例子，
+&lt;img src=&#34;http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&#34;&gt; 显示结果为：
+因为网页插入公式的原理是调用&ldquo;某某网站的服务器&rdquo;动态生成的，所有保证公式正常显示的前提是该网址能一直存在着为我等小生做些小小的服务。forkosh我是用了快2年了，一直很好，推荐！
+方法三：使用MathJax引擎 大家都看过Stackoverflow上的公式吧，漂亮，其生成的不是图片。这就要用到MathJax引擎，在Markdown中添加MathJax引擎也很简单，
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt; 然后，再使用Tex写公式。$$公式$$表示行间公式，本来Tex中使用\(公式\)表示行内公式，但因为Markdown中\是转义字符，所以在Markdown中输入行内公式使用\\(公式\\)，如下代码：
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$ \\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\) 分别显示结果（行间公式）：
+&nbsp;
+x=&minus;b&plusmn;b2&minus;4ac&minus;&minus;&minus;&minus;&minus;&minus;&minus;&radic;2a 行内公式：
+x=&minus;b&plusmn;b2&minus;4ac&radic;2a
+不信，你可以试一下，在公式上还可以使用鼠标右键操作。
+参考 [1]&nbsp;http://www.forkosh.com/mathtextutorial.html
+[2]&nbsp;http://www.ruanyifeng.com/blog/2011/07/formula_online_generator.html
+[3]&nbsp;http://www.forkosh.com/mathtex.html
+&nbsp;
+&nbsp;" />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>Markdown中插入数学公式的方法 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20170818081800/" />
+  <title>Markdown中插入数学公式的方法 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20170818081800/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" " />
+  <meta property="og:description" content="Markdown中插入数学公式的方法 http://blog.csdn.net/xiahouzuoxin/article/details/26478179
+&nbsp; \$[你的公式Tex语法]\$ 或，行间公式：
+\$\$[你的公式Tex语法]\$\$
+&nbsp;注： \$ = $
+cnblogs:
+&nbsp;$$ \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$ \( \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&nbsp; \)&nbsp;
+$$ \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$ \( \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} \) 方法一：使用Google Chart的服务器 &lt;img src=&#34;http://chart.googleapis.com/chart?cht=tx&amp;chl= 在此插入Latex公式&#34; style=&#34;border:none;&#34;&gt; 一个例子，
+&lt;img src=&#34;http://chart.googleapis.com/chart?cht=tx&amp;chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&#34; style=&#34;border:none;&#34;&gt; 公式显示结果为：
+适用了下，Google Chart服务器的响应速度还可以，但据说可能复杂一些的Latex公式可能无法解析（参考[2]）。
+方法二：使用forkosh服务器 forkosh上提供了关于Latex公式的一份简短而很有用的帮助，参考[1]和[3].
+使用forkosh插入公式的方法是
+&lt;img src=&#34;http://www.forkosh.com/mathtex.cgi? 在此处插入Latex公式&#34;&gt; 给个例子，
+&lt;img src=&#34;http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&#34;&gt; 显示结果为：
+因为网页插入公式的原理是调用&ldquo;某某网站的服务器&rdquo;动态生成的，所有保证公式正常显示的前提是该网址能一直存在着为我等小生做些小小的服务。forkosh我是用了快2年了，一直很好，推荐！
+方法三：使用MathJax引擎 大家都看过Stackoverflow上的公式吧，漂亮，其生成的不是图片。这就要用到MathJax引擎，在Markdown中添加MathJax引擎也很简单，
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt; 然后，再使用Tex写公式。$$公式$$表示行间公式，本来Tex中使用\(公式\)表示行内公式，但因为Markdown中\是转义字符，所以在Markdown中输入行内公式使用\\(公式\\)，如下代码：
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$ \\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\) 分别显示结果（行间公式）：
+&nbsp;
+x=&minus;b&plusmn;b2&minus;4ac&minus;&minus;&minus;&minus;&minus;&minus;&minus;&radic;2a 行内公式：
+x=&minus;b&plusmn;b2&minus;4ac&radic;2a
+不信，你可以试一下，在公式上还可以使用鼠标右键操作。
+参考 [1]&nbsp;http://www.forkosh.com/mathtextutorial.html
+[2]&nbsp;http://www.ruanyifeng.com/blog/2011/07/formula_online_generator.html
+[3]&nbsp;http://www.forkosh.com/mathtex.html
+&nbsp;
+&nbsp;" />
   <meta property="og:title" content="Markdown中插入数学公式的方法" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20170818081800/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20170818081800/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +92,38 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Markdown中插入数学公式的方法 | My New Hugo Site" />
-  <meta name="twitter:description" content=" " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20170818081800/" />
+  <meta name="twitter:title" content="Markdown中插入数学公式的方法 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Markdown中插入数学公式的方法 http://blog.csdn.net/xiahouzuoxin/article/details/26478179
+&nbsp; \$[你的公式Tex语法]\$ 或，行间公式：
+\$\$[你的公式Tex语法]\$\$
+&nbsp;注： \$ = $
+cnblogs:
+&nbsp;$$ \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$ \( \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&nbsp; \)&nbsp;
+$$ \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$ \( \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} \) 方法一：使用Google Chart的服务器 &lt;img src=&#34;http://chart.googleapis.com/chart?cht=tx&amp;chl= 在此插入Latex公式&#34; style=&#34;border:none;&#34;&gt; 一个例子，
+&lt;img src=&#34;http://chart.googleapis.com/chart?cht=tx&amp;chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&#34; style=&#34;border:none;&#34;&gt; 公式显示结果为：
+适用了下，Google Chart服务器的响应速度还可以，但据说可能复杂一些的Latex公式可能无法解析（参考[2]）。
+方法二：使用forkosh服务器 forkosh上提供了关于Latex公式的一份简短而很有用的帮助，参考[1]和[3].
+使用forkosh插入公式的方法是
+&lt;img src=&#34;http://www.forkosh.com/mathtex.cgi? 在此处插入Latex公式&#34;&gt; 给个例子，
+&lt;img src=&#34;http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&#34;&gt; 显示结果为：
+因为网页插入公式的原理是调用&ldquo;某某网站的服务器&rdquo;动态生成的，所有保证公式正常显示的前提是该网址能一直存在着为我等小生做些小小的服务。forkosh我是用了快2年了，一直很好，推荐！
+方法三：使用MathJax引擎 大家都看过Stackoverflow上的公式吧，漂亮，其生成的不是图片。这就要用到MathJax引擎，在Markdown中添加MathJax引擎也很简单，
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt; 然后，再使用Tex写公式。$$公式$$表示行间公式，本来Tex中使用\(公式\)表示行内公式，但因为Markdown中\是转义字符，所以在Markdown中输入行内公式使用\\(公式\\)，如下代码：
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$ \\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\) 分别显示结果（行间公式）：
+&nbsp;
+x=&minus;b&plusmn;b2&minus;4ac&minus;&minus;&minus;&minus;&minus;&minus;&minus;&radic;2a 行内公式：
+x=&minus;b&plusmn;b2&minus;4ac&radic;2a
+不信，你可以试一下，在公式上还可以使用鼠标右键操作。
+参考 [1]&nbsp;http://www.forkosh.com/mathtextutorial.html
+[2]&nbsp;http://www.ruanyifeng.com/blog/2011/07/formula_online_generator.html
+[3]&nbsp;http://www.forkosh.com/mathtex.html
+&nbsp;
+&nbsp;" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20170818081800/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +140,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +210,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +280,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20170818081800/">Markdown中插入数学公式的方法</a>
+  <a href="https://sonictl.github.io/posts/p20170818081800/">Markdown中插入数学公式的方法</a>
 </li>
 
 </ol>
@@ -220,8 +348,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-0 mins to read</span>
+a min to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,8 +402,55 @@
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
-
+          <h1><span class="link_title"><a href="http://blog.csdn.net/xiahouzuoxin/article/details/26478179">Markdown中插入数学公式的方法 </a></span></h1>
+<p>http://blog.csdn.net/xiahouzuoxin/article/details/26478179</p>
+<p>&nbsp;<span class="cnblogs_code"> \$[你的公式Tex语法]\$ 或，行间公式：</span></p>
+<p><span class="cnblogs_code"><span class="cnblogs_code">\$\$[你的公式Tex语法]\$\$</span></span><br />&nbsp;注： \$ = $</p>
+<p>cnblogs:</p>
+<p>&nbsp;<span class="cnblogs_code">$$ \Large x=\frac{-b\pm\sqrt{b^2-<span style="color: #000000;">4ac}}{2a} $$ </span></span></p>
+<p><span class="cnblogs_code"><span style="color: #000000;">\( \Large x</span>=\frac{-b\pm\sqrt{b^2-4ac}}{2a}&nbsp; \)</span>&nbsp;</p>
+<pre><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;"><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;">$$ \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$</code></code></pre>
+<pre><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;">\( \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} \)</code></pre>
+<pre><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;"></code></pre>
+<h2 style="margin: 1em 0px 15px; line-height: 1.7; font-size: 2em; padding: 0px; position: relative; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eeeeee; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif;">方法一：使用Google Chart的服务器</h2>
+<pre><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;">&lt;img src="http://chart.googleapis.com/chart?cht=tx&amp;chl= 在此插入Latex公式" style="border:none;"&gt;
+</code></pre>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">一个例子，</p>
+<pre><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;">&lt;img src="http://chart.googleapis.com/chart?cht=tx&amp;chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;"&gt;
+</code></pre>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">公式显示结果为：</p>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;"><a style="color: #4183c4; text-decoration: none;" href="https://camo.githubusercontent.com/7dc54e42913fd1ff6c3fa2a568ebe609cc61fc17/687474703a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d74782663686c3d2535434c61726765253230783d253543667261632537422d62253543706d2535437371727425374262253545322d3461632537442537442537423261253744" target="_blank"><img style="border: 0px; max-width: 100%;" src="https://camo.githubusercontent.com/7dc54e42913fd1ff6c3fa2a568ebe609cc61fc17/687474703a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d74782663686c3d2535434c61726765253230783d253543667261632537422d62253543706d2535437371727425374262253545322d3461632537442537442537423261253744" alt="" /></a></p>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">适用了下，Google Chart服务器的响应速度还可以，但据说可能复杂一些的Latex公式可能无法解析（参考[2]）。</p>
+<h2 style="margin: 1em 0px 15px; line-height: 1.7; font-size: 2em; padding: 0px; position: relative; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eeeeee; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif;"><a name="t1" target="_blank"></a><a class="anchor" style="color: #4183c4; text-decoration: none; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; position: absolute; top: 0px; left: 0px; bottom: 0px;" name="user-content-方法二使用forkosh服务器" href="https://github.com/xiahouzuoxin/notes/blob/master/essays/Markdown%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95.md#%E6%96%B9%E6%B3%95%E4%BA%8C%E4%BD%BF%E7%94%A8forkosh%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank"></a>方法二：使用forkosh服务器</h2>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">forkosh上提供了关于Latex公式的一份简短而很有用的帮助，参考[1]和[3].</p>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">使用forkosh插入公式的方法是</p>
+<pre><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;">&lt;img src="http://www.forkosh.com/mathtex.cgi? 在此处插入Latex公式"&gt;
+</code></pre>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">给个例子，</p>
+<pre><code style="font-family: Consolas,'Liberation Mono',Courier,monospace; font-size: 12px; margin: 0px; border: none; padding: 0px; word-wrap: normal; display: inline; line-height: inherit;">&lt;img src="http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}"&gt;
+</code></pre>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">显示结果为：</p>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;"><a style="color: #4183c4; text-decoration: none;" href="https://camo.githubusercontent.com/9384a279694e169893f920ff078f493394d09ca0/687474703a2f2f7777772e666f726b6f73682e636f6d2f6d6174687465782e6367693f2532302535434c61726765253230783d253543667261632537422d62253543706d2535437371727425374262253545322d3461632537442537442537423261253744" target="_blank"><img style="border: 0px; max-width: 100%;" src="https://camo.githubusercontent.com/9384a279694e169893f920ff078f493394d09ca0/687474703a2f2f7777772e666f726b6f73682e636f6d2f6d6174687465782e6367693f2532302535434c61726765253230783d253543667261632537422d62253543706d2535437371727425374262253545322d3461632537442537442537423261253744" alt="" /></a></p>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">因为网页插入公式的原理是调用&ldquo;某某网站的服务器&rdquo;动态生成的，所有保证公式正常显示的前提是该网址能一直存在着为我等小生做些小小的服务。forkosh我是用了快2年了，一直很好，推荐！</p>
+<h2 style="box-sizing: border-box; margin-top: 1em; margin-bottom: 16px; line-height: 1.225; font-size: 1.75em; position: relative; padding-bottom: 0.3em; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eeeeee; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;"><a name="t2" target="_blank"></a>方法三：使用MathJax引擎</h2>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 25.600000381469727px;">大家都看过<a style="box-sizing: border-box; color: #4183c4; text-decoration: none; background: transparent;" href="http://stackoverflow.com/" target="_blank">Stackoverflow</a>上的公式吧，漂亮，其生成的不是图片。这就要用到MathJax引擎，在Markdown中添加MathJax引擎也很简单，</p>
+<pre><code style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; padding: 0px; margin: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; word-break: normal; border: 0px; display: inline; line-height: inherit; word-wrap: normal; background: transparent;">&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"&gt;&lt;/script&gt;</code></pre>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 25.600000381469727px;">然后，再使用Tex写公式。<code style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 14px; padding: 0.2em 0px; margin: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;">$$公式$$</code>表示行间公式，本来Tex中使用<code style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 14px; padding: 0.2em 0px; margin: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;">\(公式\)</code>表示行内公式，但因为Markdown中<code style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 14px; padding: 0.2em 0px; margin: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;">\</code>是转义字符，所以在Markdown中输入行内公式使用<code style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 14px; padding: 0.2em 0px; margin: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;">\\(公式\\)</code>，如下代码：</p>
+<pre><code style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; padding: 0px; margin: 0px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; word-break: normal; border: 0px; display: inline; line-height: inherit; word-wrap: normal; background: transparent;">$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+\\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\)
+</code></pre>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 25.600000381469727px;">分别显示结果（行间公式）：</p>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 25.600000381469727px;">&nbsp;</p>
+<div class="MathJax_Display" style="text-align: center;"><span id="MathJax-Element-1-Frame" class="MathJax"><span id="MathJax-Span-1" class="math" style="width: 11.078em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.219em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.928em, 1000em, 3.665em, -0.434em); top: -2.813em; left: 0em;"><span id="MathJax-Span-2" class="mrow"><span id="MathJax-Span-3" class="mi" style="font-family: MathJax_Math; font-style: italic;">x<span id="MathJax-Span-4" class="mo" style="font-family: MathJax_Main; padding-left: 0.278em;">=<span id="MathJax-Span-5" class="mfrac" style="padding-left: 0.278em;"><span style="display: inline-block; position: relative; width: 7.099em; height: 0px; margin-right: 0.12em; margin-left: 0.12em;"><span style="position: absolute; clip: rect(1.605em, 1000em, 3.117em, -0.385em); top: -3.489em; left: 50%; margin-left: -3.49em;"><span id="MathJax-Span-6" class="mrow"><span id="MathJax-Span-7" class="mo" style="font-family: MathJax_Main;">&minus;<span id="MathJax-Span-8" class="mi" style="font-family: MathJax_Math; font-style: italic;">b<span id="MathJax-Span-9" class="mo" style="font-family: MathJax_Main; padding-left: 0.222em;">&plusmn;<span id="MathJax-Span-10" class="msqrt" style="padding-left: 0.222em;"><span style="display: inline-block; position: relative; width: 4.556em; height: 0px;"><span style="position: absolute; clip: rect(1.764em, 1000em, 2.98em, -0.429em); top: -2.813em; left: 0.99em;"><span id="MathJax-Span-11" class="mrow"><span id="MathJax-Span-12" class="msubsup"><span style="display: inline-block; position: relative; width: 0.856em; height: 0px;"><span style="position: absolute; clip: rect(1.702em, 1000em, 2.719em, -0.429em); top: -2.552em; left: 0em;"><span id="MathJax-Span-13" class="mi" style="font-family: MathJax_Math; font-style: italic;">b<span style="display: inline-block; width: 0px; height: 2.552em;"><span style="position: absolute; top: -2.713em; left: 0.417em;"><span id="MathJax-Span-14" class="mn" style="font-size: 70.7%; font-family: MathJax_Main;">2<span style="display: inline-block; width: 0px; height: 2.292em;"><span id="MathJax-Span-15" class="mo" style="font-family: MathJax_Main; padding-left: 0.222em;">&minus;<span id="MathJax-Span-16" class="mn" style="font-family: MathJax_Main; padding-left: 0.222em;">4<span id="MathJax-Span-17" class="mi" style="font-family: MathJax_Math; font-style: italic;">a<span id="MathJax-Span-18" class="mi" style="font-family: MathJax_Math; font-style: italic;">c<span style="display: inline-block; width: 0px; height: 2.813em;"><span style="position: absolute; clip: rect(3.584em, 1000em, 4.037em, -0.469em); top: -4.792em; left: 0.99em;"><span style="display: inline-block; position: relative; width: 3.567em; height: 0px;"><span style="position: absolute; font-family: MathJax_Main; top: -4.01em; left: -0.084em;">&minus;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="position: absolute; font-family: MathJax_Main; top: -4.01em; left: 2.873em;">&minus;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="font-family: MathJax_Main; position: absolute; top: -4.01em; left: 0.388em;">&minus;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="font-family: MathJax_Main; position: absolute; top: -4.01em; left: 0.885em;">&minus;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="font-family: MathJax_Main; position: absolute; top: -4.01em; left: 1.382em;">&minus;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="font-family: MathJax_Main; position: absolute; top: -4.01em; left: 1.879em;">&minus;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="font-family: MathJax_Main; position: absolute; top: -4.01em; left: 2.376em;">&minus;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="display: inline-block; width: 0px; height: 4.01em;"><span style="position: absolute; clip: rect(3.004em, 1000em, 4.517em, -0.358em); top: -4.212em; left: 0em;"><span style="font-family: MathJax_Size1;">&radic;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="display: inline-block; width: 0px; height: 2.813em;"><span style="position: absolute; clip: rect(1.99em, 1000em, 2.979em, -0.419em); top: -2.127em; left: 50%; margin-left: -0.521em;"><span id="MathJax-Span-19" class="mrow"><span id="MathJax-Span-20" class="mn" style="font-family: MathJax_Main;">2<span id="MathJax-Span-21" class="mi" style="font-family: MathJax_Math; font-style: italic;">a</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 25.600000381469727px;">行内公式：</p>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 25.600000381469727px;"><span class="MathJax_Preview"><span id="MathJax-Element-2-Frame" class="MathJax"><span id="MathJax-Span-22" class="math" style="width: 7.891em; display: inline-block;"><span style="display: inline-block; position: relative; width: 6.563em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.4em, 1000em, 3.354em, -0.434em); top: -2.813em; left: 0em;"><span id="MathJax-Span-23" class="mrow"><span id="MathJax-Span-24" class="mi" style="font-family: MathJax_Math; font-style: italic;">x<span id="MathJax-Span-25" class="mo" style="font-family: MathJax_Main; padding-left: 0.278em;">=<span id="MathJax-Span-26" class="mfrac" style="padding-left: 0.278em;"><span style="display: inline-block; position: relative; width: 4.443em; height: 0px; margin-right: 0.12em; margin-left: 0.12em;"><span style="position: absolute; clip: rect(1.406em, 1000em, 2.567em, -0.409em); top: -2.819em; left: 50%; margin-left: -2.161em;"><span id="MathJax-Span-27" class="mrow"><span id="MathJax-Span-28" class="mo" style="font-size: 70.7%; font-family: MathJax_Main;">&minus;<span id="MathJax-Span-29" class="mi" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">b<span id="MathJax-Span-30" class="mo" style="font-size: 70.7%; font-family: MathJax_Main;">&plusmn;<span id="MathJax-Span-31" class="msqrt"><span style="display: inline-block; position: relative; width: 2.917em; height: 0px;"><span style="position: absolute; clip: rect(1.505em, 1000em, 2.456em, -0.44em); top: -2.292em; left: 0.729em;"><span id="MathJax-Span-32" class="mrow"><span id="MathJax-Span-33" class="msubsup"><span style="display: inline-block; position: relative; width: 0.626em; height: 0px;"><span style="position: absolute; clip: rect(1.488em, 1000em, 2.299em, -0.44em); top: -2.135em; left: 0em;"><span id="MathJax-Span-34" class="mi" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">b<span style="display: inline-block; width: 0px; height: 2.135em;"><span style="position: absolute; top: -2.225em; left: 0.313em;"><span id="MathJax-Span-35" class="mn" style="font-size: 50%; font-family: MathJax_Main;">2<span style="display: inline-block; width: 0px; height: 1.927em;"><span id="MathJax-Span-36" class="mo" style="font-size: 70.7%; font-family: MathJax_Main;">&minus;<span id="MathJax-Span-37" class="mn" style="font-size: 70.7%; font-family: MathJax_Main;">4<span id="MathJax-Span-38" class="mi" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">a<span id="MathJax-Span-39" class="mi" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">c<span style="display: inline-block; width: 0px; height: 2.292em;"><span style="position: absolute; clip: rect(0.885em, 1000em, 1.263em, -0.469em); top: -1.771em; left: 0.729em;"><span style="border-left: 2.188em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.25px; vertical-align: -0.065em;"><span style="display: inline-block; width: 0px; height: 1.042em;"><span style="position: absolute; clip: rect(3.253em, 1000em, 4.414em, -0.39em); top: -4.139em; left: 0em;"><span style="font-size: 70.7%; font-family: MathJax_Size1;">&radic;<span style="display: inline-block; width: 0px; height: 4.01em;"><span style="display: inline-block; width: 0px; height: 2.292em;"><span style="position: absolute; clip: rect(1.664em, 1000em, 2.455em, -0.433em); top: -1.913em; left: 50%; margin-left: -0.365em;"><span id="MathJax-Span-40" class="mrow"><span id="MathJax-Span-41" class="mn" style="font-size: 70.7%; font-family: MathJax_Main;">2<span id="MathJax-Span-42" class="mi" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">a</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: #333333; font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 25.600000381469727px;">不信，你可以试一下，在公式上还可以使用鼠标右键操作。</p>
+<h2 style="margin: 1em 0px 15px; line-height: 1.7; font-size: 2em; padding: 0px; position: relative; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eeeeee; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif;"><a name="t3" target="_blank"></a><a class="anchor" style="color: #4183c4; text-decoration: none; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; position: absolute; top: 0px; left: 0px; bottom: 0px;" name="user-content-参考" href="https://github.com/xiahouzuoxin/notes/blob/master/essays/Markdown%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95.md#%E5%8F%82%E8%80%83" target="_blank"></a>参考</h2>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">[1]&nbsp;<a style="color: #4183c4; text-decoration: none;" href="http://www.forkosh.com/mathtextutorial.html" target="_blank">http://www.forkosh.com/mathtextutorial.html</a></p>
+<p style="margin-top: 15px; margin-bottom: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px;">[2]&nbsp;<a style="color: #4183c4; text-decoration: none;" href="http://www.ruanyifeng.com/blog/2011/07/formula_online_generator.html" target="_blank">http://www.ruanyifeng.com/blog/2011/07/formula_online_generator.html</a></p>
+<p style="margin-top: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px; margin-bottom: 0px!important;">[3]&nbsp;<a style="color: #4183c4; text-decoration: none;" href="http://www.forkosh.com/mathtex.html" target="_blank">http://www.forkosh.com/mathtex.html</a></p>
+<p style="margin-top: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px; margin-bottom: 0px!important;">&nbsp;</p>
+<p style="margin-top: 15px; color: #333333; font-family: Helvetica,arial,freesans,clean,sans-serif; font-size: 15px; line-height: 25.5px; margin-bottom: 0px!important;">&nbsp;</p>
 
 
         
@@ -292,7 +512,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share Markdown中插入数学公式的方法 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20170818081800%2f&title=Markdown%e4%b8%ad%e6%8f%92%e5%85%a5%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f%e7%9a%84%e6%96%b9%e6%b3%95">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170818081800%2f&title=Markdown%e4%b8%ad%e6%8f%92%e5%85%a5%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f%e7%9a%84%e6%96%b9%e6%b3%95">
           
 
 
@@ -318,7 +538,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share Markdown中插入数学公式的方法 on twitter"
-          href="https://twitter.com/intent/tweet/?text=Markdown%e4%b8%ad%e6%8f%92%e5%85%a5%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f%e7%9a%84%e6%96%b9%e6%b3%95&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20170818081800%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=Markdown%e4%b8%ad%e6%8f%92%e5%85%a5%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f%e7%9a%84%e6%96%b9%e6%b3%95&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170818081800%2f&amp;hashtags=">
           
 
 
@@ -344,7 +564,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share Markdown中插入数学公式的方法 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20170818081800%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170818081800%2f">
           
 
 
@@ -374,6 +594,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -381,6 +627,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -398,7 +654,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -409,7 +665,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

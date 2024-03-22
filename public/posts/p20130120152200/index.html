@@ -18,20 +18,48 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html http://www.pcdog.com/edu/linux/18/10/u231314_2.html http://www.pcdog.com/edu/linux/18/10/u231314_3.html Compile source .c code for analysis, Create executable file: " />
-  <meta name="author" content="">
+  <meta name="description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html
+http://www.pcdog.com/edu/linux/18/10/u231314_2.html
+http://www.pcdog.com/edu/linux/18/10/u231314_3.html
+Compile source .c code for analysis, Create executable file:
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; gcc -pg test.c -o test&nbsp; 2. Launch executable file, Create gmon.out
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; ./test 3. Use gmon.out to analysis:
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less &nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more 4.&nbsp;
+&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp;
+常用的Gprof 命令选项解释：
+&nbsp;
+-b不再输出统计图表中每个字段的详细描述。
+-p 只输出函数的调用图（Call graph 的那部分信息）。
+-q 只输出函数的时间消耗列表。
+-E Name不再输出函数Name 及其子函数的调用图，此标志类&#20284;于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。" />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>使用Gnu gprof进行Linux平台下的程序分析 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20130120152200/" />
+  <title>使用Gnu gprof进行Linux平台下的程序分析 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20130120152200/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html http://www.pcdog.com/edu/linux/18/10/u231314_2.html http://www.pcdog.com/edu/linux/18/10/u231314_3.html Compile source .c code for analysis, Create executable file: " />
+  <meta property="og:description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html
+http://www.pcdog.com/edu/linux/18/10/u231314_2.html
+http://www.pcdog.com/edu/linux/18/10/u231314_3.html
+Compile source .c code for analysis, Create executable file:
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; gcc -pg test.c -o test&nbsp; 2. Launch executable file, Create gmon.out
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; ./test 3. Use gmon.out to analysis:
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less &nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more 4.&nbsp;
+&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp;
+常用的Gprof 命令选项解释：
+&nbsp;
+-b不再输出统计图表中每个字段的详细描述。
+-p 只输出函数的调用图（Call graph 的那部分信息）。
+-q 只输出函数的时间消耗列表。
+-E Name不再输出函数Name 及其子函数的调用图，此标志类&#20284;于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。" />
   <meta property="og:title" content="使用Gnu gprof进行Linux平台下的程序分析" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20130120152200/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20130120152200/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +70,27 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="使用Gnu gprof进行Linux平台下的程序分析 | My New Hugo Site" />
-  <meta name="twitter:description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html http://www.pcdog.com/edu/linux/18/10/u231314_2.html http://www.pcdog.com/edu/linux/18/10/u231314_3.html Compile source .c code for analysis, Create executable file: " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20130120152200/" />
+  <meta name="twitter:title" content="使用Gnu gprof进行Linux平台下的程序分析 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="http://www.pcdog.com/edu/linux/18/10/u231314_1.html
+http://www.pcdog.com/edu/linux/18/10/u231314_2.html
+http://www.pcdog.com/edu/linux/18/10/u231314_3.html
+Compile source .c code for analysis, Create executable file:
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; gcc -pg test.c -o test&nbsp; 2. Launch executable file, Create gmon.out
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; ./test 3. Use gmon.out to analysis:
+&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less &nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more 4.&nbsp;
+&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; &nbsp;
+常用的Gprof 命令选项解释：
+&nbsp;
+-b不再输出统计图表中每个字段的详细描述。
+-p 只输出函数的调用图（Call graph 的那部分信息）。
+-q 只输出函数的时间消耗列表。
+-E Name不再输出函数Name 及其子函数的调用图，此标志类&#20284;于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20130120152200/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +107,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +177,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +247,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20130120152200/">使用Gnu gprof进行Linux平台下的程序分析</a>
+  <a href="https://sonictl.github.io/posts/p20130120152200/">使用Gnu gprof进行Linux平台下的程序分析</a>
 </li>
 
 </ol>
@@ -220,8 +315,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-a min to read</span>
+2 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,16 +369,139 @@ a min to read</span>
       </div>
       <article class="post-entry content">
         
-          <p><a href="http://www.pcdog.com/edu/linux/18/10/u231314_1.html">http://www.pcdog.com/edu/linux/18/10/u231314_1.html</a><!-- raw HTML omitted -->
-<a href="http://www.pcdog.com/edu/linux/18/10/u231314_2.html">http://www.pcdog.com/edu/linux/18/10/u231314_2.html</a><!-- raw HTML omitted -->
-<a href="http://www.pcdog.com/edu/linux/18/10/u231314_3.html">http://www.pcdog.com/edu/linux/18/10/u231314_3.html</a><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
+          <p><a href="http://www.pcdog.com/edu/linux/18/10/u231314_1.html">http://www.pcdog.com/edu/linux/18/10/u231314_1.html</a><br>
+<a href="http://www.pcdog.com/edu/linux/18/10/u231314_2.html">http://www.pcdog.com/edu/linux/18/10/u231314_2.html</a><br>
+<a href="http://www.pcdog.com/edu/linux/18/10/u231314_3.html">http://www.pcdog.com/edu/linux/18/10/u231314_3.html</a><br>
+<br>
+<br></p>
 <ol>
-<li>Compile source .c code for analysis, Create executable file:<!-- raw HTML omitted --></li>
+<li>Compile source .c code for analysis, Create executable file:<br></li>
 </ol>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; <span style="font-family:Courier New">&gt;&gt; gcc -pg test.c -o test</span>&nbsp;</pre>
+<br>
+2. Launch executable file, Create gmon.out<br>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New"> &gt;&gt; ./test</span></pre>
+<br>
+3. Use gmon.out to analysis:<br>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; &gt;&gt; &nbsp;gprof -b test gmon.out | less</pre>
+<pre>&nbsp; &nbsp; or: &gt;&gt; &nbsp;gprof -b test gmon.out | more</pre>
+<br>
+4.&nbsp;<br>
+&nbsp; &nbsp;&nbsp;<br>
+&nbsp; &nbsp; &nbsp;<img src="http://img.my.csdn.net/uploads/201301/20/1358695524_8629.png" alt=""><br>
+<br>
+常用的Gprof 命令选项解释：<br>
+&nbsp;<br>
+-b不再输出统计图表中每个字段的详细描述。<br>
+<br>
+-p 只输出函数的调用图（Call graph 的那部分信息）。<br>
+<br>
+-q 只输出函数的时间消耗列表。<br>
+<br>
+-E Name不再输出函数Name 及其子函数的调用图，此标志类&#20284;于 -e 标志，但它在总时间和百分比时间的计算中排除了由函数Name 及其子函数所用的时间。<br>
+<br>
+-e Name 不再输出函数Name 及其子函数的调用图（除非它们有未被限制的其它父函数）。可以给定多个 -e 标志。一个 -e 标志只能指定一个函数。<br>
+<br>
+-F Name 输出函数Name 及其子函数的调用图，它类&#20284;于 -f 标志，但它在总时间和百分比时间计算中仅使用所打印的例程的时间。可以指定多个 -F 标志。一个 -F 标志只能指定一个函数。-F 标志覆盖 -E 标志。<br>
+<br>
+-f Name输出函数Name 及其子函数的调用图。可以指定多个 -f 标志。一个 -f 标志只能指定一个函数。<br>
+<br>
+-z 显示使用次数为零的例程（按照调用计数和累积时间计算）。<br>
+<br>
+<p>English Reference:<a href="http://www.cs.utah.edu/dept/old/texinfo/as/gprof.html#SEC4" target="_blank">http://www.cs.utah.edu/dept/old/texinfo/as/gprof.html#SEC4</a></p>
+<p><br>
+</p>
+<p>--------附： vi使用方法：---------<br>
+<br>
+<br>
+　　vi 的三种命令模式　　<br>
+<br>
+<br>
+Command（命令）模式，用于输入命令<br>
+　　Insert（插入）模式，用于插入文本<br>
+　　Visual（可视）模式，用于视化的的高亮并选定正文<br>
+　　光标移动　　<br>
+　　当我们按ESC进入Command模式后，我们可以用下面的一些键位来移动光标；<br>
+　　j 向下移动一行<br>
+　　k 向上移动一行<br>
+　　h 向左移动一个字符<br>
+　　l 向右移动一个字符<br>
+　　ctrl&#43;b 向上移动一屏<br>
+　　ctrl&#43;f 向下移动一屏<br>
+　　向上箭头 向上移动<br>
+　　向下箭头 向下移动<br>
+　　向左箭头 向左移动<br>
+　　向右箭头 向右移动<br>
+　　我们编辑一个文件时，对于 j、k、l和h键，还能在这些动作命令的前面加上数字，比如 3j，表示向下移动3行。<br>
+　　/# &#43;Enter #为查找的内容　<br>
+　　插入模式（文本的插入）<br>
+　　<br>
+　　i 在光标之前插入<br>
+　　a 在光标之后插入<br>
+　　I 在光标所在行的行首插入<br>
+　　A 在光标所在行的行末插入<br>
+　　o 在光标所在的行的下面插入一行<br>
+　　O 在光标所在的行的上面插入一行<br>
+　　s 用输入的文本替换光标所在字符<br>
+　　S 用输入的文本替换光标所在行　<br>
+　　文本内容的删除操作；<br>
+　　<br>
+　　x 一个字符<br>
+　　#x 删除几个字符，#表示数字，比如3x<br>
+　　dw 删除一个单词<br>
+　　#dw 删除几个单词，#用数字表示，比如3dw表示删除三个单词<br>
+　　dd 删除一行；<br>
+　　#dd 删除多个行，#代表数字，比如3dd 表示删除光标行及光标的下两行<br>
+　　d$ 删除光标到行尾的内容<br>
+　　J 清除光标所处的行与下一行之间的换行，行尾没有空&#26684;的话会自动添加一个空&#26684;。<br>
+　　#J 表示合并#(数字)行。<br>
+　　退出保存；<br>
+　　在命令模式下按 shift&#43;: 文本底端出现冒号<br>
+　　:w 保存；<br>
+　　:w filename 另存为filename；<br>
+　　:wq! 保存退出；<br>
+　　:wq! filename 注：以filename为文件名保存后退出；<br>
+　　:q! 不保存退出；<br>
+　　:x 应该是保存并退出 ，功能和:wq!相同<br>
+　　撤销操作<br>
+　　u命令取消最近一次的操作，可以使用多次来恢复原有的操作[1]<br>
+　　U取消所有操作<br>
+　　Ctrl&#43;R可以恢复对使用u命令的操作<br>
+　　复制操作<br>
+　　yy命令复制当前整行的内容到vi缓冲区<br>
+　　yw复制当前光标所在位置到单词尾字符的内容到vi缓存区，相当于复制一个单词<br>
+　　y$复制光标所在位置到行尾内容到缓存区<br>
+　　y^复制光标所在位置到行首内容到缓存区<br>
+　　#yy例如：5yy就是复制5行<br>
+　　#yw例如：2yw就是复制两个单词<br>
+　　如果要复制第m行到第n行之间的内容，可以在末行模式中输入m，ny例如：3，5y复制第三行到第五行内容到缓存区。<br>
+　　查找和替换<br>
+　　vi的查找和替换功能主要在末行模式完成：<br>
+　　至上而下的查找<br>
+　　/ 要查找的字符串，其中/代表从光标所在位置起开始查找，例如：/ work<br>
+　　至下而上的查找<br>
+　　?要查找的字符串 例如：? work<br>
+　　替换<br>
+　　:s/old/new用new替换行中首次出现的old<br>
+　　: s/old/new/g 用new替换行中所有出现的old<br>
+　　:#,# s/old/new/g用new替换从第#行到第#行中出现的old<br>
+　　:% s/old/new/g用new替换整篇中出现的old<br>
+　　如果替换的范围较大时，在所有的命令尾加一个c命令，强制每个替换需要用户进行确认，例如:s/old/new/c 或s/old/new/gc<br>
+　　恢复文件　　<br>
+　vi在编辑某一个文件时，会生成一个临时文件，这个文件以 . 开头并以 .swp结尾。正常退出该文件自动删除，如果意外退出例如忽然断电，该文件不会删除，我们在下次编辑时可以选择一下命令处理：<br>
+　　O只读打开，不改变文件内容<br>
+　　E继续编辑文件，不恢复.swp文件保存的内容<br>
+　　R将恢复上次编辑以后未保存文件内容<br>
+　　Q退出vi<br>
+　　D删除.swp文件<br>
+　　或者使用vi －r 文件名来恢复未保存的内容<br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
 
 
 
@@ -301,7 +564,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share 使用Gnu gprof进行Linux平台下的程序分析 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20130120152200%2f&title=%e4%bd%bf%e7%94%a8Gnu%20gprof%e8%bf%9b%e8%a1%8cLinux%e5%b9%b3%e5%8f%b0%e4%b8%8b%e7%9a%84%e7%a8%8b%e5%ba%8f%e5%88%86%e6%9e%90">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130120152200%2f&title=%e4%bd%bf%e7%94%a8Gnu%20gprof%e8%bf%9b%e8%a1%8cLinux%e5%b9%b3%e5%8f%b0%e4%b8%8b%e7%9a%84%e7%a8%8b%e5%ba%8f%e5%88%86%e6%9e%90">
           
 
 
@@ -327,7 +590,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share 使用Gnu gprof进行Linux平台下的程序分析 on twitter"
-          href="https://twitter.com/intent/tweet/?text=%e4%bd%bf%e7%94%a8Gnu%20gprof%e8%bf%9b%e8%a1%8cLinux%e5%b9%b3%e5%8f%b0%e4%b8%8b%e7%9a%84%e7%a8%8b%e5%ba%8f%e5%88%86%e6%9e%90&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20130120152200%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=%e4%bd%bf%e7%94%a8Gnu%20gprof%e8%bf%9b%e8%a1%8cLinux%e5%b9%b3%e5%8f%b0%e4%b8%8b%e7%9a%84%e7%a8%8b%e5%ba%8f%e5%88%86%e6%9e%90&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130120152200%2f&amp;hashtags=">
           
 
 
@@ -353,7 +616,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share 使用Gnu gprof进行Linux平台下的程序分析 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20130120152200%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130120152200%2f">
           
 
 
@@ -383,6 +646,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -390,6 +679,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -407,7 +706,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -418,7 +717,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

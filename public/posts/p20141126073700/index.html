@@ -18,20 +18,56 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" 9）jstl 的标签： 10）数据库记录： @GenerateValue @Id public int getId(){ return Id; } &hellip;//后面就是其他参数的Get Set 方法 }&lt;/pre&gt;&lt;br&gt; 如图： " />
-  <meta name="author" content="">
+  <meta name="description" content="Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 用Hibernate帮助建立SpringMVC与数据库之间的联系，通过配置DAO层，Service层，Model层，建立Controller对数据库操作的通道。
+这里没有使用maven来管理jar包（依赖库），因为没太多，实际上还是很繁琐的，要有耐心。
+原本稍微复杂的工程项目还是应该使用maven来管理依赖库，参见：http://tieba.baidu.com/p/2364606122?pn=1
+下面记录一下依赖包搭建过程：
+DAO - SERVICE -&nbsp;
+1.在eclipse中新建项目： &nbsp; &nbsp;&nbsp;&nbsp;new-project-Dynamic Web Project（name: spring_user）
+2. insert jar packages: &nbsp; &nbsp; &nbsp; 参考如图，导入jar包到目标位置 ：
+&nbsp; &nbsp; &nbsp; Download .jar files from:&nbsp;http://jarfiles.pandaidea.com&nbsp; or&nbsp;http://mvnrepository.com/
+&nbsp; &nbsp; &nbsp; 1)spring-reamework-release-3.1.3\dist
+2)apache-log4j-1.2.16.jar
+3)commons-logging-1.1.1 &nbsp; 用于登录
+4)hibernate-distribution-3.6.8 Final\lib\required（hibernate用3、4都可以）
+5)jpa
+hibernate-jpa-2.0-api-1.0.0.Final.jar 6)hibernate3
+hibernate3.jar slf4j-log4j12-1.6.1.jar 7)hlfa/dbcp/aop/jstl
+aopalliance.jar aspectjrt.jar aspectjweaver.jar &nbsp; 8）dbcp 数据引导性文件
+&nbsp; &nbsp; commons-collections-3.1.jar &nbsp; &nbsp; commons-dbcp.jar &nbsp; &nbsp; commons-pool.jar 9）jstl 的标签：
+jsf-api.jar jsf-impl.jar jstl-1.2.jar 10）数据库记录： &nbsp; &nbsp; mysql-connector-java-5.1.17-bin.jar &nbsp; &nbsp;
+&nbsp; ..." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20141126073700/" />
+  <title>Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20141126073700/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" 9）jstl 的标签： 10）数据库记录： @GenerateValue @Id public int getId(){ return Id; } &hellip;//后面就是其他参数的Get Set 方法 }&lt;/pre&gt;&lt;br&gt; 如图： " />
+  <meta property="og:description" content="Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 用Hibernate帮助建立SpringMVC与数据库之间的联系，通过配置DAO层，Service层，Model层，建立Controller对数据库操作的通道。
+这里没有使用maven来管理jar包（依赖库），因为没太多，实际上还是很繁琐的，要有耐心。
+原本稍微复杂的工程项目还是应该使用maven来管理依赖库，参见：http://tieba.baidu.com/p/2364606122?pn=1
+下面记录一下依赖包搭建过程：
+DAO - SERVICE -&nbsp;
+1.在eclipse中新建项目： &nbsp; &nbsp;&nbsp;&nbsp;new-project-Dynamic Web Project（name: spring_user）
+2. insert jar packages: &nbsp; &nbsp; &nbsp; 参考如图，导入jar包到目标位置 ：
+&nbsp; &nbsp; &nbsp; Download .jar files from:&nbsp;http://jarfiles.pandaidea.com&nbsp; or&nbsp;http://mvnrepository.com/
+&nbsp; &nbsp; &nbsp; 1)spring-reamework-release-3.1.3\dist
+2)apache-log4j-1.2.16.jar
+3)commons-logging-1.1.1 &nbsp; 用于登录
+4)hibernate-distribution-3.6.8 Final\lib\required（hibernate用3、4都可以）
+5)jpa
+hibernate-jpa-2.0-api-1.0.0.Final.jar 6)hibernate3
+hibernate3.jar slf4j-log4j12-1.6.1.jar 7)hlfa/dbcp/aop/jstl
+aopalliance.jar aspectjrt.jar aspectjweaver.jar &nbsp; 8）dbcp 数据引导性文件
+&nbsp; &nbsp; commons-collections-3.1.jar &nbsp; &nbsp; commons-dbcp.jar &nbsp; &nbsp; commons-pool.jar 9）jstl 的标签：
+jsf-api.jar jsf-impl.jar jstl-1.2.jar 10）数据库记录： &nbsp; &nbsp; mysql-connector-java-5.1.17-bin.jar &nbsp; &nbsp;
+&nbsp; ..." />
   <meta property="og:title" content="Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20141126073700/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20141126073700/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +78,31 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 | My New Hugo Site" />
-  <meta name="twitter:description" content=" 9）jstl 的标签： 10）数据库记录： @GenerateValue @Id public int getId(){ return Id; } &hellip;//后面就是其他参数的Get Set 方法 }&lt;/pre&gt;&lt;br&gt; 如图： " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20141126073700/" />
+  <meta name="twitter:title" content="Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 用Hibernate帮助建立SpringMVC与数据库之间的联系，通过配置DAO层，Service层，Model层，建立Controller对数据库操作的通道。
+这里没有使用maven来管理jar包（依赖库），因为没太多，实际上还是很繁琐的，要有耐心。
+原本稍微复杂的工程项目还是应该使用maven来管理依赖库，参见：http://tieba.baidu.com/p/2364606122?pn=1
+下面记录一下依赖包搭建过程：
+DAO - SERVICE -&nbsp;
+1.在eclipse中新建项目： &nbsp; &nbsp;&nbsp;&nbsp;new-project-Dynamic Web Project（name: spring_user）
+2. insert jar packages: &nbsp; &nbsp; &nbsp; 参考如图，导入jar包到目标位置 ：
+&nbsp; &nbsp; &nbsp; Download .jar files from:&nbsp;http://jarfiles.pandaidea.com&nbsp; or&nbsp;http://mvnrepository.com/
+&nbsp; &nbsp; &nbsp; 1)spring-reamework-release-3.1.3\dist
+2)apache-log4j-1.2.16.jar
+3)commons-logging-1.1.1 &nbsp; 用于登录
+4)hibernate-distribution-3.6.8 Final\lib\required（hibernate用3、4都可以）
+5)jpa
+hibernate-jpa-2.0-api-1.0.0.Final.jar 6)hibernate3
+hibernate3.jar slf4j-log4j12-1.6.1.jar 7)hlfa/dbcp/aop/jstl
+aopalliance.jar aspectjrt.jar aspectjweaver.jar &nbsp; 8）dbcp 数据引导性文件
+&nbsp; &nbsp; commons-collections-3.1.jar &nbsp; &nbsp; commons-dbcp.jar &nbsp; &nbsp; commons-pool.jar 9）jstl 的标签：
+jsf-api.jar jsf-impl.jar jstl-1.2.jar 10）数据库记录： &nbsp; &nbsp; mysql-connector-java-5.1.17-bin.jar &nbsp; &nbsp;
+&nbsp; ..." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20141126073700/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +119,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +189,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +259,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20141126073700/">Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建</a>
+  <a href="https://sonictl.github.io/posts/p20141126073700/">Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建</a>
 </li>
 
 </ol>
@@ -220,8 +327,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-a min to read</span>
+3 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,30 +381,263 @@ a min to read</span>
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->
-  9）jstl 的标签：<!-- raw HTML omitted -->
-  <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>   10）数据库记录：  <!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+          <h3>Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建</h3>
+<p><br>
+</p>
+<p>用Hibernate帮助建立SpringMVC与数据库之间的联系，通过配置DAO层，Service层，Model层，建立Controller对数据库操作的通道。</p>
+<p>这里没有使用maven来管理jar包（依赖库），因为没太多，实际上还是很繁琐的，要有耐心。</p>
+<p>原本稍微复杂的工程项目还是应该使用maven来管理依赖库，参见：<a target="_blank" target="_blank" href="http://tieba.baidu.com/p/2364606122?pn=1">http://tieba.baidu.com/p/2364606122?pn=1</a></p>
+<p><br>
+</p>
+<p>下面记录一下依赖包搭建过程：</p>
+<p>DAO - SERVICE -&nbsp;</p>
+<p><br>
+</p>
+<h4>1.在eclipse中新建项目：</h4>
+<p><span style="white-space:pre"></span>&nbsp; &nbsp;&nbsp;&nbsp;new-project-Dynamic Web Project（name: spring_user）</p>
+<h4>2. insert jar packages:</h4>
+&nbsp; &nbsp; &nbsp; 参考如图，导入jar包到目标位置<span style="white-space:pre"> </span>：<br>
+<img src="http://img.blog.csdn.net/20141126151447350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+<p>&nbsp; &nbsp; &nbsp; Download .jar files from:&nbsp;<a target="_blank" target="_blank" href="http://jarfiles.pandaidea.com">http://jarfiles.pandaidea.com</a>&nbsp; or&nbsp;<a target="_blank" target="_blank" href="http://mvnrepository.com/">http://mvnrepository.com/</a></p>
+<p>&nbsp; &nbsp; &nbsp; 1)spring-reamework-release-3.1.3\dist</p>
+<p><img src="http://img.blog.csdn.net/20141126151242296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""></p>
+<p><br>
+</p>
+<p><span style="white-space:pre"></span>2)apache-log4j-1.2.16.jar<br>
+<img src="http://img.blog.csdn.net/20141126151755752?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<span style="white-space:pre"></span>3)commons-logging-1.1.1 &nbsp; 用于登录<br>
+<img src="http://img.blog.csdn.net/20141126151910632?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+<p><br>
+</p>
+<p><span style="white-space:pre"></span>4)hibernate-distribution-3.6.8 Final\lib\required（hibernate用3、4都可以）<br>
+<img src="http://img.blog.csdn.net/20141126152140190?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<p><br>
+</p>
+<p><span style="white-space:pre"></span>5)jpa<br>
+<img src="http://img.blog.csdn.net/20141126152230297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<pre>    hibernate-jpa-2.0-api-1.0.0.Final.jar</pre>
+<p><span style="white-space:pre"></span>6)hibernate3<br>
+<img src="http://img.blog.csdn.net/20141126152405332?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<pre>    hibernate3.jar
+    slf4j-log4j12-1.6.1.jar</pre>
+<p><span style="white-space:pre"></span>7)hlfa/dbcp/aop/jstl<br>
+<img src="http://img.blog.csdn.net/20141126160808429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<pre>    aopalliance.jar
+    aspectjrt.jar
+    aspectjweaver.jar</pre>
+<p></p>
+<p>&nbsp; 8）dbcp 数据引导性文件<br>
+<img src="http://img.blog.csdn.net/20141126161213531?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<p></p>
+<pre>&nbsp; &nbsp; commons-collections-3.1.jar
+&nbsp; &nbsp; commons-dbcp.jar
+&nbsp; &nbsp; commons-pool.jar
+<p></pre>
+  9）jstl 的标签：<br>
+  <img src="http://img.blog.csdn.net/20141126161540721?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br></p>
+<pre>    jsf-api.jar
+    jsf-impl.jar
+    jstl-1.2.jar
+
+</pre>
+<p>   10）数据库记录：  <br></p>
+<pre>&nbsp; &nbsp; mysql-connector-java-5.1.17-bin.jar</pre>
+<p></p>
+<p>&nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141204101300625?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""></p>
+<p><br>
+&nbsp; ...</p>
+<p></p>
+<h3>3. 建立model层的Pakage:</h3>
+&nbsp; &nbsp; &nbsp; &nbsp; New Java Package: zttc.itat.model，如图：
+<p></p>
+<p><img src="http://img.blog.csdn.net/20141126152645654?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<br>
+<h4>4. model下，建立一个类</h4>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; zttc.itat.model &gt;&gt; New Java Class</p>
+<p><span style="white-space:pre"></span>&nbsp; &nbsp; &nbsp; &nbsp; Name: User<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141126152925000?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141126153114140?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<p>----------</p>
+<p></p>
+<pre code_snippet_id="533584" snippet_file_name="blog_20141126_1_667878"  code_snippet_id="533584" snippet_file_name="blog_20141126_1_667878" name="code" class="java">   @Entity
+   @Table(name=&quot;t_user&quot;)    //创建一张表
+   pulic class User{ 
+     private int id;
+     private String username;
+     private String password;
+     private String email;
+     private String nickname;  
+   }
 <h2 id="后面就是其他参数的get-set-方法prebr">@GenerateValue
 @Id
 public int getId(){
 return Id;
 }
-&hellip;//后面就是其他参数的Get Set 方法<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
-<!-- raw HTML omitted -->
+&hellip;//后面就是其他参数的Get Set 方法</pre><br></h2>
+<p></p>
+<pre code_snippet_id="533584" snippet_file_name="blog_20141126_1_1533318"  code_snippet_id="533584" snippet_file_name="blog_20141126_1_1533318" name="code" class="java">
+</pre><br>
+<span style="white-space:pre"></span><strong>&nbsp; &nbsp; &nbsp; &nbsp; 1)add getter &amp; setter增加Get Setter:<br>
+</strong><img src="http://img.blog.csdn.net/20141126153507616?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+&nbsp; &nbsp; &nbsp; &nbsp;Select all &gt;&gt; finish.<br>
+<span style="white-space:pre"></span>&nbsp; &nbsp; &nbsp; &nbsp;2)add @Entity....<br>
+<span style="white-space:pre"></span>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;此时我们再把分页的class加上： new package at zttc.itat.model &gt;&gt; new &gt;&gt; class &gt;&gt; Pager.java<br>
+<img src="http://img.blog.csdn.net/20141203170420799?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="3" alt=""><br>
+</p>
+<h4>5. Spring 和Hibernate的整合</h4>
+<p></p>
+<p style="color:rgb(51,51,51); font-family:Arial; font-size:14px; line-height:26px">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;打开数据库，新建一个database:spring_user&nbsp;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;database charset:utf-8<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;database collection: utf-8<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141126162525187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>bean.xml</strong>文件的coding：<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 从别处拷过来一个src\bean.xml:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141126162447283?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="2" hspace="1" alt=""><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;beans.xml -- 改为zttc.itat...<br>
+</p>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; 再改一下jdbc.properties：指定mysql数据库名： jdbc.url = jdbc:mysql://localhost:3306/spring_user</pre>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;参考（SpringMVC &#43; Spring &#43; SpringJDBC整合）：<a target="_blank" target="_blank" href="http://www.open-open.com/lib/view/open1349272132291.html">http://www.open-open.com/lib/view/open1349272132291.html</a></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;参考：&nbsp;<a target="_blank" target="_blank" href="http://www.blogjava.net/yiqi801218/archive/2008/03/16/186670.html">http://www.blogjava.net/yiqi801218/archive/2008/03/16/186670.html</a><br>
+</p>
+<p><span style="white-space:pre"><img src="http://img.blog.csdn.net/20141126165119485?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""></span></p>
+<br>
+<br>
+<h3>6. 写DAO层： zttc.itat.dao</h3>
+&nbsp; &nbsp; &nbsp; &nbsp;<strong> 新建一个package</strong>, name: <strong>zttc.itat.dao</strong><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141126165409041?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<strong>再建一个Interface：IUserDao.java</strong><br>
+&nbsp; &nbsp; &nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141126165614812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""></p>
+&nbsp; &nbsp; &nbsp; &nbsp; 参考代码：<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<pre code_snippet_id="533584" snippet_file_name="blog_20141126_3_4619145"  code_snippet_id="533584" snippet_file_name="blog_20141126_3_4619145" name="code" class="java">//这里面有一些简单的方法：
+    package zttc.itat.dao;
+    public interface IUserDao {
+        public void add(User user);
+        public void update(User user);
+        public void delete(int id);
+        public User load(int id);
+        public List&lt;User&gt; list();
+	public Pager&lt;User&gt; find();  //分页的method声明
+        public User loadByUsername(String username);
 <pre><code>}&lt;/pre&gt;&lt;br&gt;
 </code></pre>
-<p>        如图：<!-- raw HTML omitted -->
-        <!-- raw HTML omitted --><!-- raw HTML omitted -->
-        <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>        如图：<br>
+        <img src="http://img.blog.csdn.net/20141203171757055?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+        <br>
+<br>
+<span style="white-space:pre"></span></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>再建立一个类：UserDao - UserDao.java, Add IUserDao里的方法进来：</strong></p>
+<p><strong>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141126171529913?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""></strong></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 完了我们要继承DaoSupport, 要注入SessionFactory, 还要自己写一个方法public void setsuperSessionFactory(). &nbsp;再用Repository来注入一下,名称：(&quot;userDao&quot;)。<br>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141126172059500?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""></p>
+<p><br>
+</p>
+<h4>7. 写UserException（zttc.itat.modelpackage下）: New -&gt; Class -&gt; UserException (Superclass: java.lang.RuntimeException)</h4>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;UserException.java : Add default serial version ID</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;RightClick &gt;&gt; Source &gt;&gt; Generate Constructors from Superclass &gt;&gt; select all, 父类构造下来</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp;UserException.java完成。<br>
+&nbsp; &nbsp; &nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141212180547159?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+</div>
+<div>
+<h4>8. 写SystemContext.java支持分页操作</h4>
+<p>&nbsp; &nbsp; &nbsp; 传分页还得传当前页、每页显示多少条这几个数据传过来。所以要创建一个thread local</p>
+<p>&nbsp; &nbsp; &nbsp; newClass: Source folder=spring_user/src, Package=zttc.itat.model &nbsp; name=SystemContext</p>
+<p>&nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141129213407940?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="3" alt=""></p>
+<div><br>
+</div>
+<br>
+</div>
+<h4>9. &nbsp;写Dao层各个方法，支持增删改查。文件：UserDao.java</h4>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;8.1 public void add(User user){ &nbsp; } &nbsp; 方法：<br>
+</p>
+<pre><span style="font-weight:normal">&nbsp; &nbsp; &nbsp; &nbsp; public void add(User user){
+</span><span style="font-weight:normal">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.getHibernateTemplate().save(user);
+</span><span style="font-weight:normal">        }</span></pre>
+<img src="http://img.blog.csdn.net/20141129212551204?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="3" alt=""><br>
+&nbsp; &nbsp; &nbsp; 在UserDao.java中再写Pager相关操作：
+<p></p>
+<h5>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141128165920346?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="3" alt=""></p>
+<p><span style="font-weight:normal"><span style="white-space:pre"></span>&nbsp; &nbsp; 如上图所示，完成add\update\delete\load\list等：</span></p>
+<p></p>
+<pre><span style="font-size:14px">&nbsp; &nbsp;return this.getSession().creatQuery(&quot;from User&quot;).list(); &nbsp; &nbsp; //下图补充一下上图。</span></pre>
+<p></p>
+</h5>
+<p><img src="http://img.blog.csdn.net/20141203170912718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+</p>
+<p>再加一个方法：<br>
+&nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141203172032015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""></p>
+<h3>接下来我们完成Service层 ===----------</h3>
+<div><br>
+</div>
+<h4>10. 新建一个package: &nbsp;<strong>zttc.itat.service</strong> Package</h4>
+<span style="white-space:pre"></span>&nbsp; &nbsp; &nbsp; 10.1 &nbsp; New Interface: IUserService.java/<br>
+<img src="http://img.blog.csdn.net/20141204091728894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+<br>
+<h4>11. UserService.java</h4>
+<p>&nbsp; &nbsp; &nbsp; 新建一个Class:</p>
+<p>&nbsp; &nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141204092028091?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; Coding in UserService.java:</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<h4>12. 写SystemContextFilter</h4>
+<p></p>
+<p>&nbsp; &nbsp; &nbsp;新建一个Class:<strong>SystemContextFilter.java</strong></p>
+<p><img src="http://img.blog.csdn.net/20141204093548937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""></p>
+&nbsp; &nbsp; &nbsp; &nbsp;这里有很多Coding的内容，视频时间：<img src="http://img.blog.csdn.net/20141204094122895?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" hspace="1" alt="">至：<br>
+&nbsp; &nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141204094259218?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+<h4>15. 写web.xml</h4>
+<p>&nbsp; &nbsp; &nbsp;先打开dispatcher:&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp;再写mapping：</p>
+<p>&nbsp; &nbsp; &nbsp;再拷字符编码部分：</p>
+<p>&nbsp; &nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141204092955948?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp;还有把bean.xml加入监听：</p>
+<p>&nbsp; &nbsp; &nbsp;OpenSessionInWiew</p>
+<p>&nbsp; &nbsp; &nbsp;SystemContext</p>
+<p>&nbsp; &nbsp; &nbsp;Filter（<span style="color:#ff0000">zttc.itat.web.SystemContextFilter</span>）</p>
+<p>&nbsp; &nbsp; &nbsp;FilterMapping</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p><br>
+</p>
+<h4>15. 创建Spring的Bean文件： user-servlet.xml</h4>
+<p>&nbsp; &nbsp;&nbsp;<img src="http://img.blog.csdn.net/20141204094610279?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; beans, context, mvc这三个Desired XSD namespace declaration必须要选。</p>
+<p>&nbsp; &nbsp; &nbsp; 在这里面要配这几个东西：参考：<a target="_blank" target="_blank" href="http://blog.csdn.net/kivenlee/article/details/6284732">http://blog.csdn.net/kivenlee/article/details/6284732</a></p>
+<p></p>
+<ul>
+<li>mvc</li><li>context:component-scan</li><li>bean class=&quot;...InternalResourceViewResolver&quot;</li><li>其他异常那些东西就后面慢慢配了</li></ul>
+<p></p>
+<br>
+<h3>新建Controller投入实际测试</h3>
+<h4>16. 新建UserController.java</h4>
+<img src="http://img.blog.csdn.net/20141204100920625?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+<p>&nbsp; &nbsp; &nbsp;<img src="http://img.blog.csdn.net/20141204101934118?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""></p>
+<h4>17. 写WEB-INF/jsp/user/list.jsp</h4>
+<img src="http://img.blog.csdn.net/20141204102108124?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+&nbsp; 写入： &lt;h1&gt;用户列表测试页面&lt;/h1&gt;<br>
+<br>
+<p>===========至此搞定，测试一下 ===========</p>
+<p>Run &gt;&gt; Tomcat ，启动调试，http://localhost:8080/spring_user/user/users无问题。</p>
+<p>看看数据库，也建起来了：</p>
+<p><img src="http://img.blog.csdn.net/20141204102448349?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="5" alt=""><br>
+</p>
+<br>
+<p>好累。。。</p>
 
 
 
@@ -315,7 +700,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20141126073700%2f&title=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b012%20%e2%80%94%e2%80%94%20SpringMVC%2bHibernate%e5%bc%80%e5%8f%91%ef%bc%881%ef%bc%89%e4%be%9d%e8%b5%96%e5%8c%85%e6%90%ad%e5%bb%ba">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141126073700%2f&title=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b012%20%e2%80%94%e2%80%94%20SpringMVC%2bHibernate%e5%bc%80%e5%8f%91%ef%bc%881%ef%bc%89%e4%be%9d%e8%b5%96%e5%8c%85%e6%90%ad%e5%bb%ba">
           
 
 
@@ -341,7 +726,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 on twitter"
-          href="https://twitter.com/intent/tweet/?text=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b012%20%e2%80%94%e2%80%94%20SpringMVC%2bHibernate%e5%bc%80%e5%8f%91%ef%bc%881%ef%bc%89%e4%be%9d%e8%b5%96%e5%8c%85%e6%90%ad%e5%bb%ba&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20141126073700%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=Spring%20MVC%20%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b012%20%e2%80%94%e2%80%94%20SpringMVC%2bHibernate%e5%bc%80%e5%8f%91%ef%bc%881%ef%bc%89%e4%be%9d%e8%b5%96%e5%8c%85%e6%90%ad%e5%bb%ba&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141126073700%2f&amp;hashtags=">
           
 
 
@@ -367,7 +752,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20141126073700%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20141126073700%2f">
           
 
 
@@ -397,6 +782,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -404,6 +815,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -421,7 +842,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -432,7 +853,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

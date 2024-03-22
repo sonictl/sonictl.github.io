@@ -20,22 +20,22 @@
   <meta name="color-scheme" content="dark light">
   <meta name="description" content="Python中生成器的原理与使用详解 原创牛大财有大才 发布于2018-09-05 14:36:38
 0.range() 函数，其功能是创建一个整数列表，一般用在 for 循环中 语法格式：range(start, stop, step)，参数使用参考如下：
-*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2." />
-  <meta name="author" content="">
+*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2. print(ls2) # [3, 5, 7, 9] ls3 =[x for x in range(0, -10, -1)] #负数的使用 print(ls3) #[0, -1, -2, -3, -4, -5, -6, -7, -8, -9] print(range(0)) #range(0, 0) print(range(1,0)) #range(1, 0) 1." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>Introduction of Generator in Python | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20191216034900/" />
+  <title>Introduction of Generator in Python | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20191216034900/" />
   
 
   
   <meta property="og:type" content="article" />
   <meta property="og:description" content="Python中生成器的原理与使用详解 原创牛大财有大才 发布于2018-09-05 14:36:38
 0.range() 函数，其功能是创建一个整数列表，一般用在 for 循环中 语法格式：range(start, stop, step)，参数使用参考如下：
-*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2." />
+*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2. print(ls2) # [3, 5, 7, 9] ls3 =[x for x in range(0, -10, -1)] #负数的使用 print(ls3) #[0, -1, -2, -3, -4, -5, -6, -7, -8, -9] print(range(0)) #range(0, 0) print(range(1,0)) #range(1, 0) 1." />
   <meta property="og:title" content="Introduction of Generator in Python" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20191216034900/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20191216034900/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -46,15 +46,15 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction of Generator in Python | My New Hugo Site" />
+  <meta name="twitter:title" content="Introduction of Generator in Python | Combine Art and Sciences" />
   <meta name="twitter:description" content="Python中生成器的原理与使用详解 原创牛大财有大才 发布于2018-09-05 14:36:38
 0.range() 函数，其功能是创建一个整数列表，一般用在 for 循环中 语法格式：range(start, stop, step)，参数使用参考如下：
-*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2." />
-  <meta name="twitter:domain" content="http://example.org/posts/p20191216034900/" />
+*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）* *stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5* step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1) #使用range函数建立列表 ls =[x*2 for x in range(10)] print(ls)#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18] ls1 = [x for x in range(0,10,2)] #步长是2. print(ls1) #[0, 2, 4, 6, 8] ls2 = [x for x in range(3,10,2)] #开始从3开始，步长是2. print(ls2) # [3, 5, 7, 9] ls3 =[x for x in range(0, -10, -1)] #负数的使用 print(ls3) #[0, -1, -2, -3, -4, -5, -6, -7, -8, -9] print(range(0)) #range(0, 0) print(range(1,0)) #range(1, 0) 1." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20191216034900/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -71,13 +71,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -112,13 +141,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -158,17 +211,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20191216034900/">Introduction of Generator in Python</a>
+  <a href="https://sonictl.github.io/posts/p20191216034900/">Introduction of Generator in Python</a>
 </li>
 
 </ol>
@@ -228,6 +281,51 @@
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
 2 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -243,147 +341,147 @@
 <li><em><strong>*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）*</strong></em></li>
 <li><em><strong>*stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5*</strong></em></li>
 <li><strong>step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1)</strong>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#使用range函数建立列表</span>
-</span></span><span style="display:flex;"><span>ls <span style="color:#f92672">=</span>[x<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)]
-</span></span><span style="display:flex;"><span>print(ls)<span style="color:#75715e">#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
-</span></span><span style="display:flex;"><span>ls1 <span style="color:#f92672">=</span> [x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">2</span>)]   <span style="color:#75715e">#步长是2.</span>
-</span></span><span style="display:flex;"><span>print(ls1) <span style="color:#75715e">#[0, 2, 4, 6, 8]</span>
-</span></span><span style="display:flex;"><span>ls2 <span style="color:#f92672">=</span> [x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">2</span>)]  <span style="color:#75715e">#开始从3开始，步长是2.</span>
-</span></span><span style="display:flex;"><span>print(ls2) <span style="color:#75715e"># [3, 5, 7, 9]</span>
-</span></span><span style="display:flex;"><span>ls3 <span style="color:#f92672">=</span>[x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)] <span style="color:#75715e">#负数的使用</span>
-</span></span><span style="display:flex;"><span>print(ls3)  <span style="color:#75715e">#[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]</span>
-</span></span><span style="display:flex;"><span>print(range(<span style="color:#ae81ff">0</span>))  <span style="color:#75715e">#range(0, 0)</span>
-</span></span><span style="display:flex;"><span>print(range(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#75715e">#range(1, 0)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#使用range函数建立列表</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls</span> <span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span><span class="c1">#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>   <span class="c1">#步长是2.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls1</span><span class="p">)</span> <span class="c1">#[0, 2, 4, 6, 8]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>  <span class="c1">#开始从3开始，步长是2.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls2</span><span class="p">)</span> <span class="c1"># [3, 5, 7, 9]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls3</span> <span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="c1">#负数的使用</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls3</span><span class="p">)</span>  <span class="c1">#[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1">#range(0, 0)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1">#range(1, 0)</span>
 </span></span></code></pre></div></li>
 </ul>
 <h1 id="1生成器的创建与元素迭代遍历">1.生成器的创建与元素迭代遍历<a hidden class="heading-anchor" aria-hidden="true" href="#1生成器的创建与元素迭代遍历">#</a></h1>
 <h3 id="11创建生成器方法1只要把一个列表生成式的---改成--"><strong>1.1创建生成器方法1：只要把一个列表生成式的 [ ] 改成 ( )</strong><a hidden class="heading-anchor" aria-hidden="true" href="#11创建生成器方法1只要把一个列表生成式的---改成--">#</a></h3>
 <p><em><strong>*生成器(generator)其实是一类特殊的迭代器*</strong></em>。前面博客我们每次迭代获取数据（通过next()方法）时按照特定的规律进行生成。但是我们在实现一个迭代器时，关于当前迭代到的状态需要我们自己记录，进而才能根据当前状态生成下一个数据。<strong>为了达到记录当前状态，并配合next()函数进行迭代使用，python就搞了个生成器</strong>。所以说****生成器(generator)其实是一类特殊的迭代器****。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#1.创建生成器</span>
-</span></span><span style="display:flex;"><span>ls <span style="color:#f92672">=</span> [x<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)]
-</span></span><span style="display:flex;"><span>generator1 <span style="color:#f92672">=</span>(x<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)) <span style="color:#75715e">#这是一个生成器generator</span>
-</span></span><span style="display:flex;"><span>print(ls)
-</span></span><span style="display:flex;"><span>print(generator1) <span style="color:#75715e">#注意，打印生成器，不会像列表一样打印他的值，而是地址。</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;generator object &lt;genexpr&gt; at 0x00000239FE00A620&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#1.创建生成器</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="n">generator1</span> <span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1">#这是一个生成器generator</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">generator1</span><span class="p">)</span> <span class="c1">#注意，打印生成器，不会像列表一样打印他的值，而是地址。</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;generator object &lt;genexpr&gt; at 0x00000239FE00A620&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
 </span></span></code></pre></div><h3 id="11遍历生成器内容"><strong>1.1遍历生成器内容</strong><a hidden class="heading-anchor" aria-hidden="true" href="#11遍历生成器内容">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>遍历生成器对象中的内容<span style="color:#960050;background-color:#1e0010">：</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1.</span>方法1<span style="color:#f92672">.</span>使用for循环遍历
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> generator1:
-</span></span><span style="display:flex;"><span>    print(i)
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#方法2：命令行使用next()函数：调用next(G) ，就计算出 G 的下一个元素的值，直到计算到最后一个元素</span>
-</span></span><span style="display:flex;"><span>没有更多的元素时<span style="color:#960050;background-color:#1e0010">，</span>抛出 <span style="color:#a6e22e">StopIteration</span> 的异常<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> generator1 <span style="color:#f92672">=</span>(x<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">5</span>))
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> next(generator1)
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> next(generator1)
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> next(generator1)
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> next(generator1)
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> next(generator1)
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> next(generator1)
-</span></span><span style="display:flex;"><span>Traceback (most recent call last):
-</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">StopIteration</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2.</span>方法2<span style="color:#f92672">.</span>python脚本使用next()方法<span style="color:#960050;background-color:#1e0010">，</span>实际开发中是通过for循环来实现遍历<span style="color:#960050;background-color:#1e0010">，</span>这种next()方法太麻烦<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>g1 <span style="color:#f92672">=</span>(x<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">5</span>))
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
-</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> next(g1)
-</span></span><span style="display:flex;"><span>        print(x)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">StopIteration</span> <span style="color:#66d9ef">as</span>  e :
-</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;values=</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">%</span>e<span style="color:#f92672">.</span>value)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span> <span style="color:#75715e">#注意这里要加break,否则会死循环。</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;结果如下：
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">0
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">4
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">6
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">values=None
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3.</span>方法3<span style="color:#960050;background-color:#1e0010">：</span>使用对象自带的__next__()方法<span style="color:#960050;background-color:#1e0010">，</span>效果等同于next(g1)函数
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> g1 <span style="color:#f92672">=</span>(x<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">5</span>))
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> g1<span style="color:#f92672">.</span>__next__()
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> g1<span style="color:#f92672">.</span>__next__()
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> g1<span style="color:#f92672">.</span>__next__()
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> g1<span style="color:#f92672">.</span>__next__()
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> g1<span style="color:#f92672">.</span>__next__()
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> g1<span style="color:#f92672">.</span>__next__()
-</span></span><span style="display:flex;"><span>Traceback (most recent call last):
-</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">StopIteration</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">遍历生成器对象中的内容</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="mf">1.</span><span class="n">方法1</span><span class="o">.</span><span class="n">使用for循环遍历</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">generator1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">#方法2：命令行使用next()函数：调用next(G) ，就计算出 G 的下一个元素的值，直到计算到最后一个元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">没有更多的元素时</span><span class="err">，</span><span class="n">抛出</span> <span class="ne">StopIteration</span> <span class="n">的异常</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">generator1</span> <span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">generator1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">generator1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">generator1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">generator1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">6</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">generator1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">generator1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">StopIteration</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2.</span><span class="n">方法2</span><span class="o">.</span><span class="n">python脚本使用next</span><span class="p">()</span><span class="n">方法</span><span class="err">，</span><span class="n">实际开发中是通过for循环来实现遍历</span><span class="err">，</span><span class="n">这种next</span><span class="p">()</span><span class="n">方法太麻烦</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">g1</span> <span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span>  <span class="n">e</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;values=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="o">%</span><span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span> <span class="c1">#注意这里要加break,否则会死循环。</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;结果如下：
+</span></span></span><span class="line"><span class="cl"><span class="s1">0
+</span></span></span><span class="line"><span class="cl"><span class="s1">2
+</span></span></span><span class="line"><span class="cl"><span class="s1">4
+</span></span></span><span class="line"><span class="cl"><span class="s1">6
+</span></span></span><span class="line"><span class="cl"><span class="s1">8
+</span></span></span><span class="line"><span class="cl"><span class="s1">values=None
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="n">方法3</span><span class="err">：</span><span class="n">使用对象自带的__next__</span><span class="p">()</span><span class="n">方法</span><span class="err">，</span><span class="n">效果等同于next</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span><span class="n">函数</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">g1</span> <span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">g1</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">g1</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">g1</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">g1</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mi">6</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">g1</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">g1</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">StopIteration</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span>
 </span></span></code></pre></div><h3 id="12创建生成器方法2使用yield函数创建生成器"><strong>1.2创建生成器方法2:使用yield函数创建生成器。</strong><a hidden class="heading-anchor" aria-hidden="true" href="#12创建生成器方法2使用yield函数创建生成器">#</a></h3>
 <p>generator非常强大。如果推算的算法比较复杂，用类似列表生成式的 for 循环无法实现的时候，还可以用函数来实现。<strong>简单来说：只要在def中有yield关键字的 就称为 生成器</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#著名的斐波拉契数列（Fibonacci）:除第一个和第二个数外，任意一个数都可由前两个数相加得到</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#1.举例：1, 1, 2, 3, 5, 8, 13, 21, 34, ...使用函数实现打印数列的任意前n项。</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fib</span>(times): <span style="color:#75715e">#times表示打印斐波拉契数列的前times位。</span>
-</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>    a,b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> n<span style="color:#f92672">&lt;</span>times:
-</span></span><span style="display:flex;"><span>        print(b)
-</span></span><span style="display:flex;"><span>        a,b <span style="color:#f92672">=</span> b,a<span style="color:#f92672">+</span>b
-</span></span><span style="display:flex;"><span>        n<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;done&#39;</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>fib(<span style="color:#ae81ff">10</span>)  <span style="color:#75715e">#前10位：1 1 2 3 5 8 13 21 34 55</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#2.将print(b)换成yield b,则函数会变成generator生成器。</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#yield b功能是：每次执行到有yield的时候，会返回yield后面b的值给函数并且函数会暂停，直到下次调用或迭代终止；</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fib</span>(times): <span style="color:#75715e">#times表示打印斐波拉契数列的前times位。</span>
-</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>    a,b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> n<span style="color:#f92672">&lt;</span>times:
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> b  
-</span></span><span style="display:flex;"><span>        a,b <span style="color:#f92672">=</span> b,a<span style="color:#f92672">+</span>b
-</span></span><span style="display:flex;"><span>        n<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;done&#39;</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>print(fib(<span style="color:#ae81ff">10</span>))  <span style="color:#75715e">#&lt;generator object fib at 0x000001659333A3B8&gt;</span>
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3.</span>对生成器进行迭代遍历元素
-</span></span><span style="display:flex;"><span>方法1<span style="color:#960050;background-color:#1e0010">：</span>使用for循环
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> fib(<span style="color:#ae81ff">6</span>):
-</span></span><span style="display:flex;"><span>    print(x)
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;&#39;结果如下，发现如何生成器是函数的话，使用for遍历，无法获取函数的返回值。
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">5
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>方法2:使用next()函数来遍历迭代<span style="color:#960050;background-color:#1e0010">，</span>可以获取生成器函数的返回值<span style="color:#960050;background-color:#1e0010">。</span>同理也可以使用自带的__next__()函数<span style="color:#960050;background-color:#1e0010">，</span>效果一样
-</span></span><span style="display:flex;"><span>f <span style="color:#f92672">=</span> fib(<span style="color:#ae81ff">6</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:  <span style="color:#75715e">#因为不停调用next会报异常，所以要捕捉处理异常。</span>
-</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> next(f)  <span style="color:#75715e">#注意这里不能直接写next(fib(6)),否则每次都是重复调用1</span>
-</span></span><span style="display:flex;"><span>        print(x)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">StopIteration</span> <span style="color:#66d9ef">as</span> e:
-</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;生成器返回值:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">%</span>e<span style="color:#f92672">.</span>value)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;结果如下：
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">5
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">8
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">生成器返回值:done
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#著名的斐波拉契数列（Fibonacci）:除第一个和第二个数外，任意一个数都可由前两个数相加得到</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#1.举例：1, 1, 2, 3, 5, 8, 13, 21, 34, ...使用函数实现打印数列的任意前n项。</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">times</span><span class="p">):</span> <span class="c1">#times表示打印斐波拉契数列的前times位。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">n</span><span class="o">&lt;</span><span class="n">times</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s1">&#39;done&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1">#前10位：1 1 2 3 5 8 13 21 34 55</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">#2.将print(b)换成yield b,则函数会变成generator生成器。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#yield b功能是：每次执行到有yield的时候，会返回yield后面b的值给函数并且函数会暂停，直到下次调用或迭代终止；</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">times</span><span class="p">):</span> <span class="c1">#times表示打印斐波拉契数列的前times位。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">n</span><span class="o">&lt;</span><span class="n">times</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">b</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s1">&#39;done&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1">#&lt;generator object fib at 0x000001659333A3B8&gt;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="n">对生成器进行迭代遍历元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">方法1</span><span class="err">：</span><span class="n">使用for循环</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;&#39;结果如下，发现如何生成器是函数的话，使用for遍历，无法获取函数的返回值。
+</span></span></span><span class="line"><span class="cl"><span class="s1">1
+</span></span></span><span class="line"><span class="cl"><span class="s1">1
+</span></span></span><span class="line"><span class="cl"><span class="s1">2
+</span></span></span><span class="line"><span class="cl"><span class="s1">3
+</span></span></span><span class="line"><span class="cl"><span class="s1">5
+</span></span></span><span class="line"><span class="cl"><span class="s1">8
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">方法2</span><span class="p">:</span><span class="n">使用next</span><span class="p">()</span><span class="n">函数来遍历迭代</span><span class="err">，</span><span class="n">可以获取生成器函数的返回值</span><span class="err">。</span><span class="n">同理也可以使用自带的__next__</span><span class="p">()</span><span class="n">函数</span><span class="err">，</span><span class="n">效果一样</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>  <span class="c1">#因为不停调用next会报异常，所以要捕捉处理异常。</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1">#注意这里不能直接写next(fib(6)),否则每次都是重复调用1</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;生成器返回值:</span><span class="si">%s</span><span class="s2">&#34;</span><span class="o">%</span><span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;结果如下：
+</span></span></span><span class="line"><span class="cl"><span class="s1">1
+</span></span></span><span class="line"><span class="cl"><span class="s1">1
+</span></span></span><span class="line"><span class="cl"><span class="s1">2
+</span></span></span><span class="line"><span class="cl"><span class="s1">3
+</span></span></span><span class="line"><span class="cl"><span class="s1">5
+</span></span></span><span class="line"><span class="cl"><span class="s1">8
+</span></span></span><span class="line"><span class="cl"><span class="s1">生成器返回值:done
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
 </span></span></code></pre></div><h3 id="生成器使用总结">生成器使用总结：<a hidden class="heading-anchor" aria-hidden="true" href="#生成器使用总结">#</a></h3>
 <h3 id="1生成器的好处是可以一边循环一边进行计算不用一下子就生成一个很大的集合占用内存空间生成器的使用节省内存空间">1.生成器的好处是可以一边循环一边进行计算，不用一下子就生成一个很大的集合，占用内存空间。生成器的使用节省内存空间。<a hidden class="heading-anchor" aria-hidden="true" href="#1生成器的好处是可以一边循环一边进行计算不用一下子就生成一个很大的集合占用内存空间生成器的使用节省内存空间">#</a></h3>
 <h3 id="2生成器保存的是算法而列表保存的计算后的内容所以同样内容的话生成器占用内存小而列表占用内存大每次调用-nextg-就计算出-g-的下一个元素的值直到计算到最后一个元素没有更多的元素时抛出-stopiteration-的异常">2.生成器保存的是算法，而列表保存的计算后的内容，所以同样内容的话生成器占用内存小，而列表占用内存大。每次调用 next(G) ，就计算出 G 的下一个元素的值，直到计算到最后一个元素，没有更多的元素时，抛出 StopIteration 的异常。<a hidden class="heading-anchor" aria-hidden="true" href="#2生成器保存的是算法而列表保存的计算后的内容所以同样内容的话生成器占用内存小而列表占用内存大每次调用-nextg-就计算出-g-的下一个元素的值直到计算到最后一个元素没有更多的元素时抛出-stopiteration-的异常">#</a></h3>
@@ -452,7 +550,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share Introduction of Generator in Python on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20191216034900%2f&title=Introduction%20of%20Generator%20in%20Python">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20191216034900%2f&title=Introduction%20of%20Generator%20in%20Python">
           
 
 
@@ -478,7 +576,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share Introduction of Generator in Python on twitter"
-          href="https://twitter.com/intent/tweet/?text=Introduction%20of%20Generator%20in%20Python&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20191216034900%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=Introduction%20of%20Generator%20in%20Python&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20191216034900%2f&amp;hashtags=">
           
 
 
@@ -504,7 +602,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share Introduction of Generator in Python on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20191216034900%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20191216034900%2f">
           
 
 
@@ -534,6 +632,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -541,6 +665,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -558,7 +692,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -569,7 +703,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

@@ -18,20 +18,36 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" " />
-  <meta name="author" content="">
+  <meta name="description" content="(写在前面： 这里参考rbx书中第八章和ROS社区教程进行学习，先看社区教程)
+&nbsp; ===&nbsp; Doing the Turtlebot Navigation&nbsp;&nbsp; === ref ros wiki: http://wiki.ros.org/turtlebot_navigation/Tutorials
+1. Create the Data under remote control
+Referring the RBX book(8.4.2 Collecting and Recording Scan Data), then log into the TurtleBot&#39;s laptop and run:
+&nbsp; $ roslaunch rbx1_bringup turtlebot_minimal_create.launch
+Replace the above command with the appropriate launch file for your own robot if you have one.
+Next, log into the TurtleBot using another terminal window and run the command:
+&nbsp; $ roslaunch rbx1_bringup fake_laser.launch
+(If you have a real laser scanner, you would run its launch file here instead of the fake" />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20160202055600/" />
+  <title>ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20160202055600/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" " />
+  <meta property="og:description" content="(写在前面： 这里参考rbx书中第八章和ROS社区教程进行学习，先看社区教程)
+&nbsp; ===&nbsp; Doing the Turtlebot Navigation&nbsp;&nbsp; === ref ros wiki: http://wiki.ros.org/turtlebot_navigation/Tutorials
+1. Create the Data under remote control
+Referring the RBX book(8.4.2 Collecting and Recording Scan Data), then log into the TurtleBot&#39;s laptop and run:
+&nbsp; $ roslaunch rbx1_bringup turtlebot_minimal_create.launch
+Replace the above command with the appropriate launch file for your own robot if you have one.
+Next, log into the TurtleBot using another terminal window and run the command:
+&nbsp; $ roslaunch rbx1_bringup fake_laser.launch
+(If you have a real laser scanner, you would run its launch file here instead of the fake" />
   <meta property="og:title" content="ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20160202055600/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20160202055600/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +58,21 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM | My New Hugo Site" />
-  <meta name="twitter:description" content=" " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20160202055600/" />
+  <meta name="twitter:title" content="ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM | Combine Art and Sciences" />
+  <meta name="twitter:description" content="(写在前面： 这里参考rbx书中第八章和ROS社区教程进行学习，先看社区教程)
+&nbsp; ===&nbsp; Doing the Turtlebot Navigation&nbsp;&nbsp; === ref ros wiki: http://wiki.ros.org/turtlebot_navigation/Tutorials
+1. Create the Data under remote control
+Referring the RBX book(8.4.2 Collecting and Recording Scan Data), then log into the TurtleBot&#39;s laptop and run:
+&nbsp; $ roslaunch rbx1_bringup turtlebot_minimal_create.launch
+Replace the above command with the appropriate launch file for your own robot if you have one.
+Next, log into the TurtleBot using another terminal window and run the command:
+&nbsp; $ roslaunch rbx1_bringup fake_laser.launch
+(If you have a real laser scanner, you would run its launch file here instead of the fake" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20160202055600/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +89,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +159,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +229,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20160202055600/">ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM</a>
+  <a href="https://sonictl.github.io/posts/p20160202055600/">ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM</a>
 </li>
 
 </ol>
@@ -220,8 +297,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-0 mins to read</span>
+5 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,7 +351,138 @@
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
+          <p>(写在前面： 这里参考rbx书中第八章和ROS社区教程进行学习，先看<a target="_blank" target="_blank" href="http://wiki.ros.org/turtlebot_navigation/Tutorials">社区教程</a>)<br>
+</p>
+<p>&nbsp; ===&nbsp; Doing the Turtlebot Navigation&nbsp;&nbsp; === </p>
+<p>ref ros wiki: http://wiki.ros.org/turtlebot_navigation/Tutorials</p>
+<p><br>
+</p>
+<h3>1. Create the Data under remote control<br>
+</h3>
+<p>Referring the RBX book(8.4.2 Collecting and Recording Scan Data), <br>
+then log into the TurtleBot's laptop and run:<br>
+<span style="font-family:Courier New; color:#006600">&nbsp; $ roslaunch rbx1_bringup turtlebot_minimal_create.launch</span><br>
+Replace the above command with the appropriate launch file for your own robot if you have one.<br>
+Next, log into the TurtleBot using another terminal window and run the command:<br>
+<span style="font-family:Courier New; color:#006600">&nbsp; $ roslaunch rbx1_bringup fake_laser.launch</span><br>
+(If you have a real laser scanner, you would run its launch file here instead of the fake<br>
+laser launch file.)<br>
+Next, launch the gmapping_demo.launch launch file. You can launch this file on your desktop workstation or the robot's laptop:<br>
+<span style="font-family:Courier New; color:#006600">&nbsp; $ roslaunch rbx1_nav gmapping_demo.launch</span><br>
+&nbsp; or follow ros wiki: exbot@my_robot1:~$ roslaunch rbx1_nav gmapping_demo.launch<br>
+<br>
+Then bring up RViz with the included gmapping configuration file On_Desktop:<br>
+<span style="font-family:Courier New; color:#990000">&nbsp; $ rosrun rviz rviz -d `rospack find rbx1_nav`/gmapping.rviz</span><br>
+&nbsp; or follow ros wiki: exbot@my_desktop:~$ roslaunch turtlebot_rviz_launchers view_navigation.launch&nbsp; # I used this, cuz the above causes problem.<br>
+<br>
+Next, launch a teleop node On_Desktop for either the keyboard or joystick depending on your hardware:<br>
+<span style="font-family:Courier New; color:#990000">&nbsp; $ roslaunch rbx1_nav keyboard_teleop.launch</span></p>
+<p>The final step is to start recording the data to a bag file. You can create the file<br>
+anywhere you like, but there is a folder called bag_files in the <em>rbx1_nav</em> package for<br>
+this purpose if you want to use it:<br>
+<span style="font-family:Courier New">&nbsp; $ roscd rbx1_nav/bag_files<br>
+</span><br>
+Now start the recording process:<br>
+<span style="font-family:Courier New">&nbsp; $ rosbag record -O my_scan_data /scan /tf<br>
+</span><br>
+where <span style="font-family:Courier New">my_scan_data</span> can be any filename you like. The only data we need to record is<br>
+the laser scan data and the <span style="font-family:Courier New">tf</span> transforms. (The<span style="font-family:Courier New">tf</span> transform tree includes the<br>
+transformation from the <span style="font-family:Courier New">/odom</span> frame to the<span style="font-family:Courier New">/base_link</span> or<span style="font-family:Courier New">/base_footprint</span> frame<br>
+which gives us the needed odometry data.)<br>
+<br>
+You are now ready to drive the robot around the area you'd like to map. Be sure to<br>
+move the robot slowly, especially when rotating. Stay relatively close to walls and<br>
+furniture so that there is always something within range of the scanner. Finally, plan to<br>
+drive a closed loop and continue past the starting point for several meters to ensure a<br>
+good overlap between the beginning and ending scan data.<br>
+</p>
+<p>Use the Steps above can let your turtlebot move under your control and create the map of the environment.</p>
+<p><br>
+</p>
+<h3>2. Create the map simutanlously.</h3>
+<p>There are at least two ways to create the map: Recording or rePlaying the bag data file. Let's see the first here and second next section.<br>
+</p>
+When you are finished driving the robot, type Ctrl-C in the rosbag terminal window<br>
+to stop the recording process. Then save the current map as follows:<br>
+<span style="font-family:Courier New">&nbsp; $ roscd rbx1_nav/maps<br>
+&nbsp; $ rosrun map_server map_saver -f my_map</span><br>
+where &quot;<span style="font-family:Courier New">my_map</span>&quot; can be any name you like. This will save the generated map into the<br>
+current directory under the name you specified on the command line. If you look at the<br>
+contents of the <span style="font-family:Courier New">rbx1_nav/maps</span> directory, you will see two new files:<span style="font-family:Courier New">my_map.pgm</span><br>
+which is the map image and<span style="font-family:Courier New"> my_map.yaml </span>
+that describes the dimensions of the map. It <br>
+is this latter file that you will point to in subsequent launch files when you want to usethe map for navigation.
+<p>To view the new map, you can use any image viewer program to bring up the <span style="font-family:Courier New">
+.pgm</span> file <br>
+created above. For example, to use the Ubuntu eog viewer (&quot;eye of Gnome&quot;) run the<br>
+</p>
+command:<br>
+<span style="font-family:Courier New">&nbsp; $ roscd rbx1_nav/maps<br>
+&nbsp; $ eog my_map.pgm</span><br>
+<p>You can zoom the map using your scroll wheel or the &#43;/- buttons. <br>
+</p>
+<p>Here is a video demonstrating the gmapping process using Pi Robot and a Hokuyo laser scanner: http://youtu.be/7iIDdvCXIFM<br>
+</p>
+<h3>3. Create the map by bag data file.</h3>
+<p></p>
+<p>You can also create the map from the bag data you stored during the scanning phase<br>
+above. This is a useful technique since you can try out different <span style="font-family:Courier New">
+gmapping</span> parameters <br>
+on the same scan data without having to drive the robot around again. <br>
+当你想调试gmapping 参数的时候，不用每次都重新跑一遍机器人。</p>
+<p>把所有的Terminal中运行的node,launch关掉；Next, turn on simulated time by setting the use_sim_time parameter to true:<br>
+<span style="font-family:Courier New">&nbsp; $ rosparam set use_sim_time true</span><br>
+</p>
+<p>Then clear the move_base parameters and re-launch the gmapping_demo.launch file<br>
+again:<br>
+<span style="font-family:Courier New">&nbsp; $ rosparam delete /move_base</span><br>
+<span style="font-family:Courier New">&nbsp; $ roslaunch rbx1_nav gmapping_demo.launch</span><br>
+You can monitor the process in RViz using the gmapping configuration file:<br>
+<span style="font-family:Courier New">&nbsp; $ rosrun rviz rviz -d `rospack find rbx1_nav`/gmapping.rviz</span><br>
+Finally, play back your recorded data:<br>
+<span style="font-family:Courier New">&nbsp; $ roscd rbx1_nav/bag_files</span><br>
+<span style="font-family:Courier New">&nbsp; $ rosbag play my_scan_data.bag</span><br>
+You will probably have to zoom and/or pan the display to keep the entire scan area in<br>
+view.<br>
+When the rosbag file has played all the way through, you save the generated map the<br>
+same way we did with the live data:<br>
+<span style="font-family:Courier New">&nbsp; $ roscd rbx1_nav/maps<br>
+&nbsp; $ rosrun map_server map_saver -f my_map</span><br>
+where &quot;<span style="font-family:Courier New">my_map</span>&quot; can be any name you like.<br>
+<br>
+This will save the generated map into the current directory under the name you specified on the command line. If you look at the<br>
+contents of the rbx1_nav/maps directory, you will see two files: <span style="font-family:Courier New">
+my_map.pgm</span> which is the map image and<span style="font-family:Courier New"> my_map.yaml</span>that describes the dimensions of the map. It is this latter file that you will point to in subsequent launch files when you want to use the map<br>
+for navigation.<br>
+</p>
+<p>To view the map created, you can use any image viewer program to bring up the .pgm<br>
+file created above. For example, to use the Ubuntu eog viewer (&quot;eye of Gnome&quot;) run<br>
+the command:<br>
+<span style="font-family:Courier New">&nbsp; $ roscd rbx1_nav/maps<br>
+&nbsp; $ eog my_map.pgm</span><br>
+You can zoom the map using your scroll wheel or the &#43;/- buttons.<br>
+<span style="color:#990000">NOTE: Don't forget to reset the use_sim_time parameter after you are finished map<br>
+building. Use the command:<br>
+<span style="font-family:Courier New">&nbsp; $ rosparam set use_sim_time false</span></span><br>
+</p>
+<br>
+<h3>4. Conclusion</h3>
+<p>Now that your map is saved we will learn how to use it for localization in the next section.<br>
+For additional details about gmapping, take a look at the<span style="font-family:Courier New"> gmapping_demo.launch</span> file<br>
+in the <span style="font-family:Courier New">rbx1_nav/launch</span> directory.&nbsp; There you will see many parameters that can be<br>
+tweaked if needed.&nbsp; This particular launch file is a copied from the <br>
+<span style="font-family:Courier New">turtlebot_navigation</span> package and the folks at OSRG have already dialed in the<br>
+settings that should work for you.&nbsp; To learn more about each parameter, you can check<br>
+out the <a target="_blank" target="_blank" href="http://wiki.ros.org/gmapping">gmapping Wiki page</a>.<br>
+</p>
+<p><br>
+</p>
+<p>视频: 结构化环境中机器人导航 - Navigation with Structured Env.SLA&nbsp; <a target="_blank" target="_blank" href="https://www.youtube.com/watch?v=EwNl1cfNjt4">
+https://youtu.be/EwNl1cfNjt4</a></p>
+<p><br>
+</p>
+<p><a target="_blank" target="_blank" href="https://youtu.be/EwNl1cfNjt4"></a><br>
+</p>
 
 
 
@@ -292,7 +545,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20160202055600%2f&title=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8811%ef%bc%89-%20Turtlebot%20Navigation%20and%20SLAM">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160202055600%2f&title=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8811%ef%bc%89-%20Turtlebot%20Navigation%20and%20SLAM">
           
 
 
@@ -318,7 +571,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM on twitter"
-          href="https://twitter.com/intent/tweet/?text=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8811%ef%bc%89-%20Turtlebot%20Navigation%20and%20SLAM&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20160202055600%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%8811%ef%bc%89-%20Turtlebot%20Navigation%20and%20SLAM&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160202055600%2f&amp;hashtags=">
           
 
 
@@ -344,7 +597,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share ROS进阶学习笔记（11）- Turtlebot Navigation and SLAM on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20160202055600%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20160202055600%2f">
           
 
 
@@ -374,6 +627,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -381,6 +660,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -398,7 +687,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -409,7 +698,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

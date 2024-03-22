@@ -18,24 +18,48 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" &lt;node name=&quot;arbotix&quot; pkg=&quot;arbotix_python&quot; type=&quot;arbotix_driver&quot; output=&quot;screen&quot;&gt; &lt;rosparam command=&quot;delete&quot; param=&quot;/arbotix&quot; /&gt; &lt;rosparam file=&quot;$(find exbotxi_bringup)/config/fake_irobot_create_arbotix.yaml&quot; command=&quot;load&quot; /&gt; &lt;param name=&quot;sim&quot; value=&quot;true&quot;/&gt; &lt;remap from=&quot;cmd_vel&quot; to=&quot;mobile_base/commands/velocity&quot;/&gt; &lt;/node&gt;
-&lt;node name=&quot;robot_state_publisher&quot; pkg=&quot;robot_state_publisher&quot; type=&quot;state_publisher&quot;&gt; &lt;param name=&quot;publish_frequency&quot; type=&quot;double&quot; value=&quot;8.0&quot; /&gt; &lt;/node&gt;
-&lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux1&quot; args=&quot;mobile_base/commands/velocity cmd_vel_mux/input/teleop&quot; /&gt; &lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux2&quot; args=&quot;mobile_base/commands/velocity cmd_vel&quot; /&gt; &lt;/launch&gt; " />
-  <meta name="author" content="">
+  <meta name="description" content="【任务2】：
+&nbsp;&nbsp; &nbsp;用simulator: RViz 工具，完成对小车的建模，名字drive RViz = dvrv, 用 dvrv_node 发布topic和数据&#26684;式，向它发送位置指令，使它能接受键盘输入，并完成前进，后退，转弯90°功能。
+&nbsp;&nbsp;&nbsp; Topic， 还是拟用/turtle1/cmd_vel
+&nbsp;&nbsp;&nbsp; Message Type: geometry_msgs/Twist
+&nbsp;&nbsp;&nbsp; -----------
+&nbsp;&nbsp;&nbsp; 1. RViz介绍
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参考：RViz Package Link: http://wiki.ros.org/rviz
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 内含：RViz User Guide:&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/UserGuide
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RViz Tutorials:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/Tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rviz是一个显示机器人实体的工具，本身不具有模拟的功能，需要安装一个模拟器arbotix。但官网有关arbotix的资料很缺，跟另一个“10分钟上手玩ROS仿真”http://blog.exbot.net/archives/899， 对比一个不work的教程：ros_by_example_1_hydro.pdf&nbsp; （6.2 Testing the Simulator），有兴趣可以研究5. Installing the ros-by-example Code以后，再玩6.2, 估计就work了。本次就不深入那个。
+&nbsp;&nbsp;&nbsp; 2. 用ExBot机器人实验室的包来仿真
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 打开terminal，输入命令：
+roslaunch exbotxi_rviz view_model.launch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 将会打开rviz，并加载查看ExBot XI移动机器人平台模型的配置。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExBot XI移动机器人平台兼容turtlebot了，这里就用turtlebot包的键盘控制node来控制机器人移动。
+Ctrl &#43; C 结束掉前面的程序，关闭terminal，然后再打开3个terminal，分别输入下面的3个命令：
+roslaunch exbotxi_bringup fake_exbotxi.launch roslaunch exbotxi_rviz view_mobile.launch roslaunch turtlebot_teleop keyboard_teleop.launch &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;跟这个“10分钟上手玩ROS仿真” 走完整个流程就好。" />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>ROS进阶学习手记 7 -- RViz仿真实例1 | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20150724074600/" />
+  <title>ROS进阶学习手记 7 -- RViz仿真实例1 | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20150724074600/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" &lt;node name=&quot;arbotix&quot; pkg=&quot;arbotix_python&quot; type=&quot;arbotix_driver&quot; output=&quot;screen&quot;&gt; &lt;rosparam command=&quot;delete&quot; param=&quot;/arbotix&quot; /&gt; &lt;rosparam file=&quot;$(find exbotxi_bringup)/config/fake_irobot_create_arbotix.yaml&quot; command=&quot;load&quot; /&gt; &lt;param name=&quot;sim&quot; value=&quot;true&quot;/&gt; &lt;remap from=&quot;cmd_vel&quot; to=&quot;mobile_base/commands/velocity&quot;/&gt; &lt;/node&gt;
-&lt;node name=&quot;robot_state_publisher&quot; pkg=&quot;robot_state_publisher&quot; type=&quot;state_publisher&quot;&gt; &lt;param name=&quot;publish_frequency&quot; type=&quot;double&quot; value=&quot;8.0&quot; /&gt; &lt;/node&gt;
-&lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux1&quot; args=&quot;mobile_base/commands/velocity cmd_vel_mux/input/teleop&quot; /&gt; &lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux2&quot; args=&quot;mobile_base/commands/velocity cmd_vel&quot; /&gt; &lt;/launch&gt; " />
+  <meta property="og:description" content="【任务2】：
+&nbsp;&nbsp; &nbsp;用simulator: RViz 工具，完成对小车的建模，名字drive RViz = dvrv, 用 dvrv_node 发布topic和数据&#26684;式，向它发送位置指令，使它能接受键盘输入，并完成前进，后退，转弯90°功能。
+&nbsp;&nbsp;&nbsp; Topic， 还是拟用/turtle1/cmd_vel
+&nbsp;&nbsp;&nbsp; Message Type: geometry_msgs/Twist
+&nbsp;&nbsp;&nbsp; -----------
+&nbsp;&nbsp;&nbsp; 1. RViz介绍
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参考：RViz Package Link: http://wiki.ros.org/rviz
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 内含：RViz User Guide:&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/UserGuide
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RViz Tutorials:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/Tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rviz是一个显示机器人实体的工具，本身不具有模拟的功能，需要安装一个模拟器arbotix。但官网有关arbotix的资料很缺，跟另一个“10分钟上手玩ROS仿真”http://blog.exbot.net/archives/899， 对比一个不work的教程：ros_by_example_1_hydro.pdf&nbsp; （6.2 Testing the Simulator），有兴趣可以研究5. Installing the ros-by-example Code以后，再玩6.2, 估计就work了。本次就不深入那个。
+&nbsp;&nbsp;&nbsp; 2. 用ExBot机器人实验室的包来仿真
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 打开terminal，输入命令：
+roslaunch exbotxi_rviz view_model.launch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 将会打开rviz，并加载查看ExBot XI移动机器人平台模型的配置。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExBot XI移动机器人平台兼容turtlebot了，这里就用turtlebot包的键盘控制node来控制机器人移动。
+Ctrl &#43; C 结束掉前面的程序，关闭terminal，然后再打开3个terminal，分别输入下面的3个命令：
+roslaunch exbotxi_bringup fake_exbotxi.launch roslaunch exbotxi_rviz view_mobile.launch roslaunch turtlebot_teleop keyboard_teleop.launch &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;跟这个“10分钟上手玩ROS仿真” 走完整个流程就好。" />
   <meta property="og:title" content="ROS进阶学习手记 7 -- RViz仿真实例1" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20150724074600/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20150724074600/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -46,15 +70,27 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="ROS进阶学习手记 7 -- RViz仿真实例1 | My New Hugo Site" />
-  <meta name="twitter:description" content=" &lt;node name=&quot;arbotix&quot; pkg=&quot;arbotix_python&quot; type=&quot;arbotix_driver&quot; output=&quot;screen&quot;&gt; &lt;rosparam command=&quot;delete&quot; param=&quot;/arbotix&quot; /&gt; &lt;rosparam file=&quot;$(find exbotxi_bringup)/config/fake_irobot_create_arbotix.yaml&quot; command=&quot;load&quot; /&gt; &lt;param name=&quot;sim&quot; value=&quot;true&quot;/&gt; &lt;remap from=&quot;cmd_vel&quot; to=&quot;mobile_base/commands/velocity&quot;/&gt; &lt;/node&gt;
-&lt;node name=&quot;robot_state_publisher&quot; pkg=&quot;robot_state_publisher&quot; type=&quot;state_publisher&quot;&gt; &lt;param name=&quot;publish_frequency&quot; type=&quot;double&quot; value=&quot;8.0&quot; /&gt; &lt;/node&gt;
-&lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux1&quot; args=&quot;mobile_base/commands/velocity cmd_vel_mux/input/teleop&quot; /&gt; &lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux2&quot; args=&quot;mobile_base/commands/velocity cmd_vel&quot; /&gt; &lt;/launch&gt; " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20150724074600/" />
+  <meta name="twitter:title" content="ROS进阶学习手记 7 -- RViz仿真实例1 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="【任务2】：
+&nbsp;&nbsp; &nbsp;用simulator: RViz 工具，完成对小车的建模，名字drive RViz = dvrv, 用 dvrv_node 发布topic和数据&#26684;式，向它发送位置指令，使它能接受键盘输入，并完成前进，后退，转弯90°功能。
+&nbsp;&nbsp;&nbsp; Topic， 还是拟用/turtle1/cmd_vel
+&nbsp;&nbsp;&nbsp; Message Type: geometry_msgs/Twist
+&nbsp;&nbsp;&nbsp; -----------
+&nbsp;&nbsp;&nbsp; 1. RViz介绍
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参考：RViz Package Link: http://wiki.ros.org/rviz
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 内含：RViz User Guide:&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/UserGuide
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RViz Tutorials:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/Tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rviz是一个显示机器人实体的工具，本身不具有模拟的功能，需要安装一个模拟器arbotix。但官网有关arbotix的资料很缺，跟另一个“10分钟上手玩ROS仿真”http://blog.exbot.net/archives/899， 对比一个不work的教程：ros_by_example_1_hydro.pdf&nbsp; （6.2 Testing the Simulator），有兴趣可以研究5. Installing the ros-by-example Code以后，再玩6.2, 估计就work了。本次就不深入那个。
+&nbsp;&nbsp;&nbsp; 2. 用ExBot机器人实验室的包来仿真
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 打开terminal，输入命令：
+roslaunch exbotxi_rviz view_model.launch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 将会打开rviz，并加载查看ExBot XI移动机器人平台模型的配置。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExBot XI移动机器人平台兼容turtlebot了，这里就用turtlebot包的键盘控制node来控制机器人移动。
+Ctrl &#43; C 结束掉前面的程序，关闭terminal，然后再打开3个terminal，分别输入下面的3个命令：
+roslaunch exbotxi_bringup fake_exbotxi.launch roslaunch exbotxi_rviz view_mobile.launch roslaunch turtlebot_teleop keyboard_teleop.launch &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;跟这个“10分钟上手玩ROS仿真” 走完整个流程就好。" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20150724074600/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -71,13 +107,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -112,13 +177,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -158,17 +247,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20150724074600/">ROS进阶学习手记 7 -- RViz仿真实例1</a>
+  <a href="https://sonictl.github.io/posts/p20150724074600/">ROS进阶学习手记 7 -- RViz仿真实例1</a>
 </li>
 
 </ol>
@@ -226,8 +315,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-a min to read</span>
+2 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -235,7 +369,62 @@ a min to read</span>
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
+          <p><br>
+</p>
+<p>【任务2】：<br>
+&nbsp;&nbsp; &nbsp;用simulator: RViz 工具，完成对小车的建模，名字drive RViz = dvrv, 用 dvrv_node 发布topic和数据&#26684;式，向它发送位置指令，使它能接受键盘输入，并完成前进，后退，转弯90°功能。</p>
+<p>&nbsp;&nbsp;&nbsp; Topic， 还是拟用/turtle1/cmd_vel</p>
+<p>&nbsp;&nbsp;&nbsp; Message Type: geometry_msgs/Twist<br>
+</p>
+<p>&nbsp;&nbsp;&nbsp; -----------</p>
+<h3>&nbsp;&nbsp;&nbsp; 1. RViz介绍<br>
+</h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参考：RViz Package Link: http://wiki.ros.org/rviz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 内含：RViz User Guide:&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/UserGuide<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; RViz Tutorials:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://wiki.ros.org/rviz/Tutorials</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:red">rviz</span><span style="color:red">是一个显示机器人实体的工具，本身不具有模拟的功能，需要安装一个模拟器arbotix</span>。但官网有关arbotix的资料很缺，跟另一个“10分钟上手玩ROS仿真”http://blog.exbot.net/archives/899， 对比一个不work的教程：<a target="_blank" target="_blank" href="http://download.csdn.net/download/zyh821351004/8142903">ros_by_example_1_hydro.pdf</a>&nbsp;
+ （6.2 Testing the Simulator），有兴趣可以研究5. Installing the ros-by-example Code以后，再玩6.2, 估计就work了。本次就不深入那个。</p>
+<h3>&nbsp;&nbsp;&nbsp; 2. 用ExBot机器人实验室的包来仿真<br>
+</h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 打开terminal，输入命令：</p>
+<div class="highlight">
+<pre>      roslaunch exbotxi_rviz view_model.launch</pre>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 将会打开rviz，并加载查看ExBot XI移动机器人平台模型的配置。
+<p></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExBot XI移动机器人平台兼容turtlebot了，这里就用turtlebot包的键盘控制node来控制机器人移动。</p>
+<p><strong>Ctrl &#43; C</strong> 结束掉前面的程序，关闭terminal，然后再打开3个terminal，分别输入下面的3个命令：</p>
+<div class="highlight">
+<pre>         roslaunch exbotxi_bringup fake_exbotxi.launch
+         roslaunch exbotxi_rviz view_mobile.launch
+<pre>         roslaunch turtlebot_teleop keyboard_teleop.launch</pre></pre>
+</div>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;跟这个“<a target="_blank" target="_blank" href="http://blog.exbot.net/archives/899">10分钟上手玩ROS仿真</a>” 走完整个流程就好。<br>
+<p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; font-size:14px; text-align:justify; word-wrap:break-word; word-break:break-all; text-indent:2em; color:rgb(85,85,85); font-family:'Microsoft YaHei',微软雅黑,Helvetica,Arial,'Lucida Grande',Tahoma,sans-serif; line-height:22.3999996185303px">
+第1条命令用于启动ExBot XI仿真机器人，启动成功后显示信息如下：</p>
+<p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; font-size:14px; text-align:justify; word-wrap:break-word; word-break:break-all; text-indent:2em; color:rgb(85,85,85); font-family:'Microsoft YaHei',微软雅黑,Helvetica,Arial,'Lucida Grande',Tahoma,sans-serif; line-height:22.3999996185303px">
+<img alt="view robot" src="http://blog.exbot.net/wp-content/uploads/2014/03/sim.jpg" style=""></p>
+<p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; font-size:14px; text-align:justify; word-wrap:break-word; word-break:break-all; text-indent:2em; color:rgb(85,85,85); font-family:'Microsoft YaHei',微软雅黑,Helvetica,Arial,'Lucida Grande',Tahoma,sans-serif; line-height:22.3999996185303px">
+<span style="color:rgb(85,85,85); font-family:'Microsoft YaHei',微软雅黑,Helvetica,Arial,'Lucida Grande',Tahoma,sans-serif; font-size:14px; line-height:22.3999996185303px; text-align:justify; text-indent:28px">第2条命令用于打开ROS可视化工具rviz，并加载移动机器人视图配置。<br>
+</span>&nbsp; &nbsp; &nbsp; &nbsp;第3条命令用于启动键盘控制node。<br>
+&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; font-size:14px; text-align:justify; word-wrap:break-word; word-break:break-all; text-indent:2em; color:rgb(85,85,85); font-family:'Microsoft YaHei',微软雅黑,Helvetica,Arial,'Lucida Grande',Tahoma,sans-serif; line-height:22.3999996185303px">
+现在将光标focus在第3条命令的terminal窗口，便可以通过键盘控制仿真机器人了：</p>
+<p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; font-size:14px; text-align:justify; word-wrap:break-word; word-break:break-all; text-indent:2em; color:rgb(85,85,85); font-family:'Microsoft YaHei',微软雅黑,Helvetica,Arial,'Lucida Grande',Tahoma,sans-serif; line-height:22.3999996185303px">
+<img alt="view control" src="http://blog.exbot.net/wp-content/uploads/2014/03/control1.jpg" style=""></p>
+<br>
+<p></p>
+<h3>&nbsp; &nbsp; 3. 拆解ExBot机器人实验室的包</h3>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 首先打开<span style="font-family:Courier New">fake_exbotxi.launch</span>文件。( &nbsp;~/catkin_ws/src/exbot_xi/exbotxi_bringup/launch &nbsp;)</p>
+<p align="left">　　文件可以大概分为四个部分：</p>
+<p align="left">　　&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;(1) 从指定的包中加载urdf文件</p>
+<p align="left">　　&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;(2) 启动arbotix模拟器</p>
+<p align="left">　　&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;(3) 启动状态发布节点</p>
+<p align="left">　　&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;(4) tf 坐标系配置--本次可能没有</p>
+<p align="left"></p>
+<pre name="code" class="html">&lt;launch&gt;
+  &lt;arg name=&quot;urdf_file&quot; default=&quot;$(find xacro)/xacro.py &#39;$(find exbotxi_description)/urdf/exbotxi.urdf.xacro&#39;&quot; /&gt;
+  &lt;param name=&quot;robot_description&quot; command=&quot;$(arg urdf_file)&quot; /&gt;
 <p>&lt;node name=&quot;arbotix&quot; pkg=&quot;arbotix_python&quot; type=&quot;arbotix_driver&quot; output=&quot;screen&quot;&gt;
 &lt;rosparam command=&quot;delete&quot; param=&quot;/arbotix&quot; /&gt;
 &lt;rosparam file=&quot;$(find exbotxi_bringup)/config/fake_irobot_create_arbotix.yaml&quot; command=&quot;load&quot; /&gt;
@@ -247,9 +436,49 @@ a min to read</span>
 &lt;/node&gt;</p>
 <p>&lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux1&quot; args=&quot;mobile_base/commands/velocity cmd_vel_mux/input/teleop&quot; /&gt;
 &lt;node pkg=&quot;topic_tools&quot; type=&quot;mux&quot; name=&quot;exbotxi_mux2&quot; args=&quot;mobile_base/commands/velocity cmd_vel&quot; /&gt;
-&lt;/launch&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+&lt;/launch&gt;</pre><br>
+<br></p>
+<p></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;接下来的几个教程都要follow这个古月居的博客了，古月居的专栏：http://blog.csdn.net/column/details/ros-explore.html<br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<h3>&nbsp;&nbsp;&nbsp; 附录：安装arbotix<br>
+</h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 安装 arbotix :&nbsp; (如果联网有问题，还原网络设定，hosts文件有关的设定，http://blog.csdn.net/sonictl/article/details/46986565)<br>
+</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ sudo apt-get install ros-hydro-arbotix
+</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 然后加入ros package路径：<br>
+</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rospack profile</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参考：http://blog.csdn.net/scliu12345/article/details/44521327<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 测试仿真器：<br>
+</p>
+<pre>         $ roslaunch rbx1_bringup fake_turtlebot.launch</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 遇到错误，<span style="color:#CC0000">[fake_turtlebot.launch] is neither a launch file in package [rbx1_bringup] nor is [rbx1_bringup] a launch file name</span>，<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 找了半天估计是跟错教程了，果断换<br>
+<br>
+<br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
 
 
 
@@ -312,7 +541,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share ROS进阶学习手记 7 -- RViz仿真实例1 on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20150724074600%2f&title=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%207%20--%20RViz%e4%bb%bf%e7%9c%9f%e5%ae%9e%e4%be%8b1">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20150724074600%2f&title=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%207%20--%20RViz%e4%bb%bf%e7%9c%9f%e5%ae%9e%e4%be%8b1">
           
 
 
@@ -338,7 +567,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share ROS进阶学习手记 7 -- RViz仿真实例1 on twitter"
-          href="https://twitter.com/intent/tweet/?text=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%207%20--%20RViz%e4%bb%bf%e7%9c%9f%e5%ae%9e%e4%be%8b1&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20150724074600%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%207%20--%20RViz%e4%bb%bf%e7%9c%9f%e5%ae%9e%e4%be%8b1&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20150724074600%2f&amp;hashtags=">
           
 
 
@@ -364,7 +593,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share ROS进阶学习手记 7 -- RViz仿真实例1 on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20150724074600%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20150724074600%2f">
           
 
 
@@ -394,6 +623,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -401,6 +656,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -418,7 +683,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -429,7 +694,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>esp32 embedded on My New Hugo Site</title>
-    <link>http://example.org/categories/esp32-embedded/</link>
-    <description>Recent content in esp32 embedded on My New Hugo Site</description>
+    <title>esp32 embedded on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/esp32-embedded/</link>
+    <description>Recent content in esp32 embedded on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Feb 2022 21:39:44 +0800</lastBuildDate><atom:link href="http://example.org/categories/esp32-embedded/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 21:39:44 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/esp32-embedded/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[ESP32]import esp-idf components</title>
-      <link>http://example.org/posts/p20220212213944/</link>
+      <link>https://sonictl.github.io/posts/p20220212213944/</link>
       <pubDate>Sat, 12 Feb 2022 21:39:44 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220212213944/</guid>
+      <guid>https://sonictl.github.io/posts/p20220212213944/</guid>
       <description>import esp-idf components:
 import the components is easy: git clone , mkdir &amp;lt;proj_dir&amp;gt;/components, and copy into &amp;lt;proj_dir&amp;gt;/components
 The git repos and commands that I used for this testing:

@@ -18,20 +18,40 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content=" " />
-  <meta name="author" content="">
+  <meta name="description" content="notepad&#43;&#43; wiki about regular expression
+正则表达式-使用说明Regular Expression How To (Perl, Python, etc)
+https://docs.python.org/2/howto/regex.html#regex-howto
+For more:
+Linux Shell 通配符、元字符、转义符使用实例介绍(\后面跟实际字符： [0-9]\a&nbsp; =匹配=&gt; &#39;0a&#39;, &#39;1a&#39;, &#39;9a&#39;... )
+https://docs.python.org/2/library/re.html
+https://regexone.com/ Learn Regular Expressions with simple, interactive exercises.
+&nbsp;
+&nbsp;
+Quick Reference:
+The first metacharacters we&rsquo;ll look at are&nbsp;[&nbsp;and&nbsp;]. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;&#39;-&#39;." />
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>正则表达式-使用说明Regular Expression How To (Perl, Python, etc) | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20170702080100/" />
+  <title>正则表达式-使用说明Regular Expression How To (Perl, Python, etc) | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20170702080100/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content=" " />
+  <meta property="og:description" content="notepad&#43;&#43; wiki about regular expression
+正则表达式-使用说明Regular Expression How To (Perl, Python, etc)
+https://docs.python.org/2/howto/regex.html#regex-howto
+For more:
+Linux Shell 通配符、元字符、转义符使用实例介绍(\后面跟实际字符： [0-9]\a&nbsp; =匹配=&gt; &#39;0a&#39;, &#39;1a&#39;, &#39;9a&#39;... )
+https://docs.python.org/2/library/re.html
+https://regexone.com/ Learn Regular Expressions with simple, interactive exercises.
+&nbsp;
+&nbsp;
+Quick Reference:
+The first metacharacters we&rsquo;ll look at are&nbsp;[&nbsp;and&nbsp;]. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;&#39;-&#39;." />
   <meta property="og:title" content="正则表达式-使用说明Regular Expression How To (Perl, Python, etc)" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20170702080100/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20170702080100/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -42,13 +62,23 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="正则表达式-使用说明Regular Expression How To (Perl, Python, etc) | My New Hugo Site" />
-  <meta name="twitter:description" content=" " />
-  <meta name="twitter:domain" content="http://example.org/posts/p20170702080100/" />
+  <meta name="twitter:title" content="正则表达式-使用说明Regular Expression How To (Perl, Python, etc) | Combine Art and Sciences" />
+  <meta name="twitter:description" content="notepad&#43;&#43; wiki about regular expression
+正则表达式-使用说明Regular Expression How To (Perl, Python, etc)
+https://docs.python.org/2/howto/regex.html#regex-howto
+For more:
+Linux Shell 通配符、元字符、转义符使用实例介绍(\后面跟实际字符： [0-9]\a&nbsp; =匹配=&gt; &#39;0a&#39;, &#39;1a&#39;, &#39;9a&#39;... )
+https://docs.python.org/2/library/re.html
+https://regexone.com/ Learn Regular Expressions with simple, interactive exercises.
+&nbsp;
+&nbsp;
+Quick Reference:
+The first metacharacters we&rsquo;ll look at are&nbsp;[&nbsp;and&nbsp;]. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;&#39;-&#39;." />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20170702080100/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -65,13 +95,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -106,13 +165,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -152,17 +235,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20170702080100/">正则表达式-使用说明Regular Expression How To (Perl, Python, etc)</a>
+  <a href="https://sonictl.github.io/posts/p20170702080100/">正则表达式-使用说明Regular Expression How To (Perl, Python, etc)</a>
 </li>
 
 </ol>
@@ -220,8 +303,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-0 mins to read</span>
+3 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -229,8 +357,27 @@
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
-
+          <p><a href="http://docs.notepad-plus-plus.org/index.php/Regular_Expressions" target="_blank">notepad++ wiki about regular expression</a></p>
+<p>正则表达式-使用说明Regular Expression How To (Perl, Python, etc)</p>
+<p>https://docs.python.org/2/howto/regex.html#regex-howto</p>
+<p>For more:</p>
+<p><a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/chengmo/archive/2010/10/17/1853344.html">Linux Shell 通配符、元字符、转义符使用实例介绍</a>(\后面跟实际字符： [0-9]\a&nbsp; =匹配=&gt; '0a', '1a', '9a'... )</p>
+<p>https://docs.python.org/2/library/re.html</p>
+<p><a title="sonictl" href="https://regexone.com/">https://regexone.com/</a> <span class="site_name"><span class="desc hide-max-md">Learn Regular Expressions with simple, interactive exercises.</span></span></p>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<p>Quick Reference:</p>
+<p>The first metacharacters we&rsquo;ll look at are&nbsp;<code class="docutils literal"><span class="pre">[</span></code>&nbsp;and&nbsp;<code class="docutils literal"><span class="pre">]</span></code>. They&rsquo;re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a&nbsp;<code class="docutils literal"><span class="pre">'-'</span></code>. For example,&nbsp;<code class="docutils literal"><span class="pre">[abc]</span></code>&nbsp;will match any of the characters&nbsp;<code class="docutils literal"><span class="pre">a</span></code>,&nbsp;<code class="docutils literal"><span class="pre">b</span></code>, or&nbsp;<code class="docutils literal"><span class="pre">c</span></code>; this is the same as&nbsp;<code class="docutils literal"><span class="pre">[a-c]</span></code>, which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be&nbsp;<code class="docutils literal"><span class="pre">[a-z]</span></code>.</p>
+<p>Metacharacters are not active inside classes. For example,&nbsp;<code class="docutils literal"><span class="pre">[akm$]</span></code>&nbsp;will match any of the characters&nbsp;<code class="docutils literal"><span class="pre">'a'</span></code>,&nbsp;<code class="docutils literal"><span class="pre">'k'</span></code>,&nbsp;<code class="docutils literal"><span class="pre">'m'</span></code>, or&nbsp;<code class="docutils literal"><span class="pre">'$'</span></code>;&nbsp;<code class="docutils literal"><span class="pre">'$'</span></code>&nbsp;is usually a metacharacter, but inside a character class it&rsquo;s stripped of its special nature.</p>
+<p>You can match the characters not listed within the class by&nbsp;<em class="dfn">complementing</em>&nbsp;the set. This is indicated by including a&nbsp;<code class="docutils literal"><span class="pre">'^'</span></code>&nbsp;as the first character of the class;&nbsp;<code class="docutils literal"><span class="pre">'^'</span></code>&nbsp;outside a character class will simply match the&nbsp;<code class="docutils literal"><span class="pre">'^'</span></code>&nbsp;character. For example,&nbsp;<code class="docutils literal"><span class="pre">[^5]</span></code>&nbsp;will match any character except&nbsp;<code class="docutils literal"><span class="pre">'5'</span></code>.</p>
+<p>Perhaps the most important metacharacter is the backslash,&nbsp;<code class="docutils literal"><span class="pre">\</span></code>. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It&rsquo;s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a&nbsp;<code class="docutils literal"><span class="pre">[</span></code>&nbsp;or&nbsp;<code class="docutils literal"><span class="pre">\</span></code>, you can precede them with a backslash to remove their special meaning:&nbsp;<code class="docutils literal"><span class="pre">\[</span></code>&nbsp;or&nbsp;<code class="docutils literal"><span class="pre">\\</span></code>.</p>
+<p>Some of the special sequences beginning with&nbsp;<code class="docutils literal"><span class="pre">'\'</span></code>&nbsp;represent predefined sets of characters that are often useful, such as the set of digits, the set of letters, or the set of anything that isn&rsquo;t whitespace. The following predefined special sequences are a subset of those available. The equivalent classes are for byte string patterns. For a complete list of sequences and expanded class definitions for Unicode string patterns, see the last part of&nbsp;<a class="reference internal" href="https://docs.python.org/2/library/re.html#re-syntax">Regular Expression Syntax</a>.</p>
+<dl class="docutils"><dt><code class="docutils literal"><span class="pre">\d</span></code></dt><dd>Matches any decimal digit; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[0-9]</span></code>.</dd><dt><code class="docutils literal"><span class="pre">\D</span></code></dt><dd>Matches any non-digit character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[^0-9]</span></code>.</dd><dt><code class="docutils literal"><span class="pre">\s</span></code></dt><dd>Matches any whitespace character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[&nbsp;<span class="pre">\t\n\r\f\v]</span></span></code>.</dd><dt><code class="docutils literal"><span class="pre">\S</span></code></dt><dd>Matches any non-whitespace character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[^&nbsp;<span class="pre">\t\n\r\f\v]</span></span></code>.</dd><dt><code class="docutils literal"><span class="pre">\w</span></code></dt><dd>Matches any alphanumeric character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[a-zA-Z0-9_]</span></code>.</dd><dt><code class="docutils literal"><span class="pre">\W</span></code></dt><dd>Matches any non-alphanumeric character; this is equivalent to the class&nbsp;<code class="docutils literal"><span class="pre">[^a-zA-Z0-9_]</span></code>.</dd></dl>
+<p>These sequences can be included inside a character class. For example,&nbsp;<code class="docutils literal"><span class="pre">[\s,.]</span></code>&nbsp;is a character class that will match any whitespace character, or&nbsp;<code class="docutils literal"><span class="pre">','</span></code>&nbsp;or&nbsp;<code class="docutils literal"><span class="pre">'.'</span></code>.</p>
+<p>The final metacharacter in this section is&nbsp;<code class="docutils literal"><span class="pre">.</span></code>. It matches anything except a newline character, and there&rsquo;s an alternate mode (<code class="docutils literal"><span class="pre">re.DOTALL</span></code>) where it will match even a newline.&nbsp;<code class="docutils literal"><span class="pre">'.'</span></code>&nbsp;is often used where you want to match &ldquo;any character&rdquo;.</p>
+<hr />
+<p>&nbsp;</p>
 
 
         
@@ -292,7 +439,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share 正则表达式-使用说明Regular Expression How To (Perl, Python, etc) on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20170702080100%2f&title=%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f-%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8eRegular%20Expression%20How%20To%20%28Perl%2c%20Python%2c%20etc%29">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170702080100%2f&title=%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f-%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8eRegular%20Expression%20How%20To%20%28Perl%2c%20Python%2c%20etc%29">
           
 
 
@@ -318,7 +465,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share 正则表达式-使用说明Regular Expression How To (Perl, Python, etc) on twitter"
-          href="https://twitter.com/intent/tweet/?text=%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f-%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8eRegular%20Expression%20How%20To%20%28Perl%2c%20Python%2c%20etc%29&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20170702080100%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f-%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8eRegular%20Expression%20How%20To%20%28Perl%2c%20Python%2c%20etc%29&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170702080100%2f&amp;hashtags=">
           
 
 
@@ -344,7 +491,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share 正则表达式-使用说明Regular Expression How To (Perl, Python, etc) on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20170702080100%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20170702080100%2f">
           
 
 
@@ -374,6 +521,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -381,6 +554,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -398,7 +581,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -409,7 +592,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 

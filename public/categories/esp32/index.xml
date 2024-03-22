@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>esp32 on My New Hugo Site</title>
-    <link>http://example.org/categories/esp32/</link>
-    <description>Recent content in esp32 on My New Hugo Site</description>
+    <title>esp32 on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/esp32/</link>
+    <description>Recent content in esp32 on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Jan 2022 22:15:45 +0800</lastBuildDate><atom:link href="http://example.org/categories/esp32/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jan 2022 22:15:45 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/esp32/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</title>
-      <link>http://example.org/posts/p20220119221545/</link>
+      <link>https://sonictl.github.io/posts/p20220119221545/</link>
       <pubDate>Wed, 19 Jan 2022 22:15:45 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20220119221545/</guid>
+      <guid>https://sonictl.github.io/posts/p20220119221545/</guid>
       <description>[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard Table of contents: [TOC]
 Table of contents:
 1 Some basic concepts

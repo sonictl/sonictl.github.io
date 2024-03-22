@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GCN AI on My New Hugo Site</title>
-    <link>http://example.org/categories/gcn-ai/</link>
-    <description>Recent content in GCN AI on My New Hugo Site</description>
+    <title>GCN AI on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/gcn-ai/</link>
+    <description>Recent content in GCN AI on Combine Art and Sciences</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jul 2021 07:53:38 +0800</lastBuildDate><atom:link href="http://example.org/categories/gcn-ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Jul 2021 07:53:38 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/gcn-ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting started with Graph Convolutional Networks as an Amateur</title>
-      <link>http://example.org/posts/p20210714075338/</link>
+      <link>https://sonictl.github.io/posts/p20210714075338/</link>
       <pubDate>Wed, 14 Jul 2021 07:53:38 +0800</pubDate>
       
-      <guid>http://example.org/posts/p20210714075338/</guid>
+      <guid>https://sonictl.github.io/posts/p20210714075338/</guid>
       <description>Getting started with Graph Convolutional Networks as an Amateur https://zhuanlan.zhihu.com/p/27587371
 https://www.cnblogs.com/wangxiaocvpr/p/8306519.html
 https://www.cnblogs.com/wangxiaocvpr/p/8299336.html

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Self-hosted applications that enriches technological life"
+title:  "Add Hugo Teaching Tag"
 date: 2024-03-22 21:06:40 +0800
 tags: ['Teaching']
 slug: p20240322210640

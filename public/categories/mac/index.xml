@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on Combine Art and Sciences</title>
+    <link>https://sonictl.github.io/categories/mac/</link>
+    <description>Recent content in mac on Combine Art and Sciences</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Mar 2024 13:07:50 +0800</lastBuildDate><atom:link href="https://sonictl.github.io/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>转：Mac用Option键输入特殊符号</title>
+      <link>https://sonictl.github.io/posts/p20240320130750/</link>
+      <pubDate>Wed, 20 Mar 2024 13:07:50 +0800</pubDate>
+      
+      <guid>https://sonictl.github.io/posts/p20240320130750/</guid>
+      <description>转：Mac用Option键输入特殊符号 原作者：nuqiewuoz
+在Mac默认的英文输入法下，按住Option键或者Shift+Option键，再加其它键，可以快速的输入某些常用的特殊符号，例如•, º, ®, ≠, ∑, Ω, ≈,÷,≤,¿等等，具体列表如下
+原始按键 ` 1 2 3 4 5 6 7 8 9 0 - = Option + ` ¡ ™ £ ¢ ∞ § ¶ • ª º – ≠ Shift + Option + ` ⁄ € ‹ › ﬁ ﬂ ‡ ° · ‚ — ± 原始按键 q w e r t y u i o p [ ] \ Option + œ ∑ ´ ® † ¥ ¨ ˆ ø π “ ‘ « Shift + Option + Œ „ ´ ‰ ˇ Á ¨ ˆ Ø ∏ ” ’ » 原始按键 a s d f g h j k l ; &#39; Option + å ß ∂ ƒ © ˙ ∆ ˚ ¬ … æ Shift + Option + Å Í Î Ï ˝ Ó Ô  Ò Ú Æ 原始按键 z x c v b n m , .</description>
+    </item>
+    
+  </channel>
+</rss>

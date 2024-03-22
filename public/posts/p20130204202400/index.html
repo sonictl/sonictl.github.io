@@ -18,30 +18,38 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="变量名：JAVA_HOME 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
+  <meta name="description" content="&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：Java编程简明教程 by Thenewboston（Youtube）
+&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。
+&nbsp; &nbsp;---------- Oct 14, 2014 ---------
+配置Java环境变量： http://www.oracle.com/technetwork/java/javase/downloads/index.html 下载安装JDK for x86 (32bit) or x64(64bit). 右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量- 变量名：JAVA_HOME 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
 变量名: path 变量值: ;%JAVA_HOME%\bin ;%JAVA_HOME%\jre\bin 变量名：classpath 变量值: ;%JAVA_HOME%\lib ;%JAVA_HOME%\lib\tools.jar
 （For my backup:）&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20 //java jdk 1.8 &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67 //java jdk 1.7
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;下面检验是否配置成功，运行cmd命令，在出现的对话框输入”java“命令，如果出现以下结果，则表明配置成功。&mdash;&mdash;&mdash;&mdash;用法: java [-options] class [args&hellip;] (执行类) 或 java [-options] -jar jarfile [args&hellip;] (执行 jar 文件) 其中选项包括: -d32 使用 32 位数据模型 (如果可用) -d64 使用 64 位数据模型 (如果可用) -client 选择 &quot;client&quot; VM -server 选择 &quot;server&quot; VM 默认 VM 是 client." />
-  <meta name="author" content="">
+  <meta name="author" content="Hugo Author">
   <meta name="keywords" content="">
-  <title>Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） | My New Hugo Site</title>
-  <link rel="canonical" href="http://example.org/posts/p20130204202400/" />
+  <title>Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） | Combine Art and Sciences</title>
+  <link rel="canonical" href="https://sonictl.github.io/posts/p20130204202400/" />
   
 
   
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="变量名：JAVA_HOME 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
+  <meta property="og:description" content="&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：Java编程简明教程 by Thenewboston（Youtube）
+&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。
+&nbsp; &nbsp;---------- Oct 14, 2014 ---------
+配置Java环境变量： http://www.oracle.com/technetwork/java/javase/downloads/index.html 下载安装JDK for x86 (32bit) or x64(64bit). 右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量- 变量名：JAVA_HOME 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
 变量名: path 变量值: ;%JAVA_HOME%\bin ;%JAVA_HOME%\jre\bin 变量名：classpath 变量值: ;%JAVA_HOME%\lib ;%JAVA_HOME%\lib\tools.jar
 （For my backup:）&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20 //java jdk 1.8 &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67 //java jdk 1.7
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;下面检验是否配置成功，运行cmd命令，在出现的对话框输入”java“命令，如果出现以下结果，则表明配置成功。&mdash;&mdash;&mdash;&mdash;用法: java [-options] class [args&hellip;] (执行类) 或 java [-options] -jar jarfile [args&hellip;] (执行 jar 文件) 其中选项包括: -d32 使用 32 位数据模型 (如果可用) -d64 使用 64 位数据模型 (如果可用) -client 选择 &quot;client&quot; VM -server 选择 &quot;server&quot; VM 默认 VM 是 client." />
   <meta property="og:title" content="Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ）" />
-  <meta property="og:site_name" content="My New Hugo Site" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:url" content="http://example.org/posts/p20130204202400/" />
+  <meta property="og:url" content="https://sonictl.github.io/posts/p20130204202400/" />
   <meta property="og:locale" content="en-us" />
 
   
@@ -52,18 +60,22 @@
 
   
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） | My New Hugo Site" />
-  <meta name="twitter:description" content="变量名：JAVA_HOME 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
+  <meta name="twitter:title" content="Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） | Combine Art and Sciences" />
+  <meta name="twitter:description" content="&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：Java编程简明教程 by Thenewboston（Youtube）
+&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。
+&nbsp; &nbsp;---------- Oct 14, 2014 ---------
+配置Java环境变量： http://www.oracle.com/technetwork/java/javase/downloads/index.html 下载安装JDK for x86 (32bit) or x64(64bit). 右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量- 变量名：JAVA_HOME 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
 变量名: path 变量值: ;%JAVA_HOME%\bin ;%JAVA_HOME%\jre\bin 变量名：classpath 变量值: ;%JAVA_HOME%\lib ;%JAVA_HOME%\lib\tools.jar
 （For my backup:）&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20 //java jdk 1.8 &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67 //java jdk 1.7
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;下面检验是否配置成功，运行cmd命令，在出现的对话框输入”java“命令，如果出现以下结果，则表明配置成功。&mdash;&mdash;&mdash;&mdash;用法: java [-options] class [args&hellip;] (执行类) 或 java [-options] -jar jarfile [args&hellip;] (执行 jar 文件) 其中选项包括: -d32 使用 32 位数据模型 (如果可用) -d64 使用 64 位数据模型 (如果可用) -client 选择 &quot;client&quot; VM -server 选择 &quot;server&quot; VM 默认 VM 是 client." />
-  <meta name="twitter:domain" content="http://example.org/posts/p20130204202400/" />
+  <meta name="twitter:domain" content="https://sonictl.github.io/posts/p20130204202400/" />
 
   
   
-    <link rel="icon" href="http://example.org/favicon.ico">
+    <link rel="icon" href="https://sonictl.github.io/favicon.ico">
   
   
   
@@ -80,13 +92,42 @@
 
   
     
-    <link rel="stylesheet" href="http://example.org/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
+    <link rel="stylesheet" href="https://sonictl.github.io/style.min.0d508fa67c68b8d00c77710268c3b44b4b1a9615c61c5d8ff4412b2480995e59.css" integrity="sha256-DVCPpnxouNAMd3ECaMO0S0salhXGHF2P9EErJICZXlk=" rel="preload stylesheet" as="style"/>
   
 
   
   
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-83G5J21FEH', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83G5J21FEH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-83G5J21FEH', { 'anonymize_ip': false });
+}
+</script>
+
+
+  
+
+
 </head>
 
   <body>
@@ -121,13 +162,37 @@
 
 </button>
       <div class="navbar-brand">
-        <a class="logo navbar-button" href="http://example.org/" title="My New Hugo Site">
-          <span>My New Hugo Site</span>
+        <a class="logo navbar-button" href="https://sonictl.github.io/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
         </a>
       </div>
       <nav class="navbar" role="navigation">
         <ul>
           
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -167,17 +232,17 @@
   
 
 <li >
-  <a href="http://example.org/">Home</a>
+  <a href="https://sonictl.github.io/">Home</a>
 </li>
 
 
 <li >
-  <a href="http://example.org/posts/">Posts</a>
+  <a href="https://sonictl.github.io/posts/">Posts</a>
 </li>
 
 
 <li class="active">
-  <a href="http://example.org/posts/p20130204202400/">Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ）</a>
+  <a href="https://sonictl.github.io/posts/p20130204202400/">Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ）</a>
 </li>
 
 </ol>
@@ -235,8 +300,53 @@
 
 
 <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
-6 mins to read</span>
+8 mins to read</span>
         
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+          <span>
+            
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M456 48H56a24 24 0 00-24 24v288a24 24 0 0024 24h72v80l117.74-80H456a24 24 0 0024-24V72a24 24 0 00-24-24zM160 248a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zm96 0a32 32 0 1132-32 32 32 0 01-32 32zM456 80z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <a href="#comments">
+              comment
+            </a>
+          </span>
         
         
           <span>posts </span>
@@ -244,7 +354,15 @@
       </div>
       <article class="post-entry content">
         
-          <!-- raw HTML omitted -->
+          <p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：<strong><a target="_blank" target="_blank" href="http://www.youku.com/playlist_show/id_18938612.html">Java编程简明教程 by Thenewboston（Youtube）</a></strong></p>
+<p>&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。</p>
+<p>&nbsp; &nbsp;---------- Oct 14, 2014 ---------</p>
+<h3><span style="font-family:Arial Black">配置Java环境变量：</span></h3>
+<p><span style="white-space:pre"></span></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700"  code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700" name="code" class="plain">http://www.oracle.com/technetwork/java/javase/downloads/index.html
+下载安装JDK for x86 (32bit) or x64(64bit).
+右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量-
 <p>变量名：JAVA_HOME
 变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40</p>
 <p>变量名: path
@@ -253,17 +371,17 @@
 变量名：classpath
 变量值: ;%JAVA_HOME%\lib
 ;%JAVA_HOME%\lib\tools.jar</p>
-<p><!-- raw HTML omitted -->（For my backup:）<!-- raw HTML omitted -->&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME
+<p></pre>（For my backup:）<pre code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700"  code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700" name="code" class="plain">&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME
 &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20   //java jdk 1.8
 &lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67   //java jdk 1.7</p>
 <p>&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin</p>
 <p>&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath
 &lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</p>
-<p><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<h2 id="heading">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;下面检验是否配置成功，运行cmd命令，在出现的对话框输入”java“命令，如果出现以下结果，则表明配置成功。&mdash;&mdash;&mdash;&mdash;<!-- raw HTML omitted -->用法: java [-options] class [args&hellip;]
+<p></pre></p>
+<pre></pre>
+<pre></pre>
+<h2 id="heading">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;下面检验是否配置成功，运行cmd命令，在出现的对话框输入”java“命令，如果出现以下结果，则表明配置成功。&mdash;&mdash;&mdash;&mdash;<pre code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700"  code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700" name="code" class="plain">用法: java [-options] class [args&hellip;]
 (执行类)
 或  java [-options] -jar jarfile [args&hellip;]
 (执行 jar 文件)
@@ -279,16 +397,31 @@
 在出现的对话框输入”javac“命令，出现以下结果，表明配置成功：
 C:\Users\LENOVO&gt;javac
 用法: javac &lt;options&gt; &lt;source files&gt;
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+</pre><br></p>
+<p></p>
+<p>&nbsp; &nbsp;---------- Feb 04, 2013 ---------</p>
+<p>&nbsp; &nbsp; 个人理解：Java 的基本架构是通过class建立。class相当于C函数集，每个Class 里面的 method 相当于C的函数。</p>
+<p>&nbsp; &nbsp; 1. 关于Class 中对别的class中的method的使用，创建：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>题目</strong>：main method在apple.java apple class中，引用tuna class中的println(); method, 输出一行字。<br>
+<span style="white-space:pre"></span>理解：对象的创建与使用。System.out.println() 的使用。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_2_2332095"  code_snippet_id="484074" snippet_file_name="blog_20141014_2_2332095" name="code" class="java">//file: project/apples.java
+class apples{
+	public static void main(String args[]){
+		tuna tunaObj = new tuna();    //create an obj: &quot;tuna&quot; - class name, tunaObj-Obj name, 
+		tunaObj.MysimpleMessage();
+	}
+}
 <p>//file: project/tuna.java
 public class tuna{
 public void MysimpleMessage(){
 System.out.println(&quot;This is class tuna&quot;);	
 }
-}<!-- raw HTML omitted --><!-- raw HTML omitted -->
-    2. <!-- raw HTML omitted -->题目：<!-- raw HTML omitted -->创建和使用Scanner对象，以从键盘获取输入：<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+}</pre><br>
+    2. <strong>题目：</strong>创建和使用Scanner对象，以从键盘获取输入：<br></p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_3_3520574"  code_snippet_id="484074" snippet_file_name="blog_20141014_3_3520574" name="code" class="java">//file: project/apples.java
+import java.util.Scanner;
 <p>class apples{
 public static void main(String args[]){
 Scanner input = new Scanner(System.in);  //creat an scanner obj
@@ -305,8 +438,16 @@ public class tuna{
 public void MysimpleMessage(String name){
 System.out.println(&quot;Hello&quot; + name);
 }
-}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+}</pre><br></p>
+<p>&nbsp; &nbsp; 3. 从main method传递&#20540;到别的class的method中：<br>
+<span style="white-space:pre"></span>要求：通过 GetName method 把 name 传递进class tuna中，通过tuna中的saying method 内部调用ret_name method 打印出 name.<br>
+<span style="white-space:pre"></span>本实例理解：1、在method内部声明变量和在class内声明变量有何不同。<br>
+<span style="white-space:pre"></span>2、class 内部互相调用method<br>
+<span style="white-space:pre"></span>3、跨 class 调用method</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_4_9028234"  code_snippet_id="484074" snippet_file_name="blog_20141014_4_9028234" name="code" class="java">//----------------------- tutorial 16
+//file: project/apples.java
+import java.util.Scanner;
 <p>class apples{
 // Create a method named &quot;main&quot; Type&quot;void&quot;:
 public static void main(String args[]){
@@ -341,9 +482,20 @@ private String girlname;</p>
 		System.out.printf(&amp;quot;your name: %s&amp;quot;,retName());		
 	}
 </code></pre>
-<p>}<!-- raw HTML omitted --><!-- raw HTML omitted -->
-    4. Constructor的使用，用于创建对class_Obj的使用时，同时设置class_Obj的初始参数。比如一个班的学生的姓名，年龄等。<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>}</pre><br>
+    4. Constructor的使用，用于创建对class_Obj的使用时，同时设置class_Obj的初始参数。比如一个班的学生的姓名，年龄等。<br></p>
+<p><span style="white-space:pre"></span>·理解Constructor的作用，出现的位置。它用于在初始化obj时设置参数，所以应该在非主class中。<br>
+<span style="white-space:pre"></span>·Constructor的声明形式：它有点像声明一个method，但是没有返回类型。constructor的名称与class名须一致。Constructor体内多是赋&#20540;符。<br>
+<span style="white-space:pre"></span>·副class结构：从本例可以看出，一个副class的结构大致为： class名-&gt; class private variable 声明 -&gt; Constructor声明 -&gt; methods声明 （熟悉基本结构很重要）<br>
+<span style="white-space:pre"></span>·Constructor在主class中被使用时的语法。要注意。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_5_7185071"  code_snippet_id="484074" snippet_file_name="blog_20141014_5_7185071" name="code" class="java">//----------------------- tutorial 17
+//file: project/apples.java
+class apples{
+	// Create a method named &quot;main&quot; Type&quot;void&quot;:
+	public static void main(String args[]){
+		tuna tunaObj1 = new tuna(&quot;Amily&quot;,16);
+		tuna tunaObj2 = new tuna(&quot;Banry&quot;,19);
 <pre><code>	tunaObj1.saying();
 	tunaObj2.saying();
 			
@@ -371,8 +523,11 @@ public void saying(){
 	
 }
 </code></pre>
-<p>}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>}</pre><br></p>
+<p>&nbsp; &nbsp; &nbsp;5. &nbsp;Java中使用 &quot; （（条件判断） ？ 语句1 ：语句2） &quot; 替代并简化if条件判断语句：</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_6_533142"  code_snippet_id="484074" snippet_file_name="blog_20141014_6_533142" name="code" class="java">//----------------------- tutorial 36/37 Display Regurlar Time
+//file: project/apples.java
 <p>class apples{
 // Create a method named &quot;main&quot; Type&quot;void&quot;:
 public static void main(String args[]){</p>
@@ -403,9 +558,15 @@ public String dispRegTime(){
 			((hour&amp;lt;=12) ? hour : hour%12), minute, second, ((hour&amp;gt;12) ? &amp;quot;PM&amp;quot; : &amp;quot;AM&amp;quot;));
 }
 </code></pre>
-<p>}<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<p>}</pre><br>
     6.  Java中this关键字，public /private概念。当constructor 中arguments 和 variable 的名称完全一样时候，用this可以指明调用哪一个值。</p>
-<!-- raw HTML omitted -->
+<p></p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_7_7817926"  code_snippet_id="484074" snippet_file_name="blog_20141014_7_7817926" name="code" class="java">//----------------------- Tutorial - 38 - Public, Private and this
+//file: project/apples.java
+class apples{
+	// Create a method named &quot;main&quot; Type&quot;void&quot;:
+	public static void main(String args[]){
 <pre><code>	tuna tunaObj = new tuna();
 	
 	System.out.println(tunaObj.dispTime());
@@ -441,8 +602,18 @@ public String dispRegTime(){
 			((hour&amp;lt;=12) ? hour : hour%12), minute, second, ((hour&amp;gt;12) ? &amp;quot;PM&amp;quot; : &amp;quot;AM&amp;quot;));
 }
 </code></pre>
-<p>}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>}</pre><br></p>
+<p>&nbsp; &nbsp; 7. Constructor 的嵌套使用，适用于constructor输入参数个数不确定的情形：</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_8_5310454"  code_snippet_id="484074" snippet_file_name="blog_20141014_8_5310454" name="code" class="java">//----------------------- tutorial 40/41 - Building Objects for Constructors
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		//create 4 diff objs as there are 4 diff constructor
+		tuna tunaObj0 = new tuna();
+		tuna tunaObj1 = new tuna(5);
+		tuna tunaObj2 = new tuna(5,13);
+		tuna tunaObj3 = new tuna(5,13,14);
 <pre><code>	//use the objs
 	System.out.printf(&amp;quot;%s\n&amp;quot;,tunaObj0.toMilitary());
 	System.out.printf(&amp;quot;%s\n&amp;quot;,tunaObj1.toMilitary());
@@ -496,8 +667,25 @@ public String toMilitary(){
 	return String.format(&amp;quot;%02d:%02d:%02d&amp;quot;,getHour(),getMinute(),getSecond());
 }
 </code></pre>
-<p>}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>}</pre><br></p>
+<p></p>
+<p>&nbsp; &nbsp; &nbsp;8. 比较复杂一个例子。</p>
+<p><span style="white-space:pre"></span>1）关于toString() method的使用。在potpie class中，每次声明使用potpie class时，由于其中constructor 语句里具有一个“</p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_9_2943903"  code_snippet_id="484074" snippet_file_name="blog_20141014_9_2943903" name="code" class="java">System.out.printf(&quot;The constructor for this is %s \n&quot;, this);</pre>” ，所以每次声明都会打印一句The constructor for this is .xxx ,xxx的内容就调用this. this 会指向the following &quot;toString()&quot; method.&nbsp;
+<p></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 2）在tuna class中声明并使用了一个 potpie object，这个object是由第6行的语句传递进去的，第16行的（potpie birthday）语句定义了它的入口。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 3）tuna class 继续使用toString method来服务 apples class 中 main method 中 System.out.println(tunaObj);语句对它的调用。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 明显感觉我还对toString() method 的使用理解不够深入。包括 this 和 toString 的配合使用。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_10_9672280"  code_snippet_id="484074" snippet_file_name="blog_20141014_10_9672280" name="code" class="java">//----------------- tutorial 42 toString methods, 43-Composition
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		potpie potObj = new potpie(4,5,2006);
+		tuna tunaObj = new tuna(&quot;Jack&quot;,potObj); //take the potObj just built up
+		System.out.println(tunaObj);
+	}
+}
 <p>//file: project/tuna.java
 public class tuna{
 private String name;
@@ -530,9 +718,19 @@ public String toString(){
 	return String.format(&amp;quot;%d/%d/%d&amp;quot;,month,day,year);
 }
 </code></pre>
-<p>}<!-- raw HTML omitted --><!-- raw HTML omitted -->
-    <!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>}</pre><br>
+    <br></p>
+<p>&nbsp; &nbsp; 9. 枚举类型enum的使用。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_11_8593267"  code_snippet_id="484074" snippet_file_name="blog_20141014_11_8593267" name="code" class="java">//----------------------- tutorial 44/45 Enumeration 枚举
+//file: project/apples.java
+//import java.utile.EnumSet;   // enable to use EnumSet.rang(from,to);
+class apples{
+	public static void main(String[] args){
+		for (tuna people : tuna.values())
+			System.out.printf(&quot;%s\t%s\t%s \n&quot;, 
+					people, people.getDesc(),people.getYear());
+		System.out.println(&quot;\n And now for the range of constants!\n&quot;);
 <p>//		for (tuna people: EnumSet.range(tuna.kelsey,tuna.candy))   // pick up part of the members from tuna
 //			System.out.printf(&quot;%s\t%s\t%s \n&quot;,
 //					people, people.getDesc(),people.getYear());</p>
@@ -565,9 +763,19 @@ public String getYear(){
 }
 </code></pre>
 <p>}</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p></pre><br>
+<br></p>
+<p></p>
+<p><br>
+</p>
+<p>10. 关于Static的用法：（此处包含变量的static和method的static）</p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_12_5354664"  code_snippet_id="484074" snippet_file_name="blog_20141014_12_5354664" name="code" class="java">//----------------------- tutorial 46/47 Static
+//file: project/apples.java
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		tuna member1 = new tuna(&quot;Megan&quot;,&quot;Fox&quot;);
+		tuna member2 = new tuna(&quot;Natalie&quot;,&quot;Portman&quot;);
 <pre><code>	System.out.println(&amp;quot;----------------&amp;quot;);
 	
 	System.out.println(member1.getFirst());
@@ -602,8 +810,18 @@ public static int getsMembers(){
 	return members;
 }
 </code></pre>
-<p>}<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>}</pre></p>
+<p><br>
+</p>
+<p>&nbsp; &nbsp; 11. final的理解和用法：</p>
+<p></p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_13_6543144"  code_snippet_id="484074" snippet_file_name="blog_20141014_13_6543144" name="code" class="java">//----------------------- tutorial 48 final
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		tuna tunaObj = new tuna(10);
+		tuna tunaObj2= new tuna(1);
 <pre><code>	for(int i = 0; i&amp;lt;3 ; i++){
 		tunaObj.add();
 		System.out.printf(&amp;quot;%s&amp;quot;,tunaObj);
@@ -631,8 +849,16 @@ public String toString(){
 	return String.format(&amp;quot;sum = %d\n&amp;quot;,sum);
 }
 </code></pre>
-<p>}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>}</pre><br></p>
+<p>&nbsp; &nbsp; 12. Inheritance -- 继承 ，这是我接触到的新概念。 什么是java 的继承？ &nbsp;1）被继承的class叫做super class, super class 中private的变量和method不能被继承。 &nbsp;2）继承的class中如果method名与super class中的method名重合，则使用继承object时，运行继承class中重合的method代码，即以继承class 为准。此谓overwrite.</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_14_9367826"  code_snippet_id="484074" snippet_file_name="blog_20141014_14_9367826" name="code" class="java">//----------------------- tutorial 49 Inheritance 继承
+//----------------------- tutorial 49 Inheritance 继承
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		tuna tunaObj = new tuna();
+		potpie potpieObj = new potpie();
 <pre><code>	System.out.println(&amp;quot;--- tunaObj.eat() ---&amp;quot;);
 	tunaObj.eat();
 	System.out.println(&amp;quot;--- potpieObj.drink() ---&amp;quot;);
@@ -666,9 +892,32 @@ public void potmethod(){
 System.out.println(&quot;I am potmethod from potpie&quot;);
 }
 }</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
-    13. <!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p></pre><br>
+    13. <br></p>
+<p></p>
+<p><br>
+</p>
+<br>
+<br>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
 
 
 
@@ -731,7 +980,7 @@ Share with</span>
           title="share to reddit"
           rel="noopener noreferrer"
           aria-label="share Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） on reddit"
-          href="https://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fp20130204202400%2f&title=Java%e5%ad%a6%e4%b9%a0%e4%b8%aa%e4%ba%ba%e7%ac%94%e8%ae%b0%ef%bc%88%e4%b8%80%ef%bc%89%e9%85%8d%e7%bd%aejava%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%ef%bc%88Feb04%2c2013%20-%20%ef%bc%89">
+          href="https://reddit.com/submit?url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130204202400%2f&title=Java%e5%ad%a6%e4%b9%a0%e4%b8%aa%e4%ba%ba%e7%ac%94%e8%ae%b0%ef%bc%88%e4%b8%80%ef%bc%89%e9%85%8d%e7%bd%aejava%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%ef%bc%88Feb04%2c2013%20-%20%ef%bc%89">
           
 
 
@@ -757,7 +1006,7 @@ Share with</span>
           title="share to twitter"
           rel="noopener noreferrer"
           aria-label="share Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） on twitter"
-          href="https://twitter.com/intent/tweet/?text=Java%e5%ad%a6%e4%b9%a0%e4%b8%aa%e4%ba%ba%e7%ac%94%e8%ae%b0%ef%bc%88%e4%b8%80%ef%bc%89%e9%85%8d%e7%bd%aejava%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%ef%bc%88Feb04%2c2013%20-%20%ef%bc%89&amp;url=http%3a%2f%2fexample.org%2fposts%2fp20130204202400%2f&amp;hashtags=">
+          href="https://twitter.com/intent/tweet/?text=Java%e5%ad%a6%e4%b9%a0%e4%b8%aa%e4%ba%ba%e7%ac%94%e8%ae%b0%ef%bc%88%e4%b8%80%ef%bc%89%e9%85%8d%e7%bd%aejava%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%ef%bc%88Feb04%2c2013%20-%20%ef%bc%89&amp;url=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130204202400%2f&amp;hashtags=">
           
 
 
@@ -783,7 +1032,7 @@ Share with</span>
           title="share to facebook"
           rel="noopener noreferrer"
           aria-label="share Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） on facebook"
-          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fp20130204202400%2f">
+          href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsonictl.github.io%2fposts%2fp20130204202400%2f">
           
 
 
@@ -813,6 +1062,32 @@ Share with</span>
     
 
     
+      <div id="comments" class="article-card">
+        
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-hugo-sonictl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+    
 
   </div>
 </main>
@@ -820,6 +1095,16 @@ Share with</span>
     <footer id="footer">
   <div class="container has-padding is-flex">
     <ul class="links">
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://github.com/gohugoio" title="Github">Github</a>
+      </li>
+      
+      <li>
+        
+        <a rel="nofollow" target="_blank" href="https://twitter.com/gohugoio" title="Twitter">Twitter</a>
+      </li>
       
       <li>
         </li>
@@ -837,7 +1122,7 @@ Share with</span>
       </li>
     </ul>
     <div class="copyright">
-       &copy; 2023 My New Hugo Site
+       &copy; 2024 Combine Art and Sciences
       
     </div>
   </div>
@@ -848,7 +1133,32 @@ Share with</span>
 </script>
 
 
-<script defer src="http://example.org/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+<script defer src="https://sonictl.github.io/js/main.min.22edf5bac5dfa68a0215a42702e2a71503d57bedadc157af46b990895734f033.js" integrity="sha256-Iu31usXfpooCFaQnAuKnFQPVe+2twVevRrmQiVc08DM=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
 
 
 
