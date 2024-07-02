@@ -9,11 +9,11 @@ slug: p20240702105833
 
 # Add a shortcut for 'delete_forward' on Mac OS
 
-Windows OS keyboard has 'backspace'(deleteBackward_or_delLeftward) and 'delete'(deleteForward_or_delRightward). 
+Windows OS keyboard has 'backspace'(deleteBackward_or_delLeftward) and 'delete'(deleteForward_or_delRightward). However, MacOS has not deleteForward.
 
-However, MacOS has not deleteForward.
+Even though we have `fn`+`delete` to achieve this, this occupies your TWO hands. Unconvenient. 
 
-This makes unconvenient. We can use the `Karabiner-Elements` app, which is an open-source free app, to patch this issue.
+Here, we use the `Karabiner-Elements` app, which is an open-source free app, to patch this issue.
 
 ps: in MacOS, the keyCode 117 means deleteForward_or_delRightward
 
