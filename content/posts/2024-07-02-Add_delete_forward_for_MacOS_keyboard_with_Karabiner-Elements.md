@@ -49,3 +49,23 @@ ps: in MacOS, the keyCode 117 means deleteForward_or_delRightward
 
 ```
 
+
+
+A test about inserting img into my blog:
+
+![img](/img/20240702.png)
+
+```
+This is referred by:
+    ![img](/img/20240702.png)
+```
+
+-----------
+
+![img](https://sonictl.github.io/img/20240702.png)
+
+```
+This is referred by:
+    ![img](https://sonictl.github.io/img/20240702.png)
+```
+
