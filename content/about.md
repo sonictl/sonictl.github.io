@@ -14,3 +14,4 @@ He is dedicated to the pursuit of aesthetics and wisdom.
 
 Constructive comments are welcomed.
 
+The Greatest thing is extending the horizon of people.
