@@ -90,15 +90,13 @@ slug: p20240703212624
     mysqld --defaults-file="C:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console 
    ```
 
-   执行完上面命令后，MySQL会运行，并且在 `C:\mysql8` 路径下会新建一个data文件夹，并且已在data文件夹建好默认数据库。用户可确认一下`C:\mysql8\data`文件夹内的内容。  此时，登录的用户名为root，密码为空。
+   执行完上面命令后，MySQL会在 `C:\mysql8` 路径下新建一个data文件夹，并且已在data文件夹建好默认数据库。用户可确认一下`C:\mysql8\data`文件夹内的内容。  此时，登录的用户名为root，密码为空。
 
-6. 若上一步持续运行，需关闭上一步运行起来的MySQL: 按`Ctrl`+`C` 结束运行。
+6. 等上一步执行完成，继续在cmd窗口中，运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
 
-7. 继续在cmd窗口中，运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
+7. 继续在cmd窗口中，运行 `net start mysql` 启动服务。
 
-8. 继续在cmd窗口中，运行 `net start mysql` 启动服务。
-
-9. 继续在cmd窗口中，运行 `net stop mysql` 停止服务。
+8. 继续在cmd窗口中，运行 `net stop mysql` 停止服务。
 
 
 ## 使用mySQL服务
@@ -126,8 +124,6 @@ SELECT * FROM test;
 -- 退出：
 QUIT;
 ```
-
-
 
 
 
@@ -194,7 +190,7 @@ mysql> SELECT user,authentication_string,Host from user;
 1. 停止服务`net stop mysql` 
 2. 删除注册表：regedit
 3. 路径1：`HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\EventLog\Application\MySQLD Service` , 删除`EventMessageFile 和 TypesSupported`
-4. 路径2：`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\MySQLD Service` , 删除`EventMessageFile 和 TypesSupported`
+4. Opt:路径2：`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\MySQLD Service` , 删除`EventMessageFile 和 TypesSupported`
 5. cmd执行命令 `mysqld -remove`, 看到【successfully removed】代表删除成功。
 6. 移除环境变量中的`C:\mysql8\bin`，移除 `C:\mysql8` 下的data文件夹。
 
