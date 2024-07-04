@@ -135,7 +135,7 @@ QUIT;
 
 需要使用 mysql 数据库：
 
-```javascript
+```sql
 mysql> USE mysql;
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 ```
@@ -144,7 +144,7 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'r
 
 刷新权限（**刷新后，密码才起效**）:
 
-```javascript
+```sql
 mysql> flush privileges;
 mysql> exit;
 ```
@@ -159,12 +159,12 @@ mysql> exit;
 
 - 使用mysql的库，修改root用户的【host】为【%】，再刷新权限即可完成远程访问权限的更改。
 
-```javascript
-mysql> use mysql;
-mysql> select User,authentication_string,Host from user;
-mysql> update user set host='%' where user='root';   #修改root用户的【host】为【%】
+```sql
+mysql> USE mysql;
+mysql> SELECT user,authentication_string,Host from user;
+mysql> SELECT user set host='%' where user='root';   #修改root用户的【host】为【%】
 mysql> flush privileges;
-mysql> select User,authentication_string,Host from user;
+mysql> SELECT user,authentication_string,Host from user;
 ```
 
  - cmd 远程连接确认：
