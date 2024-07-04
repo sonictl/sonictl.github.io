@@ -14,18 +14,18 @@ slug: p20240703212624
    2. 操作系统 = Microsoft Windows
    3. 下载 `**Windows (x86, 64-bit), ZIP Archive**`  （文件大小=232.5M）MD5= `9b85c0f2193f95f46fcaa967328004ea` 
 
-2. 将文件 `mysql-8.0.38-winx64.zip` 解压，压缩包内所有文件放在`D:\mysql8`路径下。
+2. 将文件 `mysql-8.0.38-winx64.zip` 解压，压缩包内所有文件放在`C:\mysql8`路径下。
 
-3. 确认在`D:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`D:\mysql8`路径下新建配置文件`my.ini` （若已有，则仅编辑）
+3. 确认在`C:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`C:\mysql8`路径下新建配置文件`my.ini` （若已有，则仅编辑）
 
    编辑`my.ini`文件内容如下：
 
    ```ini
    [mysqld]
    # 设置安装目录
-   basedir = "D:\\mysql8"
+   basedir = "C:\\mysql8"
    # 设置数据目录
-   datadir = "D:\\mysql8\\data"
+   datadir = "C:\\mysql8\\data"
    sql_mode = NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
    #设置服务端的编码方式
    character-set-server=utf8mb4
@@ -37,14 +37,14 @@ slug: p20240703212624
    # 1024 or higher unless the server is started by the root system user.
    port = "3306"
    # Log errors and startup messages to this file.
-   # log-error = "D:\\mysql8\\logs\\error_log.err"
+   # log-error = "C:\\mysql8\\logs\\error_log.err"
    [WinMySQLadmin]
-   Server = "D:\\mysql8\\bin\\mysqld.exe"
+   Server = "C:\\mysql8\\bin\\mysqld.exe"
 
    ```
    ​
 
-4. 将`D:\mysql8\bin`添加到 windows 系统环境变量。
+4. 将`C:\mysql8\bin`添加到 windows 系统环境变量。
 
    或者：
 
@@ -53,7 +53,7 @@ slug: p20240703212624
    ```powershell
    Set-ExecutionPolicy Bypass -Scope Process -Force
    $envVarName = 'Path'
-   $envVarValueToAdd = 'D:\mysql8\bin'
+   $envVarValueToAdd = 'C:\mysql8\bin'
    if ([Environment]::GetEnvironmentVariable($envVarName, 'Machine') -like "*$envVarValueToAdd*") {
        Write-Output "环境变量已存在。"
    }
@@ -87,10 +87,10 @@ slug: p20240703212624
 5. 安装。**管理员身份**打开cmd窗口，运行 以下命令，以初始化MySQL: 
 
    ```bash
-    mysqld --defaults-file="D:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console 
+    mysqld --defaults-file="C:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console 
    ```
 
-   执行完上面命令后，MySQL会运行，并且在 `D:\mysql8` 路径下会新建一个data文件夹，并且已在data文件夹建好默认数据库。用户可确认一下`D:\mysql8\data`文件夹内的内容。  此时，登录的用户名为root，密码为空。
+   执行完上面命令后，MySQL会运行，并且在 `C:\mysql8` 路径下会新建一个data文件夹，并且已在data文件夹建好默认数据库。用户可确认一下`C:\mysql8\data`文件夹内的内容。  此时，登录的用户名为root，密码为空。
 
 6. 若上一步持续运行，需关闭上一步运行起来的MySQL: 按`Ctrl`+`C` 结束运行。
 
@@ -196,7 +196,7 @@ mysql> SELECT user,authentication_string,Host from user;
 3. 路径1：`HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\EventLog\Application\MySQLD Service` , 删除`EventMessageFile 和 TypesSupported`
 4. 路径2：`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\MySQLD Service` , 删除`EventMessageFile 和 TypesSupported`
 5. cmd执行命令 `mysqld -remove`, 看到【successfully removed】代表删除成功。
-6. 移除环境变量中的`D:\mysql8\bin`。
+6. 移除环境变量中的`C:\mysql8\bin`。
 
 
 
