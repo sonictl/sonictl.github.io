@@ -16,7 +16,7 @@ slug: p20240703212624
 
 2. 将文件 `mysql-8.0.38-winx64.zip` 解压，压缩包内所有文件放在`D:\mysql8`路径下。
 
-3. 确认在`D:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`D:\mysql8`路径下新建配置文件`my.ini` 
+3. 确认在`D:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`D:\mysql8`路径下新建配置文件`my.ini` （若已有，则仅编辑）
 
    编辑`my.ini`文件内容如下：
 
@@ -42,16 +42,16 @@ slug: p20240703212624
    Server = "D:\\mysql8\\bin\\mysqld.exe"
 
    ```
+   ​
 
-4. 在`D:\mysql8`路径下新建一个文件夹，命名为`data`。
-
-5. 将`D:\mysql8\bin`添加到 windows 系统环境变量。
+4. 将`D:\mysql8\bin`添加到 windows 系统环境变量。
 
    或者：
 
    “**以管理员身份**” 运行 PowerShell，在其中运行以下命令，以添加环境变量：
 
    ```powershell
+   Set-ExecutionPolicy Bypass -Scope Process -Force
    $envVarName = 'Path'
    $envVarValueToAdd = 'D:\mysql8\bin'
    if ([Environment]::GetEnvironmentVariable($envVarName, 'Machine') -like "*$envVarValueToAdd*") {
@@ -84,21 +84,21 @@ slug: p20240703212624
 
    ​
 
-6. 安装。**管理员身份**打开cmd窗口，运行 以下命令，以初始化MySQL: 
+5. 安装。**管理员身份**打开cmd窗口，运行 以下命令，以初始化MySQL: 
 
    ```bash
     mysqld --defaults-file="D:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console 
    ```
 
-   执行完上面命令后，MySQL会运行，并且在data文件夹建好默认数据库。 此时，登录的用户名为root，密码为空。
+   执行完上面命令后，MySQL会运行，并且在 `D:\mysql8` 路径下会新建一个data文件夹，并且已在data文件夹建好默认数据库。用户可确认一下`D:\mysql8\data`文件夹内的内容。  此时，登录的用户名为root，密码为空。
 
-7. 若上一步持续运行，需关闭上一步运行起来的MySQL: 按`Ctrl`+`C` 结束运行。
+6. 若上一步持续运行，需关闭上一步运行起来的MySQL: 按`Ctrl`+`C` 结束运行。
 
-8. **管理员身份**打开cmd窗口，运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
+7. 继续在cmd窗口中，运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
 
-9. **管理员身份**打开cmd窗口，运行 `net start mysql` 启动服务。
+8. 继续在cmd窗口中，运行 `net start mysql` 启动服务。
 
-10. **管理员身份**打开cmd窗口，运行 `net stop mysql` 停止服务。
+9. 继续在cmd窗口中，运行 `net stop mysql` 停止服务。
 
 
 ## 使用mySQL服务
@@ -168,10 +168,19 @@ mysql> select User,authentication_string,Host from user;
 ```
 
  - cmd 远程连接确认：
-    登录的方式中参数需要加上`-h`来访问ip地址
-    
+
+    命令：`mysql -uroot -h 192.168.0.101 -p`
+
+    登录的方式中参数需要加上`-h`来访问ip地址，命令行窗口显示如下：
+
     ```
-    C:\Users\Admin> mysql -uroot -h 192.168.0.101 -p
+    C:\Users\userName> mysql -uroot -h 192.168.0.101 -p 
+
+    C:\Users\userName> mysql -uroot -h 192.168.0.101 -P 3306 -p
+    # -h 192.168.0.101: 指定 MySQL 数据库服务器的主机名
+    # -u root: 指定用户名为 root
+    # -P: 指定端口号, 如不指定，默认 3306
+    # -p: 提示用户输入密码
     ```
 
 还可通过 Navicat 进行连接测试。
