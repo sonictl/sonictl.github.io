@@ -37,7 +37,7 @@ slug: p20240703212624
    # 1024 or higher unless the server is started by the root system user.
    port = "3306"
    # Log errors and startup messages to this file.
-   log-error = "D:\\mysql8\\logs\\error_log.err"
+   # log-error = "D:\\mysql8\\logs\\error_log.err"
    [WinMySQLadmin]
    Server = "D:\\mysql8\\bin\\mysqld.exe"
 
@@ -49,11 +49,11 @@ slug: p20240703212624
 
    或者：
 
-   通过“以管理员身份”运行PowerShell, 在其中运行以下命令，以添加环境变量：
+   “**以管理员身份**” 运行 PowerShell，在其中运行以下命令，以添加环境变量：
 
    ```powershell
    $envVarName = 'Path'
-   $envVarValueToAdd = 'D:\mysql8'
+   $envVarValueToAdd = 'D:\mysql8\bin'
    if ([Environment]::GetEnvironmentVariable($envVarName, 'Machine') -like "*$envVarValueToAdd*") {
        Write-Output "环境变量已存在。"
    }
@@ -84,7 +84,7 @@ slug: p20240703212624
 
    ​
 
-6. 安装。管理员身份打开cmd窗口，运行 `mysqld --defaults-file="D:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console` 
+6. 安装。**管理员身份**打开cmd窗口，运行 以下命令，以初始化MySQL: 
 
    ```bash
     mysqld --defaults-file="D:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console 
@@ -92,13 +92,13 @@ slug: p20240703212624
 
    执行完上面命令后，MySQL会运行，并且在data文件夹建好默认数据库。 此时，登录的用户名为root，密码为空。
 
-7. 关闭上一步运行起来的MySQL: 按`Ctrl`+`C` 结束运行。
+7. 若上一步持续运行，需关闭上一步运行起来的MySQL: 按`Ctrl`+`C` 结束运行。
 
-8. 运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
+8. **管理员身份**打开cmd窗口，运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
 
-9. 运行 `net start mysql` 启动服务。
+9. **管理员身份**打开cmd窗口，运行 `net start mysql` 启动服务。
 
-10. 运行 `net stop mysql` 停止服务。
+10. **管理员身份**打开cmd窗口，运行 `net stop mysql` 停止服务。
 
 
 ## 使用mySQL服务
@@ -140,7 +140,7 @@ mysql> USE mysql;
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 ```
 
-这样的话userName:root对应的pwd:root方便好用。
+这样的话 userName:root 对应的 pwd:root 方便好用。
 
 刷新权限（**刷新后，密码才起效**）:
 
@@ -151,7 +151,7 @@ mysql> exit;
 
 这个刷新权限的命令一定要记住，经常会用到。
 
-在cmd窗口运行`mysql -u root -p`, 密码为 root 
+在cmd窗口再次运行 `mysql -u root -p`, 密码为 root 
 
 
 
