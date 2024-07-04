@@ -13,7 +13,7 @@ slug: p20240703212624
    1. 选择版本 = 8.0.38
    2. 操作系统 = Microsoft Windows
    3. 下载 `**Windows (x86, 64-bit), ZIP Archive**`  （文件大小=232.5M）MD5= `9b85c0f2193f95f46fcaa967328004ea` 
-   
+
 2. 将文件 `mysql-8.0.38-winx64.zip` 解压，压缩包内所有文件放在`D:\mysql8`路径下。
 
 3. 确认在`D:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`D:\mysql8`路径下新建配置文件`my.ini` 
@@ -40,12 +40,49 @@ slug: p20240703212624
    log-error = "D:\\mysql8\\logs\\error_log.err"
    [WinMySQLadmin]
    Server = "D:\\mysql8\\bin\\mysqld.exe"
-   
+
    ```
 
 4. 在`D:\mysql8`路径下新建一个文件夹，命名为`data`。
 
-5. 将`D:\mysql8\bin`添加到windows环境变量，重启计算机。测试：管理员身份打开cmd窗口，运行`mysql --help` 以测试。
+5. 将`D:\mysql8\bin`添加到 windows 系统环境变量。
+
+   或者：
+
+   通过“以管理员身份”运行PowerShell, 在其中运行以下命令，以添加环境变量：
+
+   ```powershell
+   $envVarName = 'Path'
+   $envVarValueToAdd = 'D:\mysql8'
+   if ([Environment]::GetEnvironmentVariable($envVarName, 'Machine') -like "*$envVarValueToAdd*") {
+       Write-Output "环境变量已存在。"
+   }
+   else {
+       # Append the new value to the existing environment variable
+       $currentValue = [Environment]::GetEnvironmentVariable($envVarName, 'Machine')
+       if ($currentValue -eq $null) {
+           $newValue = $envVarValueToAdd
+       }
+       else {
+           $newValue = "$currentValue;$envVarValueToAdd"
+       }
+
+       # Set the updated environment variable
+       [Environment]::SetEnvironmentVariable($envVarName, $newValue, 'Machine')
+
+       # Check if the environment variable was successfully updated
+       if ([Environment]::GetEnvironmentVariable($envVarName, 'Machine') -like "*$envVarValueToAdd*") {
+           Write-Output "环境变量已成功添加。"
+       }
+       else {
+           Write-Output "环境变量添加失败!"
+       }
+   }
+   ```
+
+   测试：管理员身份打开cmd窗口，运行`mysql --help` 以测试。若测试失败，或可重启计算机再试。
+
+   ​
 
 6. 安装。管理员身份打开cmd窗口，运行 `mysqld --defaults-file="D:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console` 
 
@@ -63,7 +100,6 @@ slug: p20240703212624
 
 10. 运行 `net stop mysql` 停止服务。
 
-    
 
 ## 使用mySQL服务
 
