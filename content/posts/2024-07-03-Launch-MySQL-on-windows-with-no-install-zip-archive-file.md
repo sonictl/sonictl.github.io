@@ -196,7 +196,7 @@ mysql> SELECT user,authentication_string,Host from user;
 3. 路径1：`HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\EventLog\Application\MySQLD Service` , 删除`EventMessageFile 和 TypesSupported`
 4. 路径2：`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\MySQLD Service` , 删除`EventMessageFile 和 TypesSupported`
 5. cmd执行命令 `mysqld -remove`, 看到【successfully removed】代表删除成功。
-6. 移除环境变量中的`C:\mysql8\bin`。
+6. 移除环境变量中的`C:\mysql8\bin`，移除 `C:\mysql8` 下的data文件夹。
 
 
 
