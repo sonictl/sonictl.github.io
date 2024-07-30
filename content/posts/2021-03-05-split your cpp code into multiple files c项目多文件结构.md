@@ -55,7 +55,7 @@ How to split the `main.c` into `me.h` and `me.c` and let all the declarations an
 - **生成构建规则**：根据项目的配置文件生成编译、汇编和链接的规则。
 - **执行构建**：按照生成的规则执行编译、汇编和链接过程，生成最终的可执行文件或库文件。
 
-### 3 . How will they work on this example proj.
+### 3 . How will they handle on this example proj.
 以开场时项目结构为例，假设使用 CMake 构建系统：
 
 **预处理阶段**：
@@ -127,7 +127,7 @@ void app_main(void)
 }
 ```
 
-将 `main/main.c` 文件重构，将 `include` 部分和函数声明移到新的 `me.h` 头文件，将函数定义移到新的 `me.c` 源文件，并在 `main.c` 文件中保留 `app_main()` 函数。
+将 `main/main.c` 文件重构，将 `#include` 部分和函数声明移到新的 `me.h` 头文件，将函数定义移到新的 `me.c` 源文件，并在 `main.c` 文件中保留 `app_main()` 函数。
 
 #### 4.1 创建 `me.h`
 
@@ -236,6 +236,8 @@ idf_component_register(
 
 ### FAQ:
 
+#### FAQ1: 有关 static 关键字、extern 关键字
+
 ```
 我注意到在 main/blink_example_main.c 文件中的static void blink_led(void)函数名，移动到me.h进行声明以后，‘static'不见了，是什么原因？
 ```
@@ -244,6 +246,7 @@ idf_component_register(
 >
 > - 在 .h 头文件中，只声明函数，不需要 `static` 关键字。
 > - 在源文件中定义函数时，如果希望函数仅在当前源文件中可见，要使用 `static` 关键字；如果函数需要在其他源文件中使用，则不要使用 `static`。
+> - `extern` 关键字用于常量变量的全局共享。
 >
 > ### Normal Answer:
 >
@@ -316,7 +319,51 @@ idf_component_register(
 >     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
 > }
 > ```
+
+#### FAQ2: 添加 include 、scr 文件夹，使项目文件更简洁
+
+```
+如何添加 include 、scr 文件夹，以使项目文件组织更专业简洁？
+```
+
+> 项目中，如果你希望将 `main` 文件夹下的头文件和源文件管理得更有组织，可以在 `main` 文件夹内创建一个 `include` 文件夹来存放头文件，并将源文件（如 `.c` 文件）放在 `src` 文件夹中。你的目录结构可以调整为：
 >
+> ```css
+> .
+> ├── CMakeLists.txt
+> ├── README.md
+> ├── dependencies.lock
+> └── main
+>  ├── CMakeLists.txt
+>     ├── include
+>     │   ├── base_callbacks.h
+>     │   ├── base_gui.h
+>     │   └── base_include.h
+>     ├── src
+>     │   ├── base_callbacks.c
+>     │   ├── base_gui.c
+>     │   └── main.c
+>     └── idf_component.yml
+>    ```
+> 
+>在这里，`include` 文件夹包含所有的头文件，而 `src` 文件夹包含所有的源文件。你可以根据需要调整头文件和源文件的位置。
+> 
+>另外，记得在 `main/CMakeLists.txt` 中调整文件路径，以确保编译器可以找到新的 `include` 和 `src` 文件夹。例如：
+> 
+>```cmake
+> idf_component_register(
+>  SRCS "src/base_callbacks.c" "src/base_gui.c" "src/main.c"
+>     INCLUDE_DIRS "include"
+>    )
+> ```
+> 
+>这样设置之后，CMake 构建系统会正确地包含头文件和源文件。
+
+
+
+(↑ updated on 2024-07-30 09:22:40)
+
+---
 
 
 
