@@ -9,12 +9,12 @@ slug: p20240703212624
 
 ## 免安装 运行 mySQL 
 
-1. 下载 v8.0 的MySQL文件包： [https://dev.mysql.com/downloads/mysql/](https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.38-winx64.zip)
-   1. 选择版本 = 8.0.38
+1. 下载 v8.4 的MySQL文件包：https://dev.mysql.com/downloads/mysql/
+   1. 选择版本 = 8.4.2 LTS
    2. 操作系统 = Microsoft Windows
-   3. 下载 `**Windows (x86, 64-bit), ZIP Archive**`  （文件大小=232.5M）MD5= `9b85c0f2193f95f46fcaa967328004ea` 
+   3. 下载 `Windows (x86, 64-bit), ZIP Archive`  （文件大小=247.5M）MD5= `9aad84967d8a94c390e76366ca85ec3c` 
 
-2. 将文件 `mysql-8.0.38-winx64.zip` 解压，压缩包内所有文件放在`C:\mysql8`路径下。
+2. 将文件 `mysql-8.4.2-winx64.zip` 解压，注意压缩包内所有文件放在`C:\mysql8`路径下。⚠️不要更改路径中的C盘
 
 3. 确认在`C:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`C:\mysql8`路径下新建配置文件`my.ini` （若已有，则仅编辑）
 
@@ -40,9 +40,9 @@ slug: p20240703212624
    # log-error = "C:\\mysql8\\logs\\error_log.err"
    [WinMySQLadmin]
    Server = "C:\\mysql8\\bin\\mysqld.exe"
-
+   
    ```
-   ​
+   
 
 4. 将`C:\mysql8\bin`添加到 windows 系统环境变量。
 
@@ -66,10 +66,10 @@ slug: p20240703212624
        else {
            $newValue = "$currentValue;$envVarValueToAdd"
        }
-
+   
        # Set the updated environment variable
        [Environment]::SetEnvironmentVariable($envVarName, $newValue, 'Machine')
-
+   
        # Check if the environment variable was successfully updated
        if ([Environment]::GetEnvironmentVariable($envVarName, 'Machine') -like "*$envVarValueToAdd*") {
            Write-Output "环境变量已成功添加。"
@@ -82,9 +82,11 @@ slug: p20240703212624
 
    测试：管理员身份打开cmd窗口，运行`mysql --help` 以测试。若测试失败，或可重启计算机再试。
 
-   ​
+   
 
-5. 安装。**管理员身份**打开cmd窗口，运行 以下命令，以初始化MySQL: 
+5. 安装。
+
+   5.1: **初始化**：**管理员身份**运行cmd窗口，运行 以下命令，以初始化MySQL: 
 
    ```bash
     mysqld --defaults-file="C:\\mysql8\\my.ini" --initialize-insecure --user=mysql --console 
@@ -92,11 +94,18 @@ slug: p20240703212624
 
    执行完上面命令后，MySQL会在 `C:\mysql8` 路径下新建一个data文件夹，并且已在data文件夹建好默认数据库。用户可确认一下`C:\mysql8\data`文件夹内的内容。  此时，登录的用户名为root，密码为空。
 
-6. 等上一步执行完成，继续在cmd窗口中，运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
+   5.2: **安装服务**：等上一步执行完成，继续在cmd窗口中，运行 `mysqld install` 安装服务（“The servise may already exist” = “服务可能已经存在了”）。
 
-7. 继续在cmd窗口中，运行 `net start mysql` 启动服务。
+   
 
-8. 继续在cmd窗口中，运行 `net stop mysql` 停止服务。
+
+6. 启动与停止MySQL服务：
+
+​	 **启动服务**：继续在cmd窗口中，运行 `net start mysql` 启动服务。此时即可参考下一节内容，操作mySql数据库。
+
+ 	**停止服务**：继续在cmd窗口中，运行 `net stop mysql` 停止服务。
+
+
 
 
 ## 使用mySQL服务
@@ -129,7 +138,7 @@ QUIT;
 
 #### ps: 修改密码：
 
-需要使用 mysql 数据库：
+首先需要切换使用 mysql 数据库：
 
 ```sql
 mysql> USE mysql;
@@ -171,7 +180,7 @@ mysql> SELECT user,authentication_string,Host from user;
 
     ```
     C:\Users\userName> mysql -uroot -h 192.168.0.101 -p 
-
+    
     C:\Users\userName> mysql -uroot -h 192.168.0.101 -P 3306 -p
     # -h 192.168.0.101: 指定 MySQL 数据库服务器的主机名
     # -u root: 指定用户名为 root
@@ -180,8 +189,6 @@ mysql> SELECT user,authentication_string,Host from user;
     ```
 
 还可通过 Navicat 进行连接测试。
-
-
 
 
 
@@ -196,9 +203,7 @@ mysql> SELECT user,authentication_string,Host from user;
 
 
 
-
-
-## REFERENCE:
+## Reference:
 
 ----
 
