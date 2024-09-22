@@ -18,7 +18,7 @@ slug: p20240703212624
 
 3. 确认在`C:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`C:\mysql8`路径下新建配置文件`my.ini` （若已有，则仅编辑）
 
-   编辑`my.ini`文件内容如下：
+   用Notepad--，编辑`my.ini`文件内容如下：
 
    ```ini
    [mysqld]
@@ -43,7 +43,6 @@ slug: p20240703212624
    
    ```
    
-
 4. 将`C:\mysql8\bin`添加到 windows 系统环境变量。
 
    或者：
