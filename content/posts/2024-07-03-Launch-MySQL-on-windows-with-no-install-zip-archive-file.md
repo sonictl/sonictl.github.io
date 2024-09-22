@@ -18,7 +18,7 @@ slug: p20240703212624
 
 3. 确认在`C:\mysql8`路径下有文件夹`bin`、`docs`、`include`、`lib`、`share`，在`C:\mysql8`路径下新建配置文件`my.ini` （若已有，则仅编辑）
 
-   用Notepad--，编辑`my.ini`文件内容如下：
+   用 [Notepad--](https://gitee.com/cxasm/notepad--/releases/tag/v2.19) 或 [vsCode](https://code.visualstudio.com/) 等文本编辑器，编辑`my.ini`文件内容如下：
 
    ```ini
    [mysqld]
