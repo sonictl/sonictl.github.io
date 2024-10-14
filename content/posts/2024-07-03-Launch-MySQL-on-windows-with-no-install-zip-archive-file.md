@@ -100,9 +100,9 @@ slug: p20240703212624
 
 6. 启动与停止MySQL服务：
 
-​	 **启动服务**：继续在cmd窗口中，运行 `net start mysql` 启动服务。此时即可参考下一节内容，操作mySql数据库。
+​	 **启动服务**：继续在cmd窗口中(管理员身份)，运行 `net start mysql` 启动服务。此时即可参考下一节内容，操作mySql数据库。
 
- 	**停止服务**：继续在cmd窗口中，运行 `net stop mysql` 停止服务。
+ 	**停止服务**：继续在cmd窗口中(管理员身份)，运行 `net stop mysql` 停止服务。
 
 
 
@@ -161,33 +161,33 @@ mysql> exit;
 
 #### 开启MySQL远程访问
 
-- 使用mysql的库，修改root用户的【host】为【%】，再刷新权限即可完成远程访问权限的更改。
+ - 使用mysql的库，修改root用户的【host】为【%】(all)，再刷新权限即可完成远程访问权限的更改。
 
 ```sql
 mysql> USE mysql;
 mysql> SELECT user,authentication_string,Host from user;
-mysql> SELECT user set host='%' where user='root';   #修改root用户的【host】为【%】
-mysql> flush privileges;
-mysql> SELECT user,authentication_string,Host from user;
+mysql> UPDATE mysql.user SET host='%' WHERE user='root';   #修改root用户的【host】为【%】
+mysql> SELECT user,authentication_string,Host from user;   #检查一下是否修改成功
+mysql> flush privileges;   #刷新权限
 ```
 
  - cmd 远程连接确认：
 
-    命令：`mysql -uroot -h 192.168.0.101 -p`
+    命令：`mysql -uroot -h <主机IP> -p`
 
-    登录的方式中参数需要加上`-h`来访问ip地址，命令行窗口显示如下：
+    需要加上登录方式参数，`-h`来访问ip地址，命令行窗口显示如下：
 
     ```
-    C:\Users\userName> mysql -uroot -h 192.168.0.101 -p 
+    C:\Users\userName> mysql -u root -h 192.168.0.101 -p 
     
-    C:\Users\userName> mysql -uroot -h 192.168.0.101 -P 3306 -p
+    C:\Users\userName> mysql -u root -h 192.168.0.101 -P 3306 -p
     # -h 192.168.0.101: 指定 MySQL 数据库服务器的主机名
     # -u root: 指定用户名为 root
     # -P: 指定端口号, 如不指定，默认 3306
     # -p: 提示用户输入密码
     ```
 
-还可通过 Navicat 进行连接测试。
+还可通过 DBeaver 或 Navicat 进行连接测试。
 
 
 
