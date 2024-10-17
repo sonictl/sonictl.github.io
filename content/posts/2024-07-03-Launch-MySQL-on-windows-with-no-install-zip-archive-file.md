@@ -102,7 +102,7 @@ slug: p20240703212624
 
 ​	 **启动服务**：继续在cmd窗口中(管理员身份)，运行 `net start mysql` 启动服务。此时即可参考下一节内容，操作mySql数据库。
 
- 	**停止服务**：继续在cmd窗口中(管理员身份)，运行 `net stop mysql` 停止服务。
+​	 **停止服务**：继续在cmd窗口中(管理员身份)，运行 `net stop mysql` 停止服务。
 
 
 
@@ -141,7 +141,7 @@ QUIT;
 
 ```sql
 mysql> USE mysql;
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
 ```
 
 这样的话 userName:root 对应的 pwd:root 方便好用。
