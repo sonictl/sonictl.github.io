@@ -30,25 +30,249 @@ fc-query /path/to/your/font.ttf
 
 
 
-### 修改 ”元数据“ 的方法：
+### 需要利用python脚本，为 docx 中的字体添加 alt name
 
-或借助在线网站： https://products.aspose.app/font/zh/metadata/ttf  
+```
+pip install lxml fonttools
 
-可以修改字体的元数据。
+```
 
-Mac Office 会将 word 文档中的字体名，与字体库中的字体名进行对应。找到最接近的字体名给它赋予字体进行显示。
 
-以 "方正仿宋\_GBK" 字体为例：
 
-|          | Mac中的字体名   | 元数据中的字体名 | Mac Office 是否能对应上？ |
-| -------- | --------------- | ---------------- | ------------------------- |
-| 修改前： | FZFangSong_Z02  | FZFangSong_Z02   | ❌                         |
-| 修改后： | FZFangSong\_GBK | FZFangSong\_GBK  | ✅                         |
+1. 读取 ttf 文件中的en,cn 字体名称对应关系：
 
-### 解决方法
+```python
+# Parse font files and extract their family names
+# parse fonts from a path that storing those font files (ttf and TTF)
+# 遍历字体文件存放路径 如 /Users/user_name/Library/Fonts
+# 遍历字体，提取所有语言版本中，字体名称。如： FZQiTi-S14S,方正启体简体
 
-1、将 windows 版 某字体的 ttf 文件上传至 aspose.app 网站，查看它的元数据。
+import os
+from fontTools.ttLib import TTFont
 
-2、修改元数据，使之字体名尽量符合 windows 字体的全拼，或直接用中文（我没有试）。
+def parse_ttf_fonts(font_dir):
+    """
+    遍历指定目录中的 TTF 文件，提取文件名、family 和 fullname 信息。
+    
+    :param font_dir: 字体文件存放路径
+    """
+    if not os.path.exists(font_dir):
+        print(f"指定的路径不存在: {font_dir}")
+        return
+    
+    print(f"正在遍历目录: {font_dir}")
+    
+    font_mapping = {}  # 存储字体名称映射的字典
 
-3、下载修改元数据后的ttf字体文件，导入Mac系统的FontBook App（网速慢可以上了网再下载）。
+    # 遍历目录中的 ttf 文件
+    for root, _, files in os.walk(font_dir):
+        for file in files:
+            if file.endswith(".ttf") or file.endswith(".TTF"):
+                ttf_path = os.path.join(root, file)
+                try:
+                    # 加载字体文件
+                    font = TTFont(ttf_path)
+
+                    # 提取 family 和 fullname 的所有语言版本
+                    family_names = extract_font_names(font, name_id=1)  # family name (ID=1)
+                    fullname_names = extract_font_names(font, name_id=4)  # fullname (ID=4)
+
+                    print(f"文件名: {file}")
+
+                    # 检查 family_names 是否有 2 个元素
+                    if len(family_names) != 2:
+                        print(f"警告: {file} 的 family 名称数量不等于 2 (实际: {len(family_names)})")
+                        print(f"  family: {family_names}")
+                    else:
+                        # 如果是 2 个，则存入映射表
+                        font_mapping[family_names[0]] = family_names[1]
+                        print(f"  family: {family_names[0]}, {family_names[1]}")
+
+
+                    print("-" * 50)
+                except Exception as e:
+                    print(f"无法解析字体文件 {file}: {e}")
+
+    # 输出映射表
+    if font_mapping:
+        print("\n字体名称映射表（正反两个映射）:")
+        for family, alt_family in font_mapping.items():
+            print(f"{family},{alt_family}")
+            print(f"{alt_family},{family}")
+    else:
+        print("没有找到符合条件的字体文件映射关系。")
+
+def extract_font_names(font, name_id):
+    """
+    提取字体文件中指定名称 ID 的所有语言版本名称。
+    
+    :param font: TTFont 对象
+    :param name_id: 字体名称表的 ID（如 family 为 1，fullname 为 4）
+    :return: 包含所有语言版本名称的列表
+    """
+    names = set()
+    for record in font["name"].names:
+        if record.nameID == name_id:
+            try:
+                # 尝试解码为 Unicode
+                name = record.string.decode(record.getEncoding())
+            except UnicodeDecodeError:
+                name = record.string.decode("utf-8", errors="ignore")
+            names.add(name)
+    return list(names)
+
+
+if __name__ == "__main__":
+    # 手动输入字体文件路径
+    font_dir = input("请输入字体文件存放路径: ").strip()
+    parse_ttf_fonts(font_dir)
+```
+
+
+
+2. 利用python 脚本为 docx 添加 字体名称对应关系：
+
+   ```python
+   
+   # 为docx 文件添加备用字体，以适配不同操作系统上的字体。如“方正楷体_GBK”（windows）与“FZKai-Z03”（Mac）完成映射
+   # 提前准备好要被本代码调用的映射表文件："altpairs.txt"  # 存放字体映射关系的文件
+   # Usage：
+   #    python add_alt_font_docx.py your_docx_file.docx
+   
+   import zipfile
+   import os
+   from lxml import etree
+   import sys
+   
+   
+   def main():
+       # 判断命令行参数是否正确
+       if len(sys.argv) < 2:
+           print("用法：python add_alt_font_docx.py <docx文件路径>")
+           sys.exit(1)
+       
+       # 从命令行获取 docx 文件的路径
+       docx_path = sys.argv[1]
+   
+       # 这里如果需要输出到同一个文件或者相同目录，也可以直接把 output_path 设为 docx_path
+       # output_path = docx_path
+       base, ext = os.path.splitext(docx_path)
+       output_path = f"{base}_patched{ext}"
+   
+       # 后续处理逻辑
+       print(f"输入文档：{docx_path}")
+       print(f"输出文档：{output_path}")
+   
+       # 加载存放字体映射关系的文件
+       script_dir = os.path.dirname(os.path.abspath(__file__))
+       alt_font_file = os.path.join(script_dir, "altpairs.txt")
+       font_altname_dict = parse_alt_font_pairs(alt_font_file)
+   
+       # 检查是否解析成功
+       if font_altname_dict:
+           print("解析到以下字体替代名称映射：")
+           for font, alt in font_altname_dict.items():
+               print(f"{font} -> {alt}")
+           print("------>>>-------")
+           # 修改 .docx 文件
+           modify_alt_names(docx_path, output_path, font_altname_dict)
+       else:
+           print("未能解析到有效的字体替代名称映射，请检查文本文件内容。")
+   
+   def parse_alt_font_pairs(file_path):
+       """
+       从文本文件中解析字体与替代名称的映射关系。
+       :param file_path: 文本文件路径
+       :return: 字典形式的字体映射关系 {font_name: alt_name}
+       """
+       font_altname_dict = {}
+       try:
+           with open(file_path, 'r', encoding='utf-8') as file:
+               for line in file:
+                   line = line.strip()
+                   if line and "," in line:  # 忽略空行或无效行
+                       font_name, alt_name = map(str.strip, line.split(",", 1))
+                       font_altname_dict[font_name] = alt_name
+       except FileNotFoundError:
+           print(f"文件 {file_path} 未找到！")
+       except Exception as e:
+           print(f"解析文件时发生错误：{e}")
+       return font_altname_dict
+   
+   def modify_alt_names(docx_path, output_path, font_altname_dict):
+       import tempfile
+       import shutil
+       """
+       为指定字体添加或强制修改 altName 标签。
+       
+       :param docx_path: 输入的 .docx 文件路径
+       :param output_path: 输出的 .docx 文件路径
+       :param font_altname_dict: 字体名称和替代名称的字典
+       """
+       # 解压 .docx 文件
+       # extract_dir = "docx_contents"
+       extract_dir = tempfile.mkdtemp(prefix="docx_contents_")
+       try:
+           # 解压 .docx 文件
+           with zipfile.ZipFile(docx_path, 'r') as zip_ref:
+               zip_ref.extractall(extract_dir)
+   
+           # 打开 fontTable.xml
+           font_table_path = os.path.join(extract_dir, "word", "fontTable.xml")
+           if not os.path.exists(font_table_path):
+               print("警告：该 docx 文件中未找到 word/fontTable.xml，可能不包含字体定义。")
+               return
+   
+           #开始处理
+           tree = etree.parse(font_table_path)
+           root = tree.getroot()
+   
+           # 定义命名空间
+           namespaces = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+   
+           # 遍历字典，处理每个字体
+           for font_name, alt_name in font_altname_dict.items():
+               # 查找目标 <w:font w:name="font_name">
+               font_elements = root.findall(f".//w:font[@w:name='{font_name}']", namespaces)
+               if not font_elements:
+                   print(f"字体 {font_name} 未找到！")
+               else:
+                   for font_element in font_elements:
+                       # 检查是否已存在 <w:altName>
+                       alt_name_element = font_element.find("w:altName", namespaces)
+                       if alt_name_element is None:
+                           # 添加 <w:altName>
+                           alt_name_element = etree.Element("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}altName")
+                           alt_name_element.attrib["{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val"] = alt_name
+                           font_element.append(alt_name_element)
+                           print(f"为字体 {font_name} 添加了 altName: {alt_name}")
+                       else:
+                           # 修改已存在的 <w:altName>
+                           alt_name_element.attrib["{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val"] = alt_name
+                           print(f"字体 {font_name} 的 altName 已修改为: {alt_name}")
+   
+           # 保存修改后的文件
+           tree.write(font_table_path, xml_declaration=True, encoding="utf-8", pretty_print=True)
+   
+           # 重新打包为 .docx 文件
+           with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as new_zip:
+               for foldername, subfolders, filenames in os.walk(extract_dir):
+                   for filename in filenames:
+                       file_path = os.path.join(foldername, filename)
+                       arcname = os.path.relpath(file_path, extract_dir)
+                       new_zip.write(file_path, arcname)
+   
+       except Exception as e:
+           print(f"处理 docx 文件时发生异常：{e}")
+       finally:
+           # 无论是否报错都清理临时目录
+           shutil.rmtree(extract_dir, ignore_errors=True)
+   
+   # 主程序
+   if __name__ == "__main__":
+       main()
+   
+   
+   ```
+
+   
