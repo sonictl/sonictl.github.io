@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：Java编程简明教程 by Thenewboston（Youtube）
+&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。
+&nbsp; &nbsp;---------- Oct 14, 2014 ---------
+配置Java环境变量：
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+下载安装JDK for x86 (32bit) or x64(64bit).
+右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量-
+变量名：JAVA_HOME
+变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
+变量名: path
+变量值: ;%JAVA_HOME%\bin
+;%JAVA_HOME%\jre\bin
+变量名：classpath
+变量值: ;%JAVA_HOME%\lib
+;%JAVA_HOME%\lib\tools.jar
+（For my backup:）&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20   //java jdk 1.8
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67   //java jdk 1.7
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20130204202400/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：Java编程简明教程 by Thenewboston（Youtube）
+&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。
+&nbsp; &nbsp;---------- Oct 14, 2014 ---------
+配置Java环境变量：
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+下载安装JDK for x86 (32bit) or x64(64bit).
+右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量-
+变量名：JAVA_HOME
+变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
+变量名: path
+变量值: ;%JAVA_HOME%\bin
+;%JAVA_HOME%\jre\bin
+变量名：classpath
+变量值: ;%JAVA_HOME%\lib
+;%JAVA_HOME%\lib\tools.jar
+（For my backup:）&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20   //java jdk 1.8
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67   //java jdk 1.7
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar" />
+  <meta property="og:title" content="Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ）" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20130204202400/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2013-02-04" />
+    <meta property="article:modified_time" content="2013-02-04" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） | Combine Art and Sciences" />
+  <meta name="twitter:description" content="&nbsp; &nbsp;&nbsp;
+&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：Java编程简明教程 by Thenewboston（Youtube）
+&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。
+&nbsp; &nbsp;---------- Oct 14, 2014 ---------
+配置Java环境变量：
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+下载安装JDK for x86 (32bit) or x64(64bit).
+右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量-
+变量名：JAVA_HOME
+变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40
+变量名: path
+变量值: ;%JAVA_HOME%\bin
+;%JAVA_HOME%\jre\bin
+变量名：classpath
+变量值: ;%JAVA_HOME%\lib
+;%JAVA_HOME%\lib\tools.jar
+（For my backup:）&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20   //java jdk 1.8
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67   //java jdk 1.7
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20130204202400/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20130204202400/">Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ）</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ）</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2013-02-04T20:24:00&#43;0800 class="date">February 04, 2013</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+8 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; 写这个个人笔记完全是出于记录自己所学，方便本人日后参考，可能很零散。这个笔记是建立在C语言编程基础上，本人学习Java只学习它与C语言不同的地方，或者我在C编程过程中很少用到的地方。所用的教材是Youtube一位达人做的视频：<strong><a target="_blank" target="_blank" href="http://www.youku.com/playlist_show/id_18938612.html">Java编程简明教程 by Thenewboston（Youtube）</a></strong></p>
+<p>&nbsp; &nbsp; 每次开一贴，学习Java笔记都记在这里。所写内容都是个人菜鸟级的理解，肯定错误百出。</p>
+<p>&nbsp; &nbsp;---------- Oct 14, 2014 ---------</p>
+<h3><span style="font-family:Arial Black">配置Java环境变量：</span></h3>
+<p><span style="white-space:pre"></span></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700"  code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700" name="code" class="plain">http://www.oracle.com/technetwork/java/javase/downloads/index.html
+下载安装JDK for x86 (32bit) or x64(64bit).
+右键“计算机”-属性-高级系统配置-高级-环境变量-xxx的用户变量-
+<p>变量名：JAVA_HOME
+变量值jdk的目录，例如本人：E:\Program Files\Java\jdk1.7.0_40</p>
+<p>变量名: path
+变量值: ;%JAVA_HOME%\bin
+;%JAVA_HOME%\jre\bin
+变量名：classpath
+变量值: ;%JAVA_HOME%\lib
+;%JAVA_HOME%\lib\tools.jar</p>
+<p></pre>（For my backup:）<pre code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700"  code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700" name="code" class="plain">&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;JAVA_HOME
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;F:\Program Files\Java\jdk1.8.0_20   //java jdk 1.8
+&lt;span style=&quot;white-space:pre&quot;&gt;	&lt;/span&gt;C:\Program Files\Java\jdk1.7.0_67   //java jdk 1.7</p>
+<p>&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;path
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin</p>
+<p>&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;classpath
+&lt;span style=&quot;white-space: pre;&quot;&gt;	&lt;/span&gt;;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</p>
+<p></pre></p>
+<pre></pre>
+<pre></pre>
+<h2 id="heading">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;下面检验是否配置成功，运行cmd命令，在出现的对话框输入”java“命令，如果出现以下结果，则表明配置成功。&mdash;&mdash;&mdash;&mdash;<pre code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700"  code_snippet_id="484074" snippet_file_name="blog_20141014_1_3127700" name="code" class="plain">用法: java [-options] class [args&hellip;]
+(执行类)
+或  java [-options] -jar jarfile [args&hellip;]
+(执行 jar 文件)
+其中选项包括:
+-d32          使用 32 位数据模型 (如果可用)
+-d64          使用 64 位数据模型 (如果可用)
+-client       选择 &quot;client&quot; VM
+-server       选择 &quot;server&quot; VM
+默认 VM 是 client.
+。。。</h2>
+<hr>
+<p>运行cmd命令，
+在出现的对话框输入”javac“命令，出现以下结果，表明配置成功：
+C:\Users\LENOVO&gt;javac
+用法: javac &lt;options&gt; &lt;source files&gt;
+</pre><br></p>
+<p></p>
+<p>&nbsp; &nbsp;---------- Feb 04, 2013 ---------</p>
+<p>&nbsp; &nbsp; 个人理解：Java 的基本架构是通过class建立。class相当于C函数集，每个Class 里面的 method 相当于C的函数。</p>
+<p>&nbsp; &nbsp; 1. 关于Class 中对别的class中的method的使用，创建：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>题目</strong>：main method在apple.java apple class中，引用tuna class中的println(); method, 输出一行字。<br>
+<span style="white-space:pre"></span>理解：对象的创建与使用。System.out.println() 的使用。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_2_2332095"  code_snippet_id="484074" snippet_file_name="blog_20141014_2_2332095" name="code" class="java">//file: project/apples.java
+class apples{
+	public static void main(String args[]){
+		tuna tunaObj = new tuna();    //create an obj: &quot;tuna&quot; - class name, tunaObj-Obj name, 
+		tunaObj.MysimpleMessage();
+	}
+}
+<p>//file: project/tuna.java
+public class tuna{
+public void MysimpleMessage(){
+System.out.println(&quot;This is class tuna&quot;);	
+}
+}</pre><br>
+    2. <strong>题目：</strong>创建和使用Scanner对象，以从键盘获取输入：<br></p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_3_3520574"  code_snippet_id="484074" snippet_file_name="blog_20141014_3_3520574" name="code" class="java">//file: project/apples.java
+import java.util.Scanner;
+<p>class apples{
+public static void main(String args[]){
+Scanner input = new Scanner(System.in);  //creat an scanner obj
+tuna tunaObj = new tuna();    //create an obj: &quot;tuna&quot; - class name, tunaObj-Obj name,</p>
+<pre><code>	System.out.println(&amp;quot;Enter your name here: &amp;quot;);
+	String name = input.nextLine();
+
+	tunaObj.MysimpleMessage(name);
+}
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna{
+public void MysimpleMessage(String name){
+System.out.println(&quot;Hello&quot; + name);
+}
+}</pre><br></p>
+<p>&nbsp; &nbsp; 3. 从main method传递&#20540;到别的class的method中：<br>
+<span style="white-space:pre"></span>要求：通过 GetName method 把 name 传递进class tuna中，通过tuna中的saying method 内部调用ret_name method 打印出 name.<br>
+<span style="white-space:pre"></span>本实例理解：1、在method内部声明变量和在class内声明变量有何不同。<br>
+<span style="white-space:pre"></span>2、class 内部互相调用method<br>
+<span style="white-space:pre"></span>3、跨 class 调用method</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_4_9028234"  code_snippet_id="484074" snippet_file_name="blog_20141014_4_9028234" name="code" class="java">//----------------------- tutorial 16
+//file: project/apples.java
+import java.util.Scanner;
+<p>class apples{
+// Create a method named &quot;main&quot; Type&quot;void&quot;:
+public static void main(String args[]){
+//Create method body:
+//Create a Scanner Obj:
+Scanner input = new Scanner(System.in);
+//Create a tuna Obj:
+tuna tunaObj = new tuna();
+String name;</p>
+<pre><code>	System.out.println(&amp;quot;Enter your name here: &amp;quot;);
+	//wait usr to input a string:  
+	name = input.nextLine();
+	tunaObj.GetName(name);
+	
+	//call class, use method MysimpleMessage();
+	tunaObj.saying();
+}
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna {
+private String girlname;</p>
+<pre><code>	public void GetName(String name){
+		girlname = name;
+	}
+	
+	public String retName(){
+		return girlname;
+	}
+	
+	public void saying(){
+		System.out.printf(&amp;quot;your name: %s&amp;quot;,retName());		
+	}
+</code></pre>
+<p>}</pre><br>
+    4. Constructor的使用，用于创建对class_Obj的使用时，同时设置class_Obj的初始参数。比如一个班的学生的姓名，年龄等。<br></p>
+<p><span style="white-space:pre"></span>·理解Constructor的作用，出现的位置。它用于在初始化obj时设置参数，所以应该在非主class中。<br>
+<span style="white-space:pre"></span>·Constructor的声明形式：它有点像声明一个method，但是没有返回类型。constructor的名称与class名须一致。Constructor体内多是赋&#20540;符。<br>
+<span style="white-space:pre"></span>·副class结构：从本例可以看出，一个副class的结构大致为： class名-&gt; class private variable 声明 -&gt; Constructor声明 -&gt; methods声明 （熟悉基本结构很重要）<br>
+<span style="white-space:pre"></span>·Constructor在主class中被使用时的语法。要注意。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_5_7185071"  code_snippet_id="484074" snippet_file_name="blog_20141014_5_7185071" name="code" class="java">//----------------------- tutorial 17
+//file: project/apples.java
+class apples{
+	// Create a method named &quot;main&quot; Type&quot;void&quot;:
+	public static void main(String args[]){
+		tuna tunaObj1 = new tuna(&quot;Amily&quot;,16);
+		tuna tunaObj2 = new tuna(&quot;Banry&quot;,19);
+<pre><code>	tunaObj1.saying();
+	tunaObj2.saying();
+			
+}	
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna{
+private String girlname;
+private int girlage;</p>
+<pre><code>public tuna(String name, int age){    //Create constructor, this &amp;quot;tuna&amp;quot; is exactly the name of this class
+	girlname = name;
+	girlage  = age;
+}
+</code></pre>
+<p>/*	public void GetNmae(String name){
+girlname = name;	
+}*/</p>
+<pre><code>public String retName(){
+	return girlname;
+}
+
+public void saying(){
+	System.out.printf(&amp;quot;Your name is: %s, Age: %d \n&amp;quot;, retName(), girlage);
+	
+}
+</code></pre>
+<p>}</pre><br></p>
+<p>&nbsp; &nbsp; &nbsp;5. &nbsp;Java中使用 &quot; （（条件判断） ？ 语句1 ：语句2） &quot; 替代并简化if条件判断语句：</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_6_533142"  code_snippet_id="484074" snippet_file_name="blog_20141014_6_533142" name="code" class="java">//----------------------- tutorial 36/37 Display Regurlar Time
+//file: project/apples.java
+<p>class apples{
+// Create a method named &quot;main&quot; Type&quot;void&quot;:
+public static void main(String args[]){</p>
+<pre><code>	tuna tunaObj = new tuna();
+	tunaObj.setTime(14, 56, 20);
+	System.out.println(tunaObj.dispTime());
+	System.out.println(tunaObj.dispRegTime());
+
+}	
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna{
+private int hour;
+private int minute;
+private int second;</p>
+<pre><code>public void setTime(int h, int m, int s){
+	hour = ((h&amp;gt;=0 &amp;amp;&amp;amp; h&amp;lt;=24) ? h : 0);    //equivalent with&amp;quot; &amp;#160;if (h&amp;gt;=0 &amp;amp;&amp;amp; h&amp;lt;=24) &amp;#160;{hour = h;} else {hour = 0;} 
+	minute = ((m&amp;gt;=0 &amp;amp;&amp;amp; m&amp;lt;=60) ? m : 0);
+	second = ((s&amp;gt;=0 &amp;amp;&amp;amp; s&amp;lt;=60) ? s : 0);
+}
+
+public String dispTime(){
+	return String.format(&amp;quot;%02d:%02d:%02d&amp;quot;, hour, minute, second);
+}
+public String dispRegTime(){
+	return String.format(&amp;quot;%d:%02d:%02d  %s&amp;quot;, 
+			((hour&amp;lt;=12) ? hour : hour%12), minute, second, ((hour&amp;gt;12) ? &amp;quot;PM&amp;quot; : &amp;quot;AM&amp;quot;));
+}
+</code></pre>
+<p>}</pre><br>
+    6.  Java中this关键字，public /private概念。当constructor 中arguments 和 variable 的名称完全一样时候，用this可以指明调用哪一个值。</p>
+<p></p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_7_7817926"  code_snippet_id="484074" snippet_file_name="blog_20141014_7_7817926" name="code" class="java">//----------------------- Tutorial - 38 - Public, Private and this
+//file: project/apples.java
+class apples{
+	// Create a method named &quot;main&quot; Type&quot;void&quot;:
+	public static void main(String args[]){
+<pre><code>	tuna tunaObj = new tuna();
+	
+	System.out.println(tunaObj.dispTime());
+	//System.out.println(tunaObj.dispRegTime());
+	
+	tunaObj.setTime(14, 56, 20);
+	
+	System.out.println(tunaObj.dispTime());
+	//System.out.println(tunaObj.dispRegTime());
+
+}	
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna{
+private int hour = 1;
+private int minute = 2;
+private int second = 3;</p>
+<pre><code>public void setTime(int hour, int minute, int second){
+	this.hour = hour;
+	this.minute = 5;    // Use the value of 5 when minute is called by dispTime() method
+	second = 6;         // Use the value of 3 when second is called by dispTime() method
+</code></pre>
+<p>//		hour = ((h&gt;=0 &amp;&amp; h&lt;=24) ? h : 0);
+//		minute = ((m&gt;=0 &amp;&amp; m&lt;=60) ? m : 0);
+//		second = ((s&gt;=0 &amp;&amp; s&lt;=60) ? s : 0);
+}</p>
+<pre><code>public String dispTime(){
+	return String.format(&amp;quot;%02d:%02d:%02d&amp;quot;, hour, minute, second);
+}
+public String dispRegTime(){
+	return String.format(&amp;quot;%d:%02d:%02d  %s&amp;quot;, 
+			((hour&amp;lt;=12) ? hour : hour%12), minute, second, ((hour&amp;gt;12) ? &amp;quot;PM&amp;quot; : &amp;quot;AM&amp;quot;));
+}
+</code></pre>
+<p>}</pre><br></p>
+<p>&nbsp; &nbsp; 7. Constructor 的嵌套使用，适用于constructor输入参数个数不确定的情形：</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_8_5310454"  code_snippet_id="484074" snippet_file_name="blog_20141014_8_5310454" name="code" class="java">//----------------------- tutorial 40/41 - Building Objects for Constructors
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		//create 4 diff objs as there are 4 diff constructor
+		tuna tunaObj0 = new tuna();
+		tuna tunaObj1 = new tuna(5);
+		tuna tunaObj2 = new tuna(5,13);
+		tuna tunaObj3 = new tuna(5,13,14);
+<pre><code>	//use the objs
+	System.out.printf(&amp;quot;%s\n&amp;quot;,tunaObj0.toMilitary());
+	System.out.printf(&amp;quot;%s\n&amp;quot;,tunaObj1.toMilitary());
+	System.out.printf(&amp;quot;%s\n&amp;quot;,tunaObj2.toMilitary());
+	System.out.printf(&amp;quot;%s\n&amp;quot;,tunaObj3.toMilitary());
+}
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna{
+private int hour;
+private int minute;
+private int second;</p>
+<pre><code>public tuna(){
+	this(0,0,0);
+}
+public tuna(int h){
+	this(h,0,0);
+}
+public tuna(int h, int m){
+	this(h,m,0);
+}
+public tuna(int h, int m, int s){
+	setTime(h,m,s);
+}
+	
+public void setTime(int h, int m, int s){
+	setHour(h);
+	setMinute(m);
+	setSecond(s);
+}
+public void setHour(int h){
+	hour = ((h&amp;gt;=0 &amp;amp;&amp;amp; h&amp;lt;24)? h: 0);
+}
+public void setMinute(int m){
+	minute = ((m&amp;gt;=0 &amp;amp;&amp;amp; m&amp;lt;60)? m: 0);
+}
+public void setSecond(int s){
+	second = ((s&amp;gt;=0 &amp;amp;&amp;amp; s&amp;lt;60)? s: 0);
+}
+public int getHour(){
+	return hour;
+}
+public int getMinute(){
+	return minute;
+}
+public int getSecond(){
+	return second;
+}
+public String toMilitary(){
+	return String.format(&amp;quot;%02d:%02d:%02d&amp;quot;,getHour(),getMinute(),getSecond());
+}
+</code></pre>
+<p>}</pre><br></p>
+<p></p>
+<p>&nbsp; &nbsp; &nbsp;8. 比较复杂一个例子。</p>
+<p><span style="white-space:pre"></span>1）关于toString() method的使用。在potpie class中，每次声明使用potpie class时，由于其中constructor 语句里具有一个“</p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_9_2943903"  code_snippet_id="484074" snippet_file_name="blog_20141014_9_2943903" name="code" class="java">System.out.printf(&quot;The constructor for this is %s \n&quot;, this);</pre>” ，所以每次声明都会打印一句The constructor for this is .xxx ,xxx的内容就调用this. this 会指向the following &quot;toString()&quot; method.&nbsp;
+<p></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 2）在tuna class中声明并使用了一个 potpie object，这个object是由第6行的语句传递进去的，第16行的（potpie birthday）语句定义了它的入口。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 3）tuna class 继续使用toString method来服务 apples class 中 main method 中 System.out.println(tunaObj);语句对它的调用。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 明显感觉我还对toString() method 的使用理解不够深入。包括 this 和 toString 的配合使用。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_10_9672280"  code_snippet_id="484074" snippet_file_name="blog_20141014_10_9672280" name="code" class="java">//----------------- tutorial 42 toString methods, 43-Composition
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		potpie potObj = new potpie(4,5,2006);
+		tuna tunaObj = new tuna(&quot;Jack&quot;,potObj); //take the potObj just built up
+		System.out.println(tunaObj);
+	}
+}
+<p>//file: project/tuna.java
+public class tuna{
+private String name;
+private potpie date;</p>
+<pre><code>public tuna(String theName, potpie birthday){
+	name = theName;
+	date = birthday;
+}
+
+public String toString(){
+	return String.format(&amp;quot;Your name is %s, and birthday is %s&amp;quot;, name, date);
+}
+</code></pre>
+<p>}</p>
+<p>//file: project/potpie.java
+public class potpie {</p>
+<pre><code>private int month;
+private int day;
+private int year;
+
+public potpie(int m, int d, int y){
+	month = m;
+	day   = d;
+	year  = y;
+	
+	System.out.printf(&amp;quot;The constructor for this is %s \n&amp;quot;, this);
+	//this is a reference to the obj we just built whenever we call this class
+}
+public String toString(){
+	return String.format(&amp;quot;%d/%d/%d&amp;quot;,month,day,year);
+}
+</code></pre>
+<p>}</pre><br>
+    <br></p>
+<p>&nbsp; &nbsp; 9. 枚举类型enum的使用。</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_11_8593267"  code_snippet_id="484074" snippet_file_name="blog_20141014_11_8593267" name="code" class="java">//----------------------- tutorial 44/45 Enumeration 枚举
+//file: project/apples.java
+//import java.utile.EnumSet;   // enable to use EnumSet.rang(from,to);
+class apples{
+	public static void main(String[] args){
+		for (tuna people : tuna.values())
+			System.out.printf(&quot;%s\t%s\t%s \n&quot;, 
+					people, people.getDesc(),people.getYear());
+		System.out.println(&quot;\n And now for the range of constants!\n&quot;);
+<p>//		for (tuna people: EnumSet.range(tuna.kelsey,tuna.candy))   // pick up part of the members from tuna
+//			System.out.printf(&quot;%s\t%s\t%s \n&quot;,
+//					people, people.getDesc(),people.getYear());</p>
+<pre><code>}
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public enum tuna{            // change class into enum
+// enu constants/obj:
+bucky(&quot;nice&quot;,&quot;22&quot;),
+kelsey(&quot;cutie&quot;,&quot;10&quot;),
+julia(&quot;bigmistake&quot;, &quot;12&quot;),
+nicole(&quot;italian&quot;,&quot;13&quot;),
+candy(&quot;different&quot;,&quot;14&quot;),
+erin(&quot;iwish&quot;,&quot;16&quot;);</p>
+<pre><code>private final String desc;  // variable(String)
+private final String year;
+
+// build enum constructor
+tuna(String description, String birthday){
+	desc = description;
+	year = birthday;
+}
+
+public String getDesc(){
+	return desc;
+}
+public String getYear(){
+	return year;
+}
+</code></pre>
+<p>}</p>
+<p></pre><br>
+<br></p>
+<p></p>
+<p><br>
+</p>
+<p>10. 关于Static的用法：（此处包含变量的static和method的static）</p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_12_5354664"  code_snippet_id="484074" snippet_file_name="blog_20141014_12_5354664" name="code" class="java">//----------------------- tutorial 46/47 Static
+//file: project/apples.java
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		tuna member1 = new tuna(&quot;Megan&quot;,&quot;Fox&quot;);
+		tuna member2 = new tuna(&quot;Natalie&quot;,&quot;Portman&quot;);
+<pre><code>	System.out.println(&amp;quot;----------------&amp;quot;);
+	
+	System.out.println(member1.getFirst());
+	System.out.println(member1.getLast());
+	System.out.println(member1.getMembers());  
+	System.out.println(   tuna.getsMembers()); //getsMembers() is a static method
+	
+}
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna{
+private String first;
+private String last;
+private static int members = 0;   //static variable, like &quot;in-class globel variable&quot;</p>
+<pre><code>public tuna(String fn,String ln) {
+	first = fn;
+	last  = ln;
+	members++;
+	System.out.printf(&amp;quot;Constructor for %s %s, members in the club: %d\n&amp;quot;,first,last,members);
+}
+public String getFirst(){
+	return first;
+}
+public String getLast(){
+	return last;
+}
+public int getMembers(){
+	return members;
+}
+public static int getsMembers(){
+	return members;
+}
+</code></pre>
+<p>}</pre></p>
+<p><br>
+</p>
+<p>&nbsp; &nbsp; 11. final的理解和用法：</p>
+<p></p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_13_6543144"  code_snippet_id="484074" snippet_file_name="blog_20141014_13_6543144" name="code" class="java">//----------------------- tutorial 48 final
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		tuna tunaObj = new tuna(10);
+		tuna tunaObj2= new tuna(1);
+<pre><code>	for(int i = 0; i&amp;lt;3 ; i++){
+		tunaObj.add();
+		System.out.printf(&amp;quot;%s&amp;quot;,tunaObj);
+	}
+	System.out.println(&amp;quot;-------------&amp;quot;);
+	for(int i = 0; i&amp;lt;3 ; i++){
+		tunaObj2.add();
+		System.out.printf(&amp;quot;%s&amp;quot;,tunaObj2);
+	}
+}
+</code></pre>
+<p>}</p>
+<p>//file: project/tuna.java
+public class tuna{
+private int sum;
+private final int NUMBER;</p>
+<pre><code>public tuna(int x){
+	NUMBER = x;  // you can only modify it once in one class
+	//NUMBER = 5;  //can not change its value again
+}
+public void add(){
+	sum+=NUMBER;
+}
+public String toString(){
+	return String.format(&amp;quot;sum = %d\n&amp;quot;,sum);
+}
+</code></pre>
+<p>}</pre><br></p>
+<p>&nbsp; &nbsp; 12. Inheritance -- 继承 ，这是我接触到的新概念。 什么是java 的继承？ &nbsp;1）被继承的class叫做super class, super class 中private的变量和method不能被继承。 &nbsp;2）继承的class中如果method名与super class中的method名重合，则使用继承object时，运行继承class中重合的method代码，即以继承class 为准。此谓overwrite.</p>
+<p></p>
+<pre code_snippet_id="484074" snippet_file_name="blog_20141014_14_9367826"  code_snippet_id="484074" snippet_file_name="blog_20141014_14_9367826" name="code" class="java">//----------------------- tutorial 49 Inheritance 继承
+//----------------------- tutorial 49 Inheritance 继承
+//file: project/apples.java
+class apples{
+	public static void main(String[] args){
+		tuna tunaObj = new tuna();
+		potpie potpieObj = new potpie();
+<pre><code>	System.out.println(&amp;quot;--- tunaObj.eat() ---&amp;quot;);
+	tunaObj.eat();
+	System.out.println(&amp;quot;--- potpieObj.drink() ---&amp;quot;);
+	potpieObj.drink();
+	System.out.println(&amp;quot;--- potpieObj.potpiemethod() ---&amp;quot;);
+	potpieObj.potmethod();
+}
+</code></pre>
+<p>}</p>
+<p>//file: project/food.java  //super class
+public class food{
+public void eat(){
+System.out.println(&quot;I am eat methods from food&quot;);
+}
+public void drink(){
+System.out.println(&quot;I am drink methods from food&quot;);
+}
+private void bite(){     //private methods cannot be inheritance
+System.out.println(&quot;I am bite methods from food&quot;);
+}
+}</p>
+<p>//file: project/tuna.java
+public class tuna extends food{ // Inheriance from food
+public void eat(){
+System.out.println(&quot;tuna overwritten eas() of food&quot;);	
+}
+}</p>
+<p>//file: project/potpie.java
+public class potpie extends food{ // Inheritance from food
+public void potmethod(){
+System.out.println(&quot;I am potmethod from potpie&quot;);
+}
+}</p>
+<p></pre><br>
+    13. <br></p>
+<p></p>
+<p><br>
+</p>
+<br>
+<br>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2013-02-04 20:24 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130204202400%2f&title=Java%e5%ad%a6%e4%b9%a0%e4%b8%aa%e4%ba%ba%e7%ac%94%e8%ae%b0%ef%bc%88%e4%b8%80%ef%bc%89%e9%85%8d%e7%bd%aejava%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%ef%bc%88Feb04%2c2013%20-%20%ef%bc%89">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） on twitter"
+          href="https://twitter.com/intent/tweet/?text=Java%e5%ad%a6%e4%b9%a0%e4%b8%aa%e4%ba%ba%e7%ac%94%e8%ae%b0%ef%bc%88%e4%b8%80%ef%bc%89%e9%85%8d%e7%bd%aejava%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%ef%bc%88Feb04%2c2013%20-%20%ef%bc%89&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130204202400%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share Java学习个人笔记（一）配置java环境变量（Feb04,2013 - ） on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130204202400%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

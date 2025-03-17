@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard
+Table of contents:
+[TOC]
+
+Table of contents:
+1 Some basic concepts
+2 The one: lv_micropython
+3 Quick use of lv_micropython
+3.1  Build micropython for Linux port (optional for newbie):
+3.2 Building lv_micropython micropython fork for ESP32 port:
+ [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)
+ 
+    [Get ESP-IDF v4.2](#get-esp-idf-v42)
+    
+    [Set up the environment variables](#set-up-the-environment-variables)
+    
+ [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)
+ 
+ [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
+ 
+ [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
+
+4 Confiture wifi and use the board
+Reference and read more" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20220119221545/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard
+Table of contents:
+[TOC]
+
+Table of contents:
+1 Some basic concepts
+2 The one: lv_micropython
+3 Quick use of lv_micropython
+3.1  Build micropython for Linux port (optional for newbie):
+3.2 Building lv_micropython micropython fork for ESP32 port:
+ [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)
+ 
+    [Get ESP-IDF v4.2](#get-esp-idf-v42)
+    
+    [Set up the environment variables](#set-up-the-environment-variables)
+    
+ [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)
+ 
+ [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
+ 
+ [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
+
+4 Confiture wifi and use the board
+Reference and read more" />
+  <meta property="og:title" content="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20220119221545/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2022-01-19" />
+    <meta property="article:modified_time" content="2022-01-19" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard | Combine Art and Sciences" />
+  <meta name="twitter:description" content="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard
+Table of contents:
+[TOC]
+
+Table of contents:
+1 Some basic concepts
+2 The one: lv_micropython
+3 Quick use of lv_micropython
+3.1  Build micropython for Linux port (optional for newbie):
+3.2 Building lv_micropython micropython fork for ESP32 port:
+ [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)
+ 
+    [Get ESP-IDF v4.2](#get-esp-idf-v42)
+    
+    [Set up the environment variables](#set-up-the-environment-variables)
+    
+ [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)
+ 
+ [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
+ 
+ [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
+
+4 Confiture wifi and use the board
+Reference and read more" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20220119221545/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20220119221545/">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2022-01-19T22:15:45&#43;0800 class="date">January 19, 2022</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+10 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard<a hidden class="heading-anchor" aria-hidden="true" href="#esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard">#</a></h1>
+<h2 id="table-of-contents">Table of contents:<a hidden class="heading-anchor" aria-hidden="true" href="#table-of-contents">#</a></h2>
+<p>[TOC]</p>
+<hr>
+<p><strong>Table of contents:</strong></p>
+<p><a href="#1-some-basic-concepts">1 Some basic concepts</a></p>
+<p><a href="#2-the-one-lvmicropython">2 The one: lv_micropython</a></p>
+<p><a href="#3-quick-use-of-lvmicropython">3 Quick use of lv_micropython</a></p>
+<p><a href="#31--build-micropython-for-linux-port-optional-for-newbie">3.1  Build micropython for Linux port (optional for newbie):</a></p>
+<p><a href="#32-building-lvmicropython-micropython-fork-for-esp32-port">3.2 Building <code>lv_micropython</code> micropython fork for ESP32 port:</a></p>
+<pre><code> [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)
+ 
+    [Get ESP-IDF v4.2](#get-esp-idf-v42)
+    
+    [Set up the environment variables](#set-up-the-environment-variables)
+    
+ [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)
+ 
+ [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
+ 
+ [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
+</code></pre>
+<p><a href="#4-confiture-wifi-and-use-the-board">4 Confiture wifi and use the board</a>
+<a href="#reference-and-read-more">Reference and read more</a></p>
+<hr>
+<p>First, thanks for this blog post: <a href="https://blog.lvgl.io/2019-02-20/micropython-bindings">Micropython + LittlevGL</a> written by amirgon on Feb, 2019.</p>
+<p>Micropython Binding for LittlevGL (<a href="https://github.com/lvgl/lv_binding_micropython"><code>lv_binding_micropython</code></a>) was designed to make it simple to use LittlevGL with Micropython. It plays as a bridge between micropython and lvgl libraries.</p>
+<p>In principle <code>lv_binding_micropython</code> can support any micropython fork.</p>
+<p>To add <code>lv_binding_micropython</code> to some Micropython fork you need to add <code>lv_binding_micropython</code> under Micropython lib as a git submodule.</p>
+<p><strong>Note:</strong> In this blog, all the implementations, commands and configurations were tested in Ubuntu20.04 virtual machine.</p>
+<h3 id="1-some-basic-concepts">1 Some basic concepts<a hidden class="heading-anchor" aria-hidden="true" href="#1-some-basic-concepts">#</a></h3>
+<p><strong>Before continue, we need to know some concepts:</strong></p>
+<p><em>what is a micropython fork?</em></p>
+<blockquote>
+<p>a fork is like a unix distribution. or a micropython that complied/built from fork-and-modified code. &ldquo;There are many micropython forks for a variety of systems and hardware platforms not supported in the mainline.&rdquo; &ndash; <a href="https://en.wikipedia.org/wiki/MicroPython">wikipedia_page</a>.</p></blockquote>
+<p><em>What is a git submodule?</em></p>
+<blockquote>
+<p>In Git you can add a submodule to a repository. This is basically &ldquo;a repository embedded in your main repository&rdquo;. A git submodule is a record within a host git repository that points to a specific commit in another external repository.</p></blockquote>
+<p><em>How to add some repository under Micropython lib as a git submodule?</em></p>
+<blockquote>
+<p>You can refer to <a href="https://kif11.github.io/2016/02/13/Managing-Python-dependencies-with-git-submodules.html"><code>Managing Python dependencies with git submodules</code></a> and the commands they used shows you some concepts about submodule:
+<code>git submodule add {github_repo} {local_path}</code></p>
+<p>Example:</p>
+<p><code>git submodule add https://github.com/Kif11/logger modules/logger</code></p>
+<p>or:</p>
+<p><code>git submodule add https://github.com/lvgl/lvgl libs/lvgl</code></p>
+<p>To understand the submodule, you can see this picture:</p>
+<p><img src="/assets/images/image-20220118220911083.png" alt="image-20220118220911083"></p></blockquote>
+<p><em>what is micropython binding module?</em></p>
+<blockquote>
+<p>In order to have access to C libraries from Python, a dynamic-link library can be written in C in such a way that <code>CPython</code> will treat it as a module (you will be able to import it in your Python programs). The Python/C API allows the library to define functions that are written in C but still callable from Python. The API is very powerful and provides functions to manipulate all Python data types and access the internals of the interpreter.</p>
+<p>I didn&rsquo;t find accureate definitions about micropython binding module, however, readers can guess that the binding module should be a C/python bridge library.</p>
+<p>For more info, refer: <a href="https://stackoverflow.com/questions/10202306/python-bindings-how-does-it-work">https://stackoverflow.com/questions/10202306/python-bindings-how-does-it-work</a></p></blockquote>
+<p><em>what is a micropython port?</em></p>
+<blockquote>
+<p>A port will typically contain definitions for multiple “boards”, each of which is a specific piece of hardware that that port can run on, e.g. a development kit or device.</p></blockquote>
+<p>So,</p>
+<p><strong>Before compile the lvgl_contained micropython, you need to do:</strong></p>
+<ul>
+<li>add some lines to Micropython Makefile in order to create LittlevGL Binding module</li>
+<li>add the new lvgl module to Micropython by editing mpconfigport.h, in order to compile LittlevGL</li>
+</ul>
+<p>ref: <a href="https://docs.micropython.org/en/v1.17/develop/cmodules.html?highlight=mpconfigport#micropython-external-c-modules">MicroPython external C modules</a></p>
+<hr>
+<h3 id="2-the-one-lv_micropython">2 The one: lv_micropython<a hidden class="heading-anchor" aria-hidden="true" href="#2-the-one-lv_micropython">#</a></h3>
+<p>As an example, <a href="https://blog.lvgl.io/2019-02-20/micropython-bindings">Amirgon</a> has created the <code>lv_micropython</code> - a Micropython fork with LittlevGL binding. <code>lv_micropython</code> usually be used directly by developers. Let&rsquo;s see how to use it for ESP32 board. Can use it as it is, or as an example of how to integrate LittlevGL with Micropython.</p>
+<p><a href="https://github.com/littlevgl/lv_micropython"><code>lv_micropython</code></a> can currently be used with <strong>LittlevGL</strong> on the <strong>unix port</strong> and on the <strong>ESP32 port</strong>.</p>
+<p>LittlevGL needs drivers for the display and for the input device. The Micropython binding contains some example drivers that are registered and used on <a href="https://github.com/littlevgl/lv_micropython"><code>lv_micropython</code></a>:</p>
+<ul>
+<li>SDL unix drivers (display and mouse)</li>
+<li>ILI9341 driver for ESP32.</li>
+<li>Raw Resistive Touch for ESP32 (ADC connected to screen directly, no touch IC)</li>
+</ul>
+<p>For details about the <code>lv_micropython</code>: <a href="https://github.com/lvgl/lv_micropython">https://github.com/lvgl/lv_micropython</a></p>
+<h3 id="3-quick-use-of-lv_micropython">3 Quick use of lv_micropython<a hidden class="heading-anchor" aria-hidden="true" href="#3-quick-use-of-lv_micropython">#</a></h3>
+<p>First, testing the building for Unix(Linux) port:</p>
+<h4 id="31--build-micropython-for-linux-port-optional-for-newbie">3.1  Build micropython for Linux port (optional for newbie):<a hidden class="heading-anchor" aria-hidden="true" href="#31--build-micropython-for-linux-port-optional-for-newbie">#</a></h4>
+<p>Here, I tested all the commands below on a virtual machine running Ubuntu 20.04.</p>
+<blockquote>
+<p>sudo apt-get install build-essential libreadline-dev libffi-dev git pkg-config libsdl2-2.0-0 libsdl2-dev python3.7 parallel</p></blockquote>
+<p>251MB will be occupied.</p>
+<blockquote>
+<p>cd ~/Downloads</p>
+<p>git clone <a href="https://github.com/lvgl/lv_micropython.git">https://github.com/lvgl/lv_micropython.git</a></p>
+<p>cd lv_micropython</p>
+<p>git submodule update &ndash;init &ndash;recursive lib/lv_bindings</p></blockquote>
+<p>waiting for the updating of submodules</p>
+<blockquote>
+<p>make -C mpy-cross</p></blockquote>
+<p>it shows:</p>
+<pre tabindex="0"><code>make: Entering directory &#39;/home/user/Downloads/lv_micropython/mpy-cross&#39;
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+LVGL-GEN build/lvgl/lv_mpy.c
+cp ../lib/lv_bindings/driver/png/lodepng/lodepng.cpp build/lodepng/lodepng.c
+LODEPNG-GEN build/lodepng/mp_lodepng.c
+mkdir -p build/genhdr
+GEN build/genhdr/mpversion.h
+GEN build/genhdr/moduledefs.h
+...
+mkdir -p build/py/
+mkdir -p build/shared/runtime/
+CC ../py/mpstate.c
+CC ../py/nlr.c
+CC ../py/nlrx86.c
+CC ../py/nlrx64.c
+CC ../py/nlrthumb.c
+...
+CC main.c
+CC gccollect.c
+CC ../shared/runtime/gchelper_generic.c
+LINK mpy-cross
+   text	   data	    bss	    dec	    hex	filename
+ 410368	  37952	    896	 449216	  6dac0	mpy-cross
+make: Leaving directory &#39;/home/user/Downloads/lv_micropython/mpy-cross&#39;
+</code></pre><blockquote>
+<p>make -C ports/unix submodules</p></blockquote>
+<p>It shows:</p>
+<pre tabindex="0"><code>make: Entering directory &#39;/home/user/Downloads/lv_micropython/ports/unix&#39;
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+Updating submodules: lib/axtls lib/berkeley-db-1.xx lib/libffi
+Submodule &#39;lib/axtls&#39; (https://github.com/micropython/axtls.git) registered for path &#39;../../lib/axtls&#39;
+Submodule &#39;lib/berkeley-db-1.xx&#39; (https://github.com/pfalcon/berkeley-db-1.xx) registered for path &#39;../../lib/berkeley-db-1.xx&#39;
+Submodule &#39;lib/libffi&#39; (https://github.com/atgreen/libffi) registered for path &#39;../../lib/libffi&#39;
+Cloning into &#39;/home/user/Downloads/lv_micropython/lib/axtls&#39;...
+Cloning into &#39;/home/user/Downloads/lv_micropython/lib/berkeley-db-1.xx&#39;...
+Cloning into &#39;/home/user/Downloads/lv_micropython/lib/libffi&#39;...
+Submodule path &#39;../../lib/axtls&#39;: checked out &#39;531cab9c278c947d268bd4c94ecab9153a961b43&#39;
+Submodule path &#39;../../lib/berkeley-db-1.xx&#39;: checked out &#39;35aaec4418ad78628a3b935885dd189d41ce779b&#39;
+Submodule path &#39;../../lib/libffi&#39;: checked out &#39;e9de7e35f2339598b16cbb375f9992643ed81209&#39;
+make: Leaving directory &#39;/home/user/Downloads/lv_micropython/ports/unix&#39;
+</code></pre><blockquote>
+<p>make -C ports/unix</p></blockquote>
+<p>It shows:</p>
+<pre tabindex="0"><code>make: Entering directory &#39;/home/user/Downloads/lv_micropython/ports/unix&#39;
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+LVGL-GEN build-standard/lvgl/lv_mpy.c
+cp ../../lib/lv_bindings/driver/png/lodepng/lodepng.cpp build-standard/lodepng/lodepng.c
+LODEPNG-GEN build-standard/lodepng/mp_lodepng.c
+mkdir -p build-standard/genhdr
+GEN build-standard/genhdr/mpversion.h
+GEN build-standard/genhdr/moduledefs.h
+...
+mkdir -p build-standard/build-standard/lvgl/
+...
+CC ../../lib/lv_bindings/driver/SDL/modSDL.c
+CC ../../lib/lv_bindings/driver/linux/modfb.c
+LINK micropython
+   text	   data	    bss	    dec	    hex	filename
+1452759	 206648	   6568	1665975	 196bb7	micropython
+make: Leaving directory &#39;/home/user/Downloads/lv_micropython/ports/unix&#39;
+</code></pre><p>You can run the build result by:</p>
+<blockquote>
+<p>./ports/unix/micropython</p></blockquote>
+<p>For further testing, comment out the last three lines for <code>/lib/lv_bindings/examples/advanced_demo.py</code>, and run the demo by the command:</p>
+<blockquote>
+<p>./ports/unix/micropython ./lib/lv_bindings/examples/advanced_demo.py</p></blockquote>
+<p>You&rsquo;ll see a window shows up:</p>
+<p><img src="/assets/images/image-20220119174750811.png" alt="image-20220119174750811"></p>
+<p>Congrates!</p>
+<h4 id="32-building-lv_micropython-micropython-fork-for-esp32-port">3.2 Building <code>lv_micropython</code> micropython fork for ESP32 port:<a hidden class="heading-anchor" aria-hidden="true" href="#32-building-lv_micropython-micropython-fork-for-esp32-port">#</a></h4>
+<p>For building a port of MicroPython to the Espressif ESP32 series of microcontrollers. It uses the ESP-IDF framework. The MicroPython runs as a task under FreeRTOS.</p>
+<p>Reference: <a href="https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md#setting-up-the-toolchain-and-esp-idf">https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md#setting-up-the-toolchain-and-esp-idf</a></p>
+<p>MicroPython on ESP32 requires the Espressif IDF version 4 (IoT development framework, aka SDK). The ESP-IDF includes the libraries and RTOS needed to manage the ESP32 microcontroller, as well as a way to manage the required build environment and toolchains needed to build the firmware.</p>
+<h5 id="321-install-the-esp-idf-sdk">3.2.1 install the ESP-IDF sdk<a hidden class="heading-anchor" aria-hidden="true" href="#321-install-the-esp-idf-sdk">#</a></h5>
+<p>To install the ESP-IDF the full instructions can be found at the Espressif Getting Started guide: <a href="https://docs.espressif.com/projects/esp-idf/en/release-v4.2/esp32/get-started/index.html#installation-step-by-step">installation step by step</a>.</p>
+<p>For my vm ubuntu, I follow the installing prerequests tools with next command:
+<code>sudo apt-get install git wget flex bison gperf python3 python3-pip python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util</code></p>
+<p>Adding user to dialout on Linux</p>
+<blockquote>
+<p>sudo usermod -a -G dialout $USER</p></blockquote>
+<h6 id="get-esp-idf-v42">Get ESP-IDF v4.2<a hidden class="heading-anchor" aria-hidden="true" href="#get-esp-idf-v42">#</a></h6>
+<blockquote>
+<p>mkdir -p ~/esp</p>
+<p>cd ~/esp</p>
+<p>git clone -b release/v4.2 &ndash;recursive <a href="https://github.com/espressif/esp-idf.git">https://github.com/espressif/esp-idf.git</a></p></blockquote>
+<p>Set up the tools for esp32</p>
+<blockquote>
+<p>cd ~/esp/esp-idf</p>
+<p>./install.sh esp32</p></blockquote>
+<h6 id="set-up-the-environment-variables">Set up the environment variables<a hidden class="heading-anchor" aria-hidden="true" href="#set-up-the-environment-variables">#</a></h6>
+<p>need to add tools to the PATH environment variable. ESP-IDF provides <code>export.sh</code> script which does that.</p>
+<blockquote>
+<p>. $HOME/esp/esp-idf/export.sh</p></blockquote>
+<p>add the below line into <code>~/.bashrc</code>, then restart terminal.
+<code>alias get_idf='. $HOME/esp/esp-idf/export.sh'</code></p>
+<h5 id="322-build-the-lv_micropython-firmware">3.2.2 Build the <code>lv_micropython</code> firmware<a hidden class="heading-anchor" aria-hidden="true" href="#322-build-the-lv_micropython-firmware">#</a></h5>
+<p>cd to the root of this repository:
+<code>cd $HOME/Downloads/lv_micropython</code>
+make the mpy-cross</p>
+<blockquote>
+<p>make -C mpy-cross</p></blockquote>
+<p>Then to build MicroPython for the ESP32 run:</p>
+<blockquote>
+<p>cd ports/esp32</p>
+<p>make submodules</p></blockquote>
+<p>you&rsquo;ll see:</p>
+<pre tabindex="0"><code>git submodule update --init ../../lib/berkeley-db-1.xx
+</code></pre><blockquote>
+<p>make</p></blockquote>
+<p>or, for ILI9341 screen driver compatible:</p>
+<pre tabindex="0"><code>cd $HOME/Downloads/lv_micropython
+make -C ports/esp32 LV_CFLAGS=&#34;-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1&#34; BOARD=GENERIC
+make -C ports/esp32 deploy
+</code></pre><p>it shows:</p>
+<pre tabindex="0"><code>idf.py -D MICROPY_BOARD=GENERIC -B build-GENERIC  build
+Executing action: all (aliases: build)
+Running cmake in directory /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC
+Executing &#34;cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DESP_PLAT
+...
+MPY webrepl_setup.py
+MPY websocket_helper.py
+MPY neopixel.py
+GEN /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC/frozen_content.c
+[1447/1447] Generating binary image from built executable
+esptool.py v3.1-dev
+Merged 2 ELF sections
+Generated /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC/micropython.bin
+
+Project build complete. To flash, run this command:
+/home/user/.espressif/python_env/idf4.2_py3.8_env/bin/python ../../../../esp/esp-idf/components/esptool_py/esptool/esptool.py -p (PORT) -b 460800 --before default_reset --after hard_reset --chip esp32  write_flash --flash_mode dio --flash_size detect --flash_freq 40m 0x1000 build-GENERIC/bootloader/bootloader.bin 0x8000 build-GENERIC/partition_table/partition-table.bin 0x10000 build-GENERIC/micropython.bin
+or run &#39;idf.py -p (PORT) flash&#39;
+bootloader  @0x001000    22576  (    6096 remaining)
+partitions  @0x008000     3072  (    1024 remaining)
+application @0x010000  2258256  (  101040 remaining)
+total                  2323792
+</code></pre><p>This will produce a combined <code>firmware.bin</code> image in the <code>build-GENERIC/</code> subdirectory (this firmware image is made up of: bootloader.bin, partitions.bin and micropython.bin).</p>
+<p>However I obtains two <code>.bin</code> files:</p>
+<pre tabindex="0"><code>$ ll build-GENERIC/*.bin
+-rw-rw-r-- 1 xxx 2319696 1月  19 20:53 firmware.bin
+-rw-rw-r-- 1 xxx 2258256 1月  19 20:53 micropython.bin
+</code></pre><h5 id="323-flashing-the-lv_micropython-firmware">3.2.3 Flashing the <code>lv_micropython</code> firmware<a hidden class="heading-anchor" aria-hidden="true" href="#323-flashing-the-lv_micropython-firmware">#</a></h5>
+<p>on ubuntu, you may need to use this command to add permission for $USER to access the usbSerial port:
+<code>sudo adduser $USER dialout</code>
+This will add the current user to the dialout group. Login and out it to take effect.</p>
+<p>Erase the flash completely:</p>
+<pre tabindex="0"><code>$ cd $HOME/Downloads/lv_micropython/ports/esp32
+$ get_idf
+$ make erase
+</code></pre><p>use <code>picocom -b 115200 /dev/ttyUSB0</code> to test the communication if you meet &ldquo;connection time out&rdquo; error when erasing.
+after erasing, you&rsquo;ll see:</p>
+<pre tabindex="0"><code>Serial port /dev/ttyUSB0
+Connecting........_
+Chip is ESP32-D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 4c:eb:d6:7d:0b:44
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Erasing flash (this may take a while)...
+Chip erase completed successfully in 9.2s
+Hard resetting via RTS pin...
+Done
+</code></pre><p><strong>Tips:</strong> You may meet the &ldquo;time out connecting fatal&rdquo; when using <code>make erase</code> in ubuntu guest vm. I finally use the ESP-IDF vsCode extension to successfully erase the flash of my ESP32 DevKit_v1_board.</p>
+<p>To flash the MicroPython firmware to your ESP32 use:</p>
+<p><code>$ make deploy</code></p>
+<p>you&rsquo;ll see:</p>
+<pre tabindex="0"><code>idf.py -D MICROPY_BOARD=GENERIC -B build-GENERIC  -p /dev/ttyUSB0 -b 460800 flash
+Executing action: flash
+Running ninja in directory /home/user/Downloads/lv_micropython/ports/esp32/build-GENERIC
+Executing &#34;ninja flash&#34;...
+[2/5] Performing build step for &#39;bootloader&#39;
+ninja: no work to do.
+[2/3] cd /home/user/esp/esp-idf/components/esptool_py &amp;&amp; /usr/bin/cm...C&#34; -P /home/user/esp/esp-idf/components/esptool_py/run_esptool.cmake
+esptool.py esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x8000 partition_table/partition-table.bin 0x1000 bootloader/bootloader.bin 0x10000 micropython.bin
+esptool.py v3.1-dev
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 4c:eb:d6:7d:0b:44
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00001000 to 0x00006fff...
+Flash will be erased from 0x00010000 to 0x00237fff...
+Compressed 3072 bytes to 117...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (117 compressed) at 0x00008000 in 0.1 seconds (effective 476.7 kbit/s)...
+Hash of data verified.
+Compressed 22576 bytes to 14067...
+Writing at 0x00001000... (100 %)
+Wrote 22576 bytes (14067 compressed) at 0x00001000 in 0.8 seconds (effective 221.6 kbit/s)...
+Hash of data verified.
+Compressed 2258256 bytes to 1423672...
+Writing at 0x00010000... (1 %)
+Writing at 0x000194cc... (2 %)
+Writing at 0x000210ff... (3 %)
+...
+Writing at 0x00231716... (100 %)
+Wrote 2258256 bytes (1423672 compressed) at 0x00010000 in 52.4 seconds (effective 344.7 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Done
+</code></pre><p>Note: the above &ldquo;make&rdquo; commands are thin wrappers (like and alias) for the underlying <code>idf.py</code> build tool that is part of the ESP-IDF. You can instead use idf.py directly.</p>
+<h5 id="324-getting-a-python-prompt-on-the-device">3.2.4 Getting a Python prompt on the device<a hidden class="heading-anchor" aria-hidden="true" href="#324-getting-a-python-prompt-on-the-device">#</a></h5>
+<p>You can get a prompt via the serial port, via <code>/dev/ttyUART0</code>, which is the same UART that is used for programming the firmware. The baudrate for the REPL is 115200 and you can use a tools such as:</p>
+<pre tabindex="0"><code>$ picocom -b 115200 /dev/ttyUSB0
+</code></pre><p>or</p>
+<pre tabindex="0"><code>$ miniterm.py /dev/ttyUSB0 115200
+</code></pre><p>Tips:</p>
+<ul>
+<li>
+<p><code>ctrl-A, ctrl-X</code> will terminate <code>picocom</code> session.</p>
+</li>
+<li>
+<p>You can also use <code>idf.py monitor</code>.</p>
+</li>
+</ul>
+<p>After get python prompt, type <code>help()</code> shows the Control Commands.</p>
+<p><img src="/assets/images/image-20220119220949837.png" alt="image-20220119220949837"></p>
+<h3 id="4-confiture-wifi-and-use-the-board">4 Confiture wifi and use the board<a hidden class="heading-anchor" aria-hidden="true" href="#4-confiture-wifi-and-use-the-board">#</a></h3>
+<p>go to link <a href="https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md#configuring-the-wifi-and-using-the-board">configure wifi and use the board</a></p>
+<h3 id="reference-and-read-more">Reference and read more<a hidden class="heading-anchor" aria-hidden="true" href="#reference-and-read-more">#</a></h3>
+<ul>
+<li>
+<p>Reference: <a href="https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md">https://github.com/lvgl/lv_micropython/blob/master/ports/esp32/README.md</a></p>
+</li>
+<li>
+<p>more info about micropython lvgl development: <a href="https://github.com/lvgl/lv_micropython">https://github.com/lvgl/lv_micropython</a></p>
+</li>
+<li>
+<p>more info about replanting on ARM board: <a href="https://blog.csdn.net/qq_34440409/article/details/118421452">支持LVGL的micropython固件编译（二）arm板移植</a>  (in Chinese)</p>
+</li>
+</ul>
+<hr>
+<h2 id="issue-fixing-after-flashing">Issue fixing after flashing<a hidden class="heading-anchor" aria-hidden="true" href="#issue-fixing-after-flashing">#</a></h2>
+<p>I met <code>RuntimeError: ili9341 micropython driver requires defining LV_COLOR_DEPTH=16</code> when using REPL with my esp32_TFTscreen board driven by ILI9341.
+Add the next configure into command for firmware building. Refer: <a href="https://github.com/lvgl/lv_micropython/README.md">https://github.com/lvgl/lv_micropython/README.md</a></p>
+<blockquote>
+<p>LV_CFLAGS=&quot;-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1&quot;</p></blockquote>
+<p>Refer <code>3.2.2 Build the lv_micropython firmware</code></p>
+<p>you may need to delete the build-XXX folder under <code>lv_micropython/ports/esp32/</code> before re-build the <code>firmware.bin</code></p>
+<pre tabindex="0"><code>&gt;&gt;&gt; from ili9XXX import ili9341
+&gt;&gt;&gt; disp = ili9341()
+Single buffer
+ILI9341 initialization completed
+Enable backlight
+</code></pre><p>When you see the above lines in REPL, the <code>LV_COLOR_DEPTH=16</code> parameter for ILI9341 is successfully added.</p>
+<h3 id="finally-giving-up">Finally giving up<a hidden class="heading-anchor" aria-hidden="true" href="#finally-giving-up">#</a></h3>
+<p>Micropython developing lvgl powered UI for ESP32 seems a joke.</p>
+<p>I spent one hour for running an example micropython lvgl code, but failed. Nothing shown on TFT screen.</p>
+<p>This experience of building / deploying micropython tells me that micropython is a tool, if large lib such as lvgl is depended, your micropython project will be tough.</p>
+<p>c++ is still the right way to play with embedded projects. micropython is a tool for simple control and simple logic.</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2022-01-19 22:15 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share [ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20220119221545%2f&title=%5bESP32_lvgl%5dUse%20LVGL%20with%20Micropython%20for%20ESP32%20devBoard">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share [ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard on twitter"
+          href="https://twitter.com/intent/tweet/?text=%5bESP32_lvgl%5dUse%20LVGL%20with%20Micropython%20for%20ESP32%20devBoard&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20220119221545%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share [ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20220119221545%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+  <body>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150830165841/" title="在ROS 使用摄像头 WebCam 完成图像处理（1） -- 获取图像数据">在ROS 使用摄像头 WebCam 完成图像处理（1） -- 获取图像数据</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="在ros-使用摄像头-webcam-完成图像处理1--获取图像数据">在ROS 使用摄像头 WebCam 完成图像处理（1） &ndash; 获取图像数据</h1>
+<h2 id="在ros-使用摄像头-webcam-完成图像处理1--获取图像数据-1">在ROS 使用摄像头 WebCam 完成图像处理（1） &ndash; 获取图像数据</h2>
+<p>我们要使用摄像头，先要能看到摄像头图像：（见附录）</p>
+<p>然后我们这里是参考《ros_by_example》( volume1 hydro )书中的方法。</p>
+<p>这里要注意的是：虚拟机里的Ubuntu使用cheese, guvcview这样的工具是可以获取图像的，但ros里提供的摄像头驱动，比如uvc_camera, 就不能很好的工作了。</p>
+<h3 id="1-环境搭建的准备工作">1. 环境搭建的准备工作</h3>
+<p><strong>ROS组织发布的基础包</strong></p>
+<p>开始之前，安装Prerequisites:（是一些ROS组织发布的基础包）</p>
+<p>  &mdash;&ndash;</p>
+<p>$ sudo apt-get install ros-hydro-turtlebot-* \<br>
+  ros-hydro-openni-camera ros-hydro-openni-launch \<br>
+  ros-hydro-uvc-camera \<br>
+  ros-hydro-openni-tracker ros-hydro-laser-* \<br>
+  ros-hydro-audio-common ros-hydro-joystick-drivers \<br>
+  ros-hydro-orocos-kdl ros-hydro-python-orocos-kdl \<br>
+  ros-hydro-dynamixel-motor-* ros-hydro-pocketsphinx \<br>
+  gstreamer0.10-pocketsphinx python-setuptools python-rosinstall \<br>
+  ros-hydro-opencv2 ros-hydro-vision-opencv \<br>
+  ros-hydro-depthimage-to-laserscan ros-hydro-arbotix-* \<br>
+  git subversion mercurial</p>
+<p>  &mdash;&ndash;<br>
+这里有点洒拦河网的感觉，其实可以只安装这几个：<br>
+  $ sudo apt-get install ros-hydro-openni-camera \<br>
+  ros-hydro-openni-launch \<br>
+  ros-hydro-uvc-camera \<br>
+     python-setuptools \<br>
+  python-rosinstall \<br>
+     ros-hydro-opencv2 \<br>
+  ros-hydro-vision-opencv \<br>
+    git subversion mercurial</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150830165841/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-08-30T16:58:41&#43;0800" class="date">August 30, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150827182207/" title="在 Ubuntu 用UVC支持 使用 WebCam摄像头传感器">在 Ubuntu 用UVC支持 使用 WebCam摄像头传感器</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="在-ubuntu-用uvc支持-使用-webcam摄像头传感器">在 Ubuntu 用UVC支持 使用 WebCam摄像头传感器</h1>
+<h2 id="在-ubuntu-用uvc支持-使用-webcam摄像头传感器-1">在 <a href="https://so.csdn.net/so/search?q=Ubuntu&amp;spm=1001.2101.3001.7020">Ubuntu</a> 用UVC支持 使用 WebCam摄像头传感器</h2>
+<p><strong>写在前面：</strong></p>
+<ul>
+<li>这里我为了省事，用了虚拟机。但注意，虚拟机下有的WebCam驱动程序可能不支持！</li>
+<li>&lsquo;我的宿主机是Win 7系统。虚拟机工具VirtualBox 4.3.28. 虚拟系统：Ubuntu 14.04 LTS</li>
+<li>&lsquo;VirtualBox上运行的Ubuntu系统，要使用摄像头，需打通VirtualBox对USB设备的支持，要安装对应的Oracle VM virtualBox Extension Pack（Google 搜索）</li>
+<li>&lsquo;关于Ubuntu/Linux系统中cheese工具支持的摄像头类型，有一个叫做UVC的组织，提供了一套<a href="http://www.ideasonboard.org/uvc/">Linux UVC driver</a>支持大部分型号的WebCam</li>
+<li>本文使用的WebCam型号： Logitech HD Webcam C525</li>
+</ul>
+<p><strong>获取图像：</strong></p>
+<p>   参考：
+<a href="http://www.cnblogs.com/etangyushan/p/3679440.html">ubuntu12.04+virtualbox+winxp的关于摄像头无法使用，声音出不来的问题</a></p>
+<p><strong>安装cheese以测试:</strong></p>
+<p>    $ sudo apt-get install cheese</p>
+<p>    或者通过 ubuntu 图形界面 软件app中心 搜索 cheese 进行 Install。</p>
+<p><strong>测试运行cheese:</strong></p>
+<p>   $  cheese</p>
+<p>   应该能看到图像了~~<br>
+   说明： cheese 或 guvcview 这样的 webcam on linux 工具都是内含 UVC Driver 的。</p>
+<p>  </p>
+<p>  </p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150827182207/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-08-27T18:22:07&#43;0800" class="date">August 27, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150827154740/" title="在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器">在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="在-ubuntu-用-openni支持-使用-kincet-传感器">在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器</h1>
+<h2></h2>
+<h3 id="use-kinect-on-ubuntu-with-openni中文在后">Use <a href="https://so.csdn.net/so/search?q=Kinect&amp;spm=1001.2101.3001.7020">Kinect</a> on Ubuntu with OpenNI（中文在后）</h3>
+<p>You have to Refer  <a href="http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/">this blog</a> (<a href="http://blog.csdn.net/sonictl/article/details/47974485#t10">backup link</a>)and you may meet some incompatible contents, do not worry, the thought and path is correct.</p>
+<p>The very important doc you should read carefully is that on  <a href="https://github.com/OpenNI/OpenNI/blob/master/README">OpenNI&rsquo;s GitHub site</a> and that on  <a href="https://github.com/avin2/SensorKinect/blob/unstable/README">SensorKinect GitHub site</a>.</p>
+<ul>
+<li>The Core thing for this is Installing Driver for Kinect on Ubuntu. The two important packages you should install are:<br>
+The OpenNI UNSTABLE version<br>
+The SensorKinect package</li>
+<li>Here, I want to say that: after you have installed the OpenNI, and be ready to clone the git files for SensorKinect,DO NOT change directory!Otherwise you cannot generate the Redist directory for installation of SensorKinect.</li>
+<li>The Cloning process could be very slow, you can checkout the files from here:<br>
+<a href="http://yunpan.cn/cmTPmvr2D29Yj">http://yunpan.cn/cmTPmvr2D29Yj</a>   keycode: 32e4</li>
+<li>There existed a Readme.txt file which is wriiten in Chinese. Don&rsquo;t worry, you can ignore it after you suffer this Installation for longer than 1 week cuz you will be the expert on this field at that time. ;-)</li>
+<li>When you succeded in using Kinect_for_Windows on Ubuntu, the using of Kinect_for_Xbox is just &lsquo;unplug and plugin&rsquo;.</li>
+<li>It&rsquo;s really easier if you use Kinect_for_XBox with OpenKinect. unfortunately, OpenKinect does not support Kinect4Windows.</li>
+<li>If you&rsquo;re using Virtual Machine launching Ubuntu on it, I don&rsquo;t recommend you continue. I failed too many times in trying to do it on VMs. And finally I succeded in real machine.</li>
+</ul>
+<h2 id="read-carefully-about-this-blog--this-blog-and-follow-it-good-luck">Read Carefully about This Blog:  <a href="http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/">this blog</a>. and follow it. Good luck!</h2>
+<p>my seccess of running ./Sample-NiSimpleViewer :</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150827154740/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-08-27T15:47:40&#43;0800" class="date">August 27, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150826111205/" title="Linux下软件的安装与卸载方法">Linux下软件的安装与卸载方法</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="linux下软件的安装与卸载方法">Linux下软件的安装与卸载方法</h1>
+<h2 id="linux下软件的安装与卸载方法-1"><a href="https://so.csdn.net/so/search?q=Linux&amp;spm=1001.2101.3001.7020">Linux</a>下软件的安装与卸载方法</h2>
+<p>百度文库源文件：
+<a href="http://wenku.baidu.com/view/25c6b35da1c7aa00b42acb49">http://wenku.baidu.com/view/25c6b35da1c7aa00b42acb49</a></p>
+<p>在Linux下安装和卸载软件也非常简单，同样也有安装向导或解压安装的方式，不相同的只不过是除了二进制形式的软件分发外，还有许许多多以源代码形式分发的软件包。</p>
+<p>Linux下软件的分发传统方式：</p>
+<p>    二进制Binary 文件 &ndash; 安装使用容易，但缺乏灵活性。</p>
+<ul>
+<li>    .rpm形式的二进制软件包</li>
+<li>    .bz2形式的二进制软件包</li>
+<li>    .tgz形式的二进制软件包</li>
+</ul>
+<p>    源代码形式分发</p>
+<ul>
+<li>    .src.rpm形式的源代码软件包：如， hello.src.rpm</li>
+<li>    .tar.gz 形式的源代码包</li>
+<li>    .tar.bz2形式的源代码包</li>
+</ul>
+<p>    提供安装程序的软件包分发</p>
+<ul>
+<li>    setup、install、install.sh等</li>
+<li>    bin文档</li>
+</ul>
+<p>    无需安装的软件包</p>
+<p>使用yum和apt-get.软件管理方法</p>
+<p>    RedHat中yum这种高级的包管理</p>
+<ul>
+<li>    用YUM安装删除软件</li>
+<li>    用YUM查询软件信息</li>
+</ul>
+<p>    Ubuntu中的高级包管理方法apt-get</p>
+<p>    安装和运行</p>
+<h3 id="一二进制分发软件包的安装与卸载">一、二进制分发软件包的安装与卸载</h3>
+<p>Linux软件的二进制分发是指事先已经编译好二进制形式的软件包的发布形式，其优点是安装使用容易，缺点则是缺乏灵活性，如果该软件包是为特定的硬件平台编译的，那它就不能在另外的平台或环境下正确执行。</p>
+<h4 id="1rpm形式的二进制软件包">1、*.rpm形式的二进制软件包</h4>
+<p>首先进入软件所在目录</p>
+<p>安装：rpm -ivh *.rpm</p>
+<p>　　 卸载：rpm -e packgename</p>
+<p>实例：</p>
+<p>1、找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；</p>
+<p>2、打开一个终端，在非超级管理员终端使用命令：su – 转换成root用户；</p>
+<p>3、cd soft.version.rpm所在的目录；</p>
+<p>4、输入rpm -ivh soft.version.rpm</p>
+<p> </p>
+<p>说明：RPM(RedHat PackgeManager)是RedHat公司出的软件包管理器，使用它可以很容易地对rpm形式的软件包进行安装、升级、卸载、验证、查询等操作，安装简单，而卸载时也可以将软件安装在多处目录中的文件删除干净，因此推荐初学者尽可能使用rpm形式的软件包。rpm的参数中-i是安装，-v是校验，-h是用散列符显示安装进度，*.rpm是软件包的文件名(这里的*.rpm特指*.src.rpm以外的以.rpm为后缀的文件);参数-e是删除软件包，packgename是软件包名，与软件包的文件名有所区别，它往往是文件名中位于版本号前面的字符串，例如apache-3.1.12-i386.rpm和apache-devel-3.1.12-i386.rpm是软件包文件名，它们的软件包名称分别是apache和apache-devel.更多的rpm参数请自行参看手册页：man rpm.</p>
+<p> </p>
+<h4 id="2targztgzbz2形式的二进制软件包">2、*.tar.gz/*.tgz、*.bz2形式的二进制软件包</h4>
+<p>安装：tar zxvf *.tar.gz 或 tar yxvf *.bz2</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150826111205/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-08-26T11:12:05&#43;0800" class="date">August 26, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150812145842/" title="ROS进阶学习手记6.1 -- Launch File">ROS进阶学习手记6.1 -- Launch File</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进阶学习手记61--launch-file">ROS进阶学习手记6.1 &ndash; Launch File</h1>
+<p>在以后的ROS运用中，我们逐渐需要运行多个nodes，而launch file的编写是ROS高级运用的基础。</p>
+<p>官方的launch file wiki文档好像不是很好用：wiki.ros.org/roslaunch/</p>
+<p>这里我主要参考：<a href="https://cse.sc.edu/~jokane/agitr/agitr-small.pdf">A Gentle Introduction to ROS by JasonM. O’Kane</a>  的 Chapter6</p>
+<p>先来尝尝鲜：<br>
+    <img src="https://img-blog.csdn.net/20150812145702111?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>接着就是好好读书。</p>
+<p>这里只会写一点总结文字。 :)</p>
+<p>== roslaunch - Commands and launch file ==</p>
+<h3 id="1-how-to-usd-launch-file">1. How to usd launch file:</h3>
+<p>  Command:</p>
+<pre tabindex="0"><code>    $ roslaunch package-name launch-file-name
+</code></pre><pre tabindex="0"><code>    $ roslaunch ~/{workspace}/src/{pkgname}/example.launch
+</code></pre><p>  All of the nodes in a launch file are started at roughly the same time.</p>
+<p>  Request verbose output:</p>
+<pre tabindex="0"><code>    $ roslaunch -v package-name launch-file-name
+</code></pre><h3 id="2-creating-launch-files">2. Creating launch files:</h3>
+<h4 id="21-where-to-place-launch-files">2.1 Where to place launch files</h4>
+<p>    {pkg directory}/launch/launchfile.launch</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150812145842/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-08-12T14:58:42&#43;0800" class="date">August 12, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/50/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/50/">50</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/51/">51</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/52/">52</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/79/">79</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/52/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+          <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

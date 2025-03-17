@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20180404081800/" title="Notes on Noise Contrastive Estimation and Negative Sampling">Notes on Noise Contrastive Estimation and Negative Sampling</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><div style="left: 815.1999999999999px; top: 127.48966666666654px; font-size: 23.91033333333333px; font-family: serif;">Notes on Noise Contrastive Estimation and Negative Sampling</div>
+<p>## 生成负样本&nbsp;</p>
+<p>在常见的关系抽取应用中，我们经常需要生成负样本来训练一个好的系统。如果没有负样本，系统会趋向于把所有的变量分类成正类。但是，在关系抽取中，并不容易找到足够的高质量的负样本（ground truth）。这种情况下，我们通常需要使用distant supervision来生成负样本。<br /><br />&nbsp; 负样本的生成多少可看成是一种艺术。以下讨论了几种常用的方法，还有些方法没有列出。<br />&nbsp; - random sampling<br />&nbsp; - incompatible relations<br />&nbsp; - domain-specific knowledge<br /><br /></p>
+<p>## 随机抽样 Random samples<br />&nbsp; 另一种产生负面证据的方法是在所有变量中随机抽取一小部分(people mention pairs in our spouse example),并将其标记为负面证据。<br />&nbsp; 这可能会产生一些错误的负面例子，但是如果统计变量更有可能是错误的，那么随机抽样就会起作用。<br />&nbsp; 例如，大多数人在句子中提到成对，但他们不是配偶，我们就可以在提及成对的人群中，随机抽取一小部分的，并把它们标记为错误的配偶关系的例子。</p>
+<p>&nbsp;</p>
+<p>## 不相容关系<br />&nbsp; 不相容关系总是或常常是与我们想要抽取的关系冲突的。比如我们有2个实体，x &amp; y. 我们想抽取A关系，而B是与A不相容关系，我们有：<br />&nbsp; &gt;&gt; B(x,y) =&gt; not A(x,y)<br />&nbsp; 比如，我们要为"spouse"（配偶）关系生成负样本，我们可以使用非配偶关系来作为与之不相容的关系，比如parents, children, or siblings: 如果 x 是 y 的父母，那么x和y不能是夫妻。<br /><br />## 特定领域规则<br />&nbsp; 有时，我们可以利用其他领域特定的知识来生成负样本。这些规则的设计很大程度上依赖于应用场景。例如，对于配偶关系，一个使用时间信息的领域特定规则是&ldquo;不同时活着的人不可能是配偶&rdquo;。Specifically, if a person x has birth_date later than y's death_date, then x and y cannot be spouses.<br /><br /><br />This is the video of Negative Sampling in Natural Language Process Course in Coursea.com:<br />https://www.coursera.org/learn/nlp-sequence-models/lecture/Iwx0e/negative-sampling<br /><br /></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20180404081800/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-04-04T08:18:00&#43;0800" class="date">April 04, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20180327081100/" title="Word2vec 梳理">Word2vec 梳理</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>这里只梳理 skip-gram 的points</p>
+<p>&nbsp; 目标： 根据已经出现的一个词，预测它的上下文</p>
+<p>&nbsp;<img style="border: 1px solid black;" src="https://images2018.cnblogs.com/blog/780771/201803/780771-20180327155925449-444525450.png" alt="" width="533" height="327" /></p>
+<p>1. 统计语言模型</p>
+<p><img title="P(Context(\omega))|\omega)=\frac{ \text{num of " src="https://latex.codecogs.com/gif.latex?P(Context(\omega))|\omega)=\frac{&amp;space;\text{num&amp;space;of&amp;space;" alt="" /></p>
+<p>&nbsp;</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20180327081100/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-03-27T08:11:00&#43;0800" class="date">March 27, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20180322123200/" title="Strandbeest mechanism and Leg mechanism">Strandbeest mechanism and Leg mechanism</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>&nbsp;<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Strandbeest_walking_with_four_legs.gif/180px-Strandbeest_walking_with_four_legs.gif" alt="[img] Strandbeest mechanism" width="180" height="131" /></p>
+<p>I have to say besides computer science study, I'm also interested in Leg mechanism.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Klann_Linkage_Walking_with_four_legs.gif" alt="[img]leg machanism on wikipedia" width="605" height="335" /></p>
+<p>Share two keywords:</p>
+<p>&nbsp;&nbsp;&nbsp; Leg mechanism and the strandbeest mechanism</p>
+<p>There is an interesting github project doing the simulaion and you can play with it.<br />&nbsp;&nbsp;&nbsp; <a href="https://github.com/robz/Linkages3" target="_blank">https://github.com/robz/Linkages3</a></p>
+<p>&nbsp;</p>
+<p>The publisher <a class="yt-simple-endpoint style-scope yt-formatted-string" href="https://www.youtube.com/channel/UCnmgSO_4g6QcRzy0yFeglyA">Grand Illusions</a> has shared a lot of creative toys. I get it from him at first.</p>
+<p>By the way, put another thing i like very much here: <a href="http://www.mechanicards.com" target="_blank">http://www.mechanicards.com</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20180322123200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-03-22T12:32:00&#43;0800" class="date">March 22, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20180222134700/" title="网络表示学习Network Representation Learning/Embedding">网络表示学习Network Representation Learning/Embedding</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>&nbsp;</p>
+<h2>网络表示学习相关资料</h2>
+<p>网络表示学习（network representation learning，NRL）,也被称为图嵌入方法（graph embedding method，GEM）是这两年兴起的工作，目前很热，许多直接研究网络表示学习的工作和同时优化网络表示+下游任务的工作正在进行中。</p>
+<ol><ol>
+<li>
+<p>清华大学计算机系的一个学习组 新浪微博@涂存超 整理的论文列表：<a href="https://github.com/thunlp/NRLpapers" target="_blank">https://github.com/thunlp/NRLpapers</a>，并一直持续更新着，里面详细的列举了最近几年有关网络表示学习（network representation learning/network embedding）比较有代表性的论文列表及其代码。</p>
+</li>
+<li>
+<p><span style="color: #ff0000;">☆</span>陈启明整理的github列表&nbsp; <a href="https://github.com/chihming/awesome-network-embedding" target="_blank">https://github.com/chihming/awesome-network-embedding</a></p>
+</li>
+<li>
+<p>一篇综述性文章（University of Southern California (USC)）及其code： <br />
+（1）文章： Goyal P, Ferrara E. Graph Embedding Techniques, Applications, and 
+Performance: A Survey[J]. arXiv preprint arXiv:1705.02801, 2017. <br />
+（2）代码： <a href="https://github.com/palash1992/GEM" target="_blank">https://github.com/palash1992/GEM</a></p>
+</li>
+<li>
+<p>一篇博客： <br />
+<a href="http://blog.csdn.net/Dark_Scope/article/details/74279582#0-tsina-1-3919-397232819ff9a47a7b7e80a40613cfe1" target="_blank">http://blog.csdn.net/Dark_Scope/article/details/74279582#0-tsina-1-3919-397232819ff9a47a7b7e80a40613cfe1</a></p>
+</li>
+<li>
+<p>一个github资料，里面有部分论文+code（大多数是python实现，matlab次之）： <br />
+</p>
+</li>
+<li>
+<p>四个slides：</p>
+<ol>
+<li>
+<p>&nbsp;[(MLSS2017)网络表示学习]《Representation Learning with Networks》by Jure Leskovec [Stanford University] Part1:<a href="http://i.stanford.edu/~jure/pub/talks2/leskovec-networks-01-nodes.pdf" target="_blank">网页链接</a> Part2:<a href="http://i.stanford.edu/~jure/pub/talks2/leskovec-networks-02-communities.pdf" target="_blank">网页链接</a> Part3:<a href="http://i.stanford.edu/~jure/pub/talks2/leskovec-networks-03-time.pdf" target="_blank">网页链接</a> Part4:<a href="http://i.stanford.edu/~jure/pub/talks2/leskovec-networks-04-ML_for_decision_making.pdf" target="_blank">网页链接</a> ​​​​</p>
+</li>
+<li>&nbsp; <a href="https://pan.baidu.com/s/1nuB5Rex" target="_blank">https://pan.baidu.com/s/1nuB5Rex</a></li>
+<li>&nbsp; <a href="https://pan.baidu.com/s/1geUHeQB" target="_blank">https://pan.baidu.com/s/1geUHeQB</a></li>
+<li>&nbsp; <a href="https://pan.baidu.com/s/1cwB7pc" target="_blank">https://pan.baidu.com/s/1cwB7pc</a></li>
+</ol></li>
+</ol></ol>
+<p>&nbsp;</p>
+<h2 class="csdn_top">网络表示学习（DeepWalk，LINE，node2vec，SDNE）</h2>
+<div class="article_bar clearfix">
+<div class="artical_tag"><span class="original"> 原创 <span class="time">2017年07月24日 12:49:01 </span></span></div>
+</div>
+<div class="article_bar clearfix">&nbsp;</div>
+<p><a name="t0"></a><strong><span style="font-family: Times New Roman; font-size: 24px;"><span lang="en-US">详细的资料可以参考：<a style="text-decoration: none; color: #000000; font-family: 'microsoft yahei'; font-size: 18px; font-weight: bold;" href="http://blog.csdn.net/u013527419/article/details/74853633" target="_blank">网络表示学习相关资料</a></span></span></strong></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20180222134700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2018-02-22T13:47:00&#43;0800" class="date">February 22, 2018</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20171227130300/" title="禁用firefox 56自动更新">禁用firefox 56自动更新</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3 id="firefox-56支持旧式扩展这很科学">firefox 56支持旧式扩展，这很科学~~</h3>
+<h3 id="它却自动更新简单地关了也不行很是牛氓">它却自动更新，简单地关了也不行，很是牛氓！</h3>
+<p>==========</p>
+<p>-备份C:\Users\用户名\AppData\Roaming\Mozilla\Firefox\Profiles 文件夹。</p>
+<p>-卸载FF57，重启，用everything搜索所有ff残留文件，删除，安装56.0.2，断网运行FF，关闭FF 将配置文件覆盖回。</p>
+<p>-断网运行FF，设置里关闭自动更新，about：config里false以下3项：
+app.update.auto
+app.update.enabled
+app.update.service.enabled</p>
+<p>-还有一个重要任务：</p>
+<ul>
+<li>Edit the file <strong>prefs.js</strong>, located in %APPDATA%\Mozilla\Firefox\Profiles\xyz.default\ which usually translates to C:\Users\username\AppData\Roaming\Mozilla\Firefox\Profiles\xyz.default\ (Note: username and xyz will vary)</li>
+<li>Make sure the line <strong>user_pref(&ldquo;app.update.enabled&rdquo;, false);</strong> is present in the file; if it isn&rsquo;t, add it or modify it. Ignore the warning that this file should not be edited</li>
+<li>Save and close the file. OK.</li>
+<li><strong>Optional:</strong> Note the <strong>button &ldquo;Check for updates&rdquo;</strong> in the &ldquo;About Firefox&rdquo; dialog box. Of course, <strong>DO NOT click it</strong> until you are prepared and ready to receive the update</li>
+</ul>
+<p>由于56 到57 有重要安全更新，所以安全起见，还有一条路，用firefox的一个分支：
+<a href="https://www.waterfoxproject.org/downloads">https://www.waterfoxproject.org/downloads</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20171227130300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-12-27T13:03:00&#43;0800" class="date">December 27, 2017</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20171215032500/" title="用bayes公式进行机器学习的经典案例">用bayes公式进行机器学习的经典案例</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="用bayes公式进行机器学习的经典案例">用bayes公式进行机器学习的经典案例</h1>
+<p>从本科时候（大约9年前）刚接触Bayes公式，只知道P(A|B)×P(B) = P(AB) = P(B|A)×P(A)</p>
+<p>到硕士期间，机器学习课上对P(B|A)P(A)冠以“先验概率”，而不知“先验”二字到底从何而来。</p>
+<p>再到工作了几年之后重回校园，重新拾起对求知的热情，重新用向小白讲述Bayes公式的态度，讲述自己对它最朴素的理解。尽量让像我一样刚入门的小白同学们，能用生活中最朴素的例子找到bayes公式中，“先验”二字的由来。</p>
+<p>要理解bayes公式，需从全概率公式讲起：</p>
+<p>$$
+P(A_i|B)=\frac {P(B|A_i)P(A_i)}{\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j)}
+$$
+其中的全概率公式：
+$$
+\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B)
+$$</p>
+<p>这里，可理解：
+$$
+A_j \rightarrow Class_j \text{ 这是你样本可能从属的类别/本质/属性}
+B   \rightarrow Events/Data \text{ 这是你看到的样本的表象}
+$$</p>
+<h3 id="2我的进一步理解">2.我的进一步理解</h3>
+<h4 id="21-设有一幅扑克牌这是一种等概率的情况">2.1 设有一幅扑克牌（这是一种等概率的情况）</h4>
+<p>摸到一张J,想知道它属于♥️这一类的概率。
+这里，A是现象，是观察到的属性。♥️，♣️，♦️，♠️是对所有除了大王小王外的扑克牌的四个类别。
+任务就是要根据现象J，对这张牌进行归类，求这张牌属于♥️这一类的概率。</p>
+<p>$$
+P(A|B) \text{就是看到J的情况下，属于} \heartsuit \text{的概率}
+$$
+这是我们要求的量。
+$$
+P(A|B)=\frac {P(B|A)P(A)}{P(B)}
+$$
+P(B|A) - 在已知♥️的牌中，有几个j，显然，1/13</p>
+<p>P(A) - 在整副牌中，红桃出现的概率：13/54</p>
+<p>P(B) - 在整副牌中，J出现的概率：4/54
+这里这个P(B)可以是如下公式计算的：
+$$
+\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B)
+$$
+即，A_j代表的是♥️，♣️，♦️，♠️中的某一个类别。例如，j=1， 我们认为是♥️，则，P(B|A1) = 1/13
+P(A1) = 13/54
+此时，
+$$
+P(B|A_1) \times P(A_1) = \frac1{13} \times \frac {13}{54} = \frac{1}{54}
+$$
+当 j = 1,2,3,4 时，由于这里每个
+$$
+P(B|A_j)
+$$
+都是相等的，所以
+$$
+P(B) = 4 \times \frac{1}{54} = \frac{4}{54}
+$$
+所以，上面的P(A|B) 就能算出来了。因为P(B|A) ，P(A) ，P(B)都知道了。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20171215032500/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-12-15T03:25:00&#43;0800" class="date">December 15, 2017</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20171214151400/" title="bayes公式 - 再从零开始理解">bayes公式 - 再从零开始理解</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="bayes公式与机器学习---再从零开始理解">bayes公式与机器学习 - 再从零开始理解</h1>
+<p>从本科时候（大约9年前）刚接触Bayes公式，只知道P(A|B)×P(B) = P(AB) = P(B|A)×P(A)</p>
+<p>到硕士期间，机器学习课上对P(B|A)P(A)冠以“先验概率”，而不知“先验”二字到底从何而来。</p>
+<p>再到工作了几年之后重回校园，重新拾起对求知的热情，重新用向小白讲述Bayes公式的态度，让自己对它有最朴素的理解。尽量让像我一样刚入门的小白同学们，能用生活中最朴素的例子找到bayes公式中，“先验”二字的由来。</p>
+<p>要理解bayes公式，需从全概率公式讲起：</p>
+<p>$$
+P(A_i|B)=\frac {P(B|A_i)P(A_i)}{\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j)}
+$$
+其中的全概率公式：
+$$
+\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B)
+$$</p>
+<p>这里，可理解：<br>
+$A_j \rightarrow Class_j$  (这是你样本可能从属的类别)<br>
+$B \rightarrow Events \space or \space  Data $ (这是你看到的样本的表象)</p>
+<h3 id="2进一步理解">2.进一步理解</h3>
+<h4 id="21-设有一幅扑克牌这是一种等概率的情况">2.1 设有一幅扑克牌（这是一种等概率的情况）</h4>
+<p>摸到一张J,想知道它属于♥️这一类的概率。
+这里，A是现象，是观察到的属性。♥️，♣️，♦️，♠️是对所有除了大王小王外的扑克牌的四个类别。
+任务就是要根据现象J，对这张牌进行归类，求这张牌属于♥️这一类的概率。</p>
+<p>$$
+P(A|B) \text{就是看到J的情况下，属于} \heartsuit \text{的概率}
+$$
+这是我们要求的量。
+$$
+P(A|B)=\frac {P(B|A)P(A)}{P(B)}
+$$
+$P(B|A)$ - 在已知♥️的牌中，有几个J,显然，1/13</p>
+<p>$P(A)$ - 在整副牌中，红桃出现的概率：13/54</p>
+<p>$P(B)$ - 在整副牌中，J出现的概率：4/54
+这里这个P(B)可以是如下公式计算的：
+$$
+\displaystyle\sum_{j=1}^nP(B|A_j)\times P(A_j) = P(B)
+$$
+即，$A_j$代表的是♥️，♣️，♦️，♠️中的某一个类别。例如，j=1， 我们认为是♥️，则，P(B|A1) = 1/13
+P(A1) = 13/54
+此时，
+$$
+P(B|A_1) \times P(A_1) = \frac1{13} \times \frac {13}{54} = \frac{1}{54}
+$$
+当 j = 1,2,3,4 时，由于这里每个
+$
+P(B|A_j)
+$
+都是相等的，所以
+$$
+P(B) = 4 \times \frac{1}{54} = \frac{4}{54}
+$$
+所以，上面的P(A|B) 就能算出来了。因为P(B|A) ，P(A) ，P(B)都知道了。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20171214151400/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-12-14T15:14:00&#43;0800" class="date">December 14, 2017</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20171106015600/" title="Running a jupyter notebook server">Running a jupyter notebook server</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>你也许需要服务器运行jupyter notebook</p>
+<p>阿里云： <a href="https://yq.aliyun.com/articles/98527">https://yq.aliyun.com/articles/98527</a></p>
+<p>关于更安全的证书访问：
+<a href="http://jupyter-notebook.readthedocs.io/en/stable/public_server.html">http://jupyter-notebook.readthedocs.io/en/stable/public_server.html</a></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20171106015600/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-11-06T01:56:00&#43;0800" class="date">November 06, 2017</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20171012143100/" title="关于文献检索与下载">关于文献检索与下载</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><ol>
+<li>
+<p>来源：
+谷歌学术
+谷歌学术（镜像）
+cnki.net （一般从学校内网都能登录进去查文献，下文献）
+学霸图书馆（终极疗法）
+百度学术（你还在用“百度学术”? Are you kidding me?）</p>
+</li>
+<li>
+<p>谷歌学术（镜像）： <a href="http://ac.scmor.com/">http://ac.scmor.com/</a>
+<img src="http://images2017.cnblogs.com/blog/780771/201710/780771-20171012224145465-956292931.png" alt=""></p>
+</li>
+<li>
+<p>学霸图书馆  <a href="http://xuebalib.com">http://xuebalib.com</a>
+进去买个钻石会员，以前不通畅的那些国外SCI ， WebOfKnowledge 等等，都顺畅了！ （我恨自己知道得太晚！！！）</p>
+</li>
+<li>
+<p>基本的检索期刊的影响因子的方法，SCI 分区的方法，自己google。</p>
+</li>
+</ol>
+<p>看到下图的时候，我已然内牛满面。。。
+<img src="http://images2017.cnblogs.com/blog/780771/201710/780771-20171012222953715-954591968.png" alt=""></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20171012143100/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-10-12T14:31:00&#43;0800" class="date">October 12, 2017</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20170831094700/" title="寻找cost函数最小值：梯度下降与最小二乘法">寻找cost函数最小值：梯度下降与最小二乘法</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><code>Editted by MarkDown</code></p>
+<h1 id="寻找cost函数最小值梯度下降与最小二乘法">寻找cost函数最小值：梯度下降与最小二乘法</h1>
+<p>参考：<a href="http://www.cnblogs.com/pinard/p/5976811.html">最小二乘法小结&ndash;刘建平</a></p>
+<h2 id="背景">背景：</h2>
+<p>目标函数 = Σ（观测值-理论值）<sup>2</sup></p>
+<p>观测值就是我们的多组样本，理论值就是我们的假设拟合函数。目标函数也就是在机器学习中常说的损失函数，我们的目标是得到使目标函数最小化时候的拟合函数的模型。</p>
+<h2 id="最小二乘法的局限性和适用场景">最小二乘法的局限性和适用场景　　</h2>
+<blockquote>
+</blockquote>
+<p>　　　　从上面可以看出，最小二乘法适用简洁高效，比梯度下降这样的迭代法似乎方便很多。但是这里我们就聊聊最小二乘法的局限性。
+　　　　首先，最小二乘法需要计算$\mathbf{X}^\mathbf{T}\mathbf{X}$的逆矩阵，有可能它的逆矩阵不存在，这样就没有办法直接用最小二乘法了，此时梯度下降法仍然可以使用。当然，我们可以通过对样本数据进行整理，去掉冗余特征。让$\mathbf{X}^\mathbf{T}\mathbf{X}$的行列式不为0，然后继续使用最小二乘法。
+　　　　第二，当样本特征n非常的大的时候，计算$\mathbf{X}^\mathbf{T}\mathbf{X}$的逆矩阵是一个非常耗时的工作（nxn的矩阵求逆），甚至不可行。此时以梯度下降为代表的迭代法仍然可以使用。那这个n到底多大就不适合最小二乘法呢？如果你没有很多的分布式大数据计算资源，建议超过10000个特征就用迭代法吧。或者通过主成分分析降低特征的维度后再用最小二乘法。
+　　　　第三，如果拟合函数不是线性的，这时无法使用最小二乘法，需要通过一些技巧转化为线性才能使用，此时梯度下降仍然可以用。
+　　　　第四，讲一些特殊情况。当样本量m很少，小于特征数n的时候，这时拟合方程是欠定的，常用的优化方法都无法去拟合数据。当样本量m等于特征说n的时候，用方程组求解就可以了。当m大于n时，拟合方程是超定的，也就是我们常用与最小二乘法的场景了。</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20170831094700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-08-31T09:47:00&#43;0800" class="date">August 31, 2017</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/16/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/16/">16</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/17/">17</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/18/">18</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/18/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="MATLAB 3D 动画制作（一）- 3D 图形设计
+MATLAB 3D 动画制作（一）- 3D 图形设计
+ MATLAB 3D Animation &ndash; 3D object design
+ Auther: Sonictl Northeastern University. 
+前言：本系列教程将逐步完成一个有趣的MATLAB 3D动画，MATLAB 3D图形的绘制和3D动画的制作可以让工程人员很直观地展示工作内容，特别是在虚拟现实，控制系统设计，人机交互，计算机视觉，等领域都能得到应用。
+Introduction: This series of tutorials are going to discuss a process of making 3D animation using MATLAB step by step. The 3D animation in MATLAB can let the engineers exhibit their work. It can be used widely, especially at the fields of Virtual Reality, Control system Designing, Human-machine interactivity, Computer Vision, etc.
+首先介绍一下本教程的最终效果：
+Below is the final effect of this 3D animation." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>MATLAB 3D 动画制作（一）- 3D 图形设计 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20130114012238/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="MATLAB 3D 动画制作（一）- 3D 图形设计
+MATLAB 3D 动画制作（一）- 3D 图形设计
+ MATLAB 3D Animation &ndash; 3D object design
+ Auther: Sonictl Northeastern University. 
+前言：本系列教程将逐步完成一个有趣的MATLAB 3D动画，MATLAB 3D图形的绘制和3D动画的制作可以让工程人员很直观地展示工作内容，特别是在虚拟现实，控制系统设计，人机交互，计算机视觉，等领域都能得到应用。
+Introduction: This series of tutorials are going to discuss a process of making 3D animation using MATLAB step by step. The 3D animation in MATLAB can let the engineers exhibit their work. It can be used widely, especially at the fields of Virtual Reality, Control system Designing, Human-machine interactivity, Computer Vision, etc.
+首先介绍一下本教程的最终效果：
+Below is the final effect of this 3D animation." />
+  <meta property="og:title" content="MATLAB 3D 动画制作（一）- 3D 图形设计" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20130114012238/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2013-01-14" />
+    <meta property="article:modified_time" content="2013-01-14" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="MATLAB 3D 动画制作（一）- 3D 图形设计 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="MATLAB 3D 动画制作（一）- 3D 图形设计
+MATLAB 3D 动画制作（一）- 3D 图形设计
+ MATLAB 3D Animation &ndash; 3D object design
+ Auther: Sonictl Northeastern University. 
+前言：本系列教程将逐步完成一个有趣的MATLAB 3D动画，MATLAB 3D图形的绘制和3D动画的制作可以让工程人员很直观地展示工作内容，特别是在虚拟现实，控制系统设计，人机交互，计算机视觉，等领域都能得到应用。
+Introduction: This series of tutorials are going to discuss a process of making 3D animation using MATLAB step by step. The 3D animation in MATLAB can let the engineers exhibit their work. It can be used widely, especially at the fields of Virtual Reality, Control system Designing, Human-machine interactivity, Computer Vision, etc.
+首先介绍一下本教程的最终效果：
+Below is the final effect of this 3D animation." />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20130114012238/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20130114012238/">MATLAB 3D 动画制作（一）- 3D 图形设计</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">MATLAB 3D 动画制作（一）- 3D 图形设计</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2013-01-14T01:22:38&#43;0800 class="date">January 14, 2013</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+7 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="matlab-3d-动画制作一--3d-图形设计">MATLAB 3D 动画制作（一）- 3D 图形设计<a hidden class="heading-anchor" aria-hidden="true" href="#matlab-3d-动画制作一--3d-图形设计">#</a></h1>
+<h2 id="matlab-3d-动画制作一--3d-图形设计-1">MATLAB 3D 动画制作（一）- 3D 图形设计<a hidden class="heading-anchor" aria-hidden="true" href="#matlab-3d-动画制作一--3d-图形设计-1">#</a></h2>
+<p> MATLAB 3D Animation &ndash; 3D object design</p>
+<p> Auther: Sonictl Northeastern University. </p>
+<h3 id="前言本系列教程将逐步完成一个有趣的matlab-3d动画matlab-3d图形的绘制和3d动画的制作可以让工程人员很直观地展示工作内容特别是在虚拟现实控制系统设计人机交互计算机视觉等领域都能得到应用">前言：本系列教程将逐步完成一个有趣的MATLAB 3D动画，MATLAB 3D图形的绘制和3D动画的制作可以让工程人员很直观地展示工作内容，特别是在虚拟现实，控制系统设计，人机交互，计算机视觉，等领域都能得到应用。<a hidden class="heading-anchor" aria-hidden="true" href="#前言本系列教程将逐步完成一个有趣的matlab-3d动画matlab-3d图形的绘制和3d动画的制作可以让工程人员很直观地展示工作内容特别是在虚拟现实控制系统设计人机交互计算机视觉等领域都能得到应用">#</a></h3>
+<p>Introduction: This series of tutorials are going to discuss a process of making 3D animation using <a href="https://so.csdn.net/so/search?q=MATLAB&amp;spm=1001.2101.3001.7020">MATLAB</a> step by step. The 3D animation in MATLAB can let the engineers exhibit their work. It can be used widely, especially at the fields of Virtual Reality, Control system Designing, Human-machine interactivity, Computer Vision, etc.</p>
+<p>首先介绍一下本教程的最终效果：</p>
+<p>Below is the final effect of this 3D animation.</p>
+<p><img src="https://img-my.csdn.net/uploads/201301/14/1358097526_2892.JPG" alt=""></p>
+<p>                                                  <img src="https://img-my.csdn.net/uploads/201301/14/1358119566_5300.gif" alt=""></p>
+<h3 id="section-1-3d-object-designing-3d-图形设计">Section 1: 3D Object Designing (3D 图形设计)<a hidden class="heading-anchor" aria-hidden="true" href="#section-1-3d-object-designing-3d-图形设计">#</a></h3>
+<p>In this section, We are going to discuss the approach to build the 3D object in MATLAB figure window. We are going to begin with the simple object like sphere, bar, cylinder, torus.  And we also discuss make a more complicated 3D object by assembling these simple 3D object together.</p>
+<h4 id="11-introduction-to-the-tools-we-are-going-to-use">1.1 introduction to the Tools we are going to use:<a hidden class="heading-anchor" aria-hidden="true" href="#11-introduction-to-the-tools-we-are-going-to-use">#</a></h4>
+<ul>
+<li>surf function in MATLAB</li>
+<li>cylinder function in MATLAB</li>
+<li>sphere function in MATLAB</li>
+</ul>
+<h5 id="111-surf-function-in-matlab">1.1.1 surf function in MATLAB<a hidden class="heading-anchor" aria-hidden="true" href="#111-surf-function-in-matlab">#</a></h5>
+<p>    surf(X,Y,Z) uses Z for the color data and surface height. X and Y are vectors or matrices defining thex and y components of a surface. If X and Y are vectors, length(X) = n and length(Y) = m, where[m,n] = size(Z). In this case, the vertices of the surface faces are (X(j), Y(i), Z(i,j)) triples. To create X and Y matrices for arbitrary domains, use the meshgrid function.</p>
+<p>    </p>
+<h3 id="examples">Examples<a hidden class="heading-anchor" aria-hidden="true" href="#examples">#</a></h3>
+<p>Color a sphere with the pattern of +1s and -1s in a Hadamard matrix.</p>
+<pre tabindex="0"><code>		[X,Y] = meshgrid(-8:.5:8);
+		R = sqrt(X.^2 + Y.^2) + eps;
+		Z = sin(R)./R;
+		figure
+		surf(X,Y,Z)
+        
+</code></pre><p><img src="https://img-my.csdn.net/uploads/201301/14/1358101128_7670.jpg" alt=""></p>
+<p>    Read More about surf: <a href="http://www.mathworks.com/help/matlab/ref/surf.html">http://www.mathworks.com/help/matlab/ref/surf.html</a></p>
+<h5 id="112-cylinder-function-in-matlab">1.1.2  cylinder function in MATLAB<a hidden class="heading-anchor" aria-hidden="true" href="#112-cylinder-function-in-matlab">#</a></h5>
+<p>[X,Y,Z] = cylinder(r,n) returns the x-, y-, and z-coordinates of a cylinder based on the profile curve defined by vector r. The cylinder has n equally spaced points around its circumference.</p>
+<h3 id="examples-1">Examples<a hidden class="heading-anchor" aria-hidden="true" href="#examples-1">#</a></h3>
+<pre tabindex="0"><code>[X,Y,Z]=cylinder(1,20); 
+
+surf(X,Y,Z);
+</code></pre><p><img src="http://www.mathworks.com/help/matlab/ref/cylinder_tn.gif" alt=""></p>
+<p>    Read More about cylinder in MATLAB: <a href="http://www.mathworks.com/help/matlab/ref/cylinder.html">http://www.mathworks.com/help/matlab/ref/cylinder.html</a></p>
+<h5 id="113sphere-function-in-matlab">1.1.3 sphere function in MATLAB<a hidden class="heading-anchor" aria-hidden="true" href="#113sphere-function-in-matlab">#</a></h5>
+<p>sphere generates a sphere consisting of 20-by-20 faces.</p>
+<p>sphere(n) draws a surf plot of an n-by-n sphere in the current figure.</p>
+<p>[X,Y,Z] = sphere(n) returns the coordinates of a sphere in three matrices that are (n+1)-by-(n+1) in size. You draw the sphere with surf(X,Y,Z) or mesh(X,Y,Z).</p>
+<h3 id="examples-2">Examples<a hidden class="heading-anchor" aria-hidden="true" href="#examples-2">#</a></h3>
+<pre tabindex="0"><code>[x,y,z] = sphere;
+surf(x,y,z)  % sphere centered at origin
+</code></pre><p><img src="http://www.mathworks.com/help/matlab/ref/sphere_1.png" alt=""></p>
+<p><em>Read More about sphere in MATLAB:</em> <a href="http://www.mathworks.com/help/matlab/ref/sphere.html">http://www.mathworks.com/help/matlab/ref/sphere.html</a></p>
+<h4 id="12-creating-the-coordinates-forthe-simple-object-like-sphere-cylinder-bar-torus">1.2 Creating the Coordinates for the simple object like sphere, cylinder, bar, torus.<a hidden class="heading-anchor" aria-hidden="true" href="#12-creating-the-coordinates-forthe-simple-object-like-sphere-cylinder-bar-torus">#</a></h4>
+<h5 id="121-sphere">1.2.1 sphere:<a hidden class="heading-anchor" aria-hidden="true" href="#121-sphere">#</a></h5>
+<pre tabindex="0"><code>  [x,y,z] = sphere(20);
+  x = x+1; y = y-1; z = z*2;
+  surf(x,y,z)
+  axis([-3 3 -3 3 -3 3])
+  axis square
+  
+</code></pre><h5 id="122-cylinder">1.2.2 cylinder<a hidden class="heading-anchor" aria-hidden="true" href="#122-cylinder">#</a></h5>
+<pre tabindex="0"><code>[x,y,z] = cylinder(1,20);
+z = z*3;
+surf(x,y,z)
+axis([-3 3 -3 3 -3 3])
+axis square
+</code></pre><h5 id="123-bar">1.2.3 bar<a hidden class="heading-anchor" aria-hidden="true" href="#123-bar">#</a></h5>
+<pre tabindex="0"><code>r2 = 1.2; r1 = 1;
+  t=0:0.01:1;
+  x=t;
+  for i=1:numel(t)
+      if ((i&gt;10 &amp;&amp; i&lt;20) || (i&gt;80 &amp;&amp; i&lt;90))
+        x(i)=r2;
+      else
+        x(i)=r1;
+      end
+  end
+  [X,Y,Z] = cylinder(x,30);
+  surf(X,Y,Z*3,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;) % Here is the key point
+  camlight left;
+  lighting gouraud; % phong is more demanding but gives nicer results
+  xlabel(&#39;x&#39;); ylabel(&#39;y&#39;); zlabel(&#39;z&#39;);
+  axis([-3 3 -3 3 -3 3])
+  axis square
+</code></pre><p>We can see the effect below:</p>
+<p><img src="https://img-my.csdn.net/uploads/201301/14/1358104785_9933.jpg" alt=""></p>
+<h5 id="124-torus">1.2.4 torus<a hidden class="heading-anchor" aria-hidden="true" href="#124-torus">#</a></h5>
+<pre tabindex="0"><code>a = 2;      % average radius
+n = 40;     % num of segment for whole torus.
+r = 0.2;    % radius of cutted circle
+kpi = 1.5;  % completion of turos, form 0 to 2, 2 means 2pi
+theta = -pi * (0:2:kpi*n)/n ;
+phi = 2*pi* (0:2:n)&#39;/n ;
+x = (a + r*cos(phi)) * cos(theta) ;
+y = (a + r*cos(phi)) * sin(theta) ;
+z = r * sin(phi) * ones(size(theta)) ;
+surf(x,y,z,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;red&#39;) % Here is the key point
+  camlight left;
+  lighting gouraud; % phong is more demanding but gives nicer results
+  xlabel(&#39;x&#39;); ylabel(&#39;y&#39;); zlabel(&#39;z&#39;);
+  axis([-3 3 -3 3 -3 3])
+  axis square
+</code></pre><p><img src="https://img-my.csdn.net/uploads/201301/14/1358104890_5871.jpg" alt=""></p>
+<p>  Note: If we use the coordinate transformation method, we can modify the posture of our object:</p>
+<pre tabindex="0"><code>surf(z,y,x)
+</code></pre><p><img src="https://img-my.csdn.net/uploads/201301/14/1358105154_2851.jpg" alt=""></p>
+<h4 id="13-generate-the-complicated-3-d-object-by-assembling-them-together">1.3 Generate the complicated 3-D object by assembling them together<a hidden class="heading-anchor" aria-hidden="true" href="#13-generate-the-complicated-3-d-object-by-assembling-them-together">#</a></h4>
+<p>Here, we are going to generate the 3-D object like the figure shows below:</p>
+<p><img src="https://img-my.csdn.net/uploads/201301/14/1358108083_6775.png" alt=""></p>
+<p>In order to use the code for drawing 3-D object more organizedly, more effeciently and more conveniently, We save these code as functions into different .m files. So that we can call them to draw what we want to draw. After finished the .m files shows below, this tutorial will show you how to build the 3D object above step by step.</p>
+<h5 id="131-create-the-coordinates-for-the-inter-bars">1.3.1 Create the coordinates for the Inter Bars<a hidden class="heading-anchor" aria-hidden="true" href="#131-create-the-coordinates-for-the-inter-bars">#</a></h5>
+<p>Below is the code for the function of creating the blue inter bar. Save it as  createInnerBars.m</p>
+<pre tabindex="0"><code>function [ Xbar1,Ybar1,Zbar1,Xbar2,Ybar2,Zbar2 ] = ...
+createInnerBars( bar1R1,bar1R2,bar2R1,bar2R2)
+%CREATEINNERBARS Creates the bars of the inner (blue) ring
+%
+% bar[i]R[j]: There are two bars which are perpendicular to each other.
+% They are melted with the inner ring, so the ring together with the bars
+% form the inner part of the top.
+% R1 always describes the radius of the bar itself. Additionally, both
+% bars have two attatched weigths each. Both of the attatched weigths are
+% cylinders of R2.
+[Zbar1,Ybar1,Xbar1]=cylinderWeights(bar1R1,bar1R2);  % bar1 is the lying one
+Xbar1=Xbar1-0.5;  % move the center to (0,0,0)
+Xbar1=Xbar1*10;   % extend the length
+[Xbar2,Ybar2,Zbar2]=cylinderWeights(bar2R1,bar2R2);
+Zbar2=Zbar2-0.5;
+Zbar2=Zbar2*10;
+</code></pre><h5 id="132-create-the-coordinates-for-the-cylinderweights">1.3.2 Create the coordinates for the cylinderWeights<a hidden class="heading-anchor" aria-hidden="true" href="#132-create-the-coordinates-for-the-cylinderweights">#</a></h5>
+<p>Below is the code for the function of creating the cylinerWeight for the blue inter bar. Save it ascylinderWeights.m</p>
+<pre tabindex="0"><code>function [X,Y,Z] = cylinderWeights(r1,r2)
+%CYLINDERWEIGHTS creates the innermost blue bars with heavy looking cylinders
+%representing attatched weights.
+t=0:0.01:1;
+x=t;
+for i=1:numel(t)
+if ((i&gt;10 &amp;&amp; i&lt;20) || (i&gt;80 &amp;&amp; i&lt;90))
+x(i)=r2;
+else
+x(i)=r1;
+end
+end
+[X,Y,Z]=cylinder(x,30);
+</code></pre><h5 id="133-create-the-coordinates-for-theouter-bars">1.3.3 Create the coordinates for the Outer Bars<a hidden class="heading-anchor" aria-hidden="true" href="#133-create-the-coordinates-for-theouter-bars">#</a></h5>
+<p>Below is the code for the function of Creating the red motionless supporting bar. Save it ascreateOuterBars.m</p>
+<pre tabindex="0"><code>function [ Xupper,Yupper,Zupper,Xlower,Ylower,Zlower ] = ...
+createOuterBars( radius )
+%CREATEOUTERBARS Creates the red motionless supporting bar
+[Xupper,Yupper,Zupper] = cylinder(radius);
+Zupper=Zupper.*5;
+Zupper=Zupper+5.9;
+[Xlower,Ylower,Zlower] = cylinder(radius);
+Zlower=Zlower.*5;
+Zlower=Zlower-10.9;
+</code></pre><h5 id="134-create-the-coordinates-fortorus">1.3.4 Create the coordinates for Torus<a hidden class="heading-anchor" aria-hidden="true" href="#134-create-the-coordinates-fortorus">#</a></h5>
+<p>Below is the code for the function of creating torus. Save it as  torus.m</p>
+<pre tabindex="0"><code>function [x, y, z] = torus (a, n, r, kpi)
+% TORUS Generate a torus.
+% torus (r, n, a, kpi) generates a plot of a
+% torus with central radius a and
+% lateral radius r.
+% n controls the number of facets
+% on the surface.
+% kpi makes it possible to draw a whole torus,
+% or e.g. half of it.
+%
+% This script is a modification of a
+% program from:
+% MATLAB Primer, 6th Edition
+% Kermit Sigmon and Timothy A. Davis
+% Section 11.5, page 65.
+theta = -pi * (0:2:kpi*n)/n ;
+phi = 2*pi* (0:2:n)&#39;/n ;
+x = (a + r*cos(phi)) * cos(theta) ;
+y = (a + r*cos(phi)) * sin(theta) ;
+z = r * sin(phi) * ones(size(theta)) ;
+</code></pre><h5 id="135-create-the-coordinates-forstopeuler-the-final-object-we-want">1.3.5 Create the coordinates for sTopEuler. (The final object we want)<a hidden class="heading-anchor" aria-hidden="true" href="#135-create-the-coordinates-forstopeuler-the-final-object-we-want">#</a></h5>
+<p>Below is the code for the function of creating the sTopEuler. Save it as  sTopEuler.m</p>
+<pre tabindex="0"><code>% coordinates of the three rings (blue, red and green)
+[X1,Y1,Z1]=torus(5-0.3,30,0.3,2); % the top (blue)
+[X2,Z2,Y2]=torus(5+0.3,30,0.3,2); % inner gimbal (green, semi-transparent)
+[X3,Z3,Y3]=torus(5+0.9,30,0.3,1); % outer gimbal (red, semi-transparent)
+% handles to surf plots of the three rings
+H1=surf(X1,Y1,Z1,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;); hold on;
+H2=surf(X2,Y2,Z2,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;green&#39;,&#39;FaceAlpha&#39;,0.3);
+H3=surf(X3,Y3,Z3,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;red&#39;,&#39;FaceAlpha&#39;,0.3);
+% creates the bars inside the inner (blue) ring. The wide cylinders
+% represent weights.
+[Xbar1,Ybar1,Zbar1,Xbar2,Ybar2,Zbar2]=createInnerBars(0.2,0.5,0.2,0.5);
+bar1=surf(Xbar1,Ybar1,Zbar1,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;);
+bar2=surf(Xbar2,Ybar2,Zbar2,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;);
+% the red motionless supporting bar
+[ Xupper,Yupper,Zupper,Xlower,Ylower,Zlower ] = createOuterBars( 0.3 );
+surf(Xlower,Ylower,Zlower,...
+&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;red&#39;,&#39;FaceAlpha&#39;,0.3);
+hold off;
+camlight left;
+lighting gouraud; % phong is more demanding but gives nicer results
+bb=7;
+axis([-bb bb -bb bb -bb bb]);
+axis square;
+xlabel(&#39;x&#39;); ylabel(&#39;y&#39;); zlabel(&#39;z&#39;);
+</code></pre><p>Until now, you can run the assembling whold objects file sTopEuler.m to draw the 3-D object above. Or, after you added the sTopEuler.m into path of MATLAB, you can directly run this function by typing in &ldquo;sTopEuler&rdquo; at the command window of MATLAB.</p>
+<p>Below, we are going to show you how to use the functions we built to draw the 3-D object above step-by-step.</p>
+<h5 id="136-build-the-3d-object-above-step-by-step">1.3.6 Build the 3D object above step by step<a hidden class="heading-anchor" aria-hidden="true" href="#136-build-the-3d-object-above-step-by-step">#</a></h5>
+<ul>
+<li>a. Draw the blue ring:</li>
+</ul>
+<pre tabindex="0"><code>% coordinates of the three rings (blue, red and green)
+[X1,Y1,Z1]=torus(5-0.3,30,0.3,2); % the top (blue)
+H1=surf(X1,Y1,Z1,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;); hold on;
+camlight left;
+lighting gouraud; % phong is more demanding but gives nicer results
+bb=7;
+axis([-bb bb -bb bb -bb bb]);
+axis square;
+xlabel(&#39;x&#39;); ylabel(&#39;y&#39;); zlabel(&#39;z&#39;);
+</code></pre><p><img src="https://img-my.csdn.net/uploads/201301/14/1358109119_1851.png" alt=""></p>
+<ul>
+<li>b. Draw the green ring:</li>
+</ul>
+<pre tabindex="0"><code>[X2,Z2,Y2]=torus(5+0.3,30,0.3,2); % inner gimbal (green, semi-transparent)
+H2=surf(X2,Y2,Z2,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;green&#39;,&#39;FaceAlpha&#39;,0.3);
+% coordinates of the three rings (blue, red and green)
+[X1,Y1,Z1]=torus(5-0.3,30,0.3,2); % the top (blue)
+H1=surf(X1,Y1,Z1,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;); hold on;
+camlight left;
+lighting gouraud; % phong is more demanding but gives nicer results
+</code></pre><p><img src="https://img-my.csdn.net/uploads/201301/14/1358109282_9016.png" alt=""></p>
+<ul>
+<li>c. Draw the red half-ring:</li>
+</ul>
+<pre tabindex="0"><code>[X3,Z3,Y3]=torus(5+0.9,30,0.3,1); % outer gimbal (red, semi-transparent)
+H3=surf(X3,Y3,Z3,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;red&#39;,&#39;FaceAlpha&#39;,0.3);
+camlight left;
+lighting gouraud; % phong is more demanding but gives nicer results
+</code></pre><p><img src="https://img-my.csdn.net/uploads/201301/14/1358109360_9791.png" alt=""></p>
+<ul>
+<li>d. Draw the left part:</li>
+</ul>
+<pre tabindex="0"><code>% creates the bars inside the inner (blue) ring. The wide cylinders
+% represent weights.
+[Xbar1,Ybar1,Zbar1,Xbar2,Ybar2,Zbar2]=createInnerBars(0.2,0.5,0.2,0.5);
+bar1=surf(Xbar1,Ybar1,Zbar1,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;);
+bar2=surf(Xbar2,Ybar2,Zbar2,&#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;blue&#39;);
+% the red motionless supporting bar
+[ Xupper,Yupper,Zupper,Xlower,Ylower,Zlower ] = createOuterBars( 0.3 );
+surf(Xlower,Ylower,Zlower,...
+    &#39;EdgeColor&#39;,&#39;none&#39;,&#39;FaceColor&#39;,&#39;red&#39;,&#39;FaceAlpha&#39;,0.3);
+hold off;
+camlight left;
+lighting gouraud; % phong is more demanding but gives nicer results
+bb=7;
+axis([-bb bb -bb bb -bb bb]);
+axis square;
+xlabel(&#39;x&#39;); ylabel(&#39;y&#39;); zlabel(&#39;z&#39;);
+</code></pre><p><img src="https://img-my.csdn.net/uploads/201301/14/1358109702_7484.png" alt=""></p>
+<p>Thank you!!</p>
+<p>Reference: : <a href="http://www.mathworks.com/matlabcentral/fileexchange/28309">http://www.mathworks.com/matlabcentral/fileexchange/28309</a></p>
+<p>参考文档：经典教程&mdash;matlab三维图形的绘制  <a href="http://ishare.iask.sina.com.cn/f/35139508.html">http://ishare.iask.sina.com.cn/f/35139508.html</a></p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2013-01-14 01:22 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share MATLAB 3D 动画制作（一）- 3D 图形设计 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130114012238%2f&title=MATLAB%203D%20%e5%8a%a8%e7%94%bb%e5%88%b6%e4%bd%9c%ef%bc%88%e4%b8%80%ef%bc%89-%203D%20%e5%9b%be%e5%bd%a2%e8%ae%be%e8%ae%a1">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share MATLAB 3D 动画制作（一）- 3D 图形设计 on twitter"
+          href="https://twitter.com/intent/tweet/?text=MATLAB%203D%20%e5%8a%a8%e7%94%bb%e5%88%b6%e4%bd%9c%ef%bc%88%e4%b8%80%ef%bc%89-%203D%20%e5%9b%be%e5%bd%a2%e8%ae%be%e8%ae%a1&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130114012238%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share MATLAB 3D 动画制作（一）- 3D 图形设计 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130114012238%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

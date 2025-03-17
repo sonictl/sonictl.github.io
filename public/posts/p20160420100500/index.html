@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Linux如何查看进程、杀死进程、启动进程等常用命令
+Linux如何查看进程、杀死进程、启动进程等常用命令
+1.查进程
+ps命令查找与进程相关的PID号：
+ps a 显示现行终端机下的所有程序，包括其他用户的程序。
+ps -A 显示所有程序。
+ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。
+ps -e 此参数的效果和指定&quot;A&quot;参数相同。
+ps e 列出程序时，显示每个程序所使用的环境变量。
+ps f 用ASCII字符显示树状结构，表达程序间的相互关系。
+ps -H 显示树状结构，表示程序间的相互关系。
+ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。
+ps s 采用程序信号的格式显示程序状况。
+ps S 列出程序时，包括已中断的子程序资料。
+ps -t&lt;终端机编号&gt; 指定终端机编号，并列出属于该终端机的程序的状况。
+ps u 以用户为主的格式来显示程序状况。
+ps x 显示所有程序，不以终端机来区分。
+最常用的方法是ps aux,然后再通过管道使用grep命令过滤查找特定的进程,然后再对特定的进程进行操作。
+ps aux | grep program_filter_word,ps -ef |grep tomcat
+ps -ef|grep java|grep -v grep 显示出所有的java进程，去处掉当前的grep进程。
+2.杀进程
+使用kill命令结束进程：kill xxx
+常用：kill －9 324
+Linux下还提供了一个killall命令，可以直接使用进程的名字而不是进程标识号，例如：# killall -9 NAME
+3.进入到进程的执行文件所在的路径下，执行文件 ./文件名
+附：
+这是本人花了两天时间整理得来的，一些最常用的地球人都知道的命令就省去啦！最后提供pdf手册下载
+
+更改档案拥有者
+
+命令 : chown [-cfhvR] [&ndash;help] [&ndash;version] user[:group] file&hellip;" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Linux如何查看进程、杀死进程、启动进程等常用命令 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20160420100500/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Linux如何查看进程、杀死进程、启动进程等常用命令
+Linux如何查看进程、杀死进程、启动进程等常用命令
+1.查进程
+ps命令查找与进程相关的PID号：
+ps a 显示现行终端机下的所有程序，包括其他用户的程序。
+ps -A 显示所有程序。
+ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。
+ps -e 此参数的效果和指定&quot;A&quot;参数相同。
+ps e 列出程序时，显示每个程序所使用的环境变量。
+ps f 用ASCII字符显示树状结构，表达程序间的相互关系。
+ps -H 显示树状结构，表示程序间的相互关系。
+ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。
+ps s 采用程序信号的格式显示程序状况。
+ps S 列出程序时，包括已中断的子程序资料。
+ps -t&lt;终端机编号&gt; 指定终端机编号，并列出属于该终端机的程序的状况。
+ps u 以用户为主的格式来显示程序状况。
+ps x 显示所有程序，不以终端机来区分。
+最常用的方法是ps aux,然后再通过管道使用grep命令过滤查找特定的进程,然后再对特定的进程进行操作。
+ps aux | grep program_filter_word,ps -ef |grep tomcat
+ps -ef|grep java|grep -v grep 显示出所有的java进程，去处掉当前的grep进程。
+2.杀进程
+使用kill命令结束进程：kill xxx
+常用：kill －9 324
+Linux下还提供了一个killall命令，可以直接使用进程的名字而不是进程标识号，例如：# killall -9 NAME
+3.进入到进程的执行文件所在的路径下，执行文件 ./文件名
+附：
+这是本人花了两天时间整理得来的，一些最常用的地球人都知道的命令就省去啦！最后提供pdf手册下载
+
+更改档案拥有者
+
+命令 : chown [-cfhvR] [&ndash;help] [&ndash;version] user[:group] file&hellip;" />
+  <meta property="og:title" content="Linux如何查看进程、杀死进程、启动进程等常用命令" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20160420100500/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2016-04-20" />
+    <meta property="article:modified_time" content="2016-04-20" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Linux如何查看进程、杀死进程、启动进程等常用命令 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Linux如何查看进程、杀死进程、启动进程等常用命令
+Linux如何查看进程、杀死进程、启动进程等常用命令
+1.查进程
+ps命令查找与进程相关的PID号：
+ps a 显示现行终端机下的所有程序，包括其他用户的程序。
+ps -A 显示所有程序。
+ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。
+ps -e 此参数的效果和指定&quot;A&quot;参数相同。
+ps e 列出程序时，显示每个程序所使用的环境变量。
+ps f 用ASCII字符显示树状结构，表达程序间的相互关系。
+ps -H 显示树状结构，表示程序间的相互关系。
+ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。
+ps s 采用程序信号的格式显示程序状况。
+ps S 列出程序时，包括已中断的子程序资料。
+ps -t&lt;终端机编号&gt; 指定终端机编号，并列出属于该终端机的程序的状况。
+ps u 以用户为主的格式来显示程序状况。
+ps x 显示所有程序，不以终端机来区分。
+最常用的方法是ps aux,然后再通过管道使用grep命令过滤查找特定的进程,然后再对特定的进程进行操作。
+ps aux | grep program_filter_word,ps -ef |grep tomcat
+ps -ef|grep java|grep -v grep 显示出所有的java进程，去处掉当前的grep进程。
+2.杀进程
+使用kill命令结束进程：kill xxx
+常用：kill －9 324
+Linux下还提供了一个killall命令，可以直接使用进程的名字而不是进程标识号，例如：# killall -9 NAME
+3.进入到进程的执行文件所在的路径下，执行文件 ./文件名
+附：
+这是本人花了两天时间整理得来的，一些最常用的地球人都知道的命令就省去啦！最后提供pdf手册下载
+
+更改档案拥有者
+
+命令 : chown [-cfhvR] [&ndash;help] [&ndash;version] user[:group] file&hellip;" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20160420100500/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20160420100500/">Linux如何查看进程、杀死进程、启动进程等常用命令</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">Linux如何查看进程、杀死进程、启动进程等常用命令</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2016-04-20T10:05:00&#43;0800 class="date">April 20, 2016</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+4 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="linux如何查看进程杀死进程启动进程等常用命令">Linux如何查看进程、杀死进程、启动进程等常用命令<a hidden class="heading-anchor" aria-hidden="true" href="#linux如何查看进程杀死进程启动进程等常用命令">#</a></h1>
+<h2 id="linux如何查看进程杀死进程启动进程等常用命令-1"><a href="http://blog.csdn.net/wojiaopanpan/article/details/7286430">Linux如何查看进程、杀死进程、启动进程等常用命令</a><a hidden class="heading-anchor" aria-hidden="true" href="#linux如何查看进程杀死进程启动进程等常用命令-1">#</a></h2>
+<p>1.查进程
+ps命令查找与进程相关的PID号：</p>
+<p>ps a 显示现行终端机下的所有程序，包括其他用户的程序。</p>
+<p>ps -A 显示所有程序。</p>
+<p>ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。</p>
+<p>ps -e 此参数的效果和指定&quot;A&quot;参数相同。</p>
+<p>ps e 列出程序时，显示每个程序所使用的环境变量。</p>
+<p>ps f 用ASCII字符显示树状结构，表达程序间的相互关系。</p>
+<p>ps -H 显示树状结构，表示程序间的相互关系。</p>
+<p>ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。</p>
+<p>ps s 采用程序信号的格式显示程序状况。</p>
+<p>ps S 列出程序时，包括已中断的子程序资料。</p>
+<p>ps -t&lt;终端机编号&gt; 指定终端机编号，并列出属于该终端机的程序的状况。</p>
+<p>ps u 以用户为主的格式来显示程序状况。</p>
+<p>ps x 显示所有程序，不以终端机来区分。</p>
+<p>最常用的方法是ps aux,然后再通过管道使用grep命令过滤查找特定的进程,然后再对特定的进程进行操作。</p>
+<p>ps aux | grep program_filter_word,ps -ef |grep tomcat</p>
+<p>ps -ef|grep java|grep -v grep 显示出所有的java进程，去处掉当前的grep进程。</p>
+<p>2.杀进程</p>
+<p>使用kill命令结束进程：kill xxx</p>
+<p>常用：kill －9 324</p>
+<p>Linux下还提供了一个killall命令，可以直接使用进程的名字而不是进程标识号，例如：# killall -9 NAME</p>
+<p>3.进入到进程的执行文件所在的路径下，执行文件 ./文件名</p>
+<p>附：</p>
+<p>这是本人花了两天时间整理得来的，一些最常用的地球人都知道的命令就省去啦！最后提供pdf手册下载</p>
+<ol>
+<li>更改档案拥有者</li>
+</ol>
+<p>命令 : chown [-cfhvR] [&ndash;help] [&ndash;version] user[:group] file&hellip;</p>
+<p>功能 : 更改文件或者文件夹的拥有者</p>
+<p>参数格式 :</p>
+<p>　　 user : 新的档案拥有者的使用者 IDgroup : 新的档案拥有者的使用者群体(group)</p>
+<p>　　 -c : 若该档案拥有者确实已经更改，才显示其更改动作</p>
+<p>　　 -f : 若该档案拥有者无法被更改也不要显示错误讯息</p>
+<p>　　 -h : 只对于连结(link)进行变更，而非该 link 真正指向的档案</p>
+<p>　　 -v : 显示拥有者变更的详细资料</p>
+<p>　 　-R : 对目前目录下的所有档案与子目录进行相同的拥有者变更(即以递回的方式逐个变更)</p>
+<p>例如：chown -R oracle:oinstall /oracle/u01/app/oracle</p>
+<p>更改目录拥有者为oracle</p>
+<ol start="2">
+<li>修改权限</li>
+</ol>
+<p>命令：chmod (change mode)</p>
+<p>功能：改变文件的读写和执行权限。有符号法和八进制数字法。</p>
+<p>选项：(1)符号法：</p>
+<p>命令格式：chmod {u|g|o|a}{+|-|=}{r|w|x} filename</p>
+<p>u (user) 表示用户本人。</p>
+<p>g (group) 表示同组用户。</p>
+<p>o (oher) 表示其他用户。</p>
+<p>a (all) 表示所有用户。</p>
+<ul>
+<li>用于给予指定用户的许可权限。</li>
+</ul>
+<ul>
+<li>用于取消指定用户的许可权限。</li>
+</ul>
+<p>= 将所许可的权限赋给文件。</p>
+<p>r (read) 读许可，表示可以拷贝该文件或目录的内容。</p>
+<p>w (write) 写许可，表示可以修改该文件或目录的内容。</p>
+<p>x (execute)执行许可，表示可以执行该文件或进入目录。</p>
+<p>(2)八进制数字法：</p>
+<p>命令格式：chmod abc file</p>
+<p>其中a,b,c各为一个八进制数字，分别表示User、Group、及Other的权限。</p>
+<p>4 (100) 表示可读。</p>
+<p>2 (010) 表示可写。</p>
+<p>1 (001) 表示可执行。</p>
+<p>若要rwx属性则4+2+1=7；</p>
+<p>若要rw-属性则4+2=6；</p>
+<p>若要r-x属性则4+1=5。</p>
+<p>例如：# chmod a+rx filename</p>
+<p>让所有用户可以读和执行文件filename。</p>
+<h1 id="chmod-go-rx-filename">chmod go-rx filename<a hidden class="heading-anchor" aria-hidden="true" href="#chmod-go-rx-filename">#</a></h1>
+<p>取消同组和其他用户的读和执行文件filename的权限。</p>
+<h1 id="chmod-741-filename">chmod 741 filename<a hidden class="heading-anchor" aria-hidden="true" href="#chmod-741-filename">#</a></h1>
+<p>让本人可读写执行、同组用户可读、其他用户可执行文件filename。</p>
+<h1 id="chmod--r-755-homeoracle">chmod -R 755 /home/oracle<a hidden class="heading-anchor" aria-hidden="true" href="#chmod--r-755-homeoracle">#</a></h1>
+<p>递归更改目录权限，本人可读写执行、同组用户可读可执行、其他用户可读可执行</p>
+<ol start="3">
+<li>修改文件日期</li>
+</ol>
+<p>命令：touch</p>
+<p>格式：touch filenae</p>
+<p>功能：改变文件的日期，不对文件的内容做改动，若文件不存在则建立新文件。</p>
+<p>例如：% touch file</p>
+<ol start="4">
+<li>链接文件</li>
+</ol>
+<p>命令：ln (link)</p>
+<p>格式：ln [option] filename linkname</p>
+<p>ln [option] directory pathname</p>
+<p>功能：为文件或目录建立一个链。其中，filename和directory是源文件名和</p>
+<p>源目录名；linkname和pathname分别表示与源文件或源目录名相链接的</p>
+<p>文件或目录。</p>
+<p>选项：-s 为文件或目录建立符号链接。不加-s表示为文件或目录建立硬链接</p>
+<p>注释：链接的目地在于，对一个文件或目录赋予两个以上的名字，使其可以出</p>
+<p>现在不同的目录中，既可以使文件或目录共享，又可以节省磁盘空间。</p>
+<p>例如：% ln -s filename linkname</p>
+<ol start="5">
+<li>显示日期</li>
+</ol>
+<p>命令：date</p>
+<p>例如：% date</p>
+<ol start="6">
+<li>显示日历</li>
+</ol>
+<p>命令：cal (calendar)</p>
+<p>格式：cal [month] year</p>
+<p>功能：显示某年内指定的日历</p>
+<p>例如：% cal 1998</p>
+<ol start="7">
+<li>显示文件头部</li>
+</ol>
+<p>命令：head</p>
+<p>格式：head [option] filename</p>
+<p>功能：显示文件的头部</p>
+<p>选项：缺省 显示文件的头10行。</p>
+<p>-i 显示文件的开始 i行。</p>
+<p>例如：% head filename</p>
+<ol start="8">
+<li>显示文件尾部</li>
+</ol>
+<p>命令：tail</p>
+<p>格式：tail [option] filename</p>
+<p>功能：显示文件的尾部</p>
+<p>选项：缺省 显示文件的末10行。</p>
+<p>-i 显示文件最后 i行。</p>
+<p>+i 从文件的第i行开始显示。</p>
+<p>例如：% tail filename</p>
+<ol start="9">
+<li>显示用户标识</li>
+</ol>
+<p>命令：id</p>
+<p>格式：id [option] [user]</p>
+<p>功能：显示用户标识及用户所属的所有组。</p>
+<p>选项：-a 显示用户名、用户标识及用户所属的所有组</p>
+<p>注释：</p>
+<p>例如：% id username</p>
+<ol start="10">
+<li>查看当前登录的用户</li>
+</ol>
+<p>命令：users</p>
+<ol start="11">
+<li>显示都谁登录到机器上</li>
+</ol>
+<p>命令：who</p>
+<p>格式：who</p>
+<p>功能：显示当前正在系统中的所有用户名字，使用终端设备号，注册时间。</p>
+<p>例如：% who</p>
+<ol start="12">
+<li>显示当前终端上的用户名</li>
+</ol>
+<p>命令：whoami</p>
+<p>格式：whoami</p>
+<p>功能：显示出当前终端上使用的用户。</p>
+<p>例如：% whoami</p>
+<ol start="13">
+<li>寻找文件</li>
+</ol>
+<p>命令：find</p>
+<p>格式：find pathname [option] expression</p>
+<p>功能：在所给的路经名下寻找符合表达式相匹配的文件。</p>
+<p>选项：-name 表示文件名</p>
+<p>-user 用户名，选取该用户所属的文件</p>
+<p>-size 按大小查找，以block为单位，一个block是512B</p>
+<p>-mtime n 按最后一次修改时间查找，选取n天内被修改的文件</p>
+<p>-perm 按权限查找</p>
+<p>-type 按文件类型查找</p>
+<p>-atime 按最后一次访问时间查找</p>
+<p>例如：% find ./ -name &lsquo;*abc*&rsquo; -print</p>
+<ol start="14">
+<li>搜索文件中匹配符</li>
+</ol>
+<p>命令：grep</p>
+<p>格式：grep [option] pattern filenames</p>
+<p>功能：逐行搜索所指定的文件或标准输入，并显示匹配模式的每一行。</p>
+<p>选项：-i 匹配时忽略大小写</p>
+<p>-v 找出模式失配的行</p>
+<p>例如：% grep -i &lsquo;java*&rsquo; ./test/run.sh</p>
+<ol start="15">
+<li>统计文件字数</li>
+</ol>
+<p>命令：wc [option] filename</p>
+<p>功能：统计文件中的文件行数、字数和字符数。</p>
+<p>选项：-l 统计文件的行数</p>
+<p>-w 统计文件的单词数</p>
+<p>-c 统计文件的字符数</p>
+<p>注释：若缺省文件名则指标准输入</p>
+<p>例如：% wc -c ./test/run.sh</p>
+<ol start="16">
+<li>显示磁盘空间</li>
+</ol>
+<p>命令：df (disk free)</p>
+<p>格式：df [option]</p>
+<p>功能：显示磁盘空间的使用情况，包括文件系统安装的目录名、块设备名、总</p>
+<p>字节数、已用字节数、剩余字节数占用百分比。</p>
+<p>选项：</p>
+<p>-a：显示全部的档案系统和各分割区的磁盘使用情形</p>
+<p>-i：显示i -nodes的使用量</p>
+<p>-k：大小用k来表示 (默认值)</p>
+<p>-t：显示某一个档案系统的所有分割区磁盘使用量</p>
+<p>-x：显示不是某一个档案系统的所有分割区磁盘使用量</p>
+<p>-T：显示每个分割区所属的档案系统名称</p>
+<p>-h: 表示使用「Human-readable」的输出，也就是在档案系统大小使用 GB、MB 等易读的格式。</p>
+<p>注释：</p>
+<p>例如：% df -hi</p>
+<ol start="17">
+<li>查询档案或目录的磁盘使用空间</li>
+</ol>
+<p>命令：du (disk usage)</p>
+<p>格式：du [option] [filename]</p>
+<p>功能：以指定的目录下的子目录为单位，显示每个目录内所有档案所占用的磁盘空间大小</p>
+<p>选项：</p>
+<p>-a：显示全部目录和其次目录下的每个档案所占的磁盘空间</p>
+<p>-b：大小用bytes来表示 (默认值为k bytes)</p>
+<p>-c：最后再加上总计 (默认值)</p>
+<p>-s：只显示各档案大小的总合</p>
+<p>-x：只计算同属同一个档案系统的档案</p>
+<p>-L：计算所有的档案大小</p>
+<p>-h: 表示档案系统大小使用 GB、MB 等易读的格式。</p>
+<p>例如：% du -a</p>
+<p>% du -sh /etc 只显示该目录的总合</p>
+<p>% du /etc | sort -nr | more 统计结果用sort 指令进行排序，</p>
+<p>sort 的参数 -nr 表示要以数字排序法进行反向排序。</p>
+<ol start="18">
+<li>显示进程</li>
+</ol>
+<p>命令：ps</p>
+<p>格式：ps [option]</p>
+<p>功能：显示系统中进程的信息。包括进程ID、控制进程终端、执行时间和命令。</p>
+<p>选项：</p>
+<p>-a 显示所有进程信息</p>
+<p>-U uidlist 列出这个用户的所有进程</p>
+<p>-e 显示当前运行的每一个进程信息</p>
+<p>-f 显示一个完整的列表</p>
+<p>-x 显示包括没有终端控制的进程状况 。</p>
+<p>注释：</p>
+<p>例如：% ps -ef</p>
+<p>% ps -aux 然后再利用一个管道符号导向到grep去查找特定的进程,然后再对特定的进程进行操作。</p>
+<ol start="19">
+<li>终止进程</li>
+</ol>
+<p>命令：kill</p>
+<p>格式：kill [option] pid</p>
+<p>功能：向指定的进程送信号或终止进程。kill指令的用途是送一个signal给某一个process，</p>
+<p>因为大部份送的都是用来杀掉 process 的 SIGKILL 或 SIGHUP ，因此称为 kill</p>
+<p>选项：-9 强行终止进程</p>
+<p>注释：pid标示进程号，可由ps命令得到。</p>
+<p>例如：% kill -9 pid</p>
+<p>你也可以用 kill -l 来察看可代替 signal 号码的数目字。kill 的详细情形请参阅 man kill。</p>
+<ol start="20">
+<li>查看自己的IP地址</li>
+</ol>
+<p>命令：ifconfig</p>
+<p>格式：ifconfig -a</p>
+<ol start="21">
+<li>查看路由表</li>
+</ol>
+<p>命令：netstat</p>
+<p>格式：netstat -rn</p>
+<ol start="22">
+<li>远程登录</li>
+</ol>
+<p>命令：telnet</p>
+<p>格式：telnet hostname</p>
+<ol start="23">
+<li>文件传输</li>
+</ol>
+<p>命令：ftp (file transfer program)</p>
+<p>格式：ftp hostname</p>
+<p>功能：网络文件传输及远程操作。</p>
+<p>选项：ftp命令：</p>
+<p>cd [dirname] 进入远程机的目录</p>
+<p>lcd [dirname] 设置本地机的目录</p>
+<p>dir/ls 显示远程的目录文件</p>
+<p>bin 以二进制方式进行传输</p>
+<p>asc 以文本文件方式进行传输</p>
+<p>get/mget 从远程机取一个或多个文件</p>
+<p>put/mput 向远程机送一个或多个文件</p>
+<p>prompt 打开或关闭多个文件传送时的交互提示</p>
+<p>close 关闭与远程机的连接</p>
+<p>quit 退出ftp</p>
+<p>!/exit ftp登陆状态下，!表示暂时退出ftp状态回到本地目录，exit表示返回ftp状态</p>
+<p>注释：</p>
+<p>例如：% ftp hostname</p>
+<ol start="24">
+<li>查看自己的电子邮件</li>
+</ol>
+<p>命令：mailx</p>
+<p>格式：mailx</p>
+<p>选项：</p>
+<p>delete 删除</p>
+<p>next 下一个</p>
+<p>quit 退出</p>
+<p>reply 回复</p>
+<ol start="25">
+<li>回忆命令</li>
+</ol>
+<p>命令：history</p>
+<p>格式：history</p>
+<p>功能：帮助用户回忆执行过的命令。</p>
+<p>选项：</p>
+<p>注释：</p>
+<p>例如：% history</p>
+<ol start="26">
+<li>网上对话</li>
+</ol>
+<p>命令：talk</p>
+<p>格式：talk username</p>
+<p>功能：在网上与另一用户进行对话。</p>
+<p>选项：</p>
+<p>注释：对话时系统把终端分为上下两部分，上半部显示自己键入信息，下半部</p>
+<p>显示对方用户键入的信息。键入delete或Ctrl+C则结束对话。</p>
+<p>例如：% talk username</p>
+<ol start="27">
+<li>允许或拒绝接受信息</li>
+</ol>
+<p>命令：mesg (message)</p>
+<p>格式：mesg [n/y]</p>
+<p>功能：允许或拒绝其它用户向自己所用的终端发送信息。</p>
+<p>选项：n 拒绝其它用户向自己所用的终端写信息</p>
+<p>y 允许其它用户向自己所用的终端写信息（缺省值）</p>
+<p>注释：</p>
+<p>例如：% mesg n</p>
+<ol start="28">
+<li>给其他用户写信息</li>
+</ol>
+<p>命令：write</p>
+<p>格式：write username [ttyname]</p>
+<p>功能：给其他用户的终端写信息。</p>
+<p>选项：</p>
+<p>注释：若对方没有拒绝，两用户可进行交谈，键入EOF或Ctrl+C则结束对话。</p>
+<p>例如：write username</p>
+<ol start="29">
+<li>创建、修改、删除用户和群组</li>
+</ol>
+<p>a. 创建群组：</p>
+<p>例如： groupadd oinstall 创建群组名为oinstall的组</p>
+<p>groupadd -g 344 dba</p>
+<p>创建组号是344的组，此时在/etc/passwd文件中产生一个组ID（GID）是344的项目。</p>
+<p>b. 修改群组：</p>
+<p>groupmod:该命令用于改变用户组帐号的属性</p>
+<p>groupmod –g 新的GID 用户组帐号名</p>
+<p>groupmod –n 新组名 原组名：此命令由于改变用户组的名称</p>
+<p>c. 删除群组：</p>
+<p>groupdel 组名：该命令用于删除指定的组帐号</p>
+<p>d. 新建用户：</p>
+<p>命令： useradd [－d home] [－s shell] [－c comment] [－m [－k template]]</p>
+<p>[－f inactive] [－e expire ] [－p passwd] [－r] name</p>
+<p>主要参数</p>
+<p>-c：加上备注文字，备注文字保存在passwd的备注栏中。　</p>
+<p>-d：指定用户登入时的启始目录。</p>
+<p>-D：变更预设值。</p>
+<p>-e：指定账号的有效期限，缺省表示永久有效。</p>
+<p>-f：指定在密码过期后多少天即关闭该账号。</p>
+<p>-g：指定用户所属的群组。</p>
+<p>-G：指定用户所属的附加群组。</p>
+<p>-m：自动建立用户的登入目录。</p>
+<p>-M：不要自动建立用户的登入目录。</p>
+<p>-n：取消建立以用户名称为名的群组。</p>
+<p>-r：建立系统账号。</p>
+<p>-s：指定用户登入后所使用的shell。</p>
+<p>-u：指定用户ID号。</p>
+<p>举例： # useradd -g oinstall -G dba oracle 创建Oracle用户</p>
+<p>e. 删除用户</p>
+<p>命令： userdel 用户名</p>
+<p>删除指定的用户帐号</p>
+<p>userdel –r 用户名(userdel 用户名;rm 用户名)：删除指定的用户帐号及宿主目录</p>
+<p>例：#useradd -g root kkk //把kkk用户加入root组里</p>
+<p>f. 修改用户</p>
+<p>命令： usermod</p>
+<p>修改已有用户的信息</p>
+<p>usermod –l 旧用户名 新用户名： 修改用户名</p>
+<p>usermod –L 用户名： 用于锁定指定用户账号，使其不能登陆系统</p>
+<p>usermod –U 用户名： 对锁定的用户帐号进行解锁</p>
+<p>passwd –d 用户名： 使帐号无口令，即用户不需要口令就能登录系统</p>
+<p>例：#usermod -l user2 user1 //把用户user2改名为user1</p>
+<ol start="30">
+<li>启动、关闭防火墙</li>
+</ol>
+<p>永久打开或则关闭</p>
+<p>chkconfig iptables on</p>
+<p>chkconfig iptables off</p>
+<p>即时生效：重启后还原</p>
+<p>service iptables start</p>
+<p>service iptables stop</p>
+<p>或者：</p>
+<p>/etc/init.d/iptables start</p>
+<p>/etc/init.d/iptables stop</p>
+<ol start="31">
+<li>启动VSFTP服务</li>
+</ol>
+<p>即时启动： /etc/init.d/vsftpd start</p>
+<p>即时停止： /etc/init.d/vsftpd stop</p>
+<p>开机默认VSFTP服务自动启动:</p>
+<p>方法一:(常用\方便)</p>
+<p>[root@localhost etc]# chkconfig &ndash;list|grep vsftpd ( 查看情况)</p>
+<p>vsftpd 0:off 1:off 2:off 3:off 4:off 5:off 6:off</p>
+<p>[root@localhost etc]# chkconfig vsftpd on (执行ON设置)</p>
+<p>或者:方法二:</p>
+<p>修改文件 /etc/rc.local , 把行/usr/local/sbin/vsftpd &amp; 插入文件中，以实现开机自动启动。</p>
+<ol start="32">
+<li>vi技巧</li>
+</ol>
+<p>a. 进入输入模式</p>
+<p>新增 (append)</p>
+<p>a ：从光标所在位置後面开始新增资料，光标後的资料随新增资料向後移动。</p>
+<p>A：从光标所在列最後面的地方开始新增资料。</p>
+<p>插入 (insert)</p>
+<p>i：从光标所在位置前面开始插入资料，光标後的资料随新增资料向後移动。</p>
+<p>I ：从光标所在列的第一个非空白字元前面开始插入资料。</p>
+<p>开始 (open)</p>
+<p>o ：在光标所在列下新增一列并进入输入模式。</p>
+<p>O: 在光标所在列上方新增一列并进入输入模式。</p>
+<p>b. 退出vi</p>
+<p>在指令模式下键入:q,:q!,:wq或:x(注意:号），就会退出vi。其中:wq和:x是存盘退出，而:q是直接退出，如果文件已有新的变化，vi会提示你保存文件而:q命令也会失效，这时你可以用:w命令保存文件后再用:q 退出，或用:wq或:x命令退出，如果你不想保存改变后的文件，你就需要用:q!命令，这个命令将不保存文件而直接退出vi。</p>
+<p>c. 删除与修改文件的命令：</p>
+<p>x：删除光标所在字符。</p>
+<p>dd ：删除光标所在的列。</p>
+<p>r ：修改光标所在字元，r 後接著要修正的字符。</p>
+<p>R：进入取替换状态，新增文字会覆盖原先文字，直到按 [ESC] 回到指令模式下为止。</p>
+<p>s：删除光标所在字元，并进入输入模式。</p>
+<p>S：删除光标所在的列，并进入输入模式。</p>
+<p>d. 屏幕翻滚类命令</p>
+<p>Ctrl+u: 向文件首翻半屏</p>
+<p>Ctrl+d: 向文件尾翻半屏</p>
+<p>Ctrl+f: 向文件尾翻一屏</p>
+<p>Ctrl＋b: 向文件首翻一屏</p>
+<p>nz: 将第n行滚至屏幕顶部，不指定n时将当前行滚至屏幕顶部。</p>
+<p>e. 删除命令</p>
+<p>ndw或ndW: 删除光标处开始及其后的n-1个字</p>
+<p>do: 删至行首</p>
+<p>d$: 删至行尾</p>
+<p>ndd: 删除当前行及其后n-1行</p>
+<p>x或X: 删除一个字符，x删除光标后的，而X删除光标前的</p>
+<p>Ctrl+u: 删除输入方式下所输入的文本</p>
+<p>f. 搜索及替换命令</p>
+<p>/pattern: 从光标开始处向文件尾搜索pattern</p>
+<p>?pattern: 从光标开始处向文件首搜索pattern</p>
+<p>n: 在同一方向重复上一次搜索命令</p>
+<p>N: 在反方向上重复上一次搜索命令</p>
+<p>:s/p1/p2/g: 将当前行中所有p1均用p2替代</p>
+<p>:n1,n2s/p1/p2/g: 将第n1至n2行中所有p1均用p2替代</p>
+<p>:g/p1/s//p2/g: 将文件中所有p1均用p2替换</p>
+<p>g. 复制，黏贴</p>
+<p>(1) 选定文本块，使用v进入可视模式；移动光标键选定内容</p>
+<p>(2) 复制选定块到缓冲区，用y；复制整行，用yy</p>
+<p>(3) 剪切选定块到缓冲区，用d；剪切整行用dd</p>
+<p>(4) 粘贴缓冲区中的内容，用p</p>
+<p>h. 其他</p>
+<p>在同一编辑窗打开第二个文件，用:sp [filename]</p>
+<p>在多个编辑文件之间切换，用Ctrl+w</p>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识<a href="https://edu.csdn.net/skill/gml/gml-107df6e5ed9b4bef8b035e0649b2449e?utm_source=csdn_ai_skill_tree_blog">CS入门技能树</a><a href="https://edu.csdn.net/skill/gml/gml-107df6e5ed9b4bef8b035e0649b2449e?utm_source=csdn_ai_skill_tree_blog">Linux进阶</a><a href="https://edu.csdn.net/skill/gml/gml-107df6e5ed9b4bef8b035e0649b2449e?utm_source=csdn_ai_skill_tree_blog">新增用户</a>40632 人正在系统学习中</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2016-04-20 10:05 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share Linux如何查看进程、杀死进程、启动进程等常用命令 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160420100500%2f&title=Linux%e5%a6%82%e4%bd%95%e6%9f%a5%e7%9c%8b%e8%bf%9b%e7%a8%8b%e3%80%81%e6%9d%80%e6%ad%bb%e8%bf%9b%e7%a8%8b%e3%80%81%e5%90%af%e5%8a%a8%e8%bf%9b%e7%a8%8b%e7%ad%89%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share Linux如何查看进程、杀死进程、启动进程等常用命令 on twitter"
+          href="https://twitter.com/intent/tweet/?text=Linux%e5%a6%82%e4%bd%95%e6%9f%a5%e7%9c%8b%e8%bf%9b%e7%a8%8b%e3%80%81%e6%9d%80%e6%ad%bb%e8%bf%9b%e7%a8%8b%e3%80%81%e5%90%af%e5%8a%a8%e8%bf%9b%e7%a8%8b%e7%ad%89%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160420100500%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share Linux如何查看进程、杀死进程、启动进程等常用命令 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160420100500%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

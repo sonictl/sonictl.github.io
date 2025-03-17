@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>运维 on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/%E8%BF%90%E7%BB%B4/</link>
+    <description>Recent content in 运维 on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Sep 2021 10:46:46 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>win10双线网络设置</title>
+      <link>http://localhost:1313/posts/p20210906104646/</link>
+      <pubDate>Mon, 06 Sep 2021 10:46:46 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20210906104646/</guid>
+      <description>&lt;h2 id=&#34;-双线网络设置--&#34;&gt;++++++ 双线网络设置  ++++++++&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;h3 id=&#34;wlan-设置跃点数1-重要&#34;&gt;Wlan 设置跃点数1 [重要]&lt;/h3&gt;&#xA;说明：这个使0.0.0.0的路由冲突时，可以优先走wlan&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;几个命令&#34;&gt;几个命令：&lt;/h4&gt;&#xA;&lt;p&gt;查看本机ip等信息： &lt;code&gt;ipconfig &lt;/code&gt;&#xA;查看Route信息：&lt;code&gt;route print &lt;/code&gt;&#xA;配置route信息：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-目标IP段&#34; data-lang=&#34;目标IP段&#34;&gt;route -p add 172.23.0.0  mask 255.255.255.128  172.23.15.129&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;p&gt;临时添加（不带-p）：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-route&#34; data-lang=&#34;route&#34;&gt;route add 172.16.0.0  mask 255.255.255.128 172.23.15.129&#xA;route add 172.16.0.0  mask 255.255.255.128 172.16.99.86&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;++++++++++++++++++++++++++++++&lt;/p&gt;&#xA;&lt;h2 id=&#34;2021年9月6日103147更新&#34;&gt;2021年9月6日10:31:47更新：&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-首先删除默认路由-0000&#34;&gt;1. 首先删除默认路由 0.0.0.0：&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt; route delete 0.0.0.0&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-添加默认外网路由&#34;&gt;2. 添加默认外网路由：&lt;/h3&gt;&#xA;&lt;p&gt;&lt;del&gt;&lt;code&gt;route add -p 0.0.0.0 mask 255.255.255.0 192.168.1.1&lt;/code&gt;&lt;/del&gt;&#xA;说明： 192.168.1.1 (是你的外网网关)&#xA;这里会造成0.0.0.0的路由冲突（机器重启后），还是通过wlan的跃点数来设置！！&lt;/p&gt;&#xA;&lt;h3 id=&#34;3-添加内网路由&#34;&gt;3. 添加内网路由：&lt;/h3&gt;&#xA;&lt;p&gt;&lt;code&gt;route add -p 10.16.0.0 mask 255.255.128.0 10.16.0.1   &lt;/code&gt;&#xA;说明：10.16.0.0 - 内网ip分配到的是 10.16.36.9， 这里取前2段，意思是这个网段内（内网网段）就走内网的网关10.16.36.9 。。。如果你的内网ip是  19.11.1.19， 那么相应的：19.11.0.0&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;此处我的ip是：&#xA;  IPv4 地址 . . . . . . . . . . . . : 10.16.36.9&#xA;  子网掩码  . . . . . . . . . . . . : 255.255.128.0&#xA;  默认网关. . . . . . . . . . . . . : 10.16.0.1&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;参考&#34;&gt;参考：&lt;/h1&gt;&#xA;&lt;h1 id=&#34;win10-双网卡设置内网和外网同时访问&#34;&gt;win10 双网卡设置内网和外网同时访问&lt;/h1&gt;&#xA;&lt;p&gt;2019-11-19&#x9; &lt;a href=&#34;https://www.shuzhiduo.com/link/bzc1TlowMks1Vw==&#34;&gt;原文&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>nginxBasic: Set up server blocks on CentOS 7</title>
+      <link>http://localhost:1313/posts/p20200319192011/</link>
+      <pubDate>Thu, 19 Mar 2020 19:19:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20200319192011/</guid>
+      <description>&lt;h1 id=&#34;set-up-nginx-server-blocks-on-centos-7&#34;&gt;Set Up Nginx Server Blocks on CentOS 7&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tags/nginx&#34;&gt;Nginx&lt;/a&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tags/centos&#34;&gt;CentOS&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;By &lt;a href=&#34;https://www.digitalocean.com/community/users/jbarnett&#34;&gt;Josh Barnett&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Published on November 5, 2014&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;&#xA;&lt;p&gt;Nginx uses &lt;strong&gt;server blocks&lt;/strong&gt; to manage configurations. Server blocks allow one server to &lt;strong&gt;host multiple domains or interfaces&lt;/strong&gt;. How to serve different content to different visitors depending on which domains they are requesting:&lt;/p&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;access to centos7 server, has &lt;code&gt;sudo&lt;/code&gt; privileges.&lt;/li&gt;&#xA;&lt;li&gt;Nginx installed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Before you begin with this guide, there are a few steps that need to be completed first.&lt;/p&gt;&#xA;&lt;p&gt;You will need access to a CentOS 7 server with a non-root user that has &lt;code&gt;sudo&lt;/code&gt; privileges. If you haven’t configured this yet, you can run through the &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-7&#34;&gt;CentOS 7 initial server setup guide&lt;/a&gt; to create this account.&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

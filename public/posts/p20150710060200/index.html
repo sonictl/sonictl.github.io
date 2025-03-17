@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="
+
+至此，我们初步学习了ROS的基本工具，接下来一步步理解ROS的各个工作部件的创建和工作原理。
+本文的详细文档：http://wenku.baidu.com/view/623f41b3376baf1ffd4fad7a
+
+
+
+
+Creating a ROS msg and srv
+This tutorial covers how to create and build msg and srv files as well as therosmsg, rossrv and roscp commandline tools.
+
+1. msg &amp; srv 文件介绍
+&nbsp;&nbsp;&nbsp; msg 文件 就是用来让不同语言能产生message的一个指导性文本文件。
+&nbsp;&nbsp;&nbsp; srv file describes a service. It is composed of two parts: a request and a response.
+
+2. msg &amp; srv 文件存储位置：
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/msg/ 
+&nbsp;&nbsp;&nbsp; &amp;
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/srv/
+
+
+
+&nbsp;
+&nbsp;
+
+
+==== msg file 说明 ====
+3. msgfile 的&#26684;式和生成
+&nbsp;&nbsp;&nbsp; 生成：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ cd ~/catkin_ws/src/beginner_tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir msg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ echo &quot;int64 num&quot; &gt; msg/Num.msg
+
+&nbsp;&nbsp;&nbsp; &#26684;式：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string first_name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string last_name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint8 age
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint32 score
+
+4. msgfile 添加到package.xml的dependency中
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;
+
+5. 对CMakeLists.txt文件的修改：
+
+&nbsp; 5.1 添加message_generation dependency到CMakeLists.txt中：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation before the closing parenthesis
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 5.2 export the message runtime dependency. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catkin_package(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CATKIN_DEPENDS message_runtime ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...)
+
+&nbsp; 5.3 添加msg文件
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add_message_files(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Num.msg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+&nbsp;&nbsp;&nbsp; 添加了.msg文件在CMake里，我们保证在你添加其他.msg文件时，CMake知道何时它需要reconfigure重新配置项目。
+
+&nbsp; 5.4 确保generate_messages 函数被调用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+6. rosmsg 工具的使用
+&nbsp;&nbsp;&nbsp; make sure that ROS can see it using the rosmsg show command.
+&nbsp;&nbsp;&nbsp; Usage:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show [message type]
+&nbsp;&nbsp;&nbsp; Example: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show beginner_tutorials/Num
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show Num
+===================
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; === srv file 说明 ===
+&nbsp;1. srv的路径和生成
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscd beginner_tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir srv
+&nbsp;&nbsp;&nbsp; Instead of creating a new srv definition by hand, we will copy an existing one from another package.
+For that, roscp is a useful commandline tool for copying files from one package to another.
+&nbsp;&nbsp;&nbsp; 使用roscp工具从一个package拷贝文件到另一个。
+&nbsp;&nbsp;&nbsp; Usage: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp [package_name] [file_to_copy_path] [copy_path]
+&nbsp;&nbsp;&nbsp; Now we can copy a service from the rospy_tutorials package: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp rospy_tutorials AddTwoInts.srv srv/AddTwoInts.srv
+
+&nbsp;2. 保证package.xml里有dependency配置（可能独立修改了srv，确保一下）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;
+
+&nbsp;3.1 add the message_generation dependency to generate messages in CMakeLists.txt:
+# Do not just add this line to your CMakeLists.txt, modify the existing line
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 3.2 添加 srvice 文件
+&nbsp;&nbsp;&nbsp; add_service_files(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddTwoInts.srv
+&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 3.3 确保generate_messages 函数被调用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+4. 使用rossrv工具
+&nbsp;&nbsp;&nbsp; 添加以后，确保ROS can see it using the rossrv show command. 
+&nbsp;&nbsp;&nbsp; Usage: 
+&nbsp;&nbsp;&nbsp; $ rossrv show &lt;service type&gt;
+&nbsp;&nbsp;&nbsp; Example: 
+&nbsp;&nbsp;&nbsp; $ rossrv show beginner_tutorials/AddTwoInts
+&nbsp;&nbsp;&nbsp; You will see: 
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+&nbsp;&nbsp;&nbsp; Similar to rosmsg, you can find service files like this without specifying package name:
+&nbsp;&nbsp;&nbsp; $ rossrv show AddTwoInts
+&nbsp;&nbsp;&nbsp; [beginner_tutorials/AddTwoInts]:
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+
+&nbsp;&nbsp;&nbsp; [rospy_tutorials/AddTwoInts]:
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+
+
+
+无论是修改了msg还是srv，都需要做的步骤：
+&nbsp; CMakeLists.txt文件的修改
+&nbsp; 1. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 2. add any packages you depend on which contain .msg files that your messages use (in this case std_msgs), such that it looks like this:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+终于到了catkin_make出手的时候：
+Now that we have made some new messages we need to make our package again:" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>ROS学习手记 - 7 创建ROS msg &amp;amp; srv | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20150710060200/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="
+
+至此，我们初步学习了ROS的基本工具，接下来一步步理解ROS的各个工作部件的创建和工作原理。
+本文的详细文档：http://wenku.baidu.com/view/623f41b3376baf1ffd4fad7a
+
+
+
+
+Creating a ROS msg and srv
+This tutorial covers how to create and build msg and srv files as well as therosmsg, rossrv and roscp commandline tools.
+
+1. msg &amp; srv 文件介绍
+&nbsp;&nbsp;&nbsp; msg 文件 就是用来让不同语言能产生message的一个指导性文本文件。
+&nbsp;&nbsp;&nbsp; srv file describes a service. It is composed of two parts: a request and a response.
+
+2. msg &amp; srv 文件存储位置：
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/msg/ 
+&nbsp;&nbsp;&nbsp; &amp;
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/srv/
+
+
+
+&nbsp;
+&nbsp;
+
+
+==== msg file 说明 ====
+3. msgfile 的&#26684;式和生成
+&nbsp;&nbsp;&nbsp; 生成：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ cd ~/catkin_ws/src/beginner_tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir msg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ echo &quot;int64 num&quot; &gt; msg/Num.msg
+
+&nbsp;&nbsp;&nbsp; &#26684;式：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string first_name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string last_name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint8 age
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint32 score
+
+4. msgfile 添加到package.xml的dependency中
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;
+
+5. 对CMakeLists.txt文件的修改：
+
+&nbsp; 5.1 添加message_generation dependency到CMakeLists.txt中：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation before the closing parenthesis
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 5.2 export the message runtime dependency. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catkin_package(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CATKIN_DEPENDS message_runtime ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...)
+
+&nbsp; 5.3 添加msg文件
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add_message_files(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Num.msg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+&nbsp;&nbsp;&nbsp; 添加了.msg文件在CMake里，我们保证在你添加其他.msg文件时，CMake知道何时它需要reconfigure重新配置项目。
+
+&nbsp; 5.4 确保generate_messages 函数被调用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+6. rosmsg 工具的使用
+&nbsp;&nbsp;&nbsp; make sure that ROS can see it using the rosmsg show command.
+&nbsp;&nbsp;&nbsp; Usage:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show [message type]
+&nbsp;&nbsp;&nbsp; Example: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show beginner_tutorials/Num
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show Num
+===================
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; === srv file 说明 ===
+&nbsp;1. srv的路径和生成
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscd beginner_tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir srv
+&nbsp;&nbsp;&nbsp; Instead of creating a new srv definition by hand, we will copy an existing one from another package.
+For that, roscp is a useful commandline tool for copying files from one package to another.
+&nbsp;&nbsp;&nbsp; 使用roscp工具从一个package拷贝文件到另一个。
+&nbsp;&nbsp;&nbsp; Usage: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp [package_name] [file_to_copy_path] [copy_path]
+&nbsp;&nbsp;&nbsp; Now we can copy a service from the rospy_tutorials package: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp rospy_tutorials AddTwoInts.srv srv/AddTwoInts.srv
+
+&nbsp;2. 保证package.xml里有dependency配置（可能独立修改了srv，确保一下）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;
+
+&nbsp;3.1 add the message_generation dependency to generate messages in CMakeLists.txt:
+# Do not just add this line to your CMakeLists.txt, modify the existing line
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 3.2 添加 srvice 文件
+&nbsp;&nbsp;&nbsp; add_service_files(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddTwoInts.srv
+&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 3.3 确保generate_messages 函数被调用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+4. 使用rossrv工具
+&nbsp;&nbsp;&nbsp; 添加以后，确保ROS can see it using the rossrv show command. 
+&nbsp;&nbsp;&nbsp; Usage: 
+&nbsp;&nbsp;&nbsp; $ rossrv show &lt;service type&gt;
+&nbsp;&nbsp;&nbsp; Example: 
+&nbsp;&nbsp;&nbsp; $ rossrv show beginner_tutorials/AddTwoInts
+&nbsp;&nbsp;&nbsp; You will see: 
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+&nbsp;&nbsp;&nbsp; Similar to rosmsg, you can find service files like this without specifying package name:
+&nbsp;&nbsp;&nbsp; $ rossrv show AddTwoInts
+&nbsp;&nbsp;&nbsp; [beginner_tutorials/AddTwoInts]:
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+
+&nbsp;&nbsp;&nbsp; [rospy_tutorials/AddTwoInts]:
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+
+
+
+无论是修改了msg还是srv，都需要做的步骤：
+&nbsp; CMakeLists.txt文件的修改
+&nbsp; 1. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 2. add any packages you depend on which contain .msg files that your messages use (in this case std_msgs), such that it looks like this:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+终于到了catkin_make出手的时候：
+Now that we have made some new messages we need to make our package again:" />
+  <meta property="og:title" content="ROS学习手记 - 7 创建ROS msg &amp;amp; srv" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20150710060200/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-07-10" />
+    <meta property="article:modified_time" content="2015-07-10" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ROS学习手记 - 7 创建ROS msg &amp;amp; srv | Combine Art and Sciences" />
+  <meta name="twitter:description" content="
+
+至此，我们初步学习了ROS的基本工具，接下来一步步理解ROS的各个工作部件的创建和工作原理。
+本文的详细文档：http://wenku.baidu.com/view/623f41b3376baf1ffd4fad7a
+
+
+
+
+Creating a ROS msg and srv
+This tutorial covers how to create and build msg and srv files as well as therosmsg, rossrv and roscp commandline tools.
+
+1. msg &amp; srv 文件介绍
+&nbsp;&nbsp;&nbsp; msg 文件 就是用来让不同语言能产生message的一个指导性文本文件。
+&nbsp;&nbsp;&nbsp; srv file describes a service. It is composed of two parts: a request and a response.
+
+2. msg &amp; srv 文件存储位置：
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/msg/ 
+&nbsp;&nbsp;&nbsp; &amp;
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/srv/
+
+
+
+&nbsp;
+&nbsp;
+
+
+==== msg file 说明 ====
+3. msgfile 的&#26684;式和生成
+&nbsp;&nbsp;&nbsp; 生成：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ cd ~/catkin_ws/src/beginner_tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir msg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ echo &quot;int64 num&quot; &gt; msg/Num.msg
+
+&nbsp;&nbsp;&nbsp; &#26684;式：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string first_name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string last_name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint8 age
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint32 score
+
+4. msgfile 添加到package.xml的dependency中
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;
+
+5. 对CMakeLists.txt文件的修改：
+
+&nbsp; 5.1 添加message_generation dependency到CMakeLists.txt中：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation before the closing parenthesis
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 5.2 export the message runtime dependency. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catkin_package(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CATKIN_DEPENDS message_runtime ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...)
+
+&nbsp; 5.3 添加msg文件
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add_message_files(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Num.msg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+&nbsp;&nbsp;&nbsp; 添加了.msg文件在CMake里，我们保证在你添加其他.msg文件时，CMake知道何时它需要reconfigure重新配置项目。
+
+&nbsp; 5.4 确保generate_messages 函数被调用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+6. rosmsg 工具的使用
+&nbsp;&nbsp;&nbsp; make sure that ROS can see it using the rosmsg show command.
+&nbsp;&nbsp;&nbsp; Usage:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show [message type]
+&nbsp;&nbsp;&nbsp; Example: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show beginner_tutorials/Num
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show Num
+===================
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; === srv file 说明 ===
+&nbsp;1. srv的路径和生成
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscd beginner_tutorials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir srv
+&nbsp;&nbsp;&nbsp; Instead of creating a new srv definition by hand, we will copy an existing one from another package.
+For that, roscp is a useful commandline tool for copying files from one package to another.
+&nbsp;&nbsp;&nbsp; 使用roscp工具从一个package拷贝文件到另一个。
+&nbsp;&nbsp;&nbsp; Usage: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp [package_name] [file_to_copy_path] [copy_path]
+&nbsp;&nbsp;&nbsp; Now we can copy a service from the rospy_tutorials package: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp rospy_tutorials AddTwoInts.srv srv/AddTwoInts.srv
+
+&nbsp;2. 保证package.xml里有dependency配置（可能独立修改了srv，确保一下）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;
+
+&nbsp;3.1 add the message_generation dependency to generate messages in CMakeLists.txt:
+# Do not just add this line to your CMakeLists.txt, modify the existing line
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 3.2 添加 srvice 文件
+&nbsp;&nbsp;&nbsp; add_service_files(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddTwoInts.srv
+&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 3.3 确保generate_messages 函数被调用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+4. 使用rossrv工具
+&nbsp;&nbsp;&nbsp; 添加以后，确保ROS can see it using the rossrv show command. 
+&nbsp;&nbsp;&nbsp; Usage: 
+&nbsp;&nbsp;&nbsp; $ rossrv show &lt;service type&gt;
+&nbsp;&nbsp;&nbsp; Example: 
+&nbsp;&nbsp;&nbsp; $ rossrv show beginner_tutorials/AddTwoInts
+&nbsp;&nbsp;&nbsp; You will see: 
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+&nbsp;&nbsp;&nbsp; Similar to rosmsg, you can find service files like this without specifying package name:
+&nbsp;&nbsp;&nbsp; $ rossrv show AddTwoInts
+&nbsp;&nbsp;&nbsp; [beginner_tutorials/AddTwoInts]:
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+
+&nbsp;&nbsp;&nbsp; [rospy_tutorials/AddTwoInts]:
+&nbsp;&nbsp;&nbsp; int64 a
+&nbsp;&nbsp;&nbsp; int64 b
+&nbsp;&nbsp;&nbsp; ---
+&nbsp;&nbsp;&nbsp; int64 sum
+
+
+
+无论是修改了msg还是srv，都需要做的步骤：
+&nbsp; CMakeLists.txt文件的修改
+&nbsp; 1. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+&nbsp; 2. add any packages you depend on which contain .msg files that your messages use (in this case std_msgs), such that it looks like this:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+
+终于到了catkin_make出手的时候：
+Now that we have made some new messages we need to make our package again:" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20150710060200/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20150710060200/">ROS学习手记 - 7 创建ROS msg &amp;amp; srv</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">ROS学习手记 - 7 创建ROS msg &amp;amp; srv</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-07-10T06:02:00&#43;0800 class="date">July 10, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+4 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p><br>
+</p>
+<p>至此，我们初步学习了ROS的基本工具，接下来一步步理解ROS的各个工作部件的创建和工作原理。</p>
+<p>本文的详细文档：<a target="_blank" href="http://wenku.baidu.com/view/623f41b3376baf1ffd4fad7a">http://wenku.baidu.com/view/623f41b3376baf1ffd4fad7a</a><br>
+</p>
+<p></p>
+<ol>
+<li>
+<h2><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv">Creating a ROS msg and srv</a></h2>
+<p><span class="anchor" id="line-1-10"></span>This tutorial covers how to create and build msg and srv files as well as the<a target="_blank" target="_blank" href="http://wiki.ros.org/rosmsg">rosmsg</a>, rossrv and roscp commandline tools.</p>
+</li></ol>
+1. msg &amp; srv 文件介绍<br>
+&nbsp;&nbsp;&nbsp; msg 文件 就是用来让不同语言能产生message的一个指导性文本文件。<br>
+&nbsp;&nbsp;&nbsp; srv file describes a service. It is composed of two parts: a request and a response.<br>
+<br>
+2. msg &amp; srv 文件存储位置：<br>
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/msg/ <br>
+&nbsp;&nbsp;&nbsp; &amp;<br>
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/srv/
+<table border="1" cellpadding="0" cellspacing="0" height="1139" width="698">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>==== msg file 说明 ====<br>
+3. msgfile 的&#26684;式和生成<br>
+&nbsp;&nbsp;&nbsp; 生成：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ cd ~/catkin_ws/src/beginner_tutorials<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ echo &quot;int64 num&quot; &gt; msg/Num.msg<br>
+<br>
+&nbsp;&nbsp;&nbsp; &#26684;式：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string first_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string last_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint8 age<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint32 score<br>
+<br>
+4. msgfile 添加到package.xml的dependency中<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;<br>
+<br>
+5. 对CMakeLists.txt文件的修改：<br>
+<br>
+&nbsp; 5.1 添加message_generation dependency到CMakeLists.txt中：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation before the closing parenthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 5.2 export the message runtime dependency. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catkin_package(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CATKIN_DEPENDS message_runtime ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...)<br>
+<br>
+&nbsp; 5.3 添加msg文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add_message_files(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Num.msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+&nbsp;&nbsp;&nbsp; 添加了.msg文件在CMake里，我们保证在你添加其他.msg文件时，CMake知道何时它需要reconfigure重新配置项目。<br>
+<br>
+&nbsp; 5.4 确保generate_messages 函数被调用<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+6. rosmsg 工具的使用<br>
+&nbsp;&nbsp;&nbsp; make sure that ROS can see it using the rosmsg show command.<br>
+&nbsp;&nbsp;&nbsp; Usage:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show [message type]<br>
+&nbsp;&nbsp;&nbsp; Example: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show beginner_tutorials/Num<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show Num<br>
+===================</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; === srv file 说明 ===<br>
+&nbsp;1. srv的路径和生成<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscd beginner_tutorials<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir srv<br>
+&nbsp;&nbsp;&nbsp; Instead of creating a new srv definition by hand, we will copy an existing one from another package.<br>
+For that, roscp is a useful commandline tool for copying files from one package to another.<br>
+&nbsp;&nbsp;&nbsp; 使用roscp工具从一个package拷贝文件到另一个。<br>
+&nbsp;&nbsp;&nbsp; Usage: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp [package_name] [file_to_copy_path] [copy_path]<br>
+&nbsp;&nbsp;&nbsp; Now we can copy a service from the rospy_tutorials package: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp rospy_tutorials AddTwoInts.srv srv/AddTwoInts.srv<br>
+<br>
+&nbsp;2. 保证package.xml里有dependency配置（可能独立修改了srv，确保一下）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;<br>
+<br>
+&nbsp;3.1 add the message_generation dependency to generate messages in CMakeLists.txt:<br>
+# Do not just add this line to your CMakeLists.txt, modify the existing line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 3.2 添加 srvice 文件<br>
+&nbsp;&nbsp;&nbsp; add_service_files(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddTwoInts.srv<br>
+&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 3.3 确保generate_messages 函数被调用<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+4. 使用rossrv工具<br>
+&nbsp;&nbsp;&nbsp; 添加以后，确保ROS can see it using the rossrv show command. <br>
+&nbsp;&nbsp;&nbsp; Usage: <br>
+&nbsp;&nbsp;&nbsp; $ rossrv show &lt;service type&gt;<br>
+&nbsp;&nbsp;&nbsp; Example: <br>
+&nbsp;&nbsp;&nbsp; $ rossrv show beginner_tutorials/AddTwoInts<br>
+&nbsp;&nbsp;&nbsp; You will see: <br>
+&nbsp;&nbsp;&nbsp; int64 a<br>
+&nbsp;&nbsp;&nbsp; int64 b<br>
+&nbsp;&nbsp;&nbsp; ---<br>
+&nbsp;&nbsp;&nbsp; int64 sum<br>
+&nbsp;&nbsp;&nbsp; Similar to rosmsg, you can find service files like this without specifying package name:<br>
+&nbsp;&nbsp;&nbsp; $ rossrv show AddTwoInts<br>
+&nbsp;&nbsp;&nbsp; [beginner_tutorials/AddTwoInts]:<br>
+&nbsp;&nbsp;&nbsp; int64 a<br>
+&nbsp;&nbsp;&nbsp; int64 b<br>
+&nbsp;&nbsp;&nbsp; ---<br>
+&nbsp;&nbsp;&nbsp; int64 sum<br>
+<br>
+&nbsp;&nbsp;&nbsp; [rospy_tutorials/AddTwoInts]:<br>
+&nbsp;&nbsp;&nbsp; int64 a<br>
+&nbsp;&nbsp;&nbsp; int64 b<br>
+&nbsp;&nbsp;&nbsp; ---<br>
+&nbsp;&nbsp;&nbsp; int64 sum</td>
+</tr>
+</tbody>
+</table>
+<h3>无论是修改了msg还是srv，都需要做的步骤：</h3>
+&nbsp; CMakeLists.txt文件的修改<br>
+&nbsp; 1. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 2. add any packages you depend on which contain .msg files that your messages use (in this case std_msgs), such that it looks like this:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+<h3>终于到了catkin_make出手的时候：</h3>
+<p align="left">Now that we have made some new messages we need to make our package again:</p>
+<p># In your catkin workspace (by default:~/catkin_ws$)</p>
+<pre>$ cd ../..</pre>
+<pre>$ catkin_make</pre>
+<pre>$ cd -</pre>
+<p align="left">至此，我们就编译完成了一套ROS 的 msg &amp; srv<br>
+Any .msg file in the msg directory will generate code for use in all supportedlanguages.<br>
+The C&#43;&#43; message header file will be generated in ~/catkin_ws/devel/include/beginner_tutorials/.<br>
+The Python script will be created in ~/catkin_ws/devel/lib/python2.7/dist-packages/beginner_tutorials/msg.<br>
+The lisp file appears in ~/catkin_ws/devel/share/common-lisp/ros/beginner_tutorials/msg/.</p>
+<p align="left">The full specification for the message format is available at the<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Message_Description_Language"><span style="color:blue">Message Description Language</span></a> page.</p>
+<p align="left"><strong>Getting Help</strong></p>
+<p align="left">We've seen quite a few ROS tools already. It can be difficult to keeptrack of what arguments each command requires. Luckily, most ROS tools providetheir own help.</p>
+<p align="left">Try: </p>
+<p>$ rosmsg -h</p>
+<p align="left">You should see a list of different rosmsg subcommands. </p>
+<p>Commands:</p>
+<ul>
+<li>
+<pre>&nbsp; rosmsgshow Show message description</pre>
+</li><li>
+<pre>&nbsp; rosmsgusers&nbsp; Find files that use message</pre>
+</li><li>
+<pre>&nbsp; rosmsgmd5&nbsp; Display message md5sum</pre>
+</li><li>
+<pre>&nbsp; rosmsgpackage&nbsp; List messages in a package</pre>
+</li><li>
+<pre>&nbsp; rosmsgpackages List packages that contain messages</pre>
+</li></ul>
+<p align="left">You can also get help for subcommands </p>
+<p align="left">$ rosmsg show -h</p>
+<ul type="disc">
+<li>This shows the arguments that are needed for rosmsg show: </li></ul>
+<p align="left">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usage: rosmsg show[options] &lt;message type&gt;</p>
+<p align="left">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p align="left">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Options:</p>
+<pre align="left">·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h, --help&nbsp;show this help message and exit</pre>
+<pre align="left">&nbsp; -r, --raw&nbsp;&nbsp; show raw message text, including comments</pre>
+<h3 align="left"><strong>Review</strong></h3>
+<p align="left">Lets just list some of the commands we've used so far: </p>
+<ul type="disc">
+<li>rospack = ros&#43;pack(age) : provides information related to ROS packages </li><li>roscd = ros&#43;cd : <strong>c</strong>hanges <strong>d</strong>irectory to a ROS package or stack</li><li>rosls = ros&#43;ls : <strong>l</strong>ist<strong>s</strong> files in a ROS package</li><li>roscp = ros&#43;cp : <strong>c</strong>o<strong>p</strong>ies files from/to a ROS package</li><li>rosmsg = ros&#43;msg : provides information related to ROS message definitions </li><li>rossrv = ros&#43;srv : provides information related to ROS service definitions </li><li>catkin_make : makes (compiles) a ROS package
+<ul type="circle">
+<li>rosmake = ros&#43;make : makes (compiles) a ROS package (if you're not using a catkin workspace)</li></ul>
+</li></ul>
+<p align="left"><strong>Next Tutorial</strong></p>
+<p align="left">Now that you've made a new ROS msg and srv, let's look at writing a simplepublisher and subscriber<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29"><span style="color:blue">(python)</span></a><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29"><span style="color:blue">(c&#43;&#43;)</span></a>.</p>
+<br>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-07-10 06:02 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 7 创建ROS msg &amp; srv on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150710060200%2f&title=ROS%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%20-%207%20%e5%88%9b%e5%bb%baROS%20msg%20%26amp%3b%20srv">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 7 创建ROS msg &amp; srv on twitter"
+          href="https://twitter.com/intent/tweet/?text=ROS%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%20-%207%20%e5%88%9b%e5%bb%baROS%20msg%20%26amp%3b%20srv&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150710060200%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 7 创建ROS msg &amp; srv on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150710060200%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

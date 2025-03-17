@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="
+
+http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch
+
+
+
+
+Using rqt_console and roslaunch
+This tutorial introduces ROS using 
+rqt_console and 
+rqt_logger_level for debugging and 
+roslaunch for starting many nodes at once. If you use ROS&nbsp;fuerte or ealier distros whererqt isn&#39;t fully available, please see this page withthis
+ page that uses old rx based tools. 
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rqt console工具的打开：
+
+Using rqt_console and rqt_logger_level
+
+
+rqt_console attaches to ROS&#39;s logging framework to display output from nodes.rqt_logger_level allows us to change the verbosity level (DEBUG, WARN, INFO, and ERROR) of nodes as they run." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20150709015800/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="
+
+http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch
+
+
+
+
+Using rqt_console and roslaunch
+This tutorial introduces ROS using 
+rqt_console and 
+rqt_logger_level for debugging and 
+roslaunch for starting many nodes at once. If you use ROS&nbsp;fuerte or ealier distros whererqt isn&#39;t fully available, please see this page withthis
+ page that uses old rx based tools. 
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rqt console工具的打开：
+
+Using rqt_console and rqt_logger_level
+
+
+rqt_console attaches to ROS&#39;s logging framework to display output from nodes.rqt_logger_level allows us to change the verbosity level (DEBUG, WARN, INFO, and ERROR) of nodes as they run." />
+  <meta property="og:title" content="ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20150709015800/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-07-09" />
+    <meta property="article:modified_time" content="2015-07-09" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed | Combine Art and Sciences" />
+  <meta name="twitter:description" content="
+
+http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch
+
+
+
+
+Using rqt_console and roslaunch
+This tutorial introduces ROS using 
+rqt_console and 
+rqt_logger_level for debugging and 
+roslaunch for starting many nodes at once. If you use ROS&nbsp;fuerte or ealier distros whererqt isn&#39;t fully available, please see this page withthis
+ page that uses old rx based tools. 
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rqt console工具的打开：
+
+Using rqt_console and rqt_logger_level
+
+
+rqt_console attaches to ROS&#39;s logging framework to display output from nodes.rqt_logger_level allows us to change the verbosity level (DEBUG, WARN, INFO, and ERROR) of nodes as they run." />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20150709015800/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20150709015800/">ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-07-09T01:58:00&#43;0800 class="date">July 09, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+4 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p><br>
+</p>
+<p><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch">http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch</a><br>
+</p>
+<p></p>
+<ol>
+<li>
+<h2><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch">Using rqt_console and roslaunch</a></h2>
+<p><span class="anchor" id="line-1-8"></span>This tutorial introduces ROS using <a target="_blank" target="_blank" href="http://wiki.ros.org/rqt_console">
+rqt_console</a> and <a target="_blank" target="_blank" href="http://wiki.ros.org/rqt_logger_level">
+rqt_logger_level</a> for debugging and <a target="_blank" target="_blank" href="http://wiki.ros.org/roslaunch">
+roslaunch</a> for starting many nodes at once. If you use <tt class="backtick">ROS&nbsp;fuerte</tt> or ealier distros where<a target="_blank" target="_blank" href="http://wiki.ros.org/rqt">rqt</a> isn't fully available, please see this page with<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRxconsoleRoslaunch">this
+ page</a> that uses old <tt class="backtick">rx</tt> based tools. </p>
+</li></ol>
+<p></p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rqt console工具的打开：</p>
+<p></p>
+<h3 id="Using_rqt_console_and_rqt_logger_level">Using rqt_console and rqt_logger_level<a hidden class="heading-anchor" aria-hidden="true" href="#Using_rqt_console_and_rqt_logger_level">#</a></h3>
+<span class="anchor" id="line-33"></span>
+<p></p>
+<p class="line867"><tt class="backtick">rqt_console</tt> attaches to ROS's logging framework to display output from nodes.<tt class="backtick">rqt_logger_level</tt> allows us to change the verbosity level (DEBUG, WARN, INFO, and ERROR) of nodes as they run.<span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span></p>
+<p class="line862">Now let's look at the turtlesim output in <tt class="backtick">
+rqt_console</tt> and switch logger levels in <tt class="backtick">rqt_logger_level</tt> as we use turtlesim. Before we start the turtlesim,<strong>in two new terminals</strong> start
+<tt class="backtick">rqt_console</tt> and<tt class="backtick">rqt_logger_level</tt>:
+<span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span></p>
+<p class="line867"><span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span></p>
+<pre><span class="anchor" id="line-1-3"></span>$ rosrun rqt_console rqt_console</pre>
+<span class="anchor" id="line-40"></span>
+<p class="line867"><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span></p>
+<pre><span class="anchor" id="line-1-4"></span>$ rosrun rqt_logger_level rqt_logger_level</pre>
+这里面就可以看到正在运行的node的信息，message内容等 。
+<p>logger level工具可以查看报警信息，注意logger level是有层级的，<tt class="backtick">Fatal</tt> has the highest priority and<tt class="backtick">Debug</tt> has the lowest. By setting the logger level, you will get all messages of that priority level or higher。</p>
+<p class="line874">Logging levels are prioritized in the following order: <span class="anchor" id="line-77">
+</span><span class="anchor" id="line-78"></span></p>
+<p class="line867"><span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><span class="anchor" id="line-84"></span></p>
+<pre><span class="anchor" id="line-1-8"></span>Fatal
+<span class="anchor" id="line-2-2"></span>Error
+<span class="anchor" id="line-3-2"></span>Warn
+<span class="anchor" id="line-4-2"></span>Info
+<span class="anchor" id="line-5-2"></span>Debug</pre>
+<p>使用roslaunch工具</p>
+<p>&nbsp;&nbsp;&nbsp; roslaunch工具是按照launch文件开始运行nodes的工具，</p>
+<p class="line874">Usage: <span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span></p>
+<p class="line867"><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span></p>
+<pre><span class="anchor" id="line-1-9"></span>$ roslaunch [package] [filename.launch]</pre>
+<pre>$ roslaunch beginner_tutorials turtlemimic.launch</pre>
+&nbsp;&nbsp;&nbsp; 关于launch file :
+<p>&nbsp;&nbsp;&nbsp; 位置：在package根目录下，有 src, include, launch文件夹，package.xml文件， 在launch文件夹下，建立finename.launch文件。</p>
+<p>&nbsp;&nbsp;&nbsp; 文件的内容怎么写，见文后附。</p>
+<p>&nbsp;&nbsp;&nbsp; <span style="color:#FF6666">这里有个问题是，roslaunch运行了这个文件以后，出来俩跟随的turtle。只能使用rostopic pub来驱动，为何不能用rosrun turtlesim turtle_teleop_key来驱动？</span></p>
+<p></p>
+<pre>$ rostopic pub /turtlesim1/turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'</pre>
+<pre>$ rosrun turtlesim turtle_teleop_key</pre>
+<br>
+<p></p>
+<p>========================================<br>
+</p>
+<h4 id="The_Launch_File">The Launch File<a hidden class="heading-anchor" aria-hidden="true" href="#The_Launch_File">#</a></h4>
+<span class="anchor" id="line-119"></span>
+<p></p>
+<p class="line874">Now let's create a launch file called turtlemimic.launch and paste the following:<span class="anchor" id="line-120"></span><span class="anchor" id="line-121"></span></p>
+<p class="line867"><span class="anchor" id="line-122"></span><span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span><span class="anchor" id="line-139"></span><span class="anchor" id="line-1-13"></span></p>
+<div class="highlight python">
+<div class="codearea" dir="ltr" lang="en"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#" class="codenumbers">切换行号显示</a>
+<pre dir="ltr" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777" lang="en"><span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_1">   1</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_1"></span><span class="anchor" id="line-1-14"></span>&lt;<span class="ID">launch</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_2">   2</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_2"></span><span class="anchor" id="line-2-5"></span></span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_3">   3</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_3"></span><span class="anchor" id="line-3-4"></span>  &lt;<span class="ID">group</span> <span class="ID">ns</span>=<span class="String">&quot;</span><span class="String">turtlesim1</span><span class="String">&quot;</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_4">   4</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_4"></span><span class="anchor" id="line-4-3"></span>    &lt;<span class="ID">node</span> <span class="ID">pkg</span>=<span class="String">&quot;</span><span class="String">turtlesim</span><span class="String">&quot;</span> <span class="ID">name</span>=<span class="String">&quot;</span><span class="String">sim</span><span class="String">&quot;</span> <span class="ResWord">type</span>=<span class="String">&quot;</span><span class="String">turtlesim_node</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_5">   5</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_5"></span><span class="anchor" id="line-5-3"></span>  &lt;/<span class="ID">group</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_6">   6</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_6"></span><span class="anchor" id="line-6-2"></span></span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_7">   7</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_7"></span><span class="anchor" id="line-7-2"></span>  &lt;<span class="ID">group</span> <span class="ID">ns</span>=<span class="String">&quot;</span><span class="String">turtlesim2</span><span class="String">&quot;</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_8">   8</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_8"></span><span class="anchor" id="line-8-2"></span>    &lt;<span class="ID">node</span> <span class="ID">pkg</span>=<span class="String">&quot;</span><span class="String">turtlesim</span><span class="String">&quot;</span> <span class="ID">name</span>=<span class="String">&quot;</span><span class="String">sim</span><span class="String">&quot;</span> <span class="ResWord">type</span>=<span class="String">&quot;</span><span class="String">turtlesim_node</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_9">   9</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_9"></span><span class="anchor" id="line-9-2"></span>  &lt;/<span class="ID">group</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_10">  10</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_10"></span><span class="anchor" id="line-10-2"></span></span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_11">  11</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_11"></span><span class="anchor" id="line-11-2"></span>  &lt;<span class="ID">node</span> <span class="ID">pkg</span>=<span class="String">&quot;</span><span class="String">turtlesim</span><span class="String">&quot;</span> <span class="ID">name</span>=<span class="String">&quot;</span><span class="String">mimic</span><span class="String">&quot;</span> <span class="ResWord">type</span>=<span class="String">&quot;</span><span class="String">mimic</span><span class="String">&quot;</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_12">  12</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_12"></span><span class="anchor" id="line-12-2"></span>    &lt;<span class="ID">remap</span> <span class="ID">from</span>=<span class="String">&quot;</span><span class="String">input</span><span class="String">&quot;</span> <span class="ID">to</span>=<span class="String">&quot;</span><span class="String">turtlesim1/turtle1</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_13">  13</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_13"></span><span class="anchor" id="line-13-2"></span>    &lt;<span class="ID">remap</span> <span class="ID">from</span>=<span class="String">&quot;</span><span class="String">output</span><span class="String">&quot;</span> <span class="ID">to</span>=<span class="String">&quot;</span><span class="String">turtlesim2/turtle1</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_14">  14</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_14"></span><span class="anchor" id="line-14-2"></span>  &lt;/<span class="ID">node</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_15">  15</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_15"></span><span class="anchor" id="line-15-2"></span></span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_16">  16</a> </span><span class="LineAnchor" id="CA-91a3946a9c4cf7301bb55ec0c3f8a77f6c8f9777_16"></span><span class="anchor" id="line-16-2"></span>&lt;/<span class="ID">launch</span>&gt;</span>
+</pre>
+</div>
+</div>
+<span class="anchor" id="line-140"></span>
+<p class="line867"></p>
+<h4 id="The_Launch_File_Explained">The Launch File Explained<a hidden class="heading-anchor" aria-hidden="true" href="#The_Launch_File_Explained">#</a></h4>
+<span class="anchor" id="line-141"></span>
+<p class="line862">Now, let's break the launch xml down. <span class="anchor" id="line-1-15">
+</span><span class="anchor" id="line-2-6"></span><span class="anchor" id="line-3-5"></span><span class="anchor" id="line-4-4"></span><span class="anchor" id="line-1-16"></span></p>
+<div class="highlight python">
+<div class="codearea" dir="ltr" lang="en"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#" class="codenumbers">切换行号显示</a>
+<pre dir="ltr" id="CA-21ef414cf4c910bb1286ff2aedfe349a32a099b9" lang="en"><span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-21ef414cf4c910bb1286ff2aedfe349a32a099b9_1">   1</a> </span><span class="LineAnchor" id="CA-21ef414cf4c910bb1286ff2aedfe349a32a099b9_1"></span><span class="anchor" id="line-1-17"></span>&lt;<span class="ID">launch</span>&gt;</span>
+</pre>
+</div>
+</div>
+<span class="anchor" id="line-5-4"></span>
+<p class="line874">Here we start the launch file with the launch tag, so that the file is identified as a launch file.<span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span></p>
+<p class="line867"><span class="anchor" id="line-1-18"></span><span class="anchor" id="line-2-7"></span><span class="anchor" id="line-3-6"></span><span class="anchor" id="line-4-5"></span><span class="anchor" id="line-5-5"></span><span class="anchor" id="line-6-3"></span><span class="anchor" id="line-7-3"></span><span class="anchor" id="line-8-3"></span><span class="anchor" id="line-9-3"></span><span class="anchor" id="line-10-3"></span><span class="anchor" id="line-1-19"></span><span class="anchor" id="line-2-8"></span><span class="anchor" id="line-3-7"></span></p>
+<div class="highlight python">
+<div class="codearea" dir="ltr" lang="en"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#" class="codenumbers">切换行号显示</a>
+<pre dir="ltr" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64" lang="en"><span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_3">   3</a> </span><span class="LineAnchor" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_3"></span><span class="anchor" id="line-1-20"></span>  &lt;<span class="ID">group</span> <span class="ID">ns</span>=<span class="String">&quot;</span><span class="String">turtlesim1</span><span class="String">&quot;</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_4">   4</a> </span><span class="LineAnchor" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_4"></span><span class="anchor" id="line-2-9"></span>    &lt;<span class="ID">node</span> <span class="ID">pkg</span>=<span class="String">&quot;</span><span class="String">turtlesim</span><span class="String">&quot;</span> <span class="ID">name</span>=<span class="String">&quot;</span><span class="String">sim</span><span class="String">&quot;</span> <span class="ResWord">type</span>=<span class="String">&quot;</span><span class="String">turtlesim_node</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_5">   5</a> </span><span class="LineAnchor" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_5"></span><span class="anchor" id="line-3-8"></span>  &lt;/<span class="ID">group</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_6">   6</a> </span><span class="LineAnchor" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_6"></span><span class="anchor" id="line-4-6"></span></span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_7">   7</a> </span><span class="LineAnchor" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_7"></span><span class="anchor" id="line-5-6"></span>  &lt;<span class="ID">group</span> <span class="ID">ns</span>=<span class="String">&quot;</span><span class="String">turtlesim2</span><span class="String">&quot;</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_8">   8</a> </span><span class="LineAnchor" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_8"></span><span class="anchor" id="line-6-4"></span>    &lt;<span class="ID">node</span> <span class="ID">pkg</span>=<span class="String">&quot;</span><span class="String">turtlesim</span><span class="String">&quot;</span> <span class="ID">name</span>=<span class="String">&quot;</span><span class="String">sim</span><span class="String">&quot;</span> <span class="ResWord">type</span>=<span class="String">&quot;</span><span class="String">turtlesim_node</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_9">   9</a> </span><span class="LineAnchor" id="CA-0975bc12bed743bd6d6b7cf5af4a7bc4bf2fdd64_9"></span><span class="anchor" id="line-7-4"></span>  &lt;/<span class="ID">group</span>&gt;</span>
+</pre>
+</div>
+</div>
+<span class="anchor" id="line-11-3"></span>
+<p class="line874">Here we start two groups with a namespace tag of turtlesim1 and turtlesim2 with a turtlesim node with a name of sim. This allows us to start two simulators without having name conflicts.<span class="anchor" id="line-144"></span><span class="anchor" id="line-145"></span></p>
+<p class="line867"><span class="anchor" id="line-1-21"></span><span class="anchor" id="line-2-10"></span><span class="anchor" id="line-3-9"></span><span class="anchor" id="line-4-7"></span><span class="anchor" id="line-5-7"></span><span class="anchor" id="line-6-5"></span><span class="anchor" id="line-7-5"></span><span class="anchor" id="line-1-22"></span><span class="anchor" id="line-2-11"></span><span class="anchor" id="line-3-10"></span><span class="anchor" id="line-4-8"></span><span class="anchor" id="line-5-8"></span><span class="anchor" id="line-6-6"></span><span class="anchor" id="line-7-6"></span><span class="anchor" id="line-8-4"></span><span class="anchor" id="line-9-4"></span><span class="anchor" id="line-10-4"></span><span class="anchor" id="line-11-4"></span></p>
+<div class="highlight python">
+<div class="codearea" dir="ltr" lang="en"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#" class="codenumbers">切换行号显示</a>
+<pre dir="ltr" id="CA-78308b822a594630211cae0b2b508b405d07b108" lang="en"><span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-78308b822a594630211cae0b2b508b405d07b108_11">  11</a> </span><span class="LineAnchor" id="CA-78308b822a594630211cae0b2b508b405d07b108_11"></span><span class="anchor" id="line-1-23"></span>  &lt;<span class="ID">node</span> <span class="ID">pkg</span>=<span class="String">&quot;</span><span class="String">turtlesim</span><span class="String">&quot;</span> <span class="ID">name</span>=<span class="String">&quot;</span><span class="String">mimic</span><span class="String">&quot;</span> <span class="ResWord">type</span>=<span class="String">&quot;</span><span class="String">mimic</span><span class="String">&quot;</span>&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-78308b822a594630211cae0b2b508b405d07b108_12">  12</a> </span><span class="LineAnchor" id="CA-78308b822a594630211cae0b2b508b405d07b108_12"></span><span class="anchor" id="line-2-12"></span>    &lt;<span class="ID">remap</span> <span class="ID">from</span>=<span class="String">&quot;</span><span class="String">input</span><span class="String">&quot;</span> <span class="ID">to</span>=<span class="String">&quot;</span><span class="String">turtlesim1/turtle1</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-78308b822a594630211cae0b2b508b405d07b108_13">  13</a> </span><span class="LineAnchor" id="CA-78308b822a594630211cae0b2b508b405d07b108_13"></span><span class="anchor" id="line-3-11"></span>    &lt;<span class="ID">remap</span> <span class="ID">from</span>=<span class="String">&quot;</span><span class="String">output</span><span class="String">&quot;</span> <span class="ID">to</span>=<span class="String">&quot;</span><span class="String">turtlesim2/turtle1</span><span class="String">&quot;</span>/&gt;</span>
+<span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-78308b822a594630211cae0b2b508b405d07b108_14">  14</a> </span><span class="LineAnchor" id="CA-78308b822a594630211cae0b2b508b405d07b108_14"></span><span class="anchor" id="line-4-9"></span>  &lt;/<span class="ID">node</span>&gt;</span>
+</pre>
+</div>
+</div>
+<span class="anchor" id="line-8-5"></span>
+<p class="line874">Here we start the mimic node with the topics input and output renamed to turtlesim1 and turtlesim2. This renaming will cause turtlesim2 to mimic turtlesim1.<span class="anchor" id="line-146"></span><span class="anchor" id="line-147"></span></p>
+<p class="line867"><span class="anchor" id="line-1-24"></span><span class="anchor" id="line-2-13"></span><span class="anchor" id="line-3-12"></span><span class="anchor" id="line-4-10"></span><span class="anchor" id="line-1-25"></span><span class="anchor" id="line-2-14"></span><span class="anchor" id="line-3-13"></span><span class="anchor" id="line-4-11"></span><span class="anchor" id="line-5-9"></span><span class="anchor" id="line-6-7"></span><span class="anchor" id="line-7-7"></span><span class="anchor" id="line-8-6"></span><span class="anchor" id="line-9-5"></span><span class="anchor" id="line-10-5"></span><span class="anchor" id="line-11-5"></span><span class="anchor" id="line-12-3"></span><span class="anchor" id="line-13-3"></span><span class="anchor" id="line-14-3"></span><span class="anchor" id="line-15-3"></span><span class="anchor" id="line-16-3"></span></p>
+<div class="highlight python">
+<div class="codearea" dir="ltr" lang="en"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#" class="codenumbers">切换行号显示</a>
+<pre dir="ltr" id="CA-e33435967e0cc6e3273fdf1ce957aba2daaf5023" lang="en"><span class="line"><span class="LineNumber"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch#CA-e33435967e0cc6e3273fdf1ce957aba2daaf5023_16">  16</a> </span><span class="LineAnchor" id="CA-e33435967e0cc6e3273fdf1ce957aba2daaf5023_16"></span><span class="anchor" id="line-1-26"></span>&lt;/<span class="ID">launch</span>&gt;</span>
+</pre>
+</div>
+</div>
+<span class="anchor" id="line-5-10"></span>This closes the xml tag for the launch file.<br>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+<p><br>
+</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<h2 id="Using_rosed">2. Using rosed<a hidden class="heading-anchor" aria-hidden="true" href="#Using_rosed">#</a></h2>
+<span class="anchor" id="line-30"></span>
+<p class="line867"><tt class="backtick">rosed</tt> is part of the <a target="_blank" href="http://wiki.ros.org/rosbash">
+rosbash</a> suite. It allows you to directly edit a file within a package by using the package name rather than having to type the entire path to the package.
+<span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span></p>
+<p class="line874">Usage: <span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span></p>
+<p class="line867"><span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span></p>
+<pre><span class="anchor" id="line-1-2"></span>$ rosed [package_name] [filename]</pre>
+<span class="anchor" id="line-37"></span>
+<p class="line874">Example: <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span></p>
+<p class="line867"><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span></p>
+<pre><span class="anchor" id="line-1-3"></span>$ rosed roscpp Logger.msg</pre>
+<span class="anchor" id="line-42"></span>
+<p class="line874">This example demonstrates how you would edit the Logger.msg file within the roscpp package.
+<span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span></p>
+<p class="line862">If this example doesn't work is probably because you don't have the
+<tt class="backtick">vim</tt> editor installed. Please refer to <a target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRosEd#Editor">
+Editor</a> section. If you don't know how to get out of vim, <a target="_blank" class="http" href="http://kb.iu.edu/data/afcz.html">
+click here</a>. <span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span></p>
+<p class="line874">If the filename is not uniquely defined within the package, a menu will prompt you to choose which of the possible files you want to edit.
+<span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span></p>
+<p class="line867"></p>
+<h3 id="Using_rosed_with_tab_completion">Using rosed with tab completion<a hidden class="heading-anchor" aria-hidden="true" href="#Using_rosed_with_tab_completion">#</a></h3>
+<span class="anchor" id="line-50"></span>
+<p class="line874">This way you can easily see and optionally edit all files from a package without knowing its exact name.
+<span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span></p>
+<p class="line874">Usage: <span class="anchor" id="line-53"></span><span class="anchor" id="line-54"></span></p>
+<p class="line867"><span class="anchor" id="line-55"></span><span class="anchor" id="line-56"></span></p>
+<pre><span class="anchor" id="line-1-4"></span>$ rosed [package_name] &lt;tab&gt;&lt;tab&gt;</pre>
+<span class="anchor" id="line-57"></span>
+<p class="line874">Example: <span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span></p>
+<pre><span class="anchor" id="line-1-5"></span>$ rosed roscpp &lt;tab&gt;&lt;tab&gt;</pre>
+<span class="anchor" id="line-61"></span>
+<ul>
+<li style="list-style-type:none"><span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span><span class="anchor" id="line-69"></span>
+<pre><span class="anchor" id="line-1-6"></span>Empty.srv                   package.xml
+<span class="anchor" id="line-2-2"></span>GetLoggers.srv              roscpp-msg-extras.cmake
+<span class="anchor" id="line-3-2"></span>Logger.msg                  roscpp-msg-paths.cmake
+<span class="anchor" id="line-4-2"></span>SetLoggerLevel.srv          roscpp.cmake
+<span class="anchor" id="line-5-2"></span>genmsg_cpp.py               roscppConfig-version.cmake
+<span class="anchor" id="line-6-2"></span>gensrv_cpp.py               roscppConfig.cmake
+<span class="anchor" id="line-7-2"></span>msg_gen.py                  </pre>
+<span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span></li></ul>
+<p class="line867"></p>
+<h3 id="Editor">Editor<a hidden class="heading-anchor" aria-hidden="true" href="#Editor">#</a></h3>
+<span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span>
+<p class="line862">The default editor for rosed is <tt class="backtick">vim</tt>. The more beginner-friendly editor
+<tt class="backtick">nano</tt> is included with the default Ubuntu install. You can use it by editing your ~/.bashrc file to include:
+<span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span></p>
+<pre><span class="anchor" id="line-1-7"></span>export EDITOR='nano -w'</pre>
+<span class="anchor" id="line-77"></span><span class="anchor" id="line-78"></span>
+<p class="line862">To set the default editor to <tt class="backtick">emacs</tt> you can edit your ~/.bashrc file to include:
+<span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span></p>
+<pre><span class="anchor" id="line-1-8"></span>export EDITOR='emacs -nw'</pre>
+<span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span>
+<p class="line867"><em><strong>NOTE:</strong> changes in .bashrc will only take effect for new terminals. Terminals that are already open will not see the new environmental variable.</em>
+<span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span></p>
+<p class="line862">Open a new terminal and see if <tt>EDITOR</tt> is defined: <span class="anchor" id="line-86">
+</span><span class="anchor" id="line-87"></span></p>
+<p class="line867"><span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span></p>
+<pre><span class="anchor" id="line-1-9"></span>$ echo $EDITOR</pre>
+<span class="anchor" id="line-90"></span>
+<ul>
+<li style="list-style-type:none"><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span>
+<pre><span class="anchor" id="line-1-10"></span>nano -w</pre>
+<span class="anchor" id="line-93"></span>or <span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span>
+<pre><span class="anchor" id="line-1-11"></span>emacs -nw</pre>
+<span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span></li></ul>
+Now that you have successfully configured and used rosed, let's <a target="_blank" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv">
+create a Msg and Srv</a>.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><br>
+</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-07-09 01:58 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp; roslaunch &amp; rosed on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150709015800%2f&title=ROS%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%20-%206%20%e4%bd%bf%e7%94%a8ROS%e4%b8%ad%e7%9a%84%e5%b7%a5%e5%85%b7%3arqt_console%20%26amp%3b%20roslaunch%20%26amp%3b%20rosed">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp; roslaunch &amp; rosed on twitter"
+          href="https://twitter.com/intent/tweet/?text=ROS%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%20-%206%20%e4%bd%bf%e7%94%a8ROS%e4%b8%ad%e7%9a%84%e5%b7%a5%e5%85%b7%3arqt_console%20%26amp%3b%20roslaunch%20%26amp%3b%20rosed&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150709015800%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp; roslaunch &amp; rosed on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150709015800%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

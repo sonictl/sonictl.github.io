@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="DSP芯片的定点运算
+本文排版不恰当，请到新浪爱问下载本文的pdf版，《【豪猪哥】DSP芯片的定点运算1.0》
+第3章  DSP芯片的定点运算
+3.1数 的定 标
+在定点DSP芯片中，采用定点数进行数值运算，其操作数一般采用整型数来表示。一个整型数的最大表示范围取决于DSP芯片所给定的字长，一般为16位或24位。显然，字长越长，所能表示的数的范围越大，精度也越高。如无特别说明，本书均以16位字长为例。
+DSP芯片的数以2的补码形式表示。每个16位数用一个符号位来表示数的正负，0表示数值为正，1则表示数值为负。其余15位表示数值的大小。因此
+二进制数0010000000000011b＝8195
+二进制数1111111111111100b＝-4
+对DSP芯片而言，参与数值运算的数就是16位的整型数。但在许多情况下，数学运算过程中的数不一定都是整数。那么，DSP芯片是如何处理小数的呢？应该说，DSP芯片本身无能为力。那么是不是说DSP芯片就不能处理各种小数呢？当然不是。这其中的关键就是由程序员来确定一个数的小数点处于16位中的哪一位。这就是数的定标。
+通过设定小数点在16位数中的不同位置，就可以表示不同大小和不同精度的小数了。数的定标有Q表示法和S表示法两种。表3.1列出了一个16位数的16种Q表示、S表示及它们所能表示的十进制数值范围。
+从表3.1可以看出，同样一个16位数，若小数点设定的位置不同，它所表示的数也就不同。例如：
+16进制数2000H＝8192，用Q0表示
+16进制数2000H＝0.25，用Q15表示
+但对于DSP芯片来说，处理方法是完全相同的。
+从表3.1还可以看出，不同的Q所表示的数不仅范围不同，而且精度也不相同。Q越大，数值范围越小，但精度越高；相反，Q越小，数值范围越大，但精度就越低。例如，Q0的数值范围是-32768到&#43;32767，其精度为1，而Q15的数值范围为-1到0.9999695，精度为 1/32768 = 0.00003051。因此，对定点数而言，数值范围与精度是一对矛盾，一个变量要想能够表示比较大的数值范围，必须以牺牲精度为代价；而想提高精度，则数的表示范围就相应地减小。在实际的定点算法中，为了达到最佳的性能，必须充分考虑到这一点。
+浮点数与定点数的转换关系可表示为：
+浮点数(x)转换为定点数()： (这里是先乘再int)
+定点数()转换为浮点数(x)：  （这里是先float再乘）
+例如，浮点数 x=0.5，定标 Q＝15，则定点数＝，式中表示下取整。反之，一个用 Q＝15 表示的定点数16384，其浮点数为16384×2-15
+＝16384/32768=0.5。
+表3.1 Q表示、S表示及数值范围
+
+  
+      
+          Q表示
+          S表示
+          十进制数表示范围
+      
+  
+  
+      
+          Q15
+          S0.15
+          -1≤X≤0.9999695
+      
+      
+          Q14
+          S1.14
+          -2≤X≤1.9999390
+      
+      
+          Q13
+          S2.13
+          -4≤X≤3.9998779
+      
+      
+          Q12
+          S3.12
+          -8≤X≤7.9997559
+      
+      
+          Q11
+          S4.11
+          -16≤X≤15.9995117
+      
+      
+          Q10
+          S5.10
+          -32≤X≤31.9990234
+      
+      
+          Q9
+          S6.9
+          -64≤X≤63.9980469
+      
+      
+          Q8
+          S7.8
+          -128≤X≤127.9960938
+      
+      
+          Q7
+          S8.7
+          -256≤X≤255.9921875
+      
+      
+          Q6
+          S9.6
+          -512≤X≤511.9804375
+      
+      
+          Q5
+          S10.5
+          -1024≤X≤1023.96875
+      
+      
+          Q4
+          S11.4
+          -2048≤X≤2047.9375
+      
+      
+          Q3
+          S12.3
+          -4096≤X≤4095.875
+      
+      
+          Q2
+          S13.2
+          -8192≤X≤8191.75
+      
+      
+          Q1
+          S14.1
+          -16384≤X≤16383.5
+      
+      
+          Q0
+          S15.0
+          -32768≤X≤32767
+      
+  
+
+3.2  高级语言：从浮点到定点
+在编写DSP模拟算法时，为了方便，一般都是采用高级语言(如C语言)来编写模拟程序。程序中所用的变量一般既有整型数，又有浮点数。如例3.1程序中的变量i是整型数，而pi是浮点数，hamwindow则是浮点数组。" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>DSP芯片的定点运算 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20130604005237/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="DSP芯片的定点运算
+本文排版不恰当，请到新浪爱问下载本文的pdf版，《【豪猪哥】DSP芯片的定点运算1.0》
+第3章  DSP芯片的定点运算
+3.1数 的定 标
+在定点DSP芯片中，采用定点数进行数值运算，其操作数一般采用整型数来表示。一个整型数的最大表示范围取决于DSP芯片所给定的字长，一般为16位或24位。显然，字长越长，所能表示的数的范围越大，精度也越高。如无特别说明，本书均以16位字长为例。
+DSP芯片的数以2的补码形式表示。每个16位数用一个符号位来表示数的正负，0表示数值为正，1则表示数值为负。其余15位表示数值的大小。因此
+二进制数0010000000000011b＝8195
+二进制数1111111111111100b＝-4
+对DSP芯片而言，参与数值运算的数就是16位的整型数。但在许多情况下，数学运算过程中的数不一定都是整数。那么，DSP芯片是如何处理小数的呢？应该说，DSP芯片本身无能为力。那么是不是说DSP芯片就不能处理各种小数呢？当然不是。这其中的关键就是由程序员来确定一个数的小数点处于16位中的哪一位。这就是数的定标。
+通过设定小数点在16位数中的不同位置，就可以表示不同大小和不同精度的小数了。数的定标有Q表示法和S表示法两种。表3.1列出了一个16位数的16种Q表示、S表示及它们所能表示的十进制数值范围。
+从表3.1可以看出，同样一个16位数，若小数点设定的位置不同，它所表示的数也就不同。例如：
+16进制数2000H＝8192，用Q0表示
+16进制数2000H＝0.25，用Q15表示
+但对于DSP芯片来说，处理方法是完全相同的。
+从表3.1还可以看出，不同的Q所表示的数不仅范围不同，而且精度也不相同。Q越大，数值范围越小，但精度越高；相反，Q越小，数值范围越大，但精度就越低。例如，Q0的数值范围是-32768到&#43;32767，其精度为1，而Q15的数值范围为-1到0.9999695，精度为 1/32768 = 0.00003051。因此，对定点数而言，数值范围与精度是一对矛盾，一个变量要想能够表示比较大的数值范围，必须以牺牲精度为代价；而想提高精度，则数的表示范围就相应地减小。在实际的定点算法中，为了达到最佳的性能，必须充分考虑到这一点。
+浮点数与定点数的转换关系可表示为：
+浮点数(x)转换为定点数()： (这里是先乘再int)
+定点数()转换为浮点数(x)：  （这里是先float再乘）
+例如，浮点数 x=0.5，定标 Q＝15，则定点数＝，式中表示下取整。反之，一个用 Q＝15 表示的定点数16384，其浮点数为16384×2-15
+＝16384/32768=0.5。
+表3.1 Q表示、S表示及数值范围
+
+  
+      
+          Q表示
+          S表示
+          十进制数表示范围
+      
+  
+  
+      
+          Q15
+          S0.15
+          -1≤X≤0.9999695
+      
+      
+          Q14
+          S1.14
+          -2≤X≤1.9999390
+      
+      
+          Q13
+          S2.13
+          -4≤X≤3.9998779
+      
+      
+          Q12
+          S3.12
+          -8≤X≤7.9997559
+      
+      
+          Q11
+          S4.11
+          -16≤X≤15.9995117
+      
+      
+          Q10
+          S5.10
+          -32≤X≤31.9990234
+      
+      
+          Q9
+          S6.9
+          -64≤X≤63.9980469
+      
+      
+          Q8
+          S7.8
+          -128≤X≤127.9960938
+      
+      
+          Q7
+          S8.7
+          -256≤X≤255.9921875
+      
+      
+          Q6
+          S9.6
+          -512≤X≤511.9804375
+      
+      
+          Q5
+          S10.5
+          -1024≤X≤1023.96875
+      
+      
+          Q4
+          S11.4
+          -2048≤X≤2047.9375
+      
+      
+          Q3
+          S12.3
+          -4096≤X≤4095.875
+      
+      
+          Q2
+          S13.2
+          -8192≤X≤8191.75
+      
+      
+          Q1
+          S14.1
+          -16384≤X≤16383.5
+      
+      
+          Q0
+          S15.0
+          -32768≤X≤32767
+      
+  
+
+3.2  高级语言：从浮点到定点
+在编写DSP模拟算法时，为了方便，一般都是采用高级语言(如C语言)来编写模拟程序。程序中所用的变量一般既有整型数，又有浮点数。如例3.1程序中的变量i是整型数，而pi是浮点数，hamwindow则是浮点数组。" />
+  <meta property="og:title" content="DSP芯片的定点运算" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20130604005237/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2013-06-04" />
+    <meta property="article:modified_time" content="2013-06-04" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="DSP芯片的定点运算 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="DSP芯片的定点运算
+本文排版不恰当，请到新浪爱问下载本文的pdf版，《【豪猪哥】DSP芯片的定点运算1.0》
+第3章  DSP芯片的定点运算
+3.1数 的定 标
+在定点DSP芯片中，采用定点数进行数值运算，其操作数一般采用整型数来表示。一个整型数的最大表示范围取决于DSP芯片所给定的字长，一般为16位或24位。显然，字长越长，所能表示的数的范围越大，精度也越高。如无特别说明，本书均以16位字长为例。
+DSP芯片的数以2的补码形式表示。每个16位数用一个符号位来表示数的正负，0表示数值为正，1则表示数值为负。其余15位表示数值的大小。因此
+二进制数0010000000000011b＝8195
+二进制数1111111111111100b＝-4
+对DSP芯片而言，参与数值运算的数就是16位的整型数。但在许多情况下，数学运算过程中的数不一定都是整数。那么，DSP芯片是如何处理小数的呢？应该说，DSP芯片本身无能为力。那么是不是说DSP芯片就不能处理各种小数呢？当然不是。这其中的关键就是由程序员来确定一个数的小数点处于16位中的哪一位。这就是数的定标。
+通过设定小数点在16位数中的不同位置，就可以表示不同大小和不同精度的小数了。数的定标有Q表示法和S表示法两种。表3.1列出了一个16位数的16种Q表示、S表示及它们所能表示的十进制数值范围。
+从表3.1可以看出，同样一个16位数，若小数点设定的位置不同，它所表示的数也就不同。例如：
+16进制数2000H＝8192，用Q0表示
+16进制数2000H＝0.25，用Q15表示
+但对于DSP芯片来说，处理方法是完全相同的。
+从表3.1还可以看出，不同的Q所表示的数不仅范围不同，而且精度也不相同。Q越大，数值范围越小，但精度越高；相反，Q越小，数值范围越大，但精度就越低。例如，Q0的数值范围是-32768到&#43;32767，其精度为1，而Q15的数值范围为-1到0.9999695，精度为 1/32768 = 0.00003051。因此，对定点数而言，数值范围与精度是一对矛盾，一个变量要想能够表示比较大的数值范围，必须以牺牲精度为代价；而想提高精度，则数的表示范围就相应地减小。在实际的定点算法中，为了达到最佳的性能，必须充分考虑到这一点。
+浮点数与定点数的转换关系可表示为：
+浮点数(x)转换为定点数()： (这里是先乘再int)
+定点数()转换为浮点数(x)：  （这里是先float再乘）
+例如，浮点数 x=0.5，定标 Q＝15，则定点数＝，式中表示下取整。反之，一个用 Q＝15 表示的定点数16384，其浮点数为16384×2-15
+＝16384/32768=0.5。
+表3.1 Q表示、S表示及数值范围
+
+  
+      
+          Q表示
+          S表示
+          十进制数表示范围
+      
+  
+  
+      
+          Q15
+          S0.15
+          -1≤X≤0.9999695
+      
+      
+          Q14
+          S1.14
+          -2≤X≤1.9999390
+      
+      
+          Q13
+          S2.13
+          -4≤X≤3.9998779
+      
+      
+          Q12
+          S3.12
+          -8≤X≤7.9997559
+      
+      
+          Q11
+          S4.11
+          -16≤X≤15.9995117
+      
+      
+          Q10
+          S5.10
+          -32≤X≤31.9990234
+      
+      
+          Q9
+          S6.9
+          -64≤X≤63.9980469
+      
+      
+          Q8
+          S7.8
+          -128≤X≤127.9960938
+      
+      
+          Q7
+          S8.7
+          -256≤X≤255.9921875
+      
+      
+          Q6
+          S9.6
+          -512≤X≤511.9804375
+      
+      
+          Q5
+          S10.5
+          -1024≤X≤1023.96875
+      
+      
+          Q4
+          S11.4
+          -2048≤X≤2047.9375
+      
+      
+          Q3
+          S12.3
+          -4096≤X≤4095.875
+      
+      
+          Q2
+          S13.2
+          -8192≤X≤8191.75
+      
+      
+          Q1
+          S14.1
+          -16384≤X≤16383.5
+      
+      
+          Q0
+          S15.0
+          -32768≤X≤32767
+      
+  
+
+3.2  高级语言：从浮点到定点
+在编写DSP模拟算法时，为了方便，一般都是采用高级语言(如C语言)来编写模拟程序。程序中所用的变量一般既有整型数，又有浮点数。如例3.1程序中的变量i是整型数，而pi是浮点数，hamwindow则是浮点数组。" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20130604005237/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20130604005237/">DSP芯片的定点运算</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">DSP芯片的定点运算</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2013-06-04T00:52:37&#43;0800 class="date">June 04, 2013</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+10 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="dsp芯片的定点运算">DSP芯片的定点运算<a hidden class="heading-anchor" aria-hidden="true" href="#dsp芯片的定点运算">#</a></h1>
+<p><strong>本文排版不恰当，请到新浪爱问下载本文的pdf版</strong>，<a href="http://ishare.iask.sina.com.cn/f/37179153.html">《【豪猪哥】DSP芯片的定点运算1.0》</a></p>
+<h2 id="第3章-dsp芯片的定点运算">第3章  DSP芯片的定点运算<a hidden class="heading-anchor" aria-hidden="true" href="#第3章-dsp芯片的定点运算">#</a></h2>
+<h3 id="31数-的定-标">3.1数 的定 标<a hidden class="heading-anchor" aria-hidden="true" href="#31数-的定-标">#</a></h3>
+<p>在定点DSP芯片中，采用定点数进行数值运算，其操作数一般采用<a href="https://so.csdn.net/so/search?q=%E6%95%B4%E5%9E%8B&amp;spm=1001.2101.3001.7020">整型</a>数来表示。一个整型数的最大表示范围取决于DSP芯片所给定的字长，一般为16位或24位。显然，字长越长，所能表示的数的范围越大，精度也越高。如无特别说明，本书均以16位字长为例。</p>
+<p>DSP芯片的数以2的补码形式表示。每个16位数用一个符号位来表示数的正负，0表示数值为正，1则表示数值为负。其余15位表示数值的大小。因此</p>
+<p>二进制数0010000000000011b＝8195</p>
+<p>二进制数1111111111111100b＝-4</p>
+<p>对DSP芯片而言，参与数值运算的数就是16位的整型数。但在许多情况下，数学运算过程中的数不一定都是整数。那么，DSP芯片是如何处理小数的呢？应该说，DSP芯片本身无能为力。那么是不是说DSP芯片就不能处理各种小数呢？当然不是。这其中的关键就是由程序员来确定一个数的小数点处于16位中的哪一位。这就是数的定标。</p>
+<p>通过设定小数点在16位数中的不同位置，就可以表示不同大小和不同<a href="https://so.csdn.net/so/search?q=%E7%B2%BE%E5%BA%A6&amp;spm=1001.2101.3001.7020">精度</a>的小数了。数的定标有Q表示法和S表示法两种。表3.1列出了一个16位数的16种Q表示、S表示及它们所能表示的十进制数值范围。</p>
+<p>从表3.1可以看出，同样一个16位数，若小数点设定的位置不同，它所表示的数也就不同。例如：</p>
+<p>16进制数2000H＝8192，用Q0表示</p>
+<p>16进制数2000H＝0.25，用Q15表示</p>
+<p>但对于DSP芯片来说，处理方法是完全相同的。</p>
+<p>从表3.1还可以看出，不同的Q所表示的数不仅范围不同，而且精度也不相同。Q越大，数值范围越小，但精度越高；相反，Q越小，数值范围越大，但精度就越低。例如，Q0的数值范围是-32768到+32767，其精度为1，而Q15的数值范围为-1到0.9999695，精度为 1/32768 = 0.00003051。因此，对定点数而言，数值范围与精度是一对矛盾，一个变量要想能够表示比较大的数值范围，必须以牺牲精度为代价；而想提高精度，则数的表示范围就相应地减小。在实际的定点算法中，为了达到最佳的性能，必须充分考虑到这一点。</p>
+<p>浮点数与定点数的转换关系可表示为：</p>
+<p>浮点数(<em>x</em>)转换为定点数()： (这里是先乘再int)</p>
+<p>定点数()转换为浮点数(<em>x</em>)：  （这里是先float再乘）</p>
+<p>例如，浮点数 x=0.5，定标 Q＝15，则定点数＝，式中表示下取整。反之，一个用 Q＝15 表示的定点数16384，其浮点数为16384×2-15</p>
+<p>＝16384/32768=0.5。</p>
+<p><strong>表3.1 Q表示、S表示及数值范围</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Q表示</th>
+          <th>S表示</th>
+          <th>十进制数表示范围</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Q15</td>
+          <td>S0.15</td>
+          <td>-1≤X≤0.9999695</td>
+      </tr>
+      <tr>
+          <td>Q14</td>
+          <td>S1.14</td>
+          <td>-2≤X≤1.9999390</td>
+      </tr>
+      <tr>
+          <td>Q13</td>
+          <td>S2.13</td>
+          <td>-4≤X≤3.9998779</td>
+      </tr>
+      <tr>
+          <td>Q12</td>
+          <td>S3.12</td>
+          <td>-8≤X≤7.9997559</td>
+      </tr>
+      <tr>
+          <td>Q11</td>
+          <td>S4.11</td>
+          <td>-16≤X≤15.9995117</td>
+      </tr>
+      <tr>
+          <td>Q10</td>
+          <td>S5.10</td>
+          <td>-32≤X≤31.9990234</td>
+      </tr>
+      <tr>
+          <td>Q9</td>
+          <td>S6.9</td>
+          <td>-64≤X≤63.9980469</td>
+      </tr>
+      <tr>
+          <td>Q8</td>
+          <td>S7.8</td>
+          <td>-128≤X≤127.9960938</td>
+      </tr>
+      <tr>
+          <td>Q7</td>
+          <td>S8.7</td>
+          <td>-256≤X≤255.9921875</td>
+      </tr>
+      <tr>
+          <td>Q6</td>
+          <td>S9.6</td>
+          <td>-512≤X≤511.9804375</td>
+      </tr>
+      <tr>
+          <td>Q5</td>
+          <td>S10.5</td>
+          <td>-1024≤X≤1023.96875</td>
+      </tr>
+      <tr>
+          <td>Q4</td>
+          <td>S11.4</td>
+          <td>-2048≤X≤2047.9375</td>
+      </tr>
+      <tr>
+          <td>Q3</td>
+          <td>S12.3</td>
+          <td>-4096≤X≤4095.875</td>
+      </tr>
+      <tr>
+          <td>Q2</td>
+          <td>S13.2</td>
+          <td>-8192≤X≤8191.75</td>
+      </tr>
+      <tr>
+          <td>Q1</td>
+          <td>S14.1</td>
+          <td>-16384≤X≤16383.5</td>
+      </tr>
+      <tr>
+          <td>Q0</td>
+          <td>S15.0</td>
+          <td>-32768≤X≤32767</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="32-高级语言从浮点到定点">3.2  高级语言：从浮点到定点<a hidden class="heading-anchor" aria-hidden="true" href="#32-高级语言从浮点到定点">#</a></h3>
+<p>在编写DSP模拟算法时，为了方便，一般都是采用高级语言(如C语言)来编写模拟程序。程序中所用的变量一般既有整型数，又有浮点数。如例3.1程序中的变量i是整型数，而pi是浮点数，hamwindow则是浮点数组。</p>
+<p>例3.1  256点汉明窗计算, C program:</p>
+<p>int   i;</p>
+<p>float pi=3.14159;</p>
+<p>float hamwindow[256];</p>
+<p>for(i=0;i&lt;256;i++)</p>
+<p>hamwindow[i]=0.54-0.46*cos(2.0*pi*i/255);</p>
+<p>如果要将上述程序用某种定点DSP芯片来实现，则需将上述程序改写为DSP芯片的汇编语言程序。为了DSP程序调试的方便及模拟定点DSP实现时的算法性能，在编写DSP汇编程序之前一般需将高级语言浮点算法改写为高级语言定点算法。下面讨论基本算术运算的定点实现方法。</p>
+<h4 id="321加法减法运算的c语言定点模拟">3.2.1加法/减法运算的C语言定点模拟<a hidden class="heading-anchor" aria-hidden="true" href="#321加法减法运算的c语言定点模拟">#</a></h4>
+<p> </p>
+<p>设浮点加法运算的表达式为：</p>
+<p>float x,y,z;</p>
+<p>z=x+y;</p>
+<p>将浮点加法/减法转化为定点加法/减法时最重要的一点就是必须保证两个操作数的定标值一样。若两者不一样，则在做加法/减法运算前先进行小数点的调整。为保证运算精度，需使Q值小的数调整为与另一个数的Q值一样大。</p>
+<p>此外，在做加法/减法运算时，必须注意结果可能会超过16位表示。如果加法/减法的结果超出16位的表示范围，则必须保留32位结果，以保证运算的精度。</p>
+<p> </p>
+<p>1．结果不超过16位表示范围</p>
+<p>设x的Q值为Qx，y的Q值为Qy，且Qx&gt;Qy，加法/减法结果z的定标值为Qz，则</p>
+<p>z＝x+y   Þ</p>
+<p>=     </p>
+<p>=  Þ</p>
+<p>所以定点加法可以描述为：</p>
+<p>int x,y,z;</p>
+<p>long temp;    /*临时变量*/</p>
+<p>temp＝y&laquo;(Qx－Qy); </p>
+<p>// Q大-Q小，Q大的变量分辨率更高，Q小的左移增加其Q</p>
+<p>temp＝x＋temp;</p>
+<p>z＝(int)(temp&raquo;(Qx－Qz)), 若Qx≥Qz</p>
+<p>z＝(int)(temp&laquo;(Qz－Qx)), 若Qx≤Qz</p>
+<p> </p>
+<p>例3.2  定点加法</p>
+<p>设x＝0.5，y＝3.1，则浮点运算结果为z＝x+y＝0.5+3.1＝3.6;</p>
+<p>Qx＝15，Qy＝13，Qz＝13，则定点加法为：</p>
+<p>x＝16384；y＝25395;</p>
+<p>temp＝25395&laquo;2＝101580;</p>
+<p>temp＝x+temp＝16384+101580＝117964;</p>
+<p>z＝(int)(117964L&raquo;2)＝29491;</p>
+<p>因为z的Q值为13，所以定点值z＝29491即为浮点值z＝29491/8192＝3.6。</p>
+<p> </p>
+<p>例3.3  定点减法</p>
+<p>设x＝3.0，y＝3.1，则浮点运算结果为z＝x-y＝3.0-3.1＝-0.1;</p>
+<p>Qx＝13，Qy＝13，Qz＝15，则定点减法为：</p>
+<p>x＝24576；y＝25295；</p>
+<p>temp＝25395;</p>
+<p>temp＝x-temp＝24576-25395＝-819;</p>
+<p> </p>
+<p>因为Qx&lt;Qz，故 z＝(int)(-819&laquo;2)＝-3276。由于z的Q值为15，所以定点值z＝-3276即为浮点值z＝-3276/32768»-0.1。</p>
+<p> </p>
+<p>2．结果超过16位表示范围</p>
+<p>设x的Q值为Qx，y的Q值为Qy，且Qx&gt;Qy，加法结果z的定标值为Qz,则定点加法为：</p>
+<p>int x，y；</p>
+<p>long temp，z；</p>
+<p>temp＝y&laquo;(Qx-Qy)；</p>
+<p>temp＝x＋temp;</p>
+<p>z＝temp&raquo;(Qx-Qz)，若Qx≥Qz</p>
+<p>z＝temp&laquo;(Qz-Qx)，若Qx≤Qz</p>
+<p> </p>
+<p>例3.4  结果超过16位的定点加法</p>
+<p>设x＝15000，y＝20000，则浮点运算值为z＝x＋y＝35000，显然z&gt;32767，因此, Qx＝1，Qy＝0，Qz＝0，则定点加法为(Assemblypseudo code:)：</p>
+<p>x＝30000；y＝20000；</p>
+<p>temp＝20000&laquo;1＝40000;    //temp32bit</p>
+<p>temp＝temp + x＝40000+30000＝70000;</p>
+<p>z＝70000L&raquo;1＝35000;</p>
+<p> </p>
+<p>当Q值为0时，定点值就简单视为变量本身，即就是浮点值（见表3.1）。因为z的Q值为0，所以定点值z=35000就是浮点值，这里z是一个长整型数。</p>
+<p>当加法或加法的结果超过16位表示范围时，如果程序员事先能够了解到这种情况，并且需要保证运算精度时，则必须保持32位结果。如果程序中是按照16位数进行运算的，则超过16位实际上就是出现了溢出。如果不采取适当的措施，则数据溢出会导致运算精度的严重恶化。一般的定点DSP芯片都设有溢出保护功能，当溢出保护功能有效时，一旦出现溢出，则累加器ACC的结果为最大的饱和值(上溢为7FFFH，下溢为8001H)，从而达到防止溢出引起精度严重恶化的目的。</p>
+<p> </p>
+<h4 id="322乘法运算的c语言定点模拟">3.2.2乘法运算的C语言定点模拟<a hidden class="heading-anchor" aria-hidden="true" href="#322乘法运算的c语言定点模拟">#</a></h4>
+<p>设浮点乘法运算的表达式为：</p>
+<p>float x,y,z;</p>
+<p>z = xy;</p>
+<p> </p>
+<p>假设经过统计后x, y, z的定标值为Qx, Qy, Qz，则数学原理:</p>
+<p>z = xy Þ</p>
+<p>= Þ</p>
+<p> =</p>
+<p>所以定点表示的乘法为(Assembly pseudo code)：</p>
+<p>int x,y,z;</p>
+<p>long temp;</p>
+<p>temp = (long)x;</p>
+<p>z = (temp×y) &raquo;(Qx+Qy-Qz);</p>
+<p>例3.5  定点乘法</p>
+<p>设<em>x</em> = 18.4，<em>y</em> = 36.8，则浮点运算值为<em>z</em>  =18.4×36.8 = 677.12;</p>
+<p>根据上节，得Qx = 10，Qy = 9，Qz = 5，所以</p>
+<p>x = 18841；y = 18841；</p>
+<p>temp = 18841L;</p>
+<p>z = (18841L*18841)&raquo;(10+9-5) = 354983281L&raquo;14 = 21666;</p>
+<p>因为z的定标值为5，故定点 z = 21666即为浮点的 z = 21666/32 = 677.08。</p>
+<p>Here is the C code for the above pseudo code for fixed pointmultiplication:</p>
+<p>#include  &ldquo;stdafx.h&rdquo;  // Thisis for visual studio C++</p>
+<p>#include  &ldquo;stdio.h&rdquo;</p>
+<p>// Qx = 10, Qy = 9, Qz = 5</p>
+<p>// x_f = 18.4, y_f = 36.8, x_int = 18841, y_int = 18841</p>
+<p> </p>
+<p>void main(){</p>
+<p>  printf(&ldquo;Hello world !! \n&rdquo;);</p>
+<p> </p>
+<p>  long int temp; // tempis 32 bit int</p>
+<p>  short x,y,z;</p>
+<p>  float z_f;</p>
+<p>  x = 18841;  // Qx =15 , x_f = 18.4</p>
+<p>  y = 18841;  // Qy =15 , y_f = 36.8, z=x*y should be near 677.12</p>
+<p>  temp = x*y;</p>
+<p>  printf(&ldquo;Your temp int = %d ! \n&rdquo;,temp);</p>
+<p>  printf(&ldquo;Transfer into float result:&hellip;\n&rdquo;);</p>
+<p>  //temp = temp &raquo; (Qx+Qy-Qz) =10 + 9 - 5 = 14</p>
+<p>  z = temp &raquo; 14;    // Shift it by 12 bits</p>
+<p>  z_f = (float)z;     // transfer int z to float z_f</p>
+<p>  z_f = z_f/32;      // Divide z_float by 2^Qz = 32</p>
+<p>  printf(&ldquo;The int z value is : %d, Thez_float is: %f \n&rdquo;, z, z_f);</p>
+<p>}</p>
+<p> </p>
+<h4 id="323-除法运算的c语言定点模拟">3.2.3  除法运算的C语言定点模拟<a hidden class="heading-anchor" aria-hidden="true" href="#323-除法运算的c语言定点模拟">#</a></h4>
+<p>设浮点除法运算的表达式为：</p>
+<p>float x,y,z;</p>
+<p>z = x/y;</p>
+<p>假设经过统计后被除数x的定标值为Qx，除数y的定标值为Qy，商z的定标值为Qz，则</p>
+<p>z = x/y Þ</p>
+<p> =   Þ</p>
+<p>所以定点表示的除法为：</p>
+<p>int x,y,z;</p>
+<p>long temp;</p>
+<p>temp = (long)x;</p>
+<p>z = (temp&laquo;(Qz-Qx+Qy))/y ;</p>
+<p> </p>
+<p>例3.6  定点除法</p>
+<p>设x = 18.4，y = 36.8，浮点运算值为z = x/y = 18.4/36.8 = 0.5;</p>
+<p>根据上节，得Qx = 10，Qy = 9，Qz = 15；所以有</p>
+<p>x = 18841, y = 18841;</p>
+<p>temp = (long)18841;</p>
+<p>z = (18841L&laquo;(15-10+9))/18841= 308690944L/18841 = 16384;</p>
+<p>因为商z的定标值为15，所以定点z = 16384即为浮点 z = 16384/215= 0.5。</p>
+<h4 id="324程序变量的q值确定">3.2.4程序变量的Q值确定<a hidden class="heading-anchor" aria-hidden="true" href="#324程序变量的q值确定">#</a></h4>
+<p>在前面几节介绍的例子中，由于x、y、z的值都是已知的，因此从浮点变为定点时Q值很好确定。在实际的DSP应用中，程序中参与运算的都是变量，那么如何确定浮点程序中变量的Q值呢？</p>
+<p>从前面的分析可以知道，确定变量的Q值实际上就是确定变量的动态范围，动态范围确定了，则Q值也就确定了。</p>
+<p>设变量的绝对值的最大值为，注意必须小于或等于32767。取一个整数n，使它满足</p>
+<p>则有</p>
+<p>Q = 15-n</p>
+<p>例如，某变量的值在-1至＋1之间，即&lt;1，因此n = 0，Q＝15-n = 15。</p>
+<p>确定了变量的就可以确定其Q值，那么变量的又是如何确定的呢？一般来说，确定变量的有两种方法：一种是理论分析法，另一种是统计分析法。</p>
+<p>1．理论分析法</p>
+<p>有些变量的动态范围通过理论分析是可以确定的。例如：</p>
+<p>(1) 三角函数，<em>y</em> = sin(<em>x</em>)或<em>y</em> = cos(<em>x</em>)，由三角函数知识可知，|<em>y</em>|≤1；</p>
+<p>(2) 汉明窗，<em>y</em>(<em>n</em>) = 0.54-0.46cos [2p<em>n</em>/(N-1)] ，0≤<em>n</em>≤N-1。因为-1≤cos [2p<em>n</em>/(N-1)]≤1，所以0.08≤<em>y</em>(<em>n</em>)≤1.0；</p>
+<p>(3) FIR卷积。<em>y</em>(<em>n</em>)=，设，且<em>x</em>(<em>n</em>)是模拟信号12位量化值，Q=4，即有 ≤211，则≤211；</p>
+<p>(4) 理论已经证明，在自相关线性预测编码(LPC)的程序设计中，反射系数满足下列不等式：</p>
+<p>，<em>i</em>= 1,2,…,p, p为LPC的阶数。</p>
+<p>2．统计分析法</p>
+<p>对于理论上无法确定范围的变量，一般采用统计分析的方法来确定其动态范围。所谓统计分析，就是用足够多的输入信号样值来确定程序中变量的动态范围，这里输入信号一方面要有一定的数量，另一方面必须尽可能地涉及各种情况。例如，在语音信号分析中，统计分析时就必须采集足够多的语音信号样值，并且在所采集的语音样值中，应尽可能地包含各种情况，如音量的大小、声音的种类(男声、女声) 等。只有这样，统计出来的结果才能具有典型性。</p>
+<p>当然，统计分析毕竟不可能涉及所有可能发生的情况，因此，对统计得出的结果在程序设计时可采取一些保护措施，如适当牺牲一些精度，Q值取比统计值稍大些，使用DSP芯片提供的溢出保护功能等。此处Q值应该取小些吧？</p>
+<p> </p>
+<h4 id="325浮点至定点变换的c程序举例">3.2.5浮点至定点变换的C程序举例<a hidden class="heading-anchor" aria-hidden="true" href="#325浮点至定点变换的c程序举例">#</a></h4>
+<p>本节通过一个例子来说明C程序从浮点变换至定点的方法。这是一个对语音信号(0.3kHz~3.4kHz)进行低通滤波的C语言程序，低通滤波的截止频率为800Hz，滤波器采用19点的有限冲击响应FIR滤波。语音信号的采样频率为8kHz，每个语音样值按16位整型数存放在insp.dat文件中。</p>
+<p> </p>
+<p>例3.7  语音信号800Hz 19点FIR低通滤波C语言<strong>浮点计算</strong>程序:</p>
+<p> </p>
+<p>// 例3.7 语音信号800Hz 19点FIR低通滤波C语言浮点计算程序:</p>
+<p>// Sample 3.7, Voice signal 88Hz, C program for 19 points-FIR LP Filter</p>
+<p>  #include  &lt;stdio.h&gt;</p>
+<p>  const int length = 180/*Signal Length, 22.5ms@8kHz Sample Rate*/</p>
+<p> </p>
+<p>/*The Declaration for filter function*/</p>
+<p>/* input int， x_in signal,</p>
+<p> * int， x_out signal,</p>
+<p> * int， number of coefficients of Filter,</p>
+<p> * float， the coefficient of FIR filter</p>
+<p> */</p>
+<p>  void filter(int xin[ ],int xout[ ],int n,float h[ ]); </p>
+<p> </p>
+<p>/*Lowpass 19points coefficients of FIR filter*/</p>
+<p>  static float h[19]=</p>
+<p>      {0.01218354,-0.009012882,-0.02881839,-0.04743239,-0.04584568,</p>
+<p>  -0.008692503,0.06446265,0.1544655,0.2289794,0.257883,</p>
+<p>  0.2289794,0.1544655,0.06446265,-0.008692503,-0.04584568,</p>
+<p>  -0.04743239,-0.02881839,-0.009012882,0.01218354};</p>
+<p> </p>
+<p>/* What is this */</p>
+<p>  static int x1[length+20];    // x1 = 180 + 20 = 200</p>
+<p> </p>
+<p>/* (FloatPoint) FIR filter function */</p>
+<p>  void filter(intxin[ ],intxout[ ], int n,floath[ ])</p>
+<p>  {</p>
+<p>      int i,j;</p>
+<p>      float sum;</p>
+<p>//long temp; // this is forfixed point</p>
+<p>      for (i=0;i&lt;length;i++)  //load x_in into x1, length = 180</p>
+<p>          x1[n+i-1] =  xin[i];</p>
+<p>      for (i=0;i&lt;length;i++){  //</p>
+<p>          sum=0.0;</p>
+<p>          for(j=0;j&lt;n;j++)</p>
+<p>              sum+=h[j]*x1[i-j+n-1];// !convolution,h[j]&ndash;float,x1[]&ndash;int</p>
+<p>          xout[i]=(int)sum;</p>
+<p>          // Here,we can try using fixedmultiply, Q_x=15, Q_h=15, Q_sum=15</p>
+<p>          /* *You should determine Qx,Qh,h_int,Please refer to Sample3.8</p>
+<p>          for(j=0;j&lt;n;j++) </p>
+<p>              temp+=(long)h[j]*x1[i-j+n-1];</p>
+<p>          xout[i] = temp&raquo;15;</p>
+<p>          * Please refer to Sample3.8 below</p>
+<p>          */</p>
+<p>      }</p>
+<p>      for(i=0;i&lt;(n-1);i++) x1[n-i-2]=xin[length-1-i];</p>
+<p>  }</p>
+<p> </p>
+<p>/*主程序*/</p>
+<p>  void main( )</p>
+<p>  {</p>
+<p>      FILE   *fp1,*fp2;</p>
+<p>      int    frame,indata[length],outdata[length];</p>
+<p>      fp1=fopen(insp.dat,&ldquo;rb&rdquo;);     /*输入语音文件*/</p>
+<p>      fp2=fopen(outsp.dat,&ldquo;wb&rdquo;);    /*滤波后语音文件*/</p>
+<p> </p>
+<p>      frame=0;</p>
+<p>      while(feof(fp1)==0)</p>
+<p>      {</p>
+<p>          frame++;</p>
+<p>          printf(&ldquo;frame=%d\n&rdquo;,frame);</p>
+<p>          for(i=0;i&lt;length;i++)  indata[i]=getw(fp1);   /*取一帧语音数据*/</p>
+<p>              filter(indata,outdata,19,h);            /*调用低通滤波子程序*/</p>
+<p>          for(i=0;i&lt;length;i++) </p>
+<p>              putw(outdata[i],fp2);        /*将滤波后的样值写入文件*/</p>
+<p>      }</p>
+<p>      fcloseall( );          /*关闭文件*/</p>
+<p>      return(0);</p>
+<p>  }</p>
+<p> </p>
+<p> </p>
+<p>例3.8  语音信号800Hz 19点FIR低通滤波C语言<strong>定点</strong>程序</p>
+<p>/* Sample 3.8, C code for Fixed Audio Signal FIR filter</p>
+<p> * Mutiply from Sample 3.7 – Fixedpoint FIR filter</p>
+<p> * You should firstly figure out theh_int based on the Qh value.</p>
+<p> * Here we select Qx = 15, Qh = 15,Qz = 15</p>
+<p> * Note: this is only one segment ofwhole FIR signal processing program</p>
+<p> * Use the Fixed point approach hereto take place that in sample 3.7</p>
+<p>*/</p>
+<p> </p>
+<p>#include  &lt;stdio.h&gt;</p>
+<p>const int length=180;</p>
+<p>// Declare the filter function:</p>
+<p>void  filter(int xin[ ],int xout[ ],int n,int h[ ]);</p>
+<p>// Q_h = 15, Decide the int for LP Filter coefficients: 19 points</p>
+<p>static int h[19]={399,-296,-945,-1555,-1503,-285,2112,5061,7503,8450,</p>
+<p>     7503,5061,2112,-285,-1503,-1555,-945,-296,399};         /*Q15*/</p>
+<p>static int x1[length+20];      //x1 is for convolutioncalculation</p>
+<p>/*Low_Pass fixed-point function body*/</p>
+<p>void  filter(intxin[ ],intxout[ ],intn,inth[ ])</p>
+<p>{</p>
+<p>  int i,j;</p>
+<p>  long temp;</p>
+<p>  for(i=0;i&lt;length;i++)</p>
+<p>      x1[n+i-1]=xin[i];     // load xin into x1</p>
+<p>  for (i=0;i&lt;length;i++){</p>
+<p>      temp=0;            //32bit int temporary variable to store the result</p>
+<p>      for(j=0;j&lt;n;j++) </p>
+<p>          temp+=(long)h[j]*x1[i-j+n-1]; // fixed-point convolution</p>
+<p>      xout[i]=temp&raquo;15;  //Shift and store into xout[]</p>
+<p>  }</p>
+<p>  for(i=0;i&lt;(n-1);i++)</p>
+<p>      x1[n-i-2]=xin[length-i-1];</p>
+<p>}</p>
+<p>主程序与浮点的完全一样。</p>
+<h3 id="33-dsp定点算术运算">3.3  DSP定点算术运算<a hidden class="heading-anchor" aria-hidden="true" href="#33-dsp定点算术运算">#</a></h3>
+<p>定点DSP芯片的数值表示是基于2的补码表示形式。每个16位数用1个符号位、i个整数位和15-i个小数位来表示。因此数00000010.10100000表示的值为=2.625，这个在这里就用了Q8格式(８个小数位)来表示。Q8表示的数值范围为-128~+127.996，一个Q8定点数的小数精度为 </p>
+<p>虽然特殊情况(如动态范围和精度要求)必须使用混合表示法（Q值不同），但是，更通常的是全部以Q15格式表示的小数或以Q0格式表示的整数来工作。这一点对于主要是乘法和累加的信号处理算法特别现实，小数乘以小数得小数，整数乘以整数得整数。当然，乘积累加时可能会出现溢出现象，在这种情况下，程序员应当了解数学里面的物理过程以注意可能的溢出情况。下面讨论乘法、加法和除法的DSP定点运算，汇编程序以TMS320C25为例。</p>
+<h4 id="331定点乘法">3.3.1定点乘法<a hidden class="heading-anchor" aria-hidden="true" href="#331定点乘法">#</a></h4>
+<p>2个定点数相乘时可以分为下列3种情况：</p>
+<p><strong>1．小数乘小数</strong></p>
+<p>Q15×Q15＝Q30</p>
+<p>例3.9  0.5*0.5 = 0.25</p>
+<p>0.100000000000000     ；Q15</p>
+<p>×   0.100000000000000     ；Q15                 </p>
+<p>00.010000000000000000000000000000=0.25  ；Q30</p>
+<p>2个Q15的小数相乘后得到1个Q30的小数，即有2个符号位。一般情况下相乘后得到的满精度数不必全部保留，而只需保留16位单精度数。由于相乘后得到的高16位不满15位的小数精度，为了达到15位精度，可将乘积左移1位，下面是上述乘法的TMS320C25汇编程序:</p>
+<p>LT  OP1 ；          OP1=4000H (0.5/Q15), Load T register</p>
+<p>MPY      OP2 ；  OP2=4000H(0.5/Q15),Multiply with T -reg., store product in P -reg.</p>
+<p>PAC              ; Loadaccumulator with P register</p>
+<p>SACH    ANS,1    ；ANS=2000H(0.25/Q15)</p>
+<p> </p>
+<h1 id="if-qy-14-qxqz15-1514-15--14-then">if Qy =14, Qx=Qz=15. 15+14-15 = 14. Then:<a hidden class="heading-anchor" aria-hidden="true" href="#if-qy-14-qxqz15-1514-15--14-then">#</a></h1>
+<h1 id="sach-ans-2--ans-4000hxxxq14">SACH  ANS, 2 ;  ANS =4000H(xxx/Q14)<a hidden class="heading-anchor" aria-hidden="true" href="#sach-ans-2--ans-4000hxxxq14">#</a></h1>
+<p> </p>
+<hr>
+<p>The SACH instruction copies the entire accumulator into a shifter,where it</p>
+<p>shifts the entire 32-bit number anywhere from 0 to 7 bits on theTMS320C2x.</p>
+<p>It then copies the upper 16 bits of the shifted value into datamemory. The accumulator</p>
+<p>itself remains unaffected.</p>
+<p> </p>
+<p><strong>2．整数乘整数</strong></p>
+<p>Q0×Q0 = Q0</p>
+<p>例3.10  17×(-5)=-85</p>
+<p>0000000000010001=17</p>
+<p>×   1111111111111011=-5         </p>
+<p>11111111111111111111111110101011=-85</p>
+<p> </p>
+<p><strong>3．混合表示法</strong></p>
+<p>许多情况下，运算过程中为了既满足数值的动态范围又保证一定的精度，就必须采用Q0与Q15之间的表示法。比如，数值1.2345，显然Q15无法表示，而若用Q0表示，则最接近它的数是1，精度无法保证。因此，数1.2345最佳的表示法是Q14。</p>
+<p>例3.11  1.5×0.75 = 1.125</p>
+<p>01.10000000000000 = 1.5     ；Q14</p>
+<p>×   00.11000000000000= 0.75    ；Q14                   </p>
+<p>0001.0010000000000000000000000000 = 1.125;Q28</p>
+<p>Q14的最大值不大于2，因此，2个Q14数相乘得到的乘积不大于4。</p>
+<p>一般的，若一个数的整数位为 i位，小数位为 j 位，另一个数的整数位为 m 位，小数位为 n 位，则这两个数的乘积为 ( i + m )位整数位和(j + n)位小数位。这个乘积的最高16位可能的精度为( i + m )整数位和(15 - i - m)小数位。</p>
+<p>但是，若事先了解数的动态范围，就可以增加数的精度。例如，程序员了解到上述乘积不会大于1.9999390，就可以用Q14数表示乘积，而不是理论上的最佳情况Q13。</p>
+<p> </p>
+<p>例3.11的TMS320C25程序如下：</p>
+<p>LT         OP1 ;      OP1 = 6000H(1.5/Q14)</p>
+<p>MPY      OP2 ;      OP2= 3000H(0.75/Q14)</p>
+<p>PAC</p>
+<p>SACH    ANS,1    ;ANS＝2400H(1.125/Q13)  #left-shift1 bit and take the upper 16bit</p>
+<h1 id="like-the-answer-is-right-shifted-15-bit-1414-13--15-thatscorrect">like the answer is right-shifted 15 bit. 14+14-13 = 15. That’scorrect.<a hidden class="heading-anchor" aria-hidden="true" href="#like-the-answer-is-right-shifted-15-bit-1414-13--15-thatscorrect">#</a></h1>
+<p> </p>
+<p>上述方法为了保证精度均对乘的结果舍位，结果所产生的误差相当于减去1个LSB(最低位)。采用下面简单的舍入方法，可使误差减少二分之一。</p>
+<p>LT  OP1</p>
+<p>MPY      OP2</p>
+<p>PAC</p>
+<p>ADD      ONE，14      (上舍入)</p>
+<p>SACH    ANS，1</p>
+<p>上述程序说明，不管ANS为正或负，所产生的误差是1/2 LSB，其中存储单元ONE的值为1。</p>
+<h4 id="332定点加法">3.3.2定点加法<a hidden class="heading-anchor" aria-hidden="true" href="#332定点加法">#</a></h4>
+<p>乘的过程中，程序员可不考虑溢出而只需调整运算中的小数点。而加法则是一个更加复杂的过程。首先，加法运算必须用相同的Q点表示；其次，程序员或者允许其结果有足够的高位以适应位的增长，或者必须准备解决溢出问题。如果操作数仅为16位长，其结果可用双精度数表示。下面举例说明16位数相加的两种途径。</p>
+<p>1．保留32位结果</p>
+<p>LAC      OP1 ;(Q15)</p>
+<p>ADD      OP2 ;(Q15)</p>
+<p>SACH    ANSHI   ;(高16位结果)</p>
+<p>SACL    ANSLO  ;(低16位结果)</p>
+<p>2．调整小数点保留16位结果</p>
+<p>LAC      OP1,15   ;(Q14数用ACCH表示)</p>
+<p>ADD      OP2,15   ;(Q14数用ACCH表示)</p>
+<p>SACH    ANS       ;(Q14)</p>
+<p>加法运算最可能出现的问题是运算结果溢出。TMS320提供了检查溢出的专用指令BV，此外，使用溢出保护功能可使累加结果溢出时累加器饱和为最大的整数或负数。当然，即使如此，运算精度还是大大降低。因此，最好的方法是完全理解基本的物理过程并注意选择数的表达方式。</p>
+<h4 id="333定点除法">3.3.3定点除法<a hidden class="heading-anchor" aria-hidden="true" href="#333定点除法">#</a></h4>
+<p>在通用DSP芯片中，一般不提供单周期的除法指令，为此必须采用除法子程序来实现。二进制除法是乘法的逆运算。乘法包括一系列的移位和加法，而除法可分解为一系列的减法和移位。下面来说明除法的实现过程。</p>
+<p>设累加器为8位，且除法运算为10除以3。除的过程就是除数逐步移位并与被除数比较的过程，在每一步进行减法运算，如果能减则将位插入商中。</p>
+<p>(1) 除数的最低有效位对齐被除数的最高有效位。</p>
+<p>      00001010</p>
+<p>－   00011000             </p>
+<p>      11110010</p>
+<p>(2) 由于减法结果为负，放弃减法结果，将被除数左移一位再减。</p>
+<p>      00010100</p>
+<p>－   00011000             </p>
+<p>      11111000</p>
+<p>(3) 结果仍为负，放弃减法结果，被除数左移一位再减。</p>
+<p>      00101000</p>
+<p>－   00011000             </p>
+<p>      00010000</p>
+<p>(4) 结果为正，将减法结果左移一位后加１，作最后一次减。</p>
+<p>      00100001</p>
+<p>－   00011000             </p>
+<p>      00001001</p>
+<p>(5) 结果为正，将结果左移一位加1得最后结果。高４位代表余数，低4位表示商。</p>
+<p>      00010011</p>
+<p>即商为0011=3，余数为0001=1。</p>
+<p>TMS320没有专门的除法指令，但使用条件减指令SUBC可以完成有效灵活的除法功能。使用这一指令的唯一限制是两个操作数必须为正。程序员必须事先了解其可能的运算数的特性，如其商是否可以用小数表示及商的精度是否可被计算出来。这里每一种考虑可影响如何使用SUBC指令的问题。下面给出两种不同情况下的TMS320C25除法程序。</p>
+<p>(1) 分子小于分母</p>
+<p>DIV_A:</p>
+<p>LT         NUMERA</p>
+<p>MPY             DENOM</p>
+<p>PAC</p>
+<p>SACH    TEMSGN             ;取商的符号</p>
+<p>LAC             DENOM</p>
+<p>ABS</p>
+<p>SACL    DENOM        ;使分母为正</p>
+<p>ZALH    NUMERA            ;使分子为正</p>
+<p>ABS</p>
+<p>RPTK    14</p>
+<p>SUBC    DENOM        ;除循环15次</p>
+<p>SACL    QUOT</p>
+<p>LAC             TEMSGN</p>
+<p>BGEZ    A1          ;若符号为正,则完成</p>
+<p>ZAC</p>
+<p>SUB             QUOT</p>
+<p>SACL    QUOT           ;若为负,则商为负</p>
+<p>A1: RET</p>
+<p>这个程序中，分子在NUMERA中，分母在DENOM中，商存在QUOT中，TEMSGN为暂存单元。</p>
+<p>(2) 规定商的精度</p>
+<p>DIV_B:</p>
+<p>LT         NUMERA</p>
+<p>MPY             DENOM</p>
+<p>PAC</p>
+<p>SACH    TEMSGN             ;取商的符号</p>
+<p>LAC             DENOM</p>
+<p>ABS</p>
+<p>SACL    DENOM        ;使分母为正</p>
+<p>LACK    15</p>
+<p>ADD             FRAC</p>
+<p>SACL    FRAC            ;计算循环计数器</p>
+<p>LAC             NUMERA</p>
+<p>ABS                           ;使分子为正</p>
+<p>RPT              FRAC</p>
+<p>SUBC    DENOM        ;除循环16+FRAC次</p>
+<p>SACL    QUOT</p>
+<p>LAC             TEMSGN</p>
+<p>BGEZ    B1          ;若符号为正,则完成</p>
+<p>ZAC</p>
+<p>SUB             QUOT</p>
+<p>SACL    QUOT           ;若为负,则商为负</p>
+<p>B1: RET</p>
+<p>与DIV_A相同，这个程序中，分子在NUMERA中，分母在DENOM中，商存在QUOT中，TEMSGN为暂存单元。FRAC中规定商的精度，如商的精度为Q13，则调用程序前FRAC单元中的值应为13。</p>
+<h3 id="34非线性运算的定点快速实现">3.4非线性运算的定点快速实现<a hidden class="heading-anchor" aria-hidden="true" href="#34非线性运算的定点快速实现">#</a></h3>
+<p>在数值运算中，除基本的加减乘除运算外，还有其他许多非线性运算，如对数运算、开方运算、指数运算、三角函数运算等，实现这些非线性运算的方法一般有：(1)调用DSP编译系统的库函数；(2)查表法；(3)混合法。下面分别介绍这三种方法。</p>
+<p>1．调用DSP编译系统的库函数</p>
+<p>TMS320C2X/C5X 的C编译器提供了比较丰富的运行支持库函数。在这些库函数中，包含了诸如对数、开方、三角函数、指数等常用的非线性函数。在C程序中(也可在汇编程序中)只要采用与库函数相同的变量定义，就可以直接调用。例如，在库函数中，定义了以10为底的常用对数log10( )：</p>
+<p>＃include &lt;math.h&gt;</p>
+<p>double  log10(double x);</p>
+<p>在C程序中按如下方式调用：</p>
+<p>float x,y;</p>
+<p>x = 10.0;</p>
+<p>y = log10(x);</p>
+<p>从上例可以看出，库函数中的常用对数log10( )要求的输入值为浮点数，返回值也为浮点数，运算的精度完全可以保证。直接调用库函数非常方便，但由于运算量大，很难在实时DSP中得到应用。</p>
+<p>2．查表法</p>
+<p>在实时DSP应用中实现非线性运算，一般都采取适当降低运算精度来提高程序的运算速度。查表法是快速实现非线性运算最常用的方法。采用这种方法必须根据自变量的范围和精度要求制作一张表格。显然输入的范围越大，精度要求越高，则所需的表格就越大，即存储量也越大。<strong>查表法求值所需的计算就是根据输入值确定表的地址，根据地址就可得到相应的值</strong>，因而运算量较小。<strong>查表法比较适合于非线性函数是周期函数或已知非线性函数输入值范围这两种情况</strong>，例3.12和例3.13分别说明这两种情况。</p>
+<p> </p>
+<p>例3.12  已知正弦函数y=sin(x)，制作一个512点表格，并说明查表方法。</p>
+<p>由于正弦函数是周期函数，函数值在－1至＋1之间，用查表法比较合适。</p>
+<p>由于Q15的表示范围为－1至32767/32768之间，原则上讲－1至＋1的范围必须用Q14表示。但一般从方便和总体精度考虑，类似情况仍用Q15表示，此时＋1用32767来表示。</p>
+<p>(1)   建立正弦函数y=sin(x)值表。</p>
+<p>Q=15时，产生512点正弦值的数学公式：</p>
+<p>                                  </p>
+<p>i ——为index</p>
+<p>Q ——为定标值</p>
+<p> </p>
+<p>即，产生512点值的C语言程序如下所示:</p>
+<p>/* Sample 3.12: Generate a sinewave table</p>
+<p> * Q = 15</p>
+<p> * N is the number of points</p>
+<p> * i is the index of each value, 0:N</p>
+<p> * float multiply and integerize.</p>
+<p> */</p>
+<p>#define   N  512</p>
+<p>#define   pi  3.14159</p>
+<p>int  sin_tab[512];</p>
+<p>void  main()</p>
+<p>{</p>
+<p>int i;</p>
+<p>  for(i=0;i&lt;N;i++)</p>
+<p>      sin_tab[i]=(int)(32767*sin(2*pi*i/N));//32767 = 2^15 - 1</p>
+<p>}</p>
+<p> (2) 查表</p>
+<p>查表实际上就是根据输入值确定表的地址。设输入浮点x在0~2p之间，则x对应于512点表的地址为：</p>
+<p>index = (int)(512*x/2p)</p>
+<p> </p>
+<p>则：</p>
+<p>y = sin(x) = sin_tab[index]</p>
+<p> </p>
+<p>如果此处把x用定点数表示，则取x的Q值为15-3=12. 因为0&lt;x&lt;6.29&lt;8=2^3, 取Q=15-<strong>3</strong>可以最大限度保证x精度。将512/2p≈81.53. 2^6&lt;81.53&lt; 2^7=128用Q8（15 –<strong>7</strong> = 8）表示才能将其囊括，其在Q8下的值为 (int)(81.53*2^8) = 20871，则计算正弦值表的地址的公式为：index = (x*20871L)&raquo;20。此处index的类型本来就是int，且范围是[0:1:512]，故它的Q值为零。所以是右移 12+8-0=20位，得到0-512的index值。</p>
+<p> </p>
+<p>The whole program for generating sine wave table and usingit to get the sin value:</p>
+<p>/* Sample 3.12: Generate a sinewave table</p>
+<p> * Q = 15</p>
+<p> * N is the number of points</p>
+<p> * i is the index of each value, 0:N</p>
+<p> * float multiply and intigerize.</p>
+<p> */</p>
+<p> </p>
+<p>#include  &ldquo;stdafx.h&rdquo;  // Thisis for visual studio C++</p>
+<p>#include  &ldquo;stdio.h&rdquo;</p>
+<p>#include  &ldquo;math.h&rdquo;</p>
+<p>#include  &ldquo;string.h&rdquo;</p>
+<p> </p>
+<p>#define   pi  3.14159</p>
+<p> </p>
+<p>/* Generate and inject the n point sine wave table Function</p>
+<p> * Sine wave value is from -1 to +1,Select Q=15: [-1,0.9999695], 16bit int</p>
+<p> * input the sin_table arraydeclared in main function</p>
+<p> * Generate the sine value andmemcpy them into sin_table array</p>
+<p> * Generate the fixed point valuefor sine wave. 32767 stands for 1.</p>
+<p> * The fixed point sine value isfrom -32768 to 32767</p>
+<p> *</p>
+<p> */</p>
+<p>void usr_sineOcp(intshort sin_tab[],int n);//Declare sine wave table Function</p>
+<p> </p>
+<p>/* Generate the n-point(n&lt;4096) sine wave table Function Body*/</p>
+<p>void usr_sineOcp(intshortsin_tab[],int n){</p>
+<p>  int short y[4096];// n &lt; 4096</p>
+<p>  int i;</p>
+<p>  for(i=0;i&lt;n;i++) {</p>
+<p>      y[i]=(int)(32767*sin(2*pi*i/n));  //32767 = 2^15 - 1</p>
+<p>      //printf(&ldquo;usr_sineOcp: y[%d] =%d \n&rdquo;, i, y[i]);</p>
+<p>  }</p>
+<p>  memcpy(sin_tab, y, 2*n);</p>
+<p>  return;</p>
+<p>}</p>
+<p> </p>
+<p> </p>
+<p>/* In main function, We will</p>
+<p> * 1. Generate the empty sine_wavevalue table, 512points.</p>
+<p> * 2. Occupy the sine_wave valuetable by calling usr_sineOcp(); function</p>
+<p> * 3. print out the fixed/floatvalue of sine_wave value table.</p>
+<p> * 4. Request user input float x,return float y.</p>
+<p> *   float x_user_input = [0,2pi]</p>
+<p> *   float y_ret_user = [-1, 0.9999695]</p>
+<p> *</p>
+<p> */</p>
+<p>void  main() // mainfunction</p>
+<p>{</p>
+<p>  int n=512;</p>
+<p>  int short sine_tab[512];  // Declare a 512 points sinusoid value table</p>
+<p>  int i;                      // index of this table</p>
+<p> </p>
+<p>  //2. Occupy the sine_wave value tableby calling usr_sineOcp(); function</p>
+<p>  usr_sineOcp(sine_tab, 512);</p>
+<p> </p>
+<p>  //3. print out the fixed/float valueof sine_wave value table.</p>
+<p>  for(i = 0; i &lt; 512; i++)</p>
+<p>      printf(&ldquo;main: sine_tab[%d] = %d\n&rdquo;, i,sine_tab[i]);</p>
+<p> </p>
+<p>  //4. Request user input float x,return float y.</p>
+<p>  //  Using the sine_tab to get the y_fixed and transfer it into y_float</p>
+<p>  float x_f,y_f;</p>
+<p>  int short x,y,index;  //  x is Q12 fixed, index is []</p>
+<p>  int long x1;   // x1 is Q8 fixed but long inttype</p>
+<p>  printf(&ldquo;Please Enter a x_float (rad)value (0:2pi): &ldquo;);//? howto extend??</p>
+<p>  scanf(&quot;%f&rdquo;, &amp;x_f);</p>
+<p> </p>
+<p>  // Figure out the index for checkingsine_tab table</p>
+<p>  x = (int) (x_f*4096);    // x_fixed = x_f * (2^12) , Qx = 12</p>
+<p>  x1 = 20871;            // x1L = 20871 = 512/2PI * 2^8, Qx1 = 8</p>
+<p>  index = (x*x1) &raquo; 20;  //get the index for sin table</p>
+<p> </p>
+<p>      printf(&ldquo;x Q12 fixed[0-25740] = %d\n&rdquo;,x);</p>
+<p>      printf(&ldquo;index [0-512] =%d \n&rdquo;,index);</p>
+<p> </p>
+<p>  // Use index to check the sinusoidvalue:</p>
+<p>  y = sine_tab[index];</p>
+<p>      printf(&ldquo;The fixed y(-32768,32767) is:%d \n&rdquo;,y);</p>
+<p> </p>
+<p>  // Transfer y_fixed intoy_float[-1,+1]</p>
+<p>  y_f = ((float)y) / 32768;</p>
+<p>      printf(&ldquo;The float y_f(-1,+1) is: %f \n&rdquo;, y_f);</p>
+<p>}</p>
+<p> </p>
+<p> </p>
+<p>例3.13  用查表法求以2为底的对数，已知自变量取值范围为0.5~1,要求将自变量范围均匀划分为10等分。试制作这个表格并说明查表方法。</p>
+<p>(1) 做表：</p>
+<p>y = log2(x)，由于x在0.5到1之间，因此y在-1到0之间，x和y均可用Q15表示。由于对x均匀划分为10段，因此，10段对应于输入x的范围如表3.2所示。若每一段的对数值都取第1点的对数值，则表中第1段的对数值为y0(Q15) = (int)(log2(0.5)×32768)，第2段的对数值为y1(Q15) = (int)(log2(0.55)×32768)，依次类推。</p>
+<p>表3.2  logtab0 10点对数表(输入0.5~1)</p>
+<table>
+  <thead>
+      <tr>
+          <th>地址</th>
+          <th>输入值</th>
+          <th>对数值(Q15)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0.50~0.55</td>
+          <td>-32768</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0.55~0.60</td>
+          <td>-28262</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>0.60~0.65</td>
+          <td>-24149</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>0.65~0.70</td>
+          <td>-20365</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>0.70~0.75</td>
+          <td>-16862</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>0.75~0.80</td>
+          <td>-13600</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>0.80~0.85</td>
+          <td>-10549</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>0.85~0.90</td>
+          <td>-7683</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>0.90~0.95</td>
+          <td>-4981</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>0.95~1.00</td>
+          <td>-2425</td>
+      </tr>
+  </tbody>
+</table>
+<p> </p>
+<p>(2) 查表:</p>
+<p>查表时，先根据输入值计算表的地址，计算方法为：index=((x-16384)×20)&raquo;15。式中，index就是查表用的地址。例如，已知输入x= 26869，则index=6，因此y=-10549。</p>
+<p>3．混合法</p>
+<p>(1) 提高查表法的精度</p>
+<p>上述方法查表所得结果的精度随表的大小而变化，表越大，则精度越高，但存储量也越大。当系统的存储量有限而精度要求也较高时，查表法就不太适合。那么能否在适当增加运算量的情况下提高非线性运算的精度呢？下面介绍一种查表结合少量运算来计算非线性函数的混合法，这种方法适用于在输入变量的范围内函数呈单调变化的情形。</p>
+<p>混合法是在查表的基础上采用计算的方法以提高当输入值处于表格两点之间时的精度。提高精度的一个简便方法是采用折线近似法，如图3.1所示。</p>
+<p>仍以求以2为底的对数为例(例3.13)。设输入值为x，则精确的对数值为y，在表格值的两点之间作一直线，用y＇作为y的近似值，则有：</p>
+<p>y＇＝y0＋y</p>
+<p>其中y0由查表求得。现在只需在查表求得y0的基础上增加y即可。y的计算方法如下：</p>
+<p>y=(x/x0)y=x(y0/x0)</p>
+<p>式中y0/x0对每一段来说是一个恒定值，可作一个表格直接查得。此外计算x时需用到每段横坐标的起始值，这个值也可作一个表格。这样共有三个大小均为10的表格，分别为存储每段起点对数值的表logtab0、存储每段y0/x0 值的表logtab1和存储每段输入起始值x0的表logtab2，表logtab1和表logtab2可用下列两个数组表示：</p>
+<p>int    logtab1[10]={22529,20567,18920,17517,16308,</p>
+<p>            15255,14330,13511,12780,12124};  /*y0/x0 : Q13*/</p>
+<p>int    logtab2[10]={16384,18022,19660,21299,22938,</p>
+<p>            24576,26214,27853,29491,31130};  /* x0: Q15*/</p>
+<p>综上所述，采用混合法计算对数值的方法可归纳为：</p>
+<p>①根据输入值，计算查表地址：index=((x-16384)×20)&raquo;15;</p>
+<p>②查表得y0=logtab0[index];</p>
+<p>③计算x=x-logtab2[index];</p>
+<p>④计算y＝(x×logtab1[index])&raquo;13;</p>
+<p>⑤计算得结果y=y0+y。</p>
+<p>例3.14  已知x=0.54，求log2(x)。</p>
+<p>0.54的精确对数值为y=log2(0.54)=-0.889。</p>
+<p>混合法求对数值的过程为：</p>
+<p>①定标Q15，定标值x=0.54*32768=17694；</p>
+<p>②表地址index=((x-16384)×20)&raquo;15=0;</p>
+<p>③查表得y0=logtab0[0]=-32768;</p>
+<p>④计算x=x-logtab2[0]=17694-16384=1310;</p>
+<p>⑤计算y＝(xlogtab1[0])&raquo;13=(1310*22529L)&raquo;13=3602;</p>
+<p>⑥计算结果y=y0+y=-32768+3602=-29166。</p>
+<p>结果y为Q15定标，折算成浮点数为-29166/32768=-0.89，可见精度较高。</p>
+<p>(2) 扩大自变量范围</p>
+<p>如上所述，查表法比较适用于周期函数或自变量的动态范围不是太大的情形。对于像对数这样的非线性函数，输入值和函数值的变化范围都很大。如果输入值的变化范围很大，则作表就比较困难。那么能否比较好地解决这个问题，既不使表格太大，又能得到比较高的精度呢？下面讨论一种切实可行的方法。</p>
+<p>设x是一个大于0.5的数，则x可以表示为下列形式：</p>
+<p>x =</p>
+<p>式中，0.5≤m≤1.0，e为整数。则求 x 的对数可以表示为：</p>
+<p>log2(x) = log2() = log2(m) + log2() = e + log2(m)</p>
+<p>也就是说，求x的对数实际上只要求 m的对数就可以了，而由于m的数值在0.5~1.0之间，用上面介绍的方法是完全可以实现的。例如：</p>
+<p>log2(10000) = log2(0.61035×) = log2(0.61035) + 14 = 13.2877</p>
+<p>可见，如果一个数可以用比较简便的方法表示为上面的形式，则求任意大小数的对数也是比较方便的。TMS320C2X/C5X指令集提供了一条用于对ACC中的数进行规格化的指令NORM ，该指令的作用就是使累加器中的数左移，直至数的最高位被移至累加器的第30位。例如，对数值10000进行规格化的TMS320C25程序为：</p>
+<p>LAC      #10000</p>
+<p>SACL    TEMP</p>
+<p>ZALH    TEMP</p>
+<p>LAR      AR1,#0FH</p>
+<p>RPT       14</p>
+<p>NORM   *－</p>
+<p>上述程序执行后，AR1=#0eH，ACCH=2000(10进制)。对一个16位整数 x 进行上述程序处理实际上就是做这样一个等效变换：</p>
+<p>x =</p>
+<p>其中，寄存器AR1包含的值为15-Q，累加器ACC高16位包含的值为，其数值在16384~32768之间。</p>
+<p>例3.15  实现以2为底的对数的C定点模拟程序</p>
+<p>int    logtab0[10]＝{-32768,-28262,-24149,-20365,-16862,</p>
+<p>            -13600,-10549,-7683,-4981,-2425}; /*Q15*/</p>
+<p>int    logtab1[10]＝{22529,20567,18920,17517,16308,</p>
+<p>           15255,14330,13511,12780,12124};  /*Q13*/</p>
+<p>int    logtab2[10]＝{16384,18022,19660,21299,22938,</p>
+<p>           24576,26214,27853,29491,31130};  /*Q15*/</p>
+<p>int    log2_fast(int   Am)</p>
+<p>{</p>
+<p>int     point,point1;</p>
+<p>int     index,x0,dx,dy,y;</p>
+<p>point＝0;</p>
+<p>while(Am&lt;16384) {point++；Am＝Am&laquo;1;} /*对Am进行规格化*/</p>
+<p>point1＝(15-point-4)*512;        /*输入为Q4，输出为Q9*/</p>
+<p>index＝((Am-16384)*20L)&raquo;15;             /*求查表地址*/   </p>
+<p>dx＝Am-logtab2[index];</p>
+<p>dy＝((long)dx*logtab1[index])&raquo;13;</p>
+<p>y＝(dy+logtab0[index])&raquo;6;              /*Q9*/</p>
+<p>y＝point1+y;</p>
+<p>return (y);</p>
+<p>}</p>
+<p>上述程序中，输入值Am采用Q4表示，输出采用Q9表示，如果输入输出的Q值与上面程序中的不同，则应做相应的修改。</p>
+<h3 id="35小-结">3.5小    结<a hidden class="heading-anchor" aria-hidden="true" href="#35小-结">#</a></h3>
+<p>本章讨论了DSP芯片进行定点运算所涉及的一些基本问题，这些问题包括：数的定标，DSP程序的定点模拟，DSP芯片的定点运算以及定点实现非线性函数的快速实现方法等。充分理解这些问题对于用定点芯片实现DSP算法具有非常重要的作用。</p>
+<p> </p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2013-06-04 00:52 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share DSP芯片的定点运算 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130604005237%2f&title=DSP%e8%8a%af%e7%89%87%e7%9a%84%e5%ae%9a%e7%82%b9%e8%bf%90%e7%ae%97">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share DSP芯片的定点运算 on twitter"
+          href="https://twitter.com/intent/tweet/?text=DSP%e8%8a%af%e7%89%87%e7%9a%84%e5%ae%9a%e7%82%b9%e8%bf%90%e7%ae%97&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130604005237%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share DSP芯片的定点运算 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130604005237%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

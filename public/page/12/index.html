@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191010052600/" title="python绘制图的度分布柱状图, draw graph degree histogram with Python">python绘制图的度分布柱状图, draw graph degree histogram with Python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="图的度数分布">图的度数分布</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">collections</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">gnp_random_graph</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">degree_sequence</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">()],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># degree sequence</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print &#34;Degree sequence&#34;, degree_sequence</span>
+</span></span><span class="line"><span class="cl"><span class="n">degreeCount</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">degree_sequence</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">deg</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">degreeCount</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># #as an alternation, you can pick out the top N items for the plot:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#d = sorted(degreeCount.items(), key=lambda item:item[1], reverse=True)[:30]   # pick out the up 30 items from counter</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#deg = [i[0] for i in d]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#cnt = [i[1] for i in d]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">deg</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Degree Histogram&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;Count&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Degree&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">d</span> <span class="o">+</span> <span class="mf">0.4</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">deg</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">deg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># draw graph in inset</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">Gcc</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">connected_component_subgraphs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</span></span></code></pre></div><p>Source for reference:
+<a href="https://networkx.github.io/documentation/stable/auto_examples/drawing/plot_degree_histogram.html#degree-histogram">degree-histogram, networkx</a>
+<img src="https://networkx.github.io/documentation/stable/_images/sphx_glr_plot_degree_histogram_001.png" alt=""></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191010052600/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-10T05:26:00&#43;0800" class="date">October 10, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191009112400/" title="一波儿networkx 读写edgelist，给节点加attribute的操作">一波儿networkx 读写edgelist，给节点加attribute的操作</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="一波儿networkx-读写edgelist给节点加attribute的操作">一波儿networkx 读写edgelist，给节点加attribute的操作</h1>
+<p>read more: <a href="https://networkx.github.io/documentation/stable/reference/readwrite/index.html">nx official: Reading and writing graphs</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">operator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">G1</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;network1&#39;</span><span class="p">)</span>  <span class="c1"># Directed Graph</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#networkx 导入edgelist</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">net1_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">edgeReader</span><span class="p">:</span>   <span class="c1"># 从文件中读取edgelist生成Graph of networkx</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">edgeReader</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">edges_net1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"><span class="n">G1</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges_net1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">== info of net1 original: &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">G1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">triad_list_net1</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">edges_net1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">triad</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">  <span class="n">triad_list_net1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">triad</span><span class="p">)</span>   <span class="c1"># list of triads</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">triad_list_net1</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># sort the list by the 3rd item of triad</span>
+</span></span><span class="line"><span class="cl"><span class="n">isgt_dict1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">G1</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">G1</span><span class="o">.</span><span class="n">nodes</span><span class="p">),</span> <span class="nb">int</span><span class="p">)))</span>  <span class="c1"># gen the dic for attribute of nodes in G1</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">set_node_attributes</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span> <span class="n">isgt_dict1</span><span class="p">,</span> <span class="s1">&#39;Attr_name&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#networkx 导出网络为edgelist</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">write_edgelist</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span> <span class="s1">&#39;data_G1.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># without properties by &#39;data=False&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         将nodes带属性写入文件：</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_G1_nodes.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">node_i</span> <span class="ow">in</span> <span class="n">G1</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">node_i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">G1</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node_i</span><span class="p">][</span><span class="s1">&#39;Attr_name&#39;</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ol start="2">
+<li>Use <code>networkx.read_edgelist()</code> function: 快速从文件中读取边并创建图</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">netPath</span> <span class="o">=</span> <span class="s1">&#39;myEdgelist.txt&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="n">netPath</span><span class="p">)</span>
+</span></span></code></pre></div><p>read more: <a href="https://networkx.github.io/documentation/stable/reference/readwrite/index.html">nx official: Reading and writing graphs</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191009112400/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-09T11:24:00&#43;0800" class="date">October 09, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191009065200/" title="The list of list is modified unexpected, python">The list of list is modified unexpected, python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="be-careful">Be careful!</h1>
+<h3 id="the-list-of-list-is-modified-unexpected-python">The list of list is modified unexpected, python</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># code patch A:</span>
+</span></span><span class="line"><span class="cl"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list A :&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list A</span><span class="se">\&#39;</span><span class="s1">:&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># code patch B:</span>
+</span></span><span class="line"><span class="cl"><span class="nb">list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">list B : &#39;</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span>    <span class="c1"># will this allocate a new RAM space for var &#39;temp&#39;?</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">    <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list B</span><span class="se">\&#39;</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &lt;-- you can see the list is changed, which is not i want.&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new_list:&#39;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># code patch C:</span>
+</span></span><span class="line"><span class="cl"><span class="nb">list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">list C : &#39;</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>    <span class="c1"># only this line is MODIFIED than code patch B.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">    <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list C</span><span class="se">\&#39;</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &lt;-- you can see the list is NOT changed.&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new_list:&#39;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Output:
+</span></span></span><span class="line"><span class="cl"><span class="s1">---
+</span></span></span><span class="line"><span class="cl"><span class="s1">list A : [1, 2, 3, 4, 5, 6, 7]
+</span></span></span><span class="line"><span class="cl"><span class="s1">list A&#39;: [1, 2, 3, 4, 5, 6, 7]
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">list B :  [[1], [2], [3], [4], [5], [6], [7]]
+</span></span></span><span class="line"><span class="cl"><span class="s1">list B&#39;:  [[1], [2], [3], [4], [5], [1006], [1007]] &lt;-- you can see the list is changed. which is not i want.
+</span></span></span><span class="line"><span class="cl"><span class="s1">new_list: [[1], [2], [3], [4], [5], [1006], [1007]]
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">list C :  [[1], [2], [3], [4], [5], [6], [7]]
+</span></span></span><span class="line"><span class="cl"><span class="s1">list C&#39;:  [[1], [2], [3], [4], [5], [6], [7]] &lt;-- you can see the list is NOT changed.
+</span></span></span><span class="line"><span class="cl"><span class="s1">new_list: [[1], [2], [3], [4], [5], [1006], [1007]]
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">Question:
+</span></span></span><span class="line"><span class="cl"><span class="s1"> why list B&#39; is modified in the for loop?
+</span></span></span><span class="line"><span class="cl"><span class="s1"> 
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191009065200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-09T06:52:00&#43;0800" class="date">October 09, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191008124300/" title="Graph Convolutional Network">Graph Convolutional Network</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>How to do Deep Learning on Graphs with Graph Convolutional Networks
+<a href="https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780">https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780</a></p>
+<p>scientific internet may need.</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191008124300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-08T12:43:00&#43;0800" class="date">October 08, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191006092300/" title="Check the port occupy on Mac OSX">Check the port occupy on Mac OSX</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="check-the-port-occupy-on-mac-osx">Check the port occupy on Mac OSX</h2>
+<p><code>lsof -i :7070</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">          COMMAND   PID USER   FD   TYPE    DEVICE SIZE/OFF NODE NAME
+</span></span><span class="line"><span class="cl">          sivoxy    64888   wgg    6u  IPv4 0x6ddd270      0t0  TCP *:gds_db (LISTEN)
+</span></span></code></pre></div><p>We have the PID of that app occupying port.</p>
+<h2 id="locating-the-executable-file-of-that-pid">Locating the executable file of that PID</h2>
+<p><code>ps xuwww -p PID</code></p>
+<p>PID (64888) is the process id you are looking. for More help on <code>ps</code>command you can find with</p>
+<p><code>man ps</code></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191006092300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-10-06T09:23:00&#43;0800" class="date">October 06, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20190926041600/" title="Change the environment variable for python code running">Change the environment variable for python code running</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3 id="python程序运行中改变环境变量">python程序运行中改变环境变量:</h3>
+<blockquote>
+<p>Trying to change the way the loader works for a running Python is very tricky; probably OS/version dependent; may not work. One work-around that might help in some circumstances is to launch a sub-process that changes the environment parameter using a shell script and then launch a new Python using the shell.</p></blockquote>
+<p>So, before the python code is executed, the env var is loaded.</p>
+<p>Ref: <a href="https://stackoverflow.com/questions/1178094/change-current-process-environments-ld-library-path">https://stackoverflow.com/questions/1178094/change-current-process-environments-ld-library-path</a></p>
+<h3 id="but-how-to-launch-a-sub-process-that-changes-the-environment-parameter">But how to launch a sub-process that changes the environment parameter:</h3>
+<p>You can ref: <a href="https://stackoverflow.com/questions/8365394/set-environment-variable-in-python-script?rq=1">https://stackoverflow.com/questions/8365394/set-environment-variable-in-python-script?rq=1</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20190926041600/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-09-26T04:16:00&#43;0800" class="date">September 26, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20190916132000/" title="basic deepwalk">basic deepwalk</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3 id="get-to-know-how-deepwalk-works-by-this-project">Get to know How deepwalk works by this project.</h3>
+<p>Two steps:
+1. gen the graph, and gen the corpus on the graph via random walk.
+2. use the corpus generated by step1 to fit the Word2vec model and calculate the similarity of two nodes.</p>
+<p>Project link: <a href="https://gitee.com/sonica/basic-deepwalk">https://gitee.com/sonica/basic-deepwalk</a></p>
+<p>Read more about develop word2vec model with python: <a href="https://machinelearningmastery.com/develop-word-embeddings-python-gensim/">https://machinelearningmastery.com/develop-word-embeddings-python-gensim/</a>
+This blog will tell you:</p>
+<ul>
+<li>How to train your own word2vec word embedding model on text data.</li>
+<li>How to <strong>visualize a trained word embedding</strong> model using Principal Component Analysis.</li>
+<li>How to load pre-trained word2vec and GloVe word embedding models from Google and Stanford.</li>
+</ul></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20190916132000/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-09-16T13:20:00&#43;0800" class="date">September 16, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20190908074900/" title="kwargs - Key words arguments in python function">kwargs - Key words arguments in python function</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="this-is-a-tutorial-of-how-to-use-args-and-kwargs">This is a tutorial of how to use <code>*args</code> and <code>**kwargs</code></h2>
+<p>For defining the <strong>default value</strong> of arguments that is not assigned in key words when calling the function:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">**</span><span class="n">keywargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s1">&#39;my_word&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">keywargs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;default_msg&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">word</span> <span class="o">=</span> <span class="n">keywargs</span><span class="p">[</span><span class="s1">&#39;my_word&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span></span></code></pre></div><p>call this by:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">func</span><span class="p">(</span><span class="n">my_word</span><span class="o">=</span><span class="s1">&#39;love&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>you&rsquo;ll get:</p>
+<pre tabindex="0"><code>default_msg
+love
+</code></pre><p>read more about *args and **kwargs in python: <a href="https://www.digitalocean.com/community/tutorials/how-to-use-args-and-kwargs-in-python-3">https://www.digitalocean.com/community/tutorials/how-to-use-args-and-kwargs-in-python-3</a></p>
+<p><strong>Add more about default value if arg key is not assigned:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">make_hastie_10_2</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">12000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Generates data for binary classification used in
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Hastie et al. 2009, Example 10.2.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    The ten features are standard independent Gaussian and
+</span></span></span><span class="line"><span class="cl"><span class="s2">    the target ``y`` is defined by::
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">      y[i] = 1 if np.sum(X[i] ** 2) &gt; 9.34 else -1
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Read more in the :ref:`User Guide &lt;sample_generators&gt;`.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    n_samples : int, optional (default=12000)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        The number of samples.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    random_state : int, RandomState instance or None (default)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Determines random number generation for dataset creation. Pass an int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        for reproducible output across multiple function calls.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        See :term:`Glossary &lt;random_state&gt;`.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    X : array of shape [n_samples, 10]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        The input samples.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    y : array of shape [n_samples]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        The output values.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    References
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    .. [1] T. Hastie, R. Tibshirani and J. Friedman, &#34;Elements of Statistical
+</span></span></span><span class="line"><span class="cl"><span class="s2">           Learning Ed. 2&#34;, Springer, 2009.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    See also
+</span></span></span><span class="line"><span class="cl"><span class="s2">    --------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    make_gaussian_quantiles: a generalization of this dataset approach
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rs</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="p">((</span><span class="n">X</span> <span class="o">**</span> <span class="mf">2.0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">9.34</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+</span></span></code></pre></div></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20190908074900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-09-08T07:49:00&#43;0800" class="date">September 08, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20190907135500/" title="Graph Neural Networks for Computer Vision">Graph Neural Networks for Computer Vision</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="graph-neural-networks-for-computer-vision">Graph Neural Networks for Computer Vision</h1>
+<h3 id="i-was-attracted-by-this-image">I was attracted by this image:</h3>
+<p><img src="https://img2018.cnblogs.com/blog/780771/201909/780771-20190907215306381-981355583.png" alt=""></p>
+<p>This is an inspiring image and it was posted in this article: <strong>Tutorial on Graph Neural Networks for Computer Vision and Beyond (Part 1)</strong> written by <strong>Boris</strong>, a PhD student at University of Guelph.
+Link:
+<a href="https://medium.com/@BorisAKnyazev/tutorial-on-graph-neural-networks-for-computer-vision-and-beyond-part-1-3d9fada3b80d">https://medium.com/@BorisAKnyazev/tutorial-on-graph-neural-networks-for-computer-vision-and-beyond-part-1-3d9fada3b80d</a></p>
+<p>The figure I attached above is showing some possibilities that using the graph structure to represent the version components in a fuzzy way. That&rsquo;s innovative and interesting.</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20190907135500/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-09-07T13:55:00&#43;0800" class="date">September 07, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20190904122400/" title="Convert Adjacency matrix into edgelist">Convert Adjacency matrix into edgelist</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+<li>[Edge List &lt;&ndash; Adjacency Matrix](# Edge List &lt;&ndash; Adjacency Matrix)</li>
+<li>[Edge List &ndash;&gt; Adjacency Matrix](# Edge List &ndash;&gt; Adjacency Matrix)</li>
+<li>[About Adjacency List](#About Adjacency List)</li>
+</ol>
+<hr>
+<h2 id="edge-list--adjacency-matrix">Edge List &lt;&ndash; Adjacency Matrix</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">ref: https://www.cnblogs.com/sonictl/p/10688533.html 
+</span></span></span><span class="line"><span class="cl"><span class="s1">convert adjMatrix into edgelist: &#39;data/unweighted_edgelist.number&#39; or &#39;data/weighted_edgelist.number&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">input: adjacency matrix with delimiter=&#39;, &#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  it can process:
+</span></span></span><span class="line"><span class="cl"><span class="s1">  - Unweighted directed graph
+</span></span></span><span class="line"><span class="cl"><span class="s1">  - Weighted directed graph
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">output: edgelist (unweighted and weighted)
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------DIRECTED Graph, Unweighted-----------</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Unweighted directed graph:</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/test_adjMatrix.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">write_edgelist</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;data/unweighted_edgelist.number&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># output</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">D</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------DIRECTED Graph, Weighted------------</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Weighted directed graph (weighted adj_matrix):</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/adjmatrix_weight_sample.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">write_weighted_edgelist</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;data/weighted_edgelist.number&#39;</span><span class="p">)</span>  <span class="c1"># write the weighted edgelist into file</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># print(D.edges)</span>
+</span></span><span class="line"><span class="cl"><span class="n">elarge</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="n">D</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">elarge</span><span class="p">)</span>    <span class="c1"># class: list</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -------UNDIRECTED Graph -------------------</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># for undirected graph, simply use:</span>
+</span></span><span class="line"><span class="cl"><span class="n">udrtG</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">test_adjMatrix.txt:  (Symmetric matrices if unweighted graph)
+</span></span></span><span class="line"><span class="cl"><span class="s1">---
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 1, 1, 1, 0, 1, 1, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 1, 0, 0, 0, 1, 1
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 1, 1, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 1, 0, 0, 1, 1, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 1, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">===
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">adjmatrix_weight_sample.txt：
+</span></span></span><span class="line"><span class="cl"><span class="s1">---
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0.5, 0, 0, 0, 0.5, 0.5
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 0.5, 0.5, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0.5, 0, 0, 0.5, 0.5, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">0, 0, 0.5, 0, 0, 0, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">===
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">output:
+</span></span></span><span class="line"><span class="cl"><span class="s1">---
+</span></span></span><span class="line"><span class="cl"><span class="s1">[(0, 1), (0, 2), (0, 3), (0, 5), (0, 6), (1, 2), (1, 6), (1, 7), (2, 3), (2, 4), (3, 1), (3, 4), (3, 5), (7, 2)]
+</span></span></span><span class="line"><span class="cl"><span class="s1">[(0, 1, 0.5), (0, 2, 0.5), (0, 3, 0.5), (0, 5, 0.5), (0, 6, 0.5), (1, 2, 0.5), (1, 6, 0.5), (1, 7, 0.5), (2, 3, 0.5), (2, 4, 0.5), (3, 1, 0.5), (3, 4, 0.5), (3, 5, 0.5), (7, 2, 0.5)]
+</span></span></span><span class="line"><span class="cl"><span class="s1">===
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><h2 id="edge-list--adjacency-matrix-1">Edge List &ndash;&gt; Adjacency Matrix</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  https://networkx.github.io/documentation/networkx-2.2/reference/generated/networkx.linalg.graphmatrix.adjacency_matrix.html
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># edgelist to adjacency matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># way1: G=nx.read_edgelist</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="s1">&#39;input/edgelist_sample.txt&#39;</span><span class="p">,</span> <span class="n">create_using</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">(),</span> <span class="n">nodetype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c1"># create_using=nx.Graph()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># way2:</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">a = numpy.loadtxt(&#39;input/edgelist_sample.txt&#39;, dtype=int)
+</span></span></span><span class="line"><span class="cl"><span class="s1">edges = [tuple(e) for e in a]
+</span></span></span><span class="line"><span class="cl"><span class="s1">D = nx.DiGraph()
+</span></span></span><span class="line"><span class="cl"><span class="s1">D.add_edges_from(edges)   # D.add_edges_from(nodes); D.edges; D.nodes
+</span></span></span><span class="line"><span class="cl"><span class="s1">D.name = &#39;digraph_sample&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">print(nx.info(D))
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">udrtG = D.to_undirected()
+</span></span></span><span class="line"><span class="cl"><span class="s1">udrtG.name = &#39;udrt&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">print(nx.info(udrtG))
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># dump to file as adjacency Matrix</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">nodes</span><span class="p">))))</span>  <span class="c1"># nx.adjacency_matrix(D, nodelist=None, weight=&#39;weight&#39;)   # Return type: SciPy sparse matrix</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print(A)   # type &lt; SciPy sparse matrix &gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">A_dense</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>   <span class="c1"># type-&gt; numpy.matrixlib.defmatrix.matrix</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">A_dense</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">A_dense</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--- See two row of matrix equal or not: ---&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">((</span><span class="n">numpy</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">A_dense</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">A_dense</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># print(&#39;to_numpy_array:\n&#39;, nx.to_numpy_array(D, nodelist=list(range(len(D.nodes)))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># print(&#39;to_dict_of_dicts:\n&#39;, nx.to_dict_of_dicts(D, nodelist=list(range(len(D.nodes)))))</span>
+</span></span></code></pre></div><h2 id="about-adjacency-list">About Adjacency LIST</h2>
+<pre tabindex="0"><code>nx.read_adjlist()
+</code></pre><p><img src="https://img2018.cnblogs.com/blog/780771/201905/780771-20190523193021270-1849833006.png" alt=""></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20190904122400/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-09-04T12:24:00&#43;0800" class="date">September 04, 2019</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/11/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/11/">11</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/12/">12</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/13/">13</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/13/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

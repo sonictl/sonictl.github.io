@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="&nbsp;
+经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。
+1. 问题定义
+&nbsp; 定义1：Information Network:
+　　An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \equiv (v,u)$ and $w_{uv} \equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \not\equiv (v,u)$ and $w_{uv} \not\equiv w_{vu}$ .
+&nbsp; 定义2：First-order Proximity:
+　　一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0.
+　　但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。
+&nbsp; 定义3：Second-order Proximity:
+　　二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>LINE 论文笔记 - 【结硬寨，打呆仗】 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20180410094200/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="&nbsp;
+经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。
+1. 问题定义
+&nbsp; 定义1：Information Network:
+　　An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \equiv (v,u)$ and $w_{uv} \equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \not\equiv (v,u)$ and $w_{uv} \not\equiv w_{vu}$ .
+&nbsp; 定义2：First-order Proximity:
+　　一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0.
+　　但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。
+&nbsp; 定义3：Second-order Proximity:
+　　二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0." />
+  <meta property="og:title" content="LINE 论文笔记 - 【结硬寨，打呆仗】" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20180410094200/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2018-04-10" />
+    <meta property="article:modified_time" content="2018-04-10" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LINE 论文笔记 - 【结硬寨，打呆仗】 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="&nbsp;
+经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。
+1. 问题定义
+&nbsp; 定义1：Information Network:
+　　An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \equiv (v,u)$ and $w_{uv} \equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \not\equiv (v,u)$ and $w_{uv} \not\equiv w_{vu}$ .
+&nbsp; 定义2：First-order Proximity:
+　　一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0.
+　　但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。
+&nbsp; 定义3：Second-order Proximity:
+　　二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0." />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20180410094200/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20180410094200/">LINE 论文笔记 - 【结硬寨，打呆仗】</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">LINE 论文笔记 - 【结硬寨，打呆仗】</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2018-04-10T09:42:00&#43;0800 class="date">April 10, 2018</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+4 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p>&nbsp;</p>
+<p>经历了1周的徘徊，还是强迫自己把LINE的算法继续钻研下去。<br />困难就是看不懂。坚持看论文和代码，一定要执着地钻研下去。</p>
+<h2>1. 问题定义</h2>
+<h3>&nbsp; 定义1：Information Network:</h3>
+<p>　　An information network is defined as $G = (V, E)$ , V是节点集，E是边集。每条边 $e\in E$ 是一个对 $e = (u,v)$ ，还分配了一个权重 $w_{uv} &gt; 0 $用来表示连接的强度。如果G是无向图，我们有$(u,v) \equiv (v,u)$ and $w_{uv} \equiv w_{vu}$ ，如果G是有向图，我们有$(u,v) \not\equiv (v,u)$ and $w_{uv} \not\equiv w_{vu}$ .</p>
+<h3>&nbsp; 定义2：First-order Proximity:</h3>
+<p>　　一阶相似度：2个节点的本地相似性，即，对每个连接对，节点被一条边$(u,v)$连接。而这个链接的权重$ w_{uv} $ 就表示了一阶相似度。如果没有连接，那么它们的一阶相似度就为0.</p>
+<p>　　但光有了一阶相似度还不够，比如有的节点之间本来有关系，但它们没有连接，而是通过 share similar neighbors 的方式。所以有了二阶相似度定义。</p>
+<h3>&nbsp; 定义3：Second-order Proximity:</h3>
+<p>　　二阶相似度： 一对节点$(u,v)$的二阶相似度是在他们邻居网络上的结构相似性。（关注的邻居网络的结构相似性）. Mathematically, let $p_u = ( w_{u,1},w_{u,2}, ... ,w_{u,|V|} )$ 表示了节点$u$ 与其他所有节点的一阶相似度。let $p_v = ( w_{v,1},w_{v,2}, ... ,w_{v,|V|} )$ 表示了节点$v$ 与其他所有节点的一阶相似度。那么，节点$u$和$v$的二阶相似度就决定于$p_u$ 和 $p_v$之间的相似度。如果没有节点既连接$u$又连接$v$,那么$u,v$之间的相似度就为0.</p>
+<p>　　考虑一阶和二阶相似度的网络嵌入，看定义4：网络嵌入</p>
+<p>&nbsp;</p>
+<p><img style="border: 1px solid black;" src="https://images2018.cnblogs.com/blog/780771/201804/780771-20180410174440830-504358127.png" alt="" width="308" height="201" /></p>
+<h3>&nbsp; 定义4：Network Embedding:</h3>
+<p>&nbsp;　　LINE的目的是要： 把大规模网络$G = (V, E)$ 中的节点&nbsp;$v\in V$ 表示成低维向量空间 $R^d$ ，也就是说，学习一个映射 $f_G:V \to R^d$, 这个 $d \ll |V|$. 在$R^d$空间里，一阶相似性和二阶相似性都能得到保留。</p>
+<p>&nbsp;</p>
+<h2>2. 模型构建</h2>
+<p>　　一个好的真实信息网络的嵌入模型要有以下特点：</p>
+<ul>
+<li>能表达一阶二阶相似性</li>
+<li>能适应每个大的网络，百万级的节点和十亿级的边</li>
+<li>可以处理任意类型的边：有向，无向，有/无权重。</li>
+</ul>
+<p>　　LINE就可满足上3条要求。</p>
+<h3>　2.1 一阶相似性构建</h3>
+<p>　　相似性模型构建的基本思想还是 用带参数&theta;的模型 Model(&theta;)去逼近 Empirical Distributions，然后最小化二者之间的距离。</p>
+<p>　　一阶相似性的本质是看2个节点之间是否有边连接。</p>
+<p>　　1)<strong>(概率模型 Model)</strong> 就是构造出来的模型，用以逼近经验分布。为了构建一阶相似性，对于每个无向边 $(i,j)$ ， 我们对节点 $v_i$ 和 节点 $v_j$定义联合概率，如下：</p>
+<p>$$&nbsp;p_1(v_i, v_j) =&nbsp; \frac{1}{1+\mathrm{exp}(-\vec u_i^T \cdot \vec u_j )} \qquad\qquad\qquad(1) $$</p>
+<p>　　这里$\vec u_i \in R^d$ 就是$v_i$节点在$R^d$空间里的低维向量表达。这里公式（1）在空间$V \times V$上定义了一个分布：$p(\centerdot, \centerdot)$</p>
+<p>　　<strong>【按】</strong>本质上讲，$\vec u_i^T \cdot \vec u_j$ 这个内积衡量了2个节点的一阶相似性，这是一个假设。但若用$-|\vec u_i - \vec u_j|$，向量差，<span style="color: #800000;">作为相似性是否也可以？（只不过不好求导迭代）是否可以证明用内积表达的向量相似性和用向量差表达的相似性，有何异同？优劣？向量相似性表达方式、评价方式是否会带来实验效果的差异甚至提升？</span></p>
+<p>　　2)不妨考虑一下这个一阶相似性的<strong>经验分布</strong>，我们用什么方法来衡量两个节点$(v_i, v_j)$的一阶相似性呢？用$w_{i,j}$吧：</p>
+<p>$$&nbsp; \hat{p}_1(i,j) = \frac{w_{ij}} {\sum_{(i,j)\in E } w_{i,j} } $$</p>
+<p>　　这里分母$W = \sum_{(i,j)\in E } w_{i,j}$ <strong>是否是所有边的权重和？</strong></p>
+<p>　　有了这2种分布表达公式，我们要让向量产生的分布$&nbsp;p_1(v_i, v_j)$和经验产生的分布$&nbsp; \hat{p}_1(i,j)$之间的差距最小，如何衡量二者的差距呢？引入一个分布距离$d(\centerdot, \centerdot)$，定义目标函数$O_1$</p>
+<p>$$O_1 = d( \hat{p}_1(\cdot,\cdot) , p_1(\cdot,\cdot) ) \qquad\qquad\qquad (2)$$</p>
+<p>　　这只是一个抽象定义，至于具体计算，我们选择K-L散度作为这个距离的计算标准，消去中间过程，得到：</p>
+<p>$$&nbsp;O_1 = -\sum_{(i,j)\in E} w_{ij} \, \mathrm{log } \, p_1 (v_i, v_j)&nbsp; \qquad\qquad\qquad (3) $$</p>
+<p>　　一阶相似性就此刻画。只适用于无向图，不适用于有向图，通过找到这个集合$&nbsp;&nbsp;\{&nbsp; \vec {u}_i \} _{i=1,2, ... , |V|} $ 使得（3）式能取得最小值，我们就可把每个节点表达在d维空间中。</p>
+<p>　　【读者按】：由于sigmoid函数$\frac{1}{1+e^{-x}}$和log函数都是单增函数，而$&nbsp;\vec u_i^T \cdot \vec u_j = |\vec u_i|&nbsp;&nbsp; |\vec u_j|&nbsp;&nbsp; cos(\theta) $ ，$ \theta $是向量夹角。可分析知，$O_1$ 中的每一项，实质上是当向量 $&nbsp;\vec u_i$ 和 $ \vec u_j $ 内积最小时，$O_1$取得最小。当节点间的权重$w_{ij}$越大，越要使其向量表达的内积小，才能取得$O_1$的最小值。</p>
+<p>&nbsp;</p>
+<h3>　2.2 二阶相似性构建</h3>
+<p>　　为了构建二阶相似性，同样需要构造一个<strong>理论分布</strong>，一个<strong>经验分布</strong>，以及<strong>二者的距离</strong>。</p>
+<p>　　<span style="color: #000000;">二阶相似性是同时</span>适用于有向图和无向图，先假设是有向的，（无向图看成是双向有向图），二阶相似性是基于一个假设：<strong>两个节点share的其他节点越多，认为是二阶相似性越大。</strong><br />　　每个节点看成是一个特别的context，对于节点来说，如果两个节点share更相似的context，那么假设它俩的二阶相似性更高。<br />　　那么每个节点其实充当了2个角色：节点本身，和，别的节点的上下文。相当于一个人的2个角色：自我角色和他我角色。做自己，也要做别人眼中的他人。<br />　　对每个节点引入2个向量：$\vec u_i$ 和 $\vec u_i'$。其中，<span style="color: #ff0000;">$\vec u_i$</span> 用来表达节点本身，而当节点$i$被视作context时，用<span style="color: #ff0000;">$\vec u_i'$</span> 来表达。<br /><br /><strong>　　1. <span style="font-size: 15px;">经验分布(w,V,E)，</span></strong> $\hat p_2 (\cdot , v_i) $</p>
+<p>　　 经验分布是要展现一个条件概率，条件是节点$i$出现，求它的上下文出现的概率。<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;经验分布 $\hat p_2 (\cdot , v_i) $ 表达式：<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;$$\hat p_2 (v_j | v_i) = \frac{w_{ij}}{ \large{\sum }_ {k \in N(i)} w_{ik} } $$</p>
+<ul>
+<li>$w_{ij}$ 是有向边$(i,j)$的权重</li>
+<li>分母是节点i的出度。文章里记作$d_i = \sum_{k \in N(i)} w_{ik}$</li>
+<li>$N(i)$ 是节点$v_i$的外邻居(out-neighbors)</li>
+</ul>
+<p>　　经验分布 $\hat p_2 (\cdot , v_i) $ 其本质是一个条件分布，意义在于，在节点$v_i$出现的条件下，其上下文 $v_j$出现的概率。节点$i$可能同时指向多个节点，所以其指向节点$j$的条件概率就是上面的分数形式。</p>
+<p><br /><strong>　　2. 模型分布, </strong>理论分布：<strong>(概率模型 Model)</strong> 就是构造出来的模型，用以逼近经验分布。<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;模型分布的设计思想：对一个有向边$(i,j)$，节点i生成上下文j的概率：<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;从节点i出发，对所有与它相连的节点进行遍历，即向量$u_i$与所有别的节点的context向量 $\vec u_k'$ 作内积。再看$u_i$与节点j的context的向量$\vec u_j&rsquo;$的内积的占比。作为i,j 节点的二阶相似性。<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;$$p_2(v_j|v_i) = \frac{\mathrm{exp}(\vec u_j'^T \cdot \vec u_i )}{\sum_{k=1}^{|V|} \mathrm {exp} (\vec u_k'^T \cdot \vec u_i )}&nbsp;&nbsp;\qquad\qquad\qquad (4) $$<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 公式中，$|V|$是i的context的数量或节点数量。对于每个节点$v_i$，公式4实际上定义了一个在上下文（也即是全部节点集）上的条件分布$p_2(\cdot | v_i)$。注意$\hat p_2$的经验分布里，$k\in N(i)$ 是仅考察与$i$有出边连接的节点集$N(i)$, 而对于模型分布 $p_2(\cdot | v_i) $, 由于不知$v_k$与$v_i$是否有边，只能取所有的$v_k$, $k \in \{1,2,...,|V| \} $<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;二阶相似性假设：在context上的分布相似的节点认为是二阶相似性更大的。</p>
+<p>　　【按】：这里模型分布是利用每个节点的2种向量来计算节点$i$出现时，节点$j$出现的条件概率，而用公式（4）这样的方式表达这个条件分布，实际是利用向量内积表达节点$i$的context出现的可能性。这种方式是否合理呢？要看语言模型里，$p(\text{context}|x)$是如何用词向量表达的。以及如何借助其训练机制，即与语言模型类似，context可能性太多，训练时需要使用简化方法。</p>
+<p>　　<strong>3. </strong><strong>距离：也就是目标函数</strong></p>
+<p><strong>　　</strong>$$O_2 = \sum_{i\in V} \lambda_i d(\hat p_2(\cdot, v_i)&nbsp; , p_2(\cdot, v_i) )&nbsp; \qquad\qquad\qquad (5) $$<br />对于每个节点$v_i$，都分配了一个权重$\lambda _i$，然后用距离函数$d(\cdot, \cdot)$计算对于每个节点$v_i$的经验分布$\hat p_2(\cdot, v_i)$和模型分布$p_2(\cdot, v_i) $的距离。最后加权求和。至于权重$\lambda _i$,可用度数或者PageRank类似算法获得。本文就用的 节点$v_i$的出度$d_i$来表示$\lambda _i$，$d_i = \lambda _i$。</p>
+<p>　　通过约减常数项，整理后得到：<br />　　$$ O_2 = -\sum_{(i,j)\in E} w_{ij} \mathrm{log}\,p_2(v_j, v_i)&nbsp; \qquad\qquad\qquad (6) $$</p>
+<p>　　通过学习$\{ \vec u_i\}_{i=1,2, ... , |V|}$ 和 $\{ \vec u_i'\}_{i=1,2, ... , |V|}$ 使得 $O_2$ 取得最小，我们可以得到节点$v_i$的向量表达$\vec u_i$。</p>
+<p>&nbsp;至此，完成文档的第一部分，基本模型构建过程。这里有几个问题：</p>
+<ol>
+<li><span style="color: #800000;">二阶相似性里，利用向量内积表达节点同时出现的可能性，是否合理？</span></li>
+<li><span style="color: #800000;">语言模型里，$p(\text{context}|x)$是如何用词向量表达的？</span></li>
+<li><span style="color: #800000;">语言模型训练的简化方法：Negative Sampling究竟是如何工作的。</span></li>
+</ol>
+<p>　　</p>
+<hr />
+<p>&nbsp;</p>
+<h2>3. 模型优化</h2>
+<h3>　　3.1 负采样公式及其粗浅理解</h3>
+<p>　　优化公式（6）计算量太大。原因是计算条件概率$p_2(\cdot | v_i)$时，分母要对所有的节点进行运算求和。这里我们采用的nagative sampling. 对每一条边$(i,j)$根据某种噪声分布采样几个nagative edges。更特殊地，对每一条边，它用了下面的目标函数：</p>
+<p>　　$$ \mathrm{log} \, \sigma (\vec u_j'^T \cdot \vec u_i) + \sum_{i=1}^{K} E_{v_n \thicksim P_n(v)}[\mathrm{log} \, \sigma(-\vec u_n'^T \cdot \vec u_i)]&nbsp; \qquad\qquad (7)$$</p>
+<p>　　这个目标函数，$\sigma（x） = \frac{1}{1+e^{-x}}$ 是sigmoid函数。<br />　　&lsquo;$+$&rsquo; 号前部分$ \mathrm{log} \, \sigma (\vec u_j'^T \cdot \vec u_i)$是节点$(i,j)$的向量之间的计算，文章中称是建模了观察到的边。<br />　　&lsquo;$+$&rsquo; 号后部分$\sum_{i=1}^{K} E_{v_n \thicksim P_n(v)}[\mathrm{log} \, \sigma(-\vec u_n'^T \cdot \vec u_i)]$是采样一部分节点，文章中称是从噪声分布中采样得到的负样本的边。其中，$K$是负样本边的个数。这里有个节点$v$ ,记节点$v$的出度为$d_v$，有$P_n(v) \varpropto d_v^{\frac{3}{4}}$.<br />　　【按】</p>
+<ul>
+<li>在word2vec中，负样本是给定一个词$w$，生成$NEG(w) $，$NEG(w) $是未与词$w$搭配的词$\tilde {w}$的集合，再采样后构成的集合。</li>
+<li>这里的负样本是什么？是对于节点$v_i$，未与之产生边的节点集合(即未成为节点$v_i$的context)，的采样集$NEG\{ (i,j)\} $&mdash;&mdash;负样本节点集。</li>
+<li>文章说，$K$是负样本边的个数（$K$ is the number of negative edges）。什么叫negative edges，我认为是$v_i$与本与之没有边的节点$v_n$之间的假想边，就像无法成对出现的$w$与$\tilde {w} $单词对一样。</li>
+<li>这里本质上是要训练一个二分类器，既然是二分类器，就要有正样本和负样本用于训练模型。</li>
+<li>一个节点在语言模型中相当于一个词$w$，而语言模型中，一个词$w$会在语料$\mathcal{C}$中出现多次。对应网络中，可假设一个节点被多条边占用，故在边集$E$中，节点$v$可出现多次。因此，一个节点的出度$d_v$对应了一个词$w$的频度，在word2vec模型中，记作$\mathrm{counter}(w)$。所以在此，有$P_n(v) \varpropto d_v^{\frac{3}{4}}$。</li>
+<li>公式7中，$E_{v_n \thicksim P_n(v)}$，目前理解，就是负采样后得到的负样本边集。由于$(-\vec u_n'^T \cdot \vec u_i)$的括号里有个负号，故整个优化是最大化正样本概率。</li>
+<li>相当于公式$(7)$的第一项是考虑的正例的概率，第二项考虑的负例的概率，让正例的概率足够大而负例的概率足够小，即是公式$(7)$的优化目标。</li>
+<li>此处还是基于一个假设，即，$ \mathrm{log} \, \sigma (\vec u_j'^T \cdot \vec u_i)$用以表达节点$i$和节点$j$之间的的联系。类似词$w_i$的上下文是$w_j$. <span style="color: #800000;">这里是否值得推敲？</span></li>
+</ul>
+<h3>　　3.2 目标函数$O_1$的优化</h3>
+<p>　　对于目标函数(3)，</p>
+<p>　　　　$$ O_1 = -\sum_{(i,j)\in E} w_{ij} \mathrm{log} \frac{1}{1+\mathrm{exp}(-\vec u_i^T \cdot \vec u_j)}$$</p>
+<p>　　有个不重要的解(trivial solution)：$u_{ik} = \infty $, for $i=1,2,...,|V|$ and $k=1,2,...,d$.为了避免这种情况，我们将公式（7）中的$\vec u_j'^T $ 替换成 $\vec u_j^T$即可。</p>
+<h3>　　3.3 目标函数公式（7）的优化</h3>
+<p>　　对于公式（7），使用ASGD(asynchronous stochastic gradient)，<strong>异步随机梯度</strong>算法进行优化，在每一步，ASGD算法采样一个小批量边，然后更新模型的参数。</p>
+<p>　　如果一条边$(i,j)$被采样到，关于节点$v_i$的嵌入向量$\vec u_i$的梯度，将按照下式计算：</p>
+<p>　　　　$$ \frac{\partial O_2}{\partial \vec u_i} = w_{ij} \cdot \frac {\partial \, \mathrm{log} \, p_2(v_j|v_i)}{\partial \vec u_i} \qquad\qquad (8)$$</p>
+<p>&nbsp;　　注意边的权重$w_{ij}$要乘进去。但当$w_{ij}$方差比较大时，这里就会有问题。例如，在一个单词occurrence网络里，有的单词对出现几万次，但有的只出现几次。这种网络里，梯度的scales 偏离，而且很难选择一个合适的学习率。如果我们按照小权重边选择了大的学习率，大权重边上的梯度就会爆炸；如果我们为大的权重边选择了小的学习率，又会遇到收敛太慢的问题。</p>
+<h3>　　3.4 边采样EdgeSampling</h3>
+<p>　　为了解决上述问题，可以将有权边缘展开为多个无权边，例如，具有权重$w$的边展开为$w$个无权边。但是展开后，会显著增加内存需求。解决方案为：现在网络中，对边进行采样，采样的概率与边的权重成正比；再将采样后的边展开成无权边。这样就可以找到合适的学习率，并且不需要修改目标函数。那么，如何根据权重在网络中对边进行采样呢？LINE采用了<a href="https://link.jianshu.com?t=http://blog.csdn.net/haolexiao/article/details/65157026" rel="nofollow" target="_blank">别名抽样法</a>。<br />　　令$W=(w_1,w_2,...,w_{|E|},)$是边权重序列。$ w_{sum} = \sum_{i=1}^{|E| w_i}， 在区间$[0,w_{sum}]$中等概率随机取一个数，这个数落在一个区间$[\sum_{j=0}^{i}w_j,\sum_{j=0}^{i}w_j]$中，此时的$i$就是采样到的边编号，从而取$w_i$作为样本。然后文章讨论了计算时间复杂度，这里不作重点。引用一段：</p>
+<blockquote>
+<div>
+<div>通过别名抽样法采样一个边需要的时间为$O(1)$；负采样的优化需要$O[d(K + 1)]$时间，其中$K$是负样本的数量。因此，总体上每个步骤需要$O(dK)$时间。在实践中，发现用于优化的步数通常与边$O(| E |)$成正比。因此，LINE的整体时间复杂度为$O(dK | E |)$，它与边数$| E |$成线性关系，并且不依赖于顶点数$| V |$。</div>
+<p><br />作者：玛卡瑞纳_a63b<br />链接：https://www.jianshu.com/p/8bb4cd0df840<br />來源：简书</div></p>
+</blockquote>
+<p>&nbsp;　　</p>
+<h2>4. 一些问题的讨论</h2>
+<p>　　在LINE模型里还有些实操的问题，如：</p>
+<div>
+<div><strong>　　度数很低的顶点如何处理？</strong><br />
+&emsp;&emsp;这样的节点的邻居数量非常少，所以很难精确地推断它的表示，特别是基于二阶相似度的方法(很依赖context)。解决方案是通过添加更高阶的邻居扩展这些顶点的邻居，例如将节点邻居的邻居作为节点的邻居。LINE中只考虑向每个顶点添加二阶邻居，即邻居的邻居。顶点$i$与其二阶邻居$j$之间的权重被测量为：</div>
+<div>　　　　$$w_{ij} = \sum_{k\in{N(i)}}&nbsp; w_{ik} \frac{w_{kj}}{d_k}&nbsp; \qquad\qquad (9)$$</div>
+<div>　　在实验中，只将含有最大相似度$w_ij$的集合${j}$的子集添加到节点i的邻居中。（only add a subset of vertices ${j}$ which <strong>have</strong> the largest proximity $w_ij$ with the low degree.）</div>
+<div>　　这句话有点模糊。</div>
+<div>　　</div>
+<p>　　<strong>新加入的顶点如何处理？</strong></div></p>
+<p>　　1.新加入节点$i$与已有节点的连接已知的情况：可以在已有的节点基础上，得到经验分布$\hat p_1(\cdot|v_i)$和$\hat p_2(\cdot | v_i)$,然后可以根据目标函数（3）或目标函数（6），通过最小化下面的任一目标函数得到新节点的向量表示（已有节点的向量表示保持不变）<br />&nbsp;　　$$-\sum_{j\in N(i)} w_{ji} \mathrm{log} \, p_1 (v_j, v_i) = -\sum_{j\in N(i)} w_{ji} \mathrm{log} \frac{1}{1+\mathrm{exp}(-\vec u_j^T \cdot \vec u_i )}$$<br />&nbsp;　　或：<br />&nbsp;　　$$-\sum_{j\in N(i)} w_{ji} \mathrm{log} \, p_2 (v_j | v_i) = -\sum_{j\in N(i)} w_{ji} \mathrm{log} \,\frac{\mathrm{exp}(\vec u_j'^T \cdot \vec u_i )}{\sum_{k=1}^{|V|} \mathrm {exp} (\vec u_k'^T \cdot \vec u_i )}$$</p>
+<p>　　2. 新加入节点i与已有节点的连接未知的情况：需要根据新节点的其他信息，如新节点的文本信息，LINE中没有实现。"Leave as our future work."</p>
+<p>　　</p>
+<h2>5. 实验设计</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 参考简书上的总结(https://www.jianshu.com/p/8bb4cd0df840)[https://www.jianshu.com/p/8bb4cd0df840]即可。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 【我想说的是】：实验分析里有很多干货，值得细细研读。</p>
+<p>&nbsp;</p>
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2018-04-10 09:42 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share LINE 论文笔记 - 【结硬寨，打呆仗】 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20180410094200%2f&title=LINE%20%e8%ae%ba%e6%96%87%e7%ac%94%e8%ae%b0%20-%20%e3%80%90%e7%bb%93%e7%a1%ac%e5%af%a8%ef%bc%8c%e6%89%93%e5%91%86%e4%bb%97%e3%80%91">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share LINE 论文笔记 - 【结硬寨，打呆仗】 on twitter"
+          href="https://twitter.com/intent/tweet/?text=LINE%20%e8%ae%ba%e6%96%87%e7%ac%94%e8%ae%b0%20-%20%e3%80%90%e7%bb%93%e7%a1%ac%e5%af%a8%ef%bc%8c%e6%89%93%e5%91%86%e4%bb%97%e3%80%91&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20180410094200%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share LINE 论文笔记 - 【结硬寨，打呆仗】 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20180410094200%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

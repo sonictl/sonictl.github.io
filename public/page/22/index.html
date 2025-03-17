@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161019180458/" title="ubuntu解决resolv.conf被重写问题">ubuntu解决resolv.conf被重写问题</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ubuntu解决resolvconf被重写问题">ubuntu解决resolv.conf被重写问题</h1>
+<h3 id="解决resolvconf被重写问题">解决resolv.conf被重写问题</h3>
+<p>来源：<a href="http://www.cnblogs.com/lanxuezaipiao/p/3613497.html">http://www.cnblogs.com/lanxuezaipiao/p/3613497.html</a></p>
+<p>第二步中你虽然配置了DNS，但是每次重启虚拟机或重启网络后/etc/resolv.conf文件就会被重写，也就是又恢复原样了，你以前的配置就不存在了，每次都要手动配置是极不可取的，所以这步是必须的，首先我们要搞清楚resolv.conf被重写的原因和机制，这在不同<a href="https://so.csdn.net/so/search?q=Ubuntu&amp;spm=1001.2101.3001.7020">Ubuntu</a>版本下有所差异。那怎么知道呢？一般resolv.conf文件一开头就告诉你了。</p>
+<p>解决该问题其实有两种办法，不怕麻烦的想理解原理的请参照方法一（与版本有关），怕麻烦的不想折腾的自觉转到方法二（与版本无关）。</p>
+<h4 id="方法一与版本有关">方法一：与版本有关</h4>
+<p><strong>a）Ubuntu 12.10</strong></p>
+<p>打开/etc/resolv.conf后可看到开头的一句话：</p>
+<pre tabindex="0"><code># Generated by NetworkManager
+</code></pre><p>说明resolv.conf这个文件是由NetworkManager这个程序生成的（对应的是network-manager服务），那么解决办法也就来了：我们关掉network-manager即可，命令如下：</p>
+<pre tabindex="0"><code>sudo service network-manager stop 
+或者
+sudo /etc/init.d/network-manager stop
+</code></pre><p>但是这种方法不是一劳永逸的，因为每次重启系统后还是会自动启动这个服务，因此我们需要完全禁止network-manager启动即可。</p>
+<p>编辑network manager的配置文件/etc/init/network-manager.conf：</p>
+<pre tabindex="0"><code>sudo vi /etc/init/network-manager.conf
+</code></pre><p>注释掉其中的start on部分即可：</p>
+<p><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></p>
+<pre tabindex="0"><code># network-manager - network connection manager
+#
+# The Network Manager daemon manages the system&#39;s network connections,
+# automatically switching between the best available.
+
+description     &#34;network connection manager&#34;
+
+#start on (local-filesystems
+#         and started dbus
+#         and static-network-up)
+stop on stopping dbus
+
+expect fork
+respawn
+
+script
+        # set $LANG so that messages appearing on the GUI will be translated. See LP: 875017
+        if [ -r /etc/default/locale ]; then
+                . /etc/default/locale
+                export LANG LANGUAGE LC_MESSAGES LC_ALL
+        fi
+</code></pre><p><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161019180458/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-10-19T18:04:58&#43;0800" class="date">October 19, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161012140552/" title="ROS_Stack">ROS_Stack</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros_stack">ROS_Stack</h1>
+<pre tabindex="0"><code>rostopic pub my_topic std_msgs/String &#34;hello there&#34;
+*** Multi_line_pub ***
+$ rostopic pub /send_BTSVR std_msgs/String &#34;data: &#39;\
+first line
+
+second line
+
+third line
+&#39;&#34;
+
+=== 【创建ROS Package (catkin) 】=== 
+1. 确认你的catkin Workspace：~/catkin_ws/
+
+2. $ cd ~/catkin_ws/src
+
+3. 创建package （http://wiki.ros.org/ROS/Tutorials/catkin/CreatingPackage）
+   catkin_create_pkg &lt;package_name&gt; [depend1] [depend2] [depend3] ... [dependn]
+   e.g.: 
+   catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
+
+4. 编译catkin Workspace:
+   cd ~/catkin_ws
+   catkin_make
+
+5. Source the generated setup file:
+   $ . ~/catkin_ws/devel/setup.bash
+
+6. 可用工具：
+   rospack
+   roscd &lt;package_name&gt;
+   
+7. Customize Your Packages:
+   http://wiki.ros.org/ROS/Tutorials/CreatingPackage#ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreatingPackage.Customizing_Your_Package
+
+8. the binary file generated after your building your catking project is in this path:
+   /home/exbot/catkin_ws/devel/lib/{your pkg_name}
+=== 【Eclipse Project 生成步骤：】 ====
+Generate the Eclipse Files for dev. in Eclipse IDE
+    $ cd ~/catkin_ws    //这实际上是Workspace的路径，catkin_ws = catkin workspace
+    $ catkin_make --force-cmake -G&#34;Eclipse CDT4 - Unix Makefiles&#34;
+    $ . ~/catkin_ws/devel/setup.bash
+to generate the .project file and then run:
+    $ awk -f $(rospack find mk)/eclipse.awk build/.project &gt; build/.project_with_env &amp;&amp; mv build/.project_with_env build/.project
+在Eclipse里创建cpp源文件：
+   Project@Build -&gt; [Source directory] -&gt; robot_cleaner -&gt;src -&gt;单击鼠标右键-&gt; new -&gt;file -&gt;File name:robot_cleaner.cpp
+   此时刷新Eclipse里的Project Explorer，可以看到“robot_cleaner”这个项目。
+  【问题】： 为何要在Terminal里建立Package再生成Eclipse File，不能直接在Eclipse里创建Package么？怎么创建？
+
+=== 【Ubuntu 挂载共享文件夹命令：】 ===
+sudo mount -t vboxsf shareforvbox /mnt/share
+sudo mount -? /dev/sda1 /mnt/udisk
+
+=== 【ROS Stack Package等各元件结构:】 ====
+[Stack]
+   	[Package1]
+    	    	[Nodes]
+    	    	[Messages]
+    	    	[Services]
+    	    	[Libraries]
+    	    	[Tools]
+		package.xml
+		CMakeLists.txt
+		
+    	[/Package1]
+
+   	[Package2]
+    	    	[Nodes]
+    	    	[Messages]
+    	    	[Services]
+    	    	[Libraries]
+    	    	[Tools]
+    	[/Package2]
+[/Stack]![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161012140552/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-10-12T14:05:52&#43;0800" class="date">October 12, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160907164006/" title="Linux调整磁盘分区大小">Linux调整磁盘分区大小</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="linux调整磁盘分区大小">Linux调整磁盘分区大小</h1>
+<h3 id="resize-the-disk-linux调整磁盘分区大小">Resize the disk （<a href="https://so.csdn.net/so/search?q=Linux&amp;spm=1001.2101.3001.7020">Linux</a>调整磁盘分区大小）</h3>
+<p>Resize the partition. Run parted: <code>$ parted</code></p>
+<p>Show the partition list: <code>(parted) print</code></p>
+<p>There should be two partitions; 1 should be a boot partition, about 64MB; the second should be the main partition, about 3.6G</p>
+<p>Some Disk Commands of Linux, that you should know：</p>
+<ul>
+<li>sudo df -h          Display the FileSystem that you mounted</li>
+<li>sudo fdisk -l    Show your disk information that is unmounted or un-parted</li>
+</ul>
+<p>Sonictl: Here I didn&rsquo;t see two partitions by print command. but fdisk -l showed me that.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160907164006/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-09-07T16:40:06&#43;0800" class="date">September 07, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160907062506/" title="Fixed- Failed to create VirtualBox COM object REGDB_E_CLASSNOTREG (0x80040154)">Fixed- Failed to create VirtualBox COM object REGDB_E_CLASSNOTREG (0x80040154)</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="fixed--failed-to-create-virtualbox-com-object-regdb_e_classnotreg-0x80040154">Fixed- Failed to create VirtualBox COM object REGDB_E_CLASSNOTREG (0x80040154)</h1>
+<h2 id="fix-failed-to-create-virtualbox-com-object-regdb_e_classnotreg-0x80040154">Fix: Failed to create VirtualBox COM object REGDB_E_CLASSNOTREG (0x80040154)</h2>
+<p><a href="http://www.kirtrainford.co.uk/fix-failed-create-virtualbox-com-object-regdb_e_classnotreg-0x80040154/" title="Permalink to Fix: Failed to create VirtualBox COM object REGDB_E_CLASSNOTREG (0x80040154)">January 16, 2014</a>
+<a href="http://www.kirtrainford.co.uk/category/random-posts/">Blog</a>
+<a href="http://www.kirtrainford.co.uk/tag/0x80040154/">0x80040154</a>,  <a href="http://www.kirtrainford.co.uk/tag/com-object/">com object</a>,  <a href="http://www.kirtrainford.co.uk/tag/failed-to-create/">failed to create</a>,  <a href="http://www.kirtrainford.co.uk/tag/virtualbox/">virtualbox</a>
+<a href="http://www.kirtrainford.co.uk/author/admin/" title="View all posts by Kirt">Kirt</a></p>
+<p>When opening Oracle VM one day, you stumble upon this message (note the error code 0x80040154):</p>
+<blockquote>
+<p>Failed to create the VirtualBox COM object.  The application will now terminate. Callee RC: REGDB_E_CLASSNOTREG (0x80040154)</p>
+<p>virtualbox创建COM对象失败，程序终止。召唤者 RC: REGDB_E_CLASSNOTREG (0x80040154) 。 【解决】</p></blockquote>
+<p>The Virtual Machine service isn’t running. A reinstall would probably work but there is an simpler fix:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160907062506/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-09-07T06:25:06&#43;0800" class="date">September 07, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160905173715/" title="ROS进二阶学习笔记（1） TF 学习笔记3 -- TF Listener 编写 （Python）and Adding frame(Python)">ROS进二阶学习笔记（1） TF 学习笔记3 -- TF Listener 编写 （Python）and Adding frame(Python)</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记1-tf-学习笔记3--tf-listener-编写-pythonand-adding-framepython">ROS进二阶学习笔记（1） TF 学习笔记3 &ndash; TF Listener 编写 （Python）and Adding frame(Python)</h1>
+<h2 id="ros进二阶学习笔记1-tf-学习笔记3--tf-listener-编写-python">ROS进二阶学习笔记（1） TF 学习笔记3 &ndash; TF Listener 编写 （Python）</h2>
+<p>Ref: <a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28Python%29">http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28Python%29</a></p>
+<p>In the previous tutorials we created a tf broadcaster to publish the pose of a turtle to tf. In this tutorial we&rsquo;ll create a tf listener to start using tf. and use tf to get access to <a href="https://so.csdn.net/so/search?q=frame&amp;spm=1001.2101.3001.7020">frame</a> transformations.<br>
+还是要请先读了Ref 再来这里sonictl@csdn看总结：</p>
+<ul>
+<li>这个listen的程序做了3件事情：</li>
+<li>
+<ol>
+<li>放个 turtle2乌龟到舞台上去，用的turtlesim/Spawn服务；</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>用tf.TransformListener类下的lookupTransform方法，查询turtle2 相对于 turtle1 的位置。</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>用查到的相对位置来发布cmd速度和角速度信息，引导 turtle2 运动</li>
+</ol>
+</li>
+</ul>
+<h3 id="看看代码">看看代码</h3>
+<p>我小改了下代码： (path: nodes/learning_tf_listener.py )</p>
+<pre tabindex="0"><code>1. #!/usr/bin/env python
+2. import roslib
+3. roslib.load_manifest(&#39;learning_tf&#39;)
+4. import rospy
+5. import math
+6. import tf
+7. import geometry_msgs.msg
+8. import turtlesim.srv
+9. 
+10. if __name__ == &#39;__main__&#39;:
+11. rospy.init_node(&#39;tf_turtle&#39;)
+12. 
+13. #next three lines: Create another turtle onto the stage
+14. rospy.wait_for_service(&#39;spawn&#39;)
+15. spawner = rospy.ServiceProxy(&#39;spawn&#39;, turtlesim.srv.Spawn)
+16. #turtlesim has a service named: Spawn
+17. spawner(4, 4, 0, &#39;turtle2&#39;)  #(x,y,theta,name)
+18. 
+19. #Publisher for the turtle2&#39;s movement
+20. turtle_vel = rospy.Publisher(&#39;turtle2/cmd_vel&#39;, geometry_msgs.msg.Twist,queue_size=1)
+21. 
+22. listener = tf.TransformListener() #tf transforListener
+23. 
+24. rate = rospy.Rate(10.0)
+25. while not rospy.is_shutdown():
+26. #All this is wrapped in a try-except block to catch possible exceptions:
+27. try:
+28. (trans,rot) = listener.lookupTransform(&#39;/turtle2&#39;, &#39;/turtle1&#39;, rospy.Time(0))
+29. except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+30. continue
+31. 
+32. angular = 4 * math.atan2(trans[1], trans[0])
+33. linear = 0.5 * math.sqrt(trans[0] ** 2 + trans[1] ** 2)
+34. cmd = geometry_msgs.msg.Twist() #declare an Twist object
+35. cmd.linear.x = linear
+36. cmd.angular.z = angular
+37. turtle_vel.publish(cmd)  # publish the cmd out
+38. 
+39. rate.sleep()
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><h3 id="总结一下">总结一下：</h3>
+<p>    tf要解决的问题是: 当 A相对B的tf - A_B , C相对B的tf - C_B都已经被发布到 tf 上时，如何查询 A_C or C_A 的tf的问题。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160905173715/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-09-05T17:37:15&#43;0800" class="date">September 05, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160812164217/" title="ROS进二阶学习笔记（1） TF 学习笔记2- -- TF Broadcaster 编写 （Python）">ROS进二阶学习笔记（1） TF 学习笔记2- -- TF Broadcaster 编写 （Python）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记1-tf-学习笔记2---tf-broadcaster-编写-python">ROS进二阶学习笔记（1） TF 学习笔记2- &ndash; TF Broadcaster 编写 （Python）</h1>
+<h2 id="ros进二阶学习笔记1-tf-学习笔记2--tf-broadcaster">ROS进二阶学习笔记（1） TF 学习笔记2 &ndash; TF Broadcaster</h2>
+<p>Ref:  <a href="http://wiki.ros.org/tf/Tutorials#Learning_tf">http://wiki.ros.org/tf/Tutorials#Learning_tf</a></p>
+<blockquote>
+<blockquote>
+<p>Ref:  <a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20broadcaster%20%28Python%29">Writing a tf broadcaster (Python)</a></p></blockquote></blockquote>
+<p>This tutorial teaches you how to broadcast the state of a robot to tf.</p>
+<p>Ref内的东西请读者自行研读，这里要做点总结：</p>
+<ol>
+<li>/tf topic上 是有一个发布器broadcaster 发布 /tf 消息才能被 /tf 的 listener 收听到。</li>
+<li>/tf 的发布器类：python: tf.TransformBroadcaster 所以我们要理解它里面的方法： sendTransform(translation, rotation, time, child, parent)</li>
+</ol>
+<h3 id="1-先看看tf-broadcaster的示例代码">1. 先看看tf broadcaster的示例代码：</h3>
+<pre tabindex="0"><code>1. #!/usr/bin/env python
+2. import roslib
+3. roslib.load_manifest(&#39;learning_tf&#39;)
+4. import rospy
+5. 
+6. import tf
+7. import turtlesim.msg
+8. 
+9. def handle_turtle_pose(msg, turtlename):
+10. br = tf.TransformBroadcaster()
+11. br.sendTransform((msg.x, msg.y, 0), #the translation of the transformtion as a tuple (x, y, z)
+12. tf.transformations.quaternion_from_euler(0, 0, msg.theta),
+13. #the rotation of the transformation as a tuple (x, y, z, w)
+14. rospy.Time.now(), #the time of the transformation, as a rospy.Time()
+15. turtlename, #child frame in tf, string
+16. &#34;world&#34;) #parent frame in tf, string
+17. 
+18. if __name__ == &#39;__main__&#39;:
+19. rospy.init_node(&#39;turtle_tf_broadcaster&#39;)
+20. turtlename = rospy.get_param(&#39;~turtle&#39;)
+21. #takes parameter &#34;turtle&#34;, which specifies a turtle name, e.g. &#34;turtle1&#34; or &#34;turtle2&#34;
+22. rospy.Subscriber(&#39;/%s/pose&#39; % turtlename, # subscribe to turtlename&#39;s /pose topic
+23. turtlesim.msg.Pose,      # Pose message data structure
+24. handle_turtle_pose,      # callback function,
+25. turtlename)              # argument for callback function
+26. rospy.spin()
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><h4 id="上面代码的框架就是">上面代码的框架就是：</h4>
+<ol>
+<li>通过参数知道turtle是1号还是2号，比如： turtle1。 赋值给turtlename变量</li>
+<li>收听 turtle1/pose主题，上面是turtle1的位姿数据。</li>
+<li>收听到主题上有message就调用 handle_turtle_pose这个函数。后面跟了一个turtlename参数，正好对应def handle_turtle_pose()函数定义时的第2个参数：turtlename</li>
+</ol>
+<h4 id="补充一点">补充一点：</h4>
+<p>这里要补充一点python回调函数调用时，传参的知识：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160812164217/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-08-12T16:42:17&#43;0800" class="date">August 12, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160811155116/" title="ROS进二阶学习笔记（1） TF 学习笔记1-TF介绍 &#43; tf工具">ROS进二阶学习笔记（1） TF 学习笔记1-TF介绍 &#43; tf工具</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记1-tf-学习笔记1-tf介绍--tf工具">ROS进二阶学习笔记（1） TF 学习笔记1-TF介绍 + tf工具</h1>
+<h2 id="ros进二阶学习笔记1-tf-学习笔记1--tf介绍--tf工具">ROS进二阶学习笔记（1） TF 学习笔记1: &ndash; TF介绍 + tf工具</h2>
+<p>Ref:  <a href="http://wiki.ros.org/tf/Tutorials#Learning_tf">http://wiki.ros.org/tf/Tutorials#Learning_tf</a></p>
+<blockquote>
+<blockquote>
+<p>Ref:  <a href="http://wiki.ros.org/tf/Tutorials/Introduction%20to%20tf">http://wiki.ros.org/tf/Tutorials/Introduction%20to%20tf</a></p></blockquote></blockquote>
+<p>惭愧的是，时隔10个月，重新来学习tf的东西。</p>
+<h3 id="1-running-the-demo">1. Running the Demo</h3>
+<p>Now that we&rsquo;re done getting the turtle_tf tutorial package, let&rsquo;s run the demo.</p>
+<pre tabindex="0"><code>$ roslaunch turtle_tf turtle_tf_demo.launch
+</code></pre><p>Once the turtlesim is started you can drive the center turtle around in the turtlesim using the keyboard arrow keys,
+<strong>select the roslaunch terminal window</strong> so that your keystrokes will be captured to drive the turtle.
+关于这个demo，解释一下：</p>
+<ul>
+<li>
+<p>demo 用了tf library</p>
+</li>
+<li>
+<p>建立了3个frame: a world frame, a turtle1 frame, and a turtle2 frame</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160811155116/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-08-11T15:51:16&#43;0800" class="date">August 11, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160730214608/" title="在 Win7-Win8下使用 VirtualBOX虚拟机安装 OS X 10.11 El Capitan 及 Xcode 7.0">在 Win7-Win8下使用 VirtualBOX虚拟机安装 OS X 10.11 El Capitan 及 Xcode 7.0</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="在-win7-win8下使用-virtualbox虚拟机安装-os-x-1011-el-capitan-及-xcode-70">在 Win7-Win8下使用 VirtualBOX虚拟机安装 OS X 10.11 El Capitan 及 Xcode 7.0</h1>
+<h2 id="在-win-7或8-下使用-virtualbox-虚拟机安装-os-x-1011-el-capitan-及-xcode-70">在 Win 7或8 下使用 VirtualBOX 虚拟机安装 OS X 10.11 El Capitan 及 <a href="https://so.csdn.net/so/search?q=Xcode&amp;spm=1001.2101.3001.7020">Xcode</a> 7.0</h2>
+<p>来源：<a href="http://bbs.feng.com/read-htm-tid-9908410.html">http://bbs.feng.com/read-htm-tid-9908410.html</a>   ( OS X and Xcode 7.0 请参考本链接)<br>
+<a href="http://www.wikigain.com/install-mac-os-x-el-capitan-virtualbox/">http://www.wikigain.com/install-mac-os-x-el-capitan-virtualbox/</a> (泪推！！还是要信Google，得永生啊！！<img src="http://static.blog.csdn.net/xheditor/xheditor_emot/default/crazy.gif" alt="抓狂">！)</p>
+<p><a href="https://xuanwo.org/2015/08/09/vmware-mac-os-x-intro/">https://xuanwo.org/2015/08/09/vmware-mac-os-x-intro/</a>  （参考其“<em>提示VBoxManage不是可执行的命令</em>” 部分，及自行搜索：CMD切换操作目录命令）</p>
+<h2></h2>
+<h2 id="建议电脑要求">建议电脑要求</h2>
+<p>    Windows 7或8或8.1, 32或64 bit，在 Win10 下需要使用 Win 8 相容模式启动 VirtualBOX<br>
+    CPU Intel Core i5 / i7，要有VT-x硬件加速<br>
+    内存 4GB 以上<br>
+    硬盘 500GB 以上，NTFS 格式</p>
+<p>由于虚拟机不支持Apple Quartz Extreme/Core Image，需要 Quartz Extreme 的应用软件例如 iBooks Author，Pixelmator，SketchBook 等不能在虚拟机下使用。</p>
+<p>虚拟硬盘文件种子下载: <img src="http://bbs.feng.com/static/image/filetype/torrent.gif" alt="">OS X 10.11 El Capitan GM Candidate.torrent*(17.27 KB, 下载次数: 9218)*  <br>
+      或 网盘下载<img src="http://images.weiphone.net/data/attachment/forum/201510/02/121705yce2zfooq9uoqe5a.gif" alt="">(虚拟硬盘文件+下面安装步骤的截图) 链接:<a href="http://pan.baidu.com/s/1jGERDqQ">http://pan.baidu.com/s/1jGERDqQ</a> 密码: hxjm<br>
+VirtualBox 4.3.18 下载:  <a href="http://pan.baidu.com/s/1kTiv0wf">http://pan.baidu.com/s/1kTiv0wf</a><br>
+      或  <a href="http://www.virtualbox.org/wiki/Download_Old_Builds_4_3_pre24">http://www.virtualbox.org/</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160730214608/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-07-30T21:46:08&#43;0800" class="date">July 30, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160725164305/" title="Using Win7 to control the Lubuntu via VNC">Using Win7 to control the Lubuntu via VNC</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="using-win7-to-control-the-lubuntu-via-vnc">Using Win7 to control the Lubuntu via VNC</h1>
+<p>有时候在嵌入式计算机没有显示器键鼠供其使用，但又需要通过Terminal或者图形界面对它进行操作，可通过远程连接软件进行。比如vnc</p>
+<h2 id="using-win7-to-control-the-lubuntu-via-vnc-1">Using Win7 to control the Lubuntu via <a href="https://so.csdn.net/so/search?q=VNC&amp;spm=1001.2101.3001.7020">VNC</a></h2>
+<h3 id="-lubuntu-vnc-server-installation-">===== Lubuntu VNC Server installation =====</h3>
+<h4 id="1-install-tools-tightvncserver-autocutsel">1. install tools: tightvncserver autocutsel</h4>
+<pre tabindex="0"><code>sudo apt-get install tightvncserver autocutsel
+</code></pre><p>#tightvncserver is vnc server application</p>
+<p>#autocutsel is for getting bidirectional clipboard sharing</p>
+<h4 id="2-setup-password-to-access-desktops-orangepi">2. setup password to access desktops: orangepi</h4>
+<h4 id="3-run-the-server-once-and-kill-it">3. Run the server once and kill it:</h4>
+<p>   Commands:</p>
+<pre tabindex="0"><code>   $ tightvncserver :1
+   $ tightvncserver -kill :1
+</code></pre><h4 id="4-modify-the-vncxstartup-file">4. modify the ~/.vnc/xstartup file:</h4>
+<p>   commands:</p>
+<pre tabindex="0"><code>   $ vim ~/.vnc/xstartup
+</code></pre><p>   file content:</p>
+<pre tabindex="0"><code>#!/bin/sh
+
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+#x-terminal-emulator -geometry 80x24+10+10 -ls -title &#34;$VNCDESKTOP Desktop&#34; &amp;
+#x-window-manager &amp;
+# Fix to make GNOME work
+export XKL_XMODMAP_DISABLE=1
+/etc/X11/Xsession
+</code></pre><p>change the above into:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160725164305/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-07-25T16:43:05&#43;0800" class="date">July 25, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160715101105/" title="Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程">Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="controlling-a-roomba-with-an-arduino---arduino串口控制roomba教程">Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程</h1>
+<h2 id="controlling-a-roomba-with-an-arduino"><a href="http://www.netfluvia.org/layer8/?p=127" title="Controlling A Roomba with an Arduino">Controlling A Roomba with an Arduino</a></h2>
+<p> <a href="http://www.netfluvia.org/layer8/?cat=18">arduino</a>,<a href="http://www.netfluvia.org/layer8/?cat=6">tech</a>
+ <a href="http://www.netfluvia.org/layer8/?p=127#respond">Add comments</a></p>
+<p>Jun
+10
+2009</p>
+<p> 串口控制roomba， roomba编程
+I set out this weekend to get an  <a href="http://arduino.cc">Arduino</a> board to control my  <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=6&amp;url=http%3A%2F%2Fstore.irobot.com%2Fproduct%2Findex.jsp%3FproductId%3D2804960&amp;ei=qOktSo7dAovcMdnwnPMJ&amp;usg=AFQjCNG5t0mKPd2nPNkiSCAvSbLoTWhgdw&amp;sig2=nDxK4_jvNA4Av37PlU5p2g">Roomba</a>.  (The Roomba has a great – and generally open – interface, and  <a href="http://irobot.com/">iRobot</a> deserves significant credit for encouraging creative repurposing/extensions of their products.)  I’ve got a few project ideas in mind, but for an initial step just wanted to verify that the <a href="https://so.csdn.net/so/search?q=Arduino&amp;spm=1001.2101.3001.7020">Arduino</a> could a) send control commands (“move forward”, “turn right”, etc.) from the Arduino, and b) read sensor data (“something is touching my left bumper”, “I’m about to fall down the stairs”).  This post contains my notes, which hopefully will help others doing this sort through some of the issues in a bit less time than that I spent. </p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160715101105/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-07-15T10:11:05&#43;0800" class="date">July 15, 2016</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/21/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/21/">21</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/22/">22</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/23/">23</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/23/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

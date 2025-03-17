@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处
+产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处
+原文链接：
+http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd
+原创
+2015-04-14 馨苑
+36氪
+36氪
+36氪
+
+微信号  wow36kr
+功能介绍  36氪(36Kr.com)是中国领先的科技新媒体，我们报道最新的互联网科技新闻以及最有潜力的互联网创业企业。
+
+36氪微信号：wow36kr
+这是 NEXT 「产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处」线下活动的笔记。主讲者张元一，产品原型工具墨刀的创始人，见证了 Web 开发从 99 年 HTML4.0 到去年 12 月 HTML5 最终定稿这之间整个 Web 开发变迁史的 15 年「码龄」全栈工程师。
+NEXT 本次活动收到了近 1000 多个报名，大家对周日线上和线下的互动学习反馈也不错。因此我们将笔记分享出来，希望让更多产品人、创业者够快速了解基本技术知识，更好地把握产品周期与项目进度。当然，你也可以观看网聚直播提供的视频回放：http://wangju.tv/live/3k562amaskvzg 。
+概览
+以下这张图就是元一分享的干货内容，它基本涵盖了一个初级码农需要知道的所有基础入门知识。但这张图的目的并非用来吓人，这其中的所有技术名词，将以最通俗易懂的方式串联起来—— 即我们上网时的慢动作解析：打开一个网页或 App，这背后都运用了那些技术来让这个网页和 App 的内容呈现在浏览器和手机上；驱动这些动作背后的技术名词都是什么，各自有着怎样的优缺点，彼此间是如何协作和运转的，以及怎样合理地评估技术能力和开发难度。当然，元一也推荐了丰富的学习资料。
+这中间涉及的技术知识，前端包括 HTML，CSS，JavaScript，jQuery 以及 Bootstrap ；后端包括 HTTP 服务器，后端编程语言，数据库以及 Cookie 和 Session；移动开发分为原生，混合式，HTML5，以及不同的移动端技术选择在功能和开发成本上的比较。
+
+什么是前端？什么是后端？二者是如何配合运转的？
+前后端的划分，可以简单地理解为凡是运行在用户设备上的技术都可以称为前端技术（ 比如 HTML / CSS / JS，甚至移动设备的 Obj-C / Swift ）；而后端的作用就是负责将这些东西封装在 HTTP 的数据包中然后通过网络传送到前端。当然除了这些前端文件，后端还有一个更重要的职能，即保存和提供用户数据，比如移动端常见的 JSON 就是目前最流行的在后端和前端之间传输的一个文件格式。
+
+前端与后端是如何配合的？如上图，以 Web 端为例，在浏览器输入一个网址后，浏览器向服务器发送了一个 HTTP 请求；服务器通过一个 HTTP 响应，把显示这个网页所需要的资源传回给了浏览器。而需要在浏览器中执行的技术，HTML / CSS / Javascript 等就叫做前端；需要在服务器端执行的、通常我们看不到技术就叫做后端。" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20150417104529/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处
+产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处
+原文链接：
+http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd
+原创
+2015-04-14 馨苑
+36氪
+36氪
+36氪
+
+微信号  wow36kr
+功能介绍  36氪(36Kr.com)是中国领先的科技新媒体，我们报道最新的互联网科技新闻以及最有潜力的互联网创业企业。
+
+36氪微信号：wow36kr
+这是 NEXT 「产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处」线下活动的笔记。主讲者张元一，产品原型工具墨刀的创始人，见证了 Web 开发从 99 年 HTML4.0 到去年 12 月 HTML5 最终定稿这之间整个 Web 开发变迁史的 15 年「码龄」全栈工程师。
+NEXT 本次活动收到了近 1000 多个报名，大家对周日线上和线下的互动学习反馈也不错。因此我们将笔记分享出来，希望让更多产品人、创业者够快速了解基本技术知识，更好地把握产品周期与项目进度。当然，你也可以观看网聚直播提供的视频回放：http://wangju.tv/live/3k562amaskvzg 。
+概览
+以下这张图就是元一分享的干货内容，它基本涵盖了一个初级码农需要知道的所有基础入门知识。但这张图的目的并非用来吓人，这其中的所有技术名词，将以最通俗易懂的方式串联起来—— 即我们上网时的慢动作解析：打开一个网页或 App，这背后都运用了那些技术来让这个网页和 App 的内容呈现在浏览器和手机上；驱动这些动作背后的技术名词都是什么，各自有着怎样的优缺点，彼此间是如何协作和运转的，以及怎样合理地评估技术能力和开发难度。当然，元一也推荐了丰富的学习资料。
+这中间涉及的技术知识，前端包括 HTML，CSS，JavaScript，jQuery 以及 Bootstrap ；后端包括 HTTP 服务器，后端编程语言，数据库以及 Cookie 和 Session；移动开发分为原生，混合式，HTML5，以及不同的移动端技术选择在功能和开发成本上的比较。
+
+什么是前端？什么是后端？二者是如何配合运转的？
+前后端的划分，可以简单地理解为凡是运行在用户设备上的技术都可以称为前端技术（ 比如 HTML / CSS / JS，甚至移动设备的 Obj-C / Swift ）；而后端的作用就是负责将这些东西封装在 HTTP 的数据包中然后通过网络传送到前端。当然除了这些前端文件，后端还有一个更重要的职能，即保存和提供用户数据，比如移动端常见的 JSON 就是目前最流行的在后端和前端之间传输的一个文件格式。
+
+前端与后端是如何配合的？如上图，以 Web 端为例，在浏览器输入一个网址后，浏览器向服务器发送了一个 HTTP 请求；服务器通过一个 HTTP 响应，把显示这个网页所需要的资源传回给了浏览器。而需要在浏览器中执行的技术，HTML / CSS / Javascript 等就叫做前端；需要在服务器端执行的、通常我们看不到技术就叫做后端。" />
+  <meta property="og:title" content="产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20150417104529/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-04-17" />
+    <meta property="article:modified_time" content="2015-04-17" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处
+产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处
+原文链接：
+http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd
+原创
+2015-04-14 馨苑
+36氪
+36氪
+36氪
+
+微信号  wow36kr
+功能介绍  36氪(36Kr.com)是中国领先的科技新媒体，我们报道最新的互联网科技新闻以及最有潜力的互联网创业企业。
+
+36氪微信号：wow36kr
+这是 NEXT 「产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处」线下活动的笔记。主讲者张元一，产品原型工具墨刀的创始人，见证了 Web 开发从 99 年 HTML4.0 到去年 12 月 HTML5 最终定稿这之间整个 Web 开发变迁史的 15 年「码龄」全栈工程师。
+NEXT 本次活动收到了近 1000 多个报名，大家对周日线上和线下的互动学习反馈也不错。因此我们将笔记分享出来，希望让更多产品人、创业者够快速了解基本技术知识，更好地把握产品周期与项目进度。当然，你也可以观看网聚直播提供的视频回放：http://wangju.tv/live/3k562amaskvzg 。
+概览
+以下这张图就是元一分享的干货内容，它基本涵盖了一个初级码农需要知道的所有基础入门知识。但这张图的目的并非用来吓人，这其中的所有技术名词，将以最通俗易懂的方式串联起来—— 即我们上网时的慢动作解析：打开一个网页或 App，这背后都运用了那些技术来让这个网页和 App 的内容呈现在浏览器和手机上；驱动这些动作背后的技术名词都是什么，各自有着怎样的优缺点，彼此间是如何协作和运转的，以及怎样合理地评估技术能力和开发难度。当然，元一也推荐了丰富的学习资料。
+这中间涉及的技术知识，前端包括 HTML，CSS，JavaScript，jQuery 以及 Bootstrap ；后端包括 HTTP 服务器，后端编程语言，数据库以及 Cookie 和 Session；移动开发分为原生，混合式，HTML5，以及不同的移动端技术选择在功能和开发成本上的比较。
+
+什么是前端？什么是后端？二者是如何配合运转的？
+前后端的划分，可以简单地理解为凡是运行在用户设备上的技术都可以称为前端技术（ 比如 HTML / CSS / JS，甚至移动设备的 Obj-C / Swift ）；而后端的作用就是负责将这些东西封装在 HTTP 的数据包中然后通过网络传送到前端。当然除了这些前端文件，后端还有一个更重要的职能，即保存和提供用户数据，比如移动端常见的 JSON 就是目前最流行的在后端和前端之间传输的一个文件格式。
+
+前端与后端是如何配合的？如上图，以 Web 端为例，在浏览器输入一个网址后，浏览器向服务器发送了一个 HTTP 请求；服务器通过一个 HTTP 响应，把显示这个网页所需要的资源传回给了浏览器。而需要在浏览器中执行的技术，HTML / CSS / Javascript 等就叫做前端；需要在服务器端执行的、通常我们看不到技术就叫做后端。" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20150417104529/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20150417104529/">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-04-17T10:45:29&#43;0800 class="date">April 17, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+3 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="产品经理从零到一技术进阶不懂代码也能愉快地与开发相处">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处<a hidden class="heading-anchor" aria-hidden="true" href="#产品经理从零到一技术进阶不懂代码也能愉快地与开发相处">#</a></h1>
+<h3 id="产品经理从零到一技术进阶不懂代码也能愉快地与开发相处-1">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处<a hidden class="heading-anchor" aria-hidden="true" href="#产品经理从零到一技术进阶不懂代码也能愉快地与开发相处-1">#</a></h3>
+<p>原文链接：
+<a href="http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd">http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd</a></p>
+<p>原创
+2015-04-14 馨苑
+36氪
+36氪</p>
+<p>36氪
+<img src="" alt="">
+微信号  wow36kr</p>
+<p>功能介绍  36氪(36Kr.com)是中国领先的科技新媒体，我们报道最新的互联网科技新闻以及最有潜力的互联网创业企业。</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz/WRGz2LWLARDWSicbsoScAFibPhwdKbp3k02Xdb1t9ca2IqylqjibyKBPEhOznU0qqvGOIXjJRv2ibOdl2j9TqicFSCQ/640?tp=webp&amp;wxfrom=5" alt=""></p>
+<p>36氪微信号：wow36kr</p>
+<p>这是 NEXT 「产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处」线下活动的笔记。主讲者张元一，产品原型工具墨刀的创始人，见证了 Web 开发从 99 年 HTML4.0 到去年 12 月 HTML5 最终定稿这之间整个 Web 开发变迁史的 15 年「码龄」全栈工程师。</p>
+<p>NEXT 本次活动收到了近 1000 多个报名，大家对周日线上和线下的互动学习反馈也不错。因此我们将笔记分享出来，希望让更多产品人、创业者够快速了解基本技术知识，更好地把握产品周期与项目进度。当然，你也可以观看网聚直播提供的视频回放：http://wangju.tv/live/3k562amaskvzg 。</p>
+<p><strong>概览</strong></p>
+<p>以下这张图就是元一分享的干货内容，它基本涵盖了一个初级码农需要知道的所有基础入门知识。但这张图的目的并非用来吓人，这其中的所有技术名词，将以最通俗易懂的方式串联起来—— 即我们上网时的慢动作解析：打开一个网页或 App，这背后都运用了那些技术来让这个网页和 App 的内容呈现在浏览器和手机上；驱动这些动作背后的技术名词都是什么，各自有着怎样的优缺点，彼此间是如何协作和运转的，以及怎样合理地评估技术能力和开发难度。当然，元一也推荐了丰富的学习资料。</p>
+<p>这中间涉及的技术知识，前端包括 HTML，CSS，JavaScript，jQuery 以及 Bootstrap ；后端包括 HTTP 服务器，后端编程语言，数据库以及 Cookie 和 Session；移动开发分为原生，混合式，HTML5，以及不同的移动端技术选择在功能和开发成本上的比较。</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz/WRGz2LWLARDWSicbsoScAFibPhwdKbp3k0PLmFxshibR4HTmo1uj2Pb7ZZ6SXxgbYHINyx6Ricj0JufQx9AWDibGlRA/0?tp=webp&amp;wxfrom=5" alt=""></p>
+<p><strong>什么是前端？什么是后端？二者是如何配合运转的？</strong></p>
+<p>前后端的划分，可以简单地理解为凡是运行在用户设备上的技术都可以称为前端技术（ 比如 HTML / CSS / JS，甚至移动设备的 Obj-C / Swift ）；而后端的作用就是负责将这些东西封装在 HTTP 的数据包中然后通过网络传送到前端。当然除了这些前端文件，后端还有一个更重要的职能，即保存和提供用户数据，比如移动端常见的 JSON 就是目前最流行的在后端和前端之间传输的一个文件格式。</p>
+<p><img src="" alt=""></p>
+<p>前端与后端是如何配合的？如上图，以 Web 端为例，在浏览器输入一个网址后，浏览器向服务器发送了一个 HTTP 请求；服务器通过一个 HTTP 响应，把显示这个网页所需要的资源传回给了浏览器。而需要在浏览器中执行的技术，HTML / CSS / Javascript 等就叫做前端；需要在服务器端执行的、通常我们看不到技术就叫做后端。</p>
+<p><strong>Web 前端的运行逻辑</strong></p>
+<p>假设我们要访问 Google，从我们在浏览器输入 Google.com 到最后这个页面出现在眼前，这其中涉及许多前端的技术反应和代码组合，总体而言可以简化为两步：</p>
+<p>1/ 浏览器向 Google 的服务器发送了一个请求。</p>
+<p>2/ 服务器收到了一个 HTTP 响应，这个响应中就包含了执行这个命令所需要的所有资源（注：可以通过 Chrome 浏览器的开发者工具来进一步观察 HTTP 协议的运行情况；下图为 Google 的 HTTP 协议运行情况）。</p>
+<p><img src="" alt=""></p>
+<p>上图这个界面看起来很复杂，但对于非程序员而言，HTTP 协议运行情况只要关注其中的几个关键部分：第一列，即资源的 URL；第四列是这个资源的类型。在第一个请求和后续的请求之间有一根蓝线，即进度条。而 HTTP 协议中运行的项目越少，浏览器加载的速度越快。图中 Google 就处理得很好，只有 10 个左右的请求。</p>
+<p><strong>Web 前端技术语言介绍</strong></p>
+<ul>
+<li>HTML 和带样式的 HTML</li>
+</ul>
+<p>HTML 就是一组标签和文本的组合，是一个最基本的网页。它已经包含了网页常见的元素，实际上在 Web 早期的很长一段时期内，网页都是这个样子。后来随着使用网络的人群越来越广泛，在 HTML3.0 中引入了对网页样式的定义，某种程度上可以说，也是从这个时候开始产生了网页设计师的角色。</p>
+<ul>
+<li>CSS</li>
+</ul>
+<p>带样式的 HTML 也拥有一个缺点，它需要为每个标题和文字都设定样式，工作量非常庞大。 CSS 就是在这样的情况下诞生了。CSS ，又称叠层样式表，简言之是一种用来表现 HTML 文件样式的样式设计语言。CSS 能够对网页中的对象的位置排版进行像素级的精确控制，实现基础的静态的交互设计；而CSS 目前的最新版本 CSS3 能够真正做到网页表现与内容分离。</p>
+<ul>
+<li>Javascript</li>
+</ul>
+<p>差不多在 CSS 诞生的同一时间，大家开始觉得这样静态的网页似乎略显无聊，能不能给网页加入一些可以动起来的元素？比如点击一个按钮之后变个颜色。当时网景公司的工程师Brendan Eich 就给他们自家的浏览器引入了这种实现动态效果的脚本语言，这就是 Javascript（简称 JS）的诞生。所以通俗来说，Javascript 就是用来给 HTML 网页增加动态功能，实现更炫酷的交互。</p>
+<p>提到 Javascript ，就得提一下 jQuery 。 jQuery 是一个优秀的 Javascript 库。jQuery 使用户能更方便地处理 HTML ，它能够使用户的 HTML 页面保持代码和 HTML 内容分离,通过 jQuery ，可以不用在 HTML 里面插入一堆 JS 来调用命令，只需要定义 ID 即可。此外，由 Twitter 设计师 Mark Otto 和 Jacob Thornton 合作开发的 Bootstrap 也是一个受欢迎的前端框架。</p>
+<p><strong>HTML5 简史和响应式设计</strong></p>
+<p>HTML 在刚诞生的前 10 年发展是非常迅速的，在 1999 年，我们现在常说的 HTML5 的上一个版本 HTML4.0.1 就已经发布了，那么为什么从 4.0 到 5.0 会拖了 15 年之久？</p>
+<p>首先，HTML4 的发布时间和门户时代（即 Web 1.0 时代）是基本吻合的，也就是说 HTML4 实际上是为门户型网站设计的。在门户网站经历的 4，5 的年发展之后，大家开始觉得只是单一接受信息的互联网太过无聊枯燥了，差不多 2004、2005 年开始，大家希望在网页中加入更多的互动元素，也就是我们常说的 Web 2.0。</p>
+<p>但是这个时候大家就发现，为 Web 1.0 设计的 HTML4 无法胜任这个工作，但是有另外一个技术却非常适合，那就是 Flash。所以在 Web 2.0 的早期，当时最炫酷的网站有很多是完全用 Flash 开发的，在以后的很长一段时间里，有很多网站都是 HTML 和 Flash 的混合式网站。所以在 2005 - 2010 年这段时间，HTML5 中的新标准主要是为了取代 Flash。</p>
+<p>刚刚搞定了 Flash，又进入了移动开发时代，所以 HTML5 又花了 5 年时间制定各种针对移动平台的标准。但是到目前为止，虽然 HTML5 已定定稿，但是对移动平台的适应其实还在进行中，所以在未来很长一段时间内，就像当初的 Flash 一样，我们会看到越来越多的混合式应用。</p>
+<p>在 iPhone 出现之前，大家访问 Web 的主要方式还是通过桌面浏览器，所以设计网页时只要考虑桌面浏览器的显示效果就足够了。但是在 iPhone 和 iPad 出现之后，就需要考虑同一个网页在不同设备上的显示效果，第一个问题的答案就是响应式，响应式的核心就是让同一个网页可以在不同设备上呈现出不同的显示效果，主要是通过CSS来实现的。</p>
+<p>除了响应式设计，HTML 在移动端遇到的另外两个问题就是如何利用移动设备的各种传感器，比如 GPS，摄像头等等；以及性能问题。为了解决这些问题，HTML5中添加了地理位置，拍照，3D 动画加速等等 API，可以部分的利用手机设备的一些新硬件，并且新的 API 还在不断的加入进来，这也是为什么现在的 HTML5 应用可以越来越炫酷的原因。但是，HTML5 并不是专为移动设备设计的，它是由 HTML5，CSS3 以及大量的 Javascript API 共同组成的一个标准合集，微信中的 HTML5 应用只是 HTML5 应用场景中的很小一部分。</p>
+<p><strong>如何判断一个前端的能力？</strong></p>
+<p>关于前端，可以简单的把它理解为，凡是在我们的电脑，手机上运行的技术，HTML，CSS，Javascript，这些都属于前端技术，使用这些技术的我们就称为前端工程师。如何判断一个前端的能力呢？下面是一个简单的前端能力链：</p>
+<p>1/ 只会 HTML/CSS 的，这种我们俗称切图的，基本上就是淘宝几十块切一张图的；</p>
+<p>2/ 懂一些简单的 Javascript，主要是使用一些现成的框架，比如 jQuery，bootstrap 等等；</p>
+<p>3/ 知道 jQuery 和 Bootstrap 的局限，必要时能写一些原生的 JS/CSS 代码；</p>
+<p>4/ 对JS/CSS非常了解，执着于使用浏览器的各种最新特性来实现各种炫酷效果，这种我们成为炫技派；</p>
+<p>5/ 可以自己写出类似 jQuery / Bootstrap 这样的前端框架供其他人使用。</p>
+<p><strong>前端学习资料</strong></p>
+<p><a href="http://www.w3schools.com">http://www.w3schools.com</a></p>
+<p><a href="http://onemonth.com">http://onemonth.com</a></p>
+<p><a href="http://www.codecademy.com/">http://www.codecademy.com/</a></p>
+<p><a href="https://github.com/alex/what-happens-when">https://github.com/alex/what-happens-when</a></p>
+<p><a href="https://qdan.me/list/VNBugw7ObupFRdlE">https://qdan.me/list/VNBugw7ObupFRdlE</a></p>
+<p>大家可能比较关心如果我要开发一个网站需要多少时间？这个问题虽然很难回答，元一还是来试着回答了。现在前端有了 jQuery，bootstrap 这样的框架，后端又有了 Ruby on Rails 这样的快速 Web 开发框架，如果从头学的话，像是一个简易的 Pinterest，大概一个月就可以了。如果是一个有经验的程序员，可能 1 个星期就可以开发出一个大概的原型出来。</p>
+<p><strong>后端服务器</strong></p>
+<p>后端的任务实际上就是向前端提供需要显示网页和 APP 内容的数据，可能是 HTML，也可能是JSON 数据，也可以是音视频或者 PDF 文件。简单的来划分，一个服务器包含3个部分：</p>
+<p>1/ HTTP 服务器</p>
+<p>2/ 应用服务器</p>
+<p>3/ 数据库</p>
+<p>HTTP 服务器的唯一任务就是把需要返回给客户端的资源文件封装在 HTTP 数据包里，这个资源有可能是它后面的应用服务器动态生成的，也有可能是保存在硬盘上的静态文件。这是所有后端程序都必须有的，也是直接和我们的浏览器通信，返回给我们数据的程序。它的作用就是把它后面的编程语言生成的各种 HTML/CSS/Javascript，打包成一个 HTTP 请求，然后再封装到一个 TCP/IP 的数据包里发回给我们。而最常用的两个 HTTP 服务器叫做 Apach 和 Nginx。</p>
+<p>应用服务器就是通常意义上所说的码农负责的部分。他们的职责就是生成前端需要的HTML/CSS/JS 交给浏览器。</p>
+<p><strong>后端语言</strong></p>
+<p>1/ .net/java</p>
+<p>庞大，复杂。但 Java 的优点就是适合处理特别大的数据量，如果你的项目会很快实现大爆发，需要处理海量的请求，那么 Java 是一个不错的选择。</p>
+<p>2/ PHP</p>
+<p>可以快速上手，相比其他语言，可以更快的为应用添加各种新功能。当然，可维护性就另当别论了。</p>
+<p>3/ Ruby</p>
+<p>非常接近自然语言，基本上即使不懂编程，也能看明白 70% 或 80%。04 年出现了一个用 Ruby 编写的 Web 开发框架 Ruby on Rails，当时的效果是非常震撼的，以前需要一个团队才能搞定的事情，使用 Ruby on Rails 后 1 个人就可以胜任了，所以 Ruby on Rails 在极短的时间内就成为了 Ruby 的代名词，也成为了新手学习 Web 开发的不二选择，但是 Ruby 语言也并非十全十美，快的同时，他的最大短板就是性能。Twitter 最早就是使用 Ruby on Rails 开发的，但是随着用户数的逐步增长，Twitter 的宕机开始变得非常频繁，后来他们迫不得已将整个系统从 Ruby 迁移到到了一个从 Java 派生出来的语言 Scala。</p>
+<p>4/ node.js</p>
+<p>简单来说，可以把 node.js 理解为跑在服务器上的 javascript，再直白一点，就是一个跑在服务器上的浏览器，因为 node.js 最早就是从 chrome 浏览器的Javascript 引擎 V8 中剥离出来的。相比 Ruby，Node.js 程序可以获得更高的并发性能，这在一些高并发的场景下（比如群聊，多人协作等）会很有优势。</p>
+<p>5/ 其它（python，closure 等）</p>
+<p>6/ 无后端（leancloud）</p>
+<p>无后端编程是最近的一个新趋势，但她并非说是真的没有后端，而只是把后端交给一些第三方的云平台，比如 Leancloud，Firebase 等。如果你开发一个手机 App，这样的好处就是你可以在早期没有后端程序员的情况下快速开工，像Leancloud 这样的云平台已经可以胜任大部分的应用场景，如果后期业务逻辑复杂之后再寻找合适的后端工程师迁移也不迟。</p>
+<p>7/ 最强编程语言 Lisp</p>
+<p>如果要评选一个最强的编程语言，该是哪个呢？答案就是Lisp。为什么是 Lisp？Lisp 的作者在很早以前就从数学的层面总结了一个完美的编程语言应该具备的 9 种能力，而 Lisp 就是为了配合他的这个理论而产生出来的语言。Hacker News 是由 YC 的创始人 Paul Graham 开发的，而 Paul Graham 本身就是一个 Lisp 程序员，他为了开发 Hacker News，专门发明了一种新语言叫做 Arc，但因为它是基于 Lisp 的，所以也被归为了 Lisp 的方言之一。</p>
+<p><strong>数据库</strong></p>
+<p>我们平常访问的大部分网站都是需要登录操作的，登录之后我们看到的就是只和自己相关的那部分内容。这些用户信息是保存在什么地方的呢？这就需要用到数据库。关于数据库，代表性的有两个：</p>
+<p>1/ MySQL</p>
+<p>2/ MongoDB</p>
+<p>MySQL 是最常用的结构化数据库，也是大多数创业公司的选择。为什么是结构化的？就是说它的表的结构是固定的，比如我们常见的 User 表在 MySQL 中就是这样的：</p>
+<p><img src="" alt=""></p>
+<p>如果我们需要取得一条用户记录来检查他输入的密码是否正确，这时我们就需要使用 SQL，SQL 就是结构化查询语言。</p>
+<p>简单来说，SQL 数据库保存的是结构化数据，NOSQL 数据库则可以保存非结构化数据。举个例子，还拿上面的用户表来举例，如果我们现在想要给产品集小妹增加一些额外的属性，比如她给某个产品点赞可以效果 x2，那么如果是 SQL 数据库，我们就需要给数据库增加一个新的字段来保存这个属性：</p>
+<p><img src="" alt=""></p>
+<p>但是如果是 MongoDB 这样的 NOSQL 数据库，我们就不需要给所有用户都增加一个x2的属性，只需要给产品集小妹单独增加就可以了，NOSQL 中保存到数据是如下这个样子的：</p>
+<p><img src="" alt=""></p>
+<p><strong>Cookie 和 Session</strong></p>
+<p>服务器要处理成千上万用户的请求，那么他是如何区分每个用户，并返回给每个用户他所需要的内容的 ？这就要涉及到 Cookie 和 Session。我们可以将 Cookie 理解为是服务器给每个用户分配的唯一 ID，这个 ID 由用户浏览器保存，而 Session 则是服务器为了维护这个会话在服务器端保存的与 cookie 对应的用户数据。</p>
+<p><strong>移动端开发</strong></p>
+<p>移动端和浏览器的区别就在于，大部分 App，我们打开的一瞬间，就已经看到了它的界面，而不用再去向服务器来拿显示界面的 HTML 等文件。所以移动端，开发原生应用所运用到的技术（比如 Objective C，swift）就相当于前端的 HTML，只不过它是直接保存在应用本地的。这样就产生了一个问题：如何来获取应用数据？如果是网页应用，我们可以直接将数据包含在HTML 中一并反馈给浏览器；但是对于移动应用就需要有一个专门的协议来传送应用需要的数据，这就是 JSON。</p>
+<p>移动应用的前端技术，目前来说主要有以下三种：</p>
+<p>1/ 原生</p>
+<p>2/ 混合式</p>
+<p>3/ HTML5</p>
+<p>HTML5 必经要经过浏览器这个中间层，所以在性能上多少会有些损失，所以如果你的应用对性能特别敏感，原生就会是比较好的选择；对于普通的性能要求没那么严格的应用来说，HTML5是完全可以满足的。而如果已经有了一个移动端的网站，这种情况下混合式就会是一个比较好的选择，它可以最大程度的利用已有的资源。如果说你是从头开发一个移动应用，并且这个应用对用户体验的要求也不是特别严格，那么 HTML5 就会是一个很好的选择，HTML5 移动应用比较显著的应用就是 Dailycost 。</p>
+<p>如果说开发一个原生应用需要 4-6 周，那么同样功能的应用如果我们把其中的一部分用 HTML来实现，那么可能就只需要 3-4 周的时间，但是如果我们全部使用 HTML ，可能就只需要1-2周。</p>
+<p>此外，活动另一位嘉宾、 bearchat 工程师 Loddit 分享了关于数据抓取的干货知识和 tips ，感兴趣可前往 http://36kr_data_capture.meteor.com 下载 PPT。</p>
+<p>如果你有产品与创业相关的、想要通过线下探讨的话题或学习的主题，欢迎邮件 <a href="mailto:xinyuan@36kr.com">xinyuan@36kr.com</a> 。如果你是一位技术宅，也欢迎邮件指点。最重要的是，欢迎加入NEXT 社区，不错过任何一款新产品和酷趋势的同时，也不错过与一批优秀产品人、创业者的碰撞与讨论。</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-04-17 10:45 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share 产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150417104529%2f&title=%e4%ba%a7%e5%93%81%e7%bb%8f%e7%90%86%e4%bb%8e%e9%9b%b6%e5%88%b0%e4%b8%80%e6%8a%80%e6%9c%af%e8%bf%9b%e9%98%b6%ef%bc%9a%e4%b8%8d%e6%87%82%e4%bb%a3%e7%a0%81%e4%b9%9f%e8%83%bd%e6%84%89%e5%bf%ab%e5%9c%b0%e4%b8%8e%e5%bc%80%e5%8f%91%e7%9b%b8%e5%a4%84">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share 产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处 on twitter"
+          href="https://twitter.com/intent/tweet/?text=%e4%ba%a7%e5%93%81%e7%bb%8f%e7%90%86%e4%bb%8e%e9%9b%b6%e5%88%b0%e4%b8%80%e6%8a%80%e6%9c%af%e8%bf%9b%e9%98%b6%ef%bc%9a%e4%b8%8d%e6%87%82%e4%bb%a3%e7%a0%81%e4%b9%9f%e8%83%bd%e6%84%89%e5%bf%ab%e5%9c%b0%e4%b8%8e%e5%bc%80%e5%8f%91%e7%9b%b8%e5%a4%84&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150417104529%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share 产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150417104529%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

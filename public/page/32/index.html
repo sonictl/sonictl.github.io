@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141126073700/" title="Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建">Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3>Spring MVC 学习笔记12 —— SpringMVC&#43;Hibernate开发（1）依赖包搭建</h3>
+<p><br>
+</p>
+<p>用Hibernate帮助建立SpringMVC与数据库之间的联系，通过配置DAO层，Service层，Model层，建立Controller对数据库操作的通道。</p>
+<p>这里没有使用maven来管理jar包（依赖库），因为没太多，实际上还是很繁琐的，要有耐心。</p>
+<p>原本稍微复杂的工程项目还是应该使用maven来管理依赖库，参见：<a target="_blank" target="_blank" href="http://tieba.baidu.com/p/2364606122?pn=1">http://tieba.baidu.com/p/2364606122?pn=1</a></p>
+<p><br>
+</p>
+<p>下面记录一下依赖包搭建过程：</p>
+<p>DAO - SERVICE -&nbsp;</p>
+<p><br>
+</p>
+<h4>1.在eclipse中新建项目：</h4>
+<p><span style="white-space:pre"></span>&nbsp; &nbsp;&nbsp;&nbsp;new-project-Dynamic Web Project（name: spring_user）</p>
+<h4>2. insert jar packages:</h4>
+&nbsp; &nbsp; &nbsp; 参考如图，导入jar包到目标位置<span style="white-space:pre"> </span>：<br>
+<img src="http://img.blog.csdn.net/20141126151447350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+<p>&nbsp; &nbsp; &nbsp; Download .jar files from:&nbsp;<a target="_blank" target="_blank" href="http://jarfiles.pandaidea.com">http://jarfiles.pandaidea.com</a>&nbsp; or&nbsp;<a target="_blank" target="_blank" href="http://mvnrepository.com/">http://mvnrepository.com/</a></p>
+<p>&nbsp; &nbsp; &nbsp; 1)spring-reamework-release-3.1.3\dist</p>
+<p><img src="http://img.blog.csdn.net/20141126151242296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""></p>
+<p><br>
+</p>
+<p><span style="white-space:pre"></span>2)apache-log4j-1.2.16.jar<br>
+<img src="http://img.blog.csdn.net/20141126151755752?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<span style="white-space:pre"></span>3)commons-logging-1.1.1 &nbsp; 用于登录<br>
+<img src="http://img.blog.csdn.net/20141126151910632?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+<p><br>
+</p>
+<p><span style="white-space:pre"></span>4)hibernate-distribution-3.6.8 Final\lib\required（hibernate用3、4都可以）<br>
+<img src="http://img.blog.csdn.net/20141126152140190?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<p><br>
+</p>
+<p><span style="white-space:pre"></span>5)jpa<br>
+<img src="http://img.blog.csdn.net/20141126152230297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<pre>    hibernate-jpa-2.0-api-1.0.0.Final.jar</pre>
+<p><span style="white-space:pre"></span>6)hibernate3<br>
+<img src="http://img.blog.csdn.net/20141126152405332?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<pre>    hibernate3.jar
+    slf4j-log4j12-1.6.1.jar</pre>
+<p><span style="white-space:pre"></span>7)hlfa/dbcp/aop/jstl<br>
+<img src="http://img.blog.csdn.net/20141126160808429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<pre>    aopalliance.jar
+    aspectjrt.jar
+    aspectjweaver.jar</pre>
+<p></p>
+<p>&nbsp; 8）dbcp 数据引导性文件<br>
+<img src="http://img.blog.csdn.net/20141126161213531?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br>
+</p>
+<p></p>
+<pre>&nbsp; &nbsp; commons-collections-3.1.jar
+&nbsp; &nbsp; commons-dbcp.jar
+&nbsp; &nbsp; commons-pool.jar
+<p></pre>
+  9）jstl 的标签：<br>
+  <img src="http://img.blog.csdn.net/20141126161540721?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" hspace="2" alt=""><br></p>
+<pre>    jsf-api.jar
+    jsf-impl.jar
+    jstl-1.2.jar
+
+</pre>
+<p>   10）数据库记录：  <br></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141126073700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-26T07:37:00&#43;0800" class="date">November 26, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141125032100/" title="Spring MVC 学习笔记11 —— 后端返回json格式数据">Spring MVC 学习笔记11 —— 后端返回json格式数据</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3>Spring MVC 学习笔记11 —— 后端返回json&#26684;式数据</h3>
+<h3>&nbsp;我们常常听说json数据，首先，什么是json数据，总结起来，有以下几点：</h3>
+<p><span style="white-space:pre"></span>&nbsp; &nbsp;1. JSON的全称是”JavaScript Object Notation”，意思是JavaScript对象表示法.<br>
+<span style="white-space:pre"></span>&nbsp; &nbsp;2.&nbsp;它是一种基于文本，独立于语言的轻量级数据交换&#26684;式.<br>
+<span style="white-space:pre"></span><span style="white-space:pre"></span>&nbsp; &nbsp;3. json的两种结构：对象{key:value,key:value,...} &nbsp;和 &nbsp;数组 [value, value2, ... ]<br>
+<span style="white-space:pre"></span>&nbsp; &nbsp;4. json字符串：普通字符串、json字符串、json对象的区别<br>
+<span style="white-space:pre"></span>&nbsp; &nbsp;5. 不同编程工具使用json的方法</p>
+<p>&nbsp;参考：<a target="_blank" target="_blank" href="http://www.cnblogs.com/mcgrady/archive/2013/06/08/3127781.html">http://www.cnblogs.com/mcgrady/archive/2013/06/08/3127781.html</a></p>
+<p><br>
+</p>
+<h3>Spring MVC 返回json数据，用show来实现：</h3>
+<p>UserController.java:</p>
+<p>保持两套请求，一套是传统的请求返回数据；一套是请求json&#26684;式返回数据。</p>
+<p></p>
+<pre code_snippet_id="532140" snippet_file_name="blog_20141125_1_1513179"  code_snippet_id="532140" snippet_file_name="blog_20141125_1_1513179" name="code" class="java">	//6. 查一个用户 show.jsp
+	@RequestMapping(value=&quot;/{username}&quot;, method=RequestMethod.GET)
+	public String show(@PathVariable String username, Model model){
+		model.addAttribute(&quot;user1&quot;,users.get(username));	//user1参数属性名，到了视图，就是user1
+		return &quot;user/show&quot;;
+	}
+<pre><code>//6. 查一个用户 show.jsp
+@RequestMapping(value=&amp;quot;/{username}&amp;quot;, method=RequestMethod.GET, params=&amp;quot;jsoon&amp;quot;)
+@ResponseBody	//这里要加一行
+public User show(@PathVariable String username){      //声明中没有了Model
+	//model.addAttribute(&amp;quot;user1&amp;quot;,users.get(username));
+	return users.get(username);            //不返回String了，返回user对象
+}&lt;/pre&gt;&lt;br&gt;
+</code></pre>
+<p><strong>说明</strong>，以上代码中：</p>
+<p></p>
+<p>&nbsp; 1. 增加@ResponseBody,&nbsp;<br>
+&nbsp; 2. no return String, but User Object<br>
+&nbsp; 3. no Model<br>
+&nbsp; 4. directly return users.get(username)//注意返回的是一个User对象<br>
+&nbsp; 5. 可以在RequestMapping行增加一个请求&#20540;：Params=&quot;jsoon&quot;//这是规定如要进这个方法返回json，需要带个参数jsoon<br>
+</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141125032100/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-25T03:21:00&#43;0800" class="date">November 25, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141120135917/" title="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）">Spring MVC 学习笔记8 —— 实现简单的用户管理（4）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="spring-mvc-学习笔记8--实现简单的用户管理4">Spring MVC 学习笔记8 —— 实现简单的用户管理（4）</h1>
+<h4 id="spring-mvc-学习笔记8--实现简单的用户管理4用户登录">Spring <a href="https://so.csdn.net/so/search?q=MVC&amp;spm=1001.2101.3001.7020">MVC</a> 学习笔记8 —— 实现简单的用户管理（4）用户登录</h4>
+<p>增删改查，login</p>
+<ol>
+<li>login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &raquo; META-INF  WEB-INF  login.jsp</li>
+</ol>
+<p>表单：<form>中包含两个参数，action（目标） &amp; method （方法）。使用了<input>标签，type（text,password,submit）, name,两个参数。</p>
+<pre tabindex="0"><code>1. &lt;form action = &#34;user/login&#34; method = &#34;post&#34;&gt;
+2. &lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;username:&lt;input type=&#34;text&#34; name=&#34;username&#34;/&gt;&lt;br/&gt;
+3. &lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;password:&lt;input type=&#34;password&#34; name=&#34;password&#34;/&gt;&lt;br/&gt;
+4. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt; &lt;input type=&#34;submit&#34;/&gt;
+5. &lt;/form&gt;
+</code></pre><ol start="2">
+<li>userController.java</li>
+</ol>
+<p>login.jsp点击“submit”以后，将访问userController里的login方法：Public String login(){ }<br>
+· 指定进入method的条件<br>
+· 指定进入method的参数<br>
+· 异常处理1：用户名不存在， 异常处理2：密码不正确<br>
+· 把User存到Session中 【？】<br>
+· </p>
+<pre tabindex="0"><code>1. 
+2. &lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;@RequestMapping(value = &#34;/login&#34;, method = RequestMethod.POST)//RequestMapping就是指定怎么进入这个方法来的
+3. &lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;public String login(String username, String password, HttpSession session){&lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;//传2个参数进来, 1st:username 2nd:password//第3个参数是指定Session注入的
+4. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt;if (!users.containsKey(username)){&lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;//异常处理1.如果不包含，则用户名不存在
+5. &lt;span style=&#34;white-space:pre&#34;&gt;			&lt;/span&gt;//创建一个异常处理.java,见下“3. 需要一个处理异常的class”
+6. &lt;span style=&#34;white-space:pre&#34;&gt;			&lt;/span&gt;throw new UserException(&#34;Username does not exist! &#34;);
+7. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt;}
+8. &lt;span style=&#34;white-space:pre&#34;&gt;			&lt;/span&gt;User u = users.get(username);&lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;//得到username
+9. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt;if (!u.getPassword().equals(password) )&lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;{//if 不相等， 说明密码不正确:
+10. &lt;span style=&#34;white-space:pre&#34;&gt;			&lt;/span&gt;throw new UserException(&#34;Password does not match!&#34;);
+11. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt;}
+12. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt;//把user 存到Session中:
+13. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt;session.setAttribute(&#34;loginUser&#34;,u);
+14. &lt;span style=&#34;white-space:pre&#34;&gt;		&lt;/span&gt;return &#34;redirect:/user/users&#34;;&lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;//login success, jump to user/users
+15. &lt;span style=&#34;white-space:pre&#34;&gt;	&lt;/span&gt;}
+</code></pre><ol start="3">
+<li>需要一个处理异常的class</li>
+</ol>
+<p>**·**新建一个class:<br>
+  Name: UserException.class<br>
+  Superclass: java.lang.RuntimExcption<br>
+**·**Add Default Version ID: 代码： private static final long serialVersionUID = 1L;</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141120135917/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-20T13:59:17&#43;0800" class="date">November 20, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141120093100/" title="Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息">Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录显示全局异常信息</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/41312005" style="color:rgb(0,0,0); text-decoration:none; font-family:'Microsoft YaHei'; font-size:20px; line-height:30px"></a></p>
+<pre code_snippet_id="526777" snippet_file_name="blog_20141120_1_3598872"  code_snippet_id="526777" snippet_file_name="blog_20141120_1_3598872" name="code" class="java">&lt;/pre&gt;Spring MVC 学习笔记10 —— 实现简单的用户管理（4.3）用户登录--显示全局异常信息&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h3 style=&quot;margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px&quot;&gt;第三部分：显示全局异常信息，而不是局部异常信息。&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 当有很多异常时，光是UserController这个控制器中的异常通过局部异常信息处理，已经不能满足需求。在其他控制器中（包括UserController）中的异常，都可以使用全局异常处理异常信息。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 1. 在myhello-Servelet.xml文件中，添加SimpleMappingExceptionResolver&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 2. 注入&lt;property&gt;标签，通过&lt;prop&gt;标签列出全局中所有需要处理的异常。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 3. 然后注释掉局部异常处理code，在UserController控制器的代码中。&lt;/p&gt;&lt;p&gt;&#160; &#160; &#160; &#160; 4. 在error.jsp视图中，使用 ${exception.message } 显示全局异常处理结果。&#160; &#160; &#160;&#160;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;在myhello-servelet.xml文件中：&lt;/p&gt;&lt;pre code_snippet_id=&quot;526777&quot; snippet_file_name=&quot;blog_20141120_1_7394166&quot; name=&quot;code&quot; class=&quot;html&quot;&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt;
+<pre><code>&amp;lt;!-- DispatcherServlet Context: defines this servlet&amp;#39;s request-processing infrastructure --&amp;gt;
+
+&amp;lt;!-- Scans within the base package of the application for @Components to configure as beans --&amp;gt;
+&amp;lt;!-- @Controller, @Service, @Configuration, etc. --&amp;gt;
+&amp;lt;context:component-scan base-package=&amp;quot;edu.bit.myhello&amp;quot; /&amp;gt;
+
+&amp;lt;!-- Enables the Spring MVC @Controller programming model --&amp;gt;
+&amp;lt;mvc:annotation-driven /&amp;gt;
+
+&amp;lt;!-- Resolve logical view names to .jsp resources in the /WEB-INF/views directory --&amp;gt;
+&amp;lt;bean class=&amp;quot;org.springframework.web.servlet.view.InternalResourceViewResolver&amp;quot;&amp;gt;
+	&amp;lt;property name=&amp;quot;prefix&amp;quot; value=&amp;quot;/WEB-INF/views/&amp;quot; /&amp;gt;
+	&amp;lt;property name=&amp;quot;suffix&amp;quot; value=&amp;quot;.jsp&amp;quot; /&amp;gt;
+&amp;lt;/bean&amp;gt;
+
+&amp;lt;bean id = &amp;quot;exceptionResolver&amp;quot; class=&amp;quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&amp;quot;&amp;gt;
+	&amp;lt;property name=&amp;quot;exceptionMappings&amp;quot;&amp;gt;
+		&amp;lt;props&amp;gt; 
+			&amp;lt;prop key = &amp;quot;edu.bit.model.UserException&amp;quot;&amp;gt;error&amp;lt;/prop&amp;gt;		&amp;lt;!--key值的是你要映射哪个类  ,value=error直接写 --&amp;gt;
+			&amp;lt;!-- 这个的意思就是当在UserException中发现异常，就在error中处理,error中就要用exception对象
+			同样还可以：
+			&amp;lt;prop key = &amp;quot;java.lang.NullPointer&amp;quot;&amp;gt; exception &amp;lt;/prop&amp;gt; 处理空指针异常，在exception.jsp视图中处理
+			 --&amp;gt;
+		&amp;lt;/props&amp;gt;
+	&amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+</code></pre>
+<p>&lt;/beans&gt;</pre><span style="color:#ff0000"><strong>加入的部分：</strong></span><br></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141120093100/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-20T09:31:00&#43;0800" class="date">November 20, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141120065200/" title="Spring MVC 学习笔记9 —— 实现简单的用户管理（4）用户登录显示局部异常信息">Spring MVC 学习笔记9 —— 实现简单的用户管理（4）用户登录显示局部异常信息</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/41312005" style="color:rgb(0,0,0); text-decoration:none; font-family:'Microsoft YaHei'; font-size:20px; line-height:30px">Spring MVC 学习笔记9 —— 实现简单的用户管理（4.2）用户登录--显示局部异常信息</a></p>
+<h3></h3>
+<h3 style="margin:0px; padding:0px; color:rgb(51,51,51); font-family:Arial; line-height:26px; text-indent:28px">
+第二部分：显示局部异常信息，而不是500错误页</h3>
+<p><span style="font-weight:normal; white-space:pre"></span><span style="font-weight:normal"><span style="white-space:pre"></span>1. 写一个方法，把UserException传进来。<br>
+<span style="white-space:pre"></span><span style="white-space:pre"></span>2. 映射方式：@ExceptionHandler (), 括号里value是UserException.class<br>
+<span style="white-space:pre"></span><span style="white-space:pre"></span>3. 传参进入UserException方法：(UserException ue, HttpServletRequest req)<br>
+<span style="white-space:pre"></span>-----//1.把 UserException传进来;<br>
+<span style="white-space:pre"></span>-----//2.不能用model来传&#20540;，因为不是RequestMapping，用HttpSeverletRequest req<br>
+<span style="white-space:pre"></span>4. 把异常对象存入HttpSeverletRequest req的e参数: &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New">req.setAttribute(&quot;e&quot;,ue);</span><br>
+<span style="white-space:pre"></span>5. 返回视图error: &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family:Courier New">return error;</span><br>
+<span style="white-space:pre"></span><br>
+----实现代码-----<br>
+UserController.java中加入：</span></p>
+<p></p>
+<pre code_snippet_id="526432" snippet_file_name="blog_20141120_1_3893429"  code_snippet_id="526432" snippet_file_name="blog_20141120_1_3893429" name="code" class="java">	/*
+	 * 显示局部的异常信息:仅仅只能处理这个控制器中的异常
+	 * 写一个方法，HandlerException, 把 UserException传进来
+	 */
+	@ExceptionHandler(value={UserException.class})	//用ExceptionHandler来映射，要处理的value是一个数组
+							//要处理一个对象就这样写，可处理多个对象。
+	public String handlerException(UserException ue, HttpServletRequest req){	
+				//1.把 UserException传进来;
+				//2.不能用model来传值，因为不是RequestMapping，用HttpSeverletRequest req
+		//把异常对象ue存进去：
+		req.setAttribute(&quot;e&quot;, ue);	//req 的 “e”参数，被set为 uexception
+		return &quot;error&quot;;
+	}</pre><br>
+<p>/WEB-INF/error.jsp中代码：<span style="font-family:Courier New">${e.message} </span>
+<span style="font-family:Arial">调取message信息：</span></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141120065200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-20T06:52:00&#43;0800" class="date">November 20, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141120060200/" title="Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录">Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3>Spring MVC 学习笔记8 —— 实现简单的用户管理（4）用户登录</h3>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">增删改查，login</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">1. login.jsp,写在外面，及跟WEB-INF同一级目录，如：ls Webcontent; &gt;&gt; META-INF &nbsp;WEB-INF &nbsp;login.jsp</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>表单：&lt;form&gt;中包含两个参数，action（目标） &amp; method （方法）。使用了&lt;input&gt;标签，type（text,password,submit）, name,两个参数。</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"></span></p>
+<pre code_snippet_id="526239" snippet_file_name="blog_20141120_1_5888629"  code_snippet_id="526239" snippet_file_name="blog_20141120_1_5888629" name="code" class="html">&lt;form action = &quot;user/login&quot; method = &quot;post&quot;&gt;
+   username:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br/&gt;
+   password:&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br/&gt;
+   &lt;input type=&quot;submit&quot;/&gt;
+&lt;/form&gt;</pre>
+<p></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">2. userController.java</span><br>
+</span></p>
+<p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px"><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px"><span style="white-space:pre"></span>login.jsp点击“submit”以后，将访问userController里的login方法：Public
+ String login(){ }<br>
+<span style="white-space:pre"></span>· 指定进入method的条件<br>
+<span style="white-space:pre"></span>· 指定进入method的参数<br>
+<span style="white-space:pre"></span>· 异常处理1：用户名不存在， 异常处理2：密码不正确<br>
+<span style="white-space:pre"></span>· 把User存到Session中 【？】<br>
+</span></span></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141120060200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-20T06:02:00&#43;0800" class="date">November 20, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141117163056/" title="Ubuntu-linux下忘记MySQL root密码解决方法">Ubuntu-linux下忘记MySQL root密码解决方法</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ubuntu-linux下忘记mysql-root密码解决方法">Ubuntu-linux下忘记MySQL root密码解决方法</h1>
+<h2 id="ubuntu下忘记mysql-root密码解决方法">Ubuntu下忘记MySQL root密码解决方法</h2>
+<p>来源：Linux社区  作者：abbuggy</p>
+<p><a href="http://www.linuxidc.com/Linux/2012-12/75231.htm">http://www.linuxidc.com/Linux/2012-12/75231.htm</a></p>
+<p>【it works on my Ubuntu 12.04! But the password for root still cannot be changed.】</p>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识<a href="https://edu.csdn.net/skill/gml/gml-1c31834f07b04bcc9c5dff5baaa6680c?utm_source=csdn_ai_skill_tree_blog">CS入门技能树</a><a href="https://edu.csdn.net/skill/gml/gml-1c31834f07b04bcc9c5dff5baaa6680c?utm_source=csdn_ai_skill_tree_blog">Linux入门</a><a href="https://edu.csdn.net/skill/gml/gml-1c31834f07b04bcc9c5dff5baaa6680c?utm_source=csdn_ai_skill_tree_blog">初识Linux</a>40632 人正在系统学习中</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141117163056/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-17T16:30:56&#43;0800" class="date">November 17, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141101163829/" title="spring MVC中关于model.addAttribute的使用方法【翻译】">spring MVC中关于model.addAttribute的使用方法【翻译】</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="spring-mvc中关于modeladdattribute的使用方法翻译">spring MVC中关于model.addAttribute的使用方法【翻译】</h1>
+<p>关于model.addAttribute的使用方法</p>
+<p><a href="http://krams915.blogspot.com/2010/12/spring-3-mvc-using-modelattribute-in.html">http://krams915.blogspot.com/2010/12/spring-3-mvc-using-modelattribute-in.html</a>  (可能要 break the wall)</p>
+<p>好像还有点难度的样子，先看懂这篇：</p>
+<p><a href="http://wenku.baidu.com/link?url=9PZuIW4KSl3_quLVmLs-rTjYJsHh3e35E6Nn5lJlNp3crol5bdKVeeaywiFt9Ub_XYW8UPM5CKrpvhK4Isc3QUhdYmt1q8rUHR_MhnR2VqG">http://wenku.baidu.com/link?url=9PZuIW4KSl3_quLVmLs-rTjYJsHh3e35E6Nn5lJlNp3crol5bdKVeeaywiFt9Ub_XYW8UPM5CKrpvhK4Isc3QUhdYmt1q8rUHR_MhnR2VqG</a></p>
+<p><a href="http://blog.csdn.net/li_xiao_ming/article/details/8349115">http://blog.csdn.net/li_xiao_ming/article/details/8349115</a> 这篇不是很清晰</p>
+<p>简要翻译一下：（学习笔记，只保留要点）</p>
+<p>【什么是ModelAttribute - MA】<br>
+MA在controller中的2个应用场景：</p>
+<ol>
+<li>
+<p>放在 方法的参数中， MA映射了一个分配在特定的，方法参数中 的<a href="https://so.csdn.net/so/search?q=model&amp;spm=1001.2101.3001.7020">model</a>.<br>
+&mdash;这就是控制器得到一个参考，找到object，获取从表单带来存在object里的值。<br>
+e.g.(see the processSubmit() method below)</p>
+</li>
+<li>
+<p>放在方法里，为model提供参考数据，<br>
+方法签名可以 包含同样的types，正如@RequestMapping（RM） annotation中预先声明的一样。<br>
+(see the populatePetTypes() method in the following example)</p>
+</li>
+</ol>
+<p>注意MA是在RM标记的处理方法之前执行。</p>
+<p>要把objects暴露给jsp页面，@MA是个方便的东东。把object返回回controller也是方便。</p>
+<p>【启用 Spring MVC,配3个xml文件】<br>
+To enable Spring MVC we need to add it in the web.xml</p>
+<p>&ndash;web.xml<br>
+Take note of the URL pattern. When accessing any pages in our MVC application, the host name must be appended with</p>
+<p>&ndash;spring-servlet.xml<br>
+This XML config declares a view resolver. All references to a JSP name in the controllers will map to a corresponding JSP in the /WEB-INF/jsp location.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141101163829/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-11-01T16:38:29&#43;0800" class="date">November 01, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141031110102/" title="linux下SVN服务器如何搭建和使用，设置开机自启动">linux下SVN服务器如何搭建和使用，设置开机自启动</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="linux下svn服务器如何搭建和使用设置开机自启动">linux下SVN服务器如何搭建和使用，设置开机自启动</h1>
+<p>linux下SVN服务器如何搭建和使用</p>
+<p>linux下SVN服务器如何搭建和使用?说到SVN服务器,想必大家都知道,可以是在LINUX下如何搭建SVN服务器呢?那么今天给大家分享一下LINUX下搭建SVN服务器的思路！</p>
+<p>1,首先安装好LINUX系统，然后YUM安装:</p>
+<pre tabindex="0"><code>	#yum -y install svnversion
+</code></pre><p>或者用
+apt-get这个：</p>
+<pre tabindex="0"><code>	#apt-get install subversion
+</code></pre><p>2,安装完成之后我们来配置：</p>
+<p>创建版本库目录：</p>
+<pre tabindex="0"><code>	#mkdir -p /home/&lt;username&gt;/svn/
+</code></pre><p>3,然后启用：</p>
+<pre tabindex="0"><code>	#svnserve -d -r /home/&lt;username&gt;/svn/
+</code></pre><p>说明：</p>
+<p>这种方式启动服务，就指定了根目录，访问的时候只要相对目录即可：</p>
+<p>如：svn://HOST/project1</p>
+<p>还有一种方式启动服务，需要通过绝对路径来访问版本库：</p>
+<pre tabindex="0"><code>		svnserve -d
+</code></pre><p>如： svn://HOST/home/<username>/svn/<projectName></p>
+<p>然后查看是否启动了!</p>
+<pre tabindex="0"><code>	ps -ef|grep svn
+</code></pre><pre tabindex="0"><code>![](https://img-blog.csdn.net/20141031105434207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+</code></pre><p>默认的是3690端口，看看端口信息：</p>
+<pre tabindex="0"><code>	[root@207 conf]# lsof -i:3690
+</code></pre><p>COMMAND   PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME<br>
+svnserve 8454 root    3u  IPv4 1346200      0t0  TCP *:svn (LISTEN)</p>
+<p>（lsof命令用法参考：
+<a href="http://blog.csdn.net/guoguo1980/article/details/2324454">http://blog.csdn.net/guoguo1980/article/details/2324454</a>）</p>
+<p>4，然后我们来新建版本：</p>
+<pre tabindex="0"><code>	mkdir -p /home/&lt;username&gt;/svn/&lt;ProjectName&gt;
+	cd /home/&lt;username&gt;/svn/&lt;ProjectName&gt;/conf
+</code></pre><p>在这里有三个文件：authz  passwd  svnserve.conf （
+配置时候每行开头不要有空格，不要乱留空格。）</p>
+<p>svnserve.conf是主要配置文件；</p>
+<p><strong>vi svnserve.conf<br>
+修改如下：</strong></p>
+<pre tabindex="0"><code>	anon-access = read #此处用read or none, 参考：&lt;http://www.blogjava.net/zhouf/articles/251635.html&gt;
+	auth-access = write
+	password-db = /home/&lt;username&gt;/svn/&lt;ProjectName&gt;/conf/passwd
+	authz-db = /home/&lt;username&gt;/svn/&lt;ProjectName&gt;/conf/authz
+</code></pre><p>wq!保存退出</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141031110102/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-10-31T11:01:02&#43;0800" class="date">October 31, 2014</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20141030114931/" title="Spring MVC 学习笔记6 —— 实现简单的用户管理（2）添加和验证">Spring MVC 学习笔记6 —— 实现简单的用户管理（2）添加和验证</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="spring-mvc-学习笔记6--实现简单的用户管理2添加和验证">Spring MVC 学习笔记6 —— 实现简单的用户管理（2）添加和验证</h1>
+<h4 id="spring-mvc-学习笔记6--实现简单的用户管理2对user-model的增删改查添加validation">Spring MVC 学习笔记6 —— 实现简单的用户管理（2）对user model的增删改查【添加validation】</h4>
+<h4 id="增加用户">增加用户：</h4>
+<h5 id="1-顶级页面请求写在class头里">1. 顶级页面请求写在class头里</h5>
+<p>在“UserController.java”文件中：顶级页面请求是/user， 故 RequestMapping(&quot;/user&quot;)，下级请求就写在class里的method中：</p>
+<pre tabindex="0"><code>1. @RequestMapping(&#34;/user&#34;)
+2. public class UserController {
+3. 
+4. //1. save a value here
+5. private Map&lt;String,User&gt; users=new HashMap&lt;String, User&gt;();
+6. 
+7. //2. 创建一个构造函数，把这个值users设置进去, 建立一组数据
+8. public UserController(){
+9. users.put(&#34;sdy&#34;, new User(&#34;sdy&#34;, &#34;888&#34;, &#34;宋冬野&#34;, &#34;song@song.com&#34;));
+10. users.put(&#34;hxm&#34;, new User(&#34;hxm&#34;, &#34;889&#34;, &#34;黄蓄明&#34;, &#34;hung@song.com&#34;));
+11. users.put(&#34;cqh&#34;, new User(&#34;cqh&#34;, &#34;818&#34;, &#34;曹清华&#34;, &#34;chen@song.com&#34;));
+12. users.put(&#34;yhl&#34;, new User(&#34;yhl&#34;, &#34;808&#34;, &#34;杨环路&#34;, &#34;yang@song.com&#34;));
+13. }
+</code></pre><h5 id="2-对于浏览器的第一个请求获取用户列表">2. 对于浏览器的第一个请求，获取用户列表</h5>
+<p>浏览器第一个请求是{url}/user/users </p>
+<p> 
+要对应到list.jsp页面，这个映射就写在public String List中：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20141030114931/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2014-10-30T11:49:31&#43;0800" class="date">October 30, 2014</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/31/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/31/">31</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/32/">32</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/33/">33</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/33/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

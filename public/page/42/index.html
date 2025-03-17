@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+  <body>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161121161536/" title="简单的Git 命令：获取仓库文件和切换远程分支">简单的Git 命令：获取仓库文件和切换远程分支</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="简单的git-命令获取仓库文件和切换远程分支">简单的Git 命令：获取仓库文件和切换远程分支</h1>
+<h2 id="简单的git-命令获取仓库文件和切换远程分支-1">简单的Git 命令：获取仓库文件和切换远程分支</h2>
+<p>git clone <a href="mailto:git@gitlab.xxx.com">git@gitlab.xxx.com</a>:xxxxx.git  //从远程clone 分支下来，一般是默认master。</p>
+<p>有时不是，用 git branch 可以看到：</p>
+<pre tabindex="0"><code>* indigo-devel 
+</code></pre><p>说明此时是在indigo-devel上。</p>
+<h4 id="-要切换到master-">=== 要切换到master: ====</h4>
+<p>git branch -r //查看远程分支,</p>
+<p>git branch -a //查看本地和远程分支。</p>
+<p>如：</p>
+<pre tabindex="0"><code>   remotes/origin/master
+   remotes/origin/indigo-devel
+</code></pre><p>*如果本地没有master,要创建master：</p>
+<p>git checkout -b master remotes/origin/master  //本地创建master分支，并与远程remotes/origin/master同步</p>
+<p>git branch   //检查本地当前分支</p>
+<h4 id="-切换到其他分支-">=== 切换到其他分支: ====</h4>
+<p>git checkout hydro-devel  //从master 切换到 hydro-devel 分支<br>
+git checkout indigo-devel  //从hydro 切换到 indigo-devel 分支<br>
+git checkout master       // 从indigo-devel 切换到 master 分支</p>
+<p>**有关Git，更多教程参见：
+<a href="http://edu.csdn.net/course/detail/1223">http://edu.csdn.net/course/detail/1223</a></p>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识<a href="https://edu.csdn.net/skill/git/?utm_source=csdn_ai_skill_tree_blog">Git技能树</a><a href="https://edu.csdn.net/skill/git/?utm_source=csdn_ai_skill_tree_blog">首页</a><a href="https://edu.csdn.net/skill/git/?utm_source=csdn_ai_skill_tree_blog">概览</a>7351 人正在系统学习中</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161121161536/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-11-21T16:15:36&#43;0800" class="date">November 21, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161118114048/" title="ROS进二阶学习笔记（2）- SMACH：用状态机来管理机器人任务">ROS进二阶学习笔记（2）- SMACH：用状态机来管理机器人任务</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记2--smach用状态机来管理机器人任务">ROS进二阶学习笔记（2）- SMACH：用状态机来管理机器人任务</h1>
+<h2 id="ros进二阶学习笔记2---smach用状态机来管理机器人任务">ROS进二阶学习笔记（2） - SMACH：用<a href="https://so.csdn.net/so/search?q=%E7%8A%B6%E6%80%81%E6%9C%BA&amp;spm=1001.2101.3001.7020">状态机</a>来管理机器人任务</h2>
+<p><a href="http://wiki.ros.org/smach/Tutorials/Getting%20Started">http://wiki.ros.org/smach/Tutorials/Getting Started</a> </p>
+<p><a href="http://wiki.ros.org/smach/Tutorials">http://wiki.ros.org/smach/Tutorials</a></p>
+<p>好久没有更新关于ROS的笔记，这里进入SMACH的学习和应用，参照rbx2(ros by example <a href="https://so.csdn.net/so/search?q=volume&amp;spm=1001.2101.3001.7020">volume</a> 2)，和ROS官方wiki，进行学习。</p>
+<p>====</p>
+<h3 id="关于概念">关于概念</h3>
+<p>SMACH <em>states</em>是Python类，通过重写exe​​cute()方法来返回一个或多个可能的outcomes, 从而扩展smach.State类。 excute() 方法也可以通过可选的参数来来定义一个userdata集合，这个集合可以被用来传递状态之间的信息。本质上讲，状态执行的实际计算基本上可以是任何你想要的。并且，有很多预先定义好的state types ，这可以节省大量的非必须的代码。</p>
+<ul>
+<li>A SMACH <em>state machine</em> is another Python class (smach.StateMachine) that can contain a number of states.</li>
+<li>A <em>state</em> is added to a state machine by defining a set of transitions from the state&rsquo;s outcomes to other states in the machine.</li>
+</ul>
+<p>When a state machine is run, these transitions determine the flow of execution from state to state:<br>
+input → STATE_1 → {outcome, transition} → STATE_2<br>
+input → STATE_2 → {outcome, transition} → STATE_3<br>
+etc.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161118114048/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-11-18T11:40:48&#43;0800" class="date">November 18, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161104163055/" title="用scp传输文件">用scp传输文件</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="用scp传输文件">用scp传输文件</h1>
+<h2 id="-scp-in-linux--用ssh传输文件-">=== scp in linux : 用<a href="https://so.csdn.net/so/search?q=ssh&amp;spm=1001.2101.3001.7020">ssh</a>传输文件 ==</h2>
+<p>ref:
+<a href="https://www.vpser.net/manage/scp.html">https://www.vpser.net/manage/scp.html</a></p>
+<h3 id="-获取远程服务器上的文件-">=== 获取远程服务器上的文件 ===</h3>
+<pre tabindex="0"><code>    scp root@www.vpser.net:/root/lnmp0.4.tar.gz /home/lnmp0.4.tar.gz
+</code></pre><pre tabindex="0"><code>    scp -P 2222 root@www.vpser.net:/root/lnmp0.4.tar.gz /home/lnmp0.4.tar.gz
+</code></pre><p>上端口大写P 为参数，2222 表示更改SSH端口后的端口，如果没有更改SSH端口可以不用添加该参数。 <a href="mailto:root@www.vpser.net">root@www.vpser.net</a> 表示使用root用户登录远程服务器www.vpser.net，:/root/lnmp0.4.tar.gz 表示远程服务器上的文件，最后面的/home/lnmp0.4.tar.gz表示保存在本地上的路径和文件名。还可能会用到p参数保持目录文件的权限访问时间等。</p>
+<h3 id="-获取远程服务器上的目录-">=== 获取远程服务器上的目录 ===</h3>
+<pre tabindex="0"><code>    scp -P 2222 -r root@www.vpser.net:/root/lnmp0.4/ /home/lnmp0.4/
+</code></pre><p>上端口大写P 为参数，2222 表示更改SSH端口后的端口，如果没有更改SSH端口可以不用添加该参数。-r 参数表示递归复制（即复制该目录下面的文件和目录）；root@www.vpser.net 表示使用root用户登录远程服务器www.vpser.net，:/root/lnmp0.4/ 表示远程服务器上的目录，最后面的/home/lnmp0.4/表示保存在本地上的路径。</p>
+<h3 id="-3将本地文件上传到服务器上-">=== 3、将本地文件上传到服务器上 ===</h3>
+<pre tabindex="0"><code>    scp -P 2222 /home/lnmp0.4.tar.gz root@www.vpser.net:/root/lnmp0.4.tar.gz
+</code></pre><p>上端口大写P 为参数，2222 表示更改SSH端口后的端口，如果没有更改SSH端口可以不用添加该参数。 /home/lnmp0.4.tar.gz表示本地上准备上传文件的路径和文件名。root@www.vpser.net 表示使用root用户登录远程服务器www.vpser.net，:/root/lnmp0.4.tar.gz 表示保存在远程服务器上目录和文件名。</p>
+<h3 id="-4将本地目录上传到服务器上-">=== 4、将本地目录上传到服务器上 ===</h3>
+<pre tabindex="0"><code>    scp -P 2222 -r /home/lnmp0.4/ root@www.vpser.net:/root/lnmp0.4/
+</code></pre><p>上 端口大写P 为参数，2222 表示更改SSH端口后的端口，如果没有更改SSH端口可以不用添加该参数。-r 参数表示递归复制（即复制该目录下面的文件和目录）；/home/lnmp0.4/表示准备要上传的目录，root@www.vpser.net 表示使用root用户登录远程服务器www.vpser.net，:/root/lnmp0.4/ 表示保存在远程服务器上的目录位置。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161104163055/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-11-04T16:30:55&#43;0800" class="date">November 04, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161025101702/" title="Ubuntu - usb转串口设备的访问权限设置">Ubuntu - usb转串口设备的访问权限设置</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ubuntu---usb转串口设备的访问权限设置">Ubuntu - usb转串口设备的访问权限设置</h1>
+<p>可以用如下命令查看串口信息：</p>
+<p>ls -l /dev/ttyUSB*</p>
+<p>但是普通用户没有usb操作权限，下面介绍如何设置usb串口操作权限：</p>
+<h3 id="用命令增加访问权限">用命令增加访问权限：</h3>
+<pre tabindex="0"><code> sudo chmod 666 /dev/ttyUSB0
+</code></pre><h3 id="通过增加udev规则来实现">通过增加udev规则来实现</h3>
+<p>步骤如下：<br>
+   创建文件：</p>
+<pre tabindex="0"><code>sudo gedit /etc/udev/rules.d/70-ttyusb.rules
+</code></pre><p>在文件内增加一行</p>
+<pre tabindex="0"><code>KERNEL==&#34;ttyUSB[0-9]*&#34;, MODE=&#34;0666&#34;
+</code></pre><p>重新插入USB转串口设备，普通用户就有权限访问了。</p>
+<h4 id="另一种写法">另一种写法：</h4>
+<p>70-ttyusb.rules文件还有另一种写法，先用lsusb查看USB转串口芯片的idVendor和idProduct</p>
+<pre tabindex="0"><code>#lsusb
+</code></pre><p>显示结果中有这么一行</p>
+<pre tabindex="0"><code>Bus 005 Device 007: ID 0403:6001 
+Future Technology Devices International, Ltd FT232 USB-Serial (UART) IC
+</code></pre><p>其中 ID 0403:6001表示idVendor=0403,idProduct=6001<br>
+70-ttyusb.rules的内容如下:</p>
+<pre tabindex="0"><code>SUBSYSTEM==&#34;tty&#34;, ATTRS{idVendor}==&#34;0403&#34;, ATTRS{idProduct}==&#34;6001&#34;,MODE=&#34;0666&#34;, 
+</code></pre><p>重新插入USB转串口设备，普通用户同样可以访问了。除此之外，还可以：</p>
+<p><a href="http://blog.csdn.net/sonictl/article/details/50947753">重新指派usb转串口模块在linux系统中的设备调用名称(English Version: remap your usb-serial devices&rsquo; names in Linux )</a></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161025101702/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-10-25T10:17:02&#43;0800" class="date">October 25, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161024214312/" title="ROS：使用ROS_arduino_bridge Stack">ROS：使用ROS_arduino_bridge Stack</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros使用ros_arduino_bridge-stack">ROS：使用ROS_arduino_bridge Stack</h1>
+<h5 id="使用ros_arduino_bridge-stack">使用ROS_arduino_bridge Stack</h5>
+<p><em>使ROS得到odom信息</em> 和 <em>使move base(移动底盘)获得 cmd_vel信息</em>，需要个桥梁。</p>
+<p>而修改 ROS_arduino_bridge Stack 后可以完成此任务。</p>
+<p>目的就是 发布 odom 和 使movebase（移动底盘）得到cmd_vel 信息，从而控制底盘运动。</p>
+<p>斟酌后，Finally，使用stack(后来叫做
+<a href="http://wiki.ros.org/Metapackages">Metapackage</a>): ROS Arduino Bridge 来完成此项工作：
+ref:</p>
+<p>  <a href="http://wiki.ros.org/ros_arduino_bridge">http://wiki.ros.org/ros_arduino_bridge</a></p>
+<p>  <a href="https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/README.md">https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/README.md</a></p>
+<h3 id="使用ros_arduino_bridge-stack-1">使用ROS_arduino_bridge Stack</h3>
+<p>  参照 ref 中github中 readme.md 进行配置。</p>
+<p>  最后一个Section ： Note中说明了如果在硬件与它们不匹配的情况下依然使用这个 stack 帮助快速建立 ROS and <a href="https://so.csdn.net/so/search?q=arduino&amp;spm=1001.2101.3001.7020">arduino</a>连接的方法。</p>
+<p>  check out 代码命令：</p>
+<pre tabindex="0"><code>$ cd ~/catkin_ws/src
+$ git clone https://github.com/hbrobotics/ros_arduino_bridge.git
+$ cd rbx1
+$ git checkout hydro-devel
+$ cd ~/catkin_ws
+$ catkin_make
+$ source ~/catkin_ws/devel/setup.bash
+</code></pre><p> </p>
+<h3 id="install-the-rosarduinobridge-library-for-arduino">install the ROSArduinoBridge library for Arduino</h3>
+<p>ref : <a href="https://www.arduino.cc/en/Guide/Libraries#toc5">https://www.arduino.cc/en/Guide/Libraries#toc5</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161024214312/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-10-24T21:43:12&#43;0800" class="date">October 24, 2016</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/41/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/41/">41</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/42/">42</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/43/">43</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/79/">79</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/43/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+          <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

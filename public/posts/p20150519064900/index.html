@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="
+
+We first built a static site which displayed a static image using only a Controller and a View. This is our Etsy landing page page.
+Then we built the Categories page, with a Model (manages data), Controller (manages decisions) and View (manages display). The Categories pages allows us to display dynamic content so users can browse through different Categories that can be updated regularly.
+Now we will build the Products page, which will allow users to browse through Products in our Etsy app. To create this, we&#39;ll be creating a new Model, Controller, and View." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20150519064900/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="
+
+We first built a static site which displayed a static image using only a Controller and a View. This is our Etsy landing page page.
+Then we built the Categories page, with a Model (manages data), Controller (manages decisions) and View (manages display). The Categories pages allows us to display dynamic content so users can browse through different Categories that can be updated regularly.
+Now we will build the Products page, which will allow users to browse through Products in our Etsy app. To create this, we&#39;ll be creating a new Model, Controller, and View." />
+  <meta property="og:title" content="Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20150519064900/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-05-19" />
+    <meta property="article:modified_time" content="2015-05-19" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="
+
+We first built a static site which displayed a static image using only a Controller and a View. This is our Etsy landing page page.
+Then we built the Categories page, with a Model (manages data), Controller (manages decisions) and View (manages display). The Categories pages allows us to display dynamic content so users can browse through different Categories that can be updated regularly.
+Now we will build the Products page, which will allow users to browse through Products in our Etsy app. To create this, we&#39;ll be creating a new Model, Controller, and View." />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20150519064900/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20150519064900/">Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-05-19T06:49:00&#43;0800 class="date">May 19, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+15 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>We first built a static site which displayed a static image using only a Controller and a View. This is our Etsy landing page page.</p>
+<p>Then we built the Categories page, with a Model (manages data), Controller (manages decisions) and View (manages display). The Categories pages allows us to display dynamic content so users can browse through different Categories that can be updated regularly.</p>
+<p>Now we will build the Products page, which will allow users to browse through Products in our Etsy app. To create this, we'll be creating a new Model, Controller, and View.</p>
+<p>Now, because have more than one Model, we will also learn how Models interact with each other through associations.</p>
+<p>前面我们完成的ruby on rails app 的静态、动态网页开发，实现了数据库增删改查的操作，熟悉了MVC结构的工作机理。本文在前面的基础上，要新增一个Prodect的Model,从而体现多model交互的功能。<br>
+<br>
+</p>
+<p>====================================</p>
+<p>Product Page 的效果如下：<br>
+<img src="http://img.blog.csdn.net/20150519145837880?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="428" width="769"><br>
+</p>
+<p><br>
+</p>
+<div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>Let's review our Request-Response Cycle one more time.</p>
+<p>Again, in our Products page, we're using a database just like we did for Categories.</p>
+<ul>
+<li><span style="background-color:rgb(255,255,0)">Our browser will first make a request to the server. The server handles the requests by talking to our Rails application.</span></li><li><span style="background-color:rgb(255,255,0)">Second, the route takes the request and finds the right Controller and method to handle the request.</span></li><li><span style="background-color:rgb(255,255,0)">Third, the Controller gathers data directly from our Model. It assembles the data in methods and then passes it on the View.</span></li><li><span style="background-color:rgb(255,255,0)">Finally, the View packages the information and sends it back to our browser.</span></li></ul>
+</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="http://img.blog.csdn.net/20150519150112667?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="327" width="558">
+<p></p>
+<h3>Request-Response Cycle的工作机理：</h3>
+<p>1. 浏览器发送请求到服务器，服务器处理请求，怎么处理：跟Rails App 说：有个请求来了！<br>
+2. the routes 拿到请求，找到正确的Controller和Method，来处理这个请求。<br>
+3. Controller 开始收集数据，从Model里收集，在Methods里组装数据，完了就传递给View<br>
+4. 最后，View把所有的信息打包好，包括数据，样式，文本，图片各种。。。传回给浏览器。<br>
+<br>
+========================================<br>
+</p>
+<h2>下面开始我们Making Product Page<br>
+</h2>
+<p>This page will list all products that users buy - like shoes or craft paper. Users will be able to browse through products and find what they like.<br>
+When we created a Model for Categories, we were able to add information about our categories. For Products, we will also create a Model so we can add information about our products, such as a product name or price.</p>
+<h3>1. Generate the product model</h3>
+<p>we generate a model like this:(in terminal)</p>
+<pre><code> rails generate model product
+</code></pre>
+<p></p>
+<p>Remember that Model names are always singular.<br>
+When we generate a Product Model, we create corresponding Model and Migration files. Let's first focus on the product model.<br>
+</p>
+<h3>2. build the association between two models</h3>
+<p>Since we have more than one Model, a Category Model and a Product Model, we can build the association between the two.<br>
+Why do we need associations? As you create the Etsy app, you want to make sure that certain Products are associated with a Category. What if we want to put our painting in the Art category, or a toy in the Kids category?<br>
+Associations do just this. They tell us how parts of our app relate to other parts.Association（关联）就是解决我们app的一些parts和另一些parts 是怎么个关系。<br>
+How do we create associations? The most basic type is a has_many and belongs_to relationship, where 'one thing' has many 'other things'. Imagine a Person and their Pets. The Person has_many Pets, and Pets belongs_to the Person.怎么来创建一个关联呢？<br>
+最基本的类型就是 has_many 和 belongs_to 关系。has_many 就是 ‘一个东西’ 有很多 ‘其他东西们’ ，设想，一个人和他的宠物们。就是这个人has_many 宠物们，并且，宠物们 belongs_to 这个人。<br>
+</p>
+<p>In the Person Model we type:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>
+  <span class="title">has_many</span> :</span>pets
+end
+</code></pre>
+<p>In the Pet Model, we type:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Pets</span>
+  <span class="title">belongs_to</span> :</span>person
+end
+</code></pre>
+<p><br>
+</p>
+<p>In our case, our Category has many products, and Product belongs to category:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Category</span>
+  <span class="title">has_many</span> :</span>products
+end
+</code></pre>
+<p>In the Pet Model, we type:</p>
+<pre><code class="lang-rb"><span class="class"><span class="keyword">class</span> <span class="title">Products</span>
+  <span class="title">belongs_to</span> :</span>category
+end
+</code></pre>
+**<span></span><span>app/models/category.rb</span>:<pre code_snippet_id="670722" snippet_file_name="blog_20150519_1_7742902"  code_snippet_id="670722" snippet_file_name="blog_20150519_1_7742902" name="code" class="ruby">class Category &lt; ActiveRecord::Base
+	has_many :products
+end
+</pre>同时，<br>
+**<span>app/models/product.rb</span>:<pre code_snippet_id="670722" snippet_file_name="blog_20150519_2_3254708"  code_snippet_id="670722" snippet_file_name="blog_20150519_2_3254708" name="code" class="ruby">class Product &lt; ActiveRecord::Base
+	belongs_to :category
+end</pre><br>
+<h3>3. prepare our Products Migration table</h3>
+<p></p>
+<p></p>
+<p>Now that our Product Model is set up, we need to prepare our Products Migration table so that it has the right columns.</p>
+<p>If you recall from the Categories Migration, we do this in two steps:</p>
+<p>a. Add columns to our Products Migration table</p>
+<p>b. Type <span style="font-family:Courier New">bundle exec rake db:migrate</span> in the terminal</p>
+<p>In this case, there's one more column that we will add. Now that we have an association, we need to tell our Models that our Product Model belongs to our Category Model by adding a<strong>references</strong> column.</p>
+we had a Product that belonged to a Category, we would add<span style="font-family:Courier New"> t.references</span>to our<span style="font-family:Courier New">Pet</span> table to look like this:
+<p><br>
+</p>
+<p>in our Products Migration table, we will <code>:references</code> to Category. We always add references to the table that<code>belongs_to</code> something else.[从model里添加references to 主model.] 这里我们就是产品model的文件里，Reference to Category, buz product model belongs
+ to category model.</p>
+<p>1. 文件**db/migrate/20140626211017_create_products.rb: </p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150519_3_4174333"  code_snippet_id="670722" snippet_file_name="blog_20150519_3_4174333" name="code" class="ruby">class CreateProducts &lt; ActiveRecord::Migration
+&#160; def change
+&#160;&#160;&#160; create_table :products do |t|
+&#160;&#160; &#160;&#160;&#160; &#160;t.string :product_name&#160; #string
+&#160;&#160; &#160;&#160;&#160; &#160;t.text :description&#160;&#160;&#160;&#160; #text
+&#160;&#160; &#160;&#160;&#160; &#160;t.float :price&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; #float
+&#160;&#160; &#160;&#160;&#160; &#160;t.string :thumburl&#160;&#160;&#160;&#160;&#160; #string
+&#160;&#160; &#160;&#160;&#160; &#160;t.references :category&#160; #references
+&#160;&#160; &#160;&#160;&#160; &#160;t.timestamps&#160;&#160; &#160;&#160;&#160; &#160;    #timestamps is required.
+&#160;&#160;&#160; end
+&#160; end
+end</pre>
+<p></p>
+<p><span>2. In terminal, run <span style="background-color:rgb(204,204,204)"><code>bundle exec rake db:migrate</code></span> to migrate your database. Press Enter.</span><br>
+</p>
+<br>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150519_4_9063691"  code_snippet_id="670722" snippet_file_name="blog_20150519_4_9063691" name="code" class="plain">$ bundle exec rake db:migrate
+== 20140626211017 CreateProducts: migrating ===================================
+-- create_table(:products)
+   -&gt; 0.0013s
+== 20140626211017 CreateProducts: migrated (0.0013s) ==========================
+<p>$ </pre><br></p>
+<p></p>
+<h3>4. Add seed data for our Products</h3>
+<p></p>
+<p></p>
+<p>Now that we have columns, let's add seed data for our Products. If you recall there are also two steps for this:</p>
+<p><span style="font-family:Courier New">a. We add seed data in our seeds.rb file</span></p>
+<p><span style="font-family:Courier New">b. We run <span style="background-color:rgb(204,204,204)">
+rake db:seed</span> in the terminal (<span style="background-color:rgb(204,204,204)"><span style="font-family:Courier New">bundle exec rake db:seed<span style="background-color:rgb(204,204,204)"></span></span></span>)</span></p>
+<p>We already added most of the Products seed data for you. This time with one small change. Since each product belongs to a specific category, we'll also be adding a category_id at the end for art.</p>
+<p>Let's look at some seed data:</p>
+<pre><code class="lang-rb"><span class="constant">Product</span>.<span class="identifier">create</span>(<span class="identifier">product_name</span><span class="symbol">:</span> <span class="string">'Spanish Canvas Painting'</span>, <span class="identifier">description</span><span class="symbol">:</span> <span class="string">'La Fuente de Monteforte Painting Acrylic'</span>, <span class="identifier">price</span><span class="symbol">:</span> <span class="number">79.00</span>, <span class="identifier">thumburl</span><span class="symbol">:</span> <span class="string">'http://upload.wikimedia.org/wikipedia/commons/e/eb/144-la_fuente_de_Monforte_V.jpg'</span>, <span class="identifier">category_id</span><span class="symbol">:</span> <span class="identifier">art</span>.<span class="identifier"><span class="keymethods">id</span></span>)
+</code></pre>
+<p></p>
+<p>As we can see, each of our Product columns has an entry. We also have <span style="background-color:rgb(204,204,204)">
+<code>category_id: art.id</code></span>, referencing that this product belongs to the art category.</p>
+** db/seeds.rb:<pre code_snippet_id="670722" snippet_file_name="blog_20150519_5_9983316"  code_snippet_id="670722" snippet_file_name="blog_20150519_5_9983316" name="code" class="ruby"># This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: &#39;Chicago&#39; }, { name: &#39;Copenhagen&#39; }])
+#   Mayor.create(name: &#39;Emanuel&#39;, city: cities.first)
+<pre><code>art = Category.create(name: &amp;#39;Art&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/eb/144-la_fuente_de_Monforte_V.jpg&amp;#39;)
+home_and_living = Category.create(name: &amp;#39;Home &amp;amp; Living&amp;#39;, thumburl: &amp;#39;http://ihomedecorsideas.com/wp-content/uploads/2014/04/diy_network_homemade_coat_rack_.jpg&amp;#39;)
+jewelry = Category.create(name: &amp;#39;Jewelry&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/f/ff/Midyat_Silver_Jewelry_1310103_Nevit.jpg&amp;#39;)
+women = Category.create(name: &amp;#39;Women&amp;#39;, thumburl: &amp;#39;https://c1.staticflickr.com/9/8255/8660920433_57a184d9d1_z.jpg&amp;#39;)
+men = Category.create(name: &amp;#39;Men&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/d/d5/Fullbrogue_(Grenson).jpg&amp;#39;)
+kids = Category.create(name: &amp;#39;Kids&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/e0/Artist%27s_Paint_Brushes_Adapted_With_Photoshop._Surrey_UK.jpg&amp;#39;)
+vintage = Category.create(name: &amp;#39;Vintage&amp;#39;, thumburl: &amp;#39;https://c2.staticflickr.com/8/7402/9426557291_139134efaa_z.jpg&amp;#39;)
+weddings = Category.create(name: &amp;#39;Weddings&amp;#39;, thumburl: &amp;#39;http://hostingessence.com/wp-content/uploads/2012/04/green-wedding.jpg&amp;#39;)
+</code></pre>
+<p>craft_supplies = Category.create(name: 'Craft Supplies', thumburl: 'http://bit.ly/1w1uPow')</p>
+<p>#Art
+Product.create(product_name: 'Russian Acrylic', description: 'Acrylic on Canvas', price: 59.00, thumburl: 'http://bit.ly/1nDkJZw', category_id: art.id)</p>
+<p>Product.create(product_name: 'Spanish Canvas Painting', description: &quot;La Fuente de Monteforte Painting Acrylic&quot;, price: 79.00, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/e/eb/144-la_fuente_de_Monforte_V.jpg',
+category_id: art.id)
+Product.create(product_name: 'French Acrylics &amp; Pastel Canvas', description: &quot;Jeanne d'Arc Arrivant a l'ile Bouchard&quot;, price: 122.00, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/3/36/2004_Yuri-Yudaev_Before-the-City-Gate_Acrylic-on-canvas_40x40cm.jpg', category_id: art.id)</p>
+<h1 id="home--living">Home &amp; Living<a hidden class="heading-anchor" aria-hidden="true" href="#home--living">#</a></h1>
+<p>Product.create(product_name: 'Art Deco Glass', description: &quot;Before-the-City-Gate Acrylic-on-canvas&quot;, price: 1599.00, thumburl: 'http://ihomedecorsideas.com/wp-content/uploads/2014/04/diy_network_homemade_coat_rack_.jpg', category_id: home_and_living.id)
+Product.create(product_name: 'Rustic Homemade Coatrack', description: &quot;Coatrack made of Maple Tree Branches&quot;, price: 288.00, thumburl: 'https://c2.staticflickr.com/6/5308/5821079295_4580e3c8d3_z.jpg', category_id: home_and_living.id)
+Product.create(product_name: 'Forest Wood Coffee Table', description: &quot;Chista Natural Wood Rustic Collection&quot;, price: 299.00, thumburl: 'https://c1.staticflickr.com/3/2777/4033647409_3c04157d86.jpg', category_id: home_and_living.id)</p>
+<h1 id="jewelry">Jewelry<a hidden class="heading-anchor" aria-hidden="true" href="#jewelry">#</a></h1>
+<p>Product.create(product_name: 'Vintage Rhinestone Earrings', description: &quot;Lightweight Rhinestone Earrings in Sterling Silver Setting&quot;, price: 9.00, thumburl: 'http://fc03.deviantart.net/fs70/f/2011/340/0/5/dangle_ear_rings_stock_png_by_doloresdevelde-d4idyev.png', category_id: jewelry.id)
+Product.create(product_name: 'Moon Turquoise Ring', description: &quot;Mediyat Silver&quot; , price: 39.99, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/f/ff/Midyat_Silver_Jewelry_1310103_Nevit.jpg', category_id: jewelry.id)
+Product.create(product_name: 'Greek Gold Necklace', description: &quot;Greek Gold Plated Necklace&quot;, price: 4570.00, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/0/02/Ancient_greek_jewelry_Staatliche_Antikensammlungen_Room_10_06.jpg', category_id: jewelry.id)</p>
+<h1 id="women">Women<a hidden class="heading-anchor" aria-hidden="true" href="#women">#</a></h1>
+<p>Product.create(product_name: 'Chloe Frill Yellow Dress' , description: &quot;Vintage yellow dress with floral design. Lightweight with frill on skirt.&quot;, price: 59.99, thumburl: 'https://c1.staticflickr.com/9/8255/8660920433_57a184d9d1_z.jpg', category_id: women.id, )
+Product.create(product_name: 'Autumn Knitted Sweater with Silver Buttons', description: &quot;Knitted Crop Sweater with Silver Buttons&quot;, price: 45.99, thumburl: 'https://c2.staticflickr.com/4/3049/2353463988_c9d8cde436_z.jpg?zz=1', category_id: women.id)
+Product.create(product_name: 'Rucksack', description: &quot;Rucksack Schweizer Armee 1960.&quot;, price: 39.99, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/a/a1/Image-2D_and_3D_modulor_Origami.jpg', category_id: women.id)</p>
+<h1 id="men">Men<a hidden class="heading-anchor" aria-hidden="true" href="#men">#</a></h1>
+<p>Product.create(product_name: 'Grenson Shoes', description: &quot;Fullbrogue Grenson Shoes.&quot;, price: 105.00, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/d/d5/Fullbrogue_(Grenson).jpg', category_id: men.id)
+Product.create(product_name: 'Color Fringed Scarf', description: &quot;Men’s Fringed Scarf in Pumpkin Toffee Grey.&quot;, price: 19.99, thumburl: 'https://c2.staticflickr.com/4/3437/3832752067_c6c3631d44_z.jpg?zz=1', category_id: men.id)
+Product.create(product_name: 'Pork Pie Hat', description: &quot;Classic Pork Pie Hat from the 1940s.&quot;, price: 110.00, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/0/05/Brown_Porkpie_Hat.JPG', category_id: men.id)</p>
+<h1 id="kids">Kids<a hidden class="heading-anchor" aria-hidden="true" href="#kids">#</a></h1>
+<p>Product.create(product_name: 'Peruvian Hats', description: &quot;Handmade Peruvian Winter Hats for Children.&quot;, price: 15.00, thumburl: 'https://c2.staticflickr.com/8/7020/6498656815_3937483e21_z.jpg', category_id: kids.id)
+Product.create(product_name: 'Norev Toy Car', description: &quot;Classic Norev Model Toy Car for Children&quot;, price: 17.00, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/6/61/Norev_4cv.jpg', category_id: kids.id)
+Product.create(product_name: 'Stickle Bricks', description: 'Toy Stickle Brick Building Blocks Set', price: 21.99, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/f/f1/Stickle_bricks.jpg', category_id: kids.id)</p>
+<h1 id="vintage">Vintage<a hidden class="heading-anchor" aria-hidden="true" href="#vintage">#</a></h1>
+<p>Product.create(product_name: 'Anders Brown Leather Bag', description: &quot;Vintage Leather with White Trim.&quot;, price: 79.99, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/3/3d/Gesellenst%C3%BCck_Lederhandwerk.jpg', category_id: vintage.id)
+Product.create(product_name: 'Cambridge Red Footsies', description: &quot;Red Vintage Leather Shoes Children with Brown Laces and White Trim&quot;, price: 45.99, thumburl: 'https://c1.staticflickr.com/3/2587/3797274851_8199f17d01.jpg', category_id: vintage.id)
+Product.create(product_name: 'Voightlander Camera', description: &quot;Voightlander Vintage Camera with Metal Case&quot;, price: 179.00, thumburl: 'http://upload.wikimedia.org/wikipedia/commons/6/67/A_vintage_Voigtl%C3%A4nder_Vito_B_camera.jpg', category_id: vintage.id)</p>
+<h1 id="weddings">Weddings<a hidden class="heading-anchor" aria-hidden="true" href="#weddings">#</a></h1>
+<p>Product.create(product_name: 'Green Wedding Decor', description: &quot;Forest Dream Wedding Decoration Ideas&quot;, price: 27.00, thumburl: 'http://hostingessence.com/wp-content/uploads/2012/04/green-wedding.jpg', category_id: weddings.id)
+Product.create(product_name: 'Embossed Soap Wedding Favors', description: &quot;Lavendar Handmade Soap decorated with elegant nature design. &quot;, price: 4.50, thumburl: 'https://c1.staticflickr.com/1/203/518233215_cb4d2af38f_z.jpg?zz=1', category_id: weddings.id)
+Product.create(product_name: 'Handmade Centerpieces', description: &quot;Handmade Wedding Tea Cup Centerpieces for Your Guests&quot;, price: 35.00, thumburl: 'http://indiefixx.com/wp-content/uploads/2011/06/GR_teacupcenterpieces.jpg', category_id: weddings.id)</p>
+<h1 id="craft-supplies">Craft Supplies<a hidden class="heading-anchor" aria-hidden="true" href="#craft-supplies">#</a></h1>
+<p>Product.create(product_name: 'Korean Indasong Craft Paper', description: &quot;Origami Paper Kit&quot;, price: 17.00, thumburl: 'http://commons.wikimedia.org/wiki/File:Vesta_sewing_machine_IMGP0718.jpg', category_id: craft_supplies.id)
+Product.create(product_name: 'Handmade Gift Wrap', description: &quot;Esoterica Handmade Supplies&quot;, price: 14.00, thumburl: 'http://commons.wikimedia.org/wiki/File:Vesta_sewing_machine_IMGP0718.jpg', category_id: craft_supplies.id)
+Product.create(product_name: 'Lollipot Flavor Kit', description: &quot;Flavor Kit for Celebration Lollipops and Gifts&quot;, price: 21.00, thumburl: 'http://commons.wikimedia.org/wiki/File:Vesta_sewing_machine_IMGP0718.jpg', category_id: craft_supplies.id)
+</pre><br>
+In terminal type: bundle exec rake db:seed <br></p>
+<pre class="jqconsole jqconsole-blurred" style="position:absolute; top:290px; bottom:0px; right:0px; left:-4px; margin:0px; overflow:auto; width:432px; height:101px"><span class="jqconsole-old-prompt"><span>$ bundle exec rake db:seed
+</span></span><span class="jqconsole-prompt "><span></span><span><span>$ </span></span></span></pre>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150519_6_412573"  code_snippet_id="670722" snippet_file_name="blog_20150519_6_412573" name="code" class="plain">$ bundle exec rake db:seed
+$ </pre>Now that we have a Model, we can create our Products Controller and Views. The Controller methods ensure that we serve dynamic content to the Products View. We can change the information users see.<br>
+<h3>5. Create our Controller<br>
+</h3>
+<p>We saw this diagram when we created our Categories Controller. The good news is that our Products Controller will use the same pattern. We will use Create, Read, Update, and Delete to change information, commonly called CRUD.</p>
+<p>Remember that five of these methods, index, show, new, edit, delete have Views as indicated here.</p>
+<p>Take a look at the image below. It lists the Create, Read, Update, and Delete methods and what they do.<br>
+&nbsp;&nbsp;&nbsp; <img src="http://img.blog.csdn.net/20150519164701520?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="554" width="643"><br>
+</p>
+<p>我们有Model了，要建立Products 的Controller，跟Category一样。<br>
+我们要Products页面是动态的，包含8个methods, This way, we can 改变我们products的信息。<br>
+我们就从5个有对应view的methods开始。在Terminal里：<br>
+</p>
+<pre><code> <span class="identifier">rails</span> <span class="identifier">generate</span> <span class="identifier">controller</span> <span class="identifier">products</span> <span class="identifier"><span class="keymethods">index</span></span> <span class="identifier">show</span> <span class="identifier"><span class="keymethods">new</span></span> <span class="identifier">edit</span> <span class="identifier"><span class="keymethods">delete</span></span>
+</code></pre>
+<p></p>
+<p>Here we list the five main methods that have Views.</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_7_9661221"  code_snippet_id="670722" snippet_file_name="blog_20150520_7_9661221" name="code" class="plain">$ rails generate controller products index show new edit delete
+create  app/controllers/products_controller.rb
+ route  get &#39;products/delete&#39;
+ route  get &#39;products/edit&#39;
+ route  get &#39;products/new&#39;
+ route  get &#39;products/show&#39;
+ route  get &#39;products/index&#39;
+invoke  erb
+create    app/views/products
+create    app/views/products/index.html.erb
+create    app/views/products/show.html.erb
+create    app/views/products/new.html.erb
+create    app/views/products/edit.html.erb
+create    app/views/products/delete.html.erb
+invoke  test_unit
+create    test/controllers/products_controller.rb
+invoke  helper
+create    app/helpers/products_helper.rb
+invoke    test_unit
+create      test/helpers/products_helper_test.rb
+invoke  assets
+invoke    coffee
+create      app/assets/javascripts/products.js.coffee
+invoke    scss
+create      app/assets/stylesheets/products.css.scss
+$  </pre>**<span>app/controllers/products_controller.rb</span>文件里，接下来就要写methods了。<br>
+<p></p>
+<h3>6. Add the method keep our data secure<br>
+</h3>
+We'll need to give our Products a secure way of fetching information from our Model.
+<p></p>
+<p>We'll create a strong parameters method that will keep our data secure. This private method prevents someone from altering the information we store in our Product Model.<br>
+**<span>app/controllers/products_controller.rb</span>文件里，加入：</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_8_4517561"  code_snippet_id="670722" snippet_file_name="blog_20150520_8_4517561" name="code" class="ruby">private
+def product_params  #strong params method, based on the name of the Model: &#39;product&#39;
+ params.require(:product).permit(:product_name, :description, :price, :thumburl)#requires the Model name, and permits the columns
+end
+</pre>As you can see a strong params method (i.e. product_params) will be based on the name of the Model. Here, params requires the Model name (product) and permits the columns stored in our Migration table (product_name, description, price and thumburl).
+<p></p>
+<p></p>
+<h3>7. Add the main controller methods: index, show, new, edit and delete<br>
+</h3>
+Now it's time to create our main controller methods again: <strong>index, show, new, edit</strong>and<strong> delete</strong>. Lucky for us, Rails is built on a series of patterns. We'll be using many of the same patterns we used before!<br>
+三个文件：<br>
+1. Controller： app/controllers/products_controller.rb<br>
+2. Routes: config/routes.rb<br>
+3. Views:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; index:&nbsp;&nbsp; &nbsp; app/views/products/index.html.erb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; show:&nbsp;&nbsp; &nbsp; app/views/products/show.html.erb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new:&nbsp;&nbsp; &nbsp; app/views/products/new.html.erb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; edit:&nbsp;&nbsp; &nbsp; app/views/products/edit.html.erb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delete:&nbsp;&nbsp; &nbsp; app/views/products/delete.html.erb<br>
+=========<br>
+&gt;&gt; 先准备好Routes:&nbsp; config/routes.rb<br>
+----<pre code_snippet_id="670722" snippet_file_name="blog_20150520_9_2405543"  code_snippet_id="670722" snippet_file_name="blog_20150520_9_2405543" name="code" class="ruby">Rails.application.routes.draw do
+  get &#39;/&#39; =&gt; &#39;pages#home&#39;
+<p>resources :categories
+get 'categories/:id/delete' =&gt; 'categories#delete', :as =&gt; :categories_delete</p>
+<p>#this takes care of our main controller routes for products
+resources :products
+get 'products/:id/delete' =&gt; 'products#delete', :as =&gt; :products_delete
+end</pre>&mdash;-</p>
+<p></p>
+<p>&gt;&gt; 再一个个写Controller和Views<br>
+</p>
+<h4>&nbsp;&nbsp;&nbsp; 7.1 For index:</h4>
+<p></p>
+<p>&nbsp;&nbsp;&nbsp; Controller:<br>
+&nbsp;&nbsp;&nbsp; ----</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_10_7785269"  code_snippet_id="670722" snippet_file_name="blog_20150520_10_7785269" name="code" class="ruby">    define index
+      @products = Product.all
+    end</pre>&nbsp;&nbsp;&nbsp; ----<br>
+<br>
+&nbsp;&nbsp;&nbsp; View:<br>
+&nbsp;&nbsp;&nbsp; ----<pre code_snippet_id="670722" snippet_file_name="blog_20150520_11_4037048"  code_snippet_id="670722" snippet_file_name="blog_20150520_11_4037048" name="code" class="html">&lt;h1&gt;Listing products&lt;/h1&gt;
+<p>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Price&lt;/th&gt;
+&lt;th&gt;Thumburl&lt;/th&gt;
+&lt;th colspan=&quot;3&quot;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;</p>
+<p>&lt;tbody&gt;
+&lt;% @products.each do |product|%&gt;
+&lt;!&ndash;# iterate through @products %&gt;&ndash;&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;%= product.product_name%&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%= product.description %&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%= product.price %&gt;&lt;/td&gt;
+&lt;% if product.thumburl %&gt;
+&lt;%= image_tag product.thumburl %&gt;
+&lt;% end %&gt;
+&lt;td&gt;&lt;%= link_to 'Show', product %&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%= link_to 'Edit', edit_product_path(product) %&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;% end %&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p>&lt;br&gt;</p>
+<p>&lt;%= link_to 'New Product', new_product_path %&gt;</pre></p>
+<p></p>
+<p>We're getting closer! The index page you made has all the right information, but this time around we added some style to the page. It now includes the supporting HTML for your Views.</p>
+<p>Let's try adding the index view for categories again, now with style. Here again we would iterate through all Products and print out the name and the thumburl.<br>
+**文件</p>
+<div class="editor-filepath"><span class="fcn-icon fcn-icon-folder"></span><span></span><span>app/views/products/index.html.erb ：<br>
+</span></div>
+<p></p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_12_6203"  code_snippet_id="670722" snippet_file_name="blog_20150520_12_6203" name="code" class="html">&lt;%= render &#39;shared/topnav&#39; %&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+<p>&lt;h1&gt;Listing products&lt;/h1&gt;</p>
+<p>&lt;% @products.in_groups_of(3).each do |products| %&gt;
+&lt;% products.select! {|x| !x.nil?} %&gt;
+&lt;div class='row'&gt;
+&lt;% products.each do |product| %&gt;
+&lt;div class='col-md-4'&gt;
+&lt;div class=&quot;thumbnail&quot;&gt;
+&lt;img src= &lt;%= product.thumburl %&gt; &gt;
+&lt;div class=&quot;caption&quot;&gt;
+&lt;span class=&quot;listing-title&quot;&gt;&lt;%= product.product_name %&gt;&lt;/span&gt;
+&lt;span class=&quot;listing-desc&quot;&gt;&lt;%= product.description %&gt;&lt;/span&gt;
+&lt;span class=&quot;listing-price&quot;&gt;&lt;%= number_to_currency(product.price) %&gt;&lt;/span&gt;
+&lt;span&gt;&lt;%= link_to &quot;Edit&quot;, edit_product_path(product.id) %&gt;&lt;/span&gt;
+&lt;span&gt;&lt;%= link_to &quot;Delete&quot;, products_delete_path(:id =&gt; product.id) %&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;% end %&gt;
+&lt;/div&gt;
+&lt;% end %&gt;
+&lt;br&gt;</p>
+<p>&lt;%= link_to 'New Product', new_product_path %&gt;</p>
+<p>&lt;%= render 'shared/footer' %&gt;
+</pre><br>
+<br></p>
+<h4>&nbsp;&nbsp;&nbsp; 7.2For show method<br>
+</h4>
+<p>The show method finds an object by its id, and stores it in @product. Let's create the show method in our controller. Using our Pet example, it looks like this:</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_13_7927204"  code_snippet_id="670722" snippet_file_name="blog_20150520_13_7927204" name="code" class="ruby">  def show #request: localhost:8000/products/1
+      @product = Product.find(params[:id])
+  end</pre>We still need a view! We just want to show one product on a page. Let's go ahead and make the view for show.<br>
+To do this, we'll be printing out the attributes that we stored in our instance variable @product. We add . and the attributes name after each attribute we print out.
+<p></p>
+<p>***<span>app/views/products/show.html.erb</span>:</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_14_3962398"  code_snippet_id="670722" snippet_file_name="blog_20150520_14_3962398" name="code" class="html">&lt;p&gt;
+  &lt;strong&gt;Product name:&lt;/strong&gt;
+  &lt;%= @product.product_name%&gt;
+&lt;/p&gt;
+<p>&lt;p&gt;
+&lt;strong&gt;Description:&lt;/strong&gt;
+&lt;%= @product.description %&gt;
+&lt;/p&gt;</p>
+<p>&lt;p&gt;
+&lt;strong&gt;Price:&lt;/strong&gt;
+&lt;%= @product.price %&gt;
+&lt;/p&gt;</p>
+<p>&lt;p&gt;
+&lt;strong&gt;Thumburl:&lt;/strong&gt;
+&lt;%= @product.thumburl%&gt;
+&lt;/p&gt;</p>
+<p>&lt;%= link_to 'Edit', edit_product_path(@product) %&gt; |
+&lt;%= link_to 'Back', products_path %&gt;
+</pre><br></p>
+<p></p>
+<h4>&nbsp;7.3 Prepare&nbsp; _form.html.erb file</h4>
+<p></p>
+<p>在准备接下来的<strong>new/edit method</strong>之前，我们还需要准备好 _form.html.erb 文件：<span>app/views/products/_form.html.erb</span><br>
+</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_15_8851756"  code_snippet_id="670722" snippet_file_name="blog_20150520_15_8851756" name="code" class="html">&lt;%= form_for(@product) do |f| %&gt;
+<p>&lt;div class=&quot;product_name&quot;&gt;
+&lt;%= f.label :productname %&gt;&lt;br&gt;  &lt;!&ndash;为什么这里不能有空格呢？&ndash;&gt;
+&lt;%= f.text_field :product_name %&gt;
+&lt;/div&gt;
+&lt;div class=&quot;description&quot;&gt;
+&lt;%= f.label :description %&gt;&lt;br&gt;
+&lt;%= f.text_field :description %&gt;</p>
+<p>&lt;/div&gt;
+&lt;div class=&quot;price&quot;&gt;
+&lt;%= f.label :price %&gt;&lt;br&gt;
+&lt;%= f.text_field :price %&gt;</p>
+<p>&lt;/div&gt;
+&lt;div class=&quot;thumburl&quot;&gt;
+&lt;%= f.label :thumburl %&gt;&lt;br&gt;
+&lt;%= f.url_field :thumburl %&gt;</p>
+<p>&lt;/div&gt;
+&lt;div class=&quot;actions&quot;&gt;
+&lt;%= f.submit %&gt;</p>
+<p>&lt;/div&gt;
+&lt;% end %&gt;
+</pre><br></p>
+<p></p>
+<h4>7.4 Create the new method</h4>
+<p></p>
+<p>***<span> </span><span>app/controllers/products_controller.rb</span> :</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_16_3708096"  code_snippet_id="670722" snippet_file_name="blog_20150520_16_3708096" name="code" class="ruby">  def new  #localhost:8000/products/new
+		@product = Product.new
+  end
+  def create
+  	@product = Product.new(product_params)
+  	if @product.save
+  		redirect_to(:action =&gt; &#39;index&#39;)
+  	else
+  		render(&#39;new&#39;)
+  	end
+  end</pre><br>
+<p>View: ***file: &nbsp; &nbsp;app/views/products/new.html.erb</p>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_17_3265300"  code_snippet_id="670722" snippet_file_name="blog_20150520_17_3265300" name="code" class="html">&lt;%= render &#39;shared/topnav&#39; %&gt;
+<p>&lt;h1&gt;New Product&lt;/h1&gt;</p>
+<p>&lt;!&ndash; Render form here &ndash;&gt;
+&lt;%= render 'form' %&gt;</p>
+<p>&lt;%= link_to 'Back', products_path %&gt;</p>
+<p>&lt;%= render 'shared/footer' %&gt;
+</pre><br>
+<img src="http://img.blog.csdn.net/20150520230134641?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="421" width="392"></p>
+<p></p>
+<p></p>
+<h4>7.5 Create the edit method&nbsp;</h4>
+<div>Controller: file ***&nbsp;&nbsp;app/controllers/products_controller.rb&nbsp;
+<div class="editor-footer" style="margin:0px; padding:0px; border:0px; font-family:Oxygen,sans-serif; font-size:16px; vertical-align:baseline; word-break:break-word; width:413.34375px; color:rgb(32,64,86); background-color:rgb(42,48,52)">
+<div class="fcn-tabs-container" style="margin:0px; padding:0px; border:0px; font-family:inherit; font-style:inherit; font-variant:inherit; font-weight:inherit; line-height:inherit; vertical-align:baseline; word-break:break-word">
+</div>
+</div>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_18_8187678"  code_snippet_id="670722" snippet_file_name="blog_20150520_18_8187678" name="code" class="ruby">  def edit  #localhost:8000/products/1/edit
+		@product = Product.find(params[:id])
+  end
+  def update
+  	@product = Product.find(params[:id])
+  	if @product.update_attributes(product_params)
+  		redirect_to(:action =&gt; &#39;show&#39;, :id =&gt; @product.id)
+  	else
+  		render(&#39;index&#39;)
+  	end
+  end</pre>
+<p>&nbsp;View:<span style="font-family:Oxygen,sans-serif; font-size:14px; margin:0px; padding:0px; border:0px; vertical-align:baseline; word-break:break-word">&nbsp;</span><span style="font-family:Oxygen,sans-serif; font-size:14px; margin:0px; padding:0px; border:0px; vertical-align:baseline; word-break:break-word">app/views/products/edit.html.erb</span></p>
+</div>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_19_1125190"  code_snippet_id="670722" snippet_file_name="blog_20150520_19_1125190" name="code" class="html">&lt;%= render &#39;shared/topnav&#39; %&gt;
+<p>&lt;h1&gt;Edit Product&lt;/h1&gt;</p>
+<p>&lt;!&ndash; Render form here &ndash;&gt;
+&lt;%= render 'form' %&gt;</p>
+<p>&lt;%= link_to 'Back', products_path %&gt;</p>
+<p>&lt;%= render 'shared/footer' %&gt;</pre><br>
+<img src="http://img.blog.csdn.net/20150520232252841?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="450" width="300"><br></p>
+<p></p>
+<p></p>
+<h4>7.6 Create the delete method&nbsp;</h4>
+<div>Controller: <br>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150520_20_9079211"  code_snippet_id="670722" snippet_file_name="blog_20150520_20_9079211" name="code" class="ruby">  def delete
+  	@product = Product.find(params[:id])
+  end
+<p>def destroy
+Product.find(params[:id]).destroy
+redirect_to(:action =&gt; 'index')
+end</pre><br></p>
+</div>
+View:<span> ** app/views/products/delete.html.erb</span><br>
+<pre code_snippet_id="670722" snippet_file_name="blog_20150521_21_9389882"  code_snippet_id="670722" snippet_file_name="blog_20150521_21_9389882" name="code" class="html">&lt;p&gt;
+  &lt;strong&gt;Product name:&lt;/strong&gt;
+  &lt;%= @product.product_name %&gt;
+&lt;/p&gt;
+<p>&lt;p&gt;
+&lt;strong&gt;Description:&lt;/strong&gt;
+&lt;%= @product.description %&gt;
+&lt;/p&gt;</p>
+<p>&lt;p&gt;
+&lt;strong&gt;Price:&lt;/strong&gt;
+&lt;%= @product.price %&gt;
+&lt;/p&gt;</p>
+<p>&lt;p&gt;
+&lt;strong&gt;Thumburl:&lt;/strong&gt;
+&lt;%= @product.thumburl %&gt;
+&lt;/p&gt;</p>
+<p>&lt;%= link_to 'Delete', products_delete_path(:id =&gt; @product.id) %&gt; |
+&lt;%= link_to 'Edit', edit_product_path(@product) %&gt; |
+&lt;%= link_to 'Back', products_path %&gt;
+</pre><br></p>
+<h3>8. Conbine two Models together</h3>
+<p></p>
+<p>Before we finish, one final piece remains. We have a Products page and a Categories page, but right now they live entirely separate from one another.</p>
+<p>Instead, we want our users to be able to go to a Category, click on show, and access the Products in that Category. If a user clicks on show in the Art Category, we should see the Art products that belong here.</p>
+<p>We can do this by nesting嵌套 Products in our Categories show method. Since we have an association, we can list out all the products that belong to that category.<br>
+为了让我们点击art这个category的show时，可以列出在art下的所有product，也就是要让product 按 art 分类。此时我们要把Products嵌套在Category下面，我们已经有association了，所以可以list out all the products that belong to that category.<br>
+***<span> </span><span>app/controllers/categories_controller.rb</span><br>
+</p>
+<p></p>
+<pre><code class="lang-rb"><span class="function"><span class="keyword">def</span> <span class="title">show</span></span>
+  <span class="variable">@category</span> = <span class="constant">Category</span>.<span class="identifier"><span class="keymethods">find</span></span>(<span class="identifier">params</span>[<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>])
+  <span class="variable">@products</span> = <span class="variable">@category</span>.<span class="identifier">products #new code we write, this works cuz we hava an association
+              #<span>store the products of a given category in an instance variable @product</span></span>
+<span class="identifier"><span class="keyword">end</span></span>
+</code></pre>
+Here <span style="background-color:rgb(204,204,204)"><code>@products = @category.products</code></span> is the new code we write. This works because we have an association. Our code knows that certain products belong to a Category. We mentioned that Category
+ in our seed data. <span style="color:#FF0000">这里好玄乎啊！</span>我们的代码知道某个产品是属于哪个category的，在我们的seed data里，我们提到了那个product所属的Category. 牛！所以，我们就加了这行代码，从而：<span>In categories_controller.rb, in the Categories show method, add code to store the products of a given category
+ in an instance variable @product.</span><br>
+<p></p>
+<p><strong>除了嵌套Controller，还要嵌套nesting Views：</strong><br>
+</p>
+<p></p>
+<p>The last and final step is to change the View for Categories show to be our Products index. This is because Categories show should now have all the Products for that Category.</p>
+<p>Good news. We already wrote the code for this. All we need to do is pass it into a file. We can actually go ahead and<span style="color:#339999">replace the code we wrote for Categories show, with the code for Products index</span>.我们已经有了products &amp; categories的view，所以我们要做的是把它们pass
+ into到一个file里。直接把Category show的代码替换成code for the Products index.<br>
+</p>
+<p>[Instructions:]<br>
+&gt;&gt;<span>Copy all the code from your Products index in index.html.erb and paste it into your Categories show View in show.html.erb. All your previous code in Categories show can be replaced. 把”</span><span></span><span>app/views/products/index.html.erb</span>“中的代码，全部替换到”app/views/categories/show.html.erb“中，”app/views/categories/show.html.erb“中的代码可以不要了。<br>
+&gt;&gt;<span>In your browser, visit localhost:8000/categories. On the Index page, under Art, click on Show. This will now show the Art Products in that Category.</span><br>
+<span></span></p>
+<span style="color:#999999">但是好像有点问题。点了没有列出art下面的所有东东。去到了一个categories/1<br>
+<img src="http://img.blog.csdn.net/20150521113118163?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" height="438" width="775"><br>
+</span>
+<p>==========================</p>
+<p></p>
+<div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>Congratulations! You created the Products page of the Etsy app. We created the Model, Controller, and Views for Products.</p>
+<p>We generated the Product Model using our terminal. We used associations to define the relationship between the Category and Product table. We added Migration columns and migrated and seeded our database.</p>
+<p>We then generated a Products Controller with the index, show, new, edit, and delete methods. This gave us route and View for those methods.</p>
+<p>We created Controller methods for all eight of our CRUD actions, and Views for index, show, new, edit, and delete. We also nested our Products in our Categories show View.</p>
+<p>Nice job. Now we'll finish our Etsy app by adding Authentication.</p>
+</div>
+</div>
+<br>
+<p></p>
+<p><br>
+</p>
+</div>
+</div>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-05-19 06:49 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150519064900%2f&title=Ruby%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b06%3a%20%e5%8a%a8%e6%80%81web%20app%e7%9a%84%e5%bb%ba%e7%ab%8b%283%29--%e5%a4%9aModel%e4%b9%8b%e9%97%b4%e7%9a%84%e4%ba%a4%e4%ba%92">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互 on twitter"
+          href="https://twitter.com/intent/tweet/?text=Ruby%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b06%3a%20%e5%8a%a8%e6%80%81web%20app%e7%9a%84%e5%bb%ba%e7%ab%8b%283%29--%e5%a4%9aModel%e4%b9%8b%e9%97%b4%e7%9a%84%e4%ba%a4%e4%ba%92&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150519064900%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150519064900%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

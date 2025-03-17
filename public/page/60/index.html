@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+  <body>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150422021200/" title="Javascript学习笔记5 - 滑动Slides">Javascript学习笔记5 - 滑动Slides</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><!-- raw HTML omitted -->
+<pre><code>});
+
+// Click Slides -- Show next slide
+$(&amp;#39;.arrow-next&amp;#39;).click(function(){//select
+    var currentSlide = $(&amp;#39;.active-slide&amp;#39;);
+    var nextSlide = currentSlide.next();
+    if (nextSlide.length ===0)
+        nextSlide = $(&amp;#39;.slide&amp;#39;).first();
+    
+    currentSlide.fadeOut(600);
+    nextSlide.fadeIn(600);
+    currentSlide.removeClass(&amp;#39;active-slide&amp;#39;);//注意这里没有&amp;quot;.&amp;quot;
+    nextSlide.addClass(&amp;#39;active-slide&amp;#39;);
+    //让点点的颜色跟随变化
+    var currentDot = $(&amp;#39;.active-dot&amp;#39;);
+    var nextDot = currentDot.next();
+    if (nextDot.length === 0)
+        nextDot = $(&amp;#39;.dot&amp;#39;).first();
+    currentDot.removeClass(&amp;#39;active-dot&amp;#39;);
+    nextDot.addClass(&amp;#39;active-dot&amp;#39;);
+});
+
+// Click Slides -- show previous slide
+$(&amp;#39;.arrow-prev&amp;#39;).click(function(){//select
+    var currentSlide = $(&amp;#39;.active-slide&amp;#39;);
+    var prevSlide = currentSlide.prev();
+    if (prevSlide.length === 0)
+        prevSlide = $(&amp;#39;.slide&amp;#39;).last();
+    
+    currentSlide.fadeOut(600);
+    prevSlide.fadeIn(600);
+    currentSlide.removeClass(&amp;#39;active-slide&amp;#39;);//注意这里没有&amp;quot;.&amp;quot;
+    prevSlide.addClass(&amp;#39;active-slide&amp;#39;);
+    //让点点的颜色跟随变化
+    var currentDot = $(&amp;#39;.active-dot&amp;#39;);
+    var prevDot = currentDot.prev();
+    if (prevDot.length === 0)
+        prevDot = $(&amp;#39;.dot&amp;#39;).last();
+    currentDot.removeClass(&amp;#39;active-dot&amp;#39;);
+    prevDot.addClass(&amp;#39;active-dot&amp;#39;);
+});
+</code></pre>
+<p>}</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150422021200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-22T02:12:00&#43;0800" class="date">April 22, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150420140705/" title="jQuery学习笔记4——A flipboard 剪贴板实例">jQuery学习笔记4——A flipboard 剪贴板实例</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="jquery学习笔记4a-flipboard-剪贴板实例">jQuery学习笔记4——A flipboard 剪贴板实例</h1>
+<p>开始之前：jQuery文档(<a href="http://docs.jquery.com/">http://docs.jquery.com/</a>) ， js在线IDE(<a href="https://jsfiddle.net/">https://jsfiddle.net/</a>)，教程：(<a href="http://w3school.com.cn/">http://w3school.com.cn/</a>)</p>
+<p>slideDown ——下滑</p>
+<p>slideUp —— 向上滑</p>
+<p>fadeIn —— 淡入</p>
+<p>fadeOut —— 淡出</p>
+<p>animate ——动画</p>
+<p>        takes two parameters:<br>
+        1. A set of CSS properties,<br>
+        2. A time duration over which to change them.</p>
+<pre tabindex="0"><code>1. //*********关于slideDown和slideUp热身小程序********//
+2. //=========点击从上往下出现==========
+3. var main = function() {
+4. $(&#34;.btn&#34;).click(function(event) {
+5. $(&#34;.container&#34;).hide();
+6. $(&#34;.container&#34;).slideDown(900);
+7. });
+8. };
+9. 
+10. $(document).ready(main);
+11. 
+12. //=========点击从下往上出现==========
+13. 
+14. var main = function() {
+15. $(&#34;.btn&#34;).click(function(event) {
+16. $(&#34;.container&#34;).show ();
+17. $(&#34;.container&#34;).slideUp(1100);
+18. });
+19. };
+20. 
+21. $(document).ready(main);
+22. 
+23. //===================================
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>回顾一下next的用法：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150420140705/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-20T14:07:05&#43;0800" class="date">April 20, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150417104529/" title="产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="产品经理从零到一技术进阶不懂代码也能愉快地与开发相处">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</h1>
+<h3 id="产品经理从零到一技术进阶不懂代码也能愉快地与开发相处-1">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</h3>
+<p>原文链接：
+<a href="http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd">http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd</a></p>
+<p>原创
+2015-04-14 馨苑
+36氪
+36氪</p>
+<p>36氪
+<img src="" alt="">
+微信号  wow36kr</p>
+<p>功能介绍  36氪(36Kr.com)是中国领先的科技新媒体，我们报道最新的互联网科技新闻以及最有潜力的互联网创业企业。</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz/WRGz2LWLARDWSicbsoScAFibPhwdKbp3k02Xdb1t9ca2IqylqjibyKBPEhOznU0qqvGOIXjJRv2ibOdl2j9TqicFSCQ/640?tp=webp&amp;wxfrom=5" alt=""></p>
+<p>36氪微信号：wow36kr</p>
+<p>这是 NEXT 「产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处」线下活动的笔记。主讲者张元一，产品原型工具墨刀的创始人，见证了 Web 开发从 99 年 HTML4.0 到去年 12 月 HTML5 最终定稿这之间整个 Web 开发变迁史的 15 年「码龄」全栈工程师。</p>
+<p>NEXT 本次活动收到了近 1000 多个报名，大家对周日线上和线下的互动学习反馈也不错。因此我们将笔记分享出来，希望让更多产品人、创业者够快速了解基本技术知识，更好地把握产品周期与项目进度。当然，你也可以观看网聚直播提供的视频回放：http://wangju.tv/live/3k562amaskvzg 。</p>
+<p><strong>概览</strong></p>
+<p>以下这张图就是元一分享的干货内容，它基本涵盖了一个初级码农需要知道的所有基础入门知识。但这张图的目的并非用来吓人，这其中的所有技术名词，将以最通俗易懂的方式串联起来—— 即我们上网时的慢动作解析：打开一个网页或 App，这背后都运用了那些技术来让这个网页和 App 的内容呈现在浏览器和手机上；驱动这些动作背后的技术名词都是什么，各自有着怎样的优缺点，彼此间是如何协作和运转的，以及怎样合理地评估技术能力和开发难度。当然，元一也推荐了丰富的学习资料。</p>
+<p>这中间涉及的技术知识，前端包括 HTML，CSS，JavaScript，jQuery 以及 Bootstrap ；后端包括 HTTP 服务器，后端编程语言，数据库以及 Cookie 和 Session；移动开发分为原生，混合式，HTML5，以及不同的移动端技术选择在功能和开发成本上的比较。</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz/WRGz2LWLARDWSicbsoScAFibPhwdKbp3k0PLmFxshibR4HTmo1uj2Pb7ZZ6SXxgbYHINyx6Ricj0JufQx9AWDibGlRA/0?tp=webp&amp;wxfrom=5" alt=""></p>
+<p><strong>什么是前端？什么是后端？二者是如何配合运转的？</strong></p>
+<p>前后端的划分，可以简单地理解为凡是运行在用户设备上的技术都可以称为前端技术（ 比如 HTML / CSS / JS，甚至移动设备的 Obj-C / Swift ）；而后端的作用就是负责将这些东西封装在 HTTP 的数据包中然后通过网络传送到前端。当然除了这些前端文件，后端还有一个更重要的职能，即保存和提供用户数据，比如移动端常见的 JSON 就是目前最流行的在后端和前端之间传输的一个文件格式。</p>
+<p><img src="" alt=""></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150417104529/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-17T10:45:29&#43;0800" class="date">April 17, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150416155712/" title="jQuery学习笔记3——写的状态板简单实例">jQuery学习笔记3——写的状态板简单实例</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="jquery学习笔记3写的状态板简单实例">jQuery学习笔记3——写的状态板简单实例</h1>
+<p><a href="http://jsfiddle.net">http://jsfiddle.net</a>  &amp; <a href="https://so.csdn.net/so/search?q=jQuery&amp;spm=1001.2101.3001.7020">jQuery</a>.com &amp; tutorial: <a href="http://w3school.com.cn/">http://w3school.com.cn/</a> , <a href="http://www.codecademy.com/">http://www.codecademy.com/</a></p>
+<hr>
+<p>Congratulations! You used jQuery events to build a status update tool.</p>
+<ul>
+<li>You can type messages and post status updates</li>
+<li>A counter keeps track of the number of characters left</li>
+<li>The <strong>Post</strong> button is only enabled when there is a message that is 140 characters or less</li>
+</ul>
+<p>Great work! Next let&rsquo;s learn more about how to use jQuery to create animated transitions.</p>
+<p>HTML:</p>
+<pre tabindex="0"><code>1. &lt;!doctype html&gt;
+2. &lt;html&gt;
+3. &lt;head&gt;
+4. &lt;link href=&#34;http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+5. &lt;link href=&#39;http://fonts.googleapis.com/css?family=Roboto&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+6. &lt;link href=&#34;style.css&#34; rel=&#34;stylesheet&#34;&gt;
+7. &lt;/head&gt;
+8. &lt;body&gt;
+9. &lt;div class=&#34;container&#34;&gt;
+10. &lt;form&gt;
+11. &lt;div class=&#34;form-group&#34;&gt;
+12. &lt;textarea class=&#34;form-control status-box&#34; rows=&#34;2&#34; placeholder=&#34;What&#39;s on your mind?&#34;&gt;&lt;/textarea&gt;
+13. &lt;/div&gt;
+14. &lt;/form&gt;
+15. &lt;div class=&#34;button-group pull-right&#34;&gt;
+16. &lt;p class=&#34;counter&#34;&gt;140&lt;/p&gt;
+17. &lt;p class=&#34;in-counter&#34;&gt;0&lt;/p&gt;
+18. &lt;a href=&#34;#&#34; class=&#34;btn btn-primary&#34;&gt;Post&lt;/a&gt;
+19. &lt;/div&gt;
+20. 
+21. &lt;ul class=&#34;posts&#34;&gt;
+22. &lt;/ul&gt;
+23. &lt;/div&gt;
+24. 
+25. &lt;script src=&#34;//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&#34;&gt;&lt;/script&gt;
+26. &lt;script src=&#34;app.js&#34;&gt;&lt;/script&gt;
+27. 
+28. &lt;/body&gt;
+29. &lt;/html&gt;
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>CSS:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150416155712/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-16T15:57:12&#43;0800" class="date">April 16, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150409090118/" title="jQuery学习笔记2——温故&#43;知新">jQuery学习笔记2——温故&#43;知新</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="jquery学习笔记2温故知新">jQuery学习笔记2——温故+知新</h1>
+<p>开始之前：http://docs.<a href="https://so.csdn.net/so/search?q=jquery&amp;spm=1001.2101.3001.7020">jquery</a>.com/ 是jQuery文档的网站， <a href="https://jsfiddle.net/">https://jsfiddle.net/</a>是js的在线验证工具。</p>
+<p>如果你没有html,CSS,js,jQuery基础，请学习它们先。</p>
+<h4 id="introduction">Introduction</h4>
+<p>Web pages made with<strong>HTML</strong> and<strong>CSS</strong> display static content. They don&rsquo;t respond to user actions like clicking a mouse or typing a key.</p>
+<p><strong>JavaScript</strong> and<strong>jQuery</strong> are used to make web pages interactive.</p>
+<ul>
+<li><strong>JavaScript</strong> is a programming language used to create web pages that change in response to user actions.</li>
+<li><strong>jQuery</strong> is a collection of prewritten JavaScript code that lets us easily create interactive effects on our site.</li>
+</ul>
+<h5 id="1-介绍一个实际的例子可以在httpsjsfiddlenet上得到验证">1. 介绍一个实际的例子，可以在https://jsfiddle.net/上得到验证。</h5>
+<p>这个例子是侧面菜单的点击滑入效果：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150409090118/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-09T09:01:18&#43;0800" class="date">April 09, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/59/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/59/">59</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/60/">60</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/61/">61</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/79/">79</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/61/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+          <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

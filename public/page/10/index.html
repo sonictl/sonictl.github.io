@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20200319192011/" title="nginxBasic: Set up server blocks on CentOS 7">nginxBasic: Set up server blocks on CentOS 7</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="set-up-nginx-server-blocks-on-centos-7">Set Up Nginx Server Blocks on CentOS 7</h1>
+<p><a href="https://www.digitalocean.com/community/tags/nginx">Nginx</a><a href="https://www.digitalocean.com/community/tags/centos">CentOS</a></p>
+<ul>
+<li>
+<p>By <a href="https://www.digitalocean.com/community/users/jbarnett">Josh Barnett</a></p>
+<p>Published on November 5, 2014</p>
+</li>
+</ul>
+<h3 id="introduction">Introduction</h3>
+<p>Nginx uses <strong>server blocks</strong> to manage configurations. Server blocks allow one server to <strong>host multiple domains or interfaces</strong>. How to serve different content to different visitors depending on which domains they are requesting:</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>access to centos7 server, has <code>sudo</code> privileges.</li>
+<li>Nginx installed.</li>
+</ul>
+<p>Before you begin with this guide, there are a few steps that need to be completed first.</p>
+<p>You will need access to a CentOS 7 server with a non-root user that has <code>sudo</code> privileges. If you haven’t configured this yet, you can run through the <a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-7">CentOS 7 initial server setup guide</a> to create this account.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20200319192011/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2020-03-19T19:19:54&#43;0800" class="date">March 19, 2020</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20200310151700/" title="Flask on Google Colab, A free web app server">Flask on Google Colab, A free web app server</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="flask-on-google-colab">Flask on Google Colab</h2>
+<p>Colab is strong and famous by its support of GPU/TPU. However, with Flask, it can be a web app server. That&rsquo;s very cool!</p>
+<h2 id="ngrok">Ngrok</h2>
+<p>Expose the localhost to a public temporary url that can be shared with all around the world. That&rsquo;s so cool!</p>
+<h2 id="but-how">But how?</h2>
+<ul>
+<li>Flask on Google Colab: <a href="https://medium.com/@kshitijvijay271199/flask-on-google-colab-f6525986797b">https://medium.com/@kshitijvijay271199/flask-on-google-colab-f6525986797b</a></li>
+<li>Transform Google Colab to a GPU instance with full SSH access: <a href="https://imadelhanafi.com/posts/google_colal_server/">https://imadelhanafi.com/posts/google_colal_server/</a></li>
+<li>Flask Chatroom on Colab: <a href="https://colab.research.google.com/github/shanaka-desoysa/shanaka-desoysa.github.io/blob/source/content/flask/Flask_Chat_Colab.ipynb#scrollTo=Hmx5lVRRa2Hq">https://colab.research.google.com/github/shanaka-desoysa/shanaka-desoysa.github.io/blob/source/content/flask/Flask_Chat_Colab.ipynb#scrollTo=Hmx5lVRRa2Hq</a></li>
+</ul>
+<h2 id="about-the-no-token-ngrok-test">about the no-token ngrok test:</h2>
+<p>no-token ngrok: <a href="https://dl.equinox.io/ngrok/ngrok/stable">https://dl.equinox.io/ngrok/ngrok/stable</a>
+1 Download: wget <a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip">https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip</a>
+2.  unzip ngrok-stable-linux-amd64.zip
+3   ./ngrok http 8080</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20200310151700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2020-03-10T15:17:00&#43;0800" class="date">March 10, 2020</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20200217134300/" title="手把手教你搭建一个GAN（生成对抗网络）模型">手把手教你搭建一个GAN（生成对抗网络）模型</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="手把手教你搭建一个gan生成对抗网络模型">手把手教你搭建一个GAN（生成对抗网络）模型</h1>
+<p>这个教程用 Keras 实现一个简单的GAN （生成对抗网络）模型. 基于这个:<a href="https://github.com/Zackory/Keras-MNIST-GAN">mnistGAN项目</a>，我们将用到<a href="https://www.datacamp.com/community/tutorials/deep-learning-python">Keras</a> 这个python 库。</p>
+<p>将用到的python packages:</p>
+<ul>
+<li>keras: 神经网络模型相关</li>
+<li>matplotlib: 画图</li>
+<li>tensorflow: keras运行基础</li>
+<li>tqdm: 进度条</li>
+</ul>
+<blockquote>
+<p>Talk is cheap, show me the code.</p></blockquote>
+<h3 id="1-导入包">1. 导入包：</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Input</span>  <span class="c1"># input layer  </span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Sequential</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">keras.layers.core</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">keras.layers.advanced_activations</span> <span class="kn">import</span> <span class="n">LeakyReLU</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">initializers</span>
+</span></span></code></pre></div><h3 id="2-定义几个变量">2. 定义几个变量：</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Let Keras know that we are using tensorflow as our backend engine</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;KERAS_BACKEND&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;tensorflow&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># To make sure that we can reproduce the experiment and get the same results by same random output</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># The dimension of our random noise vector. this code is from: sonictl_at_cnblogs.net</span>
+</span></span><span class="line"><span class="cl"><span class="n">random_dim</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span></code></pre></div><h3 id="3-准备数据">3. 准备数据：</h3>
+<p>这里要用到手写阿拉伯数字（MNIST）数据集。MNIST 数据集已经是一个被”嚼烂”了的数据集, 很多教程都会对它”下手”, 几乎成为一个 “典范”. 介绍一下:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20200217134300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2020-02-17T13:43:00&#43;0800" class="date">February 17, 2020</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20200131150800/" title="[转]Python 解析 PDF 文本和表格的四大方法介绍">[转]Python 解析 PDF 文本和表格的四大方法介绍</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="python-解析-pdf-文本和表格的四大方法介绍">Python 解析 PDF 文本和表格的四大方法介绍</h1>
+<p>==  <span style='color:red'> code </span> for paper and NSFC Proj. parsing==: <a href="https://gitee.com/sonica/pdf_parsing">https://gitee.com/sonica/pdf_parsing</a></p>
+<h2 id="看到一个不错的知识文章和大家分享一下">看到一个不错的知识文章，和大家分享一下：</h2>
+<p>很多文件为了安全都会存成 PDF 格式，比如有的论文、技术文档、书籍等等，程序读取这些文档内容带来了很多麻烦。Python 目前解析 PDF 的扩展包有很多，这里将对比介绍 PyPDF2、pdfplumber、pdfminer3k 以及 Camelot，告诉你哪个是好用的 PDF 解析工具。
+本文使用的案例 PDF 文档下载链接：
+链接：</p>
+<p><a href="https://support.i-search.com.cn/forward?goto=https%3A%2F%2Fpan.baidu.com%2Fs%2F1zH7vY47AqBYKM0XbdABbUA">https://pan.baidu.com/s/1zH7vY47AqBYKM0XbdABbUA</a>
+提取码：xhem</p>
+<p>另外，获取 PDF 文档之后，会发现 PDF 文档中的换行符是以行的位置相同的，而不是跟段落相同。</p>
+<h2 id="1-pypdf2-解析-pdf-文档">1. PyPDF2 解析 PDF 文档</h2>
+<p>这里主要参考了 2019-03-07，Usman Malik 写的一篇文章：</p>
+<p>Python for NLP: Working with Text and PDF Files</p>
+<p>使用 Python 安装 PyPDF2 扩展包：</p>
+<pre tabindex="0"><code>pip install PyPDF2
+#---------OR
+conda install -c conda-forge pypdf2
+</code></pre><p>读取 PDF 文件</p>
+<pre tabindex="0"><code>import PyPDF2
+path = r&#34;****.pdf&#34;
+#使用open的‘rb’方法打开pdf文件（这里必须得使用二进制rb的读取方式）
+mypdf = open(path,mode=&#39;rb&#39;)
+#调用PdfFileReader函数
+pdf_document = PyPDF2.PdfFileReader(mypdf)
+#使用pdf_document变量，获取各个信息
+#或者PDF文档的页数
+pdf_document.numPages
+#输出PDF文档的第一页内容
+first_page = pdf_document.getPage(0)
+print(first_page.extractText())
+</code></pre><p>输出文档第一页内容之后会发现，PyPDF2 方法对中文的支持不好，而对英文的支持会很好，所以如果处理中文文档的话，可以使用下面这个方法。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20200131150800/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2020-01-31T15:08:00&#43;0800" class="date">January 31, 2020</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20200118012700/" title="Combine two graphs: nx.compose">Combine two graphs: nx.compose</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="nxcompose">nx.compose</h1>
+<p><code>nx.compose</code> Return a new graph of G composed with H. Composition is the simple union of the node sets and edge sets.
+ref <a href="https://networkx.github.io/documentation/networkx-1.9.1/reference/generated/networkx.algorithms.operators.binary.compose.html">link</a></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20200118012700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2020-01-18T01:27:00&#43;0800" class="date">January 18, 2020</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191228225200/" title="Storage Location for Unpacked Chrome Extensions">Storage Location for Unpacked Chrome Extensions</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="storage-location-for-unpacked-extensions">Storage Location for Unpacked Extensions</h1>
+<p>Extension engine does not explicitly change their location or add a reference to its local paths, they are left in the place where there are selected from in all <strong>Operating Systems</strong>.</p>
+<p><strong>Ex:</strong> If i load a unpacked Extension from <code>E:\Chrome Extension</code> the unpacked Extension is still in the same location</p>
+<h1 id="storage-location-for-packed-extensions">Storage Location for Packed Extensions</h1>
+<p>Navigate to <code>chrome://version/</code> and look for <strong>Profile Path</strong>, it is your default directory and Extensions Folder is where all the <strong><code>extensions, apps, themes</code></strong> are stored</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191228225200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-12-28T22:52:00&#43;0800" class="date">December 28, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191225022600/" title="node2vec 调节不同节点的pq值">node2vec 调节不同节点的pq值</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>要对不同节点配置不同的pq值，需要sampling_strategy这个参数配合。通过dict_my_strategy传入一个字典即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">node2vec</span> <span class="kn">import</span> <span class="n">Node2Vec</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">les_miserables_graph</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># nx.draw_networkx(G, with_labels=True)  # draw the graph, simplest way.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># nx.draw_spring(G, with_labels = True)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># plt.show()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dict_my_strategy</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Myriel&#39;</span><span class="p">:{</span><span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}}</span>  <span class="c1"># use this dict to regulate the p,q for specific nodes.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  walking...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">node2vec</span> <span class="o">=</span> <span class="n">Node2Vec</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">walk_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">num_walks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sampling_strategy</span><span class="o">=</span><span class="n">dict_my_strategy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Embed nodes</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  training...&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">node2vec</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></div></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191225022600/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-12-25T02:26:00&#43;0800" class="date">December 25, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191224035100/" title="TeamViewer的替代品：realVNC">TeamViewer的替代品：realVNC</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="teamviewer的替代品realvnc">TeamViewer的替代品：realVNC</h1>
+<h2 id="official-web">official web:</h2>
+<p>realvnc: <a href="https://www.realvnc.com/">https://www.realvnc.com/</a></p>
+<h2 id="steps">steps:</h2>
+<ol>
+<li>在需要被控制的PC上装上realVNC的服务软件（real VNC server）<a href="https://www.realvnc.com/en/connect/download/vnc/">download</a></li>
+<li>在控制端PC上装上realVNC的客户端（real VNC viewer) <a href="https://www.realvnc.com/en/connect/download/viewer/">download</a></li>
+<li>在 realvnc.com 网站上注册账户。</li>
+<li>2个电脑的应用上都登入账户，并在服务端设置访问密码，即可远程控制。</li>
+</ol>
+<p>ps:</p>
+<ul>
+<li>免费的个人版没法互相传输文件，剪贴板里的text是可以分享的。</li>
+<li>修复了TeamViewer上 mac 控制 remote 的Ctrl + / 无效的问题。</li>
+<li>速度还可以，作为teamviewer的一个补充还是不错的。</li>
+</ul></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191224035100/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-12-24T03:51:00&#43;0800" class="date">December 24, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191216034900/" title="Introduction of Generator in Python">Introduction of Generator in Python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="python中生成器的原理与使用详解">Python中生成器的原理与使用详解</h1>
+<p>原创<a href="https://me.csdn.net/qq_26442553">牛大财有大才</a> 发布于2018-09-05 14:36:38</p>
+<h3 id="0range-函数其功能是创建一个整数列表一般用在-for-循环中">0.range() 函数，其功能是创建一个整数列表，一般用在 for 循环中</h3>
+<p><strong>语法格式：range(start, stop, step)，参数使用参考如下：</strong></p>
+<ul>
+<li><em><strong>*start: 计数从 start 开始。默认是从 0 开始。例如range（4）等价于range（0， 4）;结果：（0,1,2,3）*</strong></em></li>
+<li><em><strong>*stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5*</strong></em></li>
+<li><strong>step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1)</strong>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#使用range函数建立列表</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls</span> <span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span><span class="c1">#[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>   <span class="c1">#步长是2.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls1</span><span class="p">)</span> <span class="c1">#[0, 2, 4, 6, 8]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>  <span class="c1">#开始从3开始，步长是2.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls2</span><span class="p">)</span> <span class="c1"># [3, 5, 7, 9]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls3</span> <span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="c1">#负数的使用</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ls3</span><span class="p">)</span>  <span class="c1">#[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1">#range(0, 0)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1">#range(1, 0)</span>
+</span></span></code></pre></div></li>
+</ul>
+<h1 id="1生成器的创建与元素迭代遍历">1.生成器的创建与元素迭代遍历</h1>
+<h3 id="11创建生成器方法1只要把一个列表生成式的-"><strong>1.1创建生成器方法1：只要把一个列表生成式的 [ ] 改成 ( )</strong></h3>
+<p><em><strong>*生成器(generator)其实是一类特殊的迭代器*</strong></em>。前面博客我们每次迭代获取数据（通过next()方法）时按照特定的规律进行生成。但是我们在实现一个迭代器时，关于当前迭代到的状态需要我们自己记录，进而才能根据当前状态生成下一个数据。<strong>为了达到记录当前状态，并配合next()函数进行迭代使用，python就搞了个生成器</strong>。所以说****生成器(generator)其实是一类特殊的迭代器****。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191216034900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-12-16T03:49:00&#43;0800" class="date">December 16, 2019</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20191210060300/" title="Excel: assign label to scatter chart using specific cell values">Excel: assign label to scatter chart using specific cell values</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>ref: <a href="https://www.get-digital-help.com/custom-data-labels-in-x-y-scatter-chart/">https://www.get-digital-help.com/custom-data-labels-in-x-y-scatter-chart/</a></p>
+<h1 id="improve-your-x-y-scatter-chart-with-custom-data-labels">Improve your X Y Scatter Chart with custom data labels</h1>
+<p>Author: Oscar Cronquist Article last updated on February 25, 2019</p>
+<p><img src="https://img2018.cnblogs.com/blog/780771/201912/780771-20191210140248235-1278769752.png" alt=""></p>
+<p>The picture above shows a chart that has custom data labels, they are linked to specific cell values.</p>
+<p>What&rsquo;s on this page</p>
+<ul>
+<li>How to apply custom data labels in Excel 2013 and later versions
+<ul>
+<li>How to add data label shapes</li>
+<li>How to rearrange data labels</li>
+<li>Video</li>
+<li>Download Excel file</li>
+</ul>
+</li>
+<li>Workaround for earlier Excel versions
+<ul>
+<li>Excel Macro - Apply custom data labels</li>
+<li>Where to copy the code</li>
+<li>How to use macro</li>
+<li>Download Excel file</li>
+</ul>
+</li>
+</ul>
+<p>This means that you can build a dynamic chart and automatically change the labels depending on what is shown on the chart.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20191210060300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2019-12-10T06:03:00&#43;0800" class="date">December 10, 2019</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/9/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/9/">9</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/10/">10</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/11/">11</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/11/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

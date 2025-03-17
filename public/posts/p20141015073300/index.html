@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="如何使32位Win7支持超过4GB的内存
+让32位系统支持更大的内存超过4G
+【情况参数：】
+PC: 联想商用台式机，M4350
+RAM: 1600, DDR3 , 2GB
+OS: Win7 专业版 32位
+
+【情况描述：】
+买了一根8GB金士顿内存条，装上发现原来32bit Win7 32位系统最多支持3.25GB内存大小，百度发现2的32次方~=4GB（4.294*10^6），果然无法寻址超过4GB的内存。找了一些解决方法，最官方的说法是改装64位操作系统。
+鉴于时间关系和没心情折腾BackUp之类的事情，使用“把未用上的内存虚拟成一个硬盘，再将其设置成虚拟内存”的方法，来使之物尽其用。
+亲自尝试了一下，耗时1小时，感觉内存用量到达90%时，系统仍然健步如飞，猜想是因为虚拟内存比以前使用C盘做虚拟内存要给力多了。
+
+
+【具体设置步骤见下：】
+http://ideapad.zol.com.cn/57/160_567271.html
+这篇文章应该加精！
+本文PDF下载：http://download.csdn.net/detail/sonictl/8041161
+【转：】
+
+WIN7系统下正确设置RAMDISK软件利用系统未识别内存
+】
+
+
+
+
+现在的笔记本内存可以说已经是一头小白菜了，很便宜，本人看到时机难得，所以也买了一条新内存，是Y450
+ tsi&nbsp;从3G内存升级到6G，但是自己使用的是win7 32位数的，只能识别2.96G（在cpu小工具中显示识别3G），新手的我就开始寻找能够让系统识别6G内存的方法，方法一、可以安装win7
+ 64位数系统，识别4G内存，但是64位的现在感觉软件很少，而且听说兼容性有待提高，所以就没有去安装，主要是舍不得自己的一键恢复，呵呵呵；方法二、可以安装readyfor4GB软件来识别，自己弄了之后，总感觉自己进入的系统都不是原来的了，都是通过软件进入的另一个镜像系统，而且有些贴子说存在的问题比较多，所以之后也把它给删除了，方法可以在这个论坛中搜索有详细方法；最后还是决定用Ramdisk软件来利用未识别的内存来做一个虚拟盘。
+自己比较不懂，所以还是选择了搜索论坛里面的方法，里面倒是有一个比较详细的，作者的飞飞AS，地址为http://ideapad.zol.com.cn/44/160_434514.html，我用了里面的方法安装和创建，但是发现不是利用未识别的内存，而是分取以识别的内存来创建虚拟盘的，如下图。
+
+
+
+
+不死心的我，经过反复的试验之后发现了正确的设置方法，在这里就不提供安装方法了，安装不是很难，在这里主要介绍怎样正确设置利用未识别内存和怎样将系统临时文件夹和IE临时文件夹移到新建的虚拟盘中。在这就只附带破解程序VSuite Ramdisk
+ Pro V4.6 完美破解.rar(大小15k,下载次数:196)，可以破解（VSuite Ramdisk Pro V4.6）软件可以直接百度“VSuite Ramdisk Pro V4.6&nbsp;完美破解”下载使用即可。
+下载地址（里面已含破解文件）：http://ishare.iask.sina.com.cn/f/21323487.html?from=like
+安装完成后，打开软件，进入主界面
+
+
+
+点击杂项，可以看到软件注册成功（本文PDF含图下载：http://download.csdn.net/detail/sonictl/8041161）
+
+
+
+
+勾选启用系统未识别内存，弹出警告，点击是确定启用，弹出选项设置，点击不作更改，点击内存虚拟硬盘，回到主界面
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+可以看到选项倒数第三行显示“剩余/总内存：”容量，勾选优先使用系统未识别内存选项，设置硬盘内存在总容量的范围内（我只创建一个，所
+以使用全部，充分利用未识别内存），选择右边的直接IO硬盘选项，盘符、卷标自己喜欢神马就选择神马，文件系统选择NTFS，其它选择未去深入研究，最后还应该勾选创建TEMP文件夹，为之后改变环境变量做准备，点击创建。（本文PDF含图下载：http://download.csdn.net/detail/sonictl/8041161）
+
+
+
+
+
+
+&nbsp;
+
+成功创建后可以看到，剩余内存为0MB，CPU小工具显示的空闲内存没有减少，说明的确使用的是系统未识别内存，点击退出即可。
+&nbsp;
+&nbsp;" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>如何使32位Win7支持超过4GB的内存，而不装64位 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20141015073300/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="如何使32位Win7支持超过4GB的内存
+让32位系统支持更大的内存超过4G
+【情况参数：】
+PC: 联想商用台式机，M4350
+RAM: 1600, DDR3 , 2GB
+OS: Win7 专业版 32位
+
+【情况描述：】
+买了一根8GB金士顿内存条，装上发现原来32bit Win7 32位系统最多支持3.25GB内存大小，百度发现2的32次方~=4GB（4.294*10^6），果然无法寻址超过4GB的内存。找了一些解决方法，最官方的说法是改装64位操作系统。
+鉴于时间关系和没心情折腾BackUp之类的事情，使用“把未用上的内存虚拟成一个硬盘，再将其设置成虚拟内存”的方法，来使之物尽其用。
+亲自尝试了一下，耗时1小时，感觉内存用量到达90%时，系统仍然健步如飞，猜想是因为虚拟内存比以前使用C盘做虚拟内存要给力多了。
+
+
+【具体设置步骤见下：】
+http://ideapad.zol.com.cn/57/160_567271.html
+这篇文章应该加精！
+本文PDF下载：http://download.csdn.net/detail/sonictl/8041161
+【转：】
+
+WIN7系统下正确设置RAMDISK软件利用系统未识别内存
+】
+
+
+
+
+现在的笔记本内存可以说已经是一头小白菜了，很便宜，本人看到时机难得，所以也买了一条新内存，是Y450
+ tsi&nbsp;从3G内存升级到6G，但是自己使用的是win7 32位数的，只能识别2.96G（在cpu小工具中显示识别3G），新手的我就开始寻找能够让系统识别6G内存的方法，方法一、可以安装win7
+ 64位数系统，识别4G内存，但是64位的现在感觉软件很少，而且听说兼容性有待提高，所以就没有去安装，主要是舍不得自己的一键恢复，呵呵呵；方法二、可以安装readyfor4GB软件来识别，自己弄了之后，总感觉自己进入的系统都不是原来的了，都是通过软件进入的另一个镜像系统，而且有些贴子说存在的问题比较多，所以之后也把它给删除了，方法可以在这个论坛中搜索有详细方法；最后还是决定用Ramdisk软件来利用未识别的内存来做一个虚拟盘。
+自己比较不懂，所以还是选择了搜索论坛里面的方法，里面倒是有一个比较详细的，作者的飞飞AS，地址为http://ideapad.zol.com.cn/44/160_434514.html，我用了里面的方法安装和创建，但是发现不是利用未识别的内存，而是分取以识别的内存来创建虚拟盘的，如下图。
+
+
+
+
+不死心的我，经过反复的试验之后发现了正确的设置方法，在这里就不提供安装方法了，安装不是很难，在这里主要介绍怎样正确设置利用未识别内存和怎样将系统临时文件夹和IE临时文件夹移到新建的虚拟盘中。在这就只附带破解程序VSuite Ramdisk
+ Pro V4.6 完美破解.rar(大小15k,下载次数:196)，可以破解（VSuite Ramdisk Pro V4.6）软件可以直接百度“VSuite Ramdisk Pro V4.6&nbsp;完美破解”下载使用即可。
+下载地址（里面已含破解文件）：http://ishare.iask.sina.com.cn/f/21323487.html?from=like
+安装完成后，打开软件，进入主界面
+
+
+
+点击杂项，可以看到软件注册成功（本文PDF含图下载：http://download.csdn.net/detail/sonictl/8041161）
+
+
+
+
+勾选启用系统未识别内存，弹出警告，点击是确定启用，弹出选项设置，点击不作更改，点击内存虚拟硬盘，回到主界面
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+可以看到选项倒数第三行显示“剩余/总内存：”容量，勾选优先使用系统未识别内存选项，设置硬盘内存在总容量的范围内（我只创建一个，所
+以使用全部，充分利用未识别内存），选择右边的直接IO硬盘选项，盘符、卷标自己喜欢神马就选择神马，文件系统选择NTFS，其它选择未去深入研究，最后还应该勾选创建TEMP文件夹，为之后改变环境变量做准备，点击创建。（本文PDF含图下载：http://download.csdn.net/detail/sonictl/8041161）
+
+
+
+
+
+
+&nbsp;
+
+成功创建后可以看到，剩余内存为0MB，CPU小工具显示的空闲内存没有减少，说明的确使用的是系统未识别内存，点击退出即可。
+&nbsp;
+&nbsp;" />
+  <meta property="og:title" content="如何使32位Win7支持超过4GB的内存，而不装64位" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20141015073300/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2014-10-15" />
+    <meta property="article:modified_time" content="2014-10-15" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="如何使32位Win7支持超过4GB的内存，而不装64位 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="如何使32位Win7支持超过4GB的内存
+让32位系统支持更大的内存超过4G
+【情况参数：】
+PC: 联想商用台式机，M4350
+RAM: 1600, DDR3 , 2GB
+OS: Win7 专业版 32位
+
+【情况描述：】
+买了一根8GB金士顿内存条，装上发现原来32bit Win7 32位系统最多支持3.25GB内存大小，百度发现2的32次方~=4GB（4.294*10^6），果然无法寻址超过4GB的内存。找了一些解决方法，最官方的说法是改装64位操作系统。
+鉴于时间关系和没心情折腾BackUp之类的事情，使用“把未用上的内存虚拟成一个硬盘，再将其设置成虚拟内存”的方法，来使之物尽其用。
+亲自尝试了一下，耗时1小时，感觉内存用量到达90%时，系统仍然健步如飞，猜想是因为虚拟内存比以前使用C盘做虚拟内存要给力多了。
+
+
+【具体设置步骤见下：】
+http://ideapad.zol.com.cn/57/160_567271.html
+这篇文章应该加精！
+本文PDF下载：http://download.csdn.net/detail/sonictl/8041161
+【转：】
+
+WIN7系统下正确设置RAMDISK软件利用系统未识别内存
+】
+
+
+
+
+现在的笔记本内存可以说已经是一头小白菜了，很便宜，本人看到时机难得，所以也买了一条新内存，是Y450
+ tsi&nbsp;从3G内存升级到6G，但是自己使用的是win7 32位数的，只能识别2.96G（在cpu小工具中显示识别3G），新手的我就开始寻找能够让系统识别6G内存的方法，方法一、可以安装win7
+ 64位数系统，识别4G内存，但是64位的现在感觉软件很少，而且听说兼容性有待提高，所以就没有去安装，主要是舍不得自己的一键恢复，呵呵呵；方法二、可以安装readyfor4GB软件来识别，自己弄了之后，总感觉自己进入的系统都不是原来的了，都是通过软件进入的另一个镜像系统，而且有些贴子说存在的问题比较多，所以之后也把它给删除了，方法可以在这个论坛中搜索有详细方法；最后还是决定用Ramdisk软件来利用未识别的内存来做一个虚拟盘。
+自己比较不懂，所以还是选择了搜索论坛里面的方法，里面倒是有一个比较详细的，作者的飞飞AS，地址为http://ideapad.zol.com.cn/44/160_434514.html，我用了里面的方法安装和创建，但是发现不是利用未识别的内存，而是分取以识别的内存来创建虚拟盘的，如下图。
+
+
+
+
+不死心的我，经过反复的试验之后发现了正确的设置方法，在这里就不提供安装方法了，安装不是很难，在这里主要介绍怎样正确设置利用未识别内存和怎样将系统临时文件夹和IE临时文件夹移到新建的虚拟盘中。在这就只附带破解程序VSuite Ramdisk
+ Pro V4.6 完美破解.rar(大小15k,下载次数:196)，可以破解（VSuite Ramdisk Pro V4.6）软件可以直接百度“VSuite Ramdisk Pro V4.6&nbsp;完美破解”下载使用即可。
+下载地址（里面已含破解文件）：http://ishare.iask.sina.com.cn/f/21323487.html?from=like
+安装完成后，打开软件，进入主界面
+
+
+
+点击杂项，可以看到软件注册成功（本文PDF含图下载：http://download.csdn.net/detail/sonictl/8041161）
+
+
+
+
+勾选启用系统未识别内存，弹出警告，点击是确定启用，弹出选项设置，点击不作更改，点击内存虚拟硬盘，回到主界面
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+可以看到选项倒数第三行显示“剩余/总内存：”容量，勾选优先使用系统未识别内存选项，设置硬盘内存在总容量的范围内（我只创建一个，所
+以使用全部，充分利用未识别内存），选择右边的直接IO硬盘选项，盘符、卷标自己喜欢神马就选择神马，文件系统选择NTFS，其它选择未去深入研究，最后还应该勾选创建TEMP文件夹，为之后改变环境变量做准备，点击创建。（本文PDF含图下载：http://download.csdn.net/detail/sonictl/8041161）
+
+
+
+
+
+
+&nbsp;
+
+成功创建后可以看到，剩余内存为0MB，CPU小工具显示的空闲内存没有减少，说明的确使用的是系统未识别内存，点击退出即可。
+&nbsp;
+&nbsp;" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20141015073300/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20141015073300/">如何使32位Win7支持超过4GB的内存，而不装64位</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">如何使32位Win7支持超过4GB的内存，而不装64位</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2014-10-15T07:33:00&#43;0800 class="date">October 15, 2014</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+a min to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p><span style="white-space:pre">如何使32位Win7</span>支持<span style="white-space:pre">超过4GB的内存</span></p>
+<p><span style="white-space:pre"><span style="color:rgb(51,51,51); font-family:arial; font-size:13px; line-height:20px">让</span><span style="color:rgb(204,0,0); font-family:arial; font-size:13px; line-height:20px">32位</span><span style="color:rgb(51,51,51); font-family:arial; font-size:13px; line-height:20px">系统支持更大的</span><span style="color:rgb(204,0,0); font-family:arial; font-size:13px; line-height:20px">内存超过4G</span></span></p>
+<p><span style="white-space:pre"></span>【情况参数：】</p>
+<p><span style="white-space:pre"></span>PC: 联想商用台式机，M4350<br>
+<span style="white-space:pre"></span>RAM: 1600, DDR3 , 2GB<br>
+<span style="white-space:pre"></span>OS: Win7 专业版 32位</p>
+<p><span style="white-space:pre"><img src="http://img.blog.csdn.net/20141015150032098?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" border="1" alt=""></span></p>
+<p><span style="white-space:pre"></span>【情况描述：】</p>
+<p><span style="white-space:pre"></span>买了一根8GB金士顿内存条，装上发现原来32bit Win7 32位系统最多支持3.25GB内存大小，百度发现2的32次方~=4GB（4.294*10^6），果然无法寻址超过4GB的内存。找了一些解决方法，<span style="color:#ff0000">最官方的说法是改装64位操作系统</span>。</p>
+<p><span style="white-space:pre"></span>鉴于时间关系和没心情折腾BackUp之类的事情，使用“把未用上的内存虚拟成一个硬盘，再将其设置成虚拟内存”的方法，来使之物尽其用。</p>
+<p><span style="white-space:pre"></span>亲自尝试了一下，耗时1小时，感觉内存用量到达90%时，系统仍然健步如飞，猜想是因为虚拟内存比以前使用C盘做虚拟内存要给力多了。</p>
+<p><br>
+</p>
+<p><span style="white-space:pre"></span>【具体设置步骤见下：】</p>
+<p><span style="white-space:pre"><a target="_blank" href="http://ideapad.zol.com.cn/57/160_567271.html">http://ideapad.zol.com.cn/57/160_567271.html</a></span></p>
+<p><span style="white-space:pre"></span>这篇文章应该加精！</p>
+<p><span style="white-space:pre"></span>本文PDF下载：<a target="_blank" href="http://download.csdn.net/detail/sonictl/8041161">http://download.csdn.net/detail/sonictl/8041161</a></p>
+<p><span style="white-space:pre"></span>【转：】</p>
+<h3 style="margin:0px; padding:0px; font-weight:normal; font-size:16px; line-height:22px; font-family:'Microsoft YaHei'; color:rgb(51,51,51)">
+<span style="white-space:pre"></span>WIN7系统下正确设置RAMDISK软件利用系统未识别内存</h3>
+】
+<p></p>
+<p></p>
+<p style="color:rgb(51,51,51)"><a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903353" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903353_s.jpg" id="5903353" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片1"></a><br>
+<br>
+现在的<a target="_blank" href="http://detail.zol.com.cn/notebook_index/subcate16_list_1.html" target="_blank" style="color:rgb(31,79,136)">笔记本</a><a target="_blank" href="http://detail.zol.com.cn/memory_index/subcate3_list_1.html" target="_blank" style="color:rgb(31,79,136)">内存</a>可以说已经是一头小白菜了，很便宜，本人看到时机难得，所以也买了一条新内存，是<span style="font-family:Calibri">Y450
+ tsi&nbsp;</span>从<span style="font-family:Calibri">3G</span>内存升级到<span style="font-family:Calibri">6G</span>，但是自己使用的是<span style="font-family:Calibri">win7 32</span>位数的，只能识别<span style="font-family:Calibri">2.96G</span>（在<span style="font-family:Calibri">cpu</span>小工具中显示识别<span style="font-family:Calibri">3G</span>），新手的我就开始寻找能够让系统识别<span style="font-family:Calibri">6G</span>内存的方法，方法一、可以安装<span style="font-family:Calibri">win7
+ 64</span>位数系统，识别<span style="font-family:Calibri">4G</span>内存，但是<span style="font-family:Calibri">64</span>位的现在感觉软件很少，而且听说兼容性有待提高，所以就没有去安装，主要是舍不得自己的一键恢复，呵呵呵；方法二、可以安装<span style="font-family:Calibri">readyfor4GB</span>软件来识别，自己弄了之后，总感觉自己进入的系统都不是原来的了，都是通过软件进入的另一个镜像系统，而且有些贴子说存在的问题比较多，所以之后也把它给删除了，方法可以在这个论坛中搜索有详细方法；最后还是决定用<span style="font-family:Calibri">Ramdisk</span>软件来利用未识别的内存来做一个虚拟盘。</p>
+<p style="color:rgb(51,51,51)">自己比较不懂，所以还是选择了搜索论坛里面的方法，里面倒是有一个比较详细的，作者的飞飞<span style="font-family:Calibri">AS</span>，地址为<a target="_blank" href="http://ideapad.zol.com.cn/44/160_434514.html" style="color:rgb(31,79,136)"><span style="font-family:Calibri">http://ideapad.zol.com.cn/44/160_434514.html</span></a>，我用了里面的方法安装和创建，但是发现不是利用未识别的内存，而是分取以识别的内存来创建虚拟盘的，如下图。</p>
+<p style="color:rgb(51,51,51)"></p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903355" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903355_s.jpg" id="5903355" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片2"></a><br>
+<br>
+不死心的我，经过反复的试验之后发现了正确的设置方法，在这里就不提供安装方法了，安装不是很难，在这里主要介绍怎样正确设置利用未识别内存和怎样将系统临时文件夹和<span style="font-family:Calibri">IE</span>临时文件夹移到新建的虚拟盘中。在这就只附带破解程序<a target="_blank" href="http://bbsdown.zol.com.cn/down.php?aid=562883" style="color:rgb(0,0,255)">VSuite Ramdisk
+ Pro V4.6 完美破解.rar</a>(大小15k,下载次数:196)，可以破解（<span style="font-family:Calibri">VSuite Ramdisk Pro V4.6</span>）软件可以直接百度“<span style="font-family:Calibri">VSuite Ramdisk Pro V4.6&nbsp;</span>完美破解”下载使用即可。</p>
+<p>下载地址（里面已含破解文件）：<a target="_blank" href="http://ishare.iask.sina.com.cn/f/21323487.html?from=like" rel="nofollow" style="color:rgb(31,79,136)">http://ishare.iask.sina.com.cn/f/21323487.html?from=like</a></p>
+<p>安装完成后，打开软件，进入主界面</p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903354" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903354_s.jpg" id="5903354" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片3"></a><br>
+<br>
+点击杂项，可以看到软件注册成功（本文PDF含图下载：<a target="_blank" href="http://download.csdn.net/detail/sonictl/8041161">http://download.csdn.net/detail/sonictl/8041161</a>）</p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903357" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903357_s.jpg" id="5903357" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片4"></a><br>
+</p>
+<p><br>
+勾选启用系统未识别内存，弹出警告，点击是确定启用，弹出选项设置，点击不作更改，点击内存虚拟<a target="_blank" href="http://detail.zol.com.cn/hard_drives_index/subcate2_list_1.html" target="_blank" style="color:rgb(31,79,136)">硬盘</a>，回到主界面</p>
+<p>&nbsp;</p>
+<p><a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903358" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903358_s.jpg" id="5903358" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片5"></a><br>
+<br>
+<br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903359" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903359_s.jpg" id="5903359" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片6"></a><br>
+<br>
+<br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903360" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903360_s.jpg" id="5903360" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片7"></a><br>
+<br>
+<br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903361" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903361_s.jpg" id="5903361" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片8"></a></p>
+<p><br>
+<br>
+可以看到选项倒数第三行显示“剩余<span style="font-family:Calibri">/</span>总内存：”容量，勾选优先使用系统未识别内存选项，设置硬盘内存在总容量的范围内（我只创建一个，所<br>
+以使用全部，充分利用未识别内存），选择右边的直接<span style="font-family:Calibri">IO</span>硬盘选项，盘符、卷标自己喜欢神马就选择神马，文件系统选择<span style="font-family:Calibri">NTFS</span>，其它选择未去深入研究，最后还应该勾选创建<span style="font-family:Calibri">TEMP</span>文件夹，为之后改变环境变量做准备，点击创建。（本文PDF含图下载：<a target="_blank" href="http://download.csdn.net/detail/sonictl/8041161">http://download.csdn.net/detail/sonictl/8041161</a>）</p>
+<p><br>
+<br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903363" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903363_s.jpg" id="5903363" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片9"></a><br>
+<br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903364" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903364_s.jpg" id="5903364" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片10"></a><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903365" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903365_s.jpg" id="5903365" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片11"></a></p>
+<p>&nbsp;</p>
+<p><br>
+成功创建后可以看到，剩余内存为<span style="font-family:Calibri">0MB</span>，<span style="font-family:Calibri">CPU</span>小工具显示的空闲内存没有减少，说明的确使用的是系统未识别内存，点击退出即可。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903366" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903366_s.jpg" id="5903366" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片12"></a></p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903368" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903368_s.jpg" id="5903368" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片13"></a><br>
+<br>
+</p>
+<p>打开我的<a target="_blank" href="http://detail.zol.com.cn/desktop_pc_index/subcate27_list_1.html" target="_blank" style="color:rgb(31,79,136)">电脑</a>，可以看到一个新盘就这样产生。</p>
+<p></p>
+<p>&nbsp;</p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903367" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903367_s.jpg" id="5903367" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片14"></a><br>
+<br>
+</p>
+<p>成功创建后，来利用这内存虚拟盘吧！查了可以将系统临时文件夹、虚拟内存和<span style="font-family:Calibri">IE</span>临时文件夹设置在新盘上。方法如下：</p>
+<p>移动系统临时文件夹：右键计算机<span style="font-family:Calibri">-</span>属性<span style="font-family:Calibri">-</span>高级系统设置<span style="font-family:Calibri">-</span>高级<span style="font-family:Calibri">-</span>环境变量，分别选择用户变量和系统变量中的<span style="font-family:Calibri">TEMP</span>和<span style="font-family:Calibri">TEP</span>，点击后，选择编辑，输入新建盘符，一般为<span style="font-family:Calibri">X:TEMP</span>，<span style="font-family:Calibri">X</span>代表你的盘符，可以直接复制四个都使用这个文件夹，编辑完成点击确定。可以直接重启使用配置，也可以完成下面设置后一并重启（设置<span style="font-family:Calibri">IE</span>临时文件夹时，会自动重启，所以我将它放到最后）。</p>
+<p>&nbsp;</p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903372" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903372_s.jpg" id="5903372" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片15"></a><br>
+<br>
+<br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903373" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903373_s.jpg" id="5903373" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片16"></a><br>
+<br>
+</p>
+<p>设置虚拟内存：右键计算机<span style="font-family:Calibri">-</span>属性<span style="font-family:Calibri">-</span>高级系统设置<span style="font-family:Calibri">-</span>高级<span style="font-family:Calibri">-</span>设置（性能）<span style="font-family:Calibri">-</span>高级，在虚拟内存中点击更改，选择自己需要设置虚拟内存的盘，选择自定义，输入初始大小和最大&#20540;，然后点击设置，最后确定，完成。</p>
+<p>&nbsp;（本文PDF含图下载：<a target="_blank" href="http://download.csdn.net/detail/sonictl/8041161">http://download.csdn.net/detail/sonictl/8041161</a>）</p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903369" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903369_s.jpg" id="5903369" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片17"></a><br>
+<br>
+</p>
+<p>移动<span style="font-family:Calibri">IE</span>临时文件夹：打开<span style="font-family:Calibri">IE</span>浏览器<span style="font-family:Calibri">-</span>工具<span style="font-family:Calibri">-Internet</span>选项<span style="font-family:Calibri">-</span>常规<span style="font-family:Calibri">-</span>设置（浏览历史记录）<span style="font-family:Calibri">-</span>移动文件夹，选择自己的新建虚拟盘下的<span style="font-family:Calibri">TEMP</span>文件，确定，完成，自动重启。</p>
+<p>&nbsp;</p>
+<p><br>
+<a target="_blank" href="http://ideapad.zol.com.cn/tips/show_pic.php?picid=5903371" target="_blank" style="color:rgb(31,79,136)"><img title="点击查看大图" border="0" src="http://k.zol-img.com.cn/ideapad/5904/a5903371_s.jpg" id="5903371" alt="WIN7系统下正确设置RAMDISK软件利用系统未识别内存图片18"></a><br>
+<br>
+圆满完成。此贴尽代表个人使用经验，如有什么地方没有设置好，请点出，方便大家修改，或有更好的方法让系统识别多一点的内存，也请介绍，我代表广大内存大用户谢谢您！</p>
+<p>我是个初学者，有神马不周的地方请明示，谢谢！</p>
+<br>
+<p></p>
+<p>（本文PDF含图下载：<a target="_blank" href="http://download.csdn.net/detail/sonictl/8041161">http://download.csdn.net/detail/sonictl/8041161</a>）<br>
+</p>
+<div><br>
+</div>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2014-10-15 07:33 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share 如何使32位Win7支持超过4GB的内存，而不装64位 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20141015073300%2f&title=%e5%a6%82%e4%bd%95%e4%bd%bf32%e4%bd%8dWin7%e6%94%af%e6%8c%81%e8%b6%85%e8%bf%874GB%e7%9a%84%e5%86%85%e5%ad%98%ef%bc%8c%e8%80%8c%e4%b8%8d%e8%a3%8564%e4%bd%8d">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share 如何使32位Win7支持超过4GB的内存，而不装64位 on twitter"
+          href="https://twitter.com/intent/tweet/?text=%e5%a6%82%e4%bd%95%e4%bd%bf32%e4%bd%8dWin7%e6%94%af%e6%8c%81%e8%b6%85%e8%bf%874GB%e7%9a%84%e5%86%85%e5%ad%98%ef%bc%8c%e8%80%8c%e4%b8%8d%e8%a3%8564%e4%bd%8d&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20141015073300%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share 如何使32位Win7支持超过4GB的内存，而不装64位 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20141015073300%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

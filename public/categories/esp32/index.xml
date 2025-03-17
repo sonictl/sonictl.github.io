@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>Esp32 on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/esp32/</link>
+    <description>Recent content in Esp32 on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Jan 2022 22:15:45 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/esp32/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</title>
+      <link>http://localhost:1313/posts/p20220119221545/</link>
+      <pubDate>Wed, 19 Jan 2022 22:15:45 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220119221545/</guid>
+      <description>&lt;h1 id=&#34;esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard&#34;&gt;[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard&lt;/h1&gt;&#xA;&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of contents:&lt;/h2&gt;&#xA;&lt;p&gt;[TOC]&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Table of contents:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#1-some-basic-concepts&#34;&gt;1 Some basic concepts&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#2-the-one-lvmicropython&#34;&gt;2 The one: lv_micropython&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#3-quick-use-of-lvmicropython&#34;&gt;3 Quick use of lv_micropython&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#31--build-micropython-for-linux-port-optional-for-newbie&#34;&gt;3.1  Build micropython for Linux port (optional for newbie):&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#32-building-lvmicropython-micropython-fork-for-esp32-port&#34;&gt;3.2 Building &lt;code&gt;lv_micropython&lt;/code&gt; micropython fork for ESP32 port:&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt; [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)&#xA; &#xA;    [Get ESP-IDF v4.2](#get-esp-idf-v42)&#xA;    &#xA;    [Set up the environment variables](#set-up-the-environment-variables)&#xA;    &#xA; [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)&#xA; &#xA; [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)&#xA; &#xA; [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#4-confiture-wifi-and-use-the-board&#34;&gt;4 Confiture wifi and use the board&lt;/a&gt;&#xA;&lt;a href=&#34;#reference-and-read-more&#34;&gt;Reference and read more&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

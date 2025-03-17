@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20220119221545/" title="[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard">[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</h1>
+<h2 id="table-of-contents">Table of contents:</h2>
+<p>[TOC]</p>
+<hr>
+<p><strong>Table of contents:</strong></p>
+<p><a href="#1-some-basic-concepts">1 Some basic concepts</a></p>
+<p><a href="#2-the-one-lvmicropython">2 The one: lv_micropython</a></p>
+<p><a href="#3-quick-use-of-lvmicropython">3 Quick use of lv_micropython</a></p>
+<p><a href="#31--build-micropython-for-linux-port-optional-for-newbie">3.1  Build micropython for Linux port (optional for newbie):</a></p>
+<p><a href="#32-building-lvmicropython-micropython-fork-for-esp32-port">3.2 Building <code>lv_micropython</code> micropython fork for ESP32 port:</a></p>
+<pre><code> [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)
+ 
+    [Get ESP-IDF v4.2](#get-esp-idf-v42)
+    
+    [Set up the environment variables](#set-up-the-environment-variables)
+    
+ [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)
+ 
+ [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)
+ 
+ [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)
+</code></pre>
+<p><a href="#4-confiture-wifi-and-use-the-board">4 Confiture wifi and use the board</a>
+<a href="#reference-and-read-more">Reference and read more</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20220119221545/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2022-01-19T22:15:45&#43;0800" class="date">January 19, 2022</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20220117125538/" title="Getting started with MicroPython with NodeMCU(ESP8266) board">Getting started with MicroPython with NodeMCU(ESP8266) board</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="getting-started-with-micropython-with-nodemcuesp8266-board">Getting started with MicroPython with NodeMCU(ESP8266) board</h1>
+<h2 id="1-follow-the-official-tutorial-to-flash-the-micropython-firmware">1. Follow the official tutorial to flash the MicroPython firmware</h2>
+<p>Link:</p>
+<ul>
+<li><a href="https://docs.micropython.org/en/latest/esp8266/quickref.html">https://docs.micropython.org/en/latest/esp8266/quickref.html</a></li>
+<li><a href="https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro">https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro</a></li>
+</ul>
+<p>Comands you may need:</p>
+<pre tabindex="0"><code>$ esptool.py --port /dev/tty.usbserial-14120 erase_flash
+$ esptool.py --port /dev/tty.usbserial-14120 --baud 460800 write_flash --flash_size=detect -fm dout 0  esp8266-20210902-v1.17.bin
+</code></pre><p>you&rsquo;ll receive message from ESP8266 on serial monitor such as puTTy:</p>
+<pre tabindex="0"><code>microPython v1.17 on 2021-09-02; ESP module with ESP8266
+Type &#34;help()&#34; for more information.
+</code></pre><p>micropython script can be run in the REPL shell.</p>
+<p>The Adafruit <code>ampy</code> tool gives you more function and recommended to use it. <a href="https://learn.adafruit.com/micropython-basics-load-files-and-run-code">https://learn.adafruit.com/micropython-basics-load-files-and-run-code</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20220117125538/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2022-01-17T12:55:38&#43;0800" class="date">January 17, 2022</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20220115140254/" title="[ESP32_lvgl]Tips for getting started with lvgl project on ESP32">[ESP32_lvgl]Tips for getting started with lvgl project on ESP32</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="tips-for-getting-started-with-lvgl-project-on-esp32">Tips for getting started with lvgl project on ESP32</h1>
+<p>Before you get started with lvgl on ESP32, the first problem is which SDK(firmware platform) is going to be based on.
+You may dev ESP32 project based on Arduino or ESP-IDF(espreessif officially offered).</p>
+<p>There are two pathes at least to implement ESP32 project. By the way, the esp32_library for arduino can be used as a submoduel(component) of ESP-IDF SDK.</p>
+<h2 id="path1-esp-idf-develop-esp32-lvgl-project-with-vscode-platformio-and-esp-idf">path1: ESP-IDF: Develop ESP32 lvgl project with vsCode, platformIO and ESP-IDF</h2>
+<p>before start, you need to know how to implement a &ldquo;Hello world&rdquo; or &ldquo;LED blinking&rdquo; project using the vsCode+platformIO+ESP_IDF</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20220115140254/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2022-01-15T14:02:54&#43;0800" class="date">January 15, 2022</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20220115140154/" title="[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform">[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="start-a-lvgl-project-on-esp32-with-vscode-platformio-on-arduino-platform">Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</h1>
+<p><strong>WARING</strong> : The version confilict problem may crazy you if you play lvgl on Arduino platform.
+Fortunately, this post offers you one solution for version_conflict problem.</p>
+<p>This is the sister post for &lsquo;<strong>Complile the lvgl sample proj in vsCode with ESP-IDF extension</strong>&rsquo;. The difference is the dev-kit based on <strong>Arduino</strong> vs <strong>ESP-IDF</strong>.</p>
+<p>Here, we use <strong>Arduino</strong> + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20220115140154/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2022-01-15T14:01:54&#43;0800" class="date">January 15, 2022</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20220111210954/" title="[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension">[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension">Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension</h1>
+<p>If you&rsquo;ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the <strong>section 1</strong> and <strong>section 2</strong>. Directly check the lvgl example project <code>lv_port_esp32</code> cloning/configure/build/etc. steps in <strong>section 3</strong>.</p>
+<h2 id="implement-a-hello-world-or-led-blinking-project-using-the-vscodeplatformioesp_idf">Implement a &ldquo;Hello world&rdquo; or &ldquo;LED blinking&rdquo; project using the vsCode+platformIO+ESP_IDF</h2>
+<p><strong>Prerequisit:</strong> Go through the official &ldquo;get started with ESP-IDF&rdquo; tutorial (<strong>highly recomemded</strong>, <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">link</a>)</p>
+<h3 id="section-1-install-the-esp-idf-vscode-extension">section 1. install the esp-idf vscode extension</h3>
+<p>Note: if you have go through the official &ldquo;get started with ESP-IDF&rdquo; tutorial (<strong>highly recomemded</strong>, <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">link</a>), you can specify the path of ESP-IDF code and tools when install the ESP-IDF vscode extension. If your machine/PC has no ESP-IDF downloaded, just keep the default options when installing the ESP-IDF vscode extension</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20220111210954/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2022-01-11T21:09:54&#43;0800" class="date">January 11, 2022</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20220105221954/" title="Node.js realtime communication with ESP8266 via socket.io">Node.js realtime communication with ESP8266 via socket.io</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="nodejs-realtime-communication-with-nodemcu-with-socketio">Node.js realtime communication with NodeMCU with socket.io</h1>
+<p>Reference: <a href="https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio">https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio</a></p>
+<h3 id="goal-of-this-post">Goal of this post</h3>
+<p>Establish a real-time communication between a server and the NodeMCU, this can be really useful like a situation where the server has to notify the client asynchronously,</p>
+<h3 id="lets-get-started-with-the-back-end">Let’s get started with the back-end</h3>
+<p>We are going to use a Node server, where we can integrate Socket.io init. <a href="https://nodejs.org/en/download/">Install</a> Node.js if you haven’t it yet.</p>
+<p>In node, we ‘ll be using the framework called <a href="https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm">express</a> to deal with the communication with HTTP requests. Then integrate socket.io and start listening to events defined.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20220105221954/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2022-01-05T22:19:54&#43;0800" class="date">January 05, 2022</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20211126182011/" title="Attiny85 Arduino SleepMode 睡眠模式使用笔记">Attiny85 Arduino SleepMode 睡眠模式使用笔记</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="attiny85-arduino-sleepmode-睡眠模式使用笔记">Attiny85 Arduino SleepMode 睡眠模式使用笔记</h2>
+<p>Attiny 85 board:</p>
+<p><img src="/assets/images/image-20211126180807011.png" alt="image-20211126180807011"></p>
+<p>这款迷你开发板带了6个IO口，4个ADC，I2C通信结构等资源，已经能应付很多控制场景了。</p>
+<p>使用VScode + platformIO ， 在Arduino框架下进行开发。睡眠模式探究</p>
+<hr></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20211126182011/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-11-26T18:06:42&#43;0800" class="date">November 26, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20211115215455/" title="PIP and CONDA Add and Remove Mirror Source 配置软件源">PIP and CONDA Add and Remove Mirror Source 配置软件源</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><strong>First, PIP</strong></p>
+<p>1, add a source</p>
+<p>For example, add SJTU Source <a href="https://mirror.sjtu.edu.cn/pypi/web/simple">https://mirror.sjtu.edu.cn/pypi/web/simple</a>：</p>
+<pre tabindex="0"><code>pip config set global.index-url https://mirror.sjtu.edu.cn/pypi/web/simple
+</code></pre><p>If SET has multiple times, it seems to be only saved the mirror source of the last set.</p>
+<p>2, delete the source</p>
+<pre tabindex="0"><code>pip config unset global.index-url
+</code></pre><p>3, check which source now</p>
+<pre tabindex="0"><code>pip config list
+</code></pre><p><strong>Second, Conda</strong></p>
+<p>1, add a source</p>
+<p>For example, Tsinghua Source:</p>
+<pre tabindex="0"><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+</code></pre><p>SJTU:</p>
+<pre tabindex="0"><code>conda config --add channels https://mirror.sjtu.edu.cn/anaconda/{{pkg_name}}
+
+e.g.
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/main
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/mro
+conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/msys2
+pkgs/pro: (deprecated) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/pro
+pkgs/r: (empty) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/r
+</code></pre><p><a href="https://mirrors.sjtug.sjtu.edu.cn/docs/anaconda">read more</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20211115215455/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-11-15T21:55:30&#43;0800" class="date">November 15, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20211110170635/" title="Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.">Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="use-short-passwords-on-macos-big-sur-four-characters-not-required">Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</h2>
+<p>If you’re an Apple user and have macOS Big Sur, Catalina or Mojave installed on your machine you’ve probably realized you can’t use a password shorter than 4 characters anymore…</p>
+<p>Luckily, here is the easy fix.</p>
+<h4 id="1-open-terminal-on-your-machine">1. Open “Terminal” on your machine.</h4>
+<h4 id="2-type-this-command--press-return-enter">2. Type this command &amp; press Return (enter):</h4>
+<pre><code>`pwpolicy -clearaccountpolicies`
+</code></pre>
+<h4 id="3-terminal-will-ask-you-to-enter-the-password-for-your-admin-profile">3. Terminal will ask you to enter the password for your admin profile.</h4>
+<p>Terminal WILL NOT show the password as you type it.
+After typing the password for your account, press “Return” (enter).</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20211110170635/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-11-10T17:06:35&#43;0800" class="date">November 10, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20211028175806/" title="Keyboard Maestro: Mac电脑效率神器">Keyboard Maestro: Mac电脑效率神器</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="终于解决单手向右删除的痛点">终于解决单手向右删除的痛点</h1>
+<p>Keyboard  Maestro 软件很是强大。</p>
+<p>ReadMore: <a href="https://sspai.com/post/36442">Keyboard Maestro 入门指南</a></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20211028175806/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-10-28T17:58:06&#43;0800" class="date">October 28, 2021</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/4/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/4/">4</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/5/">5</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/6/">6</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/6/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="写在前面：以前一直喜欢Google Search by English key words, 最近听说按中文找够用了，找了几个中文的博客，还是不对味，写得不好，不利于学习。不得不Google:&#34;quick understand bp neural networks&#34;， 很快找到想要的。
+==========
+A Quick Introduction to Neural&nbsp;Networks（点击查看原文，科学点儿）
+Posted on August 9, 2016 by ujjwalkarn 
+
+An Artificial Neural Network (ANN) is a&nbsp;computational model&nbsp;that is inspired by the way biological neural&nbsp;networks in&nbsp;the human brain process information. Artificial Neural Networks have generated a lot of&nbsp;excitement in Machine Learning research and industry, thanks to many breakthrough results in speech recognition, computer vision and text processing. In this blog post we will try to develop an understanding of a particular type of Artificial Neural Network called the&nbsp;Multi Layer Perceptron." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>[转载]人工神经网络快速入门 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20170815011700/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="写在前面：以前一直喜欢Google Search by English key words, 最近听说按中文找够用了，找了几个中文的博客，还是不对味，写得不好，不利于学习。不得不Google:&#34;quick understand bp neural networks&#34;， 很快找到想要的。
+==========
+A Quick Introduction to Neural&nbsp;Networks（点击查看原文，科学点儿）
+Posted on August 9, 2016 by ujjwalkarn 
+
+An Artificial Neural Network (ANN) is a&nbsp;computational model&nbsp;that is inspired by the way biological neural&nbsp;networks in&nbsp;the human brain process information. Artificial Neural Networks have generated a lot of&nbsp;excitement in Machine Learning research and industry, thanks to many breakthrough results in speech recognition, computer vision and text processing. In this blog post we will try to develop an understanding of a particular type of Artificial Neural Network called the&nbsp;Multi Layer Perceptron." />
+  <meta property="og:title" content="[转载]人工神经网络快速入门" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20170815011700/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2017-08-15" />
+    <meta property="article:modified_time" content="2017-08-15" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="[转载]人工神经网络快速入门 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="写在前面：以前一直喜欢Google Search by English key words, 最近听说按中文找够用了，找了几个中文的博客，还是不对味，写得不好，不利于学习。不得不Google:&#34;quick understand bp neural networks&#34;， 很快找到想要的。
+==========
+A Quick Introduction to Neural&nbsp;Networks（点击查看原文，科学点儿）
+Posted on August 9, 2016 by ujjwalkarn 
+
+An Artificial Neural Network (ANN) is a&nbsp;computational model&nbsp;that is inspired by the way biological neural&nbsp;networks in&nbsp;the human brain process information. Artificial Neural Networks have generated a lot of&nbsp;excitement in Machine Learning research and industry, thanks to many breakthrough results in speech recognition, computer vision and text processing. In this blog post we will try to develop an understanding of a particular type of Artificial Neural Network called the&nbsp;Multi Layer Perceptron." />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20170815011700/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20170815011700/">[转载]人工神经网络快速入门</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">[转载]人工神经网络快速入门</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2017-08-15T01:17:00&#43;0800 class="date">August 15, 2017</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+13 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p class="entry-title">写在前面：以前一直喜欢Google Search by English key words, 最近听说按中文找够用了，找了几个中文的博客，还是不对味，写得不好，不利于学习。<br />不得不Google:"quick understand bp neural networks"， 很快找到想要的。</p>
+<p class="entry-title">==========</p>
+<h3 class="entry-title"><a href="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/" target="_blank">A Quick Introduction to Neural&nbsp;Networks</a>（点击查看原文，科学点儿）</h3>
+<div class="entry-meta"><span class="posted-on">Posted on <a href="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/" rel="bookmark">August 9, 2016</a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://ujjwalkarn.me/author/ujwlkarn/">ujjwalkarn</a> </span></span></span></div>
+<div class="entry-content">
+<p>An Artificial Neural Network (ANN) is a&nbsp;computational model&nbsp;that is inspired by the way biological neural&nbsp;networks in&nbsp;the human brain process information. Artificial Neural Networks have generated a lot of&nbsp;excitement in Machine Learning research and industry, thanks to many breakthrough results in speech recognition, computer vision and text processing. In this blog post we will try to develop an understanding of a particular type of Artificial Neural Network called the&nbsp;Multi Layer Perceptron.</p>
+<h4>A Single Neuron</h4>
+<p>The&nbsp;basic unit of computation in a neural network is the <strong>neuron</strong>, often called a <strong>node</strong> or <strong>unit</strong>. It receives input from some other nodes, or from an external source and computes an output. Each input has an associated <strong>weight</strong>&nbsp;(w), which is assigned on the basis of its relative importance to other inputs. The node&nbsp;applies a function&nbsp;<strong><em>f </em></strong>(defined below) to&nbsp;the weighted sum of its inputs as shown in Figure 1 below:</p>
+<p><img class="  wp-image-2460 aligncenter" src="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-3-42-21-am.png?w=568&amp;h=303" alt="Screen Shot 2016-08-09 at 3.42.21 AM.png" width="568" height="303" data-attachment-id="2460" data-permalink="https://ujjwalkarn.me/?attachment_id=2460" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-3-42-21-am.png?w=568&amp;h=303" data-orig-size="1206,644" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2016-08-09 at 3.42.21 AM" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-3-42-21-am.png?w=568&amp;h=303?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-3-42-21-am.png?w=568&amp;h=303?w=748" /></p>
+<h6>Figure 1: a single neuron</h6>
+<p>The above network takes numerical inputs <strong>X1</strong> and <strong>X2</strong>&nbsp;and&nbsp;has weights&nbsp;<strong>w1</strong> and <strong>w2</strong>&nbsp;associated with those inputs. Additionally, there is another input <strong>1</strong>&nbsp;with weight <strong>b</strong>&nbsp;(called the <strong>Bias</strong>) associated with it. We will learn&nbsp;more details about role of the bias later.</p>
+<p>The output <strong>Y</strong> from the neuron is&nbsp;computed as shown in the Figure 1.&nbsp;The&nbsp;function <strong><em>f </em></strong>is non-linear and is called the <strong>Activation Function</strong>.&nbsp;The purpose of the activation function is to introduce non-linearity into the output of a neuron. This is important because most real world data is non linear&nbsp;and we&nbsp;want neurons to&nbsp;<em>learn </em>these<em>&nbsp;</em>non linear representations.</p>
+<p>Every activation function (or <em>non-linearity</em>) takes a single number and performs a certain fixed mathematical operation on it [2]. There are several activation functions you may encounter in practice:</p>
+<ul>
+<li><strong>Sigmoid:&nbsp;</strong>takes a real-valued input and squashes it to range between 0 and 1</li>
+</ul>
+<p>&sigma;(x) = 1 / (1 + exp(&minus;x))</p>
+<ul>
+<li><strong>tanh:</strong> takes a real-valued input and squashes it&nbsp;to the range [-1, 1]</li>
+</ul>
+<p>tanh(x) = 2&sigma;(2x) &minus; 1</p>
+<ul>
+<li><strong>ReLU</strong>: ReLU stands for Rectified Linear Unit. It takes a real-valued input and thresholds it at zero (replaces negative values with zero)</li>
+</ul>
+<p>f(x) = max(0, x)</p>
+<p>The below figures&nbsp;[2]&nbsp;&nbsp;show each of the above activation functions.</p>
+<h6><img class="alignnone size-full wp-image-1826" src="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-08-at-11-53-41-am.png?w=748" alt="Screen Shot 2016-08-08 at 11.53.41 AM" data-attachment-id="1826" data-permalink="https://ujjwalkarn.me/?attachment_id=1826" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-08-at-11-53-41-am.png?w=748" data-orig-size="1652,500" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2016-08-08 at 11.53.41 AM" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-08-at-11-53-41-am.png?w=748?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-08-at-11-53-41-am.png?w=748?w=748" />Figure 2:&nbsp;different activation functions</h6>
+<p><strong>Importance&nbsp;of Bias:</strong> The main function of Bias is to provide every node with a trainable constant value (in addition to the normal inputs that the node receives). See <a href="http://stackoverflow.com/q/2480650/3297280" target="_blank">this link</a> to learn more about the role of bias in a neuron.</p>
+<h4 id="firstHeading" class="firstHeading">Feedforward Neural Network<a hidden class="heading-anchor" aria-hidden="true" href="#firstHeading">#</a></h4>
+<p>The feedforward neural network was the first and simplest type of artificial neural network devised [3]. It contains multiple neurons (nodes) arranged in <strong>layers</strong>. Nodes&nbsp;from adjacent layers have <strong>connections</strong> or <strong>edges</strong> between them. All these connections have <strong>weights</strong> associated with them.</p>
+<p>An example of a&nbsp;feedforward neural network is shown in Figure 3.</p>
+<p><img class="  wp-image-2508 aligncenter" src="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-4-19-50-am.png?w=498&amp;h=368" alt="Screen Shot 2016-08-09 at 4.19.50 AM.png" width="498" height="368" data-attachment-id="2508" data-permalink="https://ujjwalkarn.me/?attachment_id=2508" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-4-19-50-am.png?w=498&amp;h=368" data-orig-size="1304,964" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2016-08-09 at 4.19.50 AM" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-4-19-50-am.png?w=498&amp;h=368?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-4-19-50-am.png?w=498&amp;h=368?w=748" /></p>
+<h6>Figure 3:&nbsp;an example of feedforward neural network</h6>
+<p>A feedforward neural network can consist of three types of nodes:</p>
+<ol>
+<li><strong>Input Nodes &ndash;</strong>&nbsp;The Input nodes provide&nbsp;information&nbsp;from the outside world to&nbsp;the network and are together referred to as the &ldquo;Input Layer&rdquo;. No computation is performed in any of the Input nodes &ndash; they just pass on the information to the hidden nodes.</li>
+<li><strong>Hidden&nbsp;Nodes &ndash;&nbsp;</strong>The Hidden nodes have no direct connection with the outside&nbsp;world (hence the name&nbsp;&ldquo;hidden&rdquo;). They perform computations and transfer information from the input nodes to the output nodes. A collection of hidden nodes forms a&nbsp;&ldquo;Hidden Layer&rdquo;. While a feedforward network will&nbsp;only have a&nbsp;single input layer and a single output layer, it can have zero or multiple Hidden Layers.</li>
+<li><strong>Output&nbsp;Nodes &ndash;&nbsp;</strong>The Output nodes&nbsp;are collectively referred to as the &ldquo;Output Layer&rdquo; and are responsible for computations and transferring information&nbsp;from&nbsp;the network to&nbsp;the outside&nbsp;world.</li>
+</ol>
+<p>In a feedforward&nbsp;network, the information moves in only one direction &ndash; forward &ndash; from the input nodes, through the hidden nodes (if any) and to the output nodes. There are no cycles or loops in the network [3]&nbsp;(this property of feed forward networks is different from Recurrent Neural Networks in which&nbsp;the&nbsp;connections between&nbsp;the nodes form a cycle).</p>
+<p>Two examples of&nbsp;feedforward networks are given&nbsp;below:</p>
+<ol>
+<li>
+<p><strong>Single Layer Perceptron</strong>&nbsp;&ndash; This is the simplest feedforward neural network [4] and does not contain&nbsp;any hidden layer.&nbsp;You can learn more about Single Layer Perceptrons in [4],&nbsp;[5], [6],&nbsp;[7].</p>
+</li>
+<li>
+<p><strong>Multi&nbsp;Layer Perceptron</strong>&nbsp;&ndash; A Multi Layer Perceptron has one or more hidden layers.&nbsp;We will only discuss Multi Layer Perceptrons below since they are more useful than Single Layer Perceptons for practical applications today.</p>
+</li>
+</ol>
+<h4>Multi Layer Perceptron</h4>
+<p>A Multi Layer Perceptron (MLP) contains one or more hidden layers (apart from one input and one output layer). &nbsp;While a single layer perceptron can only learn linear functions, a multi layer perceptron can also&nbsp;learn non &ndash; linear functions.</p>
+<p>Figure 4 shows a&nbsp;multi layer perceptron with a single hidden layer. Note that all connections have weights associated with them, but only three weights (w0, w1, w2) are shown in the figure.</p>
+<p><strong>Input Layer: </strong>The Input layer has three&nbsp;nodes.&nbsp;The Bias node has a value of 1.&nbsp;The other two nodes&nbsp;take X1 and X2 as external inputs (which are numerical values depending upon the input dataset). As discussed above, no computation is performed in the Input layer, so the outputs from nodes in the Input layer are 1, X1 and X2 respectively, which are fed into the Hidden Layer.</p>
+<p><strong>Hidden Layer:&nbsp;</strong>The Hidden&nbsp;layer also has three&nbsp;nodes with the Bias node having&nbsp;an&nbsp;output&nbsp;of 1.&nbsp;The output of the other two&nbsp;nodes in the Hidden layer depends on the outputs from the Input layer (1, X1, X2)&nbsp;as well as&nbsp;the weights associated with the connections (edges). Figure 4 shows the output&nbsp;calculation for one of the hidden nodes (highlighted). Similarly, the output from other hidden node can be calculated. Remember that&nbsp;<strong><em>f </em></strong>refers to the activation function. These outputs are then fed to the nodes in the Output layer.</p>
+<p><img class="aligncenter size-full wp-image-2727" src="https://ujwlkarn.files.wordpress.com/2016/08/ds.png?w=1128" alt="ds.png" width="564" height="484" data-attachment-id="2727" data-permalink="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/ds/" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/ds.png" data-orig-size="1264,1086" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ds" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/ds.png?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/ds.png?w=748" /></p>
+<h6>Figure 4: a&nbsp;multi&nbsp;layer perceptron having one hidden layer</h6>
+<p><strong>Output&nbsp;Layer:&nbsp;</strong>The Output&nbsp;layer has two&nbsp;nodes which take inputs from the Hidden layer and perform similar computations as shown for the highlighted hidden node. The values calculated&nbsp;(Y1 and Y2) as a result of&nbsp;these computations act as outputs of&nbsp;the Multi Layer Perceptron.</p>
+<p>Given a set of features <strong>X = (x1, x2, &hellip;)&nbsp;</strong>and a target <strong>y</strong>, a&nbsp;Multi Layer Perceptron&nbsp;can learn the relationship&nbsp;between the features and the target,&nbsp;for either classification or regression.</p>
+<p>Lets take an example to understand Multi Layer Perceptrons better. Suppose we have the following student-marks dataset:</p>
+<p><img class="  wp-image-2743 aligncenter" src="https://ujwlkarn.files.wordpress.com/2016/08/train.png?w=297&amp;h=112" alt="train.png" width="297" height="112" data-attachment-id="2743" data-permalink="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/train/" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/train.png" data-orig-size="536,202" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="train" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/train.png?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/train.png?w=536" /></p>
+<p>The two input columns show the number of hours the student has studied and the mid term&nbsp;marks obtained by the student. The Final Result column can have two values 1 or 0 indicating whether the student passed in the final term.&nbsp;For example, we can see that if the student studied 35 hours and had obtained 67 marks in the mid term, he / she ended up passing the final term.</p>
+<p>Now, suppose, we want to predict whether a student studying 25 hours and having 70 marks in the mid term will pass the final term.</p>
+<p><img class="  wp-image-2745 aligncenter" src="https://ujwlkarn.files.wordpress.com/2016/08/test.png?w=300&amp;h=40" alt="test.png" width="300" height="40" data-attachment-id="2745" data-permalink="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/test/" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/test.png?w=300&amp;h=40" data-orig-size="526,70" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="test" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/test.png?w=300&amp;h=40?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/test.png?w=300&amp;h=40?w=526" /></p>
+<p>This is a binary classification problem&nbsp;where a multi&nbsp;layer perceptron can learn from the given examples (training data) and make an informed prediction given&nbsp;a&nbsp;new data point. We will see below how a multi&nbsp;layer perceptron&nbsp;learns such relationships.</p>
+<h5>Training our MLP: The Back-Propagation Algorithm</h5>
+<p>The process by which a Multi Layer Perceptron learns is called the Backpropagation algorithm.&nbsp;I would recommend reading <a href="https://www.quora.com/How-do-you-explain-back-propagation-algorithm-to-a-beginner-in-neural-network/answer/Hemanth-Kumar-Mantri" target="_blank">this Quora answer by Hemanth Kumar</a>&nbsp;(quoted below) which&nbsp;explains&nbsp;Backpropagation clearly.</p>
+<blockquote>
+<p><strong>Backward Propagation of Errors, </strong>often abbreviated as BackProp is one of the several ways in which an artificial neural network (ANN) can be trained. It is a supervised training scheme, which means, it learns from labeled training data (there is a supervisor, to guide its learning).</p>
+<p>To put in simple terms, BackProp is like &ldquo;<strong>learning from mistakes</strong>&ldquo;. The supervisor&nbsp;<strong><em>corrects</em></strong> the ANN whenever it makes mistakes.</p>
+<p>An ANN consists of nodes in different layers; input layer, intermediate hidden layer(s) and the output layer. The connections between nodes of adjacent layers have &ldquo;weights&rdquo; associated with them. The goal of learning is to assign correct weights for these edges. Given an input vector, these weights determine what the output vector is.</p>
+<p>In supervised learning, the training set is labeled. This means, for some given inputs, we know the desired/expected output (label).</p>
+<p><strong>BackProp Algorithm:</strong><br />
+Initially all the edge weights are randomly assigned. For every input in
+ the training dataset, the ANN is activated and its output is observed. 
+This output is compared with the desired output that we already know, 
+and the error is &ldquo;propagated&rdquo; back to the previous layer. This error is 
+noted and the weights are &ldquo;adjusted&rdquo; accordingly. This process is 
+repeated until the output error is below a predetermined threshold.</p>
+<p>Once the above algorithm terminates, we 
+have a &ldquo;learned&rdquo; ANN which, we consider is ready to work with &ldquo;new&rdquo; 
+inputs. This ANN is said to have learned from several examples (labeled 
+data) and from its mistakes (error propagation).</p>
+</blockquote>
+<p>Now that we have an idea of how Backpropagation works, lets come back to our student-marks dataset shown above.</p>
+<p>The Multi Layer Perceptron shown in Figure 5&nbsp;(adapted from Sebastian Raschka&rsquo;s&nbsp;<a href="https://github.com/rasbt/python-machine-learning-book/blob/master/faq/visual-backpropagation.md" target="_blank">excellent visual explanation of the backpropagation algorithm</a>)
+ has two&nbsp;nodes in the input layer (apart from the Bias node) which take 
+the inputs &lsquo;Hours Studied&rsquo; and &lsquo;Mid Term Marks&rsquo;. It also has a hidden 
+layer with two nodes (apart from the Bias node). The output layer 
+has&nbsp;two nodes as well &ndash; the upper node outputs the probability of &lsquo;Pass&rsquo;
+ while the lower node outputs the probability of &lsquo;Fail&rsquo;.</p>
+<p>In classification tasks, we generally use a <a href="http://cs231n.github.io/linear-classify/#softmax" target="_blank">Softmax function</a>&nbsp;as
+ the Activation Function in the Output layer of the Multi Layer 
+Perceptron to ensure that the outputs are probabilities and they add up 
+to 1. The Softmax function&nbsp;takes a vector of arbitrary real-valued 
+scores&nbsp;and squashes it to a vector of values between zero and one that 
+sum to one. So, in this case,</p>
+<p>Probability (Pass) + Probability (Fail) = 1</p>
+<p><strong>Step 1: Forward Propagation</strong></p>
+<p>All weights in the network are randomly assigned. Lets&nbsp;consider the&nbsp;hidden layer node marked <strong>V</strong>&nbsp;in Figure 5&nbsp;below. Assume the weights of the connections from the inputs to that node are w1, w2 and w3 (as shown).</p>
+<p>The network then takes the first training example as input (we know that for inputs 35 and 67, the probability of Pass is 1).</p>
+<ul>
+<li>Input to the network = [35, 67]</li>
+<li>Desired output from the network (target) = [1, 0]</li>
+</ul>
+<p>Then output V from the node in consideration can be calculated as below (<strong><strong><em>f </em></strong></strong>is an activation function such as sigmoid):</p>
+<p>V =&nbsp;<strong><em>f&nbsp;</em></strong>(1*w1 + 35*w2 + 67*w3)</p>
+<p>Similarly, outputs from the other node in
+ the hidden layer is also calculated. The outputs of the two nodes in 
+the hidden layer act as inputs to the two nodes in the output layer. 
+This enables us to calculate output probabilities from the two nodes in 
+output layer.</p>
+<p>Suppose the output probabilities from the
+ two nodes in the output layer are 0.4 and 0.6 respectively (since the 
+weights are randomly assigned, outputs will also be random). We can see 
+that the calculated probabilities (0.4 and 0.6) are very far from the 
+desired probabilities (1 and 0 respectively), hence the network in 
+Figure 5 is said to have an &lsquo;Incorrect Output&rsquo;.</p>
+<p><img class="alignnone size-full wp-image-3002" src="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-52-57-pm.png?w=748" alt="Screen Shot 2016-08-09 at 11.52.57 PM.png" data-attachment-id="3002" data-permalink="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/screen-shot-2016-08-09-at-11-52-57-pm/" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-52-57-pm.png?w=748" data-orig-size="1138,330" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2016-08-09 at 11.52.57 PM" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-52-57-pm.png?w=748?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-52-57-pm.png?w=748?w=748" /></p>
+<h6>Figure 5: forward propagation step in a multi layer perceptron</h6>
+<p><strong>Step 2: Back&nbsp;Propagation and Weight&nbsp;Updation</strong></p>
+<p>We calculate the total error at the 
+output nodes and propagate these errors back through the network using 
+Backpropagation to calculate the <em>gradients</em>. Then we use an optimization method such as <em>Gradient Descent</em> to &lsquo;adjust&rsquo;&nbsp;<strong>all</strong>
+ weights in the network with an aim of reducing the error at the output 
+layer. This is shown in the Figure 6&nbsp;below (ignore the mathematical 
+equations in the figure for now).</p>
+<p>Suppose&nbsp;that the new weights&nbsp;associated 
+with&nbsp;the node in consideration are w4, w5 and w6 (after Backpropagation 
+and adjusting weights).</p>
+<p><img class="alignnone size-full wp-image-3003" src="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-06-pm.png?w=748" alt="Screen Shot 2016-08-09 at 11.53.06 PM.png" data-attachment-id="3003" data-permalink="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/screen-shot-2016-08-09-at-11-53-06-pm/" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-06-pm.png?w=748" data-orig-size="1120,468" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2016-08-09 at 11.53.06 PM" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-06-pm.png?w=748?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-06-pm.png?w=748?w=748" /></p>
+<h6>Figure 6: backward&nbsp;propagation and weight updation&nbsp;step in a multi layer perceptron</h6>
+<p>If we now input the same example to the 
+network again, the network should perform better than before since the 
+weights have now been adjusted to minimize the error in prediction. As 
+shown in Figure 7, the errors at the output nodes&nbsp;now reduce to [0.2, 
+-0.2] as compared to [0.6, -0.4] earlier. This means that our network 
+has learnt to correctly classify our first training example.</p>
+<p><img class="alignnone size-full wp-image-3004" src="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-15-pm.png?w=748" alt="Screen Shot 2016-08-09 at 11.53.15 PM.png" data-attachment-id="3004" data-permalink="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/screen-shot-2016-08-09-at-11-53-15-pm/" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-15-pm.png?w=748" data-orig-size="1130,326" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2016-08-09 at 11.53.15 PM" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-15-pm.png?w=748?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-11-53-15-pm.png?w=748?w=748" /></p>
+<h6>Figure 7: the MLP network now performs better on the same input</h6>
+<p>We repeat this process with all other training examples in&nbsp;our dataset.&nbsp;Then, our network is said to have <em>learnt </em>those examples.</p>
+<p>If we now want to predict whether a 
+student studying 25 hours and having 70 marks in the mid term will pass 
+the final term, we go through the forward propagation step and find the 
+output probabilities for Pass and Fail.</p>
+<p>I have avoided mathematical equations and
+ explanation of concepts such as &lsquo;Gradient Descent&rsquo; here and have rather
+ tried to develop an intuition for the algorithm. For a more 
+mathematically involved discussion of the Backpropagation algorithm, 
+refer to&nbsp;<a href="http://home.agh.edu.pl/~vlsi/AI/backp_t_en/backprop.html" target="_blank">this link</a>.</p>
+<h4>3d Visualization of a Multi Layer Perceptron</h4>
+<p>Adam Harley has created a&nbsp;<a href="http://scs.ryerson.ca/~aharley/vis/fc/" target="_blank">3d&nbsp;visualization</a> of a Multi Layer Perceptron which has already been trained (using Backpropagation) on the MNIST Database of handwritten digits.</p>
+<p>The network takes 784 numeric pixel 
+values as inputs from a 28 x 28 image of a handwritten digit (it has 784
+ nodes in the Input Layer corresponding to pixels). The network has 300 
+nodes in the first hidden layer, 100 nodes in the second hidden layer, 
+and 10 nodes in the output layer (corresponding to the 10 digits) [15].</p>
+<p>Although the network described here is 
+much larger (uses more hidden layers and nodes) compared to the one we 
+discussed in the previous section, all computations in&nbsp;the&nbsp;forward 
+propagation step and backpropagation step&nbsp;are done in the same way (at 
+each node) as discussed before.</p>
+<p>Figure 8 shows the network when the input is the digit &lsquo;5&rsquo;.</p>
+<p><img class="alignnone size-full wp-image-2848" src="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-5-45-34-pm.png?w=748" alt="Screen Shot 2016-08-09 at 5.45.34 PM.png" data-attachment-id="2848" data-permalink="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/screen-shot-2016-08-09-at-5-45-34-pm/" data-orig-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-5-45-34-pm.png?w=748" data-orig-size="1980,684" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Screen Shot 2016-08-09 at 5.45.34 PM" data-image-description="" data-medium-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-5-45-34-pm.png?w=748?w=300" data-large-file="https://ujwlkarn.files.wordpress.com/2016/08/screen-shot-2016-08-09-at-5-45-34-pm.png?w=748?w=748" /></p>
+<h6>Figure&nbsp;8:&nbsp;visualizing the network for an input of &lsquo;5&rsquo;</h6>
+<p>A node&nbsp;which has a higher output value 
+than others is represented by a brighter color. In the Input layer, the 
+bright nodes are those which receive higher numerical pixel values as 
+input. Notice how in the output layer, the only bright node corresponds 
+to the digit 5 (it has an output probability of 1, which is higher than 
+the other nine&nbsp;nodes which have an output probability of 0). This 
+indicates that the MLP has correctly classified the input digit. I 
+highly recommend playing around with&nbsp;this visualization and observing 
+connections between nodes of different layers.</p>
+<h4>Deep Neural Networks</h4>
+<ol>
+<li><a href="https://github.com/rasbt/python-machine-learning-book/blob/master/faq/difference-deep-and-normal-learning.md" target="_blank">What is the difference between deep learning and usual machine learning?</a></li>
+<li><a href="http://stats.stackexchange.com/questions/182734/what-is-the-difference-between-a-neural-network-and-a-deep-neural-network?rq=1" target="_blank">What is the difference between a neural network and a deep neural network?</a></li>
+<li><a href="https://www.quora.com/How-is-deep-learning-different-from-multilayer-perceptron" target="_blank">How is deep learning different from multilayer perceptron?</a></li>
+</ol>
+<h4>Conclusion</h4>
+<p>I have skipped important details of&nbsp;some 
+of the&nbsp;concepts discussed&nbsp;in this post&nbsp;to facilitate understanding. I 
+would recommend going through <a href="http://cs231n.github.io/neural-networks-1/" target="_blank">Part1</a>, <a href="http://cs231n.github.io/neural-networks-2/" target="_blank">Part2</a>, <a href="http://cs231n.github.io/neural-networks-3/" target="_blank">Part3</a> and <a href="http://cs231n.github.io/neural-networks-case-study/" target="_blank">Case Study</a> from Stanford&rsquo;s Neural Network tutorial for a thorough understanding of Multi Layer Perceptrons.</p>
+<p>Let me know in the comments below if you have any questions or suggestions!</p>
+<h4>References</h4>
+<ol><ol>
+<li><a href="https://www.willamette.edu/~gorr/classes/cs449/ann-overview.html" target="_blank">Artificial Neuron Models</a></li>
+<li><a href="http://cs231n.github.io/neural-networks-1/" target="_blank">Neural Networks Part 1: Setting up the Architecture (Stanford CNN Tutorial)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Feedforward_neural_network" target="_blank">Wikipedia article on Feed Forward Neural Network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Perceptron" target="_blank">Wikipedia article on Perceptron&nbsp;</a></li>
+<li><a href="http://computing.dcu.ie/~humphrys/Notes/Neural/single.neural.html" target="_blank">Single-layer Neural Networks (Perceptrons)&nbsp;</a></li>
+<li><a href="http://www.cs.stir.ac.uk/courses/ITNP4B/lectures/kms/2-Perceptrons.pdf" target="_blank">Single Layer Perceptrons&nbsp;</a></li>
+<li><a href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K3.pdf" target="_blank">Weighted Networks &ndash; The Perceptron</a></li>
+<li><a href="http://scikit-learn.org/dev/modules/neural_networks_supervised.html" target="_blank">Neural network models (supervised) (scikit learn documentation)</a></li>
+<li><a href="http://stats.stackexchange.com/a/63163/53914" target="_blank">What does the hidden layer in a neural network compute?</a></li>
+<li><a href="http://stats.stackexchange.com/a/1097/53914" target="_blank">How to choose the number of hidden layers and nodes in a feedforward neural network?&nbsp;</a></li>
+<li><a href="http://ulcar.uml.edu/~iag/CS/Intro-to-ANN.html" target="_blank">Crash Introduction to Artificial Neural Networks</a></li>
+<li><a href="http://stackoverflow.com/questions/7175099/why-the-bias-is-necessary-in-ann-should-we-have-separate-bias-for-each-layer" target="_blank">Why the BIAS is necessary in ANN? Should we have separate BIAS for each layer?</a></li>
+<li><a href="https://takinginitiative.wordpress.com/2008/04/03/basic-neural-network-tutorial-theory/" target="_blank">Basic Neural Network Tutorial &ndash; Theory</a></li>
+<li><a href="https://www.youtube.com/watch?v=5MXp9UUkSmc" target="_blank">Neural Networks Demystified (Video Series): Part 1, Welch Labs @ MLconf SF</a></li>
+<li>A. W. Harley, &ldquo;An Interactive Node-Link Visualization of Convolutional Neural Networks,&rdquo; in ISVC, pages 867-877, 2015 (<a href="http://scs.ryerson.ca/~aharley/vis/harley_vis_isvc15.pdf" target="_blank">link</a>)</li>
+</ol></ol></div>
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2017-08-15 01:17 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share [转载]人工神经网络快速入门 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20170815011700%2f&title=%5b%e8%bd%ac%e8%bd%bd%5d%e4%ba%ba%e5%b7%a5%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c%e5%bf%ab%e9%80%9f%e5%85%a5%e9%97%a8">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share [转载]人工神经网络快速入门 on twitter"
+          href="https://twitter.com/intent/tweet/?text=%5b%e8%bd%ac%e8%bd%bd%5d%e4%ba%ba%e5%b7%a5%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c%e5%bf%ab%e9%80%9f%e5%85%a5%e9%97%a8&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20170815011700%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share [转载]人工神经网络快速入门 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20170815011700%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

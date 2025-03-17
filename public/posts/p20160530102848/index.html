@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="ROS与智能机器人技术发展路径探索
+ROS与智能机器人技术发展路径探索
+Sonictl, Aug 2015
+序
+本文按照目标路径、需求、资源、方法、计划为提纲，根据本人对市场、技术、商业模式等的经验理解，梳理总结 ROS 和机器人技术对于机器人研发团队来讲，可能的发展方向、可行性分析、前景展望等。sonictl@CSDN
+据我sonictl@CSDN了解及调研， ROS 已经逐渐占据了机器人开源控制软件平台领域几乎用户量最大的地位。原因主要是：1. ROS 的维护团队比较强大。 2. ROS的架构相对科学。 3. ROS 核心团队针对目前主流的机器人硬件，比如ABB, Kuka, UR, iRobot, Kinect等，提供了相对丰富和成熟的应用案例。4. ROS开源的特点可挑战传统厂商的封闭昂贵的软件工具。
+结合我们sonictl对机器人行业的理解，它是一个应用复杂多样的学科。为了降低机器人的生产成本，需要使用ROS这样架构的软件平台来实现代码复用和模块化封装。目前包括Mathworks在内的算法软件研发巨头[1]及国外的致力于机器人IMU传感器模块研发的初创公司[2]等，都纷纷开始在自己产品的软硬件开发接口上支持ROS。
+所以，我sonictl认为，随着机器人技术的广泛应用，ROS是最有可能成长为一个赢得更多用户和开发者，获得更广泛的硬件厂商和产品支持，具有更强大的功能，覆盖机器人上下游产业链，最终形成以ROS为线索的繁荣的机器人产学研生态。
+作为一个机器人开发团队，应该把握ROS目前还处在探索，含苞待放的时机，以特定的用户群的需求为导向、以核心技术为竞争力，积累、试验和开发自己的ROS机器人产品。
+路线分析
+路线一： ROS在工业机器人的应用
+工业机器人是机器人在产生自身价值方面最直接、最直观、应用方式和产品模式最清晰的领域。工业上相对固定和可控的生产工作环境降低了机器人的应用难度。
+在满足工业生产中的可靠、实用等要求的基础上，工业机器人在未来还应该朝着低成本和智能化方向发展。
+ROS应如何降低工业机器人的成本和提高智能性：
+相对于传统的机械运动轨迹的实现，ROS很难降低工业机器人的应用成本，而在需要智能算法的工业机器人开发上，可在机器人进行传感和决策的部分，使用ROS提供的低廉免费的算法模块，甚至在ROS原有的模块上进行定制化开发和移植、甚至分发给全球的算法用户。
+1.ROS在工业机器人领域的应用目标
+开发ROS在搬运、分拣、装配、等领域的算法模块及在ABB、UR等机器人本体上运行的整体解决方案。比如，ROS的视觉识别解决方案的开发及应用，就被我认为是很好的方向。
+2.ROS在工业机器人领域的应用需求
+这个需求即是工业界对工业机器人智能化的需求，机械往复运动的机器人已经无法满足工业需求，比如柔性生产线、不同型号的PCB搬运、计数线等。
+3.ROS在工业机器人领域的应用资源和战略分析
+借助sonictl@CSDN团队c&#43;&#43;开发人才，通过团队内部培训，完成对ROS的知识覆盖。
+根据研发目标，讨论确定ros在工业领域的应用开发路线图。
+初步的路线图：
+在ABB或kuka机器人上，基于ROS架构，仿造ROS官方例程，利用kinect辅助，完成对平面上物体的自动定位和搬运任务。
+总结和封装上个任务的ROS节点，形成ROS节点使用手册，目标是使其易于分发和使用，sonictl@CSDN甚至使用户零代码完成软硬件组装。
+在ABB或kuka机器人上开发更多ROS Industrial的案例，比如相机智能校准等，并对案例模块进行分拆，将各个模块进行产品化封装，形成包含宣传及参展、市场营销、产品研发、售后服务的产品线。
+最终的产品形态应该是一个能生产ROS nodes的软件工具，比如对于图像识别来讲，用户加入训练的图片或图像，可以训练成一个具有图像识别能力的节点（node）。用户傻瓜式生成它之后，sonictl@CSDN便可直接使用这个ROS节点加入到自己的机器人架构中。
+路线二： ROS在实时地图建模与导航中的应用
+实时地图建模与导航，是按照机器人的功能模块进行scope观察角度进行划分的一个用途较为广泛的功能。这项功能对应英文为人们熟知的SLAM(Simutaneously Localization andMapping). SLAM技术主要是对特种或服务机器人、四旋翼无人机等来讲，当它们在实际陌生地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。SLAM技术也成为过去10年来，移动机器人技术研究中最吸引研究资源的领域之一。在机器人领域有大量的学术论文阐述了很多研究人员对于SLAM的研究成果，SLAM已经成为智能机器人必须的几项技术中，相对成熟的一项技术。
+ROS核心团队和广大的应用开发者也在SLAM技术上投入和很多，产出了一套完整的ROS的应用架构，有了很多成熟的案例。无论是地图建模还是智能蔽障，我sonictl@CSDN都看到大量的应用案例和视频等在Internet上传播。ROS的PR2机器人以及TurtleBot移动平台，都能够对ROS社区提供的有关SLAM的功能模块提供很好的兼容性。从ROS社区的大量文章、案例、软件工具集、教材等可以看出，ROS社区在SLAM技术上相对其他技术来讲，有更多的积累和经验，所以，ROS对于SLAM技术的实现和支持上具有一个很好的基础。我们可以在这个方向上做一些提升智能性、稳定性和产品化的工作。
+我sonictl想，ROS之于SLAM，应该是使得SLAM的应用变得像插入一个U盘一样简单的事情。终极的产品形态可以是基于ROS接口的，具备SLAM功能的激光或3D传感器及配套软件服务包，让用户接入3D扫描设备即可享用设备所提供的地图建模服务。
+1.ROS在SLAM领域的应用目标：
+提供基于ROS协议和软硬件环境的SLAM技术服务，产品形态可以是纯软件包或者软硬件结合的产品或服务。比如，指定kinect和turtlebot/iRobot/ExBot等传感器和平台，提供一条龙式的地图建模与应用的软件节点与使用教程，再扩展对更多的硬件支持，以满足不同场景的需求。目标是要形成全国甚至全球ROS&#43;SLAM领域用户量最大的产品，成长为在机器人SLAM技术领域的技术和服务提供方。可能的愿景是通过云SLAM服务搜集室内数据，建立起一个庞大的公共服务机器人地图建模和室内地图数据运营商。数据服务可应用在如学校、商场、运动场馆、博物馆等地点的服务机器人上，且具有跨场景能力，无需重复建模，类似车载导航使用的地图数据服务。
+2.ROS在SLAM领域的应用需求：
+当自主移动机器人、四旋翼无人机等在实际地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。易用的SLAM技术，将成为机器人开发和生产者得心应手的工具，让开发者可以专心自己的核心模块开发，而不用担心在地图建模模块部分花费太多精力。所以基础技术模块的易用性将取得广泛的市场需求，赢得客户。
+3.ROS在SLAM领域的应用资源和战略分析：
+稳定的SLAM节点软件服务应该是合适的产品方向。
+首先在成熟的、用户量大、应用场景典型的移动平台上，sonictl借助ROS社区提供的基础包，实现2-3种传感器信号下的SLAM及导航功能。再将SLAM软件包进行优化。
+优化后的软件服务打包成产品级的服务，典型的应用方案，详细的使用手册，供用户免费使用并利用反馈不断改进。
+目标是通过易用的SLAM解决方案首先完成对高校和科研院所市场的占领，因为高校和科研院所目前应是SLAM技术应用最广泛的地方。
+探索通过云服务的方式，进一步简化SLAM应用的开发周期和配置难度，使有wifi的地方就能使用云SLAM技术，完善云端建模、驱动、控制等算法。
+高级目标是通过云SLAM服务搜集室内数据，建立起一个庞大的自主移动机器人地图建模和室内地图数据。
+
+终极目标
+ 终极目标是ROS架构的云机器人实现了大部分智能模块都通过云服务的方式提供算法服务，让机器人的下游应用开发在ROS的协议下，通过简单的积木式搭建即可建成自己的智能机器人，服务于各行各业，走进各家客厅。sonictl@CSDN
+
+路线三： ROS的嵌入式应用
+嵌入式设备在21世纪的井喷式发展是人们有目共睹的，嵌入式计算组件在汽车、消费电子、航空等各领域都占据了绝对的数量和重要性。无论在工业或服务机器人领域，嵌入式设备同样占据重要地位。ROS作为一种为机器人打造的软件工具平台，发源于基于PC的软硬件系统，随着机器人应用的普及和机器人开发需求的扩大，嵌入式的机器人开发模块和解决方案必将层出不穷，而ROS将以其先天的模块化、代码复用、节点协议统一等优点，一旦和嵌入式系统的可定制化、小型化、低成本、实时性等优势结合，必将带来机器人开发和应用方式的革命。注意关注ROS社区的新闻即可发现，负责运营ROS的”开源机器人基金”已经于2014年宣布着手支持高通骁龙600型arm处理器[3],和被人们广泛使用的树莓派嵌入式计算平台[4]。BOSCH公司已经有人在2015年8月发布了基于嵌入式 STM32F4Discovery 平台的实时ROS中间件开发项目。
+1.ROS的嵌入式应用发展目标：
+利用现有的被用户广泛使用的嵌入式平台，比如STM32F4Discovery，开发基于ROS协议中间件。
+选取几种典型的机器人本体、移动平台等进行嵌入式ROS改造，或者开发自有的嵌入式ROS产品，产品可包括：运动控制板卡，电机驱动板卡，智能传感器，智能执行器，等等。
+另一条路即发展基于ROS的嵌入式软件服务，开发易用、跨平台、可靠的、基于ROS协议的嵌入式app，覆盖电机控制、图像识别等机器人功能，这条路比较长远，不过等ros生态发展起来之后，可能会有这样的模式，短期内不太可行。
+2.ROS的嵌入式应用需求：
+由于嵌入式系统的巨大需求量已经被验证，而ROS平台的应用价值一旦被市场验证和接受到一定程度，毋庸置疑，ROS的嵌入式应用需求随之就会呈现爆发式增长。" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>ROS与智能机器人技术发展路径探索 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20160530102848/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="ROS与智能机器人技术发展路径探索
+ROS与智能机器人技术发展路径探索
+Sonictl, Aug 2015
+序
+本文按照目标路径、需求、资源、方法、计划为提纲，根据本人对市场、技术、商业模式等的经验理解，梳理总结 ROS 和机器人技术对于机器人研发团队来讲，可能的发展方向、可行性分析、前景展望等。sonictl@CSDN
+据我sonictl@CSDN了解及调研， ROS 已经逐渐占据了机器人开源控制软件平台领域几乎用户量最大的地位。原因主要是：1. ROS 的维护团队比较强大。 2. ROS的架构相对科学。 3. ROS 核心团队针对目前主流的机器人硬件，比如ABB, Kuka, UR, iRobot, Kinect等，提供了相对丰富和成熟的应用案例。4. ROS开源的特点可挑战传统厂商的封闭昂贵的软件工具。
+结合我们sonictl对机器人行业的理解，它是一个应用复杂多样的学科。为了降低机器人的生产成本，需要使用ROS这样架构的软件平台来实现代码复用和模块化封装。目前包括Mathworks在内的算法软件研发巨头[1]及国外的致力于机器人IMU传感器模块研发的初创公司[2]等，都纷纷开始在自己产品的软硬件开发接口上支持ROS。
+所以，我sonictl认为，随着机器人技术的广泛应用，ROS是最有可能成长为一个赢得更多用户和开发者，获得更广泛的硬件厂商和产品支持，具有更强大的功能，覆盖机器人上下游产业链，最终形成以ROS为线索的繁荣的机器人产学研生态。
+作为一个机器人开发团队，应该把握ROS目前还处在探索，含苞待放的时机，以特定的用户群的需求为导向、以核心技术为竞争力，积累、试验和开发自己的ROS机器人产品。
+路线分析
+路线一： ROS在工业机器人的应用
+工业机器人是机器人在产生自身价值方面最直接、最直观、应用方式和产品模式最清晰的领域。工业上相对固定和可控的生产工作环境降低了机器人的应用难度。
+在满足工业生产中的可靠、实用等要求的基础上，工业机器人在未来还应该朝着低成本和智能化方向发展。
+ROS应如何降低工业机器人的成本和提高智能性：
+相对于传统的机械运动轨迹的实现，ROS很难降低工业机器人的应用成本，而在需要智能算法的工业机器人开发上，可在机器人进行传感和决策的部分，使用ROS提供的低廉免费的算法模块，甚至在ROS原有的模块上进行定制化开发和移植、甚至分发给全球的算法用户。
+1.ROS在工业机器人领域的应用目标
+开发ROS在搬运、分拣、装配、等领域的算法模块及在ABB、UR等机器人本体上运行的整体解决方案。比如，ROS的视觉识别解决方案的开发及应用，就被我认为是很好的方向。
+2.ROS在工业机器人领域的应用需求
+这个需求即是工业界对工业机器人智能化的需求，机械往复运动的机器人已经无法满足工业需求，比如柔性生产线、不同型号的PCB搬运、计数线等。
+3.ROS在工业机器人领域的应用资源和战略分析
+借助sonictl@CSDN团队c&#43;&#43;开发人才，通过团队内部培训，完成对ROS的知识覆盖。
+根据研发目标，讨论确定ros在工业领域的应用开发路线图。
+初步的路线图：
+在ABB或kuka机器人上，基于ROS架构，仿造ROS官方例程，利用kinect辅助，完成对平面上物体的自动定位和搬运任务。
+总结和封装上个任务的ROS节点，形成ROS节点使用手册，目标是使其易于分发和使用，sonictl@CSDN甚至使用户零代码完成软硬件组装。
+在ABB或kuka机器人上开发更多ROS Industrial的案例，比如相机智能校准等，并对案例模块进行分拆，将各个模块进行产品化封装，形成包含宣传及参展、市场营销、产品研发、售后服务的产品线。
+最终的产品形态应该是一个能生产ROS nodes的软件工具，比如对于图像识别来讲，用户加入训练的图片或图像，可以训练成一个具有图像识别能力的节点（node）。用户傻瓜式生成它之后，sonictl@CSDN便可直接使用这个ROS节点加入到自己的机器人架构中。
+路线二： ROS在实时地图建模与导航中的应用
+实时地图建模与导航，是按照机器人的功能模块进行scope观察角度进行划分的一个用途较为广泛的功能。这项功能对应英文为人们熟知的SLAM(Simutaneously Localization andMapping). SLAM技术主要是对特种或服务机器人、四旋翼无人机等来讲，当它们在实际陌生地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。SLAM技术也成为过去10年来，移动机器人技术研究中最吸引研究资源的领域之一。在机器人领域有大量的学术论文阐述了很多研究人员对于SLAM的研究成果，SLAM已经成为智能机器人必须的几项技术中，相对成熟的一项技术。
+ROS核心团队和广大的应用开发者也在SLAM技术上投入和很多，产出了一套完整的ROS的应用架构，有了很多成熟的案例。无论是地图建模还是智能蔽障，我sonictl@CSDN都看到大量的应用案例和视频等在Internet上传播。ROS的PR2机器人以及TurtleBot移动平台，都能够对ROS社区提供的有关SLAM的功能模块提供很好的兼容性。从ROS社区的大量文章、案例、软件工具集、教材等可以看出，ROS社区在SLAM技术上相对其他技术来讲，有更多的积累和经验，所以，ROS对于SLAM技术的实现和支持上具有一个很好的基础。我们可以在这个方向上做一些提升智能性、稳定性和产品化的工作。
+我sonictl想，ROS之于SLAM，应该是使得SLAM的应用变得像插入一个U盘一样简单的事情。终极的产品形态可以是基于ROS接口的，具备SLAM功能的激光或3D传感器及配套软件服务包，让用户接入3D扫描设备即可享用设备所提供的地图建模服务。
+1.ROS在SLAM领域的应用目标：
+提供基于ROS协议和软硬件环境的SLAM技术服务，产品形态可以是纯软件包或者软硬件结合的产品或服务。比如，指定kinect和turtlebot/iRobot/ExBot等传感器和平台，提供一条龙式的地图建模与应用的软件节点与使用教程，再扩展对更多的硬件支持，以满足不同场景的需求。目标是要形成全国甚至全球ROS&#43;SLAM领域用户量最大的产品，成长为在机器人SLAM技术领域的技术和服务提供方。可能的愿景是通过云SLAM服务搜集室内数据，建立起一个庞大的公共服务机器人地图建模和室内地图数据运营商。数据服务可应用在如学校、商场、运动场馆、博物馆等地点的服务机器人上，且具有跨场景能力，无需重复建模，类似车载导航使用的地图数据服务。
+2.ROS在SLAM领域的应用需求：
+当自主移动机器人、四旋翼无人机等在实际地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。易用的SLAM技术，将成为机器人开发和生产者得心应手的工具，让开发者可以专心自己的核心模块开发，而不用担心在地图建模模块部分花费太多精力。所以基础技术模块的易用性将取得广泛的市场需求，赢得客户。
+3.ROS在SLAM领域的应用资源和战略分析：
+稳定的SLAM节点软件服务应该是合适的产品方向。
+首先在成熟的、用户量大、应用场景典型的移动平台上，sonictl借助ROS社区提供的基础包，实现2-3种传感器信号下的SLAM及导航功能。再将SLAM软件包进行优化。
+优化后的软件服务打包成产品级的服务，典型的应用方案，详细的使用手册，供用户免费使用并利用反馈不断改进。
+目标是通过易用的SLAM解决方案首先完成对高校和科研院所市场的占领，因为高校和科研院所目前应是SLAM技术应用最广泛的地方。
+探索通过云服务的方式，进一步简化SLAM应用的开发周期和配置难度，使有wifi的地方就能使用云SLAM技术，完善云端建模、驱动、控制等算法。
+高级目标是通过云SLAM服务搜集室内数据，建立起一个庞大的自主移动机器人地图建模和室内地图数据。
+
+终极目标
+ 终极目标是ROS架构的云机器人实现了大部分智能模块都通过云服务的方式提供算法服务，让机器人的下游应用开发在ROS的协议下，通过简单的积木式搭建即可建成自己的智能机器人，服务于各行各业，走进各家客厅。sonictl@CSDN
+
+路线三： ROS的嵌入式应用
+嵌入式设备在21世纪的井喷式发展是人们有目共睹的，嵌入式计算组件在汽车、消费电子、航空等各领域都占据了绝对的数量和重要性。无论在工业或服务机器人领域，嵌入式设备同样占据重要地位。ROS作为一种为机器人打造的软件工具平台，发源于基于PC的软硬件系统，随着机器人应用的普及和机器人开发需求的扩大，嵌入式的机器人开发模块和解决方案必将层出不穷，而ROS将以其先天的模块化、代码复用、节点协议统一等优点，一旦和嵌入式系统的可定制化、小型化、低成本、实时性等优势结合，必将带来机器人开发和应用方式的革命。注意关注ROS社区的新闻即可发现，负责运营ROS的”开源机器人基金”已经于2014年宣布着手支持高通骁龙600型arm处理器[3],和被人们广泛使用的树莓派嵌入式计算平台[4]。BOSCH公司已经有人在2015年8月发布了基于嵌入式 STM32F4Discovery 平台的实时ROS中间件开发项目。
+1.ROS的嵌入式应用发展目标：
+利用现有的被用户广泛使用的嵌入式平台，比如STM32F4Discovery，开发基于ROS协议中间件。
+选取几种典型的机器人本体、移动平台等进行嵌入式ROS改造，或者开发自有的嵌入式ROS产品，产品可包括：运动控制板卡，电机驱动板卡，智能传感器，智能执行器，等等。
+另一条路即发展基于ROS的嵌入式软件服务，开发易用、跨平台、可靠的、基于ROS协议的嵌入式app，覆盖电机控制、图像识别等机器人功能，这条路比较长远，不过等ros生态发展起来之后，可能会有这样的模式，短期内不太可行。
+2.ROS的嵌入式应用需求：
+由于嵌入式系统的巨大需求量已经被验证，而ROS平台的应用价值一旦被市场验证和接受到一定程度，毋庸置疑，ROS的嵌入式应用需求随之就会呈现爆发式增长。" />
+  <meta property="og:title" content="ROS与智能机器人技术发展路径探索" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20160530102848/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2016-05-30" />
+    <meta property="article:modified_time" content="2016-05-30" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ROS与智能机器人技术发展路径探索 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="ROS与智能机器人技术发展路径探索
+ROS与智能机器人技术发展路径探索
+Sonictl, Aug 2015
+序
+本文按照目标路径、需求、资源、方法、计划为提纲，根据本人对市场、技术、商业模式等的经验理解，梳理总结 ROS 和机器人技术对于机器人研发团队来讲，可能的发展方向、可行性分析、前景展望等。sonictl@CSDN
+据我sonictl@CSDN了解及调研， ROS 已经逐渐占据了机器人开源控制软件平台领域几乎用户量最大的地位。原因主要是：1. ROS 的维护团队比较强大。 2. ROS的架构相对科学。 3. ROS 核心团队针对目前主流的机器人硬件，比如ABB, Kuka, UR, iRobot, Kinect等，提供了相对丰富和成熟的应用案例。4. ROS开源的特点可挑战传统厂商的封闭昂贵的软件工具。
+结合我们sonictl对机器人行业的理解，它是一个应用复杂多样的学科。为了降低机器人的生产成本，需要使用ROS这样架构的软件平台来实现代码复用和模块化封装。目前包括Mathworks在内的算法软件研发巨头[1]及国外的致力于机器人IMU传感器模块研发的初创公司[2]等，都纷纷开始在自己产品的软硬件开发接口上支持ROS。
+所以，我sonictl认为，随着机器人技术的广泛应用，ROS是最有可能成长为一个赢得更多用户和开发者，获得更广泛的硬件厂商和产品支持，具有更强大的功能，覆盖机器人上下游产业链，最终形成以ROS为线索的繁荣的机器人产学研生态。
+作为一个机器人开发团队，应该把握ROS目前还处在探索，含苞待放的时机，以特定的用户群的需求为导向、以核心技术为竞争力，积累、试验和开发自己的ROS机器人产品。
+路线分析
+路线一： ROS在工业机器人的应用
+工业机器人是机器人在产生自身价值方面最直接、最直观、应用方式和产品模式最清晰的领域。工业上相对固定和可控的生产工作环境降低了机器人的应用难度。
+在满足工业生产中的可靠、实用等要求的基础上，工业机器人在未来还应该朝着低成本和智能化方向发展。
+ROS应如何降低工业机器人的成本和提高智能性：
+相对于传统的机械运动轨迹的实现，ROS很难降低工业机器人的应用成本，而在需要智能算法的工业机器人开发上，可在机器人进行传感和决策的部分，使用ROS提供的低廉免费的算法模块，甚至在ROS原有的模块上进行定制化开发和移植、甚至分发给全球的算法用户。
+1.ROS在工业机器人领域的应用目标
+开发ROS在搬运、分拣、装配、等领域的算法模块及在ABB、UR等机器人本体上运行的整体解决方案。比如，ROS的视觉识别解决方案的开发及应用，就被我认为是很好的方向。
+2.ROS在工业机器人领域的应用需求
+这个需求即是工业界对工业机器人智能化的需求，机械往复运动的机器人已经无法满足工业需求，比如柔性生产线、不同型号的PCB搬运、计数线等。
+3.ROS在工业机器人领域的应用资源和战略分析
+借助sonictl@CSDN团队c&#43;&#43;开发人才，通过团队内部培训，完成对ROS的知识覆盖。
+根据研发目标，讨论确定ros在工业领域的应用开发路线图。
+初步的路线图：
+在ABB或kuka机器人上，基于ROS架构，仿造ROS官方例程，利用kinect辅助，完成对平面上物体的自动定位和搬运任务。
+总结和封装上个任务的ROS节点，形成ROS节点使用手册，目标是使其易于分发和使用，sonictl@CSDN甚至使用户零代码完成软硬件组装。
+在ABB或kuka机器人上开发更多ROS Industrial的案例，比如相机智能校准等，并对案例模块进行分拆，将各个模块进行产品化封装，形成包含宣传及参展、市场营销、产品研发、售后服务的产品线。
+最终的产品形态应该是一个能生产ROS nodes的软件工具，比如对于图像识别来讲，用户加入训练的图片或图像，可以训练成一个具有图像识别能力的节点（node）。用户傻瓜式生成它之后，sonictl@CSDN便可直接使用这个ROS节点加入到自己的机器人架构中。
+路线二： ROS在实时地图建模与导航中的应用
+实时地图建模与导航，是按照机器人的功能模块进行scope观察角度进行划分的一个用途较为广泛的功能。这项功能对应英文为人们熟知的SLAM(Simutaneously Localization andMapping). SLAM技术主要是对特种或服务机器人、四旋翼无人机等来讲，当它们在实际陌生地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。SLAM技术也成为过去10年来，移动机器人技术研究中最吸引研究资源的领域之一。在机器人领域有大量的学术论文阐述了很多研究人员对于SLAM的研究成果，SLAM已经成为智能机器人必须的几项技术中，相对成熟的一项技术。
+ROS核心团队和广大的应用开发者也在SLAM技术上投入和很多，产出了一套完整的ROS的应用架构，有了很多成熟的案例。无论是地图建模还是智能蔽障，我sonictl@CSDN都看到大量的应用案例和视频等在Internet上传播。ROS的PR2机器人以及TurtleBot移动平台，都能够对ROS社区提供的有关SLAM的功能模块提供很好的兼容性。从ROS社区的大量文章、案例、软件工具集、教材等可以看出，ROS社区在SLAM技术上相对其他技术来讲，有更多的积累和经验，所以，ROS对于SLAM技术的实现和支持上具有一个很好的基础。我们可以在这个方向上做一些提升智能性、稳定性和产品化的工作。
+我sonictl想，ROS之于SLAM，应该是使得SLAM的应用变得像插入一个U盘一样简单的事情。终极的产品形态可以是基于ROS接口的，具备SLAM功能的激光或3D传感器及配套软件服务包，让用户接入3D扫描设备即可享用设备所提供的地图建模服务。
+1.ROS在SLAM领域的应用目标：
+提供基于ROS协议和软硬件环境的SLAM技术服务，产品形态可以是纯软件包或者软硬件结合的产品或服务。比如，指定kinect和turtlebot/iRobot/ExBot等传感器和平台，提供一条龙式的地图建模与应用的软件节点与使用教程，再扩展对更多的硬件支持，以满足不同场景的需求。目标是要形成全国甚至全球ROS&#43;SLAM领域用户量最大的产品，成长为在机器人SLAM技术领域的技术和服务提供方。可能的愿景是通过云SLAM服务搜集室内数据，建立起一个庞大的公共服务机器人地图建模和室内地图数据运营商。数据服务可应用在如学校、商场、运动场馆、博物馆等地点的服务机器人上，且具有跨场景能力，无需重复建模，类似车载导航使用的地图数据服务。
+2.ROS在SLAM领域的应用需求：
+当自主移动机器人、四旋翼无人机等在实际地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。易用的SLAM技术，将成为机器人开发和生产者得心应手的工具，让开发者可以专心自己的核心模块开发，而不用担心在地图建模模块部分花费太多精力。所以基础技术模块的易用性将取得广泛的市场需求，赢得客户。
+3.ROS在SLAM领域的应用资源和战略分析：
+稳定的SLAM节点软件服务应该是合适的产品方向。
+首先在成熟的、用户量大、应用场景典型的移动平台上，sonictl借助ROS社区提供的基础包，实现2-3种传感器信号下的SLAM及导航功能。再将SLAM软件包进行优化。
+优化后的软件服务打包成产品级的服务，典型的应用方案，详细的使用手册，供用户免费使用并利用反馈不断改进。
+目标是通过易用的SLAM解决方案首先完成对高校和科研院所市场的占领，因为高校和科研院所目前应是SLAM技术应用最广泛的地方。
+探索通过云服务的方式，进一步简化SLAM应用的开发周期和配置难度，使有wifi的地方就能使用云SLAM技术，完善云端建模、驱动、控制等算法。
+高级目标是通过云SLAM服务搜集室内数据，建立起一个庞大的自主移动机器人地图建模和室内地图数据。
+
+终极目标
+ 终极目标是ROS架构的云机器人实现了大部分智能模块都通过云服务的方式提供算法服务，让机器人的下游应用开发在ROS的协议下，通过简单的积木式搭建即可建成自己的智能机器人，服务于各行各业，走进各家客厅。sonictl@CSDN
+
+路线三： ROS的嵌入式应用
+嵌入式设备在21世纪的井喷式发展是人们有目共睹的，嵌入式计算组件在汽车、消费电子、航空等各领域都占据了绝对的数量和重要性。无论在工业或服务机器人领域，嵌入式设备同样占据重要地位。ROS作为一种为机器人打造的软件工具平台，发源于基于PC的软硬件系统，随着机器人应用的普及和机器人开发需求的扩大，嵌入式的机器人开发模块和解决方案必将层出不穷，而ROS将以其先天的模块化、代码复用、节点协议统一等优点，一旦和嵌入式系统的可定制化、小型化、低成本、实时性等优势结合，必将带来机器人开发和应用方式的革命。注意关注ROS社区的新闻即可发现，负责运营ROS的”开源机器人基金”已经于2014年宣布着手支持高通骁龙600型arm处理器[3],和被人们广泛使用的树莓派嵌入式计算平台[4]。BOSCH公司已经有人在2015年8月发布了基于嵌入式 STM32F4Discovery 平台的实时ROS中间件开发项目。
+1.ROS的嵌入式应用发展目标：
+利用现有的被用户广泛使用的嵌入式平台，比如STM32F4Discovery，开发基于ROS协议中间件。
+选取几种典型的机器人本体、移动平台等进行嵌入式ROS改造，或者开发自有的嵌入式ROS产品，产品可包括：运动控制板卡，电机驱动板卡，智能传感器，智能执行器，等等。
+另一条路即发展基于ROS的嵌入式软件服务，开发易用、跨平台、可靠的、基于ROS协议的嵌入式app，覆盖电机控制、图像识别等机器人功能，这条路比较长远，不过等ros生态发展起来之后，可能会有这样的模式，短期内不太可行。
+2.ROS的嵌入式应用需求：
+由于嵌入式系统的巨大需求量已经被验证，而ROS平台的应用价值一旦被市场验证和接受到一定程度，毋庸置疑，ROS的嵌入式应用需求随之就会呈现爆发式增长。" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20160530102848/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20160530102848/">ROS与智能机器人技术发展路径探索</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">ROS与智能机器人技术发展路径探索</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2016-05-30T10:28:48&#43;0800 class="date">May 30, 2016</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+a min to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="ros与智能机器人技术发展路径探索">ROS与智能机器人技术发展路径探索<a hidden class="heading-anchor" aria-hidden="true" href="#ros与智能机器人技术发展路径探索">#</a></h1>
+<h3 id="ros与智能机器人技术发展路径探索-1">ROS与智能机器人技术发展路径探索<a hidden class="heading-anchor" aria-hidden="true" href="#ros与智能机器人技术发展路径探索-1">#</a></h3>
+<p><em>Sonictl, Aug 2015</em></p>
+<h4 id="序">序<a hidden class="heading-anchor" aria-hidden="true" href="#序">#</a></h4>
+<p>本文按照目标路径、需求、资源、方法、计划为提纲，根据本人对市场、技术、商业模式等的经验理解，梳理总结 ROS 和机器人技术对于机器人研发团队来讲，可能的发展方向、可行性分析、前景展望等。<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN</p>
+<p>据我<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN了解及调研， ROS 已经逐渐占据了机器人开源控制软件平台领域几乎用户量最大的地位。原因主要是：1. ROS 的维护团队比较强大。 2. ROS的架构相对科学。 3. ROS 核心团队针对目前主流的机器人硬件，比如ABB, Kuka, UR, iRobot, Kinect等，提供了相对丰富和成熟的应用案例。4. ROS开源的特点可挑战传统厂商的封闭昂贵的软件工具。</p>
+<p>结合我们sonictl对机器人行业的理解，它是一个应用复杂多样的学科。为了降低机器人的生产成本，需要使用ROS这样架构的软件平台来实现代码复用和模块化封装。目前包括Mathworks在内的算法软件研发巨头[1]及国外的致力于机器人IMU传感器模块研发的初创公司[2]等，都纷纷开始在自己产品的软硬件开发接口上支持ROS。</p>
+<p>所以，我sonictl认为，随着机器人技术的广泛应用，ROS是最有可能成长为一个赢得更多用户和开发者，获得更广泛的硬件厂商和产品支持，具有更强大的功能，覆盖机器人上下游产业链，最终形成以ROS为线索的繁荣的机器人产学研生态。</p>
+<p>作为一个机器人开发团队，应该把握ROS目前还处在探索，含苞待放的时机，以特定的用户群的需求为导向、以核心技术为竞争力，积累、试验和开发自己的ROS机器人产品。</p>
+<h4 id="路线分析">路线分析<a hidden class="heading-anchor" aria-hidden="true" href="#路线分析">#</a></h4>
+<h5 id="路线一ros在工业机器人的应用">路线一： ROS在工业机器人的应用<a hidden class="heading-anchor" aria-hidden="true" href="#路线一ros在工业机器人的应用">#</a></h5>
+<p>工业机器人是机器人在产生自身价值方面最直接、最直观、应用方式和产品模式最清晰的领域。工业上相对固定和可控的生产工作环境降低了机器人的应用难度。</p>
+<p>在满足工业生产中的可靠、实用等要求的基础上，工业机器人在未来还应该朝着低成本和智能化方向发展。</p>
+<p>ROS应如何降低工业机器人的成本和提高智能性：</p>
+<p>相对于传统的机械运动轨迹的实现，ROS很难降低工业机器人的应用成本，而在需要智能算法的工业机器人开发上，可在机器人进行传感和决策的部分，使用ROS提供的低廉免费的算法模块，甚至在ROS原有的模块上进行定制化开发和移植、甚至分发给全球的算法用户。</p>
+<p><strong>1.ROS在工业机器人领域的应用目标</strong></p>
+<p>开发ROS在搬运、分拣、装配、等领域的算法模块及在ABB、UR等机器人本体上运行的整体解决方案。比如，ROS的视觉识别解决方案的开发及应用，就被我认为是很好的方向。</p>
+<p><strong>2.ROS在工业机器人领域的应用需求</strong></p>
+<p>这个需求即是工业界对工业机器人智能化的需求，机械往复运动的机器人已经无法满足工业需求，比如柔性生产线、不同型号的PCB搬运、计数线等。</p>
+<p><strong>3.ROS在工业机器人领域的应用资源和战略分析</strong></p>
+<p>借助<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN团队c++开发人才，通过团队内部培训，完成对ROS的知识覆盖。</p>
+<p>根据研发目标，讨论确定ros在工业领域的应用开发路线图。</p>
+<p>初步的路线图：</p>
+<p>在ABB或kuka机器人上，基于ROS架构，仿造ROS官方例程，利用kinect辅助，完成对平面上物体的自动定位和搬运任务。</p>
+<p>总结和封装上个任务的ROS节点，形成ROS节点使用手册，目标是使其易于分发和使用，<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN甚至使用户零代码完成软硬件组装。</p>
+<p>在ABB或kuka机器人上开发更多ROS Industrial的案例，比如相机智能校准等，并对案例模块进行分拆，将各个模块进行产品化封装，形成包含宣传及参展、市场营销、产品研发、售后服务的产品线。</p>
+<p>最终的产品形态应该是一个能生产ROS nodes的软件工具，比如对于图像识别来讲，用户加入训练的图片或图像，可以训练成一个具有图像识别能力的节点（node）。用户傻瓜式生成它之后，<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN便可直接使用这个ROS节点加入到自己的机器人架构中。</p>
+<h5 id="路线二ros在实时地图建模与导航中的应用">路线二： ROS在实时地图建模与导航中的应用<a hidden class="heading-anchor" aria-hidden="true" href="#路线二ros在实时地图建模与导航中的应用">#</a></h5>
+<p>实时地图建模与导航，是按照机器人的功能模块进行scope观察角度进行划分的一个用途较为广泛的功能。这项功能对应英文为人们熟知的SLAM(Simutaneously Localization andMapping). SLAM技术主要是对特种或服务机器人、四旋翼无人机等来讲，当它们在实际陌生地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。SLAM技术也成为过去10年来，移动机器人技术研究中最吸引研究资源的领域之一。在机器人领域有大量的学术论文阐述了很多研究人员对于SLAM的研究成果，SLAM已经成为智能机器人必须的几项技术中，相对成熟的一项技术。</p>
+<p>ROS核心团队和广大的应用开发者也在SLAM技术上投入和很多，产出了一套完整的ROS的应用架构，有了很多成熟的案例。无论是地图建模还是智能蔽障，我<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN都看到大量的应用案例和视频等在Internet上传播。ROS的PR2机器人以及TurtleBot移动平台，都能够对ROS社区提供的有关SLAM的功能模块提供很好的兼容性。从ROS社区的大量文章、案例、软件工具集、教材等可以看出，ROS社区在SLAM技术上相对其他技术来讲，有更多的积累和经验，所以，ROS对于SLAM技术的实现和支持上具有一个很好的基础。我们可以在这个方向上做一些提升智能性、稳定性和产品化的工作。</p>
+<p>我<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>想，ROS之于SLAM，应该是使得SLAM的应用变得像插入一个U盘一样简单的事情。终极的产品形态可以是基于ROS接口的，具备SLAM功能的激光或3D传感器及配套软件服务包，让用户接入3D扫描设备即可享用设备所提供的地图建模服务。</p>
+<p><strong>1.ROS在SLAM领域的应用目标：</strong></p>
+<p>提供基于ROS协议和软硬件环境的SLAM技术服务，产品形态可以是纯软件包或者软硬件结合的产品或服务。比如，指定kinect和turtlebot/iRobot/ExBot等传感器和平台，提供一条龙式的地图建模与应用的软件节点与使用教程，再扩展对更多的硬件支持，以满足不同场景的需求。目标是要形成全国甚至全球ROS+SLAM领域用户量最大的产品，成长为在机器人SLAM技术领域的技术和服务提供方。可能的愿景是通过云SLAM服务搜集室内数据，建立起一个庞大的公共服务机器人地图建模和室内地图数据运营商。数据服务可应用在如学校、商场、运动场馆、博物馆等地点的服务机器人上，且具有跨场景能力，无需重复建模，类似车载导航使用的地图数据服务。</p>
+<p><strong>2.ROS在SLAM领域的应用需求：</strong></p>
+<p>当自主移动机器人、四旋翼无人机等在实际地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。易用的SLAM技术，将成为机器人开发和生产者得心应手的工具，让开发者可以专心自己的核心模块开发，而不用担心在地图建模模块部分花费太多精力。所以基础技术模块的易用性将取得广泛的市场需求，赢得客户。</p>
+<p><strong>3.ROS在SLAM领域的应用资源和战略分析：</strong></p>
+<p>稳定的SLAM节点软件服务应该是合适的产品方向。</p>
+<p>首先在成熟的、用户量大、应用场景典型的移动平台上，<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>借助ROS社区提供的基础包，实现2-3种传感器信号下的SLAM及导航功能。再将SLAM软件包进行优化。</p>
+<p>优化后的软件服务打包成产品级的服务，典型的应用方案，详细的使用手册，供用户免费使用并利用反馈不断改进。</p>
+<p>目标是通过易用的SLAM解决方案首先完成对高校和科研院所市场的占领，因为高校和科研院所目前应是SLAM技术应用最广泛的地方。</p>
+<p>探索通过云服务的方式，进一步简化SLAM应用的开发周期和配置难度，使有wifi的地方就能使用云SLAM技术，完善云端建模、驱动、控制等算法。</p>
+<p>高级目标是通过云SLAM服务搜集室内数据，建立起一个庞大的自主移动机器人地图建模和室内地图数据。</p>
+<ol start="4">
+<li>终极目标<br>
+ 终极目标是ROS架构的云机器人实现了大部分智能模块都通过云服务的方式提供算法服务，让机器人的下游应用开发在ROS的协议下，通过简单的积木式搭建即可建成自己的智能机器人，服务于各行各业，走进各家客厅。<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN</li>
+</ol>
+<h5 id="路线三ros的嵌入式应用">路线三： ROS的嵌入式应用<a hidden class="heading-anchor" aria-hidden="true" href="#路线三ros的嵌入式应用">#</a></h5>
+<p>嵌入式设备在21世纪的井喷式发展是人们有目共睹的，嵌入式计算组件在汽车、消费电子、航空等各领域都占据了绝对的数量和重要性。无论在工业或服务机器人领域，嵌入式设备同样占据重要地位。ROS作为一种为机器人打造的软件工具平台，发源于基于PC的软硬件系统，随着机器人应用的普及和机器人开发需求的扩大，嵌入式的机器人开发模块和解决方案必将层出不穷，而ROS将以其先天的模块化、代码复用、节点协议统一等优点，一旦和嵌入式系统的可定制化、小型化、低成本、实时性等优势结合，必将带来机器人开发和应用方式的革命。注意关注ROS社区的新闻即可发现，负责运营ROS的”开源机器人基金”已经于2014年宣布着手支持高通骁龙600型arm处理器[3],和被人们广泛使用的树莓派嵌入式计算平台[4]。BOSCH公司已经有人在2015年8月发布了基于嵌入式 STM32F4Discovery 平台的实时ROS中间件开发项目。</p>
+<p><strong>1.ROS的嵌入式应用发展目标：</strong></p>
+<p>利用现有的被用户广泛使用的嵌入式平台，比如STM32F4Discovery，开发基于ROS协议中间件。</p>
+<p>选取几种典型的机器人本体、移动平台等进行嵌入式ROS改造，或者开发自有的嵌入式ROS产品，产品可包括：运动控制板卡，电机驱动板卡，智能传感器，智能执行器，等等。</p>
+<p>另一条路即发展基于ROS的嵌入式软件服务，开发易用、跨平台、可靠的、基于ROS协议的嵌入式app，覆盖电机控制、图像识别等机器人功能，这条路比较长远，不过等ros生态发展起来之后，可能会有这样的模式，短期内不太可行。</p>
+<p><strong>2.ROS的嵌入式应用需求：</strong></p>
+<p>由于嵌入式系统的巨大需求量已经被验证，而ROS平台的应用价值一旦被市场验证和接受到一定程度，毋庸置疑，ROS的嵌入式应用需求随之就会呈现爆发式增长。</p>
+<p><strong>3.ROS的嵌入式应用资源和战略分析</strong></p>
+<p>ROS的嵌入式应用在全球来讲，还处在发展的萌芽阶段，但涉及的技术仍是计算机工程领域比较成熟的技术。研发团队在了解了ROS的核心架构以后，便可开展ROS的嵌入化、裁剪、定制等工作。</p>
+<p>我想，ROS的嵌入式应用应该落地到某个设备上，比如基于ROS的嵌入式智能3D传感器，或支持ROS协议的驱动器、实时控制器等等。可以简单低廉的IMU传感器开始着手。</p>
+<p>既然ROS的嵌入式应用最终落地的产品形态是：支持ROS协议的嵌入式机器人模块器件，那么ROS在这一领域扮演的角色就应该是使模块复用ROS已有的包，实现更加智能化的角色，核心部件仍是传统的模块和器件制造。可以探索的一条路子是解决这样一个问题的方案：如何使传统部件快速支持ROS平台。是安装一个软件包？升级固件？还是加装一个控制器模块？可以在这方面做一些探索，比如基于现有的Arduino平台、arm平台等进行ROS化开发，形成快速ROS化的软硬件工具和解决方案，并将此解决方案形成产品进行市场推广。</p>
+<p> </p>
+<h4 id="总结">总结<a hidden class="heading-anchor" aria-hidden="true" href="#总结">#</a></h4>
+<p>相信随着ROS对目前主流的机器人平台支持越来越多[5]，反过来，主流的算法研发软件、计算平台、传感平台[6]越来越多地支持ROS. ROS即将迎来一个爆发的时代。当然，ROS以及机器人产业的发展，并不一定按照以上所述的三种路线进行。本文只是在作者粗浅的认识、浅薄的知识基础上，基于作者对产业界发展的观察心得，和作者对ROS新闻及机器人业界动态的关注和调研，尽最大努力所作的判断。希望能对读者有所启发，抛砖引玉。</p>
+<p> </p>
+<h4 id="参考资料">参考资料：<a hidden class="heading-anchor" aria-hidden="true" href="#参考资料">#</a></h4>
+<blockquote>
+<p>[1]<a href="http://www.ros.org/news/2014/01/mathworks-releases-robot-operating-system-ros-support-from-matlab.html">Mathworks releases Robot Operating System (ROS) Support from MATLAB</a> [2] <a href="http://www.pozyx.io/">Pozyx Accurate positioning</a> [3] <a href="http://hardware.slashdot.org/story/14/09/13/1452226/robot-operating-system-to-officially-support-arm-processors">Robot Operating System ToOfficially Support ARM Processors</a> [4] <a href="http://wiki.ros.org/ROSberryPi/Setting%20up%20Hydro%20on%20RaspberryPi">ROS on Raspberry Pi</a> [5] <a href="http://wiki.ros.org/Robots">Robots Using ROS</a></p>
+<p>[6] <a href="http://www.dfrobot.com/index.php?route=DFblog/blog&amp;id=26" title="http://www.dfrobot.com/index.php?route=DFblog/blog&amp;id=26">RPLIDAR now supports ROS and Arduino</a></p>
+<p>[7]<a href="http://www.ros.org/news/2015/12/ros-turns-8.html" title="http://www.dfrobot.com/index.php?route=DFblog/blog&amp;id=26">ROS Turns 8</a></p></blockquote>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2016-05-30 10:28 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share ROS与智能机器人技术发展路径探索 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160530102848%2f&title=ROS%e4%b8%8e%e6%99%ba%e8%83%bd%e6%9c%ba%e5%99%a8%e4%ba%ba%e6%8a%80%e6%9c%af%e5%8f%91%e5%b1%95%e8%b7%af%e5%be%84%e6%8e%a2%e7%b4%a2">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share ROS与智能机器人技术发展路径探索 on twitter"
+          href="https://twitter.com/intent/tweet/?text=ROS%e4%b8%8e%e6%99%ba%e8%83%bd%e6%9c%ba%e5%99%a8%e4%ba%ba%e6%8a%80%e6%9c%af%e5%8f%91%e5%b1%95%e8%b7%af%e5%be%84%e6%8e%a2%e7%b4%a2&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160530102848%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share ROS与智能机器人技术发展路径探索 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160530102848%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240702105833/" title="Add delete_forward for MacOS keyboard with Karabiner-Elements">Add delete_forward for MacOS keyboard with Karabiner-Elements</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="add-a-shortcut-for-delete_forward-on-mac-os">Add a shortcut for &lsquo;delete_forward&rsquo; on Mac OS</h1>
+<p>Windows OS keyboard has &lsquo;backspace&rsquo;(deleteBackward_or_delLeftward) and &lsquo;delete&rsquo;(deleteForward_or_delRightward). However, MacOS has not deleteForward.</p>
+<p>Even though we have <code>fn</code>+<code>delete</code> to achieve this, this occupies your TWO hands. Unconvenient.</p>
+<p>Here, we use the <code>Karabiner-Elements</code> app, which is an open-source free app, to patch this issue.</p>
+<p>ps: in MacOS, the keyCode 117 means deleteForward_or_delRightward</p>
+<p>======= Steps =======</p>
+<ol>
+<li>Install and launch &lsquo;Karabiner-Elements&rsquo;, which is an open-source free app.</li>
+<li>Add a <code>complex modifications</code> as below （I was mapping <strong>option+delete</strong> into <strong>delete_forward</strong>）:</li>
+</ol>
+<pre tabindex="0"><code>
+{
+    &#34;description&#34;: &#34;Option+Delete to keycode 117&#34;,
+    &#34;manipulators&#34;: [
+        {
+            &#34;from&#34;: {
+                &#34;key_code&#34;: &#34;delete_or_backspace&#34;,
+                &#34;modifiers&#34;: {
+                    &#34;mandatory&#34;: [
+                        &#34;option&#34;
+                    ]
+                }
+            },
+            &#34;to&#34;: [
+                {
+                    &#34;key_code&#34;: &#34;delete_forward&#34;,
+                    &#34;modifiers&#34;: []
+                }
+            ],
+            &#34;type&#34;: &#34;basic&#34;
+        }
+    ]
+}
+</code></pre><p>A test about inserting img into my blog:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240702105833/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-07-02T10:58:33&#43;0800" class="date">July 02, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240604131223/" title="KODI究竟能干啥？听说KODI很强大，KODI究竟能怎么解救你的TV大屏？">KODI究竟能干啥？听说KODI很强大，KODI究竟能怎么解救你的TV大屏？</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="kodi究竟能干啥听说kodi很强大kodi究竟能怎么解救你的tv大屏">KODI究竟能干啥？听说KODI很强大，KODI究竟能怎么解救你的TV大屏？</h1>
+<p>有个up主叫<code>韩风</code>，做《KODI应该这么玩》的系列视频已经快三年了。</p>
+<p>今天，他和大家好好聊聊KODI作为家庭影音中心到底能做什么，给一些萌新做个简单介绍，并纠正一些关于KODI的错误认知，特别是那些没有真正了解KODI却随便发表错误言论的人传出来的误解。</p>
+<p><strong>KODI是一个非常强大的家庭影音中心</strong>，支持多种系统，还有一些开源团队开发了基于Linux的KODI系统，比如Libreelec和Coreelec。这些都可以让KODI做很多事情，比如：</p>
+<ol>
+<li><strong>看电视节目</strong>：KODI支持电视节目回看功能，完全可以取代机顶盒和某些电视直播APP。</li>
+<li><strong>搭建电影库、电视剧库、音乐库</strong>：可以根据自己的习惯选择展示样式，打造专属的影音库。</li>
+<li><strong>安装视频插件</strong>：如果可以上网，可以安装YouTube和Netflix插件等，享受4K高清和不同分辨率的视频。</li>
+<li><strong>玩游戏</strong>：KODI支持一些小游戏，扩展家庭娱乐功能。</li>
+<li><strong>DLNA投屏和AirPlay音频投放</strong>：可以将其他设备的内容投放到KODI上播放。</li>
+<li><strong>播放蓝光原盘、外挂字幕、远程遥控</strong>：这些都增强了KODI的功能和便利性。</li>
+<li><strong>作为Android电视盒子的主页桌面</strong>：KODI可以取代原本的电视盒子桌面，管理Android应用，非常便捷。</li>
+<li><strong>开源免费，没有广告</strong>：KODI完全开源免费，启动和使用过程中没有广告，体验感更好。</li>
+</ol>
+<p>对于Android电视盒子来说，KODI完全可以当做主页的桌面，因为KODI有Android应用管理器，可以在KODI界面进入其他APP进行操作。KODI的桌面是个百变桌面，有很多桌面皮肤和配置可以选择，根据自己的喜好进行微调，完全符合个人需求。</p>
+<h3 id="关于kodi的一些误解">关于KODI的一些误解</h3>
+<ol>
+<li><strong>直播源不稳定</strong>：直播源的稳定性问题通常是因为你没有找到稳定的源或者不会找直播源。尤其是央视和卫视这种直播源，相对来说非常稳定。如果你找到正确的直播源，一年换1到2次的修改也就足够了。比如：http://tonkiang.us 这个网站可以帮大忙。</li>
+<li><strong>KODI的影视库只能存储到终端设备</strong>：实际上，KODI的影视库数据可以上传到NAS或移动硬盘，这样在别的设备上配置KODI时，可以轻松还原原来的影视墙等内容，不用每次重新配置。</li>
+<li><strong>KODI安装插件问题</strong>：KODI的服务器在国外，可能会不稳定，但可以通过更换国内镜像源解决这个问题。我也提供了换源的插件安装包，只需稍微改动即可解决问题。</li>
+<li><strong>刮削器问题</strong>：KODI用的影视库数据是基于TMDB数据库的，这个数据库非常全，很多软件的刮削器都基于这个数据库。所以不存在哪个软件的刮削器更稳定的问题，只是有时候访问可能受限，解决方法就是多等一段时间或者更换刮削器。</li>
+</ol>
+<h3 id="结语">结语</h3>
+<p>总的来说，KODI是一个非常成功的产品，适合家庭影音中心的整合。虽然国内的环境不太利于KODI的发展，但它开源、免费的特性和强大的功能让它成为一个很好的选择。希望大家不要被一些误传误导，多测试，多探索，发挥KODI的最大潜力。</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240604131223/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-06-04T13:12:23&#43;0800" class="date">June 04, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240426201223/" title="环境太糟了，躺平摆烂吧">环境太糟了，躺平摆烂吧</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="环境太糟了躺平摆烂吧">“环境太糟了，躺平摆烂吧”</h1>
+<p>“环境太糟了，躺平摆烂吧”   ————转自”刘润“</p>
+<p>“大环境太糟了，躺平摆烂吧。”这句话你一定不陌生。这也是我在这几年里听到过最多的吐槽。可能没有之一。今天，我想和你聊聊这件事。</p>
+<p>首先，“大环境太糟了”，这前半句话有道理。有时候，我看着公司里几位刚毕业的年轻同事，甚至会觉得他们有些带引号的“遗憾”。但好的时代过去了。假如你真的问我：你要是晚出生二十年，你还能有今天吗？我得说，我也不知道。</p>
+<p>其次，“躺平摆烂吧”，这后半句，也可以理解。当看到那些考研数年没有考上，好不容易找到工作，几个月就被裁员，再投几十份简历石沉大海的年轻人时，我经常问自己：你真的能狠下心，对他们说那些“不要躺平”的大道理吗？做不到。所以，每次听到这段抱怨时，我其实特别能理解，也很遗憾，虽然没有什么办法。但是，还是想说，请给我一个机会，稍稍“辩解”一下。</p>
+<p>“大环境太糟了，躺平摆烂吧。”这句话背后，隐含了一个我认为特别“可怕”的逻辑。这种逻辑是，你看，大环境都这么糟了，人们都悲观成这个样子了，再也没有机会了。所以，我消极，让这个世界尽情蹂躏我吧，你们爱怎么着就怎么着吧，反正我摆烂了，躺平了。</p>
+<p>因为大环境很糟，所以躺平理所应当。怎么样，顺理成章吧？这个逻辑有道理吗？我觉得，没有。</p>
+<p>为什么这么说？因为，这种说法是在表达这样一种逻辑关系：只有乐观的环境，才能积极向前。悲观的时代，就要消极应对。然而，乐观/悲观，和积极/消极，其实是互相独立的两个指标。乐观还是悲观，是对外部世界客观的判断。积极还是消极，是对当下行动主观的选择。如果画一张二维图，它们从两个维度，代表了我们对待世界的4种方式。￼你看，乐观，并不一定代表积极。悲观，也不一定代表消极。这两者，完全不是一回事。</p>
+<pre tabindex="0"><code>________________
+1、  乐观+积极
+2、  乐观+消极
+3、  悲观+积极
+4、  悲观+消极
+----------------
+</code></pre><p>先来看乐观/悲观。乐观的本质，是对未来的好结果有极高的确定性。悲观的本质，就是丧失了这种确定性。什么叫未来的好结果？比如，工作三年一定能升职加薪、股票一定会涨、中美关系会一直稳定。当你对这些事情有着极高确定性时，你就是乐观的。我给你举个例子。今天，公司安排你从上海飞到广州，参加一场重要会议。早上起床，拉开窗帘，你发现阳光明媚、晴空万里。你对这趟行程的判断，就是极其乐观的。假如有一个智能软件，可以自动评估你顺利参会的可能性，可能有98%。假如你拉开窗帘时，看见乌云密布，远处隐隐传来雷声隆隆。你还会那么乐观吗？不会，因为你不知道航班能否顺利起飞。再评估下可能性？可能只有60%。假如是在前几年的疫情期间，你不知道哪次出差就会被隔离滞留在当地，会议也有取消的风险。你的判断会如何？是不是更加悲观？可能性，或许只有10%。重复一遍那句话，乐观还是悲观，是对外部世界客观的判断，而且是一个理性判断。而这个判断是否准确，你究竟能不能顺利参加会议，只有到未来才能看到结果。</p>
+<p>积极还是消极，是对当下行动的主观选择那什么是积极/消极呢？积极和消极，是有了对外部世界的判断后，对当下行动做出的选择。没错，这是一个主观选择。继续刚才那个开会的例子，有的人看到暴雨连绵，一评估可能性，50%。或许就想，算了，退票吧，不去了，老天爷不让我去。有的人，看到困难，逢山修路、遇水搭桥。哪怕只有5%的可能性，也会踏上征程。飞机不行，就坐高铁。高铁不行，就睡卧铺。卧铺不行，哪怕开车也要去。前几年，没有什么事情比办大型活动还要悲观。特别是2022年下半年，几乎人人都觉得办不成。我的年度演讲，杭州、广州的场地相继因为疫情防控被取消。当时我的想法是：办不了大场，我就办小场。办不了小场，我就空场办。但是，万一演讲那天早上，我出门时发现，哎呀，被隔离在家里了，没法出门，这可怎么办？于是，我直接把床搬到了会场，那几天就睡在这儿了。哪怕封控，我也要封在会场里。</p>
+<p>还有一个故事，来自得到CEO脱不花。有一次，她要争取一个重要的客户，但客户马上就要从北京飞到上海，一点空余的时间都没有。怎么办？等下次见面？不知道要猴年马月。电话聊？重要的客户，线上永远起不到面聊的效果。脱不花的做法是，直接买了客户同一班飞机的机票，和客户一起飞到上海，下飞机之后，和客户握握手，说声再见，没出机场，直接买票再回北京。候机+飞行，四五个小时的时间，足够她了解客户的方方面面。脱不花说，直到今天，这个客户都是她非常好的朋友。</p>
+<p>这种心态，用她的搭档罗振宇的话说就是：行就行，不行我们再想想办法。环境是环境，但我的行动，永远是我的行动，由我自己决定。</p>
+<p>消极者永远正确，积极者才能成功。有人可能要问，说了这么多大道理，你究竟想说什么？回到前面那张图。￼我想说的是，就商业世界而言，或许我们如今正身处一个“从乐观到悲观”的时代。经济进入“增长收敛”、内卷严重、地缘政治压力，都意味着大环境的变迁。我完全可以理解，有的人真的累了、倦了，希望放弃努力，进入一个“低欲望社会”。</p>
+<p>如果这是你的结论，那我完全尊重你的想法。</p>
+<p>但这绝不意味着，“消极躺平”，就是一件顺理成章的事情。因为我们每个人都有自我选择的权利，我们依旧可以选择“悲观积极”地看待这个世界。“环境不好”，不应该是“消极摆烂”的借口。假如我真的晚出生20年，可能进不了心仪的公司、做不了咨询，但我依旧会用自己最积极的心态，去工作、去生活。我觉得，能在乐观的环境下保持积极，不算本事。能在悲观的环境下依旧积极，才是人的价值所在。就像那个著名的故事：桌子上放着半杯水。消极的人说：只有半杯。积极的人说：还有半杯！水是同样的水，意味着环境是同样的环境。唯一不同的，只有你自己的选择。习惯了消极思维的人，哪怕手机5分钟前刚刚充满电，也会惊呼：糟了！手机只剩99%的电了！我之前写过一篇文章：《绝不躺平，绝不放弃，绝不认输》。文章里说，聪明人，面对任何问题都不会逃避，而是抱着积极的心态去解决问题。消极者永远正确，积极者才能成功。与你共勉!</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240426201223/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-04-26T20:12:23&#43;0800" class="date">April 26, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240420201223/" title="听取师者和长者的意见是一种能力">听取师者和长者的意见是一种能力</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="听取师者和长者的意见是一种能力">听取师者和长者的意见是一种能力</h1>
+<p>​</p>
+<p>​        今天和一个师兄聊天，想到一些我觉得值得与大家分享的话，在此记录下。</p>
+<p>​        这位仁兄，不到40岁，已经是211大学的教授博导了。反观自己，真是惭愧。在我看来，他绝对算是年少得志。</p>
+<p>​        聊天过程中，他提到他有几个本科生、研究生，本来天赋很好，聪明好学还勤劳肯干，真是一茬学术好苗子。这位师兄劝他们好好读书，读到博士，比他们出去匆匆就业好得多。早点就业，乍一看他可以早几年挣钱，可殊不知博士出来一把安家费就可能捞到前几年挣的。况且专家之路一旦走上，那就是居高临下。平台高了路子宽了，比在下层打拼出身更高，更多资源和话语权。而底层的竞争，是何其激烈，何其考验你手中是否拥有稀缺资源。如何拥有这个世上承认的稀缺资源，才是一个年轻人应该思考和解决的问题。</p>
+<p>​        说到这里，这位师兄却叹曰：怎奈他们不听话啊。。。</p>
+<p>​         由此，我想到：能听取长者的意见本身也是一种能力。曾经有大哥叫我“厚积薄发”，我也没听。当时想，等我到读完博士都30岁了，人都老了。如今看来，真是大错特错，悔之晚矣。当时的我，全然不知道读完博士我可以相比不读博士所拥有的视野、资源、路子、导师和实验室人脉等等，看不到潜在的收益，却只看到投入。仅以一句：“我喜欢过&hellip;&hellip;样的生活，我不喜欢做&hellip;&hellip;，所以我要怎样怎样&hellip;”，让自己蒙蔽在幻境中。</p>
+<p>​         听长者的建议，看到此建议的代价很容易，但要看到收益，并理性地分析计算权衡利弊，却很考验年轻人的社会经验、经历、知识和阅历。考验一个25岁左右的年轻人，是否具有判断力，是否对现实世界有一个理性深刻的、接地气的认识。考验他是否理解现实。</p>
+<p>​          一个人的成长就是认识现实、接纳现实的过程。但可悲的是，有人一辈子都不接纳现实，不懂用逻辑去思考现实。</p>
+<p>​          因此，听取意见，确是一个人难能可贵的能力。</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240420201223/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-04-20T20:12:23&#43;0800" class="date">April 20, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240416190750/" title="Use Keyboard Mastero to enable delete_forward for Mac">Use Keyboard Mastero to enable delete_forward for Mac</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="use-keyboard-mastero-to-enable-delete_forward-for-mac">Use Keyboard Mastero to enable delete_forward for Mac</h1>
+<p>The &lsquo;delete&rsquo; on MacBook&rsquo;s keyboard cannot delete the letter on the right of the cursor. Rather than the delete and backspace key on the PC&rsquo;s keyboard.</p>
+<p>With the help of &lsquo;Keyboard Mastero&rsquo; tool, steps:</p>
+<ul>
+<li>
+<p>Add a &lsquo;Trigger of hot key&rsquo; and a action of &lsquo;Type a Keystroke&rsquo; from Categories &lsquo;Text&rsquo;</p>
+</li>
+<li>
+<p>The &lsquo;Simulate keystroke&rsquo; blank can be filled with pressing the &lsquo;delete key&rsquo; on the PC&rsquo;s keyboard, i.e. &lsquo;Forward Delete&rsquo;.</p>
+</li>
+</ul></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240416190750/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-04-16T19:07:50&#43;0800" class="date">April 16, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240322210640/" title="Add Hugo Teaching Tag">Add Hugo Teaching Tag</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="i-begin-noticing-that-i-can-write-something-to-students">I begin noticing that I can write something to students</h1>
+<p>Publish view-points to others  is something that needs to be approached with caution.</p>
+<p>However, my students come to surround me and open their eyes widely for knowledge and thoughts.</p>
+<p><strong>So, today I begin to use tag = Teaching for sharing some thought to my students.</strong></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240322210640/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-03-22T21:06:40&#43;0800" class="date">March 22, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240320130750/" title="转：Mac用Option键输入特殊符号">转：Mac用Option键输入特殊符号</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="转mac用option键输入特殊符号">转：Mac用Option键输入特殊符号</h1>
+<p>原作者：<a href="https://www.jianshu.com/u/fb61bb93bc02">nuqiewuoz</a></p>
+<p>在Mac默认的英文输入法下，按住Option键或者Shift+Option键，再加其它键，可以快速的输入某些常用的特殊符号，例如•, º, ®, ≠, ∑, Ω, ≈,÷,≤,¿等等，具体列表如下</p>
+<table>
+  <thead>
+      <tr>
+          <th>原始按键</th>
+          <th>`</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>0</th>
+          <th>-</th>
+          <th>=</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Option +</td>
+          <td>`</td>
+          <td>¡</td>
+          <td>™</td>
+          <td>£</td>
+          <td>¢</td>
+          <td>∞</td>
+          <td>§</td>
+          <td>¶</td>
+          <td>•</td>
+          <td>ª</td>
+          <td>º</td>
+          <td>–</td>
+          <td>≠</td>
+      </tr>
+      <tr>
+          <td>Shift + Option +</td>
+          <td>`</td>
+          <td>⁄</td>
+          <td>€</td>
+          <td>‹</td>
+          <td>›</td>
+          <td>ﬁ</td>
+          <td>ﬂ</td>
+          <td>‡</td>
+          <td>°</td>
+          <td>·</td>
+          <td>‚</td>
+          <td>—</td>
+          <td>±</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>原始按键</th>
+          <th>q</th>
+          <th>w</th>
+          <th>e</th>
+          <th>r</th>
+          <th>t</th>
+          <th>y</th>
+          <th>u</th>
+          <th>i</th>
+          <th>o</th>
+          <th>p</th>
+          <th>[</th>
+          <th>]</th>
+          <th>\</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Option +</td>
+          <td>œ</td>
+          <td>∑</td>
+          <td>´</td>
+          <td>®</td>
+          <td>†</td>
+          <td>¥</td>
+          <td>¨</td>
+          <td>ˆ</td>
+          <td>ø</td>
+          <td>π</td>
+          <td>“</td>
+          <td>‘</td>
+          <td>«</td>
+      </tr>
+      <tr>
+          <td>Shift + Option +</td>
+          <td>Œ</td>
+          <td>„</td>
+          <td>´</td>
+          <td>‰</td>
+          <td>ˇ</td>
+          <td>Á</td>
+          <td>¨</td>
+          <td>ˆ</td>
+          <td>Ø</td>
+          <td>∏</td>
+          <td>”</td>
+          <td>’</td>
+          <td>»</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>原始按键</th>
+          <th>a</th>
+          <th>s</th>
+          <th>d</th>
+          <th>f</th>
+          <th>g</th>
+          <th>h</th>
+          <th>j</th>
+          <th>k</th>
+          <th>l</th>
+          <th>;</th>
+          <th>'</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Option +</td>
+          <td>å</td>
+          <td>ß</td>
+          <td>∂</td>
+          <td>ƒ</td>
+          <td>©</td>
+          <td>˙</td>
+          <td>∆</td>
+          <td>˚</td>
+          <td>¬</td>
+          <td>…</td>
+          <td>æ</td>
+      </tr>
+      <tr>
+          <td>Shift + Option +</td>
+          <td>Å</td>
+          <td>Í</td>
+          <td>Î</td>
+          <td>Ï</td>
+          <td>˝</td>
+          <td>Ó</td>
+          <td>Ô</td>
+          <td></td>
+          <td>Ò</td>
+          <td>Ú</td>
+          <td>Æ</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>原始按键</th>
+          <th>z</th>
+          <th>x</th>
+          <th>c</th>
+          <th>v</th>
+          <th>b</th>
+          <th>n</th>
+          <th>m</th>
+          <th>,</th>
+          <th>.</th>
+          <th>/</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Option +</td>
+          <td>Ω</td>
+          <td>≈</td>
+          <td>ç</td>
+          <td>√</td>
+          <td>∫</td>
+          <td>˜</td>
+          <td>µ</td>
+          <td>≤</td>
+          <td>≥</td>
+          <td>÷</td>
+      </tr>
+      <tr>
+          <td>Shift + Option +</td>
+          <td>¸</td>
+          <td>˛</td>
+          <td>Ç</td>
+          <td>◊</td>
+          <td>ı</td>
+          <td>˜</td>
+          <td>Â</td>
+          <td>¯</td>
+          <td>˘</td>
+          <td>¿</td>
+      </tr>
+  </tbody>
+</table></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240320130750/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-03-20T13:07:50&#43;0800" class="date">March 20, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240128100703/" title="Self-hosted applications that enriches technological life">Self-hosted applications that enriches technological life</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="self-hosted-applications-that-enriches-technological-life">Self-hosted applications that enriches technological life</h1>
+<p>Self-hosting is the practice of hosting and managing applications on your own server(s) instead of consuming from SaaSS providers.</p>
+<p>Self-hosted applications brings you:</p>
+<ul>
+<li>data safty</li>
+<li>own self-mastery 自我掌控权</li>
+<li>potential modification for commertial promotion</li>
+<li>etc.</li>
+</ul>
+<h2 id="some-remarkable-self-hosted-applications">Some remarkable self-hosted applications</h2>
+<p>The <a href="https://awesome-selfhosted.net/">https://awesome-selfhosted.net/</a> builds an awesome list for self-listed applications.</p>
+<p>Some remarkable Note-taking &amp; Editors that can be self-hosted:</p>
+<ul>
+<li>
+<p>dillinger</p>
+</li>
+<li>
+<p>Joplin</p>
+</li>
+<li>
+<p>Overleaf</p>
+</li>
+<li>
+<p>logseq</p>
+</li>
+<li>
+<p>Homer - Dashboard - <a href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbThBN3FnY3c0aUQ4Znc0T2ExcmQ4NnFFa2xmZ3xBQ3Jtc0ttQXJzdlhRRWhrT2lRb0xIaTE1blZ6bV9uVFZ1Y2tIQU9wM0RmckZfSU9xTDhUdG04bnpWY1VzTW9tMllJeUFrOTlmUzR2dzRNcUhxcmkyR3dvUngySldpM2FaNXBqQ2pNeE1FVXotTzR4YUtwb0tYaw&amp;q=https%3A%2F%2Fgithub.com%2Fbastienwirtz%2Fhomer&amp;v=qkLXFMH9ngk">https://github.com/bastienwirtz/homer</a> - <a href="https://www.youtube.com/watch?v=7re4LlJGBXE&amp;t=0s"> <img src="https://www.gstatic.com/youtube/img/watch/yt_favicon.png" alt="img"> • Homer Dashboard - Open Source, Self H&hellip; </a></p>
+</li>
+<li>
+<p>Jellyfin - <a href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbENiQTVoMWNFVjE2cUFoUF9vMEdDRm5tWmNjUXxBQ3Jtc0tsVUZTeXNJN3pRSlgzWFJvTUczdEg3aC03OWczMVNjSDZzRkJaOUxxVVA3VGhaWVg1aEFRZ3ptSWc4MFl3c0dDTnNVbnN3OTNsRVlpTGtBNEtnZWYxVjYyX3E4LWxMNzZmQjhvTmE3WGhPa2hTdlJSQQ&amp;q=https%3A%2F%2Fjellyfin.org%2F&amp;v=qkLXFMH9ngk">https://jellyfin.org/</a> - <a href="https://www.youtube.com/watch?v=lUZluENL2a0&amp;t=358s"> <img src="https://www.gstatic.com/youtube/img/watch/yt_favicon.png" alt="img"> • Jellyfin a fully open source alternat&hellip; </a> Jellyfin is the volunteer-built media solution that puts <em>you</em> in control of your media. Stream to any device from your own server. Jellyfin is available on most popular platforms.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240128100703/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-01-28T10:07:03&#43;0800" class="date">January 28, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20240102083115/" title="Apply a certificate that has longer expiration date">Apply a certificate that has longer expiration date</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="apply-a-certificate-that-has-longer-expiration-date">Apply a certificate that has longer expiration date</h1>
+<h2 id="apply-a-certificate-that-has-longer-expiration-date-for-caddy-server">Apply a certificate that has longer expiration date for caddy server</h2>
+<p>Caddy is a popular web server that can automatically obtain and manage SSL/TLS certificates for your websites using Let&rsquo;s Encrypt. The certificate expiration date is determined by Let&rsquo;s Encrypt and is usually 90 days. Caddy can automatically renew these certificates before they expire.</p>
+<p>If you want to use a certificate with a longer expiration date, you might need to consider other certificate authorities or manually generate a certificate with a longer validity period. Keep in mind that using longer expiration periods may have security implications, as it means that if a private key is compromised, the attacker has access for a longer time.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20240102083115/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2024-01-02T08:31:15&#43;0800" class="date">January 02, 2024</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231229190159/" title="A node.js server that receives IoT sensor data and broadcast it via web">A node.js server that receives IoT sensor data and broadcast it via web</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="a-nodejs-server-that-receives-iot-sensor-data-and-broadcast-it-via-web">A node.js server that receives IoT sensor data and broadcast it via web</h1>
+<h2 id="introduction">Introduction</h2>
+<p>I constantly strive to easily access real-time, high-frequency data streams, or remotely deploy sensor data. Following data acquisition, the convenience of analyzing or visualizing this sensor data through algorithms is essential.</p>
+<p>This is a basic project that allows the Sensor_driven_by_MCU submit the data on to the nodejs_driven_server and allows the user record the data via web page that receives data from the <code>nodejs_driven_server</code> via WebSocket.</p>
+<p>see the diagram below:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231229190159/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-12-29T19:01:45&#43;0800" class="date">December 29, 2023</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/3/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

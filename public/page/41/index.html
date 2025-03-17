@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+  <body>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20170103144129/" title="ROS进二阶学习笔记（6） -- ROS Bag">ROS进二阶学习笔记（6） -- ROS Bag</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记6--ros-bag">ROS进二阶学习笔记（6） &ndash; ROS Bag</h1>
+<p>ROS Bag是ROS计算图级的一个概念：</p>
+<p><img src="https://img-blog.csdn.net/20170103102122030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>Bags：</p>
+<p>ref : <a href="http://wiki.ros.org/Bags">http://wiki.ros.org/Bags</a></p>
+<h3 id="在-计算图里-在线使用">在 计算图里 在线使用</h3>
+<p>   工具：<a href="http://wiki.ros.org/rosbag">rosbag</a><br>
+   创建bags, 收听topic，记录数据。可以回放或者remap到别的topic。<br>
+   rosbag还能处理具有<a href="https://so.csdn.net/so/search?q=%E6%97%B6%E9%97%B4%E6%88%B3&amp;spm=1001.2101.3001.7020">时间戳</a>的数据，publish一个 simulated clock that corresponds to the time the data was recorded in the file。<br>
+   bag文件的格式用来记录和回放数据都是非常高效的，消息都是跟在ros里一样的格式记录的。<br>
+   具体command-line使用方法：  <a href="http://wiki.ros.org/rosbag/Commandline">rosbag command-line usage</a></p>
+<h3 id="离线使用和数据迁移">离线使用和数据迁移</h3>
+<p>   有多种离线使用方式。</p>
+<h4 id="工具rqt_bag">工具：rqt_bag</h4>
+<p>     可以让你可视化bag数据，plot 或者image。ref  <a href="http://wiki.ros.org/rqt_bag">rqt_bag</a>: <a href="http://wiki.ros.org/rqt">http://wiki.ros.org/rqt</a>_bag</p>
+<h4 id="工具rostopic">工具：rostopic</h4>
+<p>     快速查看bag文件，list topics 和 echoing data to console.<br>
+       Display messages in a bag file:<br>
+             $ rostopic echo -b log_file.bag /topic_name<br>
+       rostopic list<br>
+             list</p>
+<p>      Display a list of current topics.<br>
+            $ rostopic list<br>
+            list <!-- raw HTML omitted --><br>
+            List topics in the specified namespace. In previous versions, this is equivalent to the rostopic info command.<br>
+                    $ rostopic list /namespace<br>
+          -b<br>
+          List topics in a bag file.<br>
+          -p<br>
+          List only publishers.<br>
+          -s<br>
+          List only subscribers.<br>
+          -v<br>
+          Verbose mode.<br>
+                    $ rostopic list -v<br>
+          &ndash;host New in Diamondback<br>
+          Group list by hostname.<br>
+   ref more: <a href="http://wiki.ros.org/rostopic">http://wiki.ros.org/rostopic</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20170103144129/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2017-01-03T14:41:29&#43;0800" class="date">January 03, 2017</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161215173244/" title="ROS进二阶学习笔记（5）- 命名与命名空间">ROS进二阶学习笔记（5）- 命名与命名空间</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记5--命名与命名空间">ROS进二阶学习笔记（5）- 命名与命名空间</h1>
+<p>ref: <a href="http://wiki.ros.org/Names">http://wiki.ros.org/Names</a></p>
+<h3 id="命名空间wiki-pedia"><a href="https://so.csdn.net/so/search?q=%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4&amp;spm=1001.2101.3001.7020">命名空间</a>（wiki pedia）</h3>
+<p>ref: <a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">https://zh.wikipedia.org/wiki/命名空间</a></p>
+<p>命名空间（英语：Namespace），也称名字空间、名称空间等，它表示着一个标识符（identifier）的可见范围。一个标识符可在多个命名空间中定义，它在不同命名空间中的含义是互不相干的。这样，在一个新的命名空间中可定义任何标识符，它们不会与任何已有的标识符发生冲突，因为已有的定义都处于其他命名空间中。<br>
+例如，设Bill是X公司的员工，工号为123，而John是Y公司的员工，工号也是123。由于两人在不同的公司工作，可以使用相同的工号来标识而不会造成混乱，这里每个公司就表示一个独立的命名空间。如果两人在同一家公司工作，其工号就不能相同了，否则在支付工资时便会发生混乱。<br>
+这一特点是使用命名空间的主要理由。在大型的计算机程序或文档中，往往会出现数百或数千个标识符。命名空间（或类似的方法，见“命名空间的模拟”一节）提供一隐藏区域标识符的机制。通过将逻辑上相关的标识符组织成相应的命名空间，可使整个系统更加模块化。</p>
+<h3 id="ros中命名的意义">ROS中，命名的意义</h3>
+<h3 id="如何使用命名及规则">如何使用命名，及规则</h3></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161215173244/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-12-15T17:32:44&#43;0800" class="date">December 15, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161208194718/" title="ROS进二阶学习笔记（4）  - ROS and Multithread">ROS进二阶学习笔记（4）  - ROS and Multithread</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记4----ros-and-multithread">ROS进二阶学习笔记（4）  - ROS and Multithread</h1>
+<h2 id="ros进二阶学习笔记4---ros-and-multithread">ROS进二阶学习笔记（4） - ROS and Multithread</h2>
+<p>I&rsquo;ll discuss about the concept of thread, multithread, and the application of multithread coding in ROS env.</p>
+<h3 id="1-whats-multithread---basics-of-operating-system">1. What&rsquo;s multithread? - Basics of operating system</h3>
+<p>ref: <a href="http://blog.csdn.net/modiziri/article/details/41960179">http://blog.csdn.net/modiziri/article/details/41960179</a><br>
+      <a href="http://www.runoob.com/%5Bpython%5D(https://so.csdn.net/so/search?q=python&amp;spm=1001.2101.3001.7020)/python-multithreading.html">http://www.runoob.com/[python](https://so.csdn.net/so/search?q=python&amp;spm=1001.2101.3001.7020)/python-multithreading.html</a><br>
+      <a href="http://codingpy.com/article/python-201-a-tutorial-on-threads/">http://codingpy.com/article/python-201-a-tutorial-on-threads/</a></p>
+<h3 id="2-multithread-and-cpython">2. multithread and C++/Python</h3>
+<h3 id="3-ros-and-multithread">3. ROS and multithread</h3>
+<h3 id="4-a-suitable-tutorial-for-beginner-of-multithread">4. A suitable tutorial for beginner of multithread</h3></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161208194718/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-12-08T19:47:18&#43;0800" class="date">December 08, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161207205034/" title="ROS进二阶学习笔记（3） - programmatic way to start-stop a roslaunch">ROS进二阶学习笔记（3） - programmatic way to start-stop a roslaunch</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进二阶学习笔记3---programmatic-way-to-start-stop-a-roslaunch">ROS进二阶学习笔记（3） - programmatic way to start-stop a roslaunch</h1>
+<h2 id="ros进二阶学习笔记3---programmatic-way-to-startstop-a-roslaunch">ROS进二阶学习笔记（3） - programmatic way to start/stop a roslaunch</h2>
+<p>Sometimes, we need to start/stop a ros .launch file/ ros <a href="https://so.csdn.net/so/search?q=node&amp;spm=1001.2101.3001.7020">node</a> in a programmatic way, especially when we bring in the SMACH method to handle our applications.<br>
+Here are some threads in answers.ros.org web, and I summarised.</p>
+<p>Just share what I&rsquo;ve done. to be Generous. Specify this source if you need to repost/quote. thx~</p>
+<h3 id="first-of-first">First of first:</h3>
+<p>You have two requirments: Starting a node or a launch file:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161207205034/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-12-07T20:50:34&#43;0800" class="date">December 07, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20161130141503/" title="Hack the RPLiDAR A1 Laser Scanner">Hack the RPLiDAR A1 Laser Scanner</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="hack-the-rplidar-a1-laser-scanner">Hack the RPLiDAR A1 Laser Scanner</h1>
+<h2 id="hack-the-rplidar-a1-laser-scanner-1">Hack the RPLiDAR-A1 Laser <a href="https://so.csdn.net/so/search?q=Scanner&amp;spm=1001.2101.3001.7020">Scanner</a></h2>
+<p>Hacking the RPLiDAR A1 is very similar with the Hacking of Neato XV-11 Laser Scanner:</p>
+<p><a href="http://wiki.ros.org/xv_11_laser_driver/Tutorials/Connecting%20the%20XV-11%20Laser%20to%20USB">http://wiki.ros.org/xv_11_laser_driver/Tutorials/Connecting%20the%20XV-11%20Laser%20to%20USB</a></p>
+<p>They all use UART-TTL as the data transmission protocal. So we need to find out the TX and RX wire for the scanner to communicate with the UART-USB converter.</p>
+<p>Below is the picture of the RP-LiDAR A1:</p>
+<p><img src="http://www.robotshop.com/media/files/images2/rplidar-360-laser-scanner-7-large.jpg" alt=""></p>
+<p>It consists of a driving motor, a laser scanner, a circuit board and a converting board.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20161130141503/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-11-30T14:15:03&#43;0800" class="date">November 30, 2016</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/40/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/41/">41</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/42/">42</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/79/">79</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/42/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+          <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150703175536/" title="ROS学习手记 - 1了解并安装ROS&#43;创建ROS_Package">ROS学习手记 - 1了解并安装ROS&#43;创建ROS_Package</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习手记---1了解并安装ros创建ros_package">ROS学习手记 - 1了解并安装ROS+创建ROS_Package</h1>
+<p>ROS学习手记：</p>
+<h4 id="开始之前">开始之前：</h4>
+<p>     先看了
+<a href="http://wenku.baidu.com/view/9e78c092a300a6c30c229f9a">《认识ROS操作系统(2015版)》</a>，了解了ROS的基本概念。</p>
+<p>     这里补充一点ROS的发展历程，以便了解catkin的由来，及willow garage公司与ROS的关系：</p>
+<p>    ROS was originally developed in 2007 under the name switchyard by the Stanford Artificial Intelligence Laboratory in support of the Stanford AI Robot STAIR (STanford AI Robot) [6][7] project.From 2008 until 2013, development was performed primarily at Willow Garage, a robotics research institute/incubator. During that time, researchers at more than twenty institutions collaborated with Willow Garage engineers in a federated development model.[8][9]</p>
+<p>    In February 2013, ROS stewardship transitioned to the Open Source Robotics Foundation.[10] In August 2013, a blog posting[11] announced that Willow Garage would be absorbed by another company started by its founder, Suitable Technologies. The support responsibilities for the PR2 created by Willow Garage were also subsequently taken over by Clearpath Robotics.[12] （https://en.wikipedia.org/wiki/Robot_Operating_System）</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150703175536/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-03T17:55:36&#43;0800" class="date">July 03, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150624173840/" title="VS2010 C&#43;&#43; MFC框架学习笔记5 - C&#43;&#43;面向对象编程基础1">VS2010 C&#43;&#43; MFC框架学习笔记5 - C&#43;&#43;面向对象编程基础1</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="vs2010-c-mfc框架学习笔记5---c面向对象编程基础1">VS2010 C++ MFC框架学习笔记5 - C++面向对象编程基础1</h1>
+<p>时隔一周多，再继续C++之路。</p>
+<h4 id="1-msg结构体">1. MSG<a href="https://so.csdn.net/so/search?q=%E7%BB%93%E6%9E%84%E4%BD%93&amp;spm=1001.2101.3001.7020">结构体</a></h4>
+<p>   Windows应用程序响应操作系统的消息，通过MSG结构体传达消息信息：</p>
+<p><img src="https://img-blog.csdn.net/20150624164401367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h4 id="2-消息队列">2. <a href="https://so.csdn.net/so/search?q=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97&amp;spm=1001.2101.3001.7020">消息队列</a></h4>
+<p>Windows消息队列，被应用程序逐条响应</p>
+<p>注意2点：</p>
+<p>            1. 消息——用户操作、程序状态</p>
+<p>            2. 消息响应</p>
+<h4 id="3-winmain函数vc的入口函数">3. WinMain函数——VC++的入口函数</h4>
+<p> </p>
+<pre tabindex="0"><code>int CALLBACK WinMain(
+  _In_ HINSTANCE hInstance,//实例的句柄，标识这个当前运行的实例
+  _In_ HINSTANCE hPrevInstance,  //实例的句柄，标识previous运行的实例
+  _In_ LPSTR     lpCmdLine,  //LongPointer_String 长指针，指向一个String , 运行程序时，传入的命令行参数。ARGC ARGV
+  _In_ int       nCmdShow  //指定窗口显示时的状态（最大化、适中、隐藏。。。）
+);
+</code></pre><h4 id="4-窗口应用程序的创建步骤">4. 窗口应用程序的创建步骤</h4>
+<ul>
+<li>设计一个窗口类</li>
+<li>注册窗口</li>
+<li>创建窗口</li>
+<li>显示及更新窗口</li>
+</ul>
+<pre tabindex="0"><code>typedef struct tagWNDCLASS {
+  UINT      style;           //Style这里是窗口类型，见上面的解释
+  WNDPROC   lpfnWndProc;     //窗口过程函数的指针，用这个函数来处理相应的消息
+  int       cbClsExtra;     //分配的额外的内存空间，通常称为类的附加内存
+  int       cbWndExtra;     //窗口的附加内存
+  HINSTANCE hInstance;     // = hInstance
+  HICON     hIcon;     //图标句柄wndclass.hIcon=LoadIcon(NULL,IDI_APPLICATION);
+  HCURSOR   hCursor;     //光标句柄wndclass.hCursor=LoadCursor(NULL,IDC_CROSS);
+  HBRUSH    hbrBackground;     //窗口背景被这个参数控制
+            //画刷的句柄wndclass.hbrBackground=(HBRUSH)GetStockObject(WHITE_BRUSH);
+  LPCTSTR   lpszMenuName;     //长指针常量String，用来设定菜单的名字，NULL
+  LPCTSTR   lpszClassName;     //常量字符串，设定类的名字。&#34;weixin&#34;，创建窗口时，名字要与其一致，否则创建不出窗口
+} WNDCLASS, *PWNDCLASS;
+</code></pre><p>怎么使用：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150624173840/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-06-24T17:38:40&#43;0800" class="date">June 24, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150609163031/" title="VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2">VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="vs2010-c-mfc框架学习笔记4---c面向对象编程基础2">VS2010 C++ MFC框架学习笔记4 - C++面向对象编程基础2</h1>
+<p>跟着教材《Visual C++ 2010 <a href="https://so.csdn.net/so/search?q=MFC&amp;spm=1001.2101.3001.7020">MFC</a> 编程入门》.pdf 学习了2周，感觉有些基础的概念不太清楚，所以找出网易学堂的VC++课程进行学习http://tech.163.com/special/0009159F/vc.html</p>
+<p>===========================================</p>
+<p>[第二课 C++经典语法与应用 类的编写与应用]</p>
+<p>===========================================</p>
+<p>构造函数：采用类的方式来保证它的唯一性，取个类名，没有返回值，对类里的变量进行初始化。</p>
+<p>析构函数：回收内存，没有返回，没有参数。</p>
+<p>例：</p>
+<pre tabindex="0"><code>1. #include&lt;iostream&gt;
+2. using namespace std;
+3. class Point{
+4. public:
+5. int x;
+6. int y;
+7. Point(){	//构造函数，同，类名
+8. x = 0;
+9. y = 0;
+10. }
+11. 
+12. Point(int a, int b){ //构造函数，带参
+13. x = a; y = b;
+14. }
+15. 
+16. ~Point(){	//析构函数，取反符号+类名
+17. }
+18. 
+19. void output(){
+20. cout&lt;&lt;x&lt;&lt;endl&lt;&lt;y&lt;&lt;endl;
+21. }
+22. void output(int x, int y){
+23. this-&gt;x = x;	//this point, 指向对象
+24. this-&gt;y = y;
+25. }
+26. };
+27. 
+28. void main(){
+29. Point pt(3,3);
+30. pt.output(5,5);
+31. pt.output();
+32. }
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>上例中，出现了两个Point()构造函数，这种情况称为函数的重载：函数重载是指在同一作用域内，可以有一组具有相同函数名，不同参数列表的函数，这组函数被称为重载函数。重载函数通常用来命名一组功能相似的函数，这样做减少了函数名的数量，避免了名字空间的污染，对于程序的可读性有很大的好处。参考：http://www.cnblogs.com/skynet/archive/2010/09/05/1818636.html</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150609163031/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-06-09T16:30:31&#43;0800" class="date">June 09, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150531103448/" title="VS2010 C&#43;&#43; MFC框架学习笔记3 - 控件Tab顺序设置及模态对话框">VS2010 C&#43;&#43; MFC框架学习笔记3 - 控件Tab顺序设置及模态对话框</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="vs2010-c-mfc框架学习笔记3---控件tab顺序设置及模态对话框">VS2010 C++ MFC框架学习笔记3 - 控件Tab顺序设置及模态对话框</h1>
+<p> </p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150531103448/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-31T10:34:48&#43;0800" class="date">May 31, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150529140908/" title="VS2010 C&#43;&#43; MFC框架学习笔记2 - 创建一个简单的加法计算器(2)">VS2010 C&#43;&#43; MFC框架学习笔记2 - 创建一个简单的加法计算器(2)</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="vs2010-c-mfc框架学习笔记2---创建一个简单的加法计算器2">VS2010 C++ MFC框架学习笔记2 - 创建一个简单的加法计算器(2)</h1>
+<p>Title:  VS2010 C++ <a href="https://so.csdn.net/so/search?q=MFC&amp;spm=1001.2101.3001.7020">MFC</a>框架学习笔记2 - 创建一个简单的加法计算器(2)</p>
+<p>VS2010 C++ MFC<a href="https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&amp;spm=1001.2101.3001.7020">框架</a>学习笔记1 - 创建一个简单的加法计算器(1)里，我们入门了MFC的基本概念，现在我们要实践一个简单的加法器了。</p>
+<p>========================================</p>
+<h4 id="mfc程序-创建对话框模板和修改对话框属性">MFC程序: 创建对话框模板和修改对话框属性</h4>
+<p>    什么是对话框</p>
+<p>    C++ Windows应用程序有很多类型，比如单文本类型，多文本，对话框，等等。一个360安全助手就是一个对话框，只不过做了很多美工。<br>
+    Windows计算器也是一个对话框类型的程序。   <br>
+    </p>
+<p>   创建对话框主要分两大步，</p>
+<ul>
+<li>创建对话框资源：主要包括创建新的对话框模板、设置对话框属性和为对话框添加各种控件；</li>
+<li>生成对话框类：   主要包括新建对话框类、添加控件变量和编写控件的消息处理函数等。</li>
+</ul>
+<p>   第一步：创建对话框资源</p>
+<ul>
+<li>创建基于对话框的应用程序框架</li>
+<li>创建对话框模板</li>
+<li>修改对话框属性</li>
+<li>添加各种控件</li>
+</ul>
+<p>   第二步：生成对话框类</p>
+<p>  |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+   |<br>
+ </p>
+<p>   </p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150529140908/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-29T14:09:08&#43;0800" class="date">May 29, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150529084500/" title="VS2010 C&#43;&#43; MFC框架学习笔记1 - 创建一个简单的加法计算器（1）">VS2010 C&#43;&#43; MFC框架学习笔记1 - 创建一个简单的加法计算器（1）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="vs2010-c-mfc框架学习笔记1---创建一个简单的加法计算器1">VS2010 C++ MFC框架学习笔记1 - 创建一个简单的加法计算器（1）</h1>
+<p>=======================================</p>
+<h4 id="mfc程序框架及运行流程介绍"><a href="https://so.csdn.net/so/search?q=MFC&amp;spm=1001.2101.3001.7020">MFC</a>程序框架及运行流程介绍</h4>
+<p>利用C++ MFC （微软基础类库）创建windows应用程序可以比较方便，因为微软打包好了很多基础东东，比如控件。</p>
+<p>首先MFC写的程序的运行大致原理，要了解。</p>
+<p>    MFC应用程序的运行流程与SDK程序是类似的，都是先进行一些初始化过程，再注册并创建窗口，然后显示、更新窗口，最后进入消息循环，消息都由窗口过程函数处理。</p>
+<p>   在运行流程上有基本的掌握即可。</p>
+<p>========================================</p>
+<h4 id="mfc程序消息驱动机制">MFC程序消息驱动机制</h4>
+<p>    Windows应用程序是消息驱动的。在MFC软件开发中，界面操作或者线程之间通信都会经常用到消息，通过对消息的处理实现相应的操作。比较典型的过程是:</p>
+<ul>
+<li>用户操作窗口，</li>
+<li>然后有消息产生，</li>
+<li>送给窗口的消息处理函数处理，</li>
+<li>对用户的操作做出响应。</li>
+</ul>
+<p>  <strong>什么是消息</strong><br>
+        窗口消息一般由三个部分组成：</p>
+<p>             1) 一个无符号整数，是消息值；<br>
+             2) 消息附带的WPARAM类型的参数；<br>
+             3) 消息附带的LPARAM类型的参数。</p>
+<p>         其实我们一般所说的消息是狭义上的消息值，也就是一个无符号整数，经常被定义为宏。</p>
+<p>    <strong>什么是消息映射机制</strong><br>
+         MFC使用一种消息映射机制来处理消息，在应用程序<a href="https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&amp;spm=1001.2101.3001.7020">框架</a>中的表现就是一个消息与消息处理函数一一对应的消息映射表，以及消息处理函数的声明和实现等代码。当<br>
+窗口接收到消息时，会到消息映射表中查找该消息对应的消息处理函数，然后由消息处理函数进行相应的处理。SDK编程时需要在窗口过程中一一判断消息值进行相应的<br>
+处理，相比之下MFC的消息映射机制要方便好用的多。</p>
+<p>    <strong>Windows消息分类</strong><br>
+    先讲下Windows消息的分类。Windows消息分为系统消息和用户自定义消息。<br>
+    Windows系统消息有三种：<br>
+              1.标准Windows消息。除WM_COMMAND外以WM_开头的消息是标准消息。例如，WM_CREATE、WM_CLOSE。<br>
+              2.命令消息。消息名为WM_COMMAND，消息中附带了标识符ID来区分是来自哪个菜单、工具栏按钮或加速键的消息。<br>
+              3.通知消息。通知消息一般由列表框等子窗口发送给父窗口，消息名也是WM_COMMAND，其中附带了控件通知码来区分控件。<br>
+              CWnd的派生类都可以接收到标准Windows消息、通知消息和命令消息。命令消息还可以由文档类等接收。</p>
+<p>   用户自定义消息是实际上就是用户定义一个宏作为消息，此宏的值应该大于等于WM_USER，然后此宏就可以跟系统消息一样使用，窗口类中可以定义它的处理函数。 </p>
+<p><strong>消息映射表</strong><br>
+    除了一些没有基类的类或CObject的直接派生类外，其他的类都可以自动生成消息映射表。下面的讲解都以HelloWorld的CMainFrame为例。消息映射表如下：<br>
+      C++代码：</p>
+<pre tabindex="0"><code>1. BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
+2. ON_WM_CREATE()
+3. ON_COMMAND(ID_VIEW_CUSTOMIZE, &amp;CMainFrame::OnViewCustomize)
+4. ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &amp;CMainFrame::OnToolbarCreateNew)
+5. ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &amp;CMainFrame::OnApplicationLook)
+6. ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7,&amp;CMainFrame::OnUpdateApplicationLook)
+7. ON_WM_SETTINGCHANGE()
+8. END_MESSAGE_MAP()
+</code></pre><p>     在BEGIN_MESSAG_MAP和END_MESSAGE_MAP之间的内容成为消息映射入口项。消息映射除了在CMainFrame的实现文件中添加消息映射表外，在类的定义文件MainFrm.h中还会添加一个宏调用：</p>
+<p>     DECLARE_MESSAGE_MAP()</p>
+<p>     一般这个宏调用写在类定义的结尾处。</p>
+<p>    <strong>添加消息处理函数</strong><br>
+    如何添加消息处理函数呢？不管是自动还是手动添加都有三个步骤：<br>
+    1.在类定义中加入消息处理函数的函数声明，注意要以afx_msg打头。例如MainFrm.h中WM_CREATE的消息处理函数的函数声明：</p>
+<pre tabindex="0"><code>           afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+</code></pre><p>    2.在类的消息映射表中添加该消息的消息映射入口项。例如WM_CREATE的消息映射入口项：ON_WM_CREATE()。</p>
+<p>    3.在类实现中添加消息处理函数的函数实现。例如，MainFrm.cpp中WM_CREATE的消息处理函数的实现：</p>
+<pre tabindex="0"><code>    int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+</code></pre><pre tabindex="0"><code>    { 
+</code></pre><pre tabindex="0"><code>    ...... 
+</code></pre><pre tabindex="0"><code>    } 
+</code></pre><p>    通过以上三个步骤以后，WM_CREATE等消息就可以在窗口类中被消息处理函数处理了。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150529084500/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-29T08:45:00&#43;0800" class="date">May 29, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150521054700/" title="Ruby学习笔记7: 添加身份验证（adding Authentication）">Ruby学习笔记7: 添加身份验证（adding Authentication）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><br>
+</p>
+<p>我们已经完成了Category &amp; Product页面内容的增删改查，再加入一个身份验证即可成为一个较完整的Rails App了。本文就来完成这个任务。<br>
+We now need to give users the ability to <strong>sign up</strong> for the app so that they can do things like purchase products or leave reviews.<br>
+To do this, we'll <strong>add a user authentication system</strong> to the app.看下图：<br>
+</p>
+<p><img src="http://img.blog.csdn.net/20150521134933961?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h3>1. install a gem called Devise.</h3>
+<p></p>
+<div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>Earlier, we learned about bundler and how it sets up our gems. To add authentication, we'll install a gem called Devise.</p>
+<p>We've gone ahead and added Devise for you in your Gemfile. Run bundle to install it in your app.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150521054700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-21T05:47:00&#43;0800" class="date">May 21, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150519064900/" title="Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互">Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><div class="accordion-section-body">
+<div class="accordion-section-body__padded narrative--markdown">
+<p>We first built a static site which displayed a static image using only a Controller and a View. This is our Etsy landing page page.</p>
+<p>Then we built the Categories page, with a Model (manages data), Controller (manages decisions) and View (manages display). The Categories pages allows us to display dynamic content so users can browse through different Categories that can be updated regularly.</p>
+<p>Now we will build the Products page, which will allow users to browse through Products in our Etsy app. To create this, we'll be creating a new Model, Controller, and View.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150519064900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-19T06:49:00&#43;0800" class="date">May 19, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150513122000/" title="Ruby学习笔记5: 动态web app的建立 （2）">Ruby学习笔记5: 动态web app的建立 （2）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>上一节里，我们搭建了一个数据库的结构，并用index验证了request-response cycle，如下图：<br>
+<img src="http://img.blog.csdn.net/20150513202345080?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+</p>
+<h3>1. Add show method into Controller</h3>
+<p>这一节，我们要继续丰富我们的controller:<br>
+While index gave all categories, show allows us to access one category. This this is helpful when we want to show just one Category at a time in our Etsy app.</p>
+<p>The show method works like this. we write:</p>
+<div class="dp-highlighter bg_ruby">
+<div class="bar">
+<div class="tools"><strong>[ruby]</strong> <a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/45568803#" class="ViewSource" title="view plain">
+view plain</a><a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/45568803#" class="CopyToClipboard" title="copy">copy</a><a target="_blank" target="_blank" href="https://code.csdn.net/snippets/661983" title="在CODE上查看代码片" style="text-indent:0"><img src="https://code.csdn.net/assets/CODE_ico.png" alt="在CODE上查看代码片" height="12" width="12" style="position:relative; top:1px; left:2px"></a><a target="_blank" target="_blank" href="https://code.csdn.net/snippets/661983/fork" title="派生到我的代码片" style="text-indent:0"><img src="https://code.csdn.net/assets/ico_fork.svg" alt="派生到我的代码片" height="12" width="12" style="position:relative; top:2px; left:2px"></a></div>
+</div>
+<ol class="dp-rb" start="1">
+<li class="alt"><span><span class="keyword">def</span><span>&nbsp;show&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;<span class="variable">@category</span><span>&nbsp;=&nbsp;Category.find(params[</span><span class="symbol">:id</span><span>]) &nbsp;&nbsp; #it's a hash that we use to find an object by its unique id<br>
+</span></span></li><li class="alt"><span><span class="keyword">end</span><span>&nbsp; <br>
+</span></span></li></ol>
+</div>
+<p></p>
+<p>The show method finds a single category of a given id and stores it in @category. Look a little closer at params[:id]. Seem familiar?<br>
+It's a hash that we use to find an object by its unique id. We can find the exact object we want.<br>
+我们知道，【在main Controller里的每个action都需要一个route &amp; view】<br>
+这里我们在controller里加入了show method，Rails自动update了the route and the view for us.<br>
+<br>
+提醒：在route.rb文件中，我们已有的语句：resources :categories已经takes care of our route for show. Rails 还创建了show.html.erb在我们的Views中!<br>
+Rails did this for show, just like it did for the index method.<br>
+<br>
+Rails generates these when we enter methods in your rails generate controller command[rails generate controller Categories index show new edit delete], other we need do it manually.<br>
+<br>
+此时我们的routes.rb还是老样子：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150513122000/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-13T12:20:00&#43;0800" class="date">May 13, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150507153800/" title="Ruby学习笔记4: 动态web app的建立">Ruby学习笔记4: 动态web app的建立</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; font-family:Oxygen,sans-serif; line-height:22px; font-size:16px; vertical-align:baseline; word-break:break-word; color:rgb(74,74,76)!important">
+</p>
+<h2>Ruby学习笔记4： 动态web app的建立</h2>
+<p></p>
+<p>We will first build the Categories page. This page contains topics like Art, Home &amp; Living, and Kids, so our users can browse through categories and find what they like.<br>
+</p>
+<p>Each Category in our site will need to store information about itself, such as a name and an image. Our Category Model is what stores information about our Categories. Remember that our Model manages the data in our app.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150507153800/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-07T15:38:00&#43;0800" class="date">May 07, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/28/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/28/">28</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/29/">29</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/30/">30</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/30/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="【技术】Ubuntu上位机配置Blackfin开发环境手记
+Ubuntu配置上位机Blackfin开发环境手记：[参考]http://blog.csdn.net/cp1300/article/details/8205282
+My note for configuring the Software Development Environment(SDE) for TLL board on Ubuntu 12.04
+【Section 0: Working Aim 工作目的】
+现在手里有一个嵌入式开发板，搭载的是 AnalogDevices 公司的 Blackfin527 Processor，预装板载Uclinux操作系统。现在要配置上位机Linux/Ubuntu12.04 的开发环境，包括Blackfin Toolchain，Eclipse开发环境，和Library.
+ 
+【Section1: Install Toolchain】
+Install Blackfin Toolchain
+Refer to the Note after this section if you meet some issue during this installation.
+1.1 Package Installation (recommended)
+·                  Get the latest Blackfin Toolchain from ADI
+·                                      Current up to date version is: 2011R1-RC4
+·                                      Example download command:
+
+wgethttp://blackfin.uclinux.org/gf/download/frsrelease/531/9508/blackfin-toolchain-2011R1-RC4.i386.rpm 
+
+wgethttp://blackfin.uclinux.org/gf/download/frsrelease/531/9512/blackfin-toolchain-elf-gcc-4.3-2011R1-RC4.i386.rpm
+·                  Check if a previous toolchain is already installed" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>【技术】Ubuntu上位机配置Blackfin开发环境手记 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20130103032617/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="【技术】Ubuntu上位机配置Blackfin开发环境手记
+Ubuntu配置上位机Blackfin开发环境手记：[参考]http://blog.csdn.net/cp1300/article/details/8205282
+My note for configuring the Software Development Environment(SDE) for TLL board on Ubuntu 12.04
+【Section 0: Working Aim 工作目的】
+现在手里有一个嵌入式开发板，搭载的是 AnalogDevices 公司的 Blackfin527 Processor，预装板载Uclinux操作系统。现在要配置上位机Linux/Ubuntu12.04 的开发环境，包括Blackfin Toolchain，Eclipse开发环境，和Library.
+ 
+【Section1: Install Toolchain】
+Install Blackfin Toolchain
+Refer to the Note after this section if you meet some issue during this installation.
+1.1 Package Installation (recommended)
+·                  Get the latest Blackfin Toolchain from ADI
+·                                      Current up to date version is: 2011R1-RC4
+·                                      Example download command:
+
+wgethttp://blackfin.uclinux.org/gf/download/frsrelease/531/9508/blackfin-toolchain-2011R1-RC4.i386.rpm 
+
+wgethttp://blackfin.uclinux.org/gf/download/frsrelease/531/9512/blackfin-toolchain-elf-gcc-4.3-2011R1-RC4.i386.rpm
+·                  Check if a previous toolchain is already installed" />
+  <meta property="og:title" content="【技术】Ubuntu上位机配置Blackfin开发环境手记" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20130103032617/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2013-01-03" />
+    <meta property="article:modified_time" content="2013-01-03" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="【技术】Ubuntu上位机配置Blackfin开发环境手记 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="【技术】Ubuntu上位机配置Blackfin开发环境手记
+Ubuntu配置上位机Blackfin开发环境手记：[参考]http://blog.csdn.net/cp1300/article/details/8205282
+My note for configuring the Software Development Environment(SDE) for TLL board on Ubuntu 12.04
+【Section 0: Working Aim 工作目的】
+现在手里有一个嵌入式开发板，搭载的是 AnalogDevices 公司的 Blackfin527 Processor，预装板载Uclinux操作系统。现在要配置上位机Linux/Ubuntu12.04 的开发环境，包括Blackfin Toolchain，Eclipse开发环境，和Library.
+ 
+【Section1: Install Toolchain】
+Install Blackfin Toolchain
+Refer to the Note after this section if you meet some issue during this installation.
+1.1 Package Installation (recommended)
+·                  Get the latest Blackfin Toolchain from ADI
+·                                      Current up to date version is: 2011R1-RC4
+·                                      Example download command:
+
+wgethttp://blackfin.uclinux.org/gf/download/frsrelease/531/9508/blackfin-toolchain-2011R1-RC4.i386.rpm 
+
+wgethttp://blackfin.uclinux.org/gf/download/frsrelease/531/9512/blackfin-toolchain-elf-gcc-4.3-2011R1-RC4.i386.rpm
+·                  Check if a previous toolchain is already installed" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20130103032617/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20130103032617/">【技术】Ubuntu上位机配置Blackfin开发环境手记</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">【技术】Ubuntu上位机配置Blackfin开发环境手记</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2013-01-03T03:26:17&#43;0800 class="date">January 03, 2013</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+26 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="技术ubuntu上位机配置blackfin开发环境手记">【技术】Ubuntu上位机配置Blackfin开发环境手记<a hidden class="heading-anchor" aria-hidden="true" href="#技术ubuntu上位机配置blackfin开发环境手记">#</a></h1>
+<p>Ubuntu配置上位机Blackfin开发环境手记：[参考]<a href="http://blog.csdn.net/cp1300/article/details/8205282">http://blog.csdn.net/cp1300/article/details/8205282</a></p>
+<p>My note for configuring the Software Development Environment(SDE) for TLL board on Ubuntu 12.04</p>
+<p><strong>【Section 0: Working Aim 工作目的】</strong></p>
+<p>现在手里有一个嵌入式开发板，搭载的是 AnalogDevices 公司的 Blackfin527 Processor，预装板载Uclinux操作系统。现在要配置上位机Linux/Ubuntu12.04 的开发环境，包括Blackfin Toolchain，Eclipse开发环境，和Library.</p>
+<p> </p>
+<p><strong>【Section1: Install Toolchain】</strong></p>
+<p><strong>Install Blackfin Toolchain</strong></p>
+<p>Refer to the Note after this section if you meet some issue during this installation.</p>
+<p><strong>1.1 Package Installation (recommended)</strong></p>
+<p>·                  Get the latest Blackfin Toolchain from <a href="http://blackfin.uclinux.org/gf/project/toolchain/frs/">ADI</a></p>
+<p>·                                      Current up to date version is: 2011R1-RC4</p>
+<p>·                                      Example download command:</p>
+<blockquote>
+<p>wget<a href="http://blackfin.uclinux.org/gf/download/frsrelease/531/9508/blackfin-toolchain-2011R1-RC4.i386.rpm">http://blackfin.uclinux.org/gf/download/frsrelease/531/9508/blackfin-toolchain-2011R1-RC4.i386.rpm</a> </p></blockquote>
+<blockquote>
+<p>wget<a href="http://blackfin.uclinux.org/gf/download/frsrelease/531/9512/blackfin-toolchain-elf-gcc-4.3-2011R1-RC4.i386.rpm">http://blackfin.uclinux.org/gf/download/frsrelease/531/9512/blackfin-toolchain-elf-gcc-4.3-2011R1-RC4.i386.rpm</a></p></blockquote>
+<p>·                  Check if a previous toolchain is already installed</p>
+<p>·                 If so, remove old tool chain using rpm -e &hellip;</p>
+<blockquote>
+<p>rpm -qa blackfin-toolchain\*</p></blockquote>
+<p>·                  Install Toolchain using RPM.</p>
+<p>·                 Note: If a previous toolchain is installed, you may need to uninstall the previous toolchain see above</p>
+<p>rpm -ivh blackfin-toolchain-*</p>
+<p>More details on toolchain installation can be found at ADI&rsquo;s <a href="http://docs.blackfin.uclinux.org/doku.php?id=toolchain:installing">installation wiki entry.</a></p>
+<p><strong>1.2 Source Installation (advanced)</strong></p>
+<p>·                  Prequisites</p>
+<p>yum install automake autoconf ncurses-devel zlib-devel texinfo</p>
+<p>·                  set desired version</p>
+<p>set VERSION=2011R1-RC2</p>
+<p>·                  Get the latest Version of the GNU toolchain</p>
+<p>svn checkout svn://sources.blackfin.uclinux.org/toolchain/tags/$VERSION/</p>
+<p>·                  Compile and Install</p>
+<blockquote>
+<p>cd bfin_toolchain.$VERSION/buildscript/ &gt; ./BuildToolChain -o &lt;COMPILER_NSTALLATION_DIR&gt;</p></blockquote>
+<p>Note: 这里要注意的是：</p>
+<p>1.ADI offers serious packages of toolchain of one version for different usages. You should select which one is needed.  I downloaded the 3 packages:</p>
+<p>  &gt; blackfin-toolchain-2012R2-RC1.i386.rpm</p>
+<p>  &gt; blackfin-toolchain-elf-gcc-4.3-2012R2-RC1.i386.rpm</p>
+<p>  &gt; blackfin-toolchain-uclibc-default-2012R2-RC1.i386.rpm</p>
+<p>        from the Blackfin Linux website in the toolchain file release page</p>
+<p> </p>
+<ol start="2">
+<li>Ubuntu does not support installing this toolchain by RPM tool.</li>
+</ol>
+<p>  &gt; I used the &ldquo;How to Install rpm package on Ubuntu&rdquo; approach to go around it. Chinese tutorial:</p>
+<p>     注意，用alien转换的deb包并不能保证100%顺利安装，所以可以找到deb最好直接用deb</p>
+<p>     有时候，我们想要使用的软件并没有被包含到 Ubuntu 的仓库中，而程序本身也没有提供让 Ubuntu可以使用的 deb 包，你又不愿从源代码编译。但假如软件提供有 rpm 包的话，我们也是可以在 Ubuntu中安装的。</p>
+<p>方法一：</p>
+<p>1. 先安装 alien 和 fakeroot 这两个工具，其中前者可以将 rpm 包转换为 deb 包。安装命令为： Intall the &ldquo;alien&rdquo; and &ldquo;fakeroot&rdquo; tools:<br>
+              </p>
+<p>$ sudo apt-get install alien fakeroot</p>
+<p>2. 将需要安装的 rpm 包下载备用，假设为 package.rpm。 Assume your package is: package.rpm</p>
+<p>3. 使用 alien 将 rpm 包转换为 deb 包： use alien to convert rpm package into deb package:</p>
+<p>$ fakeroot alien package.rpm</p>
+<p>4. 一旦转换成功，我们可以即刻使用以下指令来安装： After a while, if succeed, install it using command:</p>
+<p>$ sudo dpkg -i package.deb</p>
+<p>如何转换rpm详细教程，参考这里: <a href="http://zhidao.baidu.com/question/377062512">http://zhidao.baidu.com/question/377062512</a></p>
+<p><strong>[Section2. Install Eclipse]</strong></p>
+<p>Follow OS independent instructions:<br>
+Generally, follow instructions at: <a href="http://docs.blackfin.uclinux.org/doku.php?id=toolchain:eclipse:install">link</a></p>
+<p>Note: It seems that Blackfin Toolchain only works in Helios Eclipse</p>
+<p>Install components: </p>
+<p>•     Blackfin ucLinux</p>
+<p>•     GDB Hardware Debugging</p>
+<p>•     Target Terminal Management</p>
+<p>•     ZynxCDT</p>
+<p>Below is my steps:</p>
+<p>Refer to this web page: <a href="http://docs.blackfin.uclinux.org/doku.php?id=toolchain:eclipse:install">http://docs.blackfin.uclinux.org/doku.php?id=toolchain:eclipse:install</a></p>
+<p><strong>2.1.Install the Java Runtime Environment (JRE)</strong></p>
+<p>Checking your Java Runtime Environment version: </p>
+<p>$ java -version</p>
+<p>If you do not have Java installed, go through the :<a href="http://www.64bitjungle.com/ubuntu/install-java-jre-160-update-x-on-hardy-as-the-default-java-runtime/">Install Java Runtime Env. 1.6.0</a> </p>
+<p>After you finished, the lines below should be displayed:</p>
+<p>$ java -version<br>
+java version &ldquo;1.6.0_16&rdquo;<br>
+Java(TM) SE Runtime Environment (build 1.6.0_16-b01)<br>
+Java HotSpot(TM) Client VM (build 14.2-b01, mixed mode, sharing)</p>
+<p><strong>2.2 Install the IDDE (Eclipse)</strong></p>
+<p>There are no executable installers for Eclipse. It is distributed as a zip archive which you can unpack anywhere you like, and then just run the eclipse.exe program in the eclipse sub-directory.</p>
+<p>To get the installer, visit the <a href="http://www.eclipse.org/downloads/">Eclipse download page.</a></p>
+<p>You will be presented with a variety of download choices. The only difference between them is the default plug-in set. Since you will most likely be compiling/debugging code for the Blackfin processor, you should pick Eclipse IDE for C/C++ Developers.: </p>
+<p><img src="http://docs.blackfin.uclinux.org/lib/exe/fetch.php?media=toolchain:eclipse:junoeclipseidecpp.png" alt=""></p>
+<p> Note: It seems that Blackfin Toolchain only works in <a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/helios/SR2/eclipse-cpp-helios-SR2-linux-gtk.tar.gz">Helios Version</a> (Download this verion)</p>
+<p>Extract: eclipse-cpp-helios-SR2-linux-gtk.tar.gz , <br>
+       1.Double-Click on Archive and Extract Eclipse into /tmp</p>
+<p>       2.Open Terminal Window</p>
+<p>       3.Install Required Packages</p>
+<p> </p>
+<p>$ sudo su</p>
+<h1 id="apt-get-install-g">apt-get install g++<a hidden class="heading-anchor" aria-hidden="true" href="#apt-get-install-g">#</a></h1>
+<p> </p>
+<p> 4.Relocate Eclipse</p>
+<p># mv /tmp/eclipse /opt</p>
+<p> 5.Create a Symlink</p>
+<p># ln -s /opt/eclipse/eclipse /usr/bin/eclipse</p>
+<ol start="6">
+<li>After, you can Start Eclipse from Terminal simply with:</li>
+</ol>
+<p># eclipse</p>
+<p>or: (the way by which we launch Eclipse is under the Super User permision)</p>
+<p>$ exit<br>
+$ sudo eclipse</p>
+<p>       If you want to overcome the root permission issue, refer to: <a href="http://jonathan.lalou.free.fr/?p=1310">here</a>. but it does not work on my Ubuntu.</p>
+<p> </p>
+<p>       Reference: <a href="http://install-climber.blogspot.com/2012/10/installEclipseJunoCPPUbuntu1210Quantal.html">How-to Install Eclipse Juno 4.2 C/C++ on Ubuntu</a><br>
+        If Installed Eclipse on Linux, but it does not start,<a href="http://wiki.eclipse.org/IRC_FAQ#I_just_installed_Eclipse_on_Linux.2C_but_it_does_not_start._What_is_the_problem.3F" title="IRC FAQ">read this</a></p>
+<p><strong>2.3 Install the Blackfin Plug-ins</strong></p>
+<p> The Blackfin plug-ins will require Eclipse 4.2, as well as the CDT. Additionally, you will have to install the GDB Hardware Debugging CDT plug-in (it is usually not installed by default). <br>
+          To install the GDB Hardware Debugging plug-in, the CDT update site needs enabled. <br>
+          To enable the CDT site:</p>
+<p>1.                Select the Eclipse menu Window→Preferences.</p>
+<p>2.                Select Install/Update→Available Software Sites and select the site, <a href="http://download.eclipse.org/tools/cdt/releases/juno">http://download.eclipse.org/tools/cdt/releases/juno</a>.</p>
+<p>(Here I used Helios, it&rsquo;s a little different. Keep it Enabled. Maybe we need to add the link in the last line)</p>
+<p>3.                Use the Enable button to enable the site.</p>
+<p>     Install the <strong>GDB Hardware</strong> Debugging plug-in via the <a href="http://wiki.eclipse.org/FAQ_What_is_the_Update_Manager?" title="http://wiki.eclipse.org/FAQ_What_is_the_Update_Manager?">Update Manager</a>:</p>
+<p>1.                Select the Eclipse menu Help→Install New Software</p>
+<p>2.                Select the <a href="http://download.eclipse.org/tools/cdt/releases/indigo" title="http://download.eclipse.org/tools/cdt/releases/indigo">http://download.eclipse.org/tools/cdt/releases/indigo</a> site in the Work With list(Add this, if there isn&rsquo;t.)</p>
+<p>3.                Enable the GDB Hardware Debugging plugin under CDT Optional Features</p>
+<p> </p>
+<ol>
+<li><img src="http://docs.blackfin.uclinux.org/lib/exe/fetch.php?media=toolchain:eclipse:junoeclipseidegdbdebugging.png" alt=""></li>
+</ol>
+<p>The Blackfin plug-ins can be obtained from the <a href="http://blackfin.uclinux.org/eclipse/" title="http://blackfin.uclinux.org/eclipse/">http://blackfin.uclinux.org/eclipse/</a> site via the <a href="http://wiki.eclipse.org/FAQ_What_is_the_Update_Manager?" title="http://wiki.eclipse.org/FAQ_What_is_the_Update_Manager?">Update Manager</a>:</p>
+<p>              1.Select Help→Install New Software from the Eclipse menu<br>
+              2.Click the Add button<br>
+              3.Add <a href="http://blackfin.uclinux.org/eclipse/">http://blackfin.uclinux.org/eclipse/</a> as a new site&quot;Blackfin GNU&quot;</p>
+<p><a href="http://docs.blackfin.uclinux.org/lib/exe/detail.php?id=toolchain:eclipse:install&amp;media=toolchain:eclipse:junoeclipseidebfupdatesite.png" title="toolchain:eclipse:junoeclipseidebfupdatesite.png"><img src="http://docs.blackfin.uclinux.org/lib/exe/fetch.php?media=toolchain:eclipse:junoeclipseidebfupdatesite.png" alt=""></a></p>
+<p>Then you can select the plug-ins to install:</p>
+<p>      <img src="http://docs.blackfin.uclinux.org/lib/exe/fetch.php?media=toolchain:eclipse:junoeclipseidebfupdatesiteplugins.png" alt=""></p>
+<p>The Blackfin Debug plug-in results in extra selectable entries in the “Debug Configuration” dialog, while the Tool chain plug-in allows for selecting the desired tool chain out of a list from within the New Project Wizard dialog.</p>
+<p> </p>
+<h4 id="install-the-zylin-cdt">Install the Zylin CDT<a hidden class="heading-anchor" aria-hidden="true" href="#install-the-zylin-cdt">#</a></h4>
+<p>The Eclipse C/C++ Development Tools (CDT) has excellent GDB support. However, there are a few stumbling blocks when trying to debug embedded applications, which <a href="http://opensource.zylin.com/embeddedcdt.html" title="http://opensource.zylin.com/embeddedcdt.html">Zylin AS</a> has made some modifications in Eclipse CDT to improve support for GDB embedded debugging.</p>
+<p>Path for update manager “Add Site”: <a href="http://opensource.zylin.com/zylincdt" title="http://opensource.zylin.com/zylincdt">http://opensource.zylin.com/zylincdt</a></p>
+<p>         
+<a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s6.sinaimg.cn/orignal/55a4cddcgd11a621b1c65"><img src="http://s6.sinaimg.cn/mw690/55a4cddcgd11a621b1c65&amp;690" alt=""></a></p>
+<p> </p>
+<h4 id="install-subclipse-svn--i-skipped-this">Install Subclipse (SVN)   (I skipped this)<a hidden class="heading-anchor" aria-hidden="true" href="#install-subclipse-svn--i-skipped-this">#</a></h4>
+<p>While not released with Eclipse, there is a Subversion plugin called <a href="http://subclipse.tigris.org/" title="http://subclipse.tigris.org/">Subclipse</a>. Visit the Subclipse homepage for some <a href="http://subclipse.tigris.org/install.html" title="http://subclipse.tigris.org/install.html">concise install directions</a>.</p>
+<p>Once you have Subclipse installed, the interface is the same as using the CVS plugin.</p>
+<p> </p>
+<h4 id="target-management-terminal">Target Management Terminal<a hidden class="heading-anchor" aria-hidden="true" href="#target-management-terminal">#</a></h4>
+<p>An ANSI (vt102) compatible Terminal including plug-ins for <strong>Serial</strong>, <strong>SSH</strong> and <strong>Telnet</strong> connections.</p>
+<p><a href="http://docs.blackfin.uclinux.org/lib/exe/detail.php?id=toolchain:eclipse:install&amp;media=toolchain:eclipse:eclipse-target-terminal.jpg" title="toolchain:eclipse:eclipse-target-terminal.jpg"><img src="http://docs.blackfin.uclinux.org/lib/exe/fetch.php?w=800&amp;media=toolchain:eclipse:eclipse-target-terminal.jpg" alt=""></a></p>
+<p>To use a serial terminal in Eclipse Juno. (Here we use Helios)</p>
+<p> </p>
+<p>1: Install the software for serial terminals:</p>
+<p>Navigate to: Help -&gt; Install New Software&hellip;</p>
+<p>Dropdown list for Work with: to say <code>Juno - http://download.eclipse.org/releases/juno</code></p>
+<p>Select: Mobile and Device Development, especially Target Management Terminal which is &ldquo;An ANSI (vt102) compatible Terminal including plug-ins for Serial, SSH and Telnet connections.&rdquo;</p>
+<p>Click Next and anything else to finish the install &hellip;</p>
+<p>2: Open the view</p>
+<p>Navigate to: Window -&gt; Show View -&gt; Other &hellip; -&gt; Terminal -&gt; Terminal (NOTE: singular Terminal, not plural Terminals)</p>
+<p>3: Open a terminal</p>
+<p>The rest should be fairly obvious as the view contains icons to Connect, Disconnect, Settings, etc which are related to Serial, SSH and Telnet connections.</p>
+<p>Reference: click <a href="http://stackoverflow.com/questions/12140381/how-to-open-a-serial-terminal-in-eclipse-juno">here</a></p>
+<p><a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s16.sinaimg.cn/orignal/55a4cddcg7b4f77880e6f"><img src="http://s16.sinaimg.cn/mw690/55a4cddcg7b4f77880e6f&amp;690" alt=""></a></p>
+<p> </p>
+<p>Target Management Terminal Serial Connector requires <a href="http://rxtx.qbang.org/wiki/index.php/Main_Page" title="http://rxtx.qbang.org/wiki/index.php/Main_Page">RXTX</a></p>
+<p>Installation as an Eclipse Plugin via Update Manager:</p>
+<hr>
+<ul>
+<li>
+<p>In Eclipse, choose Help &gt; Software Updates
+…</p>
+<ul>
+<li>Add New Remote Site:</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>Name = RXTX URL = http://rxtx.qbang.org/eclipse/
+</code></pre><p>           **·**select proper version, Install All</p>
+<p><a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s8.sinaimg.cn/orignal/55a4cddcgd11ad0a75657"><img src="http://s8.sinaimg.cn/mw690/55a4cddcgd11ad0a75657&amp;690" alt=""></a></p>
+<p>Untill Now, we have i
+nstalled the components: 
+ </p>
+<ul>
+<li>Blackfin ucLinux (Blackfin plug-ins)</li>
+<li>GDB Hardware Debugging</li>
+<li>Target Terminal Management</li>
+<li>ZynxCDT (We installed ZylinCDT instead)</li>
+</ul>
+<h2 id="section3-library-installation">Section3. Library Installation<a hidden class="heading-anchor" aria-hidden="true" href="#section3-library-installation">#</a></h2>
+<p> </p>
+<ul>
+<li>Checkout of common code</li>
+</ul>
+<pre tabindex="0"><code>&gt; svn co &lt;https://nuforge.coe.neu.edu/svn/pal/tags/v1.1_gnu/0.1/bare-c&gt;
+</code></pre><ul>
+<li>Edit Makefile.macros located in bare-c/common
+<ul>
+<li>Edit the prefix to the path where you want the library to be installed  For ex:</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>&gt; # --- Installation directories prefix = /home/student/agarwal/temp/pal
+</code></pre><ul>
+<li>Edit the COMPILER macros to the path where you have installed the compiler above<br>
+The default install path for all of our toolchains is <code>/opt/uClinux/</code></li>
+</ul>
+<pre tabindex="0"><code>#-- Compiler COMPILER =  &lt;COMPILER_NSTALLATION_DIR&gt; /bfin-elf/bin/bfin-elf-gcc   
+eg. #-- Compiler COMPILER = /opt/uClinux/bfin-elf/bin/bfin-elf-gcc
+</code></pre><p> </p>
+<p>BackUP:<br>
+#&ndash; Compiler</p>
+<p>COMPILER = /ECEnet/Apps1/sce-ext-pkg/sw/bfin_toolchain.2011R1-BETA1/bfin-elf</p>
+<ul>
+<li>For Compiling the library we need to source the blackfin compiler path .</li>
+</ul>
+<pre tabindex="0"><code>For tcsh shell   
+&gt; setenv PATH &lt;COMPILER_NSTALLATION_DIR&gt;/bfin-elf/bin/:$PATH   
+For bash shell   
+&gt; export PATH; PATH=&lt;COMPILER_NSTALLATION_DIR&gt;/bfin-elf/bin:$PATH
+</code></pre><p>    Here we use:</p>
+<pre tabindex="0"><code>&gt; export PATH; PATH = /opt/uClinux/bfin-elf/bin:$PATH 
+</code></pre><ul>
+<li>Follow these steps to install the libraries</li>
+</ul>
+<pre tabindex="0"><code>&gt; cd common    
+&gt; make clean   
+&gt; make   
+&gt; sudo make install
+</code></pre><ul>
+<li>Validate your environment</li>
+</ul>
+<pre tabindex="0"><code>&gt; source &lt;installation path&gt;/bin/setup.sh   
+</code></pre><pre tabindex="0"><code> eg. &gt; source /usr/uClinux/bfin-elf/bin/setup.sh
+</code></pre><pre tabindex="0"><code>&gt; cd demo   
+&gt; make clean   
+&gt; make
+</code></pre><p>        This make should complete without error. (
+But we meet several errors
+)</p>
+<p>  ==============================================</p>
+<p>Here, I just referred some other instructions, and:</p>
+<p> 1.deleted Eclipse, </p>
+<p> 2.Downloaded the Eclipse(Juno)</p>
+<p> 3.Set the PATH</p>
+<ol>
+<li>ReInstall the Eclipse</li>
+</ol>
+<p>      go to the &ldquo;eclipse&rdquo; folder:</p>
+<blockquote>
+<p>cd /opt</p></blockquote>
+<blockquote>
+<p>rm -rf eclipse</p></blockquote>
+<ol start="2">
+<li>Download the Eclipse (Juno)</li>
+</ol>
+<p>    
+Select the Juno version, 
+Download the eclipse package from: 
+<a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR1/eclipse-cpp-juno-SR1-linux-gtk.tar.gz">Linux 32bit</a></p>
+<p>       </p>
+<p>       Extra it into /home/yourname/programfiles/</p>
+<p>       We have Installed the Java Runtime Environment above, so we don&rsquo;t need to install it here.</p>
+<ol start="3">
+<li>Configure the environment variable(PATH)</li>
+</ol>
+<p>       Modify the environment variable of &ldquo;bfin-linux-uclibc-gcc&rdquo;</p>
+<p>        In Terminal, run:</p>
+<pre tabindex="0"><code>&gt; sudo gedit /etc/profile
+</code></pre><p> 
+      
+Modify the Environmental Variable. Note, this is user environmental variable, After this we can only use</p>
+<p>&ldquo;bfin-linux-uclibc-gcc&rdquo; but cannot use &ldquo;sudo 
+bfin-linux-uclibc-gcc
+&ldquo;. All the command after &ldquo;sudo&rdquo; is for using </p>
+<p>system environmental variable but not user&rsquo;s environmental variable.</p>
+<p>       In the gedit window add the line below at the tail.</p>
+<pre tabindex="0"><code> &gt; export PATH=$PATH:/opt/uClinux/bfin-linux-uclibc/bin 
+</code></pre><p>    And for the JRE PATH configure, add the line below:</p>
+<pre tabindex="0"><code> &gt; JAVA_HOME=/opt/java/32/jre1.6.0_16  
+ &gt; PATH=$JAVA_HOME/bin:$PATH
+</code></pre><p>       See the snap below:</p>
+<p>    
+<a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s8.sinaimg.cn/orignal/55a4cddcgd12acb47ed37"><img src="http://s8.sinaimg.cn/mw690/55a4cddcgd12acb47ed37&amp;690" alt=""></a></p>
+<ol start="4">
+<li>Building a uClinux Hello World project </li>
+</ol>
+<p>         Go to the location of eclipse:&rdquo;
+/home/yourname/programfiles/eclipse
+&ldquo;, Run the eclipse by:</p>
+<pre tabindex="0"><code>&gt; cd /home/yourname/programfiles/eclipse  
+&gt; ./eclipse 
+</code></pre><p>          In Eclipse, New-&gt;Project-&gt;C/C++ -&gt; C Project -&gt; &ldquo;Project type: Executable/Empty Project&rdquo; and </p>
+<p>&ldquo;ToolChains:Cross GCC &quot; -&gt; &ldquo;Next&rdquo; -&gt; Set the path of your &ldquo;bfin-linux-uclibc-gcc&rdquo;  -&gt; finish.</p>
+<p>See the snap:</p>
+<p>       
+<a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s16.sinaimg.cn/orignal/55a4cddcgd12af44ee9ef"><img src="http://s16.sinaimg.cn/bmiddle/55a4cddcgd12af44ee9ef&amp;690" alt=""></a></p>
+<p>       
+And build your Hello World project:</p>
+<p>       
+<a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s10.sinaimg.cn/orignal/55a4cddcgd12b02c1a3a9"><img src="http://s10.sinaimg.cn/bmiddle/55a4cddcgd12b02c1a3a9&amp;690" alt=""></a></p>
+<p>        This method is only for building the uClinux app. If you want to build Bare-Metal </p>
+<p>Refer to:</p>
+<p>Developing Bare-Metal C Applications</p>
+<ol>
+<li>Setup common bare-c library <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=bareC">bareC</a> <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=bareCReleaseNotes">Release Notes</a>
+<ol>
+<li>Update bare-c libraries <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=updateBarec">updateBarec</a></li>
+<li>Doxygen documentation <a href="http://www.ece.neu.edu/~esl/EECE4534/common/">link</a></li>
+</ol>
+</li>
+<li>Developing and debugging C applications using Eclipse <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=eclipseDev">link</a>
+<ol>
+<li>TLL&rsquo;s: Bare-C Development/Debugging with Eclipse<a href="https://tll.assembla.com/spaces/designcenter/wiki/Developing_C_Applications_in_Baremetal">link</a><br>
+     More detailed debug tutorial.</li>
+<li>Debug connection through gnICE <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?&amp;pageid=316#gdbProxy">link</a></li>
+<li>Alternative debug connection: using kgdb <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=kgdb">kgdb</a></li>
+</ol>
+</li>
+<li>Using DSP-specific libraries <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=dsplibs">dsplibs</a></li>
+<li>Launching bare-c apps through U-Boot <a href="https://tll.assembla.com/spaces/designcenter/wiki/Transferring_Files_and_Launching_Bare_C_Apps">link</a></li>
+<li>Analog Devices introduction to bare-c development <a href="http://docs.blackfin.uclinux.org/doku.php?id=toolchain:bare_metal">link</a></li>
+<li>Stop automatically booting linux <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=u-boot">u-boot</a></li>
+</ol>
+<p>================= Connect with Target Board =================</p>
+<p>        In this Section, we are going to download the executable bin file made by Eclipse down to target.</p>
+<p>        1. Install the minicom</p>
+<p>        2. Install the USB-UART bridge converter driver on Linux</p>
+<p>        3. Install the USB-Ethernet bridge converter driver on Linux, and Configure it.</p>
+<p>        4. Test the Communication functions.</p>
+<p>        5. Test the J-TAG connection if I have interests.</p>
+<p>   1. Install the minicom</p>
+<p>         In the Terminal, input:</p>
+<pre tabindex="0"><code>&gt; sudo apt-get install minicom
+</code></pre><p>    
+2. Install the USB-UART bridge converter driver on Linux</p>
+<p>        Install driver for USB-UART bridge converter on Linux Ubuntu12.04</p>
+<p>        Ubuntu下USB转串口芯片驱动程序安装，支持cp210x,pl2303等</p>
+<p>        Reference: <a href="http://pharos.ece.utexas.edu/wiki/index.php/Fixing_the_cp210x_open_-_Unable_to_enable_UART_Error_-_04/17/2011">Fixing the cp210x open - Unable to enable UART Error</a></p>
+<p>        When you plugin your USB-UART converter, and run &quot;
+<strong>&gt; ls /dev/tty*</strong>
+&ldquo;, if you don&rsquo;t see the<br>
+ /dev/ttyUSB0 (or similar), your Linux does not detect your USB-UART device.</p>
+<p>We need to install the driver for your device.</p>
+<p>Here we use Ubuntu12.04, and Updated the source to 3.2.0 version. If there is difference about<br>
+version Number from your OS platform, please try to modify it into yours.</p>
+<p>1.Download the Linux Source Code</p>
+<p>Open a terminal and execute the following commands. Note that your version of Linux may differ<br>
+slightly &ndash; adjust accordingly.</p>
+<p><strong>$ cd ~</strong></p>
+<p><strong>$ sudo apt-get install build-essential linux-source</strong></p>
+<p><strong>$ cp /usr/src/linux-source-3.2.0.tar.bz2 .</strong></p>
+<p><strong>$ bunzip2 linux-source-3.2.0.tar.bz2</strong></p>
+<p><strong>$ tar xf linux-source-3.2.0.tar</strong></p>
+<p><strong>$ cd ~/linux-source-3.2.0</strong></p>
+<p>2.Recompile and Reinstall the cp210x Driver</p>
+<p>From within a terminal, execute:</p>
+<p><strong>$ cd ~/linux-source-3.2.0</strong></p>
+<p><strong>$ make oldconfig</strong></p>
+<p><strong>$ make prepare</strong></p>
+<p><strong>$ make scripts</strong></p>
+<p><strong>$ cp /usr/src/linux-headers-3.2.0-34-generic-pae/Module.symvers .</strong></p>
+<p>Here, I have the &ldquo;3.2.0
+-29&rdquo; version also, I launched the command above, but not the below:</p>
+<p><strong>&ldquo;cp /usr/src/linux-headers-3.2.0-29-generic-pae/Module.symvers .&rdquo;</strong></p>
+<p>Recompile and Reinstall the cp210x Driver</p>
+<p>Here, We can actually install many kinds of USB-UART converter drivers. We take cp210x as the<br>
+ example.</p>
+<p>From within a terminal, execute:</p>
+<p><strong>$ make M=drivers/usb/serial</strong></p>
+<p><strong>$ sudo mv /lib/modules/$(uname -r)/kernel/drivers/usb/serial/cp210x.ko /lib/modules<br>
+  /$(uname -r)/kernel/drivers/usb/serial/cp210x.ko.old</strong></p>
+<p><strong>$ sudo cp drivers/usb/serial/cp210x.ko /lib/modules/$(uname -r)/kernel/drivers/usb<br>
+  /serial/</strong></p>
+<p><strong>$ sudo modprobe -r cp210x</strong></p>
+<p><strong>$ sudo modprobe cp210x</strong></p>
+<p>Reboot Linux system.</p>
+<p>Run Terminal: </p>
+<p><strong>$ ls /dev/tty*</strong></p>
+<p>The we can see the device is detected by Linux Host OS:</p>
+<p><a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s1.sinaimg.cn/orignal/55a4cddcgd12f287c93b0"><img src="http://s1.sinaimg.cn/bmiddle/55a4cddcgd12f287c93b0&amp;690" alt=""></a></p>
+<p>     Reference: <a href="http://pharos.ece.utexas.edu/wiki/index.php/Fixing_the_cp210x_open_-_Unable_to_enable_UART_Error_-_04/17/2011">http://pharos.ece.utexas.edu/wiki/index.php/Fixing_the_cp210x_open_-_Unable_to_enable_UART_Error_-_04/17/2011</a></p>
+<p>    Then, We can configure the minicom to communicate with our target board.</p>
+<p>======================================================</p>
+<p>Here is an example of configure the parameters of minicom for TLL6527M PAL board:</p>
+<p>I just copied it here hardly without any font editing. Sorry about that.</p>
+<h4 id="serial-communications-from-host-pc-to-tll6527m-target-hardware">Serial Communications from Host-PC to TLL6527M Target Hardware<a hidden class="heading-anchor" aria-hidden="true" href="#serial-communications-from-host-pc-to-tll6527m-target-hardware">#</a></h4>
+<p>The TLL System Design Environment (SDE) running on the host PC comes pre-configured with<br>
+ the required settings for serial-UART communications between the host PC and the TLL6527M<br>
+ base module. Generally, for use with TLL6527M the settings need not to be changed<br>
+(Note: From the SDE OS version 0.3.2, the serial terminal program Minicom is set to<br>
+open /dev/ttyUSB0 with the needed configuration as mentioned above.).</p>
+<ul>
+<li>
+<p>To start serial communication from host to the TLL6527M, open the serial communication terminal<br>
+program Minicom. Just open a terminal window on your Linux SDE running on the host PC  and<br>
+type the command &ldquo;minicom&rdquo; at the command prompt on your host PC terminal console.</p>
+</li>
+<li>
+<p>The TLL6527M on power-up  is set by default to the following serial-UART communication settings:</p>
+</li>
+<li>
+<p>Bits per second = 115200</p>
+</li>
+<li>
+<p>Data bits = 8</p>
+</li>
+<li>
+<p>Parity = None</p>
+</li>
+<li>
+<p>Stop Bits = 1</p>
+</li>
+<li>
+<p>Flow control = None</p>
+</li>
+<li>
+<p>Make sure that the TLL6527M&rsquo;s USB-UART port has been mapped to a ttyUSBx device node in the /dev<br>
+folder on the host PC SDE. See following example:</p>
+</li>
+</ul>
+<p><img src="http://www.assembla.com//spaces/designcenter/documents/aJOoa-yr8r4yA7acwqjQWU/download/dc9HNAyq4r4zGxacwqjQXA" alt=""></p>
+<ul>
+<li>Now make sure that this &ldquo;ttyUSBx&rdquo; is set as the destination port, baud rate is 115200,<br>
+ and 8N1 mode for minicom, by running the command &lsquo;minicom -s&rsquo;. Note that running the<br>
+&ldquo;minicom -s&rdquo; command as a normal user will only apply the settings for the current<br>
+session. In order to make the settings permanent, these commands need to be run with<br>
+root privileges.See example below:</li>
+</ul>
+<p><img src="http://www.assembla.com//spaces/designcenter/documents/d3oKJCyr4r4BpAacwqjQXA/download/dc9HNAyq4r4zGxacwqjQXA" alt=""></p>
+<ul>
+<li>The following window will appear on your host PC terminal window:</li>
+</ul>
+<p><img src="http://www.assembla.com//spaces/designcenter/documents/b9mNFEyr8r4y9AacwqjQYw/download/dc9HNAyq4r4zGxacwqjQXA" alt=""></p>
+<ul>
+<li>Go to ‘Serial port setup’, following screen will appear, make sure that serial device is set to ‘/dev/ttyUSB0’<br>
+and bps/par/bits is set to 115200 8N1:</li>
+</ul>
+<p><img src="http://www.assembla.com//spaces/designcenter/documents/cKH9d0yr8r4BpAacwqjQXA/download/dc9HNAyq4r4zGxacwqjQXA" alt=""> </p>
+<ul>
+<li>Now go back to the main menu and choose ‘save setup as dfl’. This will save the configuration settings and from next time<br>
+onwards user can directly run ‘minicom’ command without the option ‘–s’ and it will load settings from the saved file.</li>
+</ul>
+<p><img src="http://www.assembla.com//spaces/designcenter/documents/dSlBjCyr8r4yA7acwqjQWU/download/dc9HNAyq4r4zGxacwqjQXA" alt=""></p>
+<ul>
+<li>
+<p>RESET the target by using the SDE&rsquo;s TLL6527M reset utility or by pressing the RESET button on the target.</p>
+</li>
+<li>
+<p>Following messages will be displayed on the terminal. By default, U-Boot is setup to<br>
+automatically start booting the OS after waiting for a few seconds for the user to<br>
+interrupt the automatic launch by pressing any key. So to stop U-Boot from loading<br>
+uClinux and provide U-Boot command prompt, just hit any key. (This is assuming TLL6527M<br>
+is flashed with u-boot and uClinux. TLL6527Ms are pre-flashed with firmware before shipping).</p>
+</li>
+</ul>
+<p>         Go to the website of your converter applier, for me: 
+<a href="http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx">Here</a>
+, Download </p>
+<p>         I halted here. :( But I never give up, solved it next:)</p>
+<p>          Here is another simpler way to install the driver: </p>
+<p> <a href="http://blog.sina.com.cn/s/blog_55a4cddc0101afs8.html">http://blog.sina.com.cn/s/blog_55a4cddc0101afs8.html</a></p>
+<p>    3. Minicom configuration:</p>
+<p>     See: 
+<a href="http://blog.sina.com.cn/s/blog_55a4cddc0101afs8.html">http://blog.sina.com.cn/s/blog_55a4cddc0101afs8.html</a></p>
+<p>   
+To here, we can use Eclipse to develop our own Blackfin-uClinux app and send it down to our target</p>
+<p>      board (TLL6527M PAL Board), But there is still no our desired ToolChain 
+out of a list from within the New Project Wizard dialog</p>
+<p>     
+ </p>
+<h1 id="blackfin-linux-fdpic-gnu-toolchainbfin-linux-uclibc">=========== 
+Add the 
+Blackfin Linux FDPIC GNU Toolchain(bfin-linux-uclibc) </h1>
+<p>       
+ 
+Then I installed the Blackfin Plug-ins again for Juno</p>
+<p>       
+ 
+Reference : 
+<a href="http://docs.blackfin.uclinux.org/doku.php?id=toolchain:eclipse:install">Installing Eclipse 4.2 (Juno)</a></p>
+<p>       
+ 
+There contains:</p>
+<p>                `. A Java Runtime Environment (JRE) version 1.6 or newer</p>
+<p>                `. Eclipse IDDE (version 4.2 recommended)</p>
+<p>                `. C/C++ Development Tools (CDT)</p>
+<p>                `. Blackfin toolchain</p>
+<p>                `. Blackfin Plug-ins</p>
+<p>       
+ Here we only installed the Plug-ins:</p>
+<p>       
+ 
+The Blackfin plug-ins will require Eclipse 4.2, as well as the CDT. </p>
+<p>       
+ 
+Additionally, you will have to install the GDB Hardware Debugging </p>
+<p>       
+ 
+CDT plug-in (it is usually not installed by default). To install </p>
+<p>       
+ 
+the GDB Hardware Debugging plug-in the CDT update site needs enabled.</p>
+<p>       
+ &mdash;&mdash;&ndash;</p>
+<p> 
+       
+To enable the CDT site:</p>
+<p>       
+ </p>
+<ol>
+<li>Select the Eclipse menu Window→Preferences.</li>
+</ol>
+<p>       
+ 
+2. Select Install/Update→Available Software Sites and select the site, </p>
+<p>       
+ 
+3. <a href="http://download.eclipse.org/tools/cdt/releases/juno">http://download.eclipse.org/tools/cdt/releases/juno</a>.</p>
+<p>       
+ 
+4. Use the Enable button to enable the site.</p>
+<h2 id="heading">       
+ </h2>
+<p>       
+ 
+Install the GDB Hardware Debugging plug-in via the Update Manager:</p>
+<p>       
+ </p>
+<ol>
+<li>Select the Eclipse menu Help→Install New Software</li>
+</ol>
+<p>       
+ 
+2. Select the <a href="http://download.eclipse.org/tools/cdt/releases/indigo">http://download.eclipse.org/tools/cdt/releases/indigo</a> site in the Work With list</p>
+<p>       
+ 
+3. Enable the GDB Hardware Debugging plugin under CDT Optional Features</p>
+<h2 id="heading-1">       
+ </h2>
+<p>       
+ 
+The Blackfin plug-ins can be obtained from the </p>
+<p>       
+ 
+<a href="http://blackfin.uclinux.org/eclipse/">http://blackfin.uclinux.org/eclipse/</a>    
+site via the Update Manager:</p>
+<p>       
+ </p>
+<ol>
+<li>Select Help→Install New Software from the Eclipse menu</li>
+</ol>
+<p>       
+ 
+2. Click the Add button</p>
+<p>       
+ 
+3. Add <a href="http://blackfin.uclinux.org/eclipse/">http://blackfin.uclinux.org/eclipse/</a> as a new site &ldquo;Blackfin GNU&rdquo;</p>
+<h2 id="heading-2">       
+ </h2>
+<p>       
+ 
+Then you can select the plug-ins to install:</p>
+<p>       
+ 
+The <strong>Blackfin Debug plug-in</strong> results in extra selectable entries in the
+ “Debug Configuration” dialog, </p>
+<p>       
+ T
+he <strong>Tool chain plug-in</strong> allows 
+for selecting the desired tool chain out of a list from within the </p>
+<p>       
+ 
+New Project Wizard dialog.</p>
+<p>       
+ </p>
+<p>       
+ 
+As the dialoge box said, restart Eclipse.</p>
+<p>       
+ &mdash;&mdash;&mdash;</p>
+<p>       
+ 
+Then when we creat a C Project, &ldquo;Project type&rdquo;:Empty Project, in the &ldquo;ToolChains&rdquo; box, </p>
+<p>       
+ 
+there appears:&ldquo;Blackfin Linux FDPIC GNU Toolchain(bfin-linux-uclibc)&rdquo;</p>
+<p>       
+ 
+See the Snap pic below:</p>
+<p>        
+<a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s5.sinaimg.cn/orignal/55a4cddcgd1396bb87584"><img src="http://s5.sinaimg.cn/bmiddle/55a4cddcgd1396bb87584&amp;690" alt=""></a></p>
+<p>======================================</p>
+<p>=========== Ethernet Connection ==========</p>
+<p>        Here, I&rsquo;m going to configure the Ethernet manually.</p>
+<p>        I tried to run palTelnet.sh, but failed by some errors.:</p>
+<hr>
+<p>./palTelnet.sh: 44: read: arg count</p>
+<p>WARNING: TRENDnet TU2-ET100 not found.</p>
+<p>  1) Validate USB connection from TU2-ET100 to host.</p>
+<p>  2) Validate TU2-ET100 is connected to virtual machine instead of host).</p>
+<p>     check: Virtual Machine -&gt; Removable Devices -&gt; asix ax88772</p>
+<p>Press <ENTER> to continue, <CTRL>-C to stop</p>
+<p>./palTelnet.sh: 44: read: arg count</p>
+<hr>
+<p>        It says the TRENDnet TU2-ET100, I thought it was because of the driver</p>
+<p>        of TU2-ET100 was not configured.</p>
+<p>        (The gray part does not work, you can just skip it)</p>
+<p>        
+Download the driver from:</p>
+<p>        <a href="http://www.trendnet.com/downloads/list">http://www.trendnet.com/downloads/list</a>_subcategory.asp?SUBTYPE_ID=1003</p>
+<p>        Extract it into:</p>
+<p>        /home/sonictl/Downloads/LINUX2.6.9_REV122/AX88772_772A_LINUX2.6.9_REV122/</p>
+<p>open readme, it says:&ldquo;This driver is only for Kernel 2.6.9 to 2.6.13&rdquo;</p>
+<p>It seems like I need to download the Kernel2.6.9. get it </p>
+<p>        from:get &ldquo;linux-2.6.9.tar.bz2&rdquo; from: <a href="https://www.kernel.org/pub/linux/kernel/v2.6/">www.kernel.org/pub/linux/kernel/v2.6/</a></p>
+<p>        Open a terminal and execute the following commands.</p>
+<p>        </p>
+<p>        &gt; $ cd ~</p>
+<p>        &gt; $ sudo mv ~/Downloads/linux-2.6.9.tar.bz2 /usr/src/</p>
+<p>        &gt; $ cp /usr/src/linux-2.6.9.tar.bz2 .</p>
+<p>        &gt; $ bunzip2 linux-2.6.9.tar.bz2</p>
+<p>        &gt; $ tar xf linux-2.6.9.tar </p>
+<p>        &gt; $ cd ~/linux-2.6.9</p>
+<p>        </p>
+<p>        Recompile and Reinstall the cp210x Driver,From within a terminal, execute:</p>
+<p>        &gt; $ cd ~/linux-2.6.9</p>
+<p>        &gt; $ make oldconfig</p>
+<p>I pressed all Return Key.</p>
+<p>        &gt; $ make prepare</p>
+<p>        &gt; $ make scripts</p>
+<p>        &gt; $ cp /usr/src/linux-headers-3.2.0-34-generic-pae/Module.symvers .</p>
+<p>        </p>
+<p>To here I get halted. I searched online for a while, and Did the following:</p>
+<p>========================================================</p>
+<p>        Retry Install the ASIX AX88772 Driver for Linux</p>
+<p>        </p>
+<p>       
+ 
+Download the driver for Kernel 3.x （my kernel is 3.2.0, you can update your kernel by </p>
+<p>              &gt; 
+sudo apt-get install build-essential linux-source
+    )</p>
+<p> 
+       
+ unzip the Package_YouDownloaded.zip</p>
+<p> 
+        
+go into the folder, and open the readme file in gedit</p>
+<p><a href="http://blog.photo.sina.com.cn/showpic.html#url=http://s15.sinaimg.cn/orignal/55a4cddcgd140587f2ede"><img src="http://s15.sinaimg.cn/mw690/55a4cddcgd140587f2ede&amp;690" alt=""></a></p>
+<pre tabindex="0"><code>     
+     
+      
+      $ sudo su
+     
+     # make
+</code></pre><p>        
+If the compilation is well, the <strong>asix.ko</strong> will be created under the current</p>
+<p>        directory.</p>
+<p>        
+If you want to use modprobe command to mount the driver, executing the</p>
+<p>    following command to install the driver into your Linux:</p>
+<pre tabindex="0"><code># [root@localhost template]# make install
+</code></pre><p>        </p>
+<p>     &mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+<p>     Usage:</p>
+<p>     &mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+<p>     
+1. If you want to load the driver manually, go to the driver directory and</p>
+<p>   
+     
+execute the following commands: ( 
+this does not work, skip 
+)</p>
+<p>[root@localhost template]# insmod asix.ko</p>
+<p>     
+2. If you had installed the driver during driver compilation, then you can use</p>
+<p>   
+     
+the following command to load the driver automatically. (
+I used this one
+)</p>
+<p>[root@localhost anywhere]# modprobe asix</p>
+<p>     
+If you want to unload the driver, just executing the following command:</p>
+<p>[root@localhost anywhere]# rmmod asix</p>
+<h2 id="heading-3">     <a hidden class="heading-anchor" aria-hidden="true" href="#heading-3">#</a></h2>
+<p>         Test if the driver is loaded:</p>
+<p>         But How?</p>
+<p>==================================</p>
+<p> 
+      So, I began to configure the Host Manually.</p>
+<p>        First, check the USB devices connected on Ubuntu Linux:</p>
+<p>         &gt; lsusb</p>
+<p>        we get:</p>
+<hr>
+<p>        $ lsusb</p>
+<p>        Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub</p>
+<p>        Bus 001 Device 002: ID 80ee:0021 VirtualBox USB Tablet</p>
+<p>        Bus 001 Device 006: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composite Device</p>
+<p>        Bus 001 Device 007: ID 0b95:7720 ASIX Electronics Corp. AX88772</p>
+<h3 id="manually-setting-ip-address">Manually Setting IP Address<a hidden class="heading-anchor" aria-hidden="true" href="#manually-setting-ip-address">#</a></h3>
+<p>This section shows what happens inside the script described in section 2 and allow you to follow the</p>
+<p>setup 
+manually.</p>
+<ol>
+<li>Identify the Ethernet Interface Name inside the Virtual Machine</li>
+</ol>
+<p>Each time the Ethernet adapter is connected a different name may be associated with it. To list</p>
+<p>the currently known Ethernet interfaces, open a new terminal, and execute</p>
+<pre tabindex="0"><code>&gt; ifconfig
+</code></pre><ul>
+<li>Ifconfig will list two connections. <br>
+     A) Interface with IP address (this is the connection to the internet), Example output:</li>
+</ul>
+<pre tabindex="0"><code>eth0 Link encap:Ethernet HWaddr 00:0C:29:51:9B:E6   
+**inet addr:**192.168.64.138 Bcast:192.168.64.255 Mask:255.255.255.0   
+inet6 addr: fe80::20c:29ff:fe51:9be6/64 Scope:Link   
+UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+</code></pre><p>B) Interface without IP address (connection to PAL)</p>
+<p>The device #: 00:50:B6:xx:xx:xx is your Ethernet Adapter #</p>
+<pre tabindex="0"><code>eth1 Link encap:Ethernet HWaddr 00:50:B6:0A:2A:1A   
+inet6 addr: fe80::20c:29ff:fe51:9be7/64 Scope:Link   
+UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+</code></pre><p>         The PAL interface can be recognized by </p>
+<p> </p>
+<p>             (1) a different second line: the line starting with &ldquo;inet addr&rdquo; is missing (even though the &ldquo;inet6 addr&rdquo;<br>
+                  may be listed)</p>
+<p>             (2) the HWaddr starts with 00:50:B6.</p>
+<ol start="2">
+<li>Set IP address for interface connected to PAL</li>
+</ol>
+<ul>
+<li>Assign IP address by using the following command <br>
+(we assume <strong>eth1</strong> is the Ethernet connection without specified IP address)</li>
+</ul>
+<pre tabindex="0"><code>&gt; sudo ifconfig **eth1** 192.168.40.1
+</code></pre><ul>
+<li>&ldquo;sudo&rdquo; allows executing a command as root (administrator).  For VM pal user, PW:real happy</li>
+</ul>
+<ol start="3">
+<li>Validate that the interface has accepted the IP setting</li>
+</ol>
+<ul>
+<li>Use &ldquo;ifconfig&rdquo; again</li>
+</ul>
+<ol start="4">
+<li>Establish a Telnet connection to the board.</li>
+</ol>
+<ul>
+<li>Each PAL is set by default to the IP 192.168.40.211 (you can use &ldquo;ifconfig&rdquo; through minicom to get it)</li>
+<li>Open a telnet session by</li>
+</ul>
+<pre tabindex="0"><code>&gt; telnet 192.168.40.211
+</code></pre><p>For my target PAL board, Username: root, PW:uClinux</p>
+<p>I Set it succesfully, So the Ethernet connection is configured correctly. That means our driver installation is<br>
+Done!</p>
+<p>=====================  Configure your telnet connection with the target board   ====================</p>
+<p>Sometimes, when our automatically network connection is not stable, i.e. the DHCP can not work proplerly,<br>
+ we need the mannually conifigure the ip for our telnet.</p>
+<p>Manually Configuring Ethernet</p>
+<p>This section describes how to manually configure the Ethernet connection on SDE 5.3.x. This is an<br>
+alternative to running the automated setup script add-trendnet-adapter.py.</p>
+<h4 id="1-connect-tu2-et100-and-make-sure-it-is-connected-to-the-virtual-machine-see-instructionshere">1. Connect TU2-ET100 and make sure it is connected to the Virtual Machine (see instructions <a href="https://nuforge.coe.neu.edu/gf/project/pal/wiki/?pagename=UcLinux+Connection">here</a>)<a hidden class="heading-anchor" aria-hidden="true" href="#1-connect-tu2-et100-and-make-sure-it-is-connected-to-the-virtual-machine-see-instructionshere">#</a></h4>
+<h4 id="2-open-context-menu-to-to-configure-connections-through-networkmanager">2. Open context menu to to configure connections through NetworkManager.<a hidden class="heading-anchor" aria-hidden="true" href="#2-open-context-menu-to-to-configure-connections-through-networkmanager">#</a></h4>
+<ul>
+<li>Click right mouse button on NetworkManager icon</li>
+<li>Select &ldquo;Edit Connections &hellip;&rdquo;</li>
+</ul>
+<p><img src="https://nuforge.coe.neu.edu/fckeditor/editor/filemanager/img.php?file=2623" alt="Open Context Menu on NetworkManager and select &ldquo;Edit Connections&rdquo;"></p>
+<h4 id="3-in-the-dialog-box-network-connections-select-the-wired-connection-that-corresponds-to-your-usb-ethernet-adapter">3. In the dialog box &ldquo;Network Connections&rdquo;, select the Wired Connection that corresponds to your USB Ethernet adapter.<a hidden class="heading-anchor" aria-hidden="true" href="#3-in-the-dialog-box-network-connections-select-the-wired-connection-that-corresponds-to-your-usb-ethernet-adapter">#</a></h4>
+<ul>
+<li>Note which connection has appeared after plugging in the USB Ethernet adapter. The image below,<br>
+assumes  &ldquo;eth0&rdquo; is the connection for the TU2-ET100.</li>
+<li>Then, select &ldquo;Edit &hellip;&rdquo;</li>
+</ul>
+<p><img src="https://nuforge.coe.neu.edu/fckeditor/editor/filemanager/img.php?file=2624" alt="Select connection for your Ethernet adapter (assumed here eth0)"></p>
+<h4 id="4-validate-that-the-tu2-et100-was-correctly-selected">4. Validate that the TU2-ET100 was correctly selected<a hidden class="heading-anchor" aria-hidden="true" href="#4-validate-that-the-tu2-et100-was-correctly-selected">#</a></h4>
+<ul>
+<li>The Device MAC address should start with 00:50:b6.</li>
+</ul>
+<p><img src="https://nuforge.coe.neu.edu/fckeditor/editor/filemanager/img.php?file=2625" alt="Validate MAC address of Connection"></p>
+<h4 id="5-select-tab-ipv4-settings-and-configure-the-interface">5. Select Tab &ldquo;IPV4 Settings&rdquo;, and configure the interface.<a hidden class="heading-anchor" aria-hidden="true" href="#5-select-tab-ipv4-settings-and-configure-the-interface">#</a></h4>
+<ul>
+<li>Under Method, select &ldquo;Manual&rdquo;</li>
+<li>Select: Add</li>
+<li>Enter the following values into line under Addresses
+<ul>
+<li>Address: 192.168.40.1</li>
+<li>Netmask: 255.255.255.0</li>
+<li>Gateway: 192.168.40.1</li>
+</ul>
+</li>
+<li>Close &ldquo;Editing eth0&rdquo; dialog box by selecting &ldquo;Save&rdquo;
+<ul>
+<li>Save button is grayed out unless valid values are entered for Address.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://nuforge.coe.neu.edu/fckeditor/editor/filemanager/img.php?file=2628" alt=""></p>
+<h4 id="6-close-dialog-box-network-connections">6. Close dialog box Network Connections.<a hidden class="heading-anchor" aria-hidden="true" href="#6-close-dialog-box-network-connections">#</a></h4>
+<p>The Ethernet connection is now configured. The same configuration will be recovered next time</p>
+<p>the same USB Ethernet adapter is connected.</p>
+<p><em><strong>================================================</strong></em></p>
+<p> ===============================================</p>
+<p><strong>If you want to use the library &ldquo;libasound.a/out&rdquo;, <br>
+you may need the &ldquo;libasound2&rdquo; package.</strong></p>
+<p> * For My Nuggets:<br>
+ * I need library &ldquo;TLL6527M_C_API_uClinux_TLL2012R1DevTEST&rdquo; from /prerelease20120823/libary/elfStatic/<br>
+ * I need include /prerelease2012xxxx/inclue/common/<br>
+ *<br>
+ * For Audio:<br>
+ * I need library  &ldquo;asound&rdquo; from /opt/ALSA_LIB<br>
+ * I need include &hellip;/prerelease2012xxxx/inclue/audio/<br>
+ * I need include  /opt/ALSA_INCLUDE/alsa/sound</p>
+<p>    I found there is no /opt/ALSA_LIB folder in my Ubuntu12.04 system disk.</p>
+<p>the brown text below is my failed configuration note, just skip it ;)<br>
+&mdash;-so, go to Ubuntu website and download the alsa package:</p>
+<p><a href="https://launchpad.net/ubuntu/precise/+source/alsa-lib/1.0.25-1ubuntu10">https://launchpad.net/ubuntu/precise/+source/alsa-lib/1.0.25-1ubuntu10</a></p>
+<p>Download the alsa-lib_1.0.25.orig.tar.bz2, extract it into Download folder.<br>
+run the command in Terminal:<br>
+    $ cd ~/Download/alsa-lib-1.0.25<br>
+    $ sudo ./configure<br>
+    $ sudo make<br>
+    $ sudo make install</p>
+<h2 id="there-are-some-errors-existed">There are some errors existed.<a hidden class="heading-anchor" aria-hidden="true" href="#there-are-some-errors-existed">#</a></h2>
+<p>    I searched the library &ldquo;asound&rdquo;, and I find it is in the &ldquo;libasound2&rdquo; package.<br>
+&mdash;-Install &ldquo;libasound2&rdquo; package: &mdash;-<br>
+    Download the file &ldquo;libasound2_1.0.22-0ubuntu7_i386.deb&rdquo; package from:<br>
+    <a href="http://packages.ubuntu.com/lucid/libasound2">http://packages.ubuntu.com/lucid/libasound2</a></p>
+<p>    Install the .deb package:<br>
+    &gt; $ sudo dpkg -i libasound2_1.0.22-0ubuntu7_i386.deb</p>
+<p>    An error happend:Package libpython2.6 is not installed. <br>
+    It depends on libpython2.6.</p>
+<p>&mdash;-Install the &ldquo;libpython2.6&rdquo; package: &mdash;-<br>
+    Download the package at:http://packages.ubuntu.com/zh-cn/lucid/libpython2.6</p>
+<p>    Install it:<br>
+    &gt; $ sudo dpkg -i libpython2.6_2.6.5-1ubuntu6.1_i386.deb</p>
+<p>    but:<br>
+    libpython2.6 depends on python2.6</p>
+<p>    libpython2.6 depends on libssl0.9.8</p>
+<p>&mdash;-Install the &ldquo;python2.6&rdquo; and &ldquo;libssl0.9.8&rdquo; <br>
+    &mdash;-Install Python 2.6 in Ubuntu 12.04:<br>
+        Ref:http://www.ubuntututorials.com/install-python-2-6-ubuntu-12-04/<br>
+        Ubuntu 12.04 includes Python 2.7.3 and  Python 2.6 is no longer available for install.If you need </p>
+<p>to run  legacy software which only support Python 2.6.Below steps will show you how to install Python 2.6 </p>
+<p>from PPA,alternatively you also can build it yourself.</p>
+<p>        sudo add-apt-repository ppa:fkrull/deadsnakes<br>
+        sudo apt-get update<br>
+        sudo apt-get install python2.6 python2.6-dev</p>
+<p>        some error happens, about dependency.</p>
+<p>    &mdash;-Install libssl0.9.8 &mdash;-<br>
+        Download it from:https://launchpad.net/ubuntu/precise/i386/libssl0.9.8/0.9.8o-7ubuntu3.1<br>
+        Install it by dpkg -i libssl&hellip;deb</p>
+<p>        It seems like succeeded.</p>
+<p>    &mdash;-Install Python 2.6 again&mdash;-<br>
+        sudo add-apt-repository ppa:fkrull/deadsnakes<br>
+        sudo apt-get update<br>
+        sudo apt-get install python2.6 python2.6-dev</p>
+<p>        I got:&ldquo;E: Unmet dependencies.&rdquo;</p>
+<p>    &mdash;-Install libpython2.6 :<br>
+        &gt; sudo dpkg -i libpython2.6_2.6.5-1ubuntu6.1_i386.deb <br>
+        it still need for python 2.6</p>
+<p>    &mdash;-Install Python2.6:<br>
+        1. Download &ldquo;Python-2.6.tar.bz2&rdquo; from:<br>
+           http://www.python.org/ftp/python/2.6/Python-2.6.tar.bz2<br>
+        2. Extract it<br>
+           $ tar jxvf Python-2.6.tar.bz2<br>
+ <br>
+        3. $ cd Python-2.6<br>
+           $ sudo ./configure<br>
+           $ sudo make<br>
+  $ sudo make install</p>
+<p>    &mdash;-Install libpython2.6 :<br>
+        &gt; cd ~/Downloads<br>
+        &gt; sudo dpkg -i libpython2.6_2.6.5-1ubuntu6.1_i386.deb<br>
+        Error: libpython2.6 depends on python2.6 (= 2.6.5-1ubuntu6.1); <br>
+        however: Version of python2.6 on system is 2.6.8-2+precise1.</p>
+<p>    &mdash;-Install python2.6.5-1ubuntu6.1<br>
+        Download it from:<br>
+        <a href="https://launchpad.net/ubuntu/+archive/primary/+files/python2.6">https://launchpad.net/ubuntu/+archive/primary/+files/python2.6</a>_2.6.5.orig.tar.gz</p>
+<p>        Extract: $ tar zxvf python2.6_2.6.5.orig.tar.gz<br>
+        &gt; $ cd ~/Downloads/python2.6-2.6.5<br>
+        &gt; $ ./configure<br>
+        &gt; $ sudo make<br>
+        &gt; $ sudo make install<br>
+        <br>
+    &mdash;-Install libpython2.6 :<br>
+        &gt; cd ~/Downloads<br>
+        &gt; sudo dpkg -i libpython2.6_2.6.5-1ubuntu6.1_i386.deb<br>
+        <br>
+        Error: libpython2.6 depends on python2.6 (= 2.6.5-1ubuntu6.1); <br>
+        however: Version of python2.6 on system is 2.6.8-2+precise1.</p>
+<p>    &mdash;-Install libpython2.6_2.6.8-2+precise1_i386.deb  <br>
+        Download it from:<br>
+        <a href="https://launchpad.net/~fkrull/+archive/deadsnakes/+build/3802469/+files/libpython2.6">https://launchpad.net/~fkrull/+archive/deadsnakes/+build/3802469/+files/libpython2.6</a>_2.6.8-</p>
+<p>2%2Bprecise1_i386.deb</p>
+<p>        Install it:<br>
+        $ sudo dpkg -i libpython2.6_2.6.8-2+precise1_i386.deb<br>
+        <br>
+It seems like succeeded.</p>
+<p>    &mdash;-Install &ldquo;libasound2&rdquo; package again:</p>
+<p>        Install the &ldquo;libasound2&rdquo; package:<br>
+        &gt; $ sudo dpkg -i libasound2_1.0.22-0ubuntu7_i386.deb<br>
+    <br>
+        It seems like succeeded.</p>
+<p>&mdash;-Check the /opt/ALSA_LIB and /opt/ALSA_INCLUDE<br>
+        No! :(</p>
+<p>    There is no folder about alsa in /opt, but check if my uClinux programe compiling can be correct. add </p>
+<p>the &ldquo;asound&rdquo; library directly as -lasound, but no assigning the path of it because I have installed the </p>
+<p>libasound2 package above.</p>
+<p>    Go back to Eclipse, and configure the library: <br>
+        asound<br>
+        &ldquo;TLL6527M_C_API_uClinux_TLL2012R1DevTEST&rdquo; from /prerelease20120823/libary/elfStatic/</p>
+<p>                            configure the include: <br>
+        prerelease../include/audio<br>
+        prerelease../include/common<br>
+        usr/include/alsa/sound</p>
+<p>    When compiling in Eclipse, Get the error: cannot find the lib: -lasound </p>
+<p> <br>
+&mdash;-Install the libasound2-dev<br>
+    &gt; $ sudo apt-get install libasound2-dev<br>
+    Get error:<br>
+    E: Unmet dependencies. Try &lsquo;apt-get -f install&rsquo; with no packages (or specify a solution).<br>
+    <br>
+    <br>
+&mdash;-Install the alsa-lib-1.0.13:<br>
+    Go to the webpage:<br>
+    <a href="http://www.linuxfromscratch.org/blfs/view/6.3/multimedia/alsa-lib.html">http://www.linuxfromscratch.org/blfs/view/6.3/multimedia/alsa-lib.html</a><br>
+    Download the .tar.bz2 package:<br>
+    <a href="http://gd.tuwien.ac.at/opsys/linux/alsa/lib/alsa-lib-1.0.13.tar.bz2">http://gd.tuwien.ac.at/opsys/linux/alsa/lib/alsa-lib-1.0.13.tar.bz2</a><br>
+    Extract it:<br>
+    &gt; $ tar jxvf alsa-lib-1.0.13.tar.bz2<br>
+    &gt; $ cd ~/Downloads/alsa-lib-1.0.13/<br>
+    <br>
+    Install the library:<br>
+    &gt; $ ./configure &ndash;enable-static &amp;&amp; make<br>
+    &gt; $ sudo make install</p>
+<p>    </p>
+<p>    It seems that installing the alsa-lib-1.0.13 succeeded, <br>
+    the library file &ldquo;libasound.a/out&rdquo; at:  /usr/lib<br>
+    I just included in Eclipse the header files at:  /usr/include/alsa/sound</p>
+<p>    But the Eclipse still report error:<br>
+        DescriptionResourcePathLocationType<br>
+        skipping incompatible /usr/lib/libasound.so when searching for -lasoundaudio_example</p>
+<p>C/C++ Problem<br>
+        skipping incompatible /usr/lib/libasound.a when searching for -lasoundaudio_example</p>
+<p>C/C++ Problem<br>
+        cannot find -lasoundaudio_exampleC/C++ Problem<br>
+        make: *** [audio_example] Error 1audio_exampleC/C++ Problem</p>
+<p>&mdash;-Copy the /opt/ALSA_INCLUDE/alsa/sound &amp; /opt/ALSA_LIB from the Fedora Host System that released by The </p>
+<p>Learning Labs company. Put them into my U-disk.</p>
+<p>    Now plug in the u-disk, and we need to mount the devices. </p>
+<p>    Run the command to see which devices do you have: <br>
+    &gt; $ sudo fdisk -l /dev/sda<br>
+    And I got:<br>
+Disk /dev/sda: 8589 MB, 8589934592 bytes<br>
+255 heads, 63 sectors/track, 1044 cylinders, total 16777216 sectors<br>
+Units = sectors of 1 * 512 = 512 bytes<br>
+Sector size (logical/physical): 512 bytes / 512 bytes<br>
+I/O size (minimum/optimal): 512 bytes / 512 bytes<br>
+Disk identifier: 0x00029a1e</p>
+<p>   Device Boot      Start         End      Blocks   Id  System<br>
+/dev/sda1   *        2048    14680063     7339008   83  Linux<br>
+/dev/sda2        14682110    16775167     1046529    5  Extended<br>
+/dev/sda5        14682112    16775167     1046528   82  Linux swap / Solaris</p>
+<p>    There should be a FAT32 System disk, but there is no.</p>
+<p>    If you only plugged in one U-disk, and your disk is not scsi interface, its hardware name is: sda1</p>
+<p>    Build an usb folder at your mnt: $ sudo mkdir /mnt/usb</p>
+<p>    Mount your u-disk:  $ mount -t vfat /dev/sda1  /mnt/usb</p>
+<p>    I copied it to the /opt folder from my ~/Downloads which is containing the /ALSA_INCLUDE and /ALSA_LIB </p>
+<p>which is copied from U-disk:<br>
+    ~/Downloads/opt&gt; $ sudo cp -r ALSA_INCLUDE /opt/<br>
+    ~/Downloads/opt&gt; $ sudo cp -r ALSA_LIB /opt/</p>
+<p>    Now we have the libraries and head files needed for audio programming.<br>
+    Test in Eclipse: I don&rsquo;t have the permission to access the foler I copied just now.<br>
+    [Here, you can try command: &ldquo;sudo chmod 777 foldername&rdquo;]<br>
+    [Ref:http://superuser.com/questions/208606/how-to-change-file-permissions-for-a-directory-in-one-</p>
+<p>command]</p>
+<p>    &mdash;-Log out linux and log in as the root user:<br>
+    Ref:http://linuxathena.com/tutorials/login-root-account-gui-ubuntu-12-04/<br>
+    Open Terminal, input: sudo passwd<br>
+    update the UNIX password: xxx<br>
+    <br>
+    By default, Ubuntu doesn&rsquo;t allow root log on the graphic interface.<br>
+    Modify the &ldquo;/etc/gdm/gdm.conf&rdquo; file to allow root log on.<br>
+    In this file, modify the &ldquo;AllowRoot = false&rdquo; into &ldquo;AllowRoot = true&rdquo;.</p>
+<p>    Ubuntu 12.04下允许Root用户直接登录图形界面:<br>
+    Ref:http://askubuntu.com/questions/126286/unable-to-login-as-root-from-the-login-screen-even-though-</p>
+<p>i-have-a-root-account<br>
+    Now, I&rsquo;m using Ubuntu 12.04, I have to enable it in /etc/lightdm/lightdm.conf<br>
+    Enter the sudo mode:<br>
+    &gt; $ su root<br>
+    Change the file permission of &ldquo;lightdm.conf&rdquo;<br>
+    &gt; # chmod 777 /etc/lightdm/lightdm.conf</p>
+<p>    &gt; # vi lightdm.conf</p>
+<p>    Add the following line:<br>
+    greeter-show-manual-login = true<br>
+    Save and exit: &ldquo;:wq&rdquo;<br>
+    Reboot the system.  Select the user, input &ldquo;root&rdquo; and password.</p>
+<p>    Change the permission of /opt/alsa* folders.<br>
+    Logout and login as former user.<br>
+    <br>
+    Test the access to the /opt/alsa* folders in Eclipse.<br>
+    There are 5 new errors occured.<br>
+    DescriptionResourcePathLocationType<br>
+undefined reference to <code>\_dlsym'audio\_exampleline 121, external location: /home/Lavanya/2011R1\_Release/blackfin-linux-dist\_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/dlmisc.cC/C++ Problem       undefined reference to </code>_dlclose&rsquo;audio_exampleline 91, external location: /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/dlmisc.cC/C++ Problem<br>
+    undefined reference to <code>\_dlsym'audio\_exampleline 167, external location: /home/Lavanya/2011R1\_Release/blackfin-linux-dist\_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/dlmisc.cC/C++ Problem       make: \*\*\* [audio\_example] Error 1audio\_exampleC/C++ Problem   undefined reference to </code>_dlopen&rsquo;audio_exampleline 70, external location: /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/dlmisc.cC/C++ Problem</p>
+<h2 id="and-i-received-the-notes-form-the-tll-board-provider">    And I received the notes form the TLL board provider:<a hidden class="heading-anchor" aria-hidden="true" href="#and-i-received-the-notes-form-the-tll-board-provider">#</a></h2>
+<p>At this moment we&rsquo;re only supporting our Fedora based TLL SDE as Design / Development host OS for TLL platforms, this enables us to ensure all the tools/settings/dependencies work seamlessly with each other and thus requires us to concentrate efforts on a single platform avoiding a proliferation of different OS flavors. Hence we&rsquo;ve tested the nuggets and build tools ONLY on TLL SDE(Fedora).</p>
+<p>I would guess that ALSA libs would not be OS flavor dependent and might be usable just by coping library binaries and include header files over to your Ubuntu machine. However we&rsquo;ll not be able to support any issues you might face there.</p>
+<p>Why don&rsquo;t you consider building a personal TLL SDE bootable pen drive which you can plug into your own machine while working with TLL platforms and then just reboot your system into your ubuntu when you need to use other things you are using. You can install it on a 4GB (or greater) pen drive.</p>
+<p>Here is a link to SDE installation notes:<br>
+<a href="https://tll.assembla.com/spaces/designcenter/wiki/System">https://tll.assembla.com/spaces/designcenter/wiki/System</a>_Design_Environment#2._installation_of_tll_sde</p>
+<p>Please feel free to let us know any issues you face with this use mode of SDE.</p>
+<p> &mdash;&mdash;&mdash;<br>
+Hello ,</p>
+<p>let me echo his words.</p>
+<p>I would not recommend any use on a custom installation. There are too many variables that can not be sufficiently controlled. As such it is practically infeasible to support such an installation.</p>
+<p>Alternatively, you can install/run the SDE directly as outlined by Ashish, however at a loss of company-specific customizations.<br>
+    <br>
+    &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+<p>至此，我配置好了blackfin的开发环境，但是没法配置适用于TLL所有板载功能的开发环境。因为TLL板自己的开发环境为了使用TLL板，有太多的东西需要配置。我并没有完整的配置文档。或许他们公司经过一次次的修改，才发布的SDE本身已经不知道要配置哪些东西了。</p>
+<p>到此为止吧。。。。。<strong>但是</strong>：</p>
+<p>=============================================================================<br>
+    <br>
+<strong>But when I compile the accelerometer, there is no errors happened. This<br>
+makes me burn a new fire in my mind.</strong></p>
+<p><strong>I began to test the other nuggets except audio.</strong></p>
+<p>=============================================================================</p>
+<p>        OMG!!!<br>
+    I fixed this problem by: add the libarary -ldl into my objects.mk file which is created<br>
+by Eclipse.</p>
+<p>    so:</p>
+<pre tabindex="0"><code>    * For My Nuggets On Ubuntu12.04:
+    * You need library  &#34;TLL6527M_C_API_uClinux_TLL2012R1DevTEST&#34; at /prerelease20120823/libary/elfStatic/
+    * You need include  /prerelease2012xxxx/inclue/common/
+    *
+    * For Audio:
+    * You need library  &#34;dl&#34; (No need to assign its path, system default.)
+    * You need library  &#34;asound&#34; from /opt/ALSA_LIB
+    * You need include  .../prerelease2012xxxx/inclue/audio/
+    * You need include  /opt/ALSA_INCLUDE/alsa/sound
+</code></pre><p>=====================================================</p>
+<p>遇到 Eclipse 编译时出现：<br>
+undefined reference to &lsquo;_dlclose&rsquo;<br>
+undefined reference to &lsquo;_dlopen&rsquo;<br>
+undefined reference to &lsquo;_dlsym&rsquo;<br>
+undefined reference to &lsquo;_dlsym&rsquo;<br>
+我的解决办法：<br>
+    我是修改了.mk 文件，实际上是增加了一个库， dl (dynamic link) <br>
+    在原本描述链接库的地方:</p>
+<pre tabindex="0"><code>LIBS := -lTLL6527M_C_API_uClinux_TLL2012R1DevTEST -lasound
+</code></pre><p>    修改为:&rdquo;</p>
+<pre tabindex="0"><code>LIBS := -lTLL6527M_C_API_uClinux_TLL2012R1DevTEST -lasound -ldl
+</code></pre><p>再重新编译，就没有错误产生了。</p>
+<p>=====================================================    </p>
+<p>    But I met the errors when I launch the app bin file on my target board! :(</p>
+<p>    See the log below:</p>
+<pre tabindex="0"><code>&lt;span style=&#34;font-family:Courier New;&#34;&gt;root:/home&gt; ls
+audio_example  matlab-serial
+root:/home&gt; ./audio_example 
+Switching to default type SSM2603, for stereo capture 
+through Line In, at 16 bits per sample and 48000 Hz 
+sampling rate
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/dlmisc.c:246:(snd1_dlobj_cache_get) symbol _snd_ctl_hw_open is not defined inside [builtin]
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/confmisc.c:674:(snd_determine_driver) could not open control for card 0
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/conf.c:3326:(snd_config_hooks_call) function snd_config_hook_load_for_all_cards returned error: No such device or address
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/dlmisc.c:246:(snd1_dlobj_cache_get) symbol _snd_ctl_hw_open is not defined inside [builtin]
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/confmisc.c:674:(snd_determine_driver) could not open control for card 0
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/conf.c:4184:(_snd_config_evaluate) function snd_func_card_driver returned error: No such device or address
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/conf.c:4184:(_snd_config_evaluate) function snd_func_concat returned error: No such device or address
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/confmisc.c:1251:(snd_func_refer) error evaluating name
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/conf.c:4184:(_snd_config_evaluate) function snd_func_refer returned error: No such device or address
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/conf.c:4663:(snd_config_expand) Evaluate error: No such device or address
+ALSA lib /home/Lavanya/2011R1_Release/blackfin-linux-dist_RC3/lib/alsa-lib/alsa-lib-1.0.24/src/pcm/pcm.c:2212:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.default
+Cannot open device::No such device or address
+Cannot Init
+root:/home&gt;&lt;/span&gt;
+</code></pre><p>    I really do not know how to fix the alsa-lib problem&hellip;.</p>
+<p>================================================</p>
+<p>        参考：
+<a href="http://blog.csdn.net/cp1300/article/category/1209321">【嵌入式Linux开发环境配置】</a></p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2013-01-03 03:26 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share 【技术】Ubuntu上位机配置Blackfin开发环境手记 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130103032617%2f&title=%e3%80%90%e6%8a%80%e6%9c%af%e3%80%91Ubuntu%e4%b8%8a%e4%bd%8d%e6%9c%ba%e9%85%8d%e7%bd%aeBlackfin%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e6%89%8b%e8%ae%b0">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share 【技术】Ubuntu上位机配置Blackfin开发环境手记 on twitter"
+          href="https://twitter.com/intent/tweet/?text=%e3%80%90%e6%8a%80%e6%9c%af%e3%80%91Ubuntu%e4%b8%8a%e4%bd%8d%e6%9c%ba%e9%85%8d%e7%bd%aeBlackfin%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e6%89%8b%e8%ae%b0&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130103032617%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share 【技术】Ubuntu上位机配置Blackfin开发环境手记 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130103032617%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

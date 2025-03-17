@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="
+
+上一节我们完成了 message &amp; srv 文件的创建和加入编译，这次我们要玩简单的Publisher 和 Subscriber
+要玩 Publisher 和 Subscriber， 需要具备的条件有哪些呢？先总结一下：
+
+&nbsp;创建并生成自己的Package，本次是 beginner_tutorials&nbsp;创建并生成ROS message &amp; srv
+详细版的手记要看我上传到百度文库的文件了：http://wenku.baidu.com/view/f872755a26fff705cc170ade
+这里会写个总结~
+
+
+Writing a Simple Publisher and Subscriber (C&#43;&#43;)
+This tutorial covers how to write a publisher and subscriber node in C&#43;&#43;.
+
+
+
+ROS学习笔记10 - 编写编译和检验Service Node
+
+百度文库：http://wenku.baidu.com/view/e14d5e18dd88d0d232d46a37
+
+Writing a Service Node
+Here we&#39;ll create the service (&quot;add_two_ints_server&quot;)node which will receive two ints and return the sum.
+Change directories to your beginner_tutorialspackage you created in your catkin workspace previous tutorials:
+cd ~/catkin_ws/src/beginner_tutorials
+Please make sure you have followed the directions in the previous tutorialfor creating the service needed in this tutorial,creating
+ the AddTwoInts.srv (be sure to choose the rightversion of build tool you&#39;re using at the top of wiki page in the link)." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>ROS学习手记 - 8 编写ROS的Publisher and Subscriber | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20150710065200/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="
+
+上一节我们完成了 message &amp; srv 文件的创建和加入编译，这次我们要玩简单的Publisher 和 Subscriber
+要玩 Publisher 和 Subscriber， 需要具备的条件有哪些呢？先总结一下：
+
+&nbsp;创建并生成自己的Package，本次是 beginner_tutorials&nbsp;创建并生成ROS message &amp; srv
+详细版的手记要看我上传到百度文库的文件了：http://wenku.baidu.com/view/f872755a26fff705cc170ade
+这里会写个总结~
+
+
+Writing a Simple Publisher and Subscriber (C&#43;&#43;)
+This tutorial covers how to write a publisher and subscriber node in C&#43;&#43;.
+
+
+
+ROS学习笔记10 - 编写编译和检验Service Node
+
+百度文库：http://wenku.baidu.com/view/e14d5e18dd88d0d232d46a37
+
+Writing a Service Node
+Here we&#39;ll create the service (&quot;add_two_ints_server&quot;)node which will receive two ints and return the sum.
+Change directories to your beginner_tutorialspackage you created in your catkin workspace previous tutorials:
+cd ~/catkin_ws/src/beginner_tutorials
+Please make sure you have followed the directions in the previous tutorialfor creating the service needed in this tutorial,creating
+ the AddTwoInts.srv (be sure to choose the rightversion of build tool you&#39;re using at the top of wiki page in the link)." />
+  <meta property="og:title" content="ROS学习手记 - 8 编写ROS的Publisher and Subscriber" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20150710065200/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-07-10" />
+    <meta property="article:modified_time" content="2015-07-10" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ROS学习手记 - 8 编写ROS的Publisher and Subscriber | Combine Art and Sciences" />
+  <meta name="twitter:description" content="
+
+上一节我们完成了 message &amp; srv 文件的创建和加入编译，这次我们要玩简单的Publisher 和 Subscriber
+要玩 Publisher 和 Subscriber， 需要具备的条件有哪些呢？先总结一下：
+
+&nbsp;创建并生成自己的Package，本次是 beginner_tutorials&nbsp;创建并生成ROS message &amp; srv
+详细版的手记要看我上传到百度文库的文件了：http://wenku.baidu.com/view/f872755a26fff705cc170ade
+这里会写个总结~
+
+
+Writing a Simple Publisher and Subscriber (C&#43;&#43;)
+This tutorial covers how to write a publisher and subscriber node in C&#43;&#43;.
+
+
+
+ROS学习笔记10 - 编写编译和检验Service Node
+
+百度文库：http://wenku.baidu.com/view/e14d5e18dd88d0d232d46a37
+
+Writing a Service Node
+Here we&#39;ll create the service (&quot;add_two_ints_server&quot;)node which will receive two ints and return the sum.
+Change directories to your beginner_tutorialspackage you created in your catkin workspace previous tutorials:
+cd ~/catkin_ws/src/beginner_tutorials
+Please make sure you have followed the directions in the previous tutorialfor creating the service needed in this tutorial,creating
+ the AddTwoInts.srv (be sure to choose the rightversion of build tool you&#39;re using at the top of wiki page in the link)." />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20150710065200/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20150710065200/">ROS学习手记 - 8 编写ROS的Publisher and Subscriber</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">ROS学习手记 - 8 编写ROS的Publisher and Subscriber</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-07-10T06:52:00&#43;0800 class="date">July 10, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+5 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p><br>
+</p>
+<p>上一节我们完成了 message &amp; srv 文件的创建和加入编译，这次我们要玩简单的Publisher 和 Subscriber</p>
+<p>要玩 Publisher 和 Subscriber， 需要具备的条件有哪些呢？先总结一下：</p>
+<ol>
+<li>&nbsp;创建并生成自己的Package，本次是 beginner_tutorials</li><li>&nbsp;创建并生成ROS message &amp; srv</li></ol>
+<p>详细版的手记要看我上传到百度文库的文件了：http://wenku.baidu.com/view/f872755a26fff705cc170ade<br>
+这里会写个总结~</p>
+<ol>
+<li>
+<h2><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber (C&#43;&#43;)</a></h2>
+<p><span class="anchor" id="line-1-11"></span>This tutorial covers how to write a publisher and subscriber node in C&#43;&#43;.</p>
+</li></ol>
+<p align="center"><br>
+</p>
+<h2 align="center"><strong>ROS学习笔记10 - 编写编译和检验Service Node<br>
+</strong></h2>
+<p><strong>百度文库：http://wenku.baidu.com/view/e14d5e18dd88d0d232d46a37</strong></p>
+<strong></strong>
+<p align="left"><strong>Writing a Service Node</strong></p>
+<p align="left">Here we'll create the service (&quot;add_two_ints_server&quot;)node which will receive two ints and return the sum.</p>
+<p align="left">Change directories to your beginner_tutorialspackage you created in your catkin workspace previous tutorials:</p>
+<p>cd ~/catkin_ws/src/beginner_tutorials</p>
+<p align="left">Please make sure you have followed the directions in the previous tutorialfor creating the service needed in this tutorial,<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv#Creating_a_srv">creating
+ the AddTwoInts.srv</a> (be sure to choose the rightversion of build tool you're using at the top of wiki page in the link).</p>
+<p align="left"><strong>The Code</strong></p>
+<p align="left">Create the src/add_two_ints_server.cpp file within the <span style="color:#1F497D">
+beginner_tutorials</span>package and paste the following inside it: </p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>#include &quot;ros/ros.h&quot;</p>
+<p>#include &quot;beginner_tutorials/AddTwoInts.h&quot;</p>
+<p>&nbsp;</p>
+<p>bool add(beginner_tutorials::AddTwoInts::Request&nbsp; &amp;req,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;beginner_tutorials::AddTwoInts::Response &amp;res)</p>
+<p>{</p>
+<p>&nbsp; res.sum = req.a &#43; req.b;</p>
+<p>&nbsp; ROS_INFO(&quot;request:x=%ld, y=%ld&quot;, (long int)req.a, (long int)req.b);</p>
+<p>&nbsp; ROS_INFO(&quot;sendingback response: [%ld]&quot;, (long int)res.sum);</p>
+<p>&nbsp; return true;</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>int main(int argc, char **argv)</p>
+<p>{</p>
+<p>&nbsp; ros::init(argc, argv, &quot;add_two_ints_server&quot;);</p>
+<p>&nbsp; ros::NodeHandle n;</p>
+<p>&nbsp;</p>
+<p>&nbsp; ros::ServiceServer service = n.advertiseService(&quot;add_two_ints&quot;,add);</p>
+<p>&nbsp; ROS_INFO(&quot;Readyto add two ints.&quot;);</p>
+<p>&nbsp; ros::spin();</p>
+<p>&nbsp;</p>
+<p>&nbsp; return 0;</p>
+<p>}</p>
+</div>
+<p align="left"><strong>The Code Explained</strong></p>
+<p align="left">Now, let's break the code down. </p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>#include &quot;ros/ros.h&quot;</p>
+<p>#include &quot;beginner_tutorials/AddTwoInts.h&quot;</p>
+</div>
+<p align="left">&nbsp;</p>
+<p align="left">beginner_tutorials/AddTwoInts.h is the header file generated fromthe srv file that we created earlier. 位置：~/catkin_ws/include/beginner_tutorials</p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>bool add(beginner_tutorials::AddTwoInts::Request&nbsp;&amp;req,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;beginner_tutorials::AddTwoInts::Response &amp;res)</p>
+</div>
+<p align="left">This function provides the service for adding two ints,it takes in the request and response type defined in the srvfile(AddTwoInts.srv) and returns a boolean.</p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>{</p>
+<p>&nbsp; res.sum = req.a &#43; req.b;</p>
+<p>&nbsp; ROS_INFO(&quot;request:x=%ld, y=%ld&quot;, (long int)req.a, (long int)req.b);</p>
+<p>&nbsp; ROS_INFO(&quot;sendingback response: [%ld]&quot;, (long int)res.sum);</p>
+<p>&nbsp; return true;</p>
+<p>}</p>
+</div>
+<p align="left">Here the two ints are added and stored in theresponse. Then some information about the request and response are logged.Finally the service returns true when it is complete.</p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>ros::ServiceServerservice = n.advertiseService(&quot;add_two_ints&quot;, add);</p>
+</div>
+<p align="left">Here the service is created and advertised over ROS. <br>
+对比一下前一节publisher nodes的创建：</p>
+<div>
+<p><span style="color:gray">&nbsp;ros::Publisher&nbsp;chatter_pub&nbsp;=&nbsp;n.advertise&lt;std_msgs::String&gt;(</span>&quot;chatter&quot;,&nbsp;1000);&nbsp; //topic name “chatter”, bufferSize:1000</p>
+</div>
+<p align="left">对比一下后面client相关声明语句：</p>
+<div>
+<p><span style="color:gray">ros</span><span style="color:gray">::ServiceClient</span><span style="color:gray"> client = n.serviceClient</span>&lt;beginner_tutorials::AddTwoInts&gt;(&quot;add_two_ints&quot;);</p>
+</div>
+<p align="left">This creates a client for the add_two_ints service. The ros::ServiceClient object is used to call the service later on.</p>
+<p align="left"><strong>&nbsp;</strong></p>
+<p align="left"><strong>Writing the Client Node</strong></p>
+<p align="left"><strong>The Code</strong></p>
+<p align="left">Create the src/add_two_ints_client.cpp file within the <span style="color:#1F497D">
+beginner_tutorials</span>package and paste the following inside it: </p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>#include &quot;ros/ros.h&quot;</p>
+<p>#include &quot;beginner_tutorials/AddTwoInts.h&quot;</p>
+<p>#include &lt;cstdlib&gt;</p>
+<p>&nbsp;</p>
+<p>int main(int argc, char **argv)</p>
+<p>{</p>
+<p>&nbsp; ros::init(argc, argv, &quot;add_two_ints_client&quot;);</p>
+<p>&nbsp; if (argc != 3)</p>
+<p>&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; ROS_INFO(&quot;usage:add_two_ints_client X Y&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp; return1;</p>
+<p>&nbsp; }</p>
+<p>&nbsp;</p>
+<p>&nbsp; ros::NodeHandle n;</p>
+<p>&nbsp; ros::ServiceClient client = n.serviceClient&lt;beginner_tutorials::AddTwoInts&gt;(&quot;add_two_ints&quot;);</p>
+<p>&nbsp; beginner_tutorials::AddTwoInts srv;</p>
+<p>&nbsp; srv.request.a= atoll(argv[1]);</p>
+<p>&nbsp; srv.request.b= atoll(argv[2]);</p>
+<p>&nbsp; if (client.call(srv))</p>
+<p>&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; ROS_INFO(&quot;Sum:%ld&quot;, (long int)srv.response.sum);</p>
+<p>&nbsp; }</p>
+<p>&nbsp; else</p>
+<p>&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; ROS_ERROR(&quot;Failedto call service add_two_ints&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp; return1;</p>
+<p>&nbsp; }</p>
+<p>&nbsp;</p>
+<p>&nbsp; return 0;</p>
+<p>}</p>
+</div>
+<p align="left"><strong>The Code Explained</strong></p>
+<p align="left">Now, let's break the code down. </p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>&nbsp; ros::ServiceClient client = n.serviceClient&lt;beginner_tutorials::AddTwoInts&gt;(&quot;add_two_ints&quot;);</p>
+</div>
+<p>This creates a client for the add_two_intsservice. <span style="color:red">The ros</span>::ServiceClient object is used to call the service later on.</p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>&nbsp; beginner_tutorials::AddTwoInts srv;</p>
+<p>&nbsp; srv.request.a= atoll(argv[1]);</p>
+<p>&nbsp; srv.request.b= atoll(argv[2]);</p>
+</div>
+<p align="left">Here we instantiate列举 an autogenerated service class, and assignvalues into its request member.<span style="color:#1F497D">Aservice class contains two members</span>,
+<strong>requestand response</strong>.<span style="color:#1F497D">It alsocontains two class definitions</span>,
+<strong>Requestand Response</strong>. </p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p>&nbsp; if (client.call(srv))</p>
+</div>
+<p align="left">This actually calls the service. Since service calls are blocking, it willreturn once the call is done. If the service call succeeded, call()will return true and the value in srv.response willbe valid. If the call did not succeed, call() willreturn
+ false and the value in srv.response will beinvalid. </p>
+<p align="left"><strong>Building your nodes</strong></p>
+<p align="left">Again edit the beginner_tutorials CMakeLists.txt located at ~/catkin_ws/src/beginner_tutorials/CMakeLists.txt and add the following at the end:</p>
+<p align="left"><a target="_blank" target="_blank" href="https://raw.github.com/ros/catkin_tutorials/master/create_package_srvclient/catkin_ws/src/beginner_tutorials/CMakeLists.txt"><em>https://raw.github.com/ros/catkin_tutorials/master/create_package_srvclient/catkin_ws/src/beginner_tutorials/CMakeLists.txt</em></a></p>
+<p align="left"><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">切换行号显示</a></p>
+<div>
+<p><a target="_blank" target="_blank" name="OLE_LINK2"></a><a target="_blank" target="_blank" name="OLE_LINK1"></a>add_executable(add_two_ints_server src/add_two_ints_server.cpp)</p>
+<p>target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})</p>
+<p>add_dependencies(add_two_ints_server beginner_tutorials_gencpp)</p>
+<p>&nbsp;</p>
+<p>add_executable(add_two_ints_client src/add_two_ints_client.cpp)</p>
+<p>target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})</p>
+<p>add_dependencies(add_two_ints_client beginner_tutorials_gencpp)</p>
+</div>
+<p align="left">This will create two executables, add_two_ints_server and add_two_ints_client, which by default will go intopackage directory of your<a target="_blank" target="_blank" href="http://wiki.ros.org/catkin/workspaces#Development_.28Devel.29_Space">devel
+ space</a>, located by default at ~/catkin_ws/devel/lib/share/&lt;package&nbsp;name&gt;. You can invoke executablesdirectly or you can use rosrun to invoke调用 them. They are not placed in '&lt;prefix&gt;/bin' because that would pollute thePATH when installing your package to
+ the system. If you wish for your executableto be on the PATH at installation time, you can setup an install target, see:<a target="_blank" target="_blank" href="http://wiki.ros.org/catkin/CMakeLists.txt">catkin/CMakeLists.txt</a></p>
+<p align="left">For more detailed discription of the <a target="_blank" target="_blank" href="http://wiki.ros.org/catkin/CMakeLists.txt">
+CMakeLists.txt</a> file see: <a target="_blank" target="_blank" href="http://wiki.ros.org/catkin/CMakeLists.txt">
+catkin/CMakeLists.txt</a> </p>
+<p align="left">Now run catkin_make: </p>
+<p># In your catkin workspace</p>
+<p>cd ~/catkin_ws</p>
+<p>catkin_make</p>
+<p align="left">If your build fails for some reason: </p>
+<ul type="disc">
+<li>make sure you have followed the directions in the previous tutorial: <a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv#Creating_a_srv">
+creating the AddTwoInts.srv</a>. </li></ul>
+<p align="left">Now that you have written a simple service and client, let's <a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/ExaminingServiceClient">
+examine the simple service and client</a>. </p>
+<h2>Examining the Simple Service and Client</h2>
+<h3>Running the Service</h3>
+<p>Let's start by running the service: </p>
+<p>$ rosrunbeginner_tutorials add_two_ints_server&nbsp;&nbsp;&nbsp;&nbsp; (C&#43;&#43;)</p>
+<p>$ rosrunbeginner_tutorials add_two_ints_server.py&nbsp; (Python) </p>
+<p>You should see something similar to: </p>
+<p>Ready to add two ints.</p>
+<h3>Running the Client</h3>
+<p>Now let's run the client with the necessaryarguments: </p>
+<p>$ rosrunbeginner_tutorials add_two_ints_client1 3&nbsp;&nbsp;&nbsp;&nbsp; (C&#43;&#43;)</p>
+<p>$ rosrunbeginner_tutorials add_two_ints_client.py 1 3&nbsp; (Python) </p>
+<p>You should see something similar to: </p>
+<p>Requesting 1&#43;3</p>
+<p>1 &#43; 3 = 4</p>
+<p>Now that you've successfully run your first serverand client, let's learn how to<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data">record and play back data</a>.
+</p>
+<h3>Further examples on Service and Client nodes</h3>
+<p>If you want to investigate further and get ahands-on example, you can get one <a target="_blank" target="_blank" href="https://github.com/fairlight1337/ros_service_examples/">
+here</a>. A simple Client and Servicecombination shows the use of custom message types. The Service node is writtenin C&#43;&#43; while the Client is available in C&#43;&#43;, Python and LISP.</p>
+<br>
+<p></p>
+<p><br>
+</p>
+<p><br>
+</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-07-10 06:52 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 8 编写ROS的Publisher and Subscriber on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150710065200%2f&title=ROS%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%20-%208%20%e7%bc%96%e5%86%99ROS%e7%9a%84Publisher%20and%20Subscriber">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 8 编写ROS的Publisher and Subscriber on twitter"
+          href="https://twitter.com/intent/tweet/?text=ROS%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%20-%208%20%e7%bc%96%e5%86%99ROS%e7%9a%84Publisher%20and%20Subscriber&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150710065200%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share ROS学习手记 - 8 编写ROS的Publisher and Subscriber on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150710065200%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

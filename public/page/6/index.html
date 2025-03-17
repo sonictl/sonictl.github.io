@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210906104646/" title="win10双线网络设置">win10双线网络设置</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="-双线网络设置--">++++++ 双线网络设置  ++++++++</h2>
+<ol>
+<li>
+<h3 id="wlan-设置跃点数1-重要">Wlan 设置跃点数1 [重要]</h3>
+说明：这个使0.0.0.0的路由冲突时，可以优先走wlan</li>
+</ol>
+<h4 id="几个命令">几个命令：</h4>
+<p>查看本机ip等信息： <code>ipconfig </code>
+查看Route信息：<code>route print </code>
+配置route信息：</p>
+<pre tabindex="0"><code class="language-目标IP段" data-lang="目标IP段">route -p add 172.23.0.0  mask 255.255.255.128  172.23.15.129
+</code></pre><hr>
+<p>临时添加（不带-p）：</p>
+<pre tabindex="0"><code class="language-route" data-lang="route">route add 172.16.0.0  mask 255.255.255.128 172.23.15.129
+route add 172.16.0.0  mask 255.255.255.128 172.16.99.86
+</code></pre><p>++++++++++++++++++++++++++++++</p>
+<h2 id="2021年9月6日103147更新">2021年9月6日10:31:47更新：</h2>
+<h3 id="1-首先删除默认路由-0000">1. 首先删除默认路由 0.0.0.0：</h3>
+<p><code> route delete 0.0.0.0</code></p>
+<h3 id="2-添加默认外网路由">2. 添加默认外网路由：</h3>
+<p><del><code>route add -p 0.0.0.0 mask 255.255.255.0 192.168.1.1</code></del>
+说明： 192.168.1.1 (是你的外网网关)
+这里会造成0.0.0.0的路由冲突（机器重启后），还是通过wlan的跃点数来设置！！</p>
+<h3 id="3-添加内网路由">3. 添加内网路由：</h3>
+<p><code>route add -p 10.16.0.0 mask 255.255.128.0 10.16.0.1   </code>
+说明：10.16.0.0 - 内网ip分配到的是 10.16.36.9， 这里取前2段，意思是这个网段内（内网网段）就走内网的网关10.16.36.9 。。。如果你的内网ip是  19.11.1.19， 那么相应的：19.11.0.0</p>
+<pre tabindex="0"><code>此处我的ip是：
+  IPv4 地址 . . . . . . . . . . . . : 10.16.36.9
+  子网掩码  . . . . . . . . . . . . : 255.255.128.0
+  默认网关. . . . . . . . . . . . . : 10.16.0.1
+</code></pre><h1 id="参考">参考：</h1>
+<h1 id="win10-双网卡设置内网和外网同时访问">win10 双网卡设置内网和外网同时访问</h1>
+<p>2019-11-19	 <a href="https://www.shuzhiduo.com/link/bzc1TlowMks1Vw==">原文</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210906104646/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-09-06T10:46:46&#43;0800" class="date">September 06, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210826204201/" title="ESP8266 wifi configuration with AP mode">ESP8266 wifi configuration with AP mode</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>#ESP8266 wifi configuration with AP mode</p>
+<p>Thanks for the github repository: <code>tzapu/WiFiManager</code></p>
+<p>Although we all know that we can use the AP mode to configure the wifi password for ESP8266, it still takes time to implement the specific code line by line. Now, with the help of this project, I just need to share the steps to get this project running on our own ESP8266 chip.</p>
+<p><strong>Note</strong> that the ESP8266 SmartConfig is another covenient way for wifi password broadcasting.</p>
+<h2 id="wifikit8">wifikit8</h2>
+<p><a href="https://heltec.org/product/wifi-kit-8/">https://heltec.org/product/wifi-kit-8/</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210826204201/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-08-26T20:42:01&#43;0800" class="date">August 26, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210826105201/" title="简单的python web服务器（附编码设置）">简单的python web服务器（附编码设置）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3 id="a-basic-web-server-implemented-by-python36">A basic web server implemented by python3.6</h3>
+<p>Note: the <strong>encoding-related configuration</strong> in line:</p>
+<p>​         <code>self.send_header('Content-type','text/html; charset=utf-8')</code></p>
+<p>注意：python web服务器 编码问题</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">http.server</span> <span class="kn">import</span> <span class="n">BaseHTTPRequestHandler</span><span class="p">,</span> <span class="n">HTTPServer</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">handler</span><span class="p">(</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">Page</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="s1">        &lt;html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &lt;meta content=&#34;text/html;charset=utf-8&#34; http-equiv=&#34;Content-Type&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &lt;meta content=&#34;utf-8&#34; http-equiv=&#34;encoding&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &lt;body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &lt;p&gt;Hello, I am great Chinese!&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &lt;/body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &lt;/html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_content.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span><span class="s1">&#39;text/html; charset=utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_csv</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#message = &#39;Hello beijing 北京&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="s2">&#34;utf-8&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#self.wfile.write(self.Page.encode(&#39;utf-8&#39;))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span> <span class="o">=</span> <span class="n">HTTPServer</span><span class="p">((</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">),</span> <span class="n">handler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#server = HTTPServer((&#39;0.0.0.0&#39;, 8080), handler)  # 0.0.0.0 for public accessible</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</span></span></code></pre></div><p>You can access the content by &lsquo;127.0.0.1:8080&rsquo; in browser that running in local machine on which the python web is running on.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210826105201/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-08-26T10:52:01&#43;0800" class="date">August 26, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210714215528/" title="中国计算机学会(CCF)推荐国际学术期刊目录(2019)">中国计算机学会(CCF)推荐国际学术期刊目录(2019)</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>#中国计算机学会(CCF)推荐国际学术期刊目录(2019)</p>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#ccf2019">中国计算机学会(CCF)推荐国际学术期刊目录(2019)</a>
+<ul>
+<li><a href="#">(数据库/数据挖掘/内容检索)</a></li>
+<li><a href="#">（人工智能）</a></li>
+<li><a href="#">（交叉/综合/新兴）</a></li>
+<li><a href="#">（计算机体系结构/并行与分布计算/存储系统）</a></li>
+<li><a href="#">（计算机网络）</a></li>
+<li><a href="#">（网络与信息安全）</a></li>
+<li><a href="#">（软件工程/系统软件/程序设计语言）</a></li>
+<li><a href="#">（计算机科学理论）</a></li>
+<li><a href="#">（计算机图形学与多媒体）</a></li>
+<li><a href="#">（人机交互与普适计算）</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="数据库数据挖掘内容检索">(数据库/数据挖掘/内容检索)</h2>
+<h3 id="一a类">一、A类</h3>
+<p>####### 序号 刊物简称 刊物全称 出版社 网址</p>
+<pre tabindex="0"><code>1 TODS  ACM Transactions on Database Systems                ACM      http://dblp.uni-trier.de/db/journals/tods/
+2 TOIS  ACM Transactions on Information Systems             ACM      http://dblp.uni-trier.de/db/journals/tois/
+3 TKDE  IEEE Transactions on Knowledge and Data Engineering IEEE     http://dblp.uni-trier.de/db/journals/tkde/
+4 VLDBJ The VLDB Journal                                    Springer http://dblp.uni-trier.de/db/journals/vldb/
+</code></pre><h3 id="二b类">二、B类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>
+(^1) TKDD ACM Transactions on Knowledge Discovery from Data ACM http://dblp.uni-trier.de/db/journals/tkdd/
+(^2) TWEB ACM Transactions on the Web ACM http://dblp.uni-trier.de/db/journals/tweb/
+(^3) AEI Advanced Engineering Informatics Elsevier http://dblp.uni-trier.de/db/journals/aei/
+(^4) DKE Data and Knowledge Engineering Elsevier http://dblp.uni-trier.de/db/journals/dke/
+(^5) DMKD Data Mining and Knowledge Discovery Springer http://dblp.uni-trier.de/db/journals/datamine/
+(^6) EJIS European Journal of Information Systems Springer http://dblp.uni-trier.de/db/journals/ejis/
+(^7) GeoInformatica Springer http://dblp.uni-trier.de/db/journals/geoinformatica/
+(^8) IPM Information Processing and Management Elsevier http://dblp.uni-trier.de/db/journals/ipm/
+(^9) Information Sciences Elsevier http://dblp.uni-trier.de/db/journals/isci/
+(^10) IS Information Systems Elsevier http://dblp.uni-trier.de/db/journals/is/
+(^11) JASIST Journal of the American Society for Information Science and Technology, American Society for Information Science and Technology http://dblp.uni-trier.de/db/journals/jasis/
+(^12) JWS Journal of Web Semantics Elsevier http://dblp.uni-trier.de/db/journals/ws/
+(^13) KAIS Knowledge and Information Systems Springer http://dblp.uni-trier.de/db/journals/kais/
+</code></pre><h3 id="三c类">三、C类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-1">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>
+(^1) DPD Distributed and Parallel Databases Springer http://dblp.uni-trier.de/db/journals/dpd/
+(^2) I&amp;M Information and Management Elsevier http://dblp.uni-trier.de/db/journals/iam/
+(^3) IPL Information Processing Letters Elsevier http://dblp.uni-trier.de/db/journals/ipl/
+(^4) IR Information Retrieval Journal Springer http://dblp.uni-trier.de/db/journals/ir/
+(^5) IJCIS International Journal of Cooperative Information Systems World Scientific http://dblp.uni-trier.de/db/journals/ijcis/
+(^6) IJGIS International Journal of Geographical Information Science , Taylor &amp; Francis http://dblp.uni-trier.de/db/journals/gis/
+(^7) IJIS International Journal of Intelligent Systems Wiley http://dblp.uni-trier.de/db/journals/ijis/
+(^8) IJKM International Journal of Knowledge Management IGI http://dblp.uni-trier.de/db/journals/ijkm/
+(^9) IJSWIS International Journal on Semantic Web and Information Systems, IGI http://dblp.uni-trier.de/db/journals/ijswis/
+(^10) JCIS Journal of Computer Information Systems IACIS http://dblp.uni-trier.de/db/journals/jcis/
+(^11) JDM Journal of Database Management IGI-Global http://dblp.uni-trier.de/db/journals/jdm/
+(^12) JGITM Journal of Global Information Technology Management Ivy League Publishing http://www.tandfonline.com/loi/ugit20#.Vnv35pN97rI
+(^13) JIIS Journal of Intelligent Information Systems Springer http://dblp.uni-trier.de/db/journals/jiis/
+(^14) JSIS Journal of Strategic Information Systems Elsevier http://dblp.uni-trier.de/db/journals/jsis/
+</code></pre><h2 id="人工智能">（人工智能）</h2>
+<h3 id="一a类-1">一、A类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-2">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>1 AI Artificial Intelligence Elsevier http://dblp.uni-trier.de/db/journals/ai/
+2 TPAMI IEEE Trans on Pattern Analysis and Machine Intelligence IEEE http://dblp.uni-trier.de/db/journals/pami/
+3 IJCV International Journal of Computer Vision Springer http://dblp.uni-trier.de/db/journals/ijcv/
+4 JMLR Journal of Machine Learning Research MIT Press http://dblp.uni-trier.de/db/journals/jmlr/
+</code></pre><h3 id="二b类-1">二、B类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-3">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>
+(^1) TAP ACM Transactions on Applied Perception ACM http://dblp.uni-trier.de/db/journals/tap/
+(^2) TSLP ACM Transactions on Speech and Language Processing ACM http://dblp.uni-trier.de/db/journals/tslp/
+(^3) AAMAS Autonomous Agents and Multi-Agent Systems Springer http://dblp.uni-trier.de/db/journals/aamas/
+(^4) Computational Linguistics MIT Press http://dblp.uni-trier.de/db/journals/coling/
+(^5) CVIU Computer Vision and Image Understanding Elsevier http://dblp.uni-trier.de/db/journals/cviu/
+(^6) DKE Data and Knowledge Engineering Elsevier http://dblp.uni-trier.de/db/journals/dke/index.html
+(^7) Evolutionary Computation MIT Press http://dblp.uni-trier.de/db/journals/ec/
+(^8) TAC IEEE Transactions on Affective Computing IEEE http://dblp.uni-trier.de/db/journals/taffco/
+(^9) TASLP IEEE Transactions on Audio, Speech, and Language Processing IEEE http://dblp.uni-trier.de/db/journals/taslp/
+(^10) IEEE Transactions on Cybernetics IEEE http://dblp.uni-trier.de/db/journals/tcyb/
+(^11) TEC IEEE Transactions on Evolutionary Computation IEEE http://dblp.uni-trier.de/db/journals/tec/
+(^12) TFS IEEE Transactions on Fuzzy Systems IEEE http://dblp.uni-trier.de/db/journals/tfs/
+(^13) TNNLS IEEE Transactions on Neural Networks and learning systems IEEE http://dblp.uni-trier.de/db/journals/tnn/
+(^14) IJAR International Journal of Approximate Reasoning Elsevier http://dblp.uni-trier.de/db/journals/ijar/
+(^15) JAIR Journal of Artificial Intelligence Research AAAI http://dblp.uni-trier.de/db/journals/jair/index.html
+(^16) Journal of Automated Reasoning Springer http://dblp.uni-trier.de/db/journals/jar/
+(^17) JSLHR Journal of Speech, Language, and Hearing Research American Speech- Language Hearing Association http://jslhr.pubs.asha.org/
+(^18) Machine Learning Springer http://dblp.uni-trier.de/db/journals/ml/
+(^19) Neural Computation MIT Press http://dblp.uni-trier.de/db/journals/neco/
+(^20) Neural Networks Elsevier http://dblp.uni-trier.de/db/journals/nn/
+(^21) PR Pattern Recognition Elsevier http://dblp.uni-trier.de/db/conf/par/
+</code></pre><h3 id="三c类-1">三、C类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-4">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>
+(^1) TALLIP ACM Transactions on Asian and Low-Resource Language Information Processing ACM http://dblp.uni-trier.de/db/journals/talip/
+(^2) Applied Intelligence Springer http://dblp.uni-trier.de/db/journals/apin/
+(^3) AIM Artificial Intelligence in Medicine Elsevier http://dblp.uni-trier.de/db/journals/artmed/
+(^4) Artificial Life MIT Press http://dblp.uni-trier.de/db/journals/alife/
+(^5) Computational Intelligence Wiley http://dblp.uni-trier.de/db/journals/ci/
+(^6) Computer Speech and Language Elsevier http://dblp.uni-trier.de/db/journals/csl/
+(^7) Connection Science Taylor &amp; Francis http://dblp.uni-trier.de/db/journals/connection/
+(^8) DSS Decision Support Systems Elsevier http://dblp.uni-trier.de/db/journals/dss/
+(^9) EAAI Engineering Applications of Artificial Intelligence Elsevier http://dblp.uni-trier.de/db/journals/eaai/
+(^10) Expert Systems Blackwell/Wiley http://dblp.uni-trier.de/db/journals/es/
+(^11) ESWA Expert Systems with Applications Elsevier http://dblp.uni-trier.de/db/journals/eswa/
+(^12) Fuzzy Sets and Systems Elsevier http://dblp.uni-trier.de/db/journals/fss/
+(^13) TG IEEE Transactions on Games IEEE http://dblp.uni-trier.de/db/journals/tciaig/
+(^14) IET-CVI IET Computer Vision IET http://digital-library.theiet.org/content/journals/iet-cvi
+(^15) IET Signal Processing IET * http://digital-library.theiet.org/content/journals/iet-spr
+(^16) IVC Image and Vision Computing Elsevier http://dblp.uni-trier.de/db/journals/ivc/
+(^17) IDA Intelligent Data Analysis IOS Press http://dblp.uni-trier.de/db/journals/ida/
+(^18) IJCIA International Journal of Computational Intelligence and Applications World Scientific^ http://dblp.uni-trier.de/db/journals/ijcia/^
+(^19) IJIS International Journal of Intelligent Systems Wiley http://dblp.uni-trier.de/db/journals/ijis/
+(^20) IJNS International Journal of Neural Systems World Scientific http://dblp.uni-trier.de/db/journals/ijns/
+(^21) IJPRAI International Journal of Pattern Recognition and Artificial Intelligence World Scientific http://dblp.uni-trier.de/db/journals/ijprai/
+(^22) IJUFKS International Journal of Uncertainty, Fuzziness and Knowledge-Based System World Scientific https://dblp.uni-trier.de/db/journals/ijufks/
+(^23) IJDAR International Journal on Document Analysis and Recognition Springer http://dblp.uni-trier.de/db/journals/ijdar/
+(^24) JETAI Journal of Experimental and Theoretical Artificial Intelligence Taylor &amp; Francis http://dblp.uni-trier.de/db/journals/jetai/
+(^25) KBS Knowledge-Based Systems Elsevier http://dblp.uni-trier.de/db/journals/kbs/
+(^26) Machine Translation Springer http://dblp.uni-trier.de/db/journals/mt/
+(^27) Machine Vision and Applications Springer http://dblp.uni-trier.de/db/journals/mva/
+(^28) Natural Computing Springer http://dblp.uni-trier.de/db/journals/nc/
+(^29) NLE Natural Language Engineering Cambridge University Press http://dblp.uni-trier.de/db/journals/nle/
+(^30) NCA Neural Computing &amp; Applications Springer http://dblp.uni-trier.de/db/journals/nca/
+(^31) NPL Neural Processing Letters Springer http://dblp.uni-trier.de/db/journals/npl/
+(^32) Neurocomputing Elsevier http://dblp.uni-trier.de/db/journals/ijon/
+(^33) PAA Pattern Analysis and Applications Springer http://dblp.uni-trier.de/db/journals/paa/
+(^34) PRL Pattern Recognition Letters Elsevier http://dblp.uni-trier.de/db/journals/prl/
+(^35) Soft Computing Springer http://dblp.uni-trier.de/db/journals/soco/
+(^36) WI Web Intelligence IOS Press http://dblp.uni-trier.de/db/journals/wias/
+</code></pre><h2 id="交叉综合新兴">（交叉/综合/新兴）</h2>
+<h3 id="一a类-2">一、A类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-5">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>1 JACM Journal of the ACM ACM http://dblp.uni-trier.de/db/journals/jacm/
+2 Proc. IEEE Proceedings of the IEEE IEEE http://dblp.uni-trier.de/db/journals/pieee/
+</code></pre><h3 id="二b类-2">二、B类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-6">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>
+(^1) Bioinformatics Oxford University Press http://dblp.uni-trier.de/db/journals/bioinformatics/
+(^2) Briefings in Bioinformatics Oxford University Press http://dblp.uni-trier.de/db/journals/bib/
+(^3) Cognition Cognition：International Journal of Cognitive Science Elsevier (^) http://www.journals.elsevier.com/cognition/
+(^4) TASAE IEEE Transactions on Automation Science and Engineering IEEE^ http://dblp.uni-trier.de/db/journals/tase/^
+(^5) TGARS IEEE Transactions on Geoscience and Remote Sensing IEEE http://dblp.uni-trier.de/db/journals/tgrs/
+(^6) TITS IEEE Transactions on Intelligent Transportation Systems IEEE^ http://dblp.uni-trier.de/db/journals/tits/^
+(^7) TMI IEEE Transactions on Medical Imaging IEEE http://dblp.uni-trier.de/db/journals/tmi/
+(^8) TR IEEE Transactions on Robotics IEEE http://dblp.uni-trier.de/db/journals/trob/
+(^9) TCBB IEEE-ACM Transactions on Computational Biology and Bioinformatics IEEE/ACM http://dblp.uni-trier.de/db/journals/tcbb/
+(^10) JCST Journal of Computer Science and Technology SCIENCE PRESS/Springer http://dblp.uni-trier.de/db/journals/jcst/
+(^11) JAMIA Journal of the American Medical Informatics Association BMJ Journals http://dblp.uni-trier.de/db/journals/jamia/
+(^12) PLOS Computational Biology Public Library of Science http://dblp.uni-trier.de/db/journals/ploscb/
+(^13) Science China, Information Sciences, Science in China Press/Springerhttp://dblp.uni-trier.de/db/journals/chinaf/
+(^14) The Computer Journal Oxford University Press http://dblp.uni-trier.de/db/journals/cj/
+(^15) World Wide Web Journal Springer http://dblp.uni-trier.de/db/journals/wwwj/
+</code></pre><h3 id="三c类-2">三、C类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-7">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>
+(^1) BMC Bioinformatics BioMed Central http://dblp.uni-trier.de/db/journals/bmcbi/
+(^2) Cybernetics and Systems Taylor &amp; Francis http://dblp.uni-trier.de/db/journals/cas/
+(^3) FCS Frontiers of Computer Science Higher Education Press http://dblp.uni-trier.de/db/journals/fcsc/
+(^4) IEEE Geoscience and Remote Sensing Letters IEEE http://dblp.uni-trier.de/db/journals/lgrs/
+(^5) JBHI IEEE Journal of Biomedical and Health Informatics IEEE http://dblp.uni-trier.de/db/journals/titb/
+(^6) TBD IEEE Transactions on Big Data IEEE https://dblp.uni-trier.de/db/journals/tbd/
+(^7) IET Intelligent Transport Systems IET http://digital-library.theiet.org/content/journals/iet-its
+(^8) JBI Journal of Biomedical Informatics Elsevier https://dblp.uni-trier.de/db/journals/jbi/
+(^9) Medical Image Analysis Elsevier http://dblp.uni-trier.de/db/journals/mia/
+</code></pre><h2 id="计算机体系结构并行与分布计算存储系统">（计算机体系结构/并行与分布计算/存储系统）</h2>
+<h3 id="一a类-3">一、A类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-8">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>1 TOCS ACM Transactions on Computer Systems^ ACM http://dblp.uni-trier.de/db/journals/tocs/
+2 TOS ACM Transactions on Storage^ ACM http://dblp.uni-trier.de/db/journals/tos/
+3 TCAD
+IEEE Transactions on Computer-Aided Design of
+Integrated Circuits And System IEEE^ http://dblp.uni-trier.de/db/journals/tcad/^
+4 TC IEEE Transactions on Computers^ IEEE http://dblp.uni-trier.de/db/journals/tc/index.html
+5 TPDS IEEE Transactions on Parallel and Distributed Systems^ IEEE http://dblp.uni-trier.de/db/journals/tpds/
+</code></pre><h3 id="二b类-3">二、B类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-9">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>1 TACO ACM Transactions on Architecture and Code Optimization ACM http://dblp.uni-trier.de/db/journals/taco/
+2 TAAS ACM Transactions on Autonomous and Adaptive Systems ACM http://dblp.uni-trier.de/db/journals/taas/
+3 TODAES (^) ACM Transactions on Design Automation of Electronic Systems ACM http://dblp.uni-trier.de/db/journals/todaes/
+4 TECS (^) ACM Transactions on Embedded Computing Systems ACM http://dblp.uni-trier.de/db/journals/tecs/
+5 TRETS ACM Transactions on Reconfigurable Technology and Systems ACM http://dblp.uni-trier.de/db/journals/trets/
+6 TVLSI IEEE Transactions on Very Large Scale Integration (VLSI) Systems IEEE http://dblp.uni-trier.de/db/journals/tvlsi/
+7 JPDC Journal of Parallel and Distributed Computing Elsevier http://dblp.uni-trier.de/db/journals/jpdc/
+8 JSA Journal of Systems Architecture: Embedded Software Design Elsevier http://dblp.uni-trier.de/db/journals/jsa/
+9 PARCO Parallel Computing Elsevier http://dblp.uni-trier.de/db/conf/parco/
+10 Performance Evaluation: An International Journal Elsevier http://www.journals.elsevier.com/performance-evaluation/
+</code></pre><h3 id="三c类-3">三、C类</h3>
+<h5 id="序号-刊物简称-刊物全称-出版社-网址-10">序号 刊物简称 刊物全称 出版社 网址</h5>
+<pre tabindex="0"><code>1  JETC ACM Journal on Emerging Technologies in Computing Systems, ACM http://dblp.uni-trier.de/db/journals/jetc/
+2 Concurrency and Computation: Practice and Experience, Wiley http://dblp.uni-trier.de/db/journals/concurrency/
+3 DC Distributed Computing, Springer http://dblp.uni-trier.de/db/journals/dc/
+4 FGCS Future Generation Computer Systems, Elsevier http://dblp.uni-trier.de/db/journals/fgcs/
+5 TCC IEEE Transactions on Cloud Computing, IEEE https://dblp.uni-trier.de/db/journals/tcc/
+6 Integration Integration, the VLSI Journal, Elsevier http://dblp.uni-trier.de/db/journals/integration/
+7 JETTA Journal of Electronic Testing-Theory and Applications, Springer, http://link.springer.com/journal/
+8 JGC Journal of Grid computing Springer https://dblp.uni-trier.de/db/journals/grid/
+9 MICPRO Microprocessors and Microsystems: Embedded Hardware Design, Elsevier http://dblp.uni-trier.de/db/journals/mam/
+10 RTS Real-Time Systems Springer http://dblp.uni-trier.de/db/journals/rts/
+11 TJSC The Journal of Supercomputing Springer http://dblp.uni-trier.de/db/journals/tjs/
+</code></pre><h2 id="计算机网络">（计算机网络）</h2>
+<h3 id="一a类-4">一、A类</h3>
+<p>序号 (^) 刊物简称 刊物全称 出版社 网址</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210714215528/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-07-14T21:55:28&#43;0800" class="date">July 14, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210714214759/" title="中国计算机学会(CCF)推荐国际学术会议目录(2019)">中国计算机学会(CCF)推荐国际学术会议目录(2019)</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="中国计算机学会ccf推荐国际学术会议目录2019">中国计算机学会(CCF)推荐国际学术会议目录(2019)</h1>
+<h2 id="数据库数据挖掘内容检索">(数据库／数据挖掘／内容检索)</h2>
+<h3 id="一a类">一、A类</h3>
+<h3 id="序号-会议简称-会议全称-出版社-网址">序号 会议简称 会议全称 出版社 网址</h3>
+<p>(^1) SIGMOD ACM Conference on Management of Data ACM <a href="http://dblp.uni-trier.de/db/conf/sigmod/">http://dblp.uni-trier.de/db/conf/sigmod/</a>
+(^2) SIGKDD ACM Knowledge Discovery and Data Mining ACM <a href="http://dblp.uni-trier.de/db/conf/kdd/">http://dblp.uni-trier.de/db/conf/kdd/</a>
+(^3) ICDE IEEE International Conference on Data Engineering IEEE <a href="http://dblp.uni-trier.de/db/conf/icde/">http://dblp.uni-trier.de/db/conf/icde/</a>
+(^4) SIGIR International Conference on Research on Development in Information Retrieval ACM <a href="http://dblp.uni-trier.de/db/conf/sigir/">http://dblp.uni-trier.de/db/conf/sigir/</a>
+(^5) VLDB International Conference on Very Large Data Bases Morgan Kaufmann//ACM <a href="http://dblp.uni-trier.de/db/conf/vldb/">http://dblp.uni-trier.de/db/conf/vldb/</a></p>
+<h3 id="二b类">二、B类</h3>
+<h3 id="序号-会议简称-会议全称-出版社-网址-1">序号 会议简称 会议全称 出版社 网址</h3>
+<p>(^1) CIKM ACM International Conference on Information and Knowledge Management ACM <a href="http://dblp.uni-trier.de/db/conf/cikm/">http://dblp.uni-trier.de/db/conf/cikm/</a>
+(^2) WSDM ACM International Conference on Web Search and Data Mining ACM <a href="http://dblp.uni-trier.de/db/conf/wsdm/">http://dblp.uni-trier.de/db/conf/wsdm/</a>
+(^3) PODS ACM Symposium on Principles of Database Systems ACM <a href="http://dblp.uni-trier.de/db/conf/pods/">http://dblp.uni-trier.de/db/conf/pods/</a>
+(^4) DASFAA Database Systems for Advanced Applications Springer <a href="http://dblp.uni-trier.de/db/conf/dasfaa/">http://dblp.uni-trier.de/db/conf/dasfaa/</a>
+(^5) ECML-PKDD European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases Springer <a href="http://dblp.uni-trier.de/db/conf/ecml/">http://dblp.uni-trier.de/db/conf/ecml/</a>
+<a href="http://dblp.uni-trier.de/db/conf/pkdd/">http://dblp.uni-trier.de/db/conf/pkdd/</a>
+(^6) ISWC IEEE International Semantic Web Conference IEEE <a href="http://dblp.uni-trier.de/db/conf/semweb/">http://dblp.uni-trier.de/db/conf/semweb/</a>
+(^7) ICDM International Conference on Data Mining IEEE <a href="http://dblp.uni-trier.de/db/conf/icdm/">http://dblp.uni-trier.de/db/conf/icdm/</a>
+(^8) ICDT International Conference on Database Theory Springer <a href="http://dblp.uni-trier.de/db/conf/icdt/">http://dblp.uni-trier.de/db/conf/icdt/</a>
+(^9) EDBT International Conference on Extending DB Technology, Springer <a href="http://dblp.uni-trier.de/db/conf/edbt/">http://dblp.uni-trier.de/db/conf/edbt/</a>
+(^10) CIDR International Conference on Innovative Data Systems Research Online Proceeding^ <a href="http://dblp.uni-trier.de/db/conf/cidr/%5E">http://dblp.uni-trier.de/db/conf/cidr/^</a>
+(^11) SDM SIAM International Conference on Data Mining, SIAM <a href="http://dblp.uni-trier.de/db/conf/sdm/">http://dblp.uni-trier.de/db/conf/sdm/</a></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210714214759/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-07-14T21:47:59&#43;0800" class="date">July 14, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210714075338/" title="Getting started with Graph Convolutional Networks as an Amateur">Getting started with Graph Convolutional Networks as an Amateur</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="getting-started-with-graph-convolutional-networks-as-an-amateur">Getting started with Graph Convolutional Networks as an Amateur</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/27587371">https://zhuanlan.zhihu.com/p/27587371</a></p>
+<p><a href="https://www.cnblogs.com/wangxiaocvpr/p/8306519.html">https://www.cnblogs.com/wangxiaocvpr/p/8306519.html</a></p>
+<p><a href="https://www.cnblogs.com/wangxiaocvpr/p/8299336.html">https://www.cnblogs.com/wangxiaocvpr/p/8299336.html</a></p>
+<p><a href="https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780">https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780</a></p>
+<p>GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：</p>
+<ol>
+<li>本篇：一个高层级的GCN介绍</li>
+<li>谱图卷积的半监督学习</li>
+</ol>
+<h2 id="最基本的代码实现gcn--一个高层级的gcn介绍">最基本的代码实现GCN &ndash; 一个高层级的GCN介绍</h2>
+<p>In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。
+<a href="https://cloud.tencent.com/developer/article/1400504">ref link in Chinese中文</a></p>
+<h3 id="看看gcn的输入是啥">看看GCN的输入是啥</h3>
+<p>Given a graph $G = (V, E)$ , a GCN takes as input:</p>
+<ul>
+<li>adjacency matrix $\mathbf{A}$ of $G$.   <em>N</em> × <em>N</em></li>
+<li>an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,
+<ul>
+<li>where <em>N</em> is the number of nodes and</li>
+<li><em>F⁰</em> is the number of input features for each node</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/images/image-20210717215412877.png" alt="image-20210717215412877"></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210714075338/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-07-14T07:53:38&#43;0800" class="date">July 14, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210706080201/" title="install usbmount on debian for orangePi / raspberryPi">install usbmount on debian for orangePi / raspberryPi</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="install-usbmount-on-debian-for-orangepi--raspberrypi">install usbmount on debian for orangePi / raspberryPi</h2>
+<p>USBmount was removed from Debian a while back because the version from the repositories no longer works. It&rsquo;s still available in Ubuntu, but it does not work properly in Ubuntu 18.04 and newer. The bug was fixed in the USBmount git though, so you can build your own updated USBmount package that works in both Debian and Ubuntu (and on Raspbian / Ubuntu MATE for Raspberry Pi).</p>
+<p>Start by installing Git and downloading the latest <a href="https://github.com/rbrito/usbmount">USBmount Git code</a>:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210706080201/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-07-06T08:02:01&#43;0800" class="date">July 06, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210701170100/" title="Implementing comment for jekyll blog with github pull request">Implementing comment for jekyll blog with github pull request</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="利用pull-request实现-jekyll-博客评论功能">利用pull request实现 jekyll 博客评论功能</h1>
+<h2 id="implementing-comment-for-jekyll-blog-with-github-pull-request">Implementing comment for jekyll blog with github pull request</h2>
+<h4 id="1-the-refered-blogs">1. The refered blogs:</h4>
+<ul>
+<li><a href="https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments">https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments</a></li>
+<li><a href="https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/">https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/</a></li>
+</ul>
+<p>The github repos that needed:</p>
+<ul>
+<li><a href="https://github.com/damieng/jekyll-blog-comments">https://github.com/damieng/jekyll-blog-comments</a> This is for the static layout/html contents supporting  comment functions.</li>
+<li><a href="https://github.com/haacked/jekyll-blog-comments-azure">https://github.com/haacked/jekyll-blog-comments-azure</a> This is for the dynamic Azure Function code, which is forked from: <a href="https://github.com/Azure-Functions/jekyll-blog-comments">https://github.com/Azure-Functions/jekyll-blog-comments</a></li>
+</ul>
+<hr>
+<h4 id="2-steps-and-notes-for-jekyll-comment-box-building">2. Steps and notes for jekyll comment box building</h4>
+<p>The idea is use <a href="https://jekyllrb.com/docs/datafiles/">data files</a> in Jekyll to store comments and some liquid templates to render them. That all can be static.</p>
+<p>Azure Function or AWS Lambda combined with the GitHub API. Receive a comment form submission and create the appropriate data file in your Jekyll repository.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210701170100/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-07-01T17:01:00&#43;0800" class="date">July 01, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210617132500/" title="抛弃清华源，使用SJTU的镜像 for Anaconda">抛弃清华源，使用SJTU的镜像 for Anaconda</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h2 id="使用sjtu的anaconda镜像"><a href="https://verrickt.github.io/2020/12/12/conda-mirror-from-sjtu/">使用SJTU的Anaconda镜像</a></h2>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华TUNA</a>的Anaconda镜像不稳，好的时候一切顺利，坏的时候一个24K的包下5分钟；Anaconda的官方源则更惨，连repo.json都下不下来；
+今天又是清华的源大姨妈的一天：Pytorch下载到100MB就超时，折腾了三个小时也装不上。而同在华东的<a href="https://mirrors.sjtug.sjtu.edu.cn/">SJTU</a>的镜像就很稳定，这次全线换成SJTU啦。</p>
+<p>首先执行</p>
+<pre tabindex="0"><code>conda config --set show_channel_urls yes
+</code></pre><p>在<code>/usr</code>下生成<code>.condarc</code>文件，然后将其内容替换为</p>
+<pre tabindex="0"><code>channels:
+  - defaults
+show_channel_urls: true
+channel_alias: https://anaconda.mirrors.sjtug.sjtu.edu.cn
+default_channels:
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/main
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/free
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/r
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/pro
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/msys2
+custom_channels:
+  conda-forge: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud
+  msys2: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud
+  bioconda: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud
+  menpo: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud
+  pytorch: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud
+  simpleitk: https://anaconda.mirrors.sjtug.sjtu.edu.cn/cloud
+</code></pre><p>再运行<code>conda clean -i</code>清除索引缓存即可。
+终于装上Pytorch了，可喜可贺😂</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210617132500/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-06-17T13:25:00&#43;0800" class="date">June 17, 2021</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20210616133400/" title="High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)">High performance optimization and acceleration for randomWalk, deepwalk, node2vec (Python)</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="deepwalknode2vec的高性能优化">deepwalk、node2vec的高性能优化</h1>
+<p><code>转自知乎： https://zhuanlan.zhihu.com/p/348778146</code></p>
+<p><strong>原作者：马东什么</strong></p>
+<hr>
+<p>首先是graph的存储问题，看了很多实现node2vec或deepwalk的library，大都是以networkx或是类似的python class对象为graph的存储形式进行开发，首先我们需要知道目前单机版的deepwalk和node2vec的主要的性能瓶颈在random  walk部分，因为底层的word2vec基本上都是直接调用的gensim的word2vec（gensim的word2vec基于c++开发，目前新版的gensim的word2vec的fast  version使用了cython代替了原来的一些逻辑实现，个人感觉从word2vec层面再去做优化太复杂了，也很难比gensim做的更好，除此之外另一个思路就是用tf.keras或torch来实现word2vec，借用gpu的算力来试图击败gensim，然而看完这几篇，我心灰意冷了：</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/tensorflow/tensorflow/issues/13048">Word2vec on GPU slower than CPU · Issue #13048 · tensorflow/tensorflow</a>[github.com<a href="https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/39558642/does-gensim-library-support-gpu-acceleration">Does Gensim library support GPU acceleration?</a><a href="https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/39558642/does-gensim-library-support-gpu-acceleration">stackoverflow.com![图标](https://pic1.zhimg.com/v2-2d47e939feed796bcf7483d306661c88_ipico.jpg</a><a href="https://link.zhihu.com/?target=https%3A//www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/">https://www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/</a><a href="https://link.zhihu.com/?target=https%3A//www.reddit.com/r/learnmachinelearning/comments/88eeua/why_is_gensim_word2vec_so_much_faster_than_keras/">www.reddit.com</a></p>
+<p>）</p>
+<p>graph通常以相互引用的内存指针的方式存储在内存中，这意味着每个节点在内存中都位于不同的位置，这种基于基于链表的思想，使得内存访问的速度成为了主要的瓶颈，因为每次从一个节点移动到另一个节点，都需要在内存中寻址和查询，一种更好的方式是把节点都打包到数组中，因为数据的内存地址一般是连续的，在内存访问上的开销要小很多；（这里还没有提到networkx本身用纯python编写导致的较低效的编译效率问题，具体可见：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/348315009">马东什么：为什么python这么慢？numba解决了什么问题？</a></p>
+<p>）</p>
+<p>一个较好的解决方案就是使用scipy.sparse.csr_matrix对graph进行存储和后续的访问等，</p>
+<p>csr_matrix可见下：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/348905107">马东什么：scipy sparse 中稀疏矩阵的常见存储方式</a><a href="https://zhuanlan.zhihu.com/p/348905107">zhuanlan.zhihu.com<img src="https://zhstatic.zhihu.com/assets/zhihu/editor/zhihu-card-default.svg" alt="图标"></a></p>
+<p>可以看到，通过将graph转化为csr_matrix，利用其巧妙地存储方式，可以大大提高节点和节点之间的访问效率。</p>
+<p>下面就来看一个非常nice的小众的graph library，csr_graph和nodevectors，nodevectors基本上是对csr_graph做的封装，底层的逻辑直接使用了csr_graph的接口api，所以直接研究csr_graph即可。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/VHRanger/CSRGraph">VHRanger/CSRGraph</a><a href="https://link.zhihu.com/?target=https%3A//github.com/VHRanger/CSRGraph">github.com![图标](https://pic4.zhimg.com/v2-9b74ff2ecca657554aa17776a6083d37_ipico.jpg</a></p>
+<p>整个csr graph的核心在于graph的重构：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-11115dd76ed901601a49db1b0341c97a_1440w.jpg" alt="img"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">csrgraph</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    This top level python class either calls external JIT&#39;ed methods
+</span></span></span><span class="line"><span class="cl"><span class="s2">        or methods from the JIT&#39;ed internal graph
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">nodenames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        A class for larger graphs.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        NOTE: this class tends to &#34;steal data&#34; by default.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            If you pass a numpy array/scipy matrix/csr graph
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Chances are this object will point to the same instance of data
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Parameters:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        -------------------
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        data : The graph data. Can be one of:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            **NetworkX Graph**
+</span></span></span><span class="line"><span class="cl"><span class="s2">            **Numpy dense matrix**
+</span></span></span><span class="line"><span class="cl"><span class="s2">            **CSR Matrix**
+</span></span></span><span class="line"><span class="cl"><span class="s2">            **(data, indices, indptr)**
+</span></span></span><span class="line"><span class="cl"><span class="s2">            **CSRGraph object**
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        nodenames (array of str or int) : Node names
+</span></span></span><span class="line"><span class="cl"><span class="s2">            The position in this array should correspond with the node ID
+</span></span></span><span class="line"><span class="cl"><span class="s2">            So if passing a CSR Matrix or raw data, it should be co-indexed
+</span></span></span><span class="line"><span class="cl"><span class="s2">            with the matrix/raw data arrays
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        copy : bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Wether to copy passed data to create new object
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Default behavior is to point to underlying ctor passed data
+</span></span></span><span class="line"><span class="cl"><span class="s2">            For networkX graphs and numpy dense matrices we create a new object anyway
+</span></span></span><span class="line"><span class="cl"><span class="s2">        threads : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">            number of threads to leverage for methods in this graph.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            WARNING: changes the numba environment variable to do it.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Recompiles methods and changes it when changed.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            0 is numba default (usually all threads)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        TODO: add numpy mmap support for very large on-disk graphs
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Should be in a different class
+</span></span></span><span class="line"><span class="cl"><span class="s2">            This also requires routines to read/write edgelists, etc. from disk
+</span></span></span><span class="line"><span class="cl"><span class="s2">        
+</span></span></span><span class="line"><span class="cl"><span class="s2">        TODO: subclass scipy.csr_matrix???
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># If input is a CSRGraph, same object</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">csrgraph</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">copy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mat</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">names</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="ow">not</span> <span class="n">nodenames</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nodenames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">nodenames</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># NetworkX Graph input</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">,</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mat</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">adj_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mat</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nodenames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># CSR Matrix Input</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">copy</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Numpy Array Input</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Incorrect input data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Now that we have the core csr_matrix, alias underlying arrays</span>
+</span></span><span class="line"><span class="cl">        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;mat&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">data</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">indptr</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">indices</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># indptr has one more element than nnodes</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">nnodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># node name -&gt; node ID</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">nodenames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nodenames</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nnodes</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Bounds check once here otherwise there be dragons later</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nnodes</span> <span class="o">&lt;</span> <span class="n">max_idx</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">                Out of bounds node: </span><span class="si">{</span><span class="n">max_idx</span><span class="si">}</span><span class="s2">, nnodes: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nnodes</span><span class="si">}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">            &#34;&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">set_threads</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">set_threads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threads</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">threads</span> <span class="o">=</span> <span class="n">threads</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Manage threading through Numba hack</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;Threads argument must be an int!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">threads</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">threads</span> <span class="o">=</span> <span class="n">numba</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBA_DEFAULT_NUM_THREADS</span>
+</span></span><span class="line"><span class="cl">        <span class="n">threads</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># If we change the number of threads, recompile</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prev_numba_value</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NUMBA_NUM_THREADS&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prev_numba_value</span> <span class="o">=</span> <span class="n">threads</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">threads</span> <span class="o">!=</span> <span class="n">prev_numba_value</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NUMBA_NUM_THREADS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">threads</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_random_walk</span><span class="o">.</span><span class="n">recompile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_row_norm</span><span class="o">.</span><span class="n">recompile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_node2vec_walks</span><span class="o">.</span><span class="n">recompile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_node_degrees</span><span class="o">.</span><span class="n">recompile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_src_multiply</span><span class="o">.</span><span class="n">recompile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_dst_multiply</span><span class="o">.</span><span class="n">recompile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        [] operator
+</span></span></span><span class="line"><span class="cl"><span class="s2">        like networkX, gets names of neighbor nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Get node ID from names array</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># This is O(n) by design -- we more often get names from IDs</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#    than we get IDs from names and we don&#39;t want to hold 2 maps</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># TODO : replace names with a pd.Index and use get_loc</span>
+</span></span><span class="line"><span class="cl">        <span class="n">node_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">==</span> <span class="n">node</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">edges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="p">[</span><span class="n">node_id</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">edges</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns the graph&#39;s nodes, in order
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nnodes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_self</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Normalizes edge weights per node
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        For any node in the Graph, the new edges&#39; weights will sum to 1
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        return_self : bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">            whether to change the graph&#39;s values and return itself
+</span></span></span><span class="line"><span class="cl"><span class="s2">            this lets us call `G.normalize()` directly
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">new_weights</span> <span class="o">=</span> <span class="n">_row_norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">return_self</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">new_weights</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Point objects to the correct places</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">data</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">indptr</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">dst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">indices</span>
+</span></span><span class="line"><span class="cl">            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="bp">self</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">csrgraph</span><span class="p">(</span><span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="n">new_weights</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="p">)),</span> 
+</span></span><span class="line"><span class="cl">                <span class="n">nodenames</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">random_walks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">walklen</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">start_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">normalize_self</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">return_weight</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">neighbor_weight</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Create random walks from the transition matrix of a graph
+</span></span></span><span class="line"><span class="cl"><span class="s2">            in CSR sparse format
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">        ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">        T : scipy.sparse.csr matrix
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Graph transition matrix in CSR sparse format
+</span></span></span><span class="line"><span class="cl"><span class="s2">        walklen : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">            length of the random walks
+</span></span></span><span class="line"><span class="cl"><span class="s2">        epochs : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">            number of times to start a walk from each nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">        return_weight : float in (0, inf]
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Weight on the probability of returning to node coming from
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Having this higher tends the walks to be
+</span></span></span><span class="line"><span class="cl"><span class="s2">            more like a Breadth-First Search.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Having this very high  (&gt; 2) makes search very local.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Equal to the inverse of p in the Node2Vec paper.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        explore_weight : float in (0, inf]
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Weight on the probability of visitng a neighbor node
+</span></span></span><span class="line"><span class="cl"><span class="s2">            to the one we&#39;re coming from in the random walk
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Having this higher tends the walks to be
+</span></span></span><span class="line"><span class="cl"><span class="s2">            more like a Depth-First Search.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Having this very high makes search more outward.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Having this very low makes search very local.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            Equal to the inverse of q in the Node2Vec paper.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        threads : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">            number of threads to use.  0 is full use
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">        -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">        out : 2d np.array (n_walks, walklen)
+</span></span></span><span class="line"><span class="cl"><span class="s2">            A matrix where each row is a random walk,
+</span></span></span><span class="line"><span class="cl"><span class="s2">            and each entry is the ID of the node
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Make csr graph</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">normalize_self</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">return_self</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">return_self</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n_rows</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">nnodes</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">start_nodes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">start_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_rows</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sampling_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">start_nodes</span><span class="p">,</span> <span class="n">epochs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Node2Vec Biased walks if parameters specified</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">return_weight</span> <span class="o">&gt;</span> <span class="mf">1.</span> <span class="ow">or</span> <span class="n">return_weight</span> <span class="o">&lt;</span> <span class="mf">1.</span>
+</span></span><span class="line"><span class="cl">                <span class="ow">or</span> <span class="n">neighbor_weight</span> <span class="o">&lt;</span> <span class="mf">1.</span> <span class="ow">or</span> <span class="n">neighbor_weight</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">walks</span> <span class="o">=</span> <span class="n">_node2vec_walks</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">src</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">dst</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">sampling_nodes</span><span class="o">=</span><span class="n">sampling_nodes</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">walklen</span><span class="o">=</span><span class="n">walklen</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">return_weight</span><span class="o">=</span><span class="n">return_weight</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">neighbor_weight</span><span class="o">=</span><span class="n">neighbor_weight</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># much faster implementation for regular walks</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">walks</span> <span class="o">=</span> <span class="n">_random_walk</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">src</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">dst</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                 <span class="n">sampling_nodes</span><span class="p">,</span> <span class="n">walklen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">walks</span>
+</span></span></code></pre></div><p>初始化init部分的逻辑很简单，就是把graph用scipy.sparse.csr_matrix的方式存储，需要注意的是，csr  matrix仅支持有向/无向+有权/无权的简单图的表示，如果是复杂的属性图，例如存在多重的边关系或者是多个节点类型，则表示起来比较困难，不过常见的非GNN的graph embedding（以及排除了matapath2vec）之外大部分的graph embedding算法都是在简单图上运行的。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20210616133400/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2021-06-16T13:34:00&#43;0800" class="date">June 16, 2021</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/5/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/5/">5</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/6/">6</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/7/">7</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/7/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

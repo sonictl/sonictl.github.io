@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="linux下kbhit()函数 getch函数。
+怎样在C语言执行循环程序时按键盘任意键停止程序，再按再继续执行？ 参考http://zhidao.baidu.com/question/272086855.html  在linux下C语言写了一个while循环，怎么实现按任意键退出。如何编写程序？ 参考：http://zhidao.baidu.com/question/461121586.html
+对于上面的问题，都用到
+linux下的getch函数与kbhit函数。
+参考了http://kpld8888.wordpress.com/2007/03/07/linux%E4%B8%8B%E7%9A%84getch%E5%87%BD%E6%95%B0%E4%B8%8Ekbhit%E5%87%BD%E6%95%B0-2/
+和：http://zhidao.baidu.com/question/461121586.html
+但是我照搬上面两条都不能很好的编译，总是有错误。奉上我的文件：
+将下列三个文件放在工程目录下，build project即可。
+main.c:
+1. #include &#34;kbhit.h&#34;
+2. #include &lt;stdio.h&gt;
+3. #include &lt;stdlib.h&gt;
+4. #include &#34;accelerometer.h&#34; //contains the middle level macros, state variable
+5. // definition and declaration for the
+6. //middle layer (class layer) functions
+7. 
+8. 
+9. 
+10. void delay(int a){
+11. int i,j,delay;
+12. for(i = 0 ;  i &lt; 1170*(200/a); i&#43;&#43;){
+13. delay = 0;
+14. for(j = 0; j &lt; 100; j&#43;&#43;){
+15. delay = delay&#43;1;
+16. }
+17. }
+18. }
+19. 
+20. int main()
+21. {
+22. 
+23. float x,y,z;       // store x,y,z acceleration
+24. 
+25. acc_t state;
+26. 
+27. int i = 0;
+28. int Hz,N;
+29. 
+30. 
+31. // initialize using ADXL345 at 50 HZ
+32. if (acc_Init(&amp;state,ADXL345,50,&#34;/dev/input/event3&#34;) &lt; 0) {
+33. 
+34. printf(&#34;Cannot Init \n&#34;);
+35. return (-1);
+36. }
+37. 
+38. // No Auto Sleep1:
+39. if (acc_autosleepSet(&amp;state,NO_AUTOSLEEP) &lt; 0) {
+40. 
+41. printf(&#34;Failed to set AutoSleep condition\n&#34;);
+42. }
+43. // No Auto Sleep2:
+44. system(&#34;echo 0 &gt; /sys/bus/i2c/devices/0-0053/autosleep&#34;);
+45. 
+46. //--------------Initialize finished. --------------//
+47. 
+48. printf(&#34;input the number of data, Hz: &#34;);
+49. scanf(&#34;%d,%d&#34;, &amp;N, &amp;Hz);
+50. 
+51. while(i &lt; N){
+52. if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+53. 
+54. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+55. }
+56. else {
+57. 
+58. printf(&#34;%f,%f,%f\n&#34;,x-0.573,y,z); //x correction
+59. }
+60. delay(Hz);
+61. i&#43;&#43;;
+62. if( kbhit()&gt;0 ){
+63. break;
+64. }
+65. }
+66. 
+67. 
+68. 
+69. if (acc_Release(&amp;state) &lt; 0) {
+70. 
+71. printf(&#34;Failed to Release Accelerometer Nuggets\n&#34;);
+72. 
+73. return (-1);
+74. }
+75. else{
+76. printf(&#34;Accelerometer Released! \n&#34;);
+77. }
+78. 
+79. return 0;
+80. }
+81. 
+82. /* 	if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+83. 
+84. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+85. }
+86. else {
+87. 
+88. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+89. }
+90. 
+91. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+92. 
+93. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+94. }
+95. else {
+96. 
+97. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+98. 
+99. }
+100. 
+101. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+102. 
+103. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+104. }
+105. else {
+106. 
+107. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+108. 
+109. }
+110. 
+111. if (acc_freefallEventGet(&amp;state) &lt; 0) {
+112. 
+113. printf(&#34;Failed to wait for Freefall \n&#34;);
+114. }
+115. else {
+116. 
+117. printf (&#34;Freefall!!\n&#34;);
+118. }
+119. 
+120. 
+121. */
+kbhit.c" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>linux下kbhit()函数 getch函数。 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20130117133536/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="linux下kbhit()函数 getch函数。
+怎样在C语言执行循环程序时按键盘任意键停止程序，再按再继续执行？ 参考http://zhidao.baidu.com/question/272086855.html  在linux下C语言写了一个while循环，怎么实现按任意键退出。如何编写程序？ 参考：http://zhidao.baidu.com/question/461121586.html
+对于上面的问题，都用到
+linux下的getch函数与kbhit函数。
+参考了http://kpld8888.wordpress.com/2007/03/07/linux%E4%B8%8B%E7%9A%84getch%E5%87%BD%E6%95%B0%E4%B8%8Ekbhit%E5%87%BD%E6%95%B0-2/
+和：http://zhidao.baidu.com/question/461121586.html
+但是我照搬上面两条都不能很好的编译，总是有错误。奉上我的文件：
+将下列三个文件放在工程目录下，build project即可。
+main.c:
+1. #include &#34;kbhit.h&#34;
+2. #include &lt;stdio.h&gt;
+3. #include &lt;stdlib.h&gt;
+4. #include &#34;accelerometer.h&#34; //contains the middle level macros, state variable
+5. // definition and declaration for the
+6. //middle layer (class layer) functions
+7. 
+8. 
+9. 
+10. void delay(int a){
+11. int i,j,delay;
+12. for(i = 0 ;  i &lt; 1170*(200/a); i&#43;&#43;){
+13. delay = 0;
+14. for(j = 0; j &lt; 100; j&#43;&#43;){
+15. delay = delay&#43;1;
+16. }
+17. }
+18. }
+19. 
+20. int main()
+21. {
+22. 
+23. float x,y,z;       // store x,y,z acceleration
+24. 
+25. acc_t state;
+26. 
+27. int i = 0;
+28. int Hz,N;
+29. 
+30. 
+31. // initialize using ADXL345 at 50 HZ
+32. if (acc_Init(&amp;state,ADXL345,50,&#34;/dev/input/event3&#34;) &lt; 0) {
+33. 
+34. printf(&#34;Cannot Init \n&#34;);
+35. return (-1);
+36. }
+37. 
+38. // No Auto Sleep1:
+39. if (acc_autosleepSet(&amp;state,NO_AUTOSLEEP) &lt; 0) {
+40. 
+41. printf(&#34;Failed to set AutoSleep condition\n&#34;);
+42. }
+43. // No Auto Sleep2:
+44. system(&#34;echo 0 &gt; /sys/bus/i2c/devices/0-0053/autosleep&#34;);
+45. 
+46. //--------------Initialize finished. --------------//
+47. 
+48. printf(&#34;input the number of data, Hz: &#34;);
+49. scanf(&#34;%d,%d&#34;, &amp;N, &amp;Hz);
+50. 
+51. while(i &lt; N){
+52. if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+53. 
+54. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+55. }
+56. else {
+57. 
+58. printf(&#34;%f,%f,%f\n&#34;,x-0.573,y,z); //x correction
+59. }
+60. delay(Hz);
+61. i&#43;&#43;;
+62. if( kbhit()&gt;0 ){
+63. break;
+64. }
+65. }
+66. 
+67. 
+68. 
+69. if (acc_Release(&amp;state) &lt; 0) {
+70. 
+71. printf(&#34;Failed to Release Accelerometer Nuggets\n&#34;);
+72. 
+73. return (-1);
+74. }
+75. else{
+76. printf(&#34;Accelerometer Released! \n&#34;);
+77. }
+78. 
+79. return 0;
+80. }
+81. 
+82. /* 	if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+83. 
+84. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+85. }
+86. else {
+87. 
+88. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+89. }
+90. 
+91. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+92. 
+93. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+94. }
+95. else {
+96. 
+97. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+98. 
+99. }
+100. 
+101. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+102. 
+103. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+104. }
+105. else {
+106. 
+107. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+108. 
+109. }
+110. 
+111. if (acc_freefallEventGet(&amp;state) &lt; 0) {
+112. 
+113. printf(&#34;Failed to wait for Freefall \n&#34;);
+114. }
+115. else {
+116. 
+117. printf (&#34;Freefall!!\n&#34;);
+118. }
+119. 
+120. 
+121. */
+kbhit.c" />
+  <meta property="og:title" content="linux下kbhit()函数 getch函数。" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20130117133536/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2013-01-17" />
+    <meta property="article:modified_time" content="2013-01-17" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="linux下kbhit()函数 getch函数。 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="linux下kbhit()函数 getch函数。
+怎样在C语言执行循环程序时按键盘任意键停止程序，再按再继续执行？ 参考http://zhidao.baidu.com/question/272086855.html  在linux下C语言写了一个while循环，怎么实现按任意键退出。如何编写程序？ 参考：http://zhidao.baidu.com/question/461121586.html
+对于上面的问题，都用到
+linux下的getch函数与kbhit函数。
+参考了http://kpld8888.wordpress.com/2007/03/07/linux%E4%B8%8B%E7%9A%84getch%E5%87%BD%E6%95%B0%E4%B8%8Ekbhit%E5%87%BD%E6%95%B0-2/
+和：http://zhidao.baidu.com/question/461121586.html
+但是我照搬上面两条都不能很好的编译，总是有错误。奉上我的文件：
+将下列三个文件放在工程目录下，build project即可。
+main.c:
+1. #include &#34;kbhit.h&#34;
+2. #include &lt;stdio.h&gt;
+3. #include &lt;stdlib.h&gt;
+4. #include &#34;accelerometer.h&#34; //contains the middle level macros, state variable
+5. // definition and declaration for the
+6. //middle layer (class layer) functions
+7. 
+8. 
+9. 
+10. void delay(int a){
+11. int i,j,delay;
+12. for(i = 0 ;  i &lt; 1170*(200/a); i&#43;&#43;){
+13. delay = 0;
+14. for(j = 0; j &lt; 100; j&#43;&#43;){
+15. delay = delay&#43;1;
+16. }
+17. }
+18. }
+19. 
+20. int main()
+21. {
+22. 
+23. float x,y,z;       // store x,y,z acceleration
+24. 
+25. acc_t state;
+26. 
+27. int i = 0;
+28. int Hz,N;
+29. 
+30. 
+31. // initialize using ADXL345 at 50 HZ
+32. if (acc_Init(&amp;state,ADXL345,50,&#34;/dev/input/event3&#34;) &lt; 0) {
+33. 
+34. printf(&#34;Cannot Init \n&#34;);
+35. return (-1);
+36. }
+37. 
+38. // No Auto Sleep1:
+39. if (acc_autosleepSet(&amp;state,NO_AUTOSLEEP) &lt; 0) {
+40. 
+41. printf(&#34;Failed to set AutoSleep condition\n&#34;);
+42. }
+43. // No Auto Sleep2:
+44. system(&#34;echo 0 &gt; /sys/bus/i2c/devices/0-0053/autosleep&#34;);
+45. 
+46. //--------------Initialize finished. --------------//
+47. 
+48. printf(&#34;input the number of data, Hz: &#34;);
+49. scanf(&#34;%d,%d&#34;, &amp;N, &amp;Hz);
+50. 
+51. while(i &lt; N){
+52. if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+53. 
+54. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+55. }
+56. else {
+57. 
+58. printf(&#34;%f,%f,%f\n&#34;,x-0.573,y,z); //x correction
+59. }
+60. delay(Hz);
+61. i&#43;&#43;;
+62. if( kbhit()&gt;0 ){
+63. break;
+64. }
+65. }
+66. 
+67. 
+68. 
+69. if (acc_Release(&amp;state) &lt; 0) {
+70. 
+71. printf(&#34;Failed to Release Accelerometer Nuggets\n&#34;);
+72. 
+73. return (-1);
+74. }
+75. else{
+76. printf(&#34;Accelerometer Released! \n&#34;);
+77. }
+78. 
+79. return 0;
+80. }
+81. 
+82. /* 	if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+83. 
+84. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+85. }
+86. else {
+87. 
+88. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+89. }
+90. 
+91. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+92. 
+93. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+94. }
+95. else {
+96. 
+97. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+98. 
+99. }
+100. 
+101. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+102. 
+103. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+104. }
+105. else {
+106. 
+107. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+108. 
+109. }
+110. 
+111. if (acc_freefallEventGet(&amp;state) &lt; 0) {
+112. 
+113. printf(&#34;Failed to wait for Freefall \n&#34;);
+114. }
+115. else {
+116. 
+117. printf (&#34;Freefall!!\n&#34;);
+118. }
+119. 
+120. 
+121. */
+kbhit.c" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20130117133536/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20130117133536/">linux下kbhit()函数 getch函数。</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">linux下kbhit()函数 getch函数。</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2013-01-17T13:35:36&#43;0800 class="date">January 17, 2013</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+4 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="linux下kbhit函数-getch函数">linux下kbhit()函数 getch函数。<a hidden class="heading-anchor" aria-hidden="true" href="#linux下kbhit函数-getch函数">#</a></h1>
+<h3 id="怎样在c语言执行循环程序时按键盘任意键停止程序再按再继续执行-参考httpzhidaobaiducomquestion272086855html--在linux下c语言写了一个while循环怎么实现按任意键退出如何编写程序-参考httpzhidaobaiducomquestion461121586html">怎样在C语言执行循环程序时按键盘任意键停止程序，再按再继续执行？ 参考http://zhidao.baidu.com/question/272086855.html  在<a href="https://so.csdn.net/so/search?q=linux&amp;spm=1001.2101.3001.7020">linux</a>下C语言写了一个while循环，怎么实现按任意键退出。如何编写程序？ 参考：http://zhidao.baidu.com/question/461121586.html<a hidden class="heading-anchor" aria-hidden="true" href="#怎样在c语言执行循环程序时按键盘任意键停止程序再按再继续执行-参考httpzhidaobaiducomquestion272086855html--在linux下c语言写了一个while循环怎么实现按任意键退出如何编写程序-参考httpzhidaobaiducomquestion461121586html">#</a></h3>
+<p>对于上面的问题，都用到</p>
+<h3 id="linux下的getch函数与kbhit函数">linux下的getch函数与kbhit函数。<a hidden class="heading-anchor" aria-hidden="true" href="#linux下的getch函数与kbhit函数">#</a></h3>
+<p>参考了http://kpld8888.wordpress.com/2007/03/07/linux%E4%B8%8B%E7%9A%84getch%E5%87%BD%E6%95%B0%E4%B8%8Ekbhit%E5%87%BD%E6%95%B0-2/</p>
+<p>和：http://zhidao.baidu.com/question/461121586.html</p>
+<p>但是我照搬上面两条都不能很好的编译，总是有错误。奉上我的文件：</p>
+<p>将下列三个文件放在工程目录下，build project即可。</p>
+<p>main.c:</p>
+<pre tabindex="0"><code>1. #include &#34;kbhit.h&#34;
+2. #include &lt;stdio.h&gt;
+3. #include &lt;stdlib.h&gt;
+4. #include &#34;accelerometer.h&#34; //contains the middle level macros, state variable
+5. // definition and declaration for the
+6. //middle layer (class layer) functions
+7. 
+8. 
+9. 
+10. void delay(int a){
+11. int i,j,delay;
+12. for(i = 0 ;  i &lt; 1170*(200/a); i++){
+13. delay = 0;
+14. for(j = 0; j &lt; 100; j++){
+15. delay = delay+1;
+16. }
+17. }
+18. }
+19. 
+20. int main()
+21. {
+22. 
+23. float x,y,z;       // store x,y,z acceleration
+24. 
+25. acc_t state;
+26. 
+27. int i = 0;
+28. int Hz,N;
+29. 
+30. 
+31. // initialize using ADXL345 at 50 HZ
+32. if (acc_Init(&amp;state,ADXL345,50,&#34;/dev/input/event3&#34;) &lt; 0) {
+33. 
+34. printf(&#34;Cannot Init \n&#34;);
+35. return (-1);
+36. }
+37. 
+38. // No Auto Sleep1:
+39. if (acc_autosleepSet(&amp;state,NO_AUTOSLEEP) &lt; 0) {
+40. 
+41. printf(&#34;Failed to set AutoSleep condition\n&#34;);
+42. }
+43. // No Auto Sleep2:
+44. system(&#34;echo 0 &gt; /sys/bus/i2c/devices/0-0053/autosleep&#34;);
+45. 
+46. //--------------Initialize finished. --------------//
+47. 
+48. printf(&#34;input the number of data, Hz: &#34;);
+49. scanf(&#34;%d,%d&#34;, &amp;N, &amp;Hz);
+50. 
+51. while(i &lt; N){
+52. if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+53. 
+54. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+55. }
+56. else {
+57. 
+58. printf(&#34;%f,%f,%f\n&#34;,x-0.573,y,z); //x correction
+59. }
+60. delay(Hz);
+61. i++;
+62. if( kbhit()&gt;0 ){
+63. break;
+64. }
+65. }
+66. 
+67. 
+68. 
+69. if (acc_Release(&amp;state) &lt; 0) {
+70. 
+71. printf(&#34;Failed to Release Accelerometer Nuggets\n&#34;);
+72. 
+73. return (-1);
+74. }
+75. else{
+76. printf(&#34;Accelerometer Released! \n&#34;);
+77. }
+78. 
+79. return 0;
+80. }
+81. 
+82. /* 	if (acc_xyzGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+83. 
+84. printf(&#34;Failed to read acceleration values via non blocking read\n&#34;);
+85. }
+86. else {
+87. 
+88. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+89. }
+90. 
+91. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+92. 
+93. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+94. }
+95. else {
+96. 
+97. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+98. 
+99. }
+100. 
+101. if (acc_xyzEventGet(&amp;state,&amp;x,&amp;y,&amp;z) &lt; 0) {  // get acceleration
+102. 
+103. printf(&#34;Failed to read acceleration values via event get\n&#34;);
+104. }
+105. else {
+106. 
+107. printf(&#34;Accelerations:::  X=%f,  Y=%f,  Z=%f\n&#34;,x,y,z);
+108. 
+109. }
+110. 
+111. if (acc_freefallEventGet(&amp;state) &lt; 0) {
+112. 
+113. printf(&#34;Failed to wait for Freefall \n&#34;);
+114. }
+115. else {
+116. 
+117. printf (&#34;Freefall!!\n&#34;);
+118. }
+119. 
+120. 
+121. */
+</code></pre><p>kbhit.c</p>
+<pre tabindex="0"><code>1. /*#include &lt;termios.h&gt;
+2. #include &lt;unistd.h&gt;
+3. #include &lt;assert.h&gt;
+4. #include &lt;string.h&gt;
+5. #include &lt;stdlib.h&gt;
+6. #include &lt;sys/ioctl.h&gt;
+7. #include &lt;sys/time.h&gt;
+8. #include &lt;sys/types.h&gt;
+9. #include &#34;kbhit.h&#34;
+10. 
+11. static struct termios initial_settings, new_settings;
+12. static int peek_character = -1;
+13. 
+14. void init_keyboard()
+15. {
+16. tcgetattr(0,&amp;initial_settings);
+17. new_settings = initial_settings;
+18. new_settings.c_lflag &amp;= ~ICANON;
+19. new_settings.c_lflag &amp;= ~ECHO;
+20. new_settings.c_lflag &amp;= ~ISIG;
+21. new_settings.c_cc[VMIN] = 1;
+22. new_settings.c_cc[VTIME] = 0;
+23. tcsetattr(0, TCSANOW, &amp;new_settings);
+24. }
+25. 
+26. void close_keyboard()
+27. {
+28. tcsetattr(0, TCSANOW, &amp;initial_settings);
+29. }
+30. 
+31. int kbhit()
+32. {
+33. unsigned char ch;
+34. int nread;
+35. 
+36. if (peek_character != -1) return 1;
+37. new_settings.c_cc[VMIN]=0;
+38. tcsetattr(0, TCSANOW, &amp;new_settings);
+39. nread = read(0,&amp;ch,1);
+40. new_settings.c_cc[VMIN]=1;
+41. tcsetattr(0, TCSANOW, &amp;new_settings);
+42. if(nread == 1)
+43. {
+44. peek_character = ch;
+45. return 1;
+46. }
+47. return 0;
+48. }
+49. 
+50. int readch()
+51. {
+52. char ch;
+53. 
+54. if(peek_character != -1)
+55. {
+56. ch = peek_character;
+57. peek_character = -1;
+58. return ch;
+59. }
+60. read(0,&amp;ch,1);
+61. return ch;
+62. }
+63. */
+64. 
+65. #include &lt;termios.h&gt;
+66. #include &lt;unistd.h&gt;
+67. #include &lt;assert.h&gt;
+68. #include &lt;string.h&gt;
+69. #include &lt;stdlib.h&gt;
+70. #include &lt;sys/ioctl.h&gt;
+71. #include &lt;sys/time.h&gt;
+72. #include &lt;sys/types.h&gt;
+73. #include &#34;kbhit.h&#34;
+74. 
+75. #undef TERMIOSECHO
+76. #define TERMIOSFLUSH
+77. 
+78. /*
+79. * kbhit() — a keyboard lookahead monitor
+80. *
+81. * returns the number of characters available to read
+82. */
+83. int kbhit ( void )
+84. {
+85. struct timeval tv;
+86. struct termios old_termios, new_termios;
+87. int            error;
+88. int            count = 0;
+89. tcgetattr( 0, &amp;old_termios );
+90. new_termios              = old_termios;
+91. /*
+92. * raw mode
+93. */
+94. new_termios.c_lflag     &amp;= ~ICANON;
+95. /*
+96. * disable echoing the char as it is typed
+97. */
+98. new_termios.c_lflag     &amp;= ~ECHO;
+99. /*
+100. * minimum chars to wait for
+101. */
+102. new_termios.c_cc[VMIN]   = 1;
+103. /*
+104. * minimum wait time, 1 * 0.10s
+105. */
+106. new_termios.c_cc[VTIME]  = 1;
+107. error                    = tcsetattr( 0, TCSANOW, &amp;new_termios );
+108. tv.tv_sec                = 0;
+109. tv.tv_usec               = 100;
+110. /*
+111. * insert a minimal delay
+112. */
+113. select( 1, NULL, NULL, NULL, &amp;tv );
+114. error                   += ioctl( 0, FIONREAD, &amp;count );
+115. error                   += tcsetattr( 0, TCSANOW, &amp;old_termios );
+116. return( error == 0 ? count : -1 );
+117. }  /* end of kbhit */
+118. /*————————————————*/
+119. 
+</code></pre><p>kbhit.h</p>
+<pre tabindex="0"><code>1. #ifndef KBHITh
+2. #define KBHITh
+3. 
+4. void init_keyboard(void);
+5. void close_keyboard(void);
+6. int kbhit(void);
+7. int readch(void);
+8. 
+9. #endif
+</code></pre>
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2013-01-17 13:35 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share linux下kbhit()函数 getch函数。 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130117133536%2f&title=linux%e4%b8%8bkbhit%28%29%e5%87%bd%e6%95%b0%20getch%e5%87%bd%e6%95%b0%e3%80%82">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share linux下kbhit()函数 getch函数。 on twitter"
+          href="https://twitter.com/intent/tweet/?text=linux%e4%b8%8bkbhit%28%29%e5%87%bd%e6%95%b0%20getch%e5%87%bd%e6%95%b0%e3%80%82&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130117133536%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share linux下kbhit()函数 getch函数。 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130117133536%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

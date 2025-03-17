@@ -1,0 +1,81 @@
+baseURL = 'https://sonictl.github.io/'
+languageCode = 'en-us'
+title = 'Combine Art and Sciences'
+theme = 'fluency'
+
+
+
+enableRobotsTXT = true
+
+summaryLength = 80
+
+pygmentsUseClasses = true  # enable theme-defined highlight style
+
+pygmentsCodefences = true
+
+hasCJKLanguage = false
+
+enableEmoji = true
+
+ignoreErrors = [
+  "error-remote-getjson",
+  "error-missing-instagram-accesstoken"
+]
+
+[minify]
+  disableSVG = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  author = "Hugo Author"
+  favicon = "/favicon.ico" 
+  description = "A fluency Hugo theme for writers and bloggers."
+  mainSections = [ "posts" ]
+  disableSocialShare = false
+  disableIndexSummary = false
+  disableAnchorHeading = false
+  disableBreadcrumb = false
+
+  disableComment = false
+  enableComment = true
+  disableCommentByType = [ "page" ]
+  #thirdPartyComment = """ this is your comment, comment out this line will use the _internal/disqus.html """
+  
+  mathRender = true
+
+  [params.pageSize]
+    index = 10
+    list = 2000
+    archives = 20
+
+# menus: More info about hugo menus, please refer to Hugo - Menus.
+[[menu.main]] 
+  identifier = "posts"
+  name = "posts"
+  url = "posts/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "tags"
+  name = "tags"
+  url = "tags/"
+  weight = 2
+
+[[menu.main]]
+  identifier = "archives"
+  name = "archives"
+  url = "archives/"
+  weight = 3
+
+[[menu.main]]
+  identifier = "about"
+  name = "about"
+  url = "about/"
+  weight = 4
+

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器
+
+Use Kinect on Ubuntu with OpenNI（中文在后）
+You have to Refer  this blog (backup link)and you may meet some incompatible contents, do not worry, the thought and path is correct.
+The very important doc you should read carefully is that on  OpenNI&rsquo;s GitHub site and that on  SensorKinect GitHub site.
+
+The Core thing for this is Installing Driver for Kinect on Ubuntu. The two important packages you should install are:
+The OpenNI UNSTABLE version
+The SensorKinect package
+Here, I want to say that: after you have installed the OpenNI, and be ready to clone the git files for SensorKinect,DO NOT change directory!Otherwise you cannot generate the Redist directory for installation of SensorKinect.
+The Cloning process could be very slow, you can checkout the files from here:
+http://yunpan.cn/cmTPmvr2D29Yj   keycode: 32e4
+There existed a Readme.txt file which is wriiten in Chinese. Don&rsquo;t worry, you can ignore it after you suffer this Installation for longer than 1 week cuz you will be the expert on this field at that time. ;-)
+When you succeded in using Kinect_for_Windows on Ubuntu, the using of Kinect_for_Xbox is just &lsquo;unplug and plugin&rsquo;.
+It&rsquo;s really easier if you use Kinect_for_XBox with OpenKinect. unfortunately, OpenKinect does not support Kinect4Windows.
+If you&rsquo;re using Virtual Machine launching Ubuntu on it, I don&rsquo;t recommend you continue. I failed too many times in trying to do it on VMs. And finally I succeded in real machine.
+
+Read Carefully about This Blog:  this blog. and follow it. Good luck!
+my seccess of running ./Sample-NiSimpleViewer :" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20150827154740/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器
+
+Use Kinect on Ubuntu with OpenNI（中文在后）
+You have to Refer  this blog (backup link)and you may meet some incompatible contents, do not worry, the thought and path is correct.
+The very important doc you should read carefully is that on  OpenNI&rsquo;s GitHub site and that on  SensorKinect GitHub site.
+
+The Core thing for this is Installing Driver for Kinect on Ubuntu. The two important packages you should install are:
+The OpenNI UNSTABLE version
+The SensorKinect package
+Here, I want to say that: after you have installed the OpenNI, and be ready to clone the git files for SensorKinect,DO NOT change directory!Otherwise you cannot generate the Redist directory for installation of SensorKinect.
+The Cloning process could be very slow, you can checkout the files from here:
+http://yunpan.cn/cmTPmvr2D29Yj   keycode: 32e4
+There existed a Readme.txt file which is wriiten in Chinese. Don&rsquo;t worry, you can ignore it after you suffer this Installation for longer than 1 week cuz you will be the expert on this field at that time. ;-)
+When you succeded in using Kinect_for_Windows on Ubuntu, the using of Kinect_for_Xbox is just &lsquo;unplug and plugin&rsquo;.
+It&rsquo;s really easier if you use Kinect_for_XBox with OpenKinect. unfortunately, OpenKinect does not support Kinect4Windows.
+If you&rsquo;re using Virtual Machine launching Ubuntu on it, I don&rsquo;t recommend you continue. I failed too many times in trying to do it on VMs. And finally I succeded in real machine.
+
+Read Carefully about This Blog:  this blog. and follow it. Good luck!
+my seccess of running ./Sample-NiSimpleViewer :" />
+  <meta property="og:title" content="在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20150827154740/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-08-27" />
+    <meta property="article:modified_time" content="2015-08-27" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器
+
+Use Kinect on Ubuntu with OpenNI（中文在后）
+You have to Refer  this blog (backup link)and you may meet some incompatible contents, do not worry, the thought and path is correct.
+The very important doc you should read carefully is that on  OpenNI&rsquo;s GitHub site and that on  SensorKinect GitHub site.
+
+The Core thing for this is Installing Driver for Kinect on Ubuntu. The two important packages you should install are:
+The OpenNI UNSTABLE version
+The SensorKinect package
+Here, I want to say that: after you have installed the OpenNI, and be ready to clone the git files for SensorKinect,DO NOT change directory!Otherwise you cannot generate the Redist directory for installation of SensorKinect.
+The Cloning process could be very slow, you can checkout the files from here:
+http://yunpan.cn/cmTPmvr2D29Yj   keycode: 32e4
+There existed a Readme.txt file which is wriiten in Chinese. Don&rsquo;t worry, you can ignore it after you suffer this Installation for longer than 1 week cuz you will be the expert on this field at that time. ;-)
+When you succeded in using Kinect_for_Windows on Ubuntu, the using of Kinect_for_Xbox is just &lsquo;unplug and plugin&rsquo;.
+It&rsquo;s really easier if you use Kinect_for_XBox with OpenKinect. unfortunately, OpenKinect does not support Kinect4Windows.
+If you&rsquo;re using Virtual Machine launching Ubuntu on it, I don&rsquo;t recommend you continue. I failed too many times in trying to do it on VMs. And finally I succeded in real machine.
+
+Read Carefully about This Blog:  this blog. and follow it. Good luck!
+my seccess of running ./Sample-NiSimpleViewer :" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20150827154740/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20150827154740/">在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-08-27T15:47:40&#43;0800 class="date">August 27, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+10 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="在-ubuntu-用-openni支持-使用-kincet-传感器">在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器<a hidden class="heading-anchor" aria-hidden="true" href="#在-ubuntu-用-openni支持-使用-kincet-传感器">#</a></h1>
+<h2></h2>
+<h3 id="use-kinect-on-ubuntu-with-openni中文在后">Use <a href="https://so.csdn.net/so/search?q=Kinect&amp;spm=1001.2101.3001.7020">Kinect</a> on Ubuntu with OpenNI（中文在后）<a hidden class="heading-anchor" aria-hidden="true" href="#use-kinect-on-ubuntu-with-openni中文在后">#</a></h3>
+<p>You have to Refer  <a href="http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/">this blog</a> (<a href="http://blog.csdn.net/sonictl/article/details/47974485#t10">backup link</a>)and you may meet some incompatible contents, do not worry, the thought and path is correct.</p>
+<p>The very important doc you should read carefully is that on  <a href="https://github.com/OpenNI/OpenNI/blob/master/README">OpenNI&rsquo;s GitHub site</a> and that on  <a href="https://github.com/avin2/SensorKinect/blob/unstable/README">SensorKinect GitHub site</a>.</p>
+<ul>
+<li>The Core thing for this is Installing Driver for Kinect on Ubuntu. The two important packages you should install are:<br>
+The OpenNI UNSTABLE version<br>
+The SensorKinect package</li>
+<li>Here, I want to say that: after you have installed the OpenNI, and be ready to clone the git files for SensorKinect,DO NOT change directory!Otherwise you cannot generate the Redist directory for installation of SensorKinect.</li>
+<li>The Cloning process could be very slow, you can checkout the files from here:<br>
+<a href="http://yunpan.cn/cmTPmvr2D29Yj">http://yunpan.cn/cmTPmvr2D29Yj</a>   keycode: 32e4</li>
+<li>There existed a Readme.txt file which is wriiten in Chinese. Don&rsquo;t worry, you can ignore it after you suffer this Installation for longer than 1 week cuz you will be the expert on this field at that time. ;-)</li>
+<li>When you succeded in using Kinect_for_Windows on Ubuntu, the using of Kinect_for_Xbox is just &lsquo;unplug and plugin&rsquo;.</li>
+<li>It&rsquo;s really easier if you use Kinect_for_XBox with OpenKinect. unfortunately, OpenKinect does not support Kinect4Windows.</li>
+<li>If you&rsquo;re using Virtual Machine launching Ubuntu on it, I don&rsquo;t recommend you continue. I failed too many times in trying to do it on VMs. And finally I succeded in real machine.</li>
+</ul>
+<h2 id="read-carefully-about-this-blog--this-blog-and-follow-it-good-luck">Read Carefully about This Blog:  <a href="http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/">this blog</a>. and follow it. Good luck!<a hidden class="heading-anchor" aria-hidden="true" href="#read-carefully-about-this-blog--this-blog-and-follow-it-good-luck">#</a></h2>
+<p>my seccess of running ./Sample-NiSimpleViewer :</p>
+<p>    <img src="https://img-blog.csdn.net/20150827155546015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h2 id="if-you-still-met-some-issues-my-note-of-installation-can-help-you-maybe">If you still met some issues, my note of Installation can help you maybe.<a hidden class="heading-anchor" aria-hidden="true" href="#if-you-still-met-some-issues-my-note-of-installation-can-help-you-maybe">#</a></h2>
+<p>================= Notes for debugging =============================</p>
+<pre tabindex="0"><code>Optional: for ubuntu12.04_for_ros_hydro OS version, we need to firstly do some patch work:
+  $ sudo apt-get update --fix-missing
+
+------Install the Prerequisition------
+The Prerequisition for your next Installation is the Tools you may need, Ubuntu will automatically install or upgrade them.
+&gt;&gt;git 
+&gt;&gt;build-essential 
+&gt;&gt;python libusb-1.0-0-dev 
+&gt;&gt;freeglut3-dev 
+&gt;&gt;openjdk-7-jdk 
+Run the Command:
+  $ sudo apt-get install git build-essential python libusb-1.0-0-dev freeglut3-dev openjdk-7-jdk
+  $ sudo apt-get install doxygen graphviz mono-complete
+  $ cd ~/Downloads
+  $ git clone https://github.com/OpenNI/OpenNI.git  
+  $ cd OpenNI  
+  $ git checkout Unstable-1.5.4.0  
+  $ cd Platform/Linux/CreateRedist  
+  $ chmod +x RedistMaker  
+  $ ./RedistMaker  
+---- Install the OpenNI UNSTABLE Version ----
+  $ cd ../Redist/OpenNI-Bin-Dev-Linux-[xxx]    
+   //(where [xxx] is your architecture and this particular OpenNI release)  
+  $ sudo ./install.sh  
+
+//  ---- Have a test: (Optional)-----
+//  $ cd /home/exbot/Downloads/OpenNI/Platform/Linux/Bin/x86-Release
+//  $ ./Sample-NiSimpleViewer 
+//  we got:
+//    ----------
+//    One or more of the following nodes could not be enumerated:
+//    &gt;&gt;
+//    &gt;&gt;
+//    &gt;&gt;
+//    exbot@ubuntu:~/Downloads/OpenNI/Platform/Linux/Bin/x86-Release$
+//    ----------
+  Let&#39;s continue to Install the SensorKinect driver for OpenNI.
+
+---- Install the SensorKinect Model ----  
+Notice: Here You Should go to the path:
+  /home/exbot/Downloads/OpenNI/Platform/Linux/Redist/OpenNI-Bin-Dev-Linux-[xxx]
+  //the [xxx] is your OS version, mine is: x86-v1.5.4.0
+Run these Command:
+
+  $ git clone https://github.com/avin2/SensorKinect  
+  $ cd SensorKinect/Platform/Linux/CreateRedist  
+  $ chmod +x RedistMaker  
+  $ sudo ./RedistMaker  
+
+---- Install SensorKinect ----
+  $ cd ../Redist/Sensor-Bin-Linux-[xxx]   
+  //(where [xxx] is your architecture and this particular OpenNI release)  
+  $ sudo chmod +x install.sh  
+  $ sudo ./install.sh  
+
+---- Have a test about your Installation work!! ----
+Plugin your Kinect Sensor to the USB port. Test if linux detected your usb device:
+  $ lsusb
+Go to the OpenNI&#39;s path and run the SimpleSampleViewer:
+  $ cd ~/Downloads/OpenNI/Platform/Linux/Bin/x86-Release/
+  $ ./Sample-NiSimpleViewer
+
+I finnally got the Depth Graph on my monitor!!!! I&#39;m Really Excited after two weeks&#39; working on this issue.
+
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><h3 id="the-issues-i-met">The Issues I met:<a hidden class="heading-anchor" aria-hidden="true" href="#the-issues-i-met">#</a></h3>
+<p><strong>Open failed: Xiron OS failed to wait on event!</strong></p>
+<p>I met the error below when I was trying to test the kinect_for_Windows. :(</p>
+<p>$ ./Sample-NiSimpleViewer<br>
+Open failed: Xiron OS failed to wait on event!</p>
+<p>I&rsquo;ll try the installation process for OpenNI unstable, SensorKinect on a new clear Ubuntu_12.04.5_desktop_i386. and solved.</p>
+<h2 id="-english-ends-">=== English Ends ===<a hidden class="heading-anchor" aria-hidden="true" href="#-english-ends-">#</a></h2>
+<h2 id="中文来了在-ubuntu-使用openni驱动-kincet-传感器">中文来了：在 <a href="https://so.csdn.net/so/search?q=Ubuntu&amp;spm=1001.2101.3001.7020">Ubuntu</a> 使用OpenNI驱动 Kincet 传感器<a hidden class="heading-anchor" aria-hidden="true" href="#中文来了在-ubuntu-使用openni驱动-kincet-传感器">#</a></h2>
+<p><strong>在阅读中文之前，有些重要的点，我后来补充的，在前面英文里。所以欲练此功，必读英语。</strong><br>
+经过本人1周多对这个问题的不断调研，逐渐摸清一些经验，总结如下：</p>
+<p>  1. 这个问题足以写一本10多页的教程。</p>
+<p>  2. 虚拟机还是实体机、<a href="https://so.csdn.net/so/search?q=VMWare&amp;spm=1001.2101.3001.7020">VMWare</a> 还是 VirtualBox 虚拟机工具，都可能导致不同的结果。</p>
+<p>  3. Kinect 这个传感器现在有至少3个版本（<a href="http://choorucode.com/2013/07/23/difference-between-kinect-for-windows-and-kinect-for-xbox-360-on-linux/" title="Difference between Kinect for Windows and Kinect for Xbox 360 on Linux">difference between the two types of Kinect</a>）。Kinect V2 在2014年发布了，此前是 Kinect_for_XBox &amp; Kinect_for_Windows俩版本。</p>
+<p>  4. 俩版本的Kinect在使用哪个Linux驱动 for Kinect working on Ubuntu是不太一样的，有的好用，有的不好用。</p>
+<p>首先我们讨论 Using Kinect_for_Windows on Ubuntu 12.04, 然后讨论 Using Kinect_for_XBox on Ubuntu 12.04</p>
+<p>  5. 了解一些关于Kinect, PrimeSense, OpenNI的背景知识，有助于理解和寻找有关技术资料。<a href="https://en.wikipedia.org/wiki/OpenNI">https://en.wikipedia.org/wiki/OpenNI</a></p>
+<p>写在前面：这个问题为什么带来这么大的难度和困扰，主要是因为OpenNI的创始团队PrimeSense被苹果收购了，OpenNI.org网站也在2014年4月被关闭。好在<a href="https://so.csdn.net/so/search?q=GitHub&amp;spm=1001.2101.3001.7020">GitHub</a>网站代码还健在。<a href="http://www.i-programmer.info/news/194-kinect/7004-openni-to-close-.html">OpenNI To Close</a>    而<strong>好好阅读OpenNI和avin2/SensorKincect的GitHub网站内的说明文档</strong>，对于成功安装Ubuntu下的Kinect驱动程序是至关重要的。</p>
+<h3 id="第一章-using-kinect_for_windows-on-ubuntu-1204">第一章： Using Kinect_for_Windows on Ubuntu 12.04<a hidden class="heading-anchor" aria-hidden="true" href="#第一章-using-kinect_for_windows-on-ubuntu-1204">#</a></h3>
+<p>配置： PC台式机，原生安装 Ubuntu12.04_x86.iso, 非双系统</p>
+<p>参考：<a href="http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/">Kinect on Ubuntu with OpenNI</a></p>
+<p>================= Notes for debugging =============================</p>
+<pre tabindex="0"><code>Optional: for ubuntu12.04_for_ros_hydro OS version, we need to firstly do some patch work:
+  $ sudo apt-get update --fix-missing
+
+------Install the Prerequisition------
+The Prerequisition for your next Installation is the Tools you may need, Ubuntu will automatically install or upgrade them.
+&gt;&gt;git 
+&gt;&gt;build-essential 
+&gt;&gt;python libusb-1.0-0-dev 
+&gt;&gt;freeglut3-dev 
+&gt;&gt;openjdk-7-jdk 
+Run the Command:
+  $ sudo apt-get install git build-essential python libusb-1.0-0-dev freeglut3-dev openjdk-7-jdk
+  $ sudo apt-get install doxygen graphviz mono-complete
+  $ cd ~/Downloads
+  $ git clone https://github.com/OpenNI/OpenNI.git  
+  $ cd OpenNI  
+  $ git checkout Unstable-1.5.4.0  
+  $ cd Platform/Linux/CreateRedist  
+  $ chmod +x RedistMaker  
+  $ ./RedistMaker  
+---- Install the OpenNI UNSTABLE Version ----
+  $ cd ../Redist/OpenNI-Bin-Dev-Linux-[xxx]    
+   //(where [xxx] is your architecture and this particular OpenNI release)  
+  $ sudo ./install.sh  
+
+//  ---- Have a test: (Optional)-----
+//  $ cd /home/exbot/Downloads/OpenNI/Platform/Linux/Bin/x86-Release
+//  $ ./Sample-NiSimpleViewer 
+//  we got:
+//    ----------
+//    One or more of the following nodes could not be enumerated:
+//    &gt;&gt;
+//    &gt;&gt;
+//    &gt;&gt;
+//    exbot@ubuntu:~/Downloads/OpenNI/Platform/Linux/Bin/x86-Release$
+//    ----------
+  Let&#39;s continue to Install the SensorKinect driver for OpenNI.
+
+---- Install the SensorKinect Model ----  
+Notice: Here You Should go to the path:
+  /home/exbot/Downloads/OpenNI/Platform/Linux/Redist/OpenNI-Bin-Dev-Linux-[xxx]
+  //the [xxx] is your OS version, mine is: x86-v1.5.4.0
+Run these Command:
+
+  $ git clone https://github.com/avin2/SensorKinect  
+  $ cd SensorKinect/Platform/Linux/CreateRedist  
+  $ chmod +x RedistMaker  
+  $ sudo ./RedistMaker  
+
+---- Install SensorKinect ----
+  $ cd ../Redist/Sensor-Bin-Linux-[xxx]   
+  //(where [xxx] is your architecture and this particular OpenNI release)  
+  $ sudo chmod +x install.sh  
+  $ sudo ./install.sh  
+
+---- Have a test about your Installation work!! ----
+Plugin your Kinect Sensor to the USB port. Test if linux detected your usb device:
+  $ lsusb
+Go to the OpenNI&#39;s path and run the SimpleSampleViewer:
+  $ cd ~/Downloads/OpenNI/Platform/Linux/Bin/x86-Release/
+  $ ./Sample-NiSimpleViewer
+
+I finnally got the Depth Graph on my monitor!!!! I&#39;m Really Excited after two weeks&#39; working on this issue.
+
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><h3 id="the-issues-i-met-1">The Issues I met:<a hidden class="heading-anchor" aria-hidden="true" href="#the-issues-i-met-1">#</a></h3>
+<p><strong>Open failed: Xiron OS failed to wait on event!</strong></p>
+<p>I met the error below when I was trying to test the kinect_for_Windows. :(</p>
+<p>$ ./Sample-NiSimpleViewer<br>
+Open failed: Xiron OS failed to wait on event!</p>
+<p>I&rsquo;ll try the installation process for OpenNI unstable, SensorKinect on a new clear Ubuntu_12.04.5_desktop_i386. and solved.</p>
+<h3 id="第二章-using-kinect_for_xbox-on-ubuntu-1204">第二章： Using Kinect_for_XBox on Ubuntu 12.04<a hidden class="heading-anchor" aria-hidden="true" href="#第二章-using-kinect_for_xbox-on-ubuntu-1204">#</a></h3>
+<p>配置： PC台式机，原生安装 Ubuntu12.04_x86.iso, 非双系统。</p>
+<p>当在Ubuntu 中玩起来了 Kinect_for_Windows, 我拔掉它，插上 Kinect_for_Xbox, 效果是一样的。</p>
+<p>When you succeded in using Kinect_for_Windows on Ubuntu, the using of Kinect_for_Xbox is just &lsquo;unplug and plugin&rsquo;.</p>
+<p>我建议使用OpenKinect.org提供的驱动。<strong>OpenKinect</strong> is an open community of people interested in making use of the amazing<strong>Xbox Kinect</strong> hardware with our PCs and other devices. We are working on free, open source libraries that will enable the Kinect to be used with Windows, Linux, and Mac.</p>
+<p>如何安装Ubuntu驱动for Kinect_for_XBox及相关配置： <a href="http://openkinect.org/wiki/Getting">http://openkinect.org/wiki/Getting</a>_Started</p>
+<p><a href="http://blog.jozilla.net/2012/03/29/getting-up-and-running-with-the-kinect-in-ubuntu-12-04/">Getting up and running with the Kinect in Ubuntu 12.04</a></p>
+<h3 id="-the-original-blog-on-20papercupsnet-">============== The Original Blog on 20papercups.net ============<a hidden class="heading-anchor" aria-hidden="true" href="#-the-original-blog-on-20papercupsnet-">#</a></h3>
+<p>Kinect on Ubuntu with OpenNI<br>
+(Source:http://www.20papercups.net/programming/kinect-on-ubuntu-with-openni/)</p>
+<p>UPDATE October 2015: Verified working in Ubuntu 14.04 LTS and 15.04!</p>
+<p>I’ve spent all this morning trying to talk to the Microsoft Kinect using OpenNI. As it turns out, the process is not exceptionally difficult, it’s just there doesn’t seem to be any up to date documentation on getting it all working. So, this post should fill the void. I describe how to get access to the Kinect working using Ubuntu 12.04 LTS, OpenNI 1.5.4, and NITE 1.5.2.</p>
+<p>Please note that since writing this tutorial, we now have OpenNI and NITE 2.0, and PrimeSense have been bought by Apple. This tutorial does not work with versions 2 (though 1.5 works just fine), and there is talk of Apple stopping public access to NITE.</p>
+<p>To talk to the Kinect, there are two basic parts: OpenNI itself, and a Sensor module that is actually responsible for communicating with the hardware. Then, if you need it, there is NITE, which is another module for OpenNI that does skeletal tracking, gestures, and stuff. Depending on how you plan on using the data from the Kinect, you may not need NITE at all.</p>
+<p>Step 1: Prerequisites</p>
+<p>We need to install a bunch of packages for all this to work. Thankfully, the readme file included with OpenNI lists all these. However, to make life easier, this is (as of writing) what you need to install, in addition to all the development packages you (hopefully) already have.</p>
+<p>$ sudo apt-get install git build-essential python libusb-1.0-0-dev freeglut3-dev openjdk-7-jdk</p>
+<p>There are also some optional packages that you can install, depending on whether you want documentation, Mono bindings, etc. Note that on earlier versions the install failed if you didn’t have doxygen installed, even though it is listed as optional.</p>
+<p>$ sudo apt-get install doxygen graphviz mono-complete</p>
+<p>==============================<br>
+Step 2: OpenNI 1.5.4</p>
+<p>OpenNI is a framework for working with what they are calling natural interaction devices.Anyway, this is how it is installed:</p>
+<p>Check out from Git</p>
+<p>OpenNI is hosted on Github, so checking it out is simple:</p>
+<blockquote>
+<blockquote>
+<p>git clone <a href="https://github.com/OpenNI/OpenNI.git">https://github.com/OpenNI/OpenNI.git</a></p></blockquote></blockquote>
+<p>The first thing we will do is checkout the Unstable 1.5.4 tag. If you don’t do this, then the SensorKinect library won’t compile in Step 3. From there, change into the Platform/Linux-x86/CreateRedist directory, and run the RedistMaker script. Note that even though the directory is named x86, this same directory builds 64 bit versions just fine. So, don’t fret if you’re on 64bit Linux.</p>
+<blockquote>
+<blockquote>
+<p>cd OpenNI<br>
+git checkout Unstable-1.5.4.0<br>
+cd Platform/Linux/CreateRedist<br>
+chmod +x RedistMaker<br>
+./RedistMaker</p></blockquote></blockquote>
+<p>The RedistMaker script will compile everything for you. You then need to change into the Redist directory and run the install script to install the software on your system.</p>
+<blockquote>
+<blockquote>
+<p>cd ../Redist/OpenNI-Bin-Dev-Linux-[xxx]  (where [xxx] is your architecture and this particular OpenNI release)<br>
+sudo ./install.sh</p></blockquote></blockquote>
+<p>============================<br>
+Step 3: Kinect Sensor Module</p>
+<p>OpenNI doesn’t actually provide anything for talking to the hardware, it is more just a framework for working with different sensors and devices. You need to install a Sensor module for actually doing the hardware interfacing. Think of an OpenNI sensor module as a device driver for the hardware. You’ll also note on the OpenNI website that they have a Sensor module that you can download. Don’t do this though, because that sensor module doesn’t talk to the Kinect. I love how well documented all this is, don’t you?</p>
+<p>The sensor module you want is also on GitHub, but from a different user. So, we can check out the code. We also need to get the kinect branch, not master.</p>
+<blockquote>
+<blockquote>
+<p>git clone <a href="https://github.com/avin2/SensorKinect">https://github.com/avin2/SensorKinect</a><br>
+cd SensorKinect</p></blockquote></blockquote>
+<p>The install process for the sensor is pretty much the same as for OpenNI itself:</p>
+<blockquote>
+<blockquote>
+<p>cd Platform/Linux/CreateRedist<br>
+chmod +x RedistMaker<br>
+./RedistMaker<br>
+cd ../Redist/Sensor-Bin-Linux-[xxx] (where [xxx] is your architecture and this particular OpenNI release)<br>
+chmod +x install.sh<br>
+sudo ./install.sh</p></blockquote></blockquote>
+<p>On Ubuntu, regular users are only given read permission to unknown USB devices. The install script puts in some udev rules to fix this, but if you find that none of the samples work unless you run them as root, try unplugging and plugging the Kinect back in again, to make the new rules apply.</p>
+<p>===============================<br>
+Step 4: Test the OpenNI Samples</p>
+<p>At this point, you have enough installed to get data from the Kinect. The easiest way to verify this is to run one of the OpenNI samples.</p>
+<blockquote>
+<blockquote>
+<p>cd OpenNI/Platform/Linux-x86/Bin/Release<br>
+./Sample-NiSimpleViewer</p></blockquote></blockquote>
+<p>You should see a yellow-black depth image. At this point, you’re left with (optionally) installing the higher level NITE module.</p>
+<p>===================================<br>
+Step 5: Install NITE 1.5 (optional)</p>
+<p>Firstly, you need to obtain NITE 1.5.2. Go to the following link and download NITE 1.5.2 for your platform..</p>
+<p><a href="http://www.openni.org/openni-sdk/openni-sdk-history-2/">http://www.openni.org/openni-sdk/openni-sdk-history-2/</a></p>
+<p>Extract the archive, and run the installer:</p>
+<blockquote>
+<blockquote>
+<p>sudo ./install.sh</p></blockquote></blockquote>
+<p>At some point, you may be asked for a license key. A working license key can be found just about anywhere on the Internet. I don’t think PrimeSense care, or maybe this is a non-commercial license or something. But whatever, just copy that license into the console, including the equals sign at the end, and NITE will install just fine.<br>
+Conclusion</p>
+<p>After following these steps, you will be able to write programs that use the Microsoft Kinect through OpenNI and NITE middleware. I hope this helps someone, because I spent a lot of time screwing around this morning trying to get it all to work. Like I said, the process is pretty straight forward, it just hasn’t been written down in one place (or I suck at google).</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-08-27 15:47 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share 在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150827154740%2f&title=%e5%9c%a8%20Ubuntu%20%e7%94%a8%20OpenNI%e6%94%af%e6%8c%81%20%e4%bd%bf%e7%94%a8%20Kincet%20%e4%bc%a0%e6%84%9f%e5%99%a8">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share 在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器 on twitter"
+          href="https://twitter.com/intent/tweet/?text=%e5%9c%a8%20Ubuntu%20%e7%94%a8%20OpenNI%e6%94%af%e6%8c%81%20%e4%bd%bf%e7%94%a8%20Kincet%20%e4%bc%a0%e6%84%9f%e5%99%a8&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150827154740%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share 在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150827154740%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

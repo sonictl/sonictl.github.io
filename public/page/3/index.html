@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231229110159/" title="B站分集视频时长统计方法">B站分集视频时长统计方法</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="b站分集视频时长获取与统计方法">B站分集视频时长获取与统计方法</h1>
+<p>学习B站分集视频时，若需要知道视频总时长，可用js把标题及时长在控制台输出，然后复制存为文本文件。</p>
+<p>【使用方法】：</p>
+<ul>
+<li>按下F12（<code>Opt+CMD+I</code>）进入开发者工具，</li>
+<li>点击“Console”标题进入控制台，</li>
+<li>在光标闪动的输入处粘贴以下代码并回车：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">box</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">&#39;list-box&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">boxtext</span><span class="o">=</span><span class="nx">box</span><span class="p">.</span><span class="nx">innerText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">textline</span><span class="o">=</span><span class="nx">boxtext</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\n(?!P\d+)/g</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">textline</span><span class="p">);</span>
+</span></span></code></pre></div><p>打开ChatGPT, 提问：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">我要给你一个列表，你需要识别每个条目的时长。把它们的总时长加起来。你不用打印每个条目的时长。我只需要你打印出加和后的总时长即可。
+</span></span><span class="line"><span class="cl">条目如下：
+</span></span><span class="line"><span class="cl">P1 001-入门到实战导学视频1 11:10
+</span></span><span class="line"><span class="cl">P2 002-第一天课程介绍1 05:54
+</span></span><span class="line"><span class="cl">P3 003-第一天课程介绍2 15:54
+</span></span></code></pre></div></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231229110159/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-12-29T11:01:45&#43;0800" class="date">December 29, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231217110159/" title="Linux kernal update and turn on the TCP BBR">Linux kernal update and turn on the TCP BBR</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="linux内核升级与开启tcp-bbr">Linux内核升级与开启TCP BBR</h1>
+<p>Reference: <a href="https://github.com/iMeiji">https://github.com/iMeiji</a></p>
+<p>BBR 目的是要尽量跑满带宽，并且尽量不要有排队的情况，效果并不比速锐差。</p>
+<p>Linux kernel 4.9+ 才支持 tcp_bbr。下面简单讲述基于 KVM 架构的 virtual p server 如何开启。</p>
+<p>附：</p>
+<blockquote>
+<p><del><a href="https://www.91yun.org/archives/4996">OpenVZ 架构VPS开启BBR</a></del>（容易导致判定滥用ban机，慎用！）</p>
+<p><a href="https://moeclub.org/2017/06/24/278/">Debian/Ubuntu TCP BBR 魔改版</a>（不支持4.13.*及更新的内核）</p></blockquote>
+<h2 id="debian-8--ubuntu-1404">Debian 8+ / Ubuntu 14.04</h2>
+<ul>
+<li>下载最新内核，最新内核查看<a href="http://kernel.ubuntu.com/~kernel-ppa/mainline">这里</a></li>
+</ul>
+<pre tabindex="0"><code>http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.16/linux-image-4.16.0-041600-generic_4.16.0-041600.201804012230_amd64.deb
+</code></pre><ul>
+<li>安装内核</li>
+</ul>
+<pre tabindex="0"><code>dpkg -i linux-image-4.*.deb
+</code></pre><ul>
+<li>删除旧内核（可选）</li>
+</ul>
+<pre tabindex="0"><code>dpkg -l | grep linux-image 
+apt-get purge &lt;旧内核&gt;
+</code></pre><ul>
+<li>更新 grub 系统引导文件并重启</li>
+</ul>
+<pre tabindex="0"><code>update-grub
+reboot
+</code></pre><h2 id="ubuntu-1604">Ubuntu 16.04</h2>
+<p>安装 Hardware Enablement Stack (HWE)，自动更新内核</p>
+<pre tabindex="0"><code>apt install --install-recommends linux-generic-hwe-16.04
+</code></pre><ul>
+<li>删除旧内核（可选）</li>
+</ul>
+<pre tabindex="0"><code>sudo apt autoremove
+</code></pre><h2 id="centos-6">CentOS 6</h2>
+<ul>
+<li>下载更换内核，最新内核查看<a href="http://elrepo.org/linux/kernel/el6/x86_64/RPMS/">这里</a></li>
+</ul>
+<pre tabindex="0"><code>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+rpm -Uvh http://www.elrepo.org/elrepo-release-6-8.el6.elrepo.noarch.rpm
+yum --enablerepo=elrepo-kernel install kernel-ml -y
+</code></pre><ul>
+<li>查看内核是否安装成功</li>
+</ul>
+<pre tabindex="0"><code>rpm -qa | grep kernel
+</code></pre><ul>
+<li>删除旧内核（可选）</li>
+</ul>
+<pre tabindex="0"><code>rpm -ev &lt;旧内核&gt;
+</code></pre><ul>
+<li>更新 grub 系统引导文件并重启</li>
+</ul>
+<pre tabindex="0"><code>sed -i &#39;s:default=.*:default=0:g&#39; /etc/grub.conf
+reboot
+</code></pre><p>~~开不了机的打开 VPS 后台控制面板的 VNC，开机卡在 grub 引导, 只需要手动选择内核就可以了。~~~~~~</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231217110159/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-12-17T11:01:45&#43;0800" class="date">December 17, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231124151316/" title="Fixing Kernel headers not found for target kernel error when Installing VirtualBox Guest Additions">Fixing Kernel headers not found for target kernel error when Installing VirtualBox Guest Additions</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="fixing-virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel">Fixing <code>VirtualBox Guest Additions: Kernel headers not found for target kernel</code></h1>
+<p>OS system for testing:  CentOS7</p>
+<h3 id="1-why-this-error">1. why this error:</h3>
+<p>The version of <code>kernel-devel</code> does not match the version of your running <code>kernel</code>.</p>
+<p>You can check them by running <code>uname -r</code> and <code>rpm -q kernel-devel</code>.</p>
+<h3 id="2-update-the-kernel">2. update the kernel</h3>
+<p>follow the <a href="https://www.geeksforgeeks.org/how-to-upgrade-linux-kernel-on-centos-7/">link</a></p>
+<p>or do the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># yum update -y</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># yum --disablerepo=&#34;*&#34; --enablerepo=&#34;elrepo-kernel&#34; list available</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># yum --enablerepo=elrepo-kernel install kernel-ml-devel kernel-ml -y</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#or:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># yum –-enablerepo=elrepo-kernel install kernel-lt-devel kernel-lt -y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># reboot </span>
+</span></span></code></pre></div><p>After update the kernel, you can find the not-the-newest version of kernel.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231124151316/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-11-24T15:13:16&#43;0800" class="date">November 24, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231114222406/" title="Across folders&#39; module calling in python">Across folders&#39; module calling in python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="across-folders-module-calling-in-python">Across folders&rsquo; module calling in python</h1>
+<p>This topic involves understainding:</p>
+<ul>
+<li>
+<p>how Py modules system works</p>
+</li>
+<li>
+<p>organizing your proj. files&rsquo; structure</p>
+</li>
+<li>
+<p>using the appropriate import systements</p>
+</li>
+</ul>
+<h2 id="1-proj-structure">1. Proj. Structure</h2>
+<h3 id="11-packages-and-modules">1.1 Packages and Modules</h3>
+<p>❤️A <strong>module</strong> is a Python file containing code and definitions. A <strong>module</strong> is just a Python program that ends with <strong>.py</strong> extension</p>
+<p>❤️A <strong>package</strong> is a directory that contains a special <code>__init__.py</code> file, making it a Python package. A folder that contains a module becomes a <strong>package</strong>.</p>
+<p>see:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231114222406/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-11-14T22:24:06&#43;0800" class="date">November 14, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231107174853/" title="The URL tricks to download YouTube videos">The URL tricks to download YouTube videos</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="the-url-tricks-to-save-youtube-offline">The URL tricks to save YouTube offline</h1>
+<p>The ways below show you the most direct method to download YouTube videos by changing URL without any software. Try any of them as you need.</p>
+<h3 id="method-1-change-youtube-to-ssyoutube">Method 1: Change YouTube to <code>ssyoutube</code></h3>
+<p>youtube.com/watch?v=C6MVEwl0ceI&amp;t=2s -&gt; ssyoutube.com/watch?v=C6MVEwl0ceI&amp;t=2s</p>
+<h3 id="method-2change-youtube-to-youpak">Method 2: Change YouTube to <code>youpak</code></h3>
+<p>youtube.com/watch?v=C6MVEwl0ceI&amp;t=2s -&gt; youpak.com/watch?v=C6MVEwl0ceI&amp;t=2s</p>
+<h3 id="method-3change-youtube-to"><del>Method 3: Change YouTube to <code>youtubepp</code></del></h3>
+<p>youtube.com/watch?v=C6MVEwl0ceI&amp;t=2s -&gt; youtubepp.com/watch?v=C6MVEwl0ceI&amp;t=2s</p>
+<h3 id="method-4change-youtube-to-pwnyoutubepp">Method 4: Change YouTube to <code>pwnyoutubepp</code></h3>
+<p>youtube.com/watch?v=C6MVEwl0ceI&amp;t=2s -&gt; pwnyoutube.com/watch?v=C6MVEwl0ceI&amp;t=2s</p>
+<p><strong>FAQ:</strong></p>
+<p><strong>Are there any video quality restrictions when downloading from YouTube</strong></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231107174853/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-11-07T17:48:53&#43;0800" class="date">November 07, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231103214413/" title="3 Ways to Convert Python App into APK">3 Ways to Convert Python App into APK</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="3-ways-to-convert-python-app-into-apk">3 Ways to Convert Python App into APK</h1>
+<p>When you write an android app with python (<a href="https://towardsdatascience.com/building-android-apps-with-python-part-1-603820bebde8">see how to</a>), with packages like <code>kivy</code>, it is suffering that convert your Python code into installable/runable APK file for real mobile Android devices.</p>
+<p>This blog is borrowing <a href="https://towardsdatascience.com/3-ways-to-convert-python-app-into-apk-77f4c9cd55af">Kaustubh Gupta&rsquo;s blog</a> and is re-edited to introduce the 3 ways to obtain the APK from Python Android app code.</p>
+<h2 id="1-the-challege">1. The challege</h2>
+<p>we need to package the python code properly, otherwise, Python apps build with Kivy cannot be directly transferred to android devices.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231103214413/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-11-03T21:44:13&#43;0800" class="date">November 03, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20231029101954/" title="Example of Reverse Proxy Configuration - Nginx &amp; Caddy">Example of Reverse Proxy Configuration - Nginx &amp; Caddy</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h3 id="example-of-nginx-reverse-proxy-configuration">Example of Nginx Reverse Proxy Configuration</h3>
+<pre tabindex="0"><code>server {
+    listen          80;
+    listen          [::]:80;
+
+    server_name     &lt;your_server_name&gt;;
+    rewrite ^(.*)$  https://$host$1 permanent;
+}
+
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    &#39;&#39;      close;
+}
+
+server {
+    listen  443       ssl http2;
+    listen  [::]:443  ssl http2;
+
+    server_name         &lt;your_server_name&gt;;
+
+    ssl_certificate     /path/to/ssl_cert;
+    ssl_certificate_key /path/to/ssl_cert_key;
+
+    location / {
+        proxy_set_header    Host                $host;
+        proxy_set_header    X-Real-IP           $remote_addr;
+        proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+        proxy_set_header    X-Forwarded-Proto   $scheme;
+        proxy_http_version  1.1;
+        proxy_set_header    Upgrade             $http_upgrade;
+        proxy_set_header    Connection          $connection_upgrade;
+        proxy_pass          http://127.0.0.1:9000/;
+    }
+}
+</code></pre><h3 id="example-of-caddy-reverse-proxy-configuration">Example of Caddy Reverse Proxy Configuration</h3>
+<pre tabindex="0"><code># This is a comment
+yourdomain.com {
+  # This is also a comment
+  reverse_proxy /myroute localhost:2024
+
+  # May take option1/option2 either:
+
+  #  option1: a static web server for `index.html` in /var/www/mysite
+  root * /var/www/mysite
+  file_server
+
+  #  option2:
+  reverse_proxy https://www.abc.com {
+        header_up Host {upstream_hostport}
+  }
+}
+</code></pre><h3 id="reference">Reference:</h3>
+<h5 id="nginx-ui"><a href="https://github.com/0xJacky/nginx-ui#nginx-ui">Nginx UI</a></h5></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20231029101954/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-10-29T10:19:54&#43;0800" class="date">October 29, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20230926173932/" title="Custom IPython Notebook keyboard shortcut to duplicate current line in edit mode">Custom IPython Notebook keyboard shortcut to duplicate current line in edit mode</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="custom-ipython-jupyter-notebook-keyboard-shortcut-to-duplicate-current-line-in-edit-mode">Custom IPython Jupyter Notebook keyboard shortcut to duplicate current line in edit mode</h1>
+<h2 id="for-microsoft-windows-user-pcdefault">For Microsoft Windows User (pcDefault)</h2>
+<p>Create a new JS file under <code>~/.jupyter/custom/custom.js</code> if it does not exist, and add the next code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* Duplicate a current line in the Jupyter Notebook
+</span></span></span><span class="line"><span class="cl"><span class="cm">* Used only CodeMirror API - https://codemirror.net
+</span></span></span><span class="line"><span class="cl"><span class="cm">*
+</span></span></span><span class="line"><span class="cl"><span class="cm">**/</span>
+</span></span><span class="line"><span class="cl"><span class="nx">CodeMirror</span><span class="p">.</span><span class="nx">keyMap</span><span class="p">.</span><span class="nx">pcDefault</span><span class="p">[</span><span class="s2">&#34;Ctrl-Down&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cm</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// get a position of a current cursor in a current cell
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">current_cursor</span> <span class="o">=</span> <span class="nx">cm</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">getCursor</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// read a content from a line where is the current cursor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">line_content</span> <span class="o">=</span> <span class="nx">cm</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">getLine</span><span class="p">(</span><span class="nx">current_cursor</span><span class="p">.</span><span class="nx">line</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// go to the end the current line
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">CodeMirror</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">goLineEnd</span><span class="p">(</span><span class="nx">cm</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// make a break for a new line
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">CodeMirror</span><span class="p">.</span><span class="nx">commands</span><span class="p">.</span><span class="nx">newlineAndIndent</span><span class="p">(</span><span class="nx">cm</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// filled a content of the new line content from line above it
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">cm</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">replaceSelection</span><span class="p">(</span><span class="nx">line_content</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// restore position cursor on the new line
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">cm</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">setCursor</span><span class="p">(</span><span class="nx">current_cursor</span><span class="p">.</span><span class="nx">line</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">current_cursor</span><span class="p">.</span><span class="nx">ch</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p><strong>Step 2.</strong></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20230926173932/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-09-26T17:39:32&#43;0800" class="date">September 26, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20230919160227/" title="Medical Image Preprocessing with python">Medical Image Preprocessing with python</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="1-load-data-and-get-to-know-the-meta-data">1. Load data and get to know the meta data</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pydicom</span>
+</span></span><span class="line"><span class="cl"><span class="n">raw_medical_image</span> <span class="o">=</span> <span class="n">pydicom</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">raw_medical_image</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">medical_image</span> <span class="o">=</span> <span class="n">raw_medical_image</span><span class="o">.</span><span class="n">pixel_array</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">medical_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>      <span class="c1"># cmap -- color map</span>
+</span></span></code></pre></div><h1 id="2-five-steps-of-processing">2. Five steps of processing</h1>
+<h2 id="21-transforming-to-hu">2.1 Transforming to HU:</h2>
+<p>obtain the HU by using Rescale_Intercept and Rescale_Slope headers:</p>
+<pre tabindex="0"><code>hu_image = image * medical_image.RescaleSlope + medical_image.RescaleIntercept
+
+#window_image:
+img_min = window_center - window_width // 2
+img_max = window_center + window_width // 2
+window_image = image.copy()
+window_image[window_image &lt; img_min] = img_min
+window_image[window_image &gt; img_max] = img_max
+</code></pre><h2 id="22-removing-noises">2.2 Removing Noises</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">segmentation</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">dilation</span><span class="p">(</span><span class="n">brain_image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>  <span class="c1"># 返回图像的灰度形态扩张, skimage</span>
+</span></span><span class="line"><span class="cl"><span class="n">labels</span><span class="p">,</span> <span class="n">label_nb</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">segmentation</span><span class="p">)</span>   <span class="c1"># labels: num of connectivities</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># label_nb: 2darray with element labeled by integers</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">label_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">label_count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mask</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="n">label_count</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mask</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">dilation</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">mask</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">morphology</span><span class="o">.</span><span class="n">binary_fill_holes</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mask</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">dilation</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">masked_image</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">brain_image</span>
+</span></span></code></pre></div><h2 id="23-tilt-correction">2.3 Tilt Correction,</h2>
+<p>Rotate the image, refer:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20230919160227/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-09-19T16:02:27&#43;0800" class="date">September 19, 2023</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20230809160426/" title="基于pycomm3包的Ethernet/IP协议的python实现">基于pycomm3包的Ethernet/IP协议的python实现</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="基于pycomm3包的ethernetip协议的python实现">基于pycomm3包的Ethernet/IP协议的python实现</h1>
+<p>Ethernet/IP(EIP)协议的通信python实现，用pycomm3包进行支持。</p>
+<p>Ethernet/IP 协议可能要求包含的功能：隐式报文通信、显示报文通信 (Explicit 讯息通信)、支持UCMM 及Class3</p>
+<p>如果您需要创建Ethernet/IP协议的自定义实现，则通常需要研究Ethernet/IP规范、处理低级套接字通信、消息编码和解码、消息的组装和拆解以及各种其他特定于协议的细节。这是一项复杂的任务，需要对网络协议和编程有扎实的理解。在大多数情况下，建议使用现有的库或工具来节省时间并确保可靠的通信。</p>
+<p>Ethernet/IP 协议的从头实现比较复杂，但是也有相关的库可以调用。比如 python 的 pycomm3。</p>
+<p>pycomm3库抽象了许多Ethernet/IP协议的复杂性，但是了解协议的概念和结构对于有效地使用库并排除可能出现的任何问题仍然很重要。</p>
+<p>Here&rsquo;s a basic example of how you might use it to communicate with an Ethernet/IP device:
+$ pip install pycomm3</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#====== python通信代码：=========</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pycomm3</span> <span class="kn">import</span> <span class="n">LogixDriver</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a LogixDriver instance</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">LogixDriver</span><span class="p">(</span><span class="s1">&#39;192.168.1.100&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">plc</span><span class="p">:</span>   <span class="c1"># replace &#39;192.168.1.100&#39; with the actual IP address of your device</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Read tag values</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tag_values</span> <span class="o">=</span> <span class="n">plc</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;Tag1&#39;</span><span class="p">,</span> <span class="s1">&#39;Tag2&#39;</span><span class="p">)</span>   <span class="c1"># adjust the tag names and values as needed</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Write tag values</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plc</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Tag1&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span></span></code></pre></div><p>以下这段代码将：
+- 定义Ethernet/IP设备的IP地址和端口。
+- 创建到设备的连接
+- 打开一个到设备的会话
+- 读取输入Tag的值并写入值到输出Tag
+- 最后，关闭会话和连接。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20230809160426/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2023-08-09T16:04:26&#43;0800" class="date">August 09, 2023</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/2/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/4/">4</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/4/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

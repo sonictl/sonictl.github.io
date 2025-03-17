@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程
+Controlling A Roomba with an Arduino
+ arduino,tech
+ Add comments
+Jun
+10
+2009
+ 串口控制roomba， roomba编程
+I set out this weekend to get an  Arduino board to control my  Roomba.  (The Roomba has a great – and generally open – interface, and  iRobot deserves significant credit for encouraging creative repurposing/extensions of their products.)  I’ve got a few project ideas in mind, but for an initial step just wanted to verify that the Arduino could a) send control commands (“move forward”, “turn right”, etc.) from the Arduino, and b) read sensor data (“something is touching my left bumper”, “I’m about to fall down the stairs”).  This post contains my notes, which hopefully will help others doing this sort through some of the issues in a bit less time than that I spent. " />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20160715101105/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程
+Controlling A Roomba with an Arduino
+ arduino,tech
+ Add comments
+Jun
+10
+2009
+ 串口控制roomba， roomba编程
+I set out this weekend to get an  Arduino board to control my  Roomba.  (The Roomba has a great – and generally open – interface, and  iRobot deserves significant credit for encouraging creative repurposing/extensions of their products.)  I’ve got a few project ideas in mind, but for an initial step just wanted to verify that the Arduino could a) send control commands (“move forward”, “turn right”, etc.) from the Arduino, and b) read sensor data (“something is touching my left bumper”, “I’m about to fall down the stairs”).  This post contains my notes, which hopefully will help others doing this sort through some of the issues in a bit less time than that I spent. " />
+  <meta property="og:title" content="Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20160715101105/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2016-07-15" />
+    <meta property="article:modified_time" content="2016-07-15" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程
+Controlling A Roomba with an Arduino
+ arduino,tech
+ Add comments
+Jun
+10
+2009
+ 串口控制roomba， roomba编程
+I set out this weekend to get an  Arduino board to control my  Roomba.  (The Roomba has a great – and generally open – interface, and  iRobot deserves significant credit for encouraging creative repurposing/extensions of their products.)  I’ve got a few project ideas in mind, but for an initial step just wanted to verify that the Arduino could a) send control commands (“move forward”, “turn right”, etc.) from the Arduino, and b) read sensor data (“something is touching my left bumper”, “I’m about to fall down the stairs”).  This post contains my notes, which hopefully will help others doing this sort through some of the issues in a bit less time than that I spent. " />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20160715101105/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20160715101105/">Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2016-07-15T10:11:05&#43;0800 class="date">July 15, 2016</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+11 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="controlling-a-roomba-with-an-arduino---arduino串口控制roomba教程">Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程<a hidden class="heading-anchor" aria-hidden="true" href="#controlling-a-roomba-with-an-arduino---arduino串口控制roomba教程">#</a></h1>
+<h2 id="controlling-a-roomba-with-an-arduino"><a href="http://www.netfluvia.org/layer8/?p=127" title="Controlling A Roomba with an Arduino">Controlling A Roomba with an Arduino</a><a hidden class="heading-anchor" aria-hidden="true" href="#controlling-a-roomba-with-an-arduino">#</a></h2>
+<p> <a href="http://www.netfluvia.org/layer8/?cat=18">arduino</a>,<a href="http://www.netfluvia.org/layer8/?cat=6">tech</a>
+ <a href="http://www.netfluvia.org/layer8/?p=127#respond">Add comments</a></p>
+<p>Jun
+10
+2009</p>
+<p> 串口控制roomba， roomba编程
+I set out this weekend to get an  <a href="http://arduino.cc">Arduino</a> board to control my  <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=6&amp;url=http%3A%2F%2Fstore.irobot.com%2Fproduct%2Findex.jsp%3FproductId%3D2804960&amp;ei=qOktSo7dAovcMdnwnPMJ&amp;usg=AFQjCNG5t0mKPd2nPNkiSCAvSbLoTWhgdw&amp;sig2=nDxK4_jvNA4Av37PlU5p2g">Roomba</a>.  (The Roomba has a great – and generally open – interface, and  <a href="http://irobot.com/">iRobot</a> deserves significant credit for encouraging creative repurposing/extensions of their products.)  I’ve got a few project ideas in mind, but for an initial step just wanted to verify that the <a href="https://so.csdn.net/so/search?q=Arduino&amp;spm=1001.2101.3001.7020">Arduino</a> could a) send control commands (“move forward”, “turn right”, etc.) from the Arduino, and b) read sensor data (“something is touching my left bumper”, “I’m about to fall down the stairs”).  This post contains my notes, which hopefully will help others doing this sort through some of the issues in a bit less time than that I spent. </p>
+<h3 id="the-cable">The Cable<a hidden class="heading-anchor" aria-hidden="true" href="#the-cable">#</a></h3>
+<p>I’ve had  <a href="http://www.sparkfun.com/commerce/product_info.php?products_id=8243">the necessary cable</a> (straight-through 8 pin mini-DIN) to connect to the serial control connector on the Roomba quite a while, and I’d already successfully cut a hole in the top of the Roomba’s cover to expose the port.  (I used a Dremel, though I suppose you could drill and file if you were careful and patient.)</p>
+<p>I cut the cable in half and soldered male header pins to the correct wires to make a 2-pin power/ground connector and a 3-pin connector that had the serial RX/TX line as well as the DD (Device Detect) pin.  (There’s no reason the serial and DD lines<em>need</em> to be next to each other, but it made for a simpler connector, and it’s easy to just assign them proximate ports on the Arduino’s digital pin bank.)  Tod Kurt, author of<a href="http://www.amazon.com/Hacking-Roomba-ExtremeTech-Tod-Kurt/dp/0470072717/sr=8-1/qid=1163208746?ie=UTF8&amp;s=books">Hacking Roomba</a> and part of the impressive<a href="http://thingm.com/">ThingM</a> studio, has<a href="http://hackingroomba.com/2006/11/28/new-roomba-prototyping-cable-for-arduino/">a basic photoset showing a similar cable</a>.  At this point, if you’re looking to do this yourself, you may be wondering which wires in the cable need to go to which pins of the connectors.  I have no idea if there’s reliable consistency in the colors used inside of mini-DIN cables, so I’d suggest figuring this out yourself with your specific cable and a continuity detector of some sort.  The pin diagram on page 2 of<a href="http://www.netfluvia.org/layer8/www.irobot.com/images/consumer/hacker/Roomba_SCI_Spec_Manual.pdf">iRobot’s SCI (Serial Command Interface) documentation</a> should be all you need.<a href="http://www.flickr.com/photos/jrheling/3610053602/in/photostream/"><img src="http://farm4.static.flickr.com/3612/3610053602_b2cc97f42d.jpg?v=0" alt="Arduino Roomba Cable" title="Arduino Roomba Cable"></a></p>
+<p><img src="https://img-blog.csdn.net/20150902163621545?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+but,<br>
+ <img src="https://img-blog.csdn.net/20150902163749551?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h3 id="powering-the-arduino">Powering the Arduino<a hidden class="heading-anchor" aria-hidden="true" href="#powering-the-arduino">#</a></h3>
+<p>The power connector from the Roomba is carrying +16V, which is more than enough to power the Arduino (I’m using the Diecimila and Duemilanove versions of the board).  According to<a href="http://arduino.cc/en/Main/ArduinoBoardDuemilanove">the docs</a>, this is within the acceptable input range, but outside of the recommended range.  In my early attempts to hook it up, I seem to have fried a Diecimila board by connecting Roomba’s +V line to the ‘Vin’ header on the Arduino (sometimes labeled ‘9V’).  I got it working by running the Roomba’s +V line through a 5V voltage regulator and then directly into the ‘5V’ header on the Arduino (note:  it’s important to<em>only</em> do this with a regulated supply, since the 5V header bypasses the Arduino’s onboard regulator).  This worked fine, even if it does mean that the minimal setup is no longer just an Arduino and a cable.  After I fried the Diecimila, I switched to a Duemilanove, though to my knowledge there is no relevant difference in terms of power requirements or tolerance.</p>
+<h3></h3>
+<h3 id="ok-it-should-work-now">OK, It Should Work Now<a hidden class="heading-anchor" aria-hidden="true" href="#ok-it-should-work-now">#</a></h3>
+<p>Based on the research I’d done, I expected that things would more or less just work at this point.  For the software side of my proof of concept, I was using<a href="http://roombahacking.com/software/arduino/RoombaBumpTurn.pde">Tod Kurt’s RoombaBumpTurn sketch</a>.  The sketch sends the Roomba forward, then checks the left and right bump sensors in a loop, turning ‘away’ from the objects it collides with.</p>
+<p>I was excited on my first attempt to see the Roomba ‘wake up’ shortly after connecting my cable to the board.  Then:  nothing.  Hmm.</p>
+<p>By default, the Roomba’s SCI talks at 57000 bps, and the code was assuming that data rate.  I didn’t recall having changed it during previous times hacking around with the Roomba, but just in case I changed the serial speed to 19200 and, sure enough, the Roomba jolted forward shortly after powering up the Arduino.  OK, cool, so there was at least basic connectivity.</p>
+<p>I didn’t really have a reason to run at the slower serial speed, so I threw a quick one-time change into the setup() function to reset the baud rate back to 57000:</p>
+<pre tabindex="0"><code>// [re]set baud rate to 57600
+sciSerial.print(129, BYTE);  // BAUD
+sciSerial.print(10, BYTE);   // 57600
+delay(100);
+</code></pre><h3 id="now-it-should-work-really">*Now* It Should Work, Really<a hidden class="heading-anchor" aria-hidden="true" href="#now-it-should-work-really">#</a></h3>
+<p>With basic serial connectivity established, I went on to verify that basic bumping and turning behavior worked as expected.  In short, it didn’t.  Most of the time letting the Roomba collide with something (or even just manually pressing the sensor) did nothing;  perhaps 10% of the time it would cause the Roomba to turn.  In order to verify that I really was getting commands to the Roomba, I added a short sequence of actions called from the setup() method:</p>
+<pre tabindex="0"><code>void dance() {
+  xbSerial.println(&#34;top of dance()&#34;);
+  updateSensors();
+  goForward();
+  delay(1000);
+  goBackward();
+  delay(1000);
+  stopMoving();
+}
+...
+void stopMoving() {
+  sciSerial.print(137, BYTE);   // DRIVE
+  sciSerial.print(0x00,BYTE);   // 0x0000 == 0
+  sciSerial.print(0x00,BYTE);
+  sciSerial.print(0x00,BYTE);
+  sciSerial.print(0x00,BYTE);   // 0x0000
+}
+</code></pre><p>The Roomba jogged forward, and backward, just as I’d expect.  This left me pretty much convinced that sending commands was working fine, and that my problem was in reading sensor values.</p>
+<p>At this point I really started to feel the lack of debugging information.  While I was pretty sure my problem was in sensor reading, it was certainly time to validate my overall expectations about program flow, as well as inspect return values from the sensor checks, etc.  Debugging is always more of a challenge on an embedded platform with no display/keyboard, but my typical answer for this when using the Arduino — “I’ll just println() to the serial port and monitor it over USB” — doesn’t work here, for two reasons.  First, the serial port is being used by the connection to the Roomba.  As if that weren’t enough (and it is), the Roomba is driving across the floor, and I wouldn’t want to chase after it with my laptop.</p>
+<h3 id="remote-wireless-debugging-with-xbee">Remote Wireless Debugging with XBee<a hidden class="heading-anchor" aria-hidden="true" href="#remote-wireless-debugging-with-xbee">#</a></h3>
+<p>Fortunately, there is a good answer to debugging the code running on the Arduino sitting on top of my Roomba as it scoots away from me: <a href="http://www.digi.com/products/wireless/point-multipoint/xbee-series1-module.jsp">Digi’s XBee modules</a>.  I’ve been playing around with these for a different project recently, and at a basic level they provide an easy wireless link with a serial interface.  Interfacing with the Arduino is a snap with the<a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=29&amp;products_id=126">XBee adapter kit</a> from the outstanding  <a href="http://www.adafruit.com">adafruit industries</a> (<a href="http://www.sparkfun.com/commerce/categories.php">sparkfun</a> also has<a href="http://www.sparkfun.com/commerce/product_info.php?products_id=8276">a breakout board</a> I’ve used with success, but it requires a bit more of a surrounding circuit — nothing tricky, but not as easy as adafruit’s).</p>
+<h3></h3>
+<p>The attentive reader might now be wondering:  I just explained that my serial port was already spoken for, and the XBee module has a serial interface.  So how does this really solve my problem?  Enter<a href="http://arduiniana.org/libraries/NewSoftSerial">NewSoftSerial</a>, an updated version of the Arduino software serial library, which basically lets you drive a serial interface from any two digital I/O pins on the Arduino.  [Yes, I could also use this to debug directly over a serial line, which would be an option if you didn’t have a pair of XBee modules and didn’t mind potentially chasing after your Roomba.]  I had a pair of XBee modules already configured to talk to each other (details of that are far outside the current scope).  One module got connected to a couple of pins on the Arduino, and the other to my laptop via<a href="http://www.adafruit.com/index.php?main_page=product_info&amp;cPath=33&amp;products_id=70">the trusty FTDI USB TTL-232 cable</a>.  On the laptop I then ran a simple serial terminal with ‘screen’ (any terminal program would do), and<em>voila</em> — I can println() from the vacuum cleaning scuttling across the floor and see it on my laptop from across the room (or halfway down the block, for that matter).</p>
+<p>With basic visibility established, I was able to dig further into what wasn’t working with regard to sensor readings.   The sensor reading routine in RoombaBumpTurn is pretty straightforward:</p>
+<p> </p>
+<pre tabindex="0"><code>void updateSensors() {
+  Serial.print(142, BYTE);
+  Serial.print(1,   BYTE);  // sensor packet 1, 10 bytes
+  delay(100); // wait for sensors
+  char i = 0;
+  while(Serial.available()) {
+    int c = Serial.read();
+    if( c==-1 ) {
+      for( int i=0; i&lt;5; i ++ ) {   // say we had an error via the LED
+        digitalWrite(ledPin, HIGH);
+        delay(50);
+        digitalWrite(ledPin, LOW);
+        delay(50);
+      }
+    }
+    sensorbytes[i++] = c;
+  }
+}
+</code></pre><p>After adding some basic println() breadcrumbs (not shown here), it quickly became clear that this function simply wasn’t returning a value that suggested it had correctly read the bump sensors.  The clearest indication of this was when I added some code to check the value of i at the end of updateSensors().  The SCI doc is pretty clear — you ask for sensor packet 1, you get 10 bytes back.  However, I was consistently getting 2 bytes, or 4 bytes, or 3.  Once in a while I’d get 10 bytes, but it was rare.</p>
+<p>This is good.  This is progress.</p>
+<h3 id="other-peoples-problems">Other People’s Problems<a hidden class="heading-anchor" aria-hidden="true" href="#other-peoples-problems">#</a></h3>
+<p>I googled for notes from others doing similar things, and found a number of examples.  Actually, I found a surprising (but at this point encouraging) number of people having problems reading Roomba sensors from Arduinos.  Some of the closest matches were:</p>
+<ul>
+<li>“<a href="http://www.robotreviews.com/chat/viewtopic.php?f=4&amp;t=11269">Roomba SE Receiving Serial Data</a>” on the Robot Reviews forum<br>
+A long thread, most of which is exploring a possible hardware inconsistency between the Roomba’s serial signal and Arduino’s serial port.  The original poster is also working with the RoombaBumpTurn code, it seems, but near the end of the thread it spontaneously starts working, with no changes having been made (huh?).</li>
+<li>“<a href="http://www.robotreviews.com/chat/viewtopic.php?f=4&amp;t=10744&amp;start=20">SERIAL COMMUNICATION NOT WORKING!!!</a>” on Robot Reviews<br>
+This one starts out with a similar problem description, but concludes that the Arduino Diecimila (the previous generation) works with the Roomba, while Duemilanove (the current) doesn’t.  I am certainly not a hardware guy, but from my understanding of the differences between these boards that doesn’t sound likely.</li>
+<li>“<a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1236713062/4">Software Serial</a>” on the Arduino Forum<br>
+A relatively short thread, this starts out referencing the hardware issues speculated on in the first thread, and concludes with the original poster successfully getting sensor readings after switching the Arduino&lt;-&gt;Roomba serial connection to use a software serial driver rather than the Arduino hardware.</li>
+</ul>
+<p>I also encountered a few posters who noted that they’d had different amounts of success by changing the amount of time the code waits after sending the sensor read command to the Roomba and starting trying to read results.  The default in RoombaBumpTurn is 100ms, one person noted that 64ms seemed to work, and I found I’d get more readings (roughly) the lower I set the delay, but I’d also get more phantom readings (i.e. where the Arduino thought a bump sensor had been activated when none had).  In any case, regardless of the duration of the delay I never anything close to accurate, and never was able to consistently see 10 bytes of data coming back from the Roomba.</p>
+<h3 id="solved">Solved!<a hidden class="heading-anchor" aria-hidden="true" href="#solved">#</a></h3>
+<p>The theme of inconsistent serial interfaces between the Roomba and the Arduino was too prevalent to ignore.  I was skeptical about it largely because, as I understood the hypothesis, it should have meant that no Roomba-controlling Arduino code connected via the built-in hardware serial interface would work, and there are a number of hints (including, primarily, the RoombaBumpTurn code) that it was working for some people.  After more or less running out of other things to try, however, I decided to give it a shot, and switched my hacked-up copy of RoombaBumpTurn around so that it expected the XBee to be connected to the hardware interface and used NewSoftSerial to connect to the Roomba SCI port.</p>
+<h3></h3>
+<p>And that did it.  Immediately, everything worked.</p>
+<h3 id="in-conclusion">In Conclusion<a hidden class="heading-anchor" aria-hidden="true" href="#in-conclusion">#</a></h3>
+<p>I think the good folks in the  <a href="http://www.robotreviews.com/chat/viewtopic.php?f=4&amp;t=11269">Robot Reviews forum</a> have nailed the issue, and that the current levels produced by the Roomba are too low to consistently register on the Arduino’s UART.  I can’t explain how that is consistent with the “now it works .. I don’t know what I changed” stories I found in a few places, or how anyone has consistently controlled Roombas from the Arduino’s hardware serial port.  In addition to using a software serial interface, user kg4wsv on the Arduino forum suggests a pair of back-to-back TTL signal inverters to buffer and bolster the current on the signal coming from the Arduino;  I haven’t tried that yet, but it could be a useful alternative if your program was going to use frequently talk over the SCI connection (as software serial is relatively expensive, computationally).</p>
+<p>With all of this sorted out, my Roomba is now running the simple bump &amp; turn algorithm (I added a few pauses to make it easier to see exactly what sensor readings the code got).</p>
+<p>=====================</p>
+<p>also refer:  <a href="http://www.robotappstore.com/Knowledge-Base/3-Serial-Port-Baud-Rate-Configuration/17.html">Serial port connection and configuration</a></p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2016-07-15 10:11 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160715101105%2f&title=Controlling%20A%20Roomba%20with%20an%20Arduino%20-%20Arduino%e4%b8%b2%e5%8f%a3%e6%8e%a7%e5%88%b6Roomba%e6%95%99%e7%a8%8b">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程 on twitter"
+          href="https://twitter.com/intent/tweet/?text=Controlling%20A%20Roomba%20with%20an%20Arduino%20-%20Arduino%e4%b8%b2%e5%8f%a3%e6%8e%a7%e5%88%b6Roomba%e6%95%99%e7%a8%8b&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160715101105%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share Controlling A Roomba with an Arduino - Arduino串口控制Roomba教程 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160715101105%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

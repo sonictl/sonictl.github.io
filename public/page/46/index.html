@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+  <body>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160530102848/" title="ROS与智能机器人技术发展路径探索">ROS与智能机器人技术发展路径探索</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros与智能机器人技术发展路径探索">ROS与智能机器人技术发展路径探索</h1>
+<h3 id="ros与智能机器人技术发展路径探索-1">ROS与智能机器人技术发展路径探索</h3>
+<p><em>Sonictl, Aug 2015</em></p>
+<h4 id="序">序</h4>
+<p>本文按照目标路径、需求、资源、方法、计划为提纲，根据本人对市场、技术、商业模式等的经验理解，梳理总结 ROS 和机器人技术对于机器人研发团队来讲，可能的发展方向、可行性分析、前景展望等。<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN</p>
+<p>据我<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN了解及调研， ROS 已经逐渐占据了机器人开源控制软件平台领域几乎用户量最大的地位。原因主要是：1. ROS 的维护团队比较强大。 2. ROS的架构相对科学。 3. ROS 核心团队针对目前主流的机器人硬件，比如ABB, Kuka, UR, iRobot, Kinect等，提供了相对丰富和成熟的应用案例。4. ROS开源的特点可挑战传统厂商的封闭昂贵的软件工具。</p>
+<p>结合我们sonictl对机器人行业的理解，它是一个应用复杂多样的学科。为了降低机器人的生产成本，需要使用ROS这样架构的软件平台来实现代码复用和模块化封装。目前包括Mathworks在内的算法软件研发巨头[1]及国外的致力于机器人IMU传感器模块研发的初创公司[2]等，都纷纷开始在自己产品的软硬件开发接口上支持ROS。</p>
+<p>所以，我sonictl认为，随着机器人技术的广泛应用，ROS是最有可能成长为一个赢得更多用户和开发者，获得更广泛的硬件厂商和产品支持，具有更强大的功能，覆盖机器人上下游产业链，最终形成以ROS为线索的繁荣的机器人产学研生态。</p>
+<p>作为一个机器人开发团队，应该把握ROS目前还处在探索，含苞待放的时机，以特定的用户群的需求为导向、以核心技术为竞争力，积累、试验和开发自己的ROS机器人产品。</p>
+<h4 id="路线分析">路线分析</h4>
+<h5 id="路线一ros在工业机器人的应用">路线一： ROS在工业机器人的应用</h5>
+<p>工业机器人是机器人在产生自身价值方面最直接、最直观、应用方式和产品模式最清晰的领域。工业上相对固定和可控的生产工作环境降低了机器人的应用难度。</p>
+<p>在满足工业生产中的可靠、实用等要求的基础上，工业机器人在未来还应该朝着低成本和智能化方向发展。</p>
+<p>ROS应如何降低工业机器人的成本和提高智能性：</p>
+<p>相对于传统的机械运动轨迹的实现，ROS很难降低工业机器人的应用成本，而在需要智能算法的工业机器人开发上，可在机器人进行传感和决策的部分，使用ROS提供的低廉免费的算法模块，甚至在ROS原有的模块上进行定制化开发和移植、甚至分发给全球的算法用户。</p>
+<p><strong>1.ROS在工业机器人领域的应用目标</strong></p>
+<p>开发ROS在搬运、分拣、装配、等领域的算法模块及在ABB、UR等机器人本体上运行的整体解决方案。比如，ROS的视觉识别解决方案的开发及应用，就被我认为是很好的方向。</p>
+<p><strong>2.ROS在工业机器人领域的应用需求</strong></p>
+<p>这个需求即是工业界对工业机器人智能化的需求，机械往复运动的机器人已经无法满足工业需求，比如柔性生产线、不同型号的PCB搬运、计数线等。</p>
+<p><strong>3.ROS在工业机器人领域的应用资源和战略分析</strong></p>
+<p>借助<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN团队c++开发人才，通过团队内部培训，完成对ROS的知识覆盖。</p>
+<p>根据研发目标，讨论确定ros在工业领域的应用开发路线图。</p>
+<p>初步的路线图：</p>
+<p>在ABB或kuka机器人上，基于ROS架构，仿造ROS官方例程，利用kinect辅助，完成对平面上物体的自动定位和搬运任务。</p>
+<p>总结和封装上个任务的ROS节点，形成ROS节点使用手册，目标是使其易于分发和使用，<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN甚至使用户零代码完成软硬件组装。</p>
+<p>在ABB或kuka机器人上开发更多ROS Industrial的案例，比如相机智能校准等，并对案例模块进行分拆，将各个模块进行产品化封装，形成包含宣传及参展、市场营销、产品研发、售后服务的产品线。</p>
+<p>最终的产品形态应该是一个能生产ROS nodes的软件工具，比如对于图像识别来讲，用户加入训练的图片或图像，可以训练成一个具有图像识别能力的节点（node）。用户傻瓜式生成它之后，<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN便可直接使用这个ROS节点加入到自己的机器人架构中。</p>
+<h5 id="路线二ros在实时地图建模与导航中的应用">路线二： ROS在实时地图建模与导航中的应用</h5>
+<p>实时地图建模与导航，是按照机器人的功能模块进行scope观察角度进行划分的一个用途较为广泛的功能。这项功能对应英文为人们熟知的SLAM(Simutaneously Localization andMapping). SLAM技术主要是对特种或服务机器人、四旋翼无人机等来讲，当它们在实际陌生地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。SLAM技术也成为过去10年来，移动机器人技术研究中最吸引研究资源的领域之一。在机器人领域有大量的学术论文阐述了很多研究人员对于SLAM的研究成果，SLAM已经成为智能机器人必须的几项技术中，相对成熟的一项技术。</p>
+<p>ROS核心团队和广大的应用开发者也在SLAM技术上投入和很多，产出了一套完整的ROS的应用架构，有了很多成熟的案例。无论是地图建模还是智能蔽障，我<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN都看到大量的应用案例和视频等在Internet上传播。ROS的PR2机器人以及TurtleBot移动平台，都能够对ROS社区提供的有关SLAM的功能模块提供很好的兼容性。从ROS社区的大量文章、案例、软件工具集、教材等可以看出，ROS社区在SLAM技术上相对其他技术来讲，有更多的积累和经验，所以，ROS对于SLAM技术的实现和支持上具有一个很好的基础。我们可以在这个方向上做一些提升智能性、稳定性和产品化的工作。</p>
+<p>我<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>想，ROS之于SLAM，应该是使得SLAM的应用变得像插入一个U盘一样简单的事情。终极的产品形态可以是基于ROS接口的，具备SLAM功能的激光或3D传感器及配套软件服务包，让用户接入3D扫描设备即可享用设备所提供的地图建模服务。</p>
+<p><strong>1.ROS在SLAM领域的应用目标：</strong></p>
+<p>提供基于ROS协议和软硬件环境的SLAM技术服务，产品形态可以是纯软件包或者软硬件结合的产品或服务。比如，指定kinect和turtlebot/iRobot/ExBot等传感器和平台，提供一条龙式的地图建模与应用的软件节点与使用教程，再扩展对更多的硬件支持，以满足不同场景的需求。目标是要形成全国甚至全球ROS+SLAM领域用户量最大的产品，成长为在机器人SLAM技术领域的技术和服务提供方。可能的愿景是通过云SLAM服务搜集室内数据，建立起一个庞大的公共服务机器人地图建模和室内地图数据运营商。数据服务可应用在如学校、商场、运动场馆、博物馆等地点的服务机器人上，且具有跨场景能力，无需重复建模，类似车载导航使用的地图数据服务。</p>
+<p><strong>2.ROS在SLAM领域的应用需求：</strong></p>
+<p>当自主移动机器人、四旋翼无人机等在实际地理环境中进行工作时，要想实现自主导航，主动蔽障等功能，都需要有SLAM或类似SLAM的技术作为支撑。所以SLAM技术在未来智能机器人领域的应用应该是一个基础和必须的地位。易用的SLAM技术，将成为机器人开发和生产者得心应手的工具，让开发者可以专心自己的核心模块开发，而不用担心在地图建模模块部分花费太多精力。所以基础技术模块的易用性将取得广泛的市场需求，赢得客户。</p>
+<p><strong>3.ROS在SLAM领域的应用资源和战略分析：</strong></p>
+<p>稳定的SLAM节点软件服务应该是合适的产品方向。</p>
+<p>首先在成熟的、用户量大、应用场景典型的移动平台上，<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>借助ROS社区提供的基础包，实现2-3种传感器信号下的SLAM及导航功能。再将SLAM软件包进行优化。</p>
+<p>优化后的软件服务打包成产品级的服务，典型的应用方案，详细的使用手册，供用户免费使用并利用反馈不断改进。</p>
+<p>目标是通过易用的SLAM解决方案首先完成对高校和科研院所市场的占领，因为高校和科研院所目前应是SLAM技术应用最广泛的地方。</p>
+<p>探索通过云服务的方式，进一步简化SLAM应用的开发周期和配置难度，使有wifi的地方就能使用云SLAM技术，完善云端建模、驱动、控制等算法。</p>
+<p>高级目标是通过云SLAM服务搜集室内数据，建立起一个庞大的自主移动机器人地图建模和室内地图数据。</p>
+<ol start="4">
+<li>终极目标<br>
+ 终极目标是ROS架构的云机器人实现了大部分智能模块都通过云服务的方式提供算法服务，让机器人的下游应用开发在ROS的协议下，通过简单的积木式搭建即可建成自己的智能机器人，服务于各行各业，走进各家客厅。<a href="http://blog.csdn.net/sonictl/article/details/51535830">sonictl</a>@CSDN</li>
+</ol>
+<h5 id="路线三ros的嵌入式应用">路线三： ROS的嵌入式应用</h5>
+<p>嵌入式设备在21世纪的井喷式发展是人们有目共睹的，嵌入式计算组件在汽车、消费电子、航空等各领域都占据了绝对的数量和重要性。无论在工业或服务机器人领域，嵌入式设备同样占据重要地位。ROS作为一种为机器人打造的软件工具平台，发源于基于PC的软硬件系统，随着机器人应用的普及和机器人开发需求的扩大，嵌入式的机器人开发模块和解决方案必将层出不穷，而ROS将以其先天的模块化、代码复用、节点协议统一等优点，一旦和嵌入式系统的可定制化、小型化、低成本、实时性等优势结合，必将带来机器人开发和应用方式的革命。注意关注ROS社区的新闻即可发现，负责运营ROS的”开源机器人基金”已经于2014年宣布着手支持高通骁龙600型arm处理器[3],和被人们广泛使用的树莓派嵌入式计算平台[4]。BOSCH公司已经有人在2015年8月发布了基于嵌入式 STM32F4Discovery 平台的实时ROS中间件开发项目。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160530102848/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-05-30T10:28:48&#43;0800" class="date">May 30, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160511133211/" title="ROS 进阶学习笔记（15） - Use Service to play ROS-Serial communication">ROS 进阶学习笔记（15） - Use Service to play ROS-Serial communication</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros-进阶学习笔记15---use-service-to-play-ros-serial-communication">ROS 进阶学习笔记（15） - Use Service to play ROS-Serial communication</h1>
+<h3 id="use-service-to-play-ros-serial-communication">Use Service to play ROS-Serial communication</h3>
+<p>Continue for this blog :</p>
+<p><a href="http://blog.csdn.net/sonictl/article/details/50623662">ROS 进阶学习笔记（12） - Communication with ROS through USART Serial Port</a></p>
+<p>In that blog above, we discussed ROS-Serial communication through r2serial_driver node (C++). There is a problem that the r2serial made too much cpu expenses. Like below:</p>
+<hr>
+<p> <strong>Kevin</strong> mentioned a question: &ldquo;Interesting, but a lot of my serial stuff is send a message and receive a response back. Instead of separate publish/subscribes. have you tried a service? That seems like it would work nicely for this.&rdquo;</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160511133211/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-05-11T13:32:11&#43;0800" class="date">May 11, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160426110002/" title="ROS 进阶学习笔记（14） - About driving your iRobot Roomba-Create">ROS 进阶学习笔记（14） - About driving your iRobot Roomba-Create</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros-进阶学习笔记14---about-driving-your-irobot-roomba-create">ROS 进阶学习笔记（14） - About driving your iRobot Roomba-Create</h1>
+<h2 id="ros-进阶学习笔记14---about-driving-your-irobot-roombacreate">ROS 进阶学习笔记（14） - About driving your iRobot Roomba/Create</h2>
+<hr>
+<p>There are several  iRobot ROOMBA/CREATE drivers in ROS community, by May 2016, the newest one sholuld be the<a href="https://github.com/autonomylab/create_autonomy">create_autonomy</a> . Here we only discuss about the one used by the book &quot; ROS by Example _ hydro _ vol1 &ldquo;.</p>
+<hr>
+<p>这篇文章主要介绍使用下面的Create驱动上电不能充电问题。至于另2篇介绍iRobot Roomba作底盘驱动的博客参考：<br>
+<a href="http://blog.csdn.net/sonictl/article/details/49908949">http://blog.csdn.net/sonictl/article/details/49908949</a><br>
+<a href="http://blog.csdn.net/sonictl/article/details/50207949">http://blog.csdn.net/sonictl/article/details/50207949</a></p>
+<p>There are two important script file you may usually need to edit/check: turtlebot_node.py &amp; create_driver.py</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160426110002/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-04-26T11:00:02&#43;0800" class="date">April 26, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160420100500/" title="Linux如何查看进程、杀死进程、启动进程等常用命令">Linux如何查看进程、杀死进程、启动进程等常用命令</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="linux如何查看进程杀死进程启动进程等常用命令">Linux如何查看进程、杀死进程、启动进程等常用命令</h1>
+<h2 id="linux如何查看进程杀死进程启动进程等常用命令-1"><a href="http://blog.csdn.net/wojiaopanpan/article/details/7286430">Linux如何查看进程、杀死进程、启动进程等常用命令</a></h2>
+<p>1.查进程
+ps命令查找与进程相关的PID号：</p>
+<p>ps a 显示现行终端机下的所有程序，包括其他用户的程序。</p>
+<p>ps -A 显示所有程序。</p>
+<p>ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。</p>
+<p>ps -e 此参数的效果和指定&quot;A&quot;参数相同。</p>
+<p>ps e 列出程序时，显示每个程序所使用的环境变量。</p>
+<p>ps f 用ASCII字符显示树状结构，表达程序间的相互关系。</p>
+<p>ps -H 显示树状结构，表示程序间的相互关系。</p>
+<p>ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。</p>
+<p>ps s 采用程序信号的格式显示程序状况。</p>
+<p>ps S 列出程序时，包括已中断的子程序资料。</p>
+<p>ps -t&lt;终端机编号&gt; 指定终端机编号，并列出属于该终端机的程序的状况。</p>
+<p>ps u 以用户为主的格式来显示程序状况。</p>
+<p>ps x 显示所有程序，不以终端机来区分。</p>
+<p>最常用的方法是ps aux,然后再通过管道使用grep命令过滤查找特定的进程,然后再对特定的进程进行操作。</p>
+<p>ps aux | grep program_filter_word,ps -ef |grep tomcat</p>
+<p>ps -ef|grep java|grep -v grep 显示出所有的java进程，去处掉当前的grep进程。</p>
+<p>2.杀进程</p>
+<p>使用kill命令结束进程：kill xxx</p>
+<p>常用：kill －9 324</p>
+<p>Linux下还提供了一个killall命令，可以直接使用进程的名字而不是进程标识号，例如：# killall -9 NAME</p>
+<p>3.进入到进程的执行文件所在的路径下，执行文件 ./文件名</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160420100500/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-04-20T10:05:00&#43;0800" class="date">April 20, 2016</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20160414111002/" title="ROS_Navigation专题2 - Setting up your robot using tf">ROS_Navigation专题2 - Setting up your robot using tf</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros_navigation专题2---setting-up-your-robot-using-tf">ROS_Navigation专题2 - Setting up your robot using tf</h1>
+<h2 id="ros_navigation专题2---setting-up-your-robot-using-tf-1">ROS_Navigation专题2 - Setting up your robot using tf</h2>
+<p>This tutorial provides a guide to set up your robot to start using tf.  ref:  <a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF">wiki.ros.org/navigation/Tutorials/RobotSetup/TF</a></p>
+<hr>
+<h4 id="1-basic-tf-tutorials">1. Basic tf tutorials: <a href="http://wiki.ros.org/tf/Tutorials#Learning_tf">http://wiki.ros.org/tf/Tutorials#Learning_tf</a></h4>
+<p>   </p>
+<p>   </p>
+<h4 id="2-source-code-for-the-package-robot_setup_tf_tutorial-">2. Source code for the package &ldquo;robot_setup_tf_tutorial&rdquo; : <a href="http://wiki.ros.org/robot_setup_tf_tutorial">http://wiki.ros.org/robot_setup_tf_tutorial</a></h4>
+<p>   </p>
+<p>   </p>
+<h4 id="3-follow-the-setting-up-your-robot-using-tf-tutorials-for-navigation-stack--wikirosorgnavigationtutorialsrobotsetuptf">3. Follow the &ldquo;Setting up your robot using tf&rdquo; tutorials for Navigation Stack:  <a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF">wiki.ros.org/navigation/Tutorials/RobotSetup/TF</a></h4>
+<p>   </p>
+<p>   </p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20160414111002/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2016-04-14T11:10:02&#43;0800" class="date">April 14, 2016</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/45/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/45/">45</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/46/">46</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/47/">47</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/79/">79</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/47/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+          <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base
+ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base
+使用iRobot Roomba 5xx/6xx/7xx作为turtlebot的驱动底盘
+ 
+要略过的一些内容：
+参考《ROS by Example _ Hydro _ Vol1》书中所述，实现到“7.5  Sending Twist Messages to a Real Robot”
+中间的过程就按书中来进行即可。涉及到的比如设备驱动、ROS网络配置 等内容可参考本博客前的相关文章。
+要在这里讨论的问题：
+         在
+roslaunch rbx1_bringup turtlebot_minimal_create.launch 这个命令运行时，PC（my_robot1）可以接收cmd_vel消息，并通过串口驱动 Create2® 。
+         这里调用的顺序是什么？启动了哪些nodes? 参数是如何设置的？
+         我们运行了-v 选项的 roslaunch 命令以后，得到如下的状态打印：一行行来分析【见文末附录1：turtlebot_minimal_create.launch文件的执行记录分析】
+         这里面主要的操作就是2个：
+
+
+
+设置node运行前需要设置的参数parameters
+
+
+
+
+运行nodes
+
+
+
+关于.launch 文件们
+turtlebot_minimal_create.launch 这个launch文件是我们驱动iRobot_Roomba底盘时首先要运行的，显然是很重要的，看看它的层次结构：
+1. 标签
+首先我们熟悉一下launch文件的tags-标签们：
+
+&lt;arg name=&ldquo;base&rdquo;       default=&ldquo;create&rdquo;/&gt;  
+这是一个argument标签，表示声明一个参数，后面name指定了参数名为“base”, default指定了它的默认值&quot;create&quot;
+
+  
+
+
+这是一个ros_parameter标签，即ROS程序运行时需要输入的参数，后面name指定了参数名为“/use_sim_time”, value指定了它的赋值，此地是调用前面 arg name=&ldquo;simulation&rdquo; 的argument的值 采用了$ 符号。
+
+
+  
+
+
+引用Include标签，意思引用外部的launch文件或xml文件。 $(find package_name)这里是一个调用ROS外部包的写法，意思robot.launch.xml文件是在turtlebot_bringup这个ROSpackage下面的。ps:是不是很简单？但是在之前还有很多arg标签，这个是专门为所引xml文件配置参数的用法。" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20151119140923/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base
+ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base
+使用iRobot Roomba 5xx/6xx/7xx作为turtlebot的驱动底盘
+ 
+要略过的一些内容：
+参考《ROS by Example _ Hydro _ Vol1》书中所述，实现到“7.5  Sending Twist Messages to a Real Robot”
+中间的过程就按书中来进行即可。涉及到的比如设备驱动、ROS网络配置 等内容可参考本博客前的相关文章。
+要在这里讨论的问题：
+         在
+roslaunch rbx1_bringup turtlebot_minimal_create.launch 这个命令运行时，PC（my_robot1）可以接收cmd_vel消息，并通过串口驱动 Create2® 。
+         这里调用的顺序是什么？启动了哪些nodes? 参数是如何设置的？
+         我们运行了-v 选项的 roslaunch 命令以后，得到如下的状态打印：一行行来分析【见文末附录1：turtlebot_minimal_create.launch文件的执行记录分析】
+         这里面主要的操作就是2个：
+
+
+
+设置node运行前需要设置的参数parameters
+
+
+
+
+运行nodes
+
+
+
+关于.launch 文件们
+turtlebot_minimal_create.launch 这个launch文件是我们驱动iRobot_Roomba底盘时首先要运行的，显然是很重要的，看看它的层次结构：
+1. 标签
+首先我们熟悉一下launch文件的tags-标签们：
+
+&lt;arg name=&ldquo;base&rdquo;       default=&ldquo;create&rdquo;/&gt;  
+这是一个argument标签，表示声明一个参数，后面name指定了参数名为“base”, default指定了它的默认值&quot;create&quot;
+
+  
+
+
+这是一个ros_parameter标签，即ROS程序运行时需要输入的参数，后面name指定了参数名为“/use_sim_time”, value指定了它的赋值，此地是调用前面 arg name=&ldquo;simulation&rdquo; 的argument的值 采用了$ 符号。
+
+
+  
+
+
+引用Include标签，意思引用外部的launch文件或xml文件。 $(find package_name)这里是一个调用ROS外部包的写法，意思robot.launch.xml文件是在turtlebot_bringup这个ROSpackage下面的。ps:是不是很简单？但是在之前还有很多arg标签，这个是专门为所引xml文件配置参数的用法。" />
+  <meta property="og:title" content="ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20151119140923/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-11-19" />
+    <meta property="article:modified_time" content="2015-11-19" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base | Combine Art and Sciences" />
+  <meta name="twitter:description" content="ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base
+ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base
+使用iRobot Roomba 5xx/6xx/7xx作为turtlebot的驱动底盘
+ 
+要略过的一些内容：
+参考《ROS by Example _ Hydro _ Vol1》书中所述，实现到“7.5  Sending Twist Messages to a Real Robot”
+中间的过程就按书中来进行即可。涉及到的比如设备驱动、ROS网络配置 等内容可参考本博客前的相关文章。
+要在这里讨论的问题：
+         在
+roslaunch rbx1_bringup turtlebot_minimal_create.launch 这个命令运行时，PC（my_robot1）可以接收cmd_vel消息，并通过串口驱动 Create2® 。
+         这里调用的顺序是什么？启动了哪些nodes? 参数是如何设置的？
+         我们运行了-v 选项的 roslaunch 命令以后，得到如下的状态打印：一行行来分析【见文末附录1：turtlebot_minimal_create.launch文件的执行记录分析】
+         这里面主要的操作就是2个：
+
+
+
+设置node运行前需要设置的参数parameters
+
+
+
+
+运行nodes
+
+
+
+关于.launch 文件们
+turtlebot_minimal_create.launch 这个launch文件是我们驱动iRobot_Roomba底盘时首先要运行的，显然是很重要的，看看它的层次结构：
+1. 标签
+首先我们熟悉一下launch文件的tags-标签们：
+
+&lt;arg name=&ldquo;base&rdquo;       default=&ldquo;create&rdquo;/&gt;  
+这是一个argument标签，表示声明一个参数，后面name指定了参数名为“base”, default指定了它的默认值&quot;create&quot;
+
+  
+
+
+这是一个ros_parameter标签，即ROS程序运行时需要输入的参数，后面name指定了参数名为“/use_sim_time”, value指定了它的赋值，此地是调用前面 arg name=&ldquo;simulation&rdquo; 的argument的值 采用了$ 符号。
+
+
+  
+
+
+引用Include标签，意思引用外部的launch文件或xml文件。 $(find package_name)这里是一个调用ROS外部包的写法，意思robot.launch.xml文件是在turtlebot_bringup这个ROSpackage下面的。ps:是不是很简单？但是在之前还有很多arg标签，这个是专门为所引xml文件配置参数的用法。" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20151119140923/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20151119140923/">ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-11-19T14:09:23&#43;0800 class="date">November 19, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+8 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="ros进阶学习手记-10---搭建自己的turtlebot2--using-irobot-roomba-as-the-driving-base">ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base<a hidden class="heading-anchor" aria-hidden="true" href="#ros进阶学习手记-10---搭建自己的turtlebot2--using-irobot-roomba-as-the-driving-base">#</a></h1>
+<h2 id="ros进阶学习手记-10---搭建自己的turtlebot2--using-irobot-roomba-as-the-driving-base-1">ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base<a hidden class="heading-anchor" aria-hidden="true" href="#ros进阶学习手记-10---搭建自己的turtlebot2--using-irobot-roomba-as-the-driving-base-1">#</a></h2>
+<p>使用iRobot Roomba 5xx/6xx/7xx作为turtlebot的驱动底盘</p>
+<p> <img src="https://img-blog.csdn.net/20151118160803700?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h3 id="要略过的一些内容">要略过的一些内容：<a hidden class="heading-anchor" aria-hidden="true" href="#要略过的一些内容">#</a></h3>
+<p>参考《ROS by Example _ Hydro _ Vol1》书中所述，实现到“<strong>7.5  Sending Twist Messages to a Real Robot</strong>”</p>
+<p>中间的过程就按书中来进行即可。涉及到的比如设备驱动、ROS网络配置 等内容可参考本博客前的相关文章。</p>
+<h3 id="要在这里讨论的问题">要在这里讨论的问题：<a hidden class="heading-anchor" aria-hidden="true" href="#要在这里讨论的问题">#</a></h3>
+<p>         在
+<strong>roslaunch rbx1_bringup turtlebot_minimal_create.launch</strong> 这个命令运行时，PC（my_robot1）可以接收cmd_vel消息，并通过串口驱动 Create2® 。</p>
+<p>         这里调用的顺序是什么？启动了哪些nodes? 参数是如何设置的？<br>
+         我们运行了-v 选项的 roslaunch 命令以后，得到如下的状态打印：一行行来分析【见文末附录1：turtlebot_minimal_create.launch文件的执行记录分析】<br>
+         这里面主要的操作就是2个：</p>
+<ul>
+<li>
+<ol>
+<li>设置node运行前需要设置的参数parameters</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>运行nodes</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于launch-文件们">关于.launch 文件们<a hidden class="heading-anchor" aria-hidden="true" href="#关于launch-文件们">#</a></h3>
+<p>turtlebot_minimal_create.launch 这个launch文件是我们驱动iRobot_Roomba底盘时首先要运行的，显然是很重要的，看看它的层次结构：</p>
+<h4 id="1-标签">1. 标签<a hidden class="heading-anchor" aria-hidden="true" href="#1-标签">#</a></h4>
+<p>首先我们熟悉一下launch文件的tags-标签们：</p>
+<ul>
+<li>&lt;arg name=&ldquo;base&rdquo;       default=&ldquo;create&rdquo;/&gt;  <br>
+这是一个argument标签，表示声明一个参数，后面name指定了参数名为“base”, default指定了它的默认值&quot;create&quot;</li>
+<li>
+<param name="/use\_sim\_time" value="$(arg simulation)"/>  
+</li>
+</ul>
+<p>这是一个ros_parameter标签，即ROS程序运行时需要输入的参数，后面name指定了参数名为“/use_sim_time”, value指定了它的赋值，此地是调用前面 arg name=&ldquo;simulation&rdquo; 的argument的值 采用了$ 符号。</p>
+<ul>
+<li>
+<include file="$(find turtlebot\_bringup)/launch/includes/robot.launch.xml">  
+</li>
+</ul>
+<p>引用Include标签，意思引用外部的launch文件或xml文件。 $(find package_name)这里是一个调用ROS外部包的写法，意思robot.launch.xml文件是在turtlebot_bringup这个ROSpackage下面的。ps:是不是很简单？但是在</include>之前还有很多arg标签，这个是专门为所引xml文件配置参数的用法。</p>
+<ul>
+<li>
+<node pkg="create\_node" type="turtlebot\_node.py" name="turtlebot\_node" respawn="true" args="--respawnable">  
+</li>
+</ul>
+<p>node标签，节点标签，这个可能是在某个xml文件中有用到，也很常用。比如tb_create_mobile_base.xml文件里，开了create_node 这个包下的 turtlebot_node这个节点。并为它配置了一些属性（respawn-重新生成） ，及参数（如：<param name="sensor\_timeout" value="1.0"/>），还有remap参数，即重映射参数标签</p>
+<ul>
+<li>
+<remap from="cmd\_vel" to="mobile\_base/commands/velocity" />  
+</li>
+</ul>
+<p>remap parameter重映射参数标签，就是重新映射一下node运行时的参数名，比如A node发布了 topic_a 但 B_node的代码里写的是subcribe到topic_A, 此时就要把topic_a重映射成topic_A ,以便让B_node能够听到那个topic上的message.</p>
+<ul>
+<li>别的就涉及到时自己google咯~~</li>
+</ul>
+<h4 id="2-调用关系">2. 调用关系<a hidden class="heading-anchor" aria-hidden="true" href="#2-调用关系">#</a></h4>
+<p>这里我逐层来分析launch 文件：</p>
+<p>【turtlebot_minimal_create.launch】</p>
+<blockquote>
+<ul>
+<li>
+<p>配了一堆参数args，指定了base, battery, stacks, 3d_sensor, simulation;<br>
+声明一个参数/use_sim_time</p>
+</li>
+<li>
+<p>引用了一个外部xml文件：【/opt/ros/hydro/share/turtlebot_bringup/launch/includes/robot.launch.xml】并为它配了参数</p>
+<ul>
+<li>
+<p>配了一堆参数</p>
+</li>
+<li>
+<p>又引用了一堆xml文件：$(find turtlebot_bringup)/launch/includes/description.launch.xml</p>
+</li>
+<li>
+<p>这里面主要是涉及到对机器人外观的解释-urdf的一些操作，关于urdf需要读者以后自行去学习ROS wiki，暂时不展开。</p>
+</li>
+<li>
+<p>除此之外，还配了关于robot_name/robot_type 等的参数，涉及到启动俩nodes: robot_state_publisher&amp;diagnostic_aggregator</p>
+<ul>
+<li>具体可以搜它们的功能，还涉及到yaml配置文件里配了很多与这俩节点有关的参数，后面会慢慢学到yaml的用法。</li>
+</ul>
+</li>
+<li></li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>引用了一个外部xml文件：【/home/exbot/catkin_ws/src/rbx1/rbx1_bringup/launch/includes/tb_create_mobile_base.launch.xml】并为它配了参数</p>
+<ul>
+<li>
+<p>一来就启动了一个重要的node: node pkg=&ldquo;create_node&rdquo; type=&ldquo;turtlebot_node.py&rdquo; name=&ldquo;turtlebot_node&rdquo;</p>
+<ul>
+<li>就是它负责调用create_driver这个驱动程序（后面会学到），负责和驱动程序通信，也和上层那些功能nodes通信，承上启下的作用。<br>
+很重要。</li>
+</ul>
+</li>
+<li>
+<p>又来启动一个node: <node pkg="create\_node" type="kinect\_breaker\_enabler.py" name="kinect\_breaker\_enabler"/></p>
+<ul>
+<li>引用orangeheadlxm的评论：<br>
+ kinect_breaker_enabler.py里是写了一个客户端，其对应的服务器写在了turtlebot_node.py里。它们的作用是当irobot通过SCI和上位机连接上时，把irobot设置为full模式，若未连接上则返回错误并且客户端继续向服务器请求。把response = service_proxy(3)中的3改为1或2还可以把irobot设置成其他模式。</li>
+</ul>
+</li>
+<li>
+<p>又来启动一个node:<node pkg="robot\_pose\_ekf" type="robot\_pose\_ekf" name="robot\_pose\_ekf"></p>
+<ul>
+<li>这是关于robot_pose_ekf包的内容，自行wiki，主要意思是使用odometry + gyroSensor的数据来估计机器人的位置。</li>
+<li>refer: <a href="http://wiki.ros.org/robot_pose_ekf">http://wiki.ros.org/robot_pose_ekf</a></li>
+<li>When you&rsquo;re using ROOMBA rather than the CREATE as the moving base of your turtlebot, you need to read this wiki before adding your own gyro sensor.<br>
+也很重要！</li>
+</ul>
+</li>
+<li>
+<p>又来启动一个node:<node pkg="nodelet" type="nodelet" name="mobile\_base\_nodelet\_manager" args="manager"/></p>
+<ul>
+<li>这是nodelet包下的内容，这里不展开，主要用于 velocity commands multiplexer</li>
+<li>与它平行还启动了一个node：&lt;node pkg=&ldquo;nodelet&rdquo; type=&ldquo;nodelet&rdquo; name=&ldquo;cmd_vel_mux&rdquo;，这里不展开，主要用于 velocity commands multiplexer</li>
+</ul>
+</li>
+<li>
+<p>与上一个node平行还启动了一个node：&lt;node pkg=&ldquo;nodelet&rdquo; type=&ldquo;nodelet&rdquo; name=&ldquo;cmd_vel_mux&rdquo;，</p>
+<ul>
+<li>这里不展开，主要用于 velocity commands multiplexer</li>
+<li>bla..</li>
+</ul>
+</li>
+<li>
+<p>blabla..</p>
+</li>
+</ul>
+</li>
+<li>
+<p>引用了一个外部xml文件：【/opt/ros/hydro/share/turtlebot_bringup/launch/includes/netbook.launch.xml】并为它配了参数</p>
+<ul>
+<li>
+<p>配了有关电池的参数，我想是用来管理电源的</p>
+</li>
+<li>
+<p>引用了一个外部xml文件：【/opt/ros/hydro/share/turtlebot_bringup/launch/includes/netbook.launch.xml】</p>
+<ul>
+<li>配了一个参数arg name=&ldquo;battery&rdquo;</li>
+<li>启动一个node:<node pkg="linux\_hardware" type="laptop\_battery.py" name="turtlebot\_laptop\_battery">,配了相关参数，这里就不展开了。</li>
+</ul>
+</li>
+<li></li>
+<li></li>
+</ul>
+</li>
+</ul></blockquote>
+<p>至此，我们就细看完了 tb_create_mobile_base.launch.xml 这个文件， 一个驱动、一个odometry estimator配置，一个velocity commands multiplexer选择器。<br>
+         具体的讨论见<strong>附录2：关于turtlebot_minimal_create.launch 文件运行详解</strong>:</p>
+<p>完成了底盘驱动，我们有几个问题没有解决：</p>
+<ol>
+<li>驱动速度是否按照命令输入的进行？ &ndash; 速度驱动校准，参见附录3： tb_create_mobile_base.launch.xml文件的修改（添加速度校准参数）</li>
+<li>由于我们采用的ROOMBA而不是IRobot_Create1, 所以没有了gyro_Sensor 数据用于 ekf 的位置估计，ROS利用roomba底盘马达上自带的码盘进行了位置估计，参见odometry相关wiki。我们希望能添加extra gyro sensor, 具体见ros 社区的讨论：<a href="http://answers.ros.org/question/221866/how-to-add-extra-gyro-sensor-for-roomba/">http://answers.ros.org/question/221866/how-to-add-extra-gyro-sensor-for-roomba/</a></li>
+<li>square 驱动实验，看能否准确。参见ros_by_example_hydro_vol1: <em>7.9  Navigating a Square using Odometry</em></li>
+</ol>
+<p>至此，我们就分析完了<strong>turtlebot_minimal_create.launch</strong> 文件**~~**</p>
+<p><strong><em>&ndash;Edited by Sonictl @ csdn blog</em><br>
+<em>on July 3rd, 2016</em></strong></p>
+<h3 id="附录1turtlebot_minimal_createlaunch文件的执行记录分析">附录1：turtlebot_minimal_create.launch文件的执行记录分析】<a hidden class="heading-anchor" aria-hidden="true" href="#附录1turtlebot_minimal_createlaunch文件的执行记录分析">#</a></h3>
+<pre tabindex="0"><code>$ roslaunch -v rbx1_bringup turtlebot_minimal_create.launch
+... logging to /home/exbot/.ros/log/d0c59c34-8dba-11e5-a599-a021b74eea2b/roslaunch-my_robot1-10296.log  //这是加载日志文件
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is &lt;1GB.
+
+... loading XML file [/opt/ros/hydro/etc/ros/roscore.xml]    //第一个加载的xml文件，是运行roscore, 略过。
+... executing command param [rosversion roslaunch]
+Added parameter [/rosversion]
+... executing command param [rosversion -d]  
+Added parameter [/rosdistro]                                 // 前面这几行都是获取 ROS 的版本 = hydro
+Added core node of type [rosout/rosout] in namespace [/] 
+... loading XML file [/home/exbot/catkin_ws/src/rbx1/rbx1_bringup/launch/turtlebot_minimal_create.launch]   //1.从这里开始加载launch文件了
+Added parameter [/use_sim_time]       //上一个文件的第8行“&lt;param name=&#34;/use_sim_time&#34; value=&#34;$(arg simulation)&#34;/&gt;”，开始设置参数值。
+... loading XML file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/robot.launch.xml]          // 2.加载robot.launch.xml 文件
+... loading XML file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/description.launch.xml]    // 3.加载description.launch.xml文件
+... executing command param [/opt/ros/hydro/share/xacro/xacro.py &#39;/opt/ros/hydro/share/turtlebot_description/robots/create_circles_kinect.urdf.xacro&#39;]
+Added parameter [/robot_description]
+... done importing include file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/description.launch.xml]
+Added parameter [/robot/name]     //来自：【loading XML file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/robot.launch.xml]】
+Added parameter [/robot/type]     //来自：【loading XML file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/robot.launch.xml]】
+Added parameter [/robot_state_publisher/publish_frequency]
+Added node of type [robot_state_publisher/robot_state_publisher] in namespace [/]  //在【launch/includes/robot.launch.xml】文件中启动node:[robot_state_publisher]
+
+Added parameter [/diagnostic_aggregator/analyzers/digital_io/path] //【载入pkg=diagnostic_aggregator nodename=diagnostic_aggregator,载入参数文件/opt/ros/hydro/share/turtlebot_bringup/param/create/diagnostics.yaml】
+Added parameter [/diagnostic_aggregator/analyzers/digital_io/type]//1【参数文件中path,type,timeout,startswitch】
+Added parameter [/diagnostic_aggregator/analyzers/digital_io/timeout]
+Added parameter [/diagnostic_aggregator/analyzers/digital_io/startswith]
+
+Added parameter [/diagnostic_aggregator/analyzers/sensors/path]   //2【参数文件中path,type,timeout,startswitch】
+Added parameter [/diagnostic_aggregator/analyzers/sensors/type]
+Added parameter [/diagnostic_aggregator/analyzers/sensors/timeout]
+Added parameter [/diagnostic_aggregator/analyzers/sensors/startswith]
+
+Added parameter [/diagnostic_aggregator/analyzers/nodes/path]    //3【参数文件中path,type,timeout,CONTAINS】
+Added parameter [/diagnostic_aggregator/analyzers/nodes/contains]
+Added parameter [/diagnostic_aggregator/analyzers/nodes/type]
+Added parameter [/diagnostic_aggregator/analyzers/nodes/timeout]
+
+Added parameter [/diagnostic_aggregator/analyzers/power/path]    //4【参数文件中path,type,timeout,startswitch】
+Added parameter [/diagnostic_aggregator/analyzers/power/type]
+Added parameter [/diagnostic_aggregator/analyzers/power/timeout]
+Added parameter [/diagnostic_aggregator/analyzers/power/startswith]
+
+Added parameter [/diagnostic_aggregator/analyzers/mode/path]     //5【参数文件中path,type,timeout,startswitch】
+Added parameter [/diagnostic_aggregator/analyzers/mode/type]
+Added parameter [/diagnostic_aggregator/analyzers/mode/timeout]
+Added parameter [/diagnostic_aggregator/analyzers/mode/startswith]
+
+Added parameter [/diagnostic_aggregator/pub_rate]                //6【参数文件中pub_rate,base_path,timeout,CONTAINS】
+Added parameter [/diagnostic_aggregator/base_path]
+
+Added node of type [diagnostic_aggregator/aggregator_node] in namespace [/] //相关参数载入完成，在【launch/includes/robot.launch.xml】文件中启动node:[diagnostic_aggregator]
+... done importing include file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/robot.launch.xml]  //完成：【loading XML file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/robot.launch.xml]】完成载入
+
+//进入：【loading XML file [/home/exbot/catkin_ws/src/rbx1/rbx1_bringup/launch/includes/tb_create_mobile_base.launch.xml]】
+... loading XML file [/home/exbot/catkin_ws/src/rbx1/rbx1_bringup/launch/includes/tb_create_mobile_base.launch.xml]
+Added parameter [/turtlebot_node/bonus]
+Added parameter [/turtlebot_node/update_rate]
+Added parameter [/turtlebot_node/port]
+Added node of type [create_node/turtlebot_node.py] in namespace [/]  //相关参数载入完成，在【tb_create_mobile_base.launch.xml】文件中启动node:[create_node/turtlebot_node.py]
+Added node of type [create_node/kinect_breaker_enabler.py] in namespace [/]  // 载入 node: kinect_breaker_enabler.py
+
+Added parameter [/robot_pose_ekf/freq]
+Added parameter [/robot_pose_ekf/sensor_timeout]
+Added parameter [/robot_pose_ekf/publish_tf]
+Added parameter [/robot_pose_ekf/odom_used]
+Added parameter [/robot_pose_ekf/imu_used]
+Added parameter [/robot_pose_ekf/vo_used]
+Added parameter [/robot_pose_ekf/output_frame]
+Added node of type [robot_pose_ekf/robot_pose_ekf] in namespace [/] //【载入node】: pkg=&#34;robot_pose_ekf&#34; type=&#34;robot_pose_ekf&#34; name=&#34;robot_pose_ekf&#34;
+
+Added node of type [nodelet/nodelet] in namespace [/] //【载入node】//node pkg=&#34;nodelet&#34; type=&#34;nodelet&#34; name=&#34;mobile_base_nodelet_manager&#34; args=&#34;manager&#34;
+
+Added parameter [/cmd_vel_mux/yaml_cfg_file]   //[param name=&#34;yaml_cfg_file&#34; value=&#34;$(find turtlebot_bringup)/param/mux.yaml&#34;]
+//# Configuration for subscribers to multiple cmd_vel sources.  //filepath: /opt/ros/hydro/share/turtlebot_bringup/param/mux.yaml
+Added node of type [nodelet/nodelet] in namespace [/] //【载入node】pkg=&#34;nodelet&#34; type=&#34;nodelet&#34; name=&#34;cmd_vel_mux&#34;
+
+... done importing include file [/home/exbot/catkin_ws/src/rbx1/rbx1_bringup/launch/includes/tb_create_mobile_base.launch.xml]
+
+... loading XML file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/netbook.launch.xml] //【进入[netbook.launch.xml]文件】
+Added parameter [/turtlebot_laptop_battery/acpi_path]
+Added node of type [linux_hardware/laptop_battery.py] in namespace [/]  //【载入node】pkg=&#34;linux_hardware&#34; type=&#34;laptop_battery.py&#34; name=&#34;turtlebot_laptop_battery&#34;
+... done importing include file [/opt/ros/hydro/share/turtlebot_bringup/launch/includes/netbook.launch.xml]
+
+started roslaunch server http://my_robot1:58659/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /cmd_vel_mux/yaml_cfg_file
+ * /diagnostic_aggregator/analyzers/digital_io/path
+ * /diagnostic_aggregator/analyzers/digital_io/startswith
+ * /diagnostic_aggregator/analyzers/digital_io/timeout
+ * /diagnostic_aggregator/analyzers/digital_io/type
+ * /diagnostic_aggregator/analyzers/mode/path
+ * /diagnostic_aggregator/analyzers/mode/startswith
+ * /diagnostic_aggregator/analyzers/mode/timeout
+ * /diagnostic_aggregator/analyzers/mode/type
+ * /diagnostic_aggregator/analyzers/nodes/contains
+ * /diagnostic_aggregator/analyzers/nodes/path
+ * /diagnostic_aggregator/analyzers/nodes/timeout
+ * /diagnostic_aggregator/analyzers/nodes/type
+ * /diagnostic_aggregator/analyzers/power/path
+ * /diagnostic_aggregator/analyzers/power/startswith
+ * /diagnostic_aggregator/analyzers/power/timeout
+ * /diagnostic_aggregator/analyzers/power/type
+ * /diagnostic_aggregator/analyzers/sensors/path
+ * /diagnostic_aggregator/analyzers/sensors/startswith
+ * /diagnostic_aggregator/analyzers/sensors/timeout
+ * /diagnostic_aggregator/analyzers/sensors/type
+ * /diagnostic_aggregator/base_path
+ * /diagnostic_aggregator/pub_rate
+ * /robot/name
+ * /robot/type
+ * /robot_description
+ * /robot_pose_ekf/freq
+ * /robot_pose_ekf/imu_used
+ * /robot_pose_ekf/odom_used
+ * /robot_pose_ekf/output_frame
+ * /robot_pose_ekf/publish_tf
+ * /robot_pose_ekf/sensor_timeout
+ * /robot_pose_ekf/vo_used
+ * /robot_state_publisher/publish_frequency
+ * /rosdistro
+ * /rosversion
+ * /turtlebot_laptop_battery/acpi_path
+ * /turtlebot_node/bonus
+ * /turtlebot_node/port
+ * /turtlebot_node/update_rate
+ * /use_sim_time
+
+NODES
+  /
+    cmd_vel_mux (nodelet/nodelet)
+    diagnostic_aggregator (diagnostic_aggregator/aggregator_node)
+    kinect_breaker_enabler (create_node/kinect_breaker_enabler.py)
+    mobile_base_nodelet_manager (nodelet/nodelet)
+    robot_pose_ekf (robot_pose_ekf/robot_pose_ekf)
+    robot_state_publisher (robot_state_publisher/robot_state_publisher)
+    turtlebot_laptop_battery (linux_hardware/laptop_battery.py)
+    turtlebot_node (create_node/turtlebot_node.py)
+
+auto-starting new master
+process[master]: started with pid [10313]
+ROS_MASTER_URI=http://my_robot1:11311
+
+setting /run_id to d0c59c34-8dba-11e5-a599-a021b74eea2b
+process[rosout-1]: started with pid [10326]
+started core service [/rosout]
+process[robot_state_publisher-2]: started with pid [10339]
+process[diagnostic_aggregator-3]: started with pid [10360]
+process[turtlebot_node-4]: started with pid [10379]
+process[kinect_breaker_enabler-5]: started with pid [10443]
+process[robot_pose_ekf-6]: started with pid [10447]
+process[mobile_base_nodelet_manager-7]: started with pid [10487]
+process[cmd_vel_mux-8]: started with pid [10508]
+process[turtlebot_laptop_battery-9]: started with pid [10541]
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><h3 id="附录2-关于turtlebot_minimal_createlaunch-文件运行详解">附录2： 关于turtlebot_minimal_create.launch 文件运行详解<a hidden class="heading-anchor" aria-hidden="true" href="#附录2-关于turtlebot_minimal_createlaunch-文件运行详解">#</a></h3>
+<p>从roslaunch -v 的状态打印来看，系统主要做了两方面的工作：</p>
+<ol>
+<li>Added parameter. Generated by <strong><param name="" value=""/></strong></li>
+<li>executing command param. Generated by <strong><param name="" command="$(arg arg\_name)"/></strong></li>
+<li>loading XML file</li>
+<li>added node of type [xx] in namespace</li>
+</ol>
+<p>先看Add parameter, 这是由.launch文件或者.xml 文件中 <param name="" value="" /> tag attributed.</p>
+<p>We also see <arg name="" default="" /> Tag.</p>
+<p>Q:What&rsquo;s the difference between parameter and argrement?</p>
+<p>Let&rsquo;s see the Stackflow, it says:</p>
+<p>=============</p>
+<p>     A Parameter is a variable in the declaration of a function:</p>
+<p>    functionName(parameter) {<br>
+    // do something<br>
+    }</p>
+<p>    An Argument is the actual value of this variable that gets passed to the function:</p>
+<p>    functionName(argument);</p>
+<p>=============</p>
+<p>I modified the turtlebot_minimal_create.launch file and saved it as
+<strong>turtlebot_minimal_create_me.launch</strong></p>
+<p><em>Let&rsquo;s see the turtlebot_minimal_create_me.launch File line by line below:</em></p>
+<pre tabindex="0"><code>1. &lt;launch&gt;
+2. &lt;arg name=&#34;simulation&#34; default=&#34;$(optenv TURTLEBOT_SIMULATION false)&#34;/&gt;&lt;!-- For param &#34;/use_sim_time&#34; --&gt;
+3. &lt;!--Next three lines are for .../launch/includes/robot.launch.xml--&gt;
+4. &lt;arg name=&#34;base&#34;       default=&#34;roomba&#34;/&gt;   &lt;!-- create, roomba, kobuki --&gt;
+5. &lt;arg name=&#34;stacks&#34;     default=&#34;circles&#34;/&gt;  &lt;!-- circles, hexagons --&gt;
+6. &lt;arg name=&#34;3d_sensor&#34;  default=&#34;asus_xtion_pro&#34;/&gt;  &lt;!-- kinect, asus_xtion_pro --&gt;
+7. &lt;!--Next line is for .../launch/includes/netbook.launch.xml--&gt;
+8. &lt;arg name=&#34;battery&#34;    default=&#34;$(optenv TURTLEBOT_BATTERY /proc/acpi/battery/BAT0)&#34;/&gt;  &lt;!-- /proc/acpi/battery/BAT0 --&gt;
+9. 
+10. &lt;param name=&#34;/use_sim_time&#34; value=&#34;$(arg simulation)&#34;/&gt; &lt;!--Added parameter /use_sim_time--&gt;
+11. 
+12. &lt;include file=&#34;$(find turtlebot_bringup)/launch/includes/robot.launch.xml&#34;&gt;
+13. &lt;arg name=&#34;base&#34; value=&#34;$(arg base)&#34; /&gt;       &lt;!--Plugged in three arguments:base; stacks; 3d_sensor--&gt;
+14. &lt;arg name=&#34;stacks&#34; value=&#34;$(arg stacks)&#34; /&gt;
+15. &lt;arg name=&#34;3d_sensor&#34; value=&#34;$(arg 3d_sensor)&#34; /&gt;
+16. &lt;/include&gt;
+17. 
+18. &lt;!--Below: Turtlebot Driver/ breaker1for kinect/ odometry estimator/ vel_com_multiplexer--&gt;
+19. &lt;include file=&#34;$(find rbx1_bringup)/launch/includes/tb_create_mobile_base.launch.xml&#34; /&gt;
+20. 
+21. &lt;!--Netbook battery monitor--&gt;
+22. &lt;include file=&#34;$(find turtlebot_bringup)/launch/includes/netbook.launch.xml&#34;&gt;
+23. &lt;arg name=&#34;battery&#34; value=&#34;$(arg battery)&#34; /&gt;
+24. &lt;/include&gt;
+25. &lt;/launch&gt;
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>   Conclusion: This launch file defined 1 argument &ldquo;simulation&rdquo;, 3 args &ldquo;base&rdquo;,&ldquo;stacks&rdquo;,&ldquo;3d_sensor&rdquo; for robot description, 1 arg &ldquo;battery&rdquo; for netbook.xml as battery monitor.(I didn&rsquo;t use netbook.) , Called three .launch.xml files to finish work:</p>
+<ul>
+<li>/opt/ros/hydro/share/turtlebot_bringup/launch/includes/robot.launch.xml</li>
+<li>/home/exbot/catkin_ws/src/rbx1/rbx1_bringup/launch/includes/tb_create_mobile_base.launch.xml</li>
+<li>/opt/ros/hydro/share/turtlebot_bringup/launch/includes/netbook.launch.xml</li>
+</ul>
+<p>   I&rsquo;ll first look into the 2nd, <strong>tb_create_mobile_base.launch.xml</strong> to set the parameters as my turtlebot&rsquo;s real situation. And see how it works.</p>
+<h4 id="tb_create_mobile_baselaunchxml"><strong>tb_create_mobile_base.launch.xml</strong><a hidden class="heading-anchor" aria-hidden="true" href="#tb_create_mobile_baselaunchxml">#</a></h4>
+<p> </p>
+<pre tabindex="0"><code>1. &lt;launch&gt;
+2. &lt;!-- Turtlebot Driver --&gt;
+3. &lt;node pkg=&#34;create_node&#34; type=&#34;turtlebot_node.py&#34; name=&#34;turtlebot_node&#34; respawn=&#34;true&#34; args=&#34;--respawnable&#34;&gt;
+4. &lt;param name=&#34;bonus&#34; value=&#34;false&#34; /&gt;
+5. &lt;param name=&#34;update_rate&#34; value=&#34;30.0&#34; /&gt;
+6. &lt;param name=&#34;port&#34; value=&#34;/dev/ttyUSB0&#34; /&gt;
+7. &lt;remap from=&#34;cmd_vel&#34; to=&#34;mobile_base/commands/velocity&#34; /&gt;
+8. &lt;remap from=&#34;turtlebot_node/sensor_state&#34; to=&#34;mobile_base/sensors/core&#34; /&gt;
+9. &lt;remap from=&#34;imu/data&#34; to=&#34;mobile_base/sensors/imu_data&#34; /&gt;
+10. &lt;remap from=&#34;imu/raw&#34; to=&#34;mobile_base/sensors/imu_data_raw&#34; /&gt;
+11. &lt;/node&gt;
+12. 
+13. &lt;!-- Enable breaker 1 for the kinect --&gt;
+14. &lt;node pkg=&#34;create_node&#34; type=&#34;kinect_breaker_enabler.py&#34; name=&#34;kinect_breaker_enabler&#34;/&gt;
+15. 
+16. &lt;!-- The odometry estimator --&gt;
+17. &lt;node pkg=&#34;robot_pose_ekf&#34; type=&#34;robot_pose_ekf&#34; name=&#34;robot_pose_ekf&#34;&gt;
+18. &lt;remap from=&#34;imu_data&#34; to=&#34;mobile_base/sensors/imu_data&#34;/&gt;
+19. &lt;remap from=&#34;robot_pose_ekf/odom&#34; to=&#34;odom_combined&#34;/&gt;
+20. &lt;param name=&#34;freq&#34; value=&#34;10.0&#34;/&gt;
+21. &lt;param name=&#34;sensor_timeout&#34; value=&#34;1.0&#34;/&gt;
+22. &lt;param name=&#34;publish_tf&#34; value=&#34;true&#34;/&gt;
+23. &lt;param name=&#34;odom_used&#34; value=&#34;true&#34;/&gt;
+24. &lt;param name=&#34;imu_used&#34; value=&#34;true&#34;/&gt;
+25. &lt;param name=&#34;vo_used&#34; value=&#34;false&#34;/&gt;
+26. &lt;param name=&#34;output_frame&#34; value=&#34;odom&#34;/&gt;
+27. &lt;/node&gt;
+28. 
+29. &lt;!-- velocity commands multiplexer --&gt;
+30. &lt;node pkg=&#34;nodelet&#34; type=&#34;nodelet&#34; name=&#34;mobile_base_nodelet_manager&#34; args=&#34;manager&#34;/&gt;
+31. &lt;node pkg=&#34;nodelet&#34; type=&#34;nodelet&#34; name=&#34;cmd_vel_mux&#34; args=&#34;load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager&#34;&gt;
+32. &lt;param name=&#34;yaml_cfg_file&#34; value=&#34;$(find turtlebot_bringup)/param/mux.yaml&#34;/&gt;
+33. &lt;remap from=&#34;cmd_vel_mux/output&#34; to=&#34;mobile_base/commands/velocity&#34;/&gt;
+34. &lt;remap from=&#34;cmd_vel_mux/input/navi&#34; to=&#34;cmd_vel&#34;/&gt;
+35. &lt;/node&gt;
+36. &lt;/launch&gt;
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>第一部分：</p>
+<pre tabindex="0"><code>1. &lt;!-- Turtlebot Driver --&gt;
+2. &lt;node pkg=&#34;create_node&#34; type=&#34;turtlebot_node.py&#34; name=&#34;turtlebot_node&#34; respawn=&#34;true&#34; args=&#34;--respawnable&#34;&gt;
+3. &lt;param name=&#34;bonus&#34; value=&#34;false&#34; /&gt;
+4. &lt;param name=&#34;update_rate&#34; value=&#34;30.0&#34; /&gt;
+5. &lt;param name=&#34;port&#34; value=&#34;/dev/ttyUSB0&#34; /&gt;
+6. &lt;remap from=&#34;cmd_vel&#34; to=&#34;mobile_base/commands/velocity&#34; /&gt;
+7. &lt;remap from=&#34;turtlebot_node/sensor_state&#34; to=&#34;mobile_base/sensors/core&#34; /&gt;
+8. &lt;remap from=&#34;imu/data&#34; to=&#34;mobile_base/sensors/imu_data&#34; /&gt;
+9. &lt;remap from=&#34;imu/raw&#34; to=&#34;mobile_base/sensors/imu_data_raw&#34; /&gt;
+10. &lt;/node&gt;
+</code></pre><p>这里先为node = turtlebot_node.py 定义了三个parameter: bonus/ update_rate/ port , 然后 remap 了4个消息名。最后启动 turtlebot_node.py ，实际是个底盘驱动。</p>
+<p>第二部分：</p>
+<pre tabindex="0"><code>1. &lt;!-- Enable breaker 1 for the kinect --&gt;
+2. &lt;node pkg=&#34;create_node&#34; type=&#34;kinect_breaker_enabler.py&#34; name=&#34;kinect_breaker_enabler&#34;/&gt;
+</code></pre><p> 查一下 kinect_breaker_enabler.py 是个什么东东？</p>
+<p>    进入到 kinect_breaker_enabler.py 代码里面发现是 Set_to_full_Mode ，看来是个设置底板模式的功能。别的涉及到proxy, server啥的，看不懂。<del>_</del></p>
+<p>    2016年5月6日17:05:39补充一大牛的回复：<a href="http://blog.csdn.net/orangehead1">orangeheadlxm：</a></p>
+<p>kinect_breaker_enabler.py里是写了一个客户端，其对应的服务器写在了turtlebot_node.py里。它们的作用是当irobot通过SCI和上位机连接上时，把irobot设置为full模式，若未连接上则返回错误并且客户端继续向服务器请求。把response = service_proxy(3)中的3改为1或2还可以把irobot设置成其他模式。</p>
+<p>第三部分：</p>
+<pre tabindex="0"><code>1. &lt;!-- The odometry estimator --&gt;
+2. &lt;node pkg=&#34;robot_pose_ekf&#34; type=&#34;robot_pose_ekf&#34; name=&#34;robot_pose_ekf&#34;&gt;
+3. &lt;remap from=&#34;imu_data&#34; to=&#34;mobile_base/sensors/imu_data&#34;/&gt;
+4. &lt;remap from=&#34;robot_pose_ekf/odom&#34; to=&#34;odom_combined&#34;/&gt;
+5. &lt;param name=&#34;freq&#34; value=&#34;10.0&#34;/&gt;
+6. &lt;param name=&#34;sensor_timeout&#34; value=&#34;1.0&#34;/&gt;
+7. &lt;param name=&#34;publish_tf&#34; value=&#34;true&#34;/&gt;
+8. &lt;param name=&#34;odom_used&#34; value=&#34;true&#34;/&gt;  &lt;!-- Sonictl Set as false --&gt;
+9. &lt;param name=&#34;imu_used&#34; value=&#34;true&#34;/&gt;   &lt;!-- Sonictl Set as false --&gt;
+10. &lt;param name=&#34;vo_used&#34; value=&#34;false&#34;/&gt;
+11. &lt;param name=&#34;output_frame&#34; value=&#34;odom&#34;/&gt;
+12. &lt;/node&gt;
+</code></pre><p>  这里要根据我的情况修改几个参数设置了。我没有IMU的 ekf 功能，没有搭载 accelerometer,
+也不知道怎么搭载。所以就把某些值设为false.再保存到tb_create_mobile_base.launch_me.xml 中</p>
+<p>第四部分：</p>
+<pre tabindex="0"><code>1. &lt;!-- velocity commands multiplexer --&gt;
+2. &lt;node pkg=&#34;nodelet&#34; type=&#34;nodelet&#34; name=&#34;mobile_base_nodelet_manager&#34; args=&#34;manager&#34;/&gt;
+3. &lt;node pkg=&#34;nodelet&#34; type=&#34;nodelet&#34; name=&#34;cmd_vel_mux&#34; args=&#34;load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager&#34;&gt;
+4. &lt;param name=&#34;yaml_cfg_file&#34; value=&#34;$(find turtlebot_bringup)/param/mux.yaml&#34;/&gt;
+5. &lt;!-- filepath: /opt/ros/hydro/share/turtlebot_bringup/param/mux.yaml --&gt;
+6. &lt;remap from=&#34;cmd_vel_mux/output&#34; to=&#34;mobile_base/commands/velocity&#34;/&gt;
+7. &lt;remap from=&#34;cmd_vel_mux/input/navi&#34; to=&#34;cmd_vel&#34;/&gt;
+8. &lt;/node&gt;
+</code></pre><p>  这一部分是 多cmd_vel消息来了时候，进行multiplexer多路转换器，的功能。 这里先设置了一个parameter: yaml_cfg_file配置文件，设置到【/opt/ros/hydro/share/turtlebot_bringup/param/mux.yaml】，然后开了俩node：nodelet/mobile_base_nodelet_manager  &amp;  nodelet/cmd_vel_mux , 都分别带了参数args.</p>
+<p>  最后是remap 了俩消息。</p>
+<p>  来看看yaml的配置文件：</p>
+<pre tabindex="0"><code># Created on: Oct 29, 2012
+#     Author: jorge
+# Configuration for subscribers to multiple cmd_vel sources.
+#
+# Individual subscriber configuration:
+#   name:           Source name
+#   topic:          The topic that provides cmd_vel messages
+#   timeout:        Time in seconds without incoming messages to consider this topic inactive
+#   priority:       Priority: an UNIQUE unsigned integer from 0 (lowest) to MAX_INT 
+#   short_desc:     Short description (optional)
+
+subscribers:
+  - name:        &#34;Safe reactive controller&#34;
+    topic:       &#34;input/safety_controller&#34;
+    timeout:     0.2
+    priority:    10
+  - name:        &#34;Teleoperation&#34;
+    topic:       &#34;input/teleop&#34;
+    timeout:     1.0
+    priority:    7
+  - name:        &#34;Navigation&#34;
+    topic:       &#34;input/navi&#34;
+    timeout:     1.0
+    priority:    5![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>  可见是设置了三个源的优先级。文件开头也写了： Configuration for subscribers to multiple cmd_vel sources.
+  至此，我们就细看完了 tb_create_mobile_base.launch.xml 这个文件，一个驱动、一个odometry estimator配置，一个velocity commands multiplexer选择器。</p>
+<p>  完成了驱动，我们有几个问题没有解决：</p>
+<ol>
+<li>驱动速度是否按照命令输入的进行？ &ndash; 速度驱动校准</li>
+<li>没有了 ekf 的位置估计，如何利用Create底盘马达上自带的码盘进行位置估计？</li>
+<li>square 驱动实验，看能否准确。</li>
+</ol>
+<h3 id="附录3-tb_create_mobile_baselaunchxml文件的修改添加速度校准参数">附录3： tb_create_mobile_base.launch.xml文件的修改（添加速度校准参数）<a hidden class="heading-anchor" aria-hidden="true" href="#附录3-tb_create_mobile_baselaunchxml文件的修改添加速度校准参数">#</a></h3>
+<pre tabindex="0"><code>1. &lt;!--Sonic add these parameters below:  --&gt;
+2. &lt;param name=&#34;has_gyro&#34; value=&#34;true&#34; /&gt;
+3. &lt;param name=&#34;turtlebot_node/odom_angular_scale_correction&#34; value=&#34;1.03&#34;/&gt;
+4. &lt;param name=&#34;turtlebot_node/odom_linear_scale_correction&#34; value=&#34;1.0&#34;/&gt;
+5. &lt;param name=&#34;robot_type&#34; value=&#34;roomba&#34;/&gt; &lt;!--&#34;create&#34; or &#34;roomba&#34; 这里很重要！！--&gt;
+6. &lt;!--Sonic add these parameters above.  --&gt;
+</code></pre>
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-11-19 14:09 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20151119140923%2f&title=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%2010%20-%20%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84TurtleBot%ef%bc%882%ef%bc%89-%20Using%20iRobot%20Roomba%20as%20the%20Driving%20Base">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base on twitter"
+          href="https://twitter.com/intent/tweet/?text=ROS%e8%bf%9b%e9%98%b6%e5%ad%a6%e4%b9%a0%e6%89%8b%e8%ae%b0%2010%20-%20%e6%90%ad%e5%bb%ba%e8%87%aa%e5%b7%b1%e7%9a%84TurtleBot%ef%bc%882%ef%bc%89-%20Using%20iRobot%20Roomba%20as%20the%20Driving%20Base&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20151119140923%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20151119140923%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

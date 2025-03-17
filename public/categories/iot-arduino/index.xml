@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>IoT Arduino on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/iot-arduino/</link>
+    <description>Recent content in IoT Arduino on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jan 2024 08:31:15 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/iot-arduino/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apply a certificate that has longer expiration date</title>
+      <link>http://localhost:1313/posts/p20240102083115/</link>
+      <pubDate>Tue, 02 Jan 2024 08:31:15 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20240102083115/</guid>
+      <description>&lt;h1 id=&#34;apply-a-certificate-that-has-longer-expiration-date&#34;&gt;Apply a certificate that has longer expiration date&lt;/h1&gt;&#xA;&lt;h2 id=&#34;apply-a-certificate-that-has-longer-expiration-date-for-caddy-server&#34;&gt;Apply a certificate that has longer expiration date for caddy server&lt;/h2&gt;&#xA;&lt;p&gt;Caddy is a popular web server that can automatically obtain and manage SSL/TLS certificates for your websites using Let&amp;rsquo;s Encrypt. The certificate expiration date is determined by Let&amp;rsquo;s Encrypt and is usually 90 days. Caddy can automatically renew these certificates before they expire.&lt;/p&gt;&#xA;&lt;p&gt;If you want to use a certificate with a longer expiration date, you might need to consider other certificate authorities or manually generate a certificate with a longer validity period. Keep in mind that using longer expiration periods may have security implications, as it means that if a private key is compromised, the attacker has access for a longer time.&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>A node.js server that receives IoT sensor data and broadcast it via web</title>
+      <link>http://localhost:1313/posts/p20231229190159/</link>
+      <pubDate>Fri, 29 Dec 2023 19:01:45 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20231229190159/</guid>
+      <description>&lt;h1 id=&#34;a-nodejs-server-that-receives-iot-sensor-data-and-broadcast-it-via-web&#34;&gt;A node.js server that receives IoT sensor data and broadcast it via web&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I constantly strive to easily access real-time, high-frequency data streams, or remotely deploy sensor data. Following data acquisition, the convenience of analyzing or visualizing this sensor data through algorithms is essential.&lt;/p&gt;&#xA;&lt;p&gt;This is a basic project that allows the Sensor_driven_by_MCU submit the data on to the nodejs_driven_server and allows the user record the data via web page that receives data from the &lt;code&gt;nodejs_driven_server&lt;/code&gt; via WebSocket.&lt;/p&gt;&#xA;&lt;p&gt;see the diagram below:&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>How to assign wifi passcode to ESP32/8266 chips</title>
+      <link>http://localhost:1313/posts/p20221202181954/</link>
+      <pubDate>Fri, 02 Dec 2022 18:19:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20221202181954/</guid>
+      <description>&lt;h2 id=&#34;sumerizing-the-ways-and-implementations-for-assigning-wifi-passcode-to-esp32esp8266-mcu&#34;&gt;Sumerizing: The ways and implementations for assigning wifi passcode to ESP32/ESP8266 MCU&lt;/h2&gt;&#xA;&lt;p&gt;Assigning WiFi pass code to ESP chip is ubiqutous.&lt;/p&gt;&#xA;&lt;p&gt;To summerize, we can do it with ways listed below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;AP mode: A web running on chip, Chip working as Station mode.&lt;/li&gt;&#xA;&lt;li&gt;Bluethooth. (ESP8266 has no bluetooth moduel.)&lt;/li&gt;&#xA;&lt;li&gt;ESP Touch App with ESP smartConfig© solution. (5G Hz is not supported.)&lt;/li&gt;&#xA;&lt;li&gt;others, such as AP-STA link by routers, AP by cellphone, wifi manag-frame broadcasting.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Comparations with methods above:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;&lt;strong&gt;Tech Methods&lt;/strong&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;strong&gt;UserConfident&lt;/strong&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;strong&gt;SuccessRate&lt;/strong&gt;&lt;/th&gt;&#xA;          &lt;th&gt;&lt;strong&gt;Popularity&lt;/strong&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;softAP Mode&lt;/td&gt;&#xA;          &lt;td&gt;middle&lt;/td&gt;&#xA;          &lt;td&gt;High&lt;/td&gt;&#xA;          &lt;td&gt;High&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;SmartConfig&lt;/td&gt;&#xA;          &lt;td&gt;High&lt;/td&gt;&#xA;          &lt;td&gt;Low&lt;/td&gt;&#xA;          &lt;td&gt;High&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Bluetooth&lt;/td&gt;&#xA;          &lt;td&gt;High&lt;/td&gt;&#xA;          &lt;td&gt;High&lt;/td&gt;&#xA;          &lt;td&gt;middle (esp8266 has no BLE)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Ps: &lt;em&gt;ESP32:Update Wi-Fi Credentials Using Bluetooth Application&lt;/em&gt;, &lt;a href=&#34;https://www.instructables.com/Avoid-Hard-Coding-ESP32-Update-Wi-Fi-Credentials-U/&#34;&gt;link&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>ESP8266 wifi configuration with AP mode</title>
+      <link>http://localhost:1313/posts/p20210826204201/</link>
+      <pubDate>Thu, 26 Aug 2021 20:42:01 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20210826204201/</guid>
+      <description>&lt;p&gt;#ESP8266 wifi configuration with AP mode&lt;/p&gt;&#xA;&lt;p&gt;Thanks for the github repository: &lt;code&gt;tzapu/WiFiManager&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Although we all know that we can use the AP mode to configure the wifi password for ESP8266, it still takes time to implement the specific code line by line. Now, with the help of this project, I just need to share the steps to get this project running on our own ESP8266 chip.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; that the ESP8266 SmartConfig is another covenient way for wifi password broadcasting.&lt;/p&gt;&#xA;&lt;h2 id=&#34;wifikit8&#34;&gt;wifikit8&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://heltec.org/product/wifi-kit-8/&#34;&gt;https://heltec.org/product/wifi-kit-8/&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

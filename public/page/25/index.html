@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20151125093547/" title="ROS进阶学习手记 10 - 搭建自己的TurtleBot（4）- Nodes of Base Driver">ROS进阶学习手记 10 - 搭建自己的TurtleBot（4）- Nodes of Base Driver</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进阶学习手记-10---搭建自己的turtlebot4--nodes-of-base-driver">ROS进阶学习手记 10 - 搭建自己的TurtleBot（4）- Nodes of Base Driver</h1>
+<h2 id="ros进阶学习手记-10---搭建自己的turtlebot4--nodes-of-base-driver-1">ROS进阶学习手记 10 - 搭建自己的TurtleBot（4）- Nodes of Base Driver</h2>
+<p>Here we are going to continue playing with the launchfile:[ <strong>turtlebot_minimal_create.launch</strong> ]</p>
+<p>and look into the nodes, topics, messages, publisher, and subscriber about that.</p>
+<p>Let&rsquo;s refer the log printed when we start this launchfile here:</p>
+<pre tabindex="0"><code>SUMMARY  
+========  
+  
+PARAMETERS  
+ * /cmd_vel_mux/yaml_cfg_file  
+ * /diagnostic_aggregator/analyzers/digital_io/path  
+ * /diagnostic_aggregator/analyzers/digital_io/startswith  
+ * /diagnostic_aggregator/analyzers/digital_io/timeout  
+ * /diagnostic_aggregator/analyzers/digital_io/type  
+ * /diagnostic_aggregator/analyzers/mode/path  
+ * /diagnostic_aggregator/analyzers/mode/startswith  
+ * /diagnostic_aggregator/analyzers/mode/timeout  
+ * /diagnostic_aggregator/analyzers/mode/type  
+ * /diagnostic_aggregator/analyzers/nodes/contains  
+ * /diagnostic_aggregator/analyzers/nodes/path  
+ * /diagnostic_aggregator/analyzers/nodes/timeout  
+ * /diagnostic_aggregator/analyzers/nodes/type  
+ * /diagnostic_aggregator/analyzers/power/path  
+ * /diagnostic_aggregator/analyzers/power/startswith  
+ * /diagnostic_aggregator/analyzers/power/timeout  
+ * /diagnostic_aggregator/analyzers/power/type  
+ * /diagnostic_aggregator/analyzers/sensors/path  
+ * /diagnostic_aggregator/analyzers/sensors/startswith  
+ * /diagnostic_aggregator/analyzers/sensors/timeout  
+ * /diagnostic_aggregator/analyzers/sensors/type  
+ * /diagnostic_aggregator/base_path  
+ * /diagnostic_aggregator/pub_rate  
+ * /robot/name  
+ * /robot/type  
+ * /robot_description  
+ * /robot_pose_ekf/freq  
+ * /robot_pose_ekf/imu_used  
+ * /robot_pose_ekf/odom_used  
+ * /robot_pose_ekf/output_frame  
+ * /robot_pose_ekf/publish_tf  
+ * /robot_pose_ekf/sensor_timeout  
+ * /robot_pose_ekf/vo_used  
+ * /robot_state_publisher/publish_frequency  
+ * /rosdistro  
+ * /rosversion  
+ * /turtlebot_laptop_battery/acpi_path  
+ * /turtlebot_node/bonus  
+ * /turtlebot_node/port  
+ * /turtlebot_node/update_rate  
+ * /use_sim_time  
+  
+NODES  
+  /  
+    cmd_vel_mux (nodelet/nodelet)  
+    diagnostic_aggregator (diagnostic_aggregator/aggregator_node)  
+    kinect_breaker_enabler (create_node/kinect_breaker_enabler.py)  
+    mobile_base_nodelet_manager (nodelet/nodelet)  
+    robot_pose_ekf (robot_pose_ekf/robot_pose_ekf)  
+    robot_state_publisher (robot_state_publisher/robot_state_publisher)  
+    turtlebot_laptop_battery (linux_hardware/laptop_battery.py)  
+    turtlebot_node (create_node/turtlebot_node.py)  ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>Let&rsquo;s run the commands below:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20151125093547/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-11-25T09:35:47&#43;0800" class="date">November 25, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20151120180700/" title="ROS进阶学习手记 10 - 搭建自己的TurtleBot（3）- Velocity Calibration">ROS进阶学习手记 10 - 搭建自己的TurtleBot（3）- Velocity Calibration</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进阶学习手记-10---搭建自己的turtlebot3--velocity-calibration">ROS进阶学习手记 10 - 搭建自己的TurtleBot（3）- Velocity Calibration</h1>
+<h2 id="ros进阶学习手记-10---搭建自己的turtlebot3--velocity-calibration-1">ROS进阶学习手记 10 - 搭建自己的TurtleBot（3）- <a href="https://so.csdn.net/so/search?q=Velocity&amp;spm=1001.2101.3001.7020">Velocity</a> Calibration</h2>
+<p>    上一篇我们分析了 rbx 书籍中，对于底板驱动相关的.launch文件，turtlebot_minimal_create.launch， 现在要实验一下相关的配置以后，速度值是否与设定值一致。</p>
+<p>    要用到的.launch 文件： turtlebot_minimal_create_me.launch ; 使用 rostopic pub 命令发布驱动指令。</p>
+<p>    运行命令行：</p>
+<p>    先把rbx包source一下：</p>
+<pre tabindex="0"><code>    $ cd ~/catkin_ws
+    $ catkin_make
+    $ source ~/catkin_ws/devel/setup.bash
+</code></pre><p>    再在子机上（my_robot1）启动 底盘 驱动： (通过vi工具修改了子机上的tb_create_mobile_base.launch.xml文件)</p>
+<pre tabindex="0"><code>  $ roslaunch rbx1_bringup turtlebot_minimal_create.launch
+</code></pre><p>在校准之前，务必参考我博文：<a href="http://blog.csdn.net/sonictl/article/details/50207949">Using Create2(Roomba 620) as your turtlebot driving base.</a></p>
+<h3 id="校准线速度">校准线速度：</h3>
+<p>    通过母机发指令：</p>
+<pre tabindex="0"><code>  $ rostopic pub -r 10 /cmd_vel geometry_msgs/Twist &#39;{linear: {x: 0.1, y: 0, z: 0}, angular: {x: 0, y: 0, z: 0}}&#39;
+</code></pre><p>    按照rbx书上的说法：Linear velocities are specified in meters per second and angular velocities are given in radians per second. (1 radian equals approximately 57</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20151120180700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-11-20T18:07:00&#43;0800" class="date">November 20, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20151119140923/" title="ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base">ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进阶学习手记-10---搭建自己的turtlebot2--using-irobot-roomba-as-the-driving-base">ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base</h1>
+<h2 id="ros进阶学习手记-10---搭建自己的turtlebot2--using-irobot-roomba-as-the-driving-base-1">ROS进阶学习手记 10 - 搭建自己的TurtleBot（2）- Using iRobot Roomba as the Driving Base</h2>
+<p>使用iRobot Roomba 5xx/6xx/7xx作为turtlebot的驱动底盘</p>
+<p> <img src="https://img-blog.csdn.net/20151118160803700?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h3 id="要略过的一些内容">要略过的一些内容：</h3>
+<p>参考《ROS by Example _ Hydro _ Vol1》书中所述，实现到“<strong>7.5  Sending Twist Messages to a Real Robot</strong>”</p>
+<p>中间的过程就按书中来进行即可。涉及到的比如设备驱动、ROS网络配置 等内容可参考本博客前的相关文章。</p>
+<h3 id="要在这里讨论的问题">要在这里讨论的问题：</h3>
+<p>         在
+<strong>roslaunch rbx1_bringup turtlebot_minimal_create.launch</strong> 这个命令运行时，PC（my_robot1）可以接收cmd_vel消息，并通过串口驱动 Create2® 。</p>
+<p>         这里调用的顺序是什么？启动了哪些nodes? 参数是如何设置的？<br>
+         我们运行了-v 选项的 roslaunch 命令以后，得到如下的状态打印：一行行来分析【见文末附录1：turtlebot_minimal_create.launch文件的执行记录分析】<br>
+         这里面主要的操作就是2个：</p>
+<ul>
+<li>
+<ol>
+<li>设置node运行前需要设置的参数parameters</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>运行nodes</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于launch-文件们">关于.launch 文件们</h3>
+<p>turtlebot_minimal_create.launch 这个launch文件是我们驱动iRobot_Roomba底盘时首先要运行的，显然是很重要的，看看它的层次结构：</p>
+<h4 id="1-标签">1. 标签</h4>
+<p>首先我们熟悉一下launch文件的tags-标签们：</p>
+<ul>
+<li>&lt;arg name=&ldquo;base&rdquo;       default=&ldquo;create&rdquo;/&gt;  <br>
+这是一个argument标签，表示声明一个参数，后面name指定了参数名为“base”, default指定了它的默认值&quot;create&quot;</li>
+<li>
+<param name="/use\_sim\_time" value="$(arg simulation)"/>  
+</li>
+</ul>
+<p>这是一个ros_parameter标签，即ROS程序运行时需要输入的参数，后面name指定了参数名为“/use_sim_time”, value指定了它的赋值，此地是调用前面 arg name=&ldquo;simulation&rdquo; 的argument的值 采用了$ 符号。</p>
+<ul>
+<li>
+<include file="$(find turtlebot\_bringup)/launch/includes/robot.launch.xml">  
+</li>
+</ul>
+<p>引用Include标签，意思引用外部的launch文件或xml文件。 $(find package_name)这里是一个调用ROS外部包的写法，意思robot.launch.xml文件是在turtlebot_bringup这个ROSpackage下面的。ps:是不是很简单？但是在</include>之前还有很多arg标签，这个是专门为所引xml文件配置参数的用法。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20151119140923/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-11-19T14:09:23&#43;0800" class="date">November 19, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20151118162243/" title="ROS进阶学习手记 10 - 用iRobot Create 2搭建自己的TurtleBot（1）- Introduction">ROS进阶学习手记 10 - 用iRobot Create 2搭建自己的TurtleBot（1）- Introduction</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进阶学习手记-10---用irobot-create-2搭建自己的turtlebot1--introduction">ROS进阶学习手记 10 - 用iRobot Create 2搭建自己的TurtleBot（1）- Introduction</h1>
+<h2 id="ros进阶学习手记-10---搭建自己的turtlebot1--introduction">ROS进阶学习手记 10 - 搭建自己的TurtleBot（1）- Introduction</h2>
+<p>    时隔一两个月，再次回来继续写自己的ROS学习及应用手记。这一两个月里，我并没有闲着，而是照着《ROS_by_Example_Hydro_Vol1》基本走完了vol1全书所有的例程。但期间所遇到的一些问题，我并没有搞得很清楚。所以回到开始搭建TurtleBot的步骤，来重新梳理如何从攒一个硬件TurtleBot， 到可以执行 <a href="https://so.csdn.net/so/search?q=SLAM&amp;spm=1001.2101.3001.7020">SLAM</a> 任务的全过程。</p>
+<h3 id="首先梳理一下手里有的材料">首先梳理一下手里有的材料：</h3>
+<ul>
+<li>iRobot Create 2 移动机器人驱动平台，  <a href="http://www.irobot.com/About-iRobot/STEM/Create-2.aspx">官方链接及资料</a></li>
+<li>Mirko Ferrati&rsquo;s irobotCreate2_ROS driver: <a href="https://github.com/MirkoFerrati/irobotcreate2ros">https://github.com/MirkoFerrati/irobotcreate2ros</a></li>
+<li>基于蓝牙无线通信协议的串口透明传输模块，<a href="https://item.taobao.com/item.htm?id=520975422997">淘宝链接</a>（及配置用 USB-TTL电平 - RS232协议 串口转换模块）</li>
+<li>机器人TurtleBot 控制用 Mini PC，装 ROS Hydro</li>
+<li>大容量聚合物锂电池：12V 5.5AH, 用于机器人自带Mini PC的供电</li>
+<li>华硕 Xtion Pro Live 三维摄像头</li>
+<li>另一台Mini PC及显示器、键鼠</li>
+<li>无线路由器，用于组建ROS多机局域网</li>
+</ul>
+<h3 id="系统组成">系统组成：</h3>
+<p><img src="https://img-blog.csdn.net/20151118160037098?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h3 id="实物照片">实物照片：</h3>
+<p> <img src="https://img-blog.csdn.net/20151118160803700?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h3 id="要略过的一些内容">要略过的一些内容：</h3>
+<p>参考《ROS by Example _ Hydro _ Vol1》书中所述，实现到“<strong>7.5  Sending Twist Messages to a Real Robot</strong>”</p>
+<p>中间的过程就按书中来进行即可。涉及到的比如设备驱动、ROS网络配置 等内容可参考本博客前的相关文章。</p>
+<h3 id="ros网络配置参数">ROS网络配置参数：</h3>
+<pre tabindex="0"><code>=--------==----------=---=----
+     Log of Configurations:
+=--------==----------=---=----
+
+Physical machines:
+  PC1 - Black Mini Computer (WLAN Mac: 74:44:01:67:xx:xx)
+  PC2 - White Mini Computer (WLAN Mac: a0:21:b7:4e:xx:xx)
+
+Hostname and Hosts file:
+  PC1 - my_desktop
+  PC2 - my_robot1
+
+The host of ROS (the PC run roscore)
+  PC2 - my_robot1
+
+IP Address:
+  PC1 - my_desktop - 192.168.1.103
+  PC2 - my_robot1  - 192.168.1.102
+
+The Env Vars:
+  PC1 	-&gt; $ROS_MASTER_URI = http://my_robot1:11311
+	-&gt; $ROS_HOSTNAME = my_desktop
+
+  PC2 	-&gt; $ROS_MASTER_URI = http://my_robot1:11311
+	-&gt; $ROS_HOSTNAME = my_robot1
+
+Add the following lines at the end of ~/ .bashrc file:
+  PC1: 
+	
+export ROS_HOSTNAME=my_desktop
+	
+export ROS_MASTER_URI=http://my_robot1:11311
+
+
+  PC2:
+	
+export ROS_HOSTNAME=my_robot1
+	
+export ROS_MASTER_URI=http://my_robot1:11311
+
+
+
+SSH Server:
+  PC2:  sudo apt-get install openssh-server
+  ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><h3 id="要在这里讨论的问题">要在这里讨论的问题：</h3>
+<p>     终于进入正题，和《ROS by Example _ Hydro _ Vol1》(rbx)书中不同的是，这是仿 TurbleBot 的机器人，自己搭建的，所以难免有不兼容问题。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20151118162243/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-11-18T16:22:43&#43;0800" class="date">November 18, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20151106151839/" title="在 Ubuntu 用 OpenNI支持 使用 ASUS Xtion 传感器">在 Ubuntu 用 OpenNI支持 使用 ASUS Xtion 传感器</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="在-ubuntu-用-openni支持-使用-asus-xtion-传感器">在 Ubuntu 用 OpenNI支持 使用 ASUS Xtion 传感器</h1>
+<h2 id="在-ubuntu-用-openni支持-使用-asus-xtion-pro-live传感器--installing-the-driver-for-asus_xtion_pro_live-in-ubuntu-1204">在 Ubuntu 用 OpenNI支持 使用 ASUS Xtion Pro Live传感器  Installing the driver for Asus_Xtion_Pro_Live in Ubuntu 12.04</h2>
+<h3 id="pre-reading">Pre-Reading:</h3>
+<p>    我们要用ROS来做机器人，同时要用 Asus_Xtion_Pro_Live 这个传感器来获取深度信息和图像信息。首先要安装 Asus_Xtion_Pro_Live 在 <a href="https://so.csdn.net/so/search?q=Ubuntu&amp;spm=1001.2101.3001.7020">Ubuntu</a> 系统中的驱动。</p>
+<h3 id="procedures">Procedures:</h3>
+<p>Search online for the .iso disk file carrying the driver for Asus_Xtion_Pro_Live. Like: &ldquo;<a href="http://www.thegamingcomputer.com/asus-xtion-pro-live-all-softwares-and-driver-for-win78vistaxp/">V1049_0430</a>&rdquo;</p>
+<p>ASUS Xtion Pro CD Readme file</p>
+<p> OpenNI Framework v1.5.2.23<br>
+ Sensor DDK v5.1.0.41<br>
+ NITE v1.5.2.21<br>
+ USB driver v3.1.3.1</p>
+<p>*******************************************************<br>
+Required software:</p>
+<p>for WinXP:<br>
+    Microsoft .NET 3.5: <a href="http://www.microsoft.com/en-us/download/details.aspx?id=21">http://www.microsoft.com/en-us/download/details.aspx?id=21</a></p>
+<h4 id="for-linux-ubuntu-1010">for Linux Ubuntu 10.10:</h4>
+<h4 id="the-installation-steps-as-follows">The installation steps as follows,</h4>
+<h4 id="1-install-openni-package">1. install OpenNI package</h4>
+<h4 id="2-install-sensor-package">2. install Sensor package</h4>
+<h4 id="3-install-nite-package-necessary">3. install NITE package (Necessary)</h4>
+<p>Steps for Install and Uninstall in Ubuntu Linux:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20151106151839/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-11-06T15:18:39&#43;0800" class="date">November 06, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20151030185159/" title="使用CloneZilla备份-恢复操作系统的简明步骤">使用CloneZilla备份-恢复操作系统的简明步骤</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="使用clonezilla备份-恢复操作系统的简明步骤">使用CloneZilla备份-恢复操作系统的简明步骤</h1>
+<p>日期：2015.09.09 </p>
+<h4 id="题目使用clonezilla备份linuxwindows系统的简明步骤">题目：使用CloneZilla备份linux/windows系统的简明步骤</h4>
+<p>正文：</p>
+<p>     这是是简明步骤，应对日常大部分工作。别的参考google. official Site: <a href="http://clonezilla.org/">http://clonezilla.org/</a></p>
+<p>    &raquo;准备工作：</p>
+<p>     1. 2 U disks: Ud1 and Ud2</p>
+<p>     2. 下载 clonezilla 的 iso 文件。</p>
+<p>     3. 用 Universal-USB-Installer-1.9.6.1 and Ud1 把clonezilla的iso文件制作成启动盘。</p>
+<p>     4. Boot computer from Ud1 Disk (Press Del / F10 / &hellip; or Set up boot list in your bios)</p>
+<p>     5. ======== BACK UP PROCEDURE: ==========</p>
+<p>         Select the menu of CloneZilla:</p>
+<p>en_US..&raquo;Don&rsquo;t touch..&raquo;Start&hellip;&raquo;device-image&raquo;local_dev&raquo; mount the Ud2 drive. &raquo;top directory&raquo;beginner&raquo;savedisk&raquo;whole disk&raquo;Naming&raquo; [OK] &raquo; [*] sda disk &raquo; skip &raquo; yes &raquo; [Enter] &raquo; [Cloning&hellip;] &raquo; reboot.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20151030185159/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-10-30T18:51:59&#43;0800" class="date">October 30, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20151015155202/" title="如何阻止QQ右下角弹出新闻框">如何阻止QQ右下角弹出新闻框</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="如何阻止qq右下角弹出新闻框">如何阻止QQ右下角弹出新闻框</h1>
+<h3 id="如何阻止qq右下角弹出新闻框-1">如何阻止QQ右下角弹出新闻框</h3>
+<p><a href="http://hi.baidu.com/liarbin/item/055858d94a674ff8ca0c3947">http://hi.baidu.com/liarbin/item/055858d94a674ff8ca0c3947</a> </p>
+<p> </p>
+<p>一、去除腾讯迷你首页：<br>
+方法一、最简单、彻底的方法（即使QQ重装也无妨）：<br>
+按Win+R键打开运行窗口，输入notepad C:\windows\system32\drivers\etc\hosts打开Hosts文件，<a href="https://so.csdn.net/so/search?q=%E5%85%89%E6%A0%87&amp;spm=1001.2101.3001.7020">光标</a>移动到字符的最后，然后回车，添加一行：<br>
+127.0.0.1 minisite2009.qq.com<br>
+当然了，你如果想去掉其他程序的广告或迷你首页，只需找到该广告的网址，然后，打开hosts文件，回车，另起一行，添加127.0.0.1+空格+域名（域名不要带上http://）。<br>
+方法二、进入QQ的安装文件夹，找到 Plugin＼Com.Tencent.Advertisement＼bin文件夹，这里你会看到一个Advertisement.dll文件，它就是迷你首页的关键所在，将这个文件改成只读属性。<br>
+方法三、用组策略阻止<br>
+可以用组策略阻止TXOPShow.exe进程(腾讯迷你首页）、TXPlatform.exe进程(是切换到TM状态时用的,一般用户用不到)、QQPetAgent.exe进程（QQ宠物）。当然了，视个人而定。<br>
+用组策略的方法很管用。说几句废话，以前偶家小不点喜欢玩彩虹岛游戏，开始给我删了，不久又偷偷装上。后来，偶就用组策略给禁止了，连安装程序都给禁了，更别说玩游戏。<br>
+组策略的方法也有几种，这里介绍一种。<br>
+操作很简单: Win+R 打开运行&ndash;输入 gpedit.msc 打开组策略,计算机配置—windows设置—安全设置—软件限制策略—右键新建)—其他规则—右键新建路路径规则,浏览，分别找到QQ安装路径下的TXOPShow.exe,TXPlatform.exe,QQPetAgent.exe这三个文件,建三个规则,不允许运行!OK<br>
+二、去除登陆框和过渡框的广告：<br>
+打开如下位置的文件夹，请选择自己的系统：<br>
+需要显示系统文件+扩展名<br>
+C:\Documents and Settings\Administrator\ApplicationData\Tencent\QQ\Misc（XP)<br>
+C:用户\你的用户名\AppData\Roaming\Tencent\QQ\Misc (Vista/win7)<br>
+找到LogoFile和OAPanelLogo这两个文件夹，删掉，然后右键新建两个文本文档，LogoFile.txt和OAPanelLogo.txt，最后去掉.txt的后缀名，即把LogoFile.txt和OAPanelLogo.txt修改为LogoFile和OAPanelLogo，系统提示无视。<br>
+三、去除聊天窗口右上角广告：<br>
+1、同上：打开如下位置的文件夹，请选择自己的系统：<br>
+C:\Documents and Settings\Administrator\ApplicationData\Tencent\QQ\Misc（XP)<br>
+C:用户\你的用户名\AppData\Roaming\Tencent\QQ\Misc (Vista/win7)<br>
+找到com.tencent.advertisement文件夹，打开，删除里边的所有内容。注意文件夹本身不能删除，然后把当前用户的写入权限给拒绝掉（需要当前分区为NTFS格式）。<br>
+方法：文件夹上右键，属性 - 安全标签，选中当前登录用户，接着在下方“写入”权限里，拒绝上打勾。<br>
+2、如果有多个QQ需要登录的话，上边这样做还是不能屏蔽其他QQ号聊天窗口右上角的广告，需要直接将Misc文件夹的写入权限给拒绝掉，不然可恶的腾讯会在MISC文件夹下添com.tencent.advertisement***文件夹，***代表随机性的数字，文件夹里边仍然是可恶的广告。<br>
+3、另在QQ的安装目录下，Plugin\Com.Tencent.Advertisement文件夹内有个Bundle.rdb的文件，所有的勾当都在这里面。当然，这个文件也是不能删除的，否则QQ因为会因为缺乏文件而无法启动，我们能做的就是解包这个文件。<br>
+复制该文件到桌面上，解包。<br>
+解包后在目录Bundle\I18N\2052下，有个StringBundle.xml文件，用记事本打开它，删除如下字段：<br>
+defaultbanner.jpg<br>
+<a href="http://www.tencentmind.com/">www.tencentmind.com</a> defaultrich.swf<br>
+GroupBanner.jpg<br>
+defaultvideo.swf<br>
+<a href="http://www.tencentmind.com/">www.tencentmind.com</a> <a href="http://im.qq.com/">http://im.qq.com</a><br>
+重新打包后，记得关闭QQ,然后替换。<br>
+如果嫌解包打包烦，可以<a href="http://u.115.com/file/f2fc1eef54"><strong>点击下载</strong></a>已修改好的，替换即可。<br>
+四、去除聊天窗口左下角广告<br>
+同样操作针对XP和Vista\win7有所不同。<br>
+XP：<br>
+关闭QQ，然后进入X（系统盘）:＼Documents and Settings＼用户名＼ApplicationData＼Tencent＼Users＼你的QQ号＼QQ＼，删除其中的Misc.db，接着新建一个文件夹并命名为Misc.db。<br>
+Vista/Win7<br>
+关闭QQ，进入X:（系统盘）＼users＼用户名＼appdata＼Roaming＼Tencent＼Users＼你的QQ号码＼QQ＼，然后操作同上。<br>
+五、最后说说右下角的弹窗新闻<br>
+这个东东，其实最讨人厌了，但找不到好的方法屏蔽掉，即使禁掉腾讯新闻网页，还是要弹出来。<br>
+有个办法就是：找到 C:\Tencent\QQ\I18N, 用记事本打开config.xml文件 将语言 2052 改为 1033或者3076,将文件夹2052改为相对应的数字。但这种方法会有一些小小的缺憾，比如点击个人资料时，好友印象、QQ空间、QQ秀、装扮等会无法显示，且登陆时为直版登陆框，无法设置使用横版的经典登陆框&hellip;&hellip;但并不影响正常使用&hellip;&hellip;<br>
+话说前几天看到有人在315网站投诉，当然，他投诉的是迷你首页，但由此可见，不管是迷你首页还是弹窗新闻，都已经恨入人心了。<br>
+<a href="http://www.315ts.net/archive/tousu/2010/0222/610863.shtml">http://www.315ts.net/archive/tousu/2010/0222/610863.shtml</a><br>
+较早之前（2007年）还有人写了篇文章，题目叫： 给QQ新闻自动弹出窗口的慰问信<br>
+也有点意思，不妨看看：<br>
+<a href="http://blog.sina.com.cn/s/blog_4a6ab81101000bjs.html">http://blog.sina.com.cn/s/blog_4a6ab81101000bjs.html</a></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20151015155202/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-10-15T15:52:02&#43;0800" class="date">October 15, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150928143332/" title="禁止win7-win8自动更新到win10">禁止win7-win8自动更新到win10</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="禁止win7-win8自动更新到win10">禁止win7-win8自动更新到win10</h1>
+<p><strong>How to remove Windows 10 upgrade updates in Windows 7and 8<br>
+怎样移除windows7 / windows8 里 <strong>自动升级</strong>到 windows10 的相关程序</strong></p>
+<p>By  <a href="http://www.ghacks.net/author/martin/" title="Posts by Martin Brinkmann">Martin Brinkmann</a>on April 17, 2015 in  <a href="http://www.ghacks.net/category/tutorials-basic/">Tutorials</a> - Last Update: June 1, 2015  <a href="http://www.ghacks.net/2015/04/17/how-to-remove-windows-10-upgrade-updates-in-windows-7-and-8/#comments">65</a></p>
+<p>Microsoft will ship Windows 10 later this year and with it comes an offerto upgrade existing versions of Windows to the operating system for free.</p>
+<p>Since the majority of Windows users probably does not know about that offer as they may not read tech sites at all or only sporadically, Microsoft pushed updates to Windows 7 and Windows 8 systems that prepare the system forthe update.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150928143332/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-09-28T14:33:32&#43;0800" class="date">September 28, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150928111024/" title="在ROS 使用摄像头 WebCam 完成图像处理（2） -- 初探OpenCV">在ROS 使用摄像头 WebCam 完成图像处理（2） -- 初探OpenCV</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="在ros-使用摄像头-webcam-完成图像处理2--初探opencv">在ROS 使用摄像头 WebCam 完成图像处理（2） &ndash; 初探OpenCV</h1>
+<h2 id="在ros-使用摄像头-webcam-完成图像处理2--初探opencv-1">在ROS 使用摄像头 WebCam 完成图像处理（2） &ndash; 初探<a href="https://so.csdn.net/so/search?q=OpenCV&amp;spm=1001.2101.3001.7020">OpenCV</a></h2>
+<p>  在上一节，我们通过ros中 uvc_camera 包下的 uvc_camera_node 得到了摄像头的 rgb 图像数据。这些图像数据将送入我们的图像处理 <a href="https://so.csdn.net/so/search?q=node&amp;spm=1001.2101.3001.7020">node</a> 进行处理、识别等工作。</p>
+<p>  OpenCV 是开源的 <a href="https://so.csdn.net/so/search?q=%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89&amp;spm=1001.2101.3001.7020">计算机视觉</a> 算法包，将被用来开发 我们的图像处理 node 。</p>
+<h3 id="install-the-opencv">Install the OpenCV：</h3>
+<p>  The easiest way to install OpenCV under Ubuntu Linux is to get the Debian packages。</p>
+<pre tabindex="0"><code>  $ sudo apt-get install ros-hydro-opencv2 ros-hydro-vision-opencv
+</code></pre><p> </p>
+<table>
+  <thead>
+      <tr>
+          <th>If you need a feature found only in the latest  version, you can compile the library from source.  Instructions can be found here: <a href="http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html">http://docs.opencv.org/doc/tutorials/introduction/linux_install/linux_install.html</a></th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<p> </p>
+<p>   To check your installation, try the following commands:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150928111024/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-09-28T11:10:24&#43;0800" class="date">September 28, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150915135701/" title="在ROS使用 Kinect 完成3D图像处理（1）-- 测试OpenNI_camera">在ROS使用 Kinect 完成3D图像处理（1）-- 测试OpenNI_camera</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="在ros使用-kinect-完成3d图像处理1-测试openni_camera">在ROS使用 Kinect 完成3D图像处理（1）&ndash; 测试OpenNI_camera</h1>
+<h2 id="在ros使用-kinect-完成3d图像处理1-测试openni_camera-1">在ROS使用 <a href="https://so.csdn.net/so/search?q=Kinect&amp;spm=1001.2101.3001.7020">Kinect</a> 完成3D图像处理（1）&ndash; 测试OpenNI_camera</h2>
+<p>在完成了  <a href="http://blog.csdn.net/sonictl/article/details/47974485">在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器</a> 之后，我们可以尝试使用ROS提供的包来测试ROS+Kinect有关的功能</p>
+<p>ROS 有两个包，支持kinect在ROS上的运行： openni_camera &amp; openni_launch, 前者应该是driver, 后者应该是运行程序。</p>
+<p>ROS <a href="https://so.csdn.net/so/search?q=Package&amp;spm=1001.2101.3001.7020">Package</a>: <a href="http://wiki.ros.org/openni">http://wiki.ros.org/openni</a>_camera<br>
+                        <a href="http://wiki.ros.org/openni">http://wiki.ros.org/openni</a>_launch   (OPTIONAL)</p>
+<h4 id="ros-openni-camera-installation-on-ubuntu">ROS openni-camera installation on ubuntu</h4>
+<p>在完成了  <a href="http://blog.csdn.net/sonictl/article/details/47974485">在 Ubuntu 用 OpenNI支持 使用 Kincet 传感器</a> 之后，我们可以尝试使用ROS提供的包来测试ROS+Kinect有关的功能.</p>
+<p>To install the ROS OpenNI drivers for the Microsoft Kinect or Asus Xtion, use the command:</p>
+<pre tabindex="0"><code>    $ sudo apt-get install ros-hydro-openni-camera
+</code></pre><h4 id="testing-your-kinect-or-xtion-camera">Testing your Kinect or Xtion Camera</h4>
+<p>Once you have the OpenNI driver installed, make sure you can see the video stream from the camera by using the ROS image_view package. For the Kinect or Xtion, first plug the camera in to any available USB port (and for the Kinect, make sure it has power through its 12V adapter or other means), then prepare to run the following launch file:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150915135701/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-09-15T13:57:01&#43;0800" class="date">September 15, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/24/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/24/">24</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/25/">25</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/26/">26</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/26/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

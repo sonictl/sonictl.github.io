@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+  <body>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150716100252/" title="ROS进阶学习手记 2 -- RViz工具的学习1">ROS进阶学习手记 2 -- RViz工具的学习1</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进阶学习手记-2--rviz工具的学习1">ROS进阶学习手记 2 &ndash; RViz工具的学习1</h1>
+<p>ROS中提供了很多强大的功能，我们学习完前面的基本知识之后要继续进行深入。除了RviZ，还有一种叫 Stage simulator 也能模拟机器人motion</p>
+<h4 id="1认识rviz"><strong>1、认识rviz</strong></h4>
+<p>　　rviz是ROS中一款强大的3D可视化工具，这个玩意在后面可是要频繁用到的，是必须要弄明白的，详细的教程可以参考wiki：http://wiki.ros.org/rviz/UserGuide</p>
+<p>   　我们可以在里面创建自己的机器人，并且让机器人动起来。还可以创建地图，显示3D<a href="https://so.csdn.net/so/search?q=%E7%82%B9%E4%BA%91&amp;spm=1001.2101.3001.7020">点云</a>等等，总之，想在ROS中显示的东东都可以在这里显示出来。当然这些显示都是通过消息的订阅来完成的，机器人通过ROS发布数据，rviz订阅消息接收数据，然后显示，这些数据也是有一定的数据格式的，可以参考下面的链接：</p>
+<p>　　http://wiki.ros.org/rviz/DisplayTypes<br>
+       <img src="https://img-blog.csdn.net/20150716102403775?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>　　看到上面的机器人了吧，是不是很酷，在rviz中，这样的机器人模型是通过urdf文件描述的，具体urdf文件怎么写，参考wiki：</p>
+<p>　　http://wiki.ros.org/urdf</p>
+<h4 id="heading">================================</h4>
+<h4 id="2-开始rviz的学习">2. 开始RViz的学习</h4>
+<p>       我是从这里开始：http://wiki.ros.org/rviz<br>
+           在它之下，先玩这一部分：http://wiki.ros.org/rviz/UserGuide </p>
+<p>   3. RViz的安装和运行<br>
+      <br>
+  </p>
+<p>目录</p>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Troubleshooting">Troubleshooting</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Install_or_build_rviz">Install or build rviz</a>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Install_from_debian_repository">Install from debian repository</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Build_from_source">Build from source</a></li>
+</ol>
+</li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Startup">Startup</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Displays">Displays</a>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Adding_a_new_display">Adding a new display</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Display_Properties">Display Properties</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Display_Status">Display Status</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Moving_Displays">Moving Displays</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Built-in_Display_Types">Built-in Display Types</a></li>
+</ol>
+</li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Configurations">Configurations</a>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#A0.4_and_above">0.4 and above</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#A0.3_and_below">0.3 and below</a></li>
+</ol>
+</li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Views_Panel">Views Panel</a>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#The_different_camera_types">The different camera types</a>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Orbital_Camera_.28default.29">Orbital Camera (default)</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#FPS_.28first-person.29_Camera">FPS (first-person) Camera</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Top-down_Orthographic">Top-down Orthographic</a></li>
+</ol>
+</li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Views">Views</a></li>
+</ol>
+</li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Coordinate_Frames">Coordinate Frames</a>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#The_Fixed_Frame">The Fixed Frame</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#The_Target_Frame">The Target Frame</a></li>
+</ol>
+</li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Tools">Tools</a>
+<ol>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Move_Camera_.28Keyboard_shortcut:_m.29">Move Camera (Keyboard shortcut: m)</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Select_.28Keyboard_shortcut:_s.29">Select (Keyboard shortcut: s)</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#A2D_Nav_Goal_.28Keyboard_shortcut:_g.29">2D Nav Goal (Keyboard shortcut: g)</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#A2D_Pose_Estimate_.28Keyboard_shortcut:_p.29">2D Pose Estimate (Keyboard shortcut: p)</a></li>
+</ol>
+</li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Time">Time</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Stereo">Stereo</a></li>
+<li><a href="http://wiki.ros.org/rviz/UserGuide#Plugins">Plugins</a></li>
+</ol>
+<p><strong>Troubleshooting</strong></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150716100252/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-16T10:02:52&#43;0800" class="date">July 16, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150715170750/" title="ROS进阶学习手记 1 -- turtlebot_simulator（1）">ROS进阶学习手记 1 -- turtlebot_simulator（1）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros进阶学习手记-1--turtlebot_simulator1">ROS进阶学习手记 1 &ndash; turtlebot_simulator（1）</h1>
+<p>这是ROS入门手记的最后一节，指明了ROS进阶学习的方向：</p>
+<p>       <a href="http://blog.csdn.net/sonictl/article/details/46893443">http://blog.csdn.net/sonictl/article/details/46893443</a></p>
+<h3 id="ros进阶学习手记-1--turtlebot_simulator1-1">ROS进阶学习手记 1 &ndash; turtlebot_simulator（1）</h3>
+<h4 id="1-用turtlebot来进行机器人模拟">1. 用turtlebot来进行机器人模拟</h4>
+<p>    Robot Stack下的TurtleBot <a href="https://so.csdn.net/so/search?q=Package&amp;spm=1001.2101.3001.7020">Package</a>,  link: <a href="http://wiki.ros.org/Robots/TurtleBot">http://wiki.ros.org/Robots/TurtleBot</a></p>
+<p>    由于我们只要了解他的simulator, 故turtlebot_simulator Stack的link：   <a href="http://wiki.ros.org/turtlebot_simulator">wiki.ros.org/turtlebot_simulator</a></p>
+<p>    这个模拟的空间叫做Gazebo World, 故它的link: <a href="http://wiki.ros.org/turtlebot_simulator/Tutorials/hydro/Explore%20the%20Gazebo%20world">http://wiki.ros.org/turtlebot_simulator/Tutorials/hydro/Explore%20the%20Gazebo%20world</a></p>
+<p>ROS中提供了很多强大的功能，我们学习完前面的基本知识之后要继续进行深入。</p>
+<p>    turtlebot_simulator Stack的link：  <a href="http://wiki.ros.org/turtlebot_simulator">wiki.ros.org/turtlebot_simulator</a></p>
+<p>   我们跑了两个命令，把simulator打开看看了：</p>
+<p>       Install the software</p>
+<pre tabindex="0"><code>         $ sudo apt-get install ros-hydro-turtlebot-simulator
+</code></pre><p>       Start the simulation</p>
+<pre tabindex="0"><code>         $ source /opt/ros/hydro/setup.bash
+         $ roslaunch turtlebot_gazebo turtlebot_empty_world.launch
+</code></pre><p>   得到下图：</p>
+<p><img src="https://img-blog.csdn.net/20150715174654881?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>当然你可能得到一个 30 秒无法连接Master 的问题，最后找了一圈，也不知怎么就解决了~~<br>
+如果你遇到，可能这里有点帮助：http://answers.ros.org/question/65402/gazebo-fail-to-connect-to-master-in-30-seconds-it-does-not-run-from-the-very-first-time/</p>
+<h4 id="gazebo">gazebo</h4>
+<p>　　这个工具是ROS中的物理仿真环境，gazebo本身就是一款机器人的仿真软件，基于ODE的物理引擎，可以模拟机器人以及环境中的很多物理特性，这个软件可以稍作了解，并不是后面开发所必须要的。</p>
+<p>　　教程见：  <a href="http://wiki.ros.org/simulator">http://wiki.ros.org/simulator</a>_gazebo/Tutorials/StartingGazebo</p>
+<h4 id="2-接下来要学习的工具">2. 接下来要学习的工具：</h4>
+<h4 id="1rviz"><strong>1、rviz</strong></h4>
+<p>　　rviz是ROS中一款强大的3D可视化工具，这个玩意在后面可是要频繁用到的，是必须要弄明白的，详细的教程可以参考wiki：http://wiki.ros.org/rviz/UserGuide</p>
+<p>   　我们可以在里面创建自己的机器人，并且让机器人动起来。还可以创建地图，显示3D点云等等，总之，想在ROS中显示的东东都可以在这里显示出来。当然这些显示都是通过消息的订阅来完成的，机器人通过ROS发布数据，rviz订阅消息接收数据，然后显示，这些数据也是有一定的数据格式的，可以参考下面的链接：</p>
+<p>　　http://www.ros.org/wiki/rviz/DisplayTypes(待改)</p>
+<p>　　看到上面的机器人了吧，是不是很酷，在rviz中，这样的机器人模型是通过urdf文件描述的，具体urdf文件怎么写，参考wiki：</p>
+<p>　　http://www.ros.org/wiki/urdf（待改）</p>
+<h4></h4>
+<h4 id="2tf"><strong>2、tf</strong></h4>
+<p>　　tf是ROS中的坐标变换系统，在机器人的建模仿真中经常用到。</p>
+<p>　　ROS中主要有两种坐标系：</p>
+<p>　　(1)固定坐标系：用于表示世界的参考坐标系;</p>
+<p>　　(2)目标坐标系：相对于摄像机视角的参考坐标系。</p>
+<p>　　教程见：http://www.ros.org/wiki/tf（待改）</p>
+<h4></h4></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150715170750/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-15T17:07:50&#43;0800" class="date">July 15, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150715150746/" title="ROS学习手记13 -- 完成了初级的教程以后">ROS学习手记13 -- 完成了初级的教程以后</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习手记13--完成了初级的教程以后">ROS学习手记13 &ndash; 完成了初级的教程以后</h1>
+<p>  完成了初级的教程以后</p>
+<p>完成了初级的教程，我们理解了概念，但还需掌握运用ROS开发机器人的方法。<br>
+首先，要知道如何学习ROS，获取有关ROS的资讯。主要的学习和参考材料如下：</p>
+<ul>
+<li>ROS wiki官网的使用</li>
+<li>ROS 官网的API文档</li>
+<li>ROS 第三方教材，书籍</li>
+<li>本博客的“ROS进阶学习手记”将是一个比较实用的路径</li>
+</ul>
+<h3 id="一个比较好的ros教学大纲">一个比较好的ROS教学大纲：</h3>
+<p><img src="https://img-blog.csdn.net/20160620175255233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h4 id="1-关于ros官网的layout页面结构情况">1. 关于ROS官网的layout（页面结构）情况</h4>
+<p>        关于ROS官网的layout（资源分布）情况，我们要好好了解：http://wiki.ros.org/ROS/Tutorials/NavigatingTheWiki</p>
+<ul>
+<li>LandingPage上的导航栏主要有：文档，  包，   新闻三个栏目</li>
+<li>在ROS Package Pages里，结构是如下：<br>
+<img src="https://img-blog.csdn.net/20150715151644943?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+<li>在ROS Stack Pages里，结构是如下：<br>
+<img src="https://img-blog.csdn.net/20150715161119528?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+<li></li>
+</ul>
+<h4 id="2-复习ros-stack-package等各元件结构">2. 复习： <strong>ROS Stack Package等各元件结构:</strong></h4>
+<p>      [Stack1]</p>
+<p>             [Package1]</p>
+<p>                      [Nodes1]</p>
+<p>                      [Nodes2]</p>
+<p>                      [Messages]</p>
+<p>                      [Services]</p>
+<p>                      [Libraries]</p>
+<p>                      [Tools]</p>
+<p>              [/Package1]</p>
+<p>              [Package2]</p>
+<p>                      [Nodes]</p>
+<p>                      [Messages]</p>
+<p>                      [Services]</p>
+<p>                      [Libraries]</p>
+<p>                      [Tools]</p>
+<p>              [/Package2]</p>
+<p>      [/Stack1]</p>
+<p>      [Stack2]</p>
+<p>      &hellip;</p>
+<p>      [/Stack2]</p>
+<hr>
+<h4 id="3-可供参考的材料">3. 可供参考的材料</h4>
+<p>     <strong>========= 开发辅助文档 =========</strong></p>
+<p>     在ROS的开发过程中，你会用到比较多的文档：</p>
+<p>       1. Packages&rsquo; List:<br>
+            <a href="http://www.ros.org/browse/list.php">http://www.ros.org/browse/list.php</a></p>
+<p>       2. APIs&rsquo; List<br>
+          http://wiki.ros.org/APIs</p>
+<p>       3. ROS cpp Dev Docs for API<br>
+          http://docs.ros.org/diamondback/api/roscpp/html/index.html</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150715150746/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-15T15:07:46&#43;0800" class="date">July 15, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150715111818/" title="ROS学习手记12 -- ROS问题检测工具roswtf">ROS学习手记12 -- ROS问题检测工具roswtf</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习手记12--ros问题检测工具roswtf">ROS学习手记12 &ndash; ROS问题检测工具roswtf</h1>
+<p>roswtf - ros, what the fuck? 其实很好记~~<img src="http://static.blog.csdn.net/xheditor/xheditor_emot/default/laugh.gif" alt="大笑"></p>
+<h3 id="getting-started-with-roswtf">Getting started with roswtf</h3>
+<p><strong>Description:</strong> Basic introduction to the
+<a href="http://wiki.ros.org/roswtf">roswtf</a> tool.</p>
+<p><strong>Keywords:</strong> roswtf</p>
+<p><strong>Tutorial Level:</strong> BEGINNER</p>
+<p><strong>Next Tutorial:</strong>
+<a href="http://wiki.ros.org/ROS/Tutorials/NavigatingTheWiki">Navigating the wiki</a></p>
+<p>目录</p>
+<ol>
+<li><a href="http://wiki.ros.org/ROS/Tutorials/Getting%20started%20with%20roswtf#Checking_your_installation">Checking your installation</a></li>
+<li><a href="http://wiki.ros.org/ROS/Tutorials/Getting%20started%20with%20roswtf#Trying_it_online">Trying it online</a></li>
+<li><a href="http://wiki.ros.org/ROS/Tutorials/Getting%20started%20with%20roswtf#Errors">Errors</a></li>
+</ol>
+<p><strong>Before you start this tutorial, please make sure your  roscore is NOT running</strong>.</p>
+<h4 id="checking-your-installation">Checking your installation</h4>
+<p><a href="http://wiki.ros.org/roswtf">roswtf</a> examines your system to try and find problems. Let&rsquo;s try it out:</p>
+<pre tabindex="0"><code>$ roscd
+$ roswtf
+</code></pre><p>You should see (detail of the output varies):</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150715111818/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-15T11:18:18&#43;0800" class="date">July 15, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150714172535/" title="ROS学习手记11 -- 记录和回放Topic中的数据">ROS学习手记11 -- 记录和回放Topic中的数据</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习手记11--记录和回放topic中的数据">ROS学习手记11 &ndash; 记录和回放Topic中的数据</h1>
+<h2 id="ros学习手记11--记录和回放topic中的数据-1">ROS学习手记11 &ndash; 记录和回放Topic中的数据</h2>
+<p>详细请见百度文库：</p>
+<p><a href="http://wenku.baidu.com/view/72ea14c6c850ad02de8041d2">http://wenku.baidu.com/view/72ea14c6c850ad02de8041d2</a></p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150714172535/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-14T17:25:35&#43;0800" class="date">July 14, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/53/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/53/">53</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/54/">54</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/55/">55</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/79/">79</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/55/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+          <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

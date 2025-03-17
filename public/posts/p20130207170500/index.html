@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="ref:&nbsp;How to Connect WiFi from Terminal on Ubuntu 16.04&nbsp;(added on Dec, 2019)
+reference:&nbsp; http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Connecting_to_Networks_on_the_Ubuntu_Command_Line
+and : http://www.ccs.neu.edu/course/cs4610/
+
+&nbsp;
+LinuxTips &nbsp;
+
+Updated 
+Yesterday (24 hours ago) by 
+martyv...@gmail.com 
+
+
+
+
+
+Setting Up Your Own Linux Host
+Tweaks for a Virtual Machine on a Flash Drive
+Adding/Removing Users
+Connecting to Networks on the Ubuntu Command Line
+Passwordless SSH
+Remote X Window Display
+
+History
+The Old Way
+The Modern Way: Connecting from Server to Client
+The Modern Way: Connecting from Client to Server
+
+
+
+Setting Up Your Own Linux Host
+We recommend using Ubuntu Precise (12.04) hosts for working with OHMM. If you are using OHMM in a course, the provided Ubuntu installations should already be configured. However, if you want to use your own installation, the recommended packages are (install
+ with sudo apt-get install): " />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Connecting wifi from the command line, ubuntu or embedding ubuntu | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20130207170500/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="ref:&nbsp;How to Connect WiFi from Terminal on Ubuntu 16.04&nbsp;(added on Dec, 2019)
+reference:&nbsp; http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Connecting_to_Networks_on_the_Ubuntu_Command_Line
+and : http://www.ccs.neu.edu/course/cs4610/
+
+&nbsp;
+LinuxTips &nbsp;
+
+Updated 
+Yesterday (24 hours ago) by 
+martyv...@gmail.com 
+
+
+
+
+
+Setting Up Your Own Linux Host
+Tweaks for a Virtual Machine on a Flash Drive
+Adding/Removing Users
+Connecting to Networks on the Ubuntu Command Line
+Passwordless SSH
+Remote X Window Display
+
+History
+The Old Way
+The Modern Way: Connecting from Server to Client
+The Modern Way: Connecting from Client to Server
+
+
+
+Setting Up Your Own Linux Host
+We recommend using Ubuntu Precise (12.04) hosts for working with OHMM. If you are using OHMM in a course, the provided Ubuntu installations should already be configured. However, if you want to use your own installation, the recommended packages are (install
+ with sudo apt-get install): " />
+  <meta property="og:title" content="Connecting wifi from the command line, ubuntu or embedding ubuntu" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20130207170500/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2013-02-07" />
+    <meta property="article:modified_time" content="2013-02-07" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Connecting wifi from the command line, ubuntu or embedding ubuntu | Combine Art and Sciences" />
+  <meta name="twitter:description" content="ref:&nbsp;How to Connect WiFi from Terminal on Ubuntu 16.04&nbsp;(added on Dec, 2019)
+reference:&nbsp; http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Connecting_to_Networks_on_the_Ubuntu_Command_Line
+and : http://www.ccs.neu.edu/course/cs4610/
+
+&nbsp;
+LinuxTips &nbsp;
+
+Updated 
+Yesterday (24 hours ago) by 
+martyv...@gmail.com 
+
+
+
+
+
+Setting Up Your Own Linux Host
+Tweaks for a Virtual Machine on a Flash Drive
+Adding/Removing Users
+Connecting to Networks on the Ubuntu Command Line
+Passwordless SSH
+Remote X Window Display
+
+History
+The Old Way
+The Modern Way: Connecting from Server to Client
+The Modern Way: Connecting from Client to Server
+
+
+
+Setting Up Your Own Linux Host
+We recommend using Ubuntu Precise (12.04) hosts for working with OHMM. If you are using OHMM in a course, the provided Ubuntu installations should already be configured. However, if you want to use your own installation, the recommended packages are (install
+ with sudo apt-get install): " />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20130207170500/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20130207170500/">Connecting wifi from the command line, ubuntu or embedding ubuntu</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">Connecting wifi from the command line, ubuntu or embedding ubuntu</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2013-02-07T17:05:00&#43;0800 class="date">February 07, 2013</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+15 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p class="entry-title">ref:&nbsp;<a title="sonictl" href="https://linoxide.com/linux-how-to/connect-wifi-terminal-ubuntu-16-04/" target="_blank">How to Connect WiFi from Terminal on Ubuntu 16.04</a>&nbsp;(added on Dec, 2019)</p>
+<p>reference:&nbsp; http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Connecting_to_Networks_on_the_Ubuntu_Command_Line</p>
+<p>and : http://www.ccs.neu.edu/course/cs4610/<br />
+</p>
+<p>&nbsp;</p>
+<div id="wikiheader"><span style="font-size: 120%; font-weight: bold;">LinuxTips</span> &nbsp;
+<div>
+<div id="wikiauthor" style="float: right;">Updated <span title="Wed Feb  6 08:34:36 2013">
+Yesterday (24 hours ago)</span> by <a class="userlink" href="http://code.google.com/u/101568621766426880142/">
+martyv...@gmail.com</a> </div>
+</div>
+</div>
+<div id="wikicontent">
+<div id="wikimaincol" class="vt">
+<ul>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Setting_Up_Your_Own_Linux_Host">Setting Up Your Own Linux Host</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Tweaks_for_a_Virtual_Machine_on_a_Flash_Drive">Tweaks for a Virtual Machine on a Flash Drive</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Adding/Removing_Users">Adding/Removing Users</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Connecting_to_Networks_on_the_Ubuntu_Command_Line">Connecting to Networks on the Ubuntu Command Line</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Passwordless_SSH">Passwordless SSH</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#Remote_X_Window_Display">Remote X Window Display</a>
+<ul>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#History">History</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#The_Old_Way">The Old Way</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#The_Modern_Way:_Connecting_from_Server_to_Client">The Modern Way: Connecting from Server to Client</a></li>
+<li><a href="http://code.google.com/p/ohmm-sw/wiki/LinuxTips#The_Modern_Way:_Connecting_from_Client_to_Server">The Modern Way: Connecting from Client to Server</a></li>
+</ul>
+</li>
+</ul>
+<h1><a name="Setting_Up_Your_Own_Linux_Host"></a>Setting Up Your Own Linux Host</h1>
+<p>We recommend using Ubuntu Precise (12.04) hosts for working with OHMM. If you are using OHMM in a course, the provided Ubuntu installations should already be configured. However, if you want to use your own installation, the recommended packages are (install
+ with <tt>sudo apt-get install</tt>): </p>
+<pre class="prettyprint"><span class="pln">build</span><span class="pun">-</span><span class="pln">essential yasm
+subversion
+avr</span><span class="pun">-</span><span class="pln">libc avrdude
+minicom ckermit screen
+openssh</span><span class="pun">-</span><span class="pln">server
+openjdk</span><span class="pun">-</span><span class="lit">6</span><span class="pun">-</span><span class="pln">jdk
+librxtx</span><span class="pun">-</span><span class="pln">java
+libcv</span><span class="pun">-</span><span class="pln">dev libcvaux</span><span class="pun">-</span><span class="pln">dev libhighgui</span><span class="pun">-</span><span class="pln">dev python</span><span class="pun">-</span><span class="pln">opencv
+libusb</span><span class="pun">-</span><span class="lit">1.0</span><span class="pun">-</span><span class="lit">0</span><span class="pun">-</span><span class="pln">dev
+freeglut3</span></pre>
+<p>Note: to fix a bug with current distributions of avrdude, <tt>sudo vi /etc/avrdude.conf</tt> and set<tt>chip_erase_delay</tt> to 55000 for m324p and m1284p. Or just run these commands (assuming you are running the default<tt>sh</tt>, <tt>bash</tt>, or <tt>dash</tt> shell) to make the edits automatically:</p>
+<pre class="prettyprint"><span class="pln">avrparts</span><span class="pun">=</span><span class="str">"m324p m1284p"</span><span class="kwd">for</span><span class="pln"> p </span><span class="kwd">in</span><span class="pln"> $avrparts</span><span class="pun">;</span><span class="kwd">do</span><span class="pln">
+&nbsp; sudo sed </span><span class="pun">-</span><span class="pln">i </span><span class="pun">-</span><span class="pln">e </span><span class="str">"/id.*=.*$p/,/part/ s/chip_erase_delay.*=.*/chip_erase_delay = 55000;/"</span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">avrdude</span><span class="pun">.</span><span class="pln">conf
+</span><span class="kwd">done</span></pre>
+<p>Some libraries, such as javacv, jscheme, and libpololu-avr that are needed by the OHMM code are not available from the standard repositories or require custom patches. We have packaged these as<tt>.deb</tt> packages for OHMM. You can install them by checking out the ohmm-sw open source repository and running these commands</p>
+<pre class="prettyprint"><span class="pln">cd ohmm</span><span class="pun">-</span><span class="pln">sw</span><span class="pun">/</span><span class="pln">ext
+make</span></pre>
+<p>This will install all the packages in subdirectories of <tt>ext</tt>, except those subdirectories which contain a file named<tt>DISABLED</tt>, which are not currently needed.</p>
+<p>Optional packages:</p>
+<pre class="prettyprint"><span class="pln">gcc</span><span class="pun">-</span><span class="pln">doc make</span><span class="pun">-</span><span class="pln">doc cpp</span><span class="pun">-</span><span class="pln">doc libstdc</span><span class="pun">++</span><span class="lit">6</span><span class="pun">-</span><span class="lit">4.5</span><span class="pun">-</span><span class="pln">doc
+cmake ant mercurial git</span><span class="pun">-</span><span class="pln">core
+ntp traceroute x2x lynx
+emacs23
+eclipse
+gimp inkscape transfig pstoedit
+mplayer mencoder ffmpeg</span></pre>
+<p>Other configuration:</p>
+<ul>
+<li>The default permissions of newly created users on Unbuntu don't include some important group memberships. In particular, membership in the<tt>adm</tt> group confers the ability to run <tt>sudo</tt>; the <tt>uucp</tt> and<tt>dialout</tt> groups enable you to connect to serial ports (as you do to connect directly to the LLP with a USB cable or to use a USB-to-serial adapter to connect to the HLP); and the<tt>video</tt> and <tt>plugdev</tt> groups can be required for using USB webcams. Run these commands to add these and other useful groups to the default for new users (i.e. run these commands before you create new users), and also to add the extra groups to the user you are currently logged in as:
+<pre class="prettyprint"><span class="pln">extragrps</span><span class="pun">=</span><span class="str">"dialout cdrom floppy audio video plugdev users adm lpadmin sambashare uucp"</span><span class="pln">
+sudo sed </span><span class="pun">-</span><span class="pln">i </span><span class="pun">-</span><span class="pln">e </span><span class="str">"s/^[# ]*EXTRA_GROUPS.*=.*$/EXTRA_GROUPS=\"$extragrps\"/"</span><span class="pln"> $addusrcnf
+sudo sed </span><span class="pun">-</span><span class="pln">i </span><span class="pun">-</span><span class="pln">e </span><span class="str">"s/^.*ADD_EXTRA_GROUPS.*=.*/ADD_EXTRA_GROUPS=1/"</span><span class="pln"> $addusrcnf
+sudo usermod </span><span class="pun">-</span><span class="pln">a </span><span class="pun">-</span><span class="pln">G </span><span class="str">`echo "$extragrps" | sed -e "s/ /,/g"`</span><span class="str">`whoami`</span></pre>
+</li>
+</ul>
+<ul>
+<li>You may want to install the <tt>iptables</tt>-based firewall we provide:
+<pre class="prettyprint"><span class="pln">cd ohmm</span><span class="pun">-</span><span class="pln">sw</span><span class="pun">/</span><span class="pln">hlp</span><span class="pun">/</span><span class="pln">scripts</span><span class="pun">/</span><span class="pln">firewall
+</span><span class="pun">./</span><span class="pln">install</span><span class="pun">.</span><span class="pln">sh</span></pre>
+</li>
+</ul>
+<ul>
+<li>You may want to install the minicom and kermit scripts we provide:
+<pre class="prettyprint"><span class="pln">cd ohmm</span><span class="pun">-</span><span class="pln">sw</span><span class="pun">/</span><span class="pln">hlp</span><span class="pun">/</span><span class="pln">scripts
+make kermitscr</span><span class="pun">.</span><span class="pln">install minicomscr</span><span class="pun">.</span><span class="pln">install</span></pre>
+</li>
+</ul>
+<blockquote>This will allow you to run commands like <tt>minicom acm1</tt> to bring up a minicom serial terminal session on the<tt>/dev/ttyACM1</tt> port to communicate directly to the LLP, or <tt>minicom usb0</tt> to use the<tt>/dev/ttyUSB0</tt> port for a USB-to-serial adapter connected to the HLP.</blockquote>
+<p>&nbsp;</p>
+<h1><a name="Tweaks_for_a_Virtual_Machine_on_a_Flash_Drive"></a>Tweaks for a Virtual Machine on a Flash Drive</h1>
+<p>If you specifically want to run ubuntu from a VMware virtual machine on a USB flash drive you may want to make a few optimizations that seem to significantly improve performance. These only apply to running from a flash drive; we do not recommend any of these for a regular virtual machine stored on your hard drive. First, set these values in the VMware VMX file:</p>
+<pre class="prettyprint"><span class="pln">mainMem</span><span class="pun">.</span><span class="pln">backing </span><span class="pun">=</span><span class="str">"unnamed"</span><span class="pln">
+mainMem</span><span class="pun">.</span><span class="pln">useNamedFile </span><span class="pun">=</span><span class="str">"FALSE"</span><span class="pln">
+logging </span><span class="pun">=</span><span class="str">"FALSE"</span><span class="com"># suppress the "I moved it/I copied it question" (always moved)</span><span class="pln">
+uuid</span><span class="pun">.</span><span class="pln">action </span><span class="pun">=</span><span class="str">"keep"</span></pre>
+<p>Then boot the VM and make these edits in the indicated files:</p>
+<pre class="prettyprint"><span class="str">/etc/</span><span class="kwd">default</span><span class="pun">/</span><span class="pln">grub</span><span class="pun">:</span><span class="pln"> GRUB_CMDLINE_LINUX_DEFAULT</span><span class="pun">=</span><span class="str">"quiet splash elevator=noop"</span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">fstab</span><span class="pun">:</span><span class="pln"> tmpfs &nbsp; &nbsp; </span><span class="pun">/</span><span class="pln">tmp &nbsp; &nbsp;tmpfs &nbsp; defaults</span><span class="pun">,</span><span class="pln">noatime</span><span class="pun">,</span><span class="pln">mode</span><span class="pun">=</span><span class="lit">1777</span><span class="pln"> &nbsp;</span><span class="lit">0</span><span class="pln"> &nbsp; </span><span class="lit">0</span></pre>
+<p>The first one sets the "elevator" to "noop" which can help resolve stuttering behavior due to the default disk IO scheduler (elevator). The second puts<tt>/tmp</tt> on a ramdisk, which increases the speed of access to the temporary but frequently modified files that many programs automatically put there. Finally run</p>
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> sudo update</span><span class="pun">-</span><span class="pln">grub</span></pre>
+<p>and reboot.</p>
+<h1><a name="Adding/Removing_Users"></a>Adding/Removing Users</h1>
+<p>To add a user:</p>
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> sudo adduser LOGIN</span></pre>
+<p>where LOGIN is the desired username. <em>Note, use the command "adduser", not "useradd".</em> If you make a mistake, you can remove a user with</p>
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> sudo userdel </span><span class="pun">-</span><span class="pln">r LOGIN</span></pre>
+<p>but be very careful doing that, of course (you may omit the <tt>-r</tt> to leave the user's files around at<tt>/home/LOGIN</tt>).</p>
+<h1><a name="Connecting_to_Networks_on_the_Ubuntu_Command_Line"></a>Connecting to Networks on the Ubuntu Command Line</h1>
+<p>You may be familiar with GUI tools, including NetworkManager in Ubuntu, to identify and connect to wireless networks. Normally you interact with NM graphically (via an icon in the task tray), but it is also possible to manipulate it from the command line. It runs as a daemon (background service) even when running headless (no GUI).</p>
+<ul>
+<li><strong>Listing available connections</strong>: the command
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> nmcli con list</span></pre>
+</li>
+</ul>
+<blockquote>will show a list of the "connections" that NM knows about. "Auto eth0" is the wired ethernet network; the remainder are wireless networks that NM remembers; we have pre-configured some of these to get you started. (NM usually sets the name of a wifi connection to "Auto FOO" where FOO is the network SSID; the "Auto " prefix seems to tell NM to automatically connect to that network whenever it is available, without asking for confirmation.)</blockquote>
+<ul>
+<li><strong>Checking the current connection</strong>: NM is designed to automatically find for the best available connection and use it; to see what it has selected, run
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> nmcli con status</span></pre>
+</li>
+</ul>
+<blockquote>which will show the connection that NM has currently selected, and
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> ifconfig</span></pre>
+which will give the machine's IP address, if the connection was successful (look for<tt>inet addr</tt> in the section under <tt>wlan0</tt> for a wireless connection, or<tt>eth0</tt> for wired).</blockquote>
+<ul>
+<li><strong>Selecting a particular connection</strong> is done with the command
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> nmcli con up id </span><span class="str">'CONN'</span></pre>
+</li>
+</ul>
+<blockquote>where CONN is one of the connection names from <tt>con list</tt>, verbatim. (The quotes allow spaces in the connection name; for example, to connect to wired ethernet use<tt>'Auto eth0'</tt>.) This will work for networks without security, or for those that use a "secret" (password) that is the same for all users of the network (in which case the secret is remembered along with the network). For networks that require username+password login, we have provided a script <tt>hlp/scripts/nm-connect-802-1x</tt>; run it at the command line to get a usage description. For networks that require you to click buttons or fill in forms on a web page, use<a href="http://en.wikipedia.org/wiki/Lynx_%28web_browser%29" rel="nofollow">lynx</a>. To bring down a connection, replace<tt>up</tt> with <tt>down</tt>.</blockquote>
+<ul>
+<li><strong>checking wifi signal strength</strong> of nearby networks can be done on the command line with a command like this:
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> sudo iwlist wlan0 scan </span><span class="pun">|</span><span class="pln"> grep </span><span class="pun">-</span><span class="pln">e </span><span class="typ">Quality</span><span class="pun">-</span><span class="pln">e ESSID </span><span class="pun">-</span><span class="pln">e </span><span class="typ">Mode</span></pre>
+</li>
+</ul>
+<ul>
+<li><strong>Adding new connections</strong> to NM on the command line is also possible, though somewhat arcane. We provide a script<tt>hlp/scripts/nm-create-system-connection</tt> to make it more convenient. First install it with<tt>sudo hlp/scripts/nm-scripts/install.sh</tt> (if you are using one of the pre-configured Ubuntu installations for a course, the installation step should have already been done for you). Then you can run<tt>nm-create-system-connection</tt> to get usage information. Some basic examples:
+<pre class="prettyprint"><span class="com"># create a connetion to WPA protected network named ssid1, username foo, pass bar</span><span class="pln">
+nm</span><span class="pun">-</span><span class="pln">create</span><span class="pun">-</span><span class="pln">system</span><span class="pun">-</span><span class="pln">connection wpa ssid1 foo bar
+</span><span class="com"># now connect to it</span><span class="pln">
+nmcli con up id </span><span class="str">'Auto ssid1'</span><span class="com"># create a connection to 802-1x protected network named ssid2</span><span class="com"># credentials are per-user in this case</span><span class="pln">
+nm</span><span class="pun">-</span><span class="pln">create</span><span class="pun">-</span><span class="pln">system</span><span class="pun">-</span><span class="pln">connection </span><span class="lit">802</span><span class="pun">-</span><span class="lit">1x</span><span class="pln"> ssid2
+</span><span class="com"># now connect to it with username foo, pass bar</span><span class="pln">
+nm</span><span class="pun">-</span><span class="pln">connect</span><span class="pun">-</span><span class="lit">802</span><span class="pun">-</span><span class="lit">1x</span><span class="str">'Auto ssid2'</span><span class="pln"> foo bar</span></pre>
+</li>
+</ul>
+<blockquote>802-1x protected networks, which require per-user credentials vs a single global password for an entire (e.g.) WPA network, are often used in institutional settings. The commands to set the username and password without a GUI are also pretty arcane so we provide the <tt>nm-connect-802-1x</tt> script to help with that.</blockquote>
+<ul>
+<li>If you do have the option to boot headful with a GUI, then instead of using the<tt>nm-create-system-connection</tt> command line script, you can use the more common NM graphical method to add a connection: click on the NM icon in the taskbar, select desired network from a list, and then enter your credentials. (You can also select "Connect to Hidden Wireless Network...", if the access point has been configured not to broadcast itself.) If you then go back to the NM icon and select Edit Connections -&gt; Wireless -&gt;<em>connection</em> -&gt; Edit... -&gt; Available to all users, NM will save the connection info to a file in<tt>/etc/NetworkManager/system-connections/</tt>, and it will automatically consider connecting to it at boot, even before any user has done a graphical login. This is called a<em>system</em> connection (vs a <em>user</em> connection that would only be available to the currently logged-in user).</li>
+</ul>
+<ul>
+<li>Connecting the pandaboard HLP to a wifi network is a particularly important case for OHMM. One method to do that is to first attach a USB-to-serial adapter from the pandaboard to a PC or laptop. Bring up the connection in a serial terminal program like<tt>minicom</tt> or <tt>kermit</tt>, log in to the pandaboard, and then you can run all the commands above to configure its wifi connection. Once it is connected note down its IP address.</li>
+</ul>
+<blockquote>We have also provided a script <tt>ohmm-sw/hlp/scripts/nm-scripts/nm-panda-wifi-helper</tt> that can help connect the panda to wifi networks automatically (it should also already be installed for you if you are using OHMM in a course). It watches the user pushbutton on the panda. This is right next to the reset button, so be careful.</blockquote>
+<blockquote><img src="http://ohmm-sw.googlecode.com/svn/wiki/images/panda-user-pushbutton.png" alt="" /></blockquote>
+<blockquote>When the button is held down for about 1 second it displays information about the currently connected network (including the panda's IP address) on the LCD display on the LLP (it takes a few seconds to gather the info and display it after you press the button). Holding it down for 3 seconds triggers a procedure to try to automatically connect to a list of preferred networks from the file<tt>/etc/nm-panda-wifi-helper/ohmm-preferred-networks</tt>, with report about the effects on the LCD. Note that this currently only works for networks that don't require per-user authentication. Also, the LCD display functionality won't work if you are running other code on the pandaboard which has already connected to the orangutan LLP.</blockquote>
+<h1><a name="Passwordless_SSH"></a>Passwordless SSH</h1>
+<p>Say you want to ssh from a "client" machine, like your PC, to a "server", like the HLP on your robot.</p>
+<ol>
+<li>On the client machine run the command
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> ssh</span><span class="pun">-</span><span class="pln">keygen </span><span class="pun">-</span><span class="pln">t dsa</span></pre>
+</li>
+</ol>
+<blockquote>If you have already done this at some point in the past, you do not want to do it again. If you are not sure, check if the file<tt>~/.ssh/id_dsa.pub</tt> exists (<tt>~</tt> is shorthand for your home directory) --- if it does, you had run<tt>ssh-keygen</tt> before.</blockquote>
+<ol>
+<li>Copy the generated public key to the server. On the client machine, run the command
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> scp </span><span class="pun">~</span><span class="str">/.ssh/</span><span class="pln">id_dsa</span><span class="pun">.</span><span class="pln">pub SERVER</span><span class="pun">:~/</span><span class="pln">CLIENT</span><span class="pun">-</span><span class="pln">id_dsa</span><span class="pun">.</span><span class="pln">pub</span></pre>
+</li>
+</ol>
+<blockquote>whhere SERVER is the DNS name of the server and CLIENT is the hostname of the client.</blockquote>
+<ol>
+<li>ssh in to the server (using your password still) and run the commands
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> mkdir </span><span class="pun">.</span><span class="pln">ssh
+</span><span class="pun">&gt;</span><span class="pln"> cat CLIENT</span><span class="pun">-</span><span class="pln">id_dsa</span><span class="pun">.</span><span class="pln">pub </span><span class="pun">&gt;&gt;</span><span class="pun">~</span><span class="str">/.ssh/</span><span class="pln">authorized_keys
+</span><span class="pun">&gt;</span><span class="pln"> rm CLIENT</span><span class="pun">-</span><span class="pln">id_dsa</span><span class="pun">.</span><span class="pln">pub
+</span><span class="pun">&gt;</span><span class="pln"> chmod </span><span class="lit">700</span><span class="pun">.</span><span class="pln">ssh
+</span><span class="pun">&gt;</span><span class="pln"> chmod </span><span class="lit">600</span><span class="pun">.</span><span class="pln">ssh</span><span class="com">/*</span></pre>
+</li>
+</ol>
+<blockquote>The <tt>mkdir</tt> command will give an error message if <tt>~/.ssh</tt> already exists, but this is harmless.</blockquote>
+<ol>
+<li>Return to the client and try to ssh in to the server again --- you should not be prompted for a password.</li>
+</ol>
+<h1><a name="Remote_X_Window_Display"></a>Remote X Window Display</h1>
+<p>Because the onboard HLP typically runs headless (without a monitor, keyboard, and mouse attached), it can be very useful to run graphical programs on it that display on a remote computer. This is possible, though it can use a lot of network bandwidth. (For viewing images from the onboard camera we provide an HTTP image server that sends compressed JPEG or PNG images using much less bandwidth.)</p>
+<h2><a name="History"></a>History</h2>
+<p>The <a href="http://www.x.org/" rel="nofollow">X.org</a> display system now used in Linux is a descendant of a very old system called<a href="http://en.wikipedia.org/wiki/X_Window_System" rel="nofollow">X11</a>, or just "X". A key design aspect of X is that it is fundamentally a<em>client-server</em> architecture.</p>
+<p>You may be used to thinking of interacting with web "servers" as remote machines, with your local desktop machine the "client". In X, the<em>X server</em> is a daemon (background service) program running on your desktop, i.e. on the computer with the monitor to which graphics should be displayed.<em>X clients</em> are programs that want to display graphics in windows: web browsers, terminal programs, video players, etc.</p>
+<h2><a name="The_Old_Way"></a>The Old Way</h2>
+<p>When you run an X client it implicitly checks the value of the DISPLAY environment variable, which has the format<tt>[</tt><em>server</em><tt>]</tt>:<em>d</em><tt>[</tt>.<em>s</em><tt>]</tt>; <em>server</em> can be the DNS name or IP address of the machine running the X server, which does not need to be the same as the machine running the client program. It can also be "localhost" or omitted, in the common case that both the X client and server are on the same machine. <em>d</em> and the optional <em>s</em> are integers that can be used to select which part of a multi-screen display should be targetted; they are usually both 0 unless you know you need something else.</p>
+<p>So, it seems that if we want to run an X client program, like xterm, on one machine (let's call it<tt>client</tt>), and have it display on (possily another) machine <tt>server</tt>, then it should suffice to run these two commands on<tt>client</tt>:</p>
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="kwd">export</span><span class="pln"> DISPLAY</span><span class="pun">=</span><span class="pln">server</span><span class="pun">:</span><span class="lit">0.0</span><span class="pun">&gt;</span><span class="pln"> xterm </span><span class="pun">&amp;</span></pre>
+<p>Once upon a time, that would have worked, almost. Even in the old days there was a security mechanism: on the server you would have had to run</p>
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> xhost </span><span class="pun">+</span><span class="pln">client</span></pre>
+<p>to indicate that incoming X connections from <tt>client</tt> should be accepted. (Here we are using<tt>client</tt> and <tt>server</tt> as standins for the corresponding DNS names.)</p>
+<p>Unfortunately, nowadays increased security means that the above steps alone usually do not work.</p>
+<p>Also, networks are now often relatively complex; the above example assumes that both<tt>client</tt> and <tt>server</tt> can "see" each other on the network. In practice, it is now common to have "local subnets" like 192.168.1 which appear to machines outside the subnet as a single address corresponding to a router machine running<em>network address translation</em> (NAT, which used to be called "IP Masquerading", possibly a more informative name). Machines inside a local subnet can see out, but unless special arrangements are made, they cannot be seen from the outside.</p>
+<p>Remote X display is usually still possible despite these challenges.</p>
+<h2><a name="The_Modern_Way:_Connecting_from_Server_to_Client"></a>The Modern Way: Connecting from Server to Client</h2>
+<p>The usual situation is that you are sitting at the machine running the X server (<tt>server</tt>, e.g. your PC), and you ssh from there to<tt>client</tt> (e.g. the HLP on your robot; note that we are using the server and client terms to refer to the "backwards" X connection; the ssh connection is actually from<tt>server</tt> to <tt>client</tt>.) <tt>client</tt> needs to be visible from <tt>server</tt> (but not vice-versa), and <tt>client</tt> also needs to be running an ssh server.</p>
+<p>Ubuntu desktop editions to not come with an ssh server installed by default, but it can be easily added simply by running</p>
+<pre class="prettyprint"><span class="pln">sudo apt</span><span class="pun">-</span><span class="kwd">get</span><span class="pln"> install openssh</span><span class="pun">-</span><span class="pln">server</span></pre>
+<p>which both installs the ssh server and starts it, or does nothing if it's already installed and up to date. (If you're taking a course using OHMM and using one of the pre-configured Ubuntu installations, this step should have already been done for you.)</p>
+<p>There are only two steps needed in this common <tt>server</tt>-to-<tt>client</tt> use case:</p>
+<ol>
+<li>Make sure <tt>X11Forwarding</tt> is set to <tt>yes</tt> in <tt>/etc/ssh/sshd_config</tt> on<tt>client</tt> (this requires root perms on <tt>client</tt> to change, of course; it should have been done for you if you are using a pre-configured Linux installation as part of a course).</li>
+<li>On <tt>server</tt> run
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> ssh </span><span class="pun">-</span><span class="pln">X </span><span class="pun">-</span><span class="pln">C </span><span class="pun">[</span><span class="pln">user@</span><span class="pun">]</span><span class="pln">client</span></pre>
+</li>
+</ol>
+<blockquote>which will log you in to <tt>client</tt> with <em>X forwarding</em> (and lossless compression) enabled. Then on<tt>client</tt> you can run
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> echo $DISPLAY</span></pre>
+which should return a value like <tt>localhost:10.0</tt>. This may seem confusing; what is happening is that ssh has arranged a<em>tunnel</em> so that when you run an X client program like
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> xterm </span><span class="pun">&amp;</span></pre>
+on <tt>client</tt>, it will connect to a special port on <tt>client</tt> that is tunneled back to the X server on<tt>server</tt>, all through the ssh connection.</blockquote>
+<h2><a name="The_Modern_Way:_Connecting_from_Client_to_Server"></a>The Modern Way: Connecting from Client to Server</h2>
+<p>It is less common, but possible, to do this all the other way around, i.e. to start on<tt>client</tt> (e.g. your HLP), establish an ssh tunnel to <tt>server</tt> (e.g. your PC), and then run X client programs on<tt>client</tt> that display on <tt>server</tt>. It is trickier to set this up. Here is a recipe:</p>
+<ol>
+<li>Make sure that <tt>server</tt> is visible over the network from <tt>client</tt> (i.e. you should be able to ping<tt>server</tt> from <tt>client</tt>). If <tt>server</tt> is actually a virtual machine, you will either have to configure it to use "bridged" networking (not "NAT"; this is an easy switch in VMWare settings, and does not even require a reboot), or you can install a secondary network interface device, like a USB wifi dongle, that you ask VMWare to connect directly to the virtual machine. The first option requires that the VM have privlidges to connect directly to the external network (which will not work on managed networks like at many educational institutions unless the sysadmins to allow the virtual machines directly onto the network). The second option enables the VM to potentially connect to the same wifi router to which<tt>client</tt> (e.g. your HLP) is connected, thus putting them both on the <em>same</em> local subnet.</li>
+<li>Make sure that an ssh server is installed and running on <tt>server</tt> (see above).</li>
+<li>In a moment we are going to be opening the X server port and we don't want just anyone to be able to connect. If you're running Ubuntu then you can try the simple firewall we provide in<tt>ohmm-sw/hlp/scripts/firewall</tt>, which plays nicely with the NetworkManager service; just run<tt>./install.sh</tt> there on your server (If you're taking a course using OHMM and using one of the pre-configured Ubuntu installations, this step should have already been done for you.).</li>
+</ol>
+<p>&nbsp;</p>
+<ol>
+<li>Log in graphically and run
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> xhost </span><span class="pun">+</span></pre>
+</li>
+</ol>
+<blockquote>on server (this will be forgotten when you log out). This step and the last two have opened the X server TCP port 6000, which would allow any X client to connect, if it were not for the firewall. The firewall only allows<em>local</em> X clients (i.e. those that appear as if they originate from <tt>server</tt> itself), but still allows incoming ssh connections.</blockquote>
+<ol>
+<li>Finally, on <tt>client</tt> run
+<pre class="prettyprint"><span class="pun">&gt;</span><span class="pln"> ssh </span><span class="pun">-</span><span class="pln">f </span><span class="pun">[</span><span class="pln">user@</span><span class="pun">]</span><span class="pln">server </span><span class="pun">-</span><span class="pln">L </span><span class="lit">6010</span><span class="pun">:</span><span class="pln">server</span><span class="pun">:</span><span class="lit">6000</span><span class="pun">-</span><span class="pln">N
+</span><span class="pun">&gt;</span><span class="kwd">export</span><span class="pln"> DISPLAY</span><span class="pun">=</span><span class="pln">localhost</span><span class="pun">:</span><span class="lit">10.0</span><span class="pun">&gt;</span><span class="pln"> xterm </span><span class="pun">&amp;</span></pre>
+</li>
+</ol>
+<p>The first command establishes an ssh tunnel from the X server port 6010 on <tt> client</tt> to that port on <tt>server</tt>; the second tells X client programs on<tt>client</tt> to connect to that local port (the convention is that the port number is 6000+<em>d</em> where<em>d</em> is the display number, here 10), which will be tunneled back to <tt>server</tt>.</p>
+</div>
+</div>
+<p>&nbsp;</p>
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2013-02-07 17:05 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share Connecting wifi from the command line, ubuntu or embedding ubuntu on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130207170500%2f&title=Connecting%20wifi%20from%20the%20command%20line%2c%20ubuntu%20or%20embedding%20ubuntu">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share Connecting wifi from the command line, ubuntu or embedding ubuntu on twitter"
+          href="https://twitter.com/intent/tweet/?text=Connecting%20wifi%20from%20the%20command%20line%2c%20ubuntu%20or%20embedding%20ubuntu&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130207170500%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share Connecting wifi from the command line, ubuntu or embedding ubuntu on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130207170500%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

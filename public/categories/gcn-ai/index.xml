@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>GCN AI on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/gcn-ai/</link>
+    <description>Recent content in GCN AI on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Jul 2021 07:53:38 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/gcn-ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Graph Convolutional Networks as an Amateur</title>
+      <link>http://localhost:1313/posts/p20210714075338/</link>
+      <pubDate>Wed, 14 Jul 2021 07:53:38 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20210714075338/</guid>
+      <description>&lt;h1 id=&#34;getting-started-with-graph-convolutional-networks-as-an-amateur&#34;&gt;Getting started with Graph Convolutional Networks as an Amateur&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/27587371&#34;&gt;https://zhuanlan.zhihu.com/p/27587371&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/wangxiaocvpr/p/8306519.html&#34;&gt;https://www.cnblogs.com/wangxiaocvpr/p/8306519.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/wangxiaocvpr/p/8299336.html&#34;&gt;https://www.cnblogs.com/wangxiaocvpr/p/8299336.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780&#34;&gt;https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;本篇：一个高层级的GCN介绍&lt;/li&gt;&#xA;&lt;li&gt;谱图卷积的半监督学习&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;最基本的代码实现gcn--一个高层级的gcn介绍&#34;&gt;最基本的代码实现GCN &amp;ndash; 一个高层级的GCN介绍&lt;/h2&gt;&#xA;&lt;p&gt;In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。&#xA;&lt;a href=&#34;https://cloud.tencent.com/developer/article/1400504&#34;&gt;ref link in Chinese中文&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;看看gcn的输入是啥&#34;&gt;看看GCN的输入是啥&lt;/h3&gt;&#xA;&lt;p&gt;Given a graph $G = (V, E)$ , a GCN takes as input:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;adjacency matrix $\mathbf{A}$ of $G$.   &lt;em&gt;N&lt;/em&gt; × &lt;em&gt;N&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,&#xA;&lt;ul&gt;&#xA;&lt;li&gt;where &lt;em&gt;N&lt;/em&gt; is the number of nodes and&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;F⁰&lt;/em&gt; is the number of input features for each node&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/images/image-20210717215412877.png&#34; alt=&#34;image-20210717215412877&#34;&gt;&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

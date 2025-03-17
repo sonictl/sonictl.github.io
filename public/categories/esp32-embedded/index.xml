@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>Esp32 Embedded on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/esp32-embedded/</link>
+    <description>Recent content in Esp32 Embedded on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Feb 2022 21:39:44 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/esp32-embedded/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[ESP32]import esp-idf components</title>
+      <link>http://localhost:1313/posts/p20220212213944/</link>
+      <pubDate>Sat, 12 Feb 2022 21:39:44 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220212213944/</guid>
+      <description>&lt;p&gt;import esp-idf components:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;import the components is easy: git clone , mkdir &amp;lt;proj_dir&amp;gt;/components, and copy into &amp;lt;proj_dir&amp;gt;/components&lt;/p&gt;&#xA;&lt;p&gt;The git repos and commands that I used for this testing:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/natanaeljr/esp32-I2Cbus.git I2Cbus&#xA;git clone https://github.com/natanaeljr/esp32-MPU-driver.git MPUdriver&#xA;mkdir -p &amp;lt;proj_path&amp;gt;/components&#xA;mv I2Cbus &amp;lt;proj_path&amp;gt;/components&#xA;mv MPUdriver &amp;lt;proj_path&amp;gt;/components&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;for more, refer: &lt;a href=&#34;https://github.com/natanaeljr/esp32-MPU-driver&#34;&gt;https://github.com/natanaeljr/esp32-MPU-driver&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Do &lt;code&gt;sdkconfig&lt;/code&gt; for the right chip and protocal for the imported component&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;if the &lt;code&gt;hello_world_main.c&lt;/code&gt; is renamed, rename it in &lt;code&gt;&amp;lt;proj_dir&amp;gt;/main/CMakeLists.txt&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&lt;/blockquote&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

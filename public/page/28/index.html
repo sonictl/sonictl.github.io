@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150714171611/" title="ROS学习笔记10 - 编写编译和检验Service Node">ROS学习笔记10 - 编写编译和检验Service Node</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习笔记10---编写编译和检验service-node">ROS学习笔记10 - 编写编译和检验Service Node</h1>
+<h3 id="ros学习笔记10---编写编译和检验service-node-1"><strong>ROS学习笔记10 - 编写编译和检验Service Node</strong></h3>
+<p><strong>百度文库：http://wenku.baidu.com/view/e14d5e18dd88d0d232d46a37</strong></p>
+<p><strong>Writing a Service Node</strong></p>
+<p>Here we&rsquo;ll create the service (&ldquo;add_two_ints_server&rdquo;)<a href="https://so.csdn.net/so/search?q=node&amp;spm=1001.2101.3001.7020">node</a> which will receive two ints and return the sum.</p>
+<p>Change directories to your beginner_tutorialspackage you created in your catkin workspace previous tutorials:</p>
+<p>cd ~/catkin_ws/src/beginner_tutorials</p>
+<p>Please make sure you have followed the directions in the previous tutorialfor creating the service needed in this tutorial,<a href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv#Creating_a_srv">creating the AddTwoInts.srv</a> (be sure to choose the rightversion of build tool you&rsquo;re using at the top of wiki page in the link).</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150714171611/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-14T17:16:11&#43;0800" class="date">July 14, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150712094900/" title="ROS学习手记 - 2.1: Create and Build ROS Package 生成包（Python）">ROS学习手记 - 2.1: Create and Build ROS Package 生成包（Python）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1><span style="font-family:Microsoft YaHei">&nbsp;ROS学习手记 - 2.1: Create and Build ROS Package 生成包（Python）
+</span></h1>
+时隔1年，再回来总结这个问题，因为它是ros&#43;python开发中，太常用的一个操作，需要熟练掌握，快速参考。<br>
+<p></p>
+<p><br>
+</p>
+Rer Links:
+<p><span class="link_title">&nbsp;&nbsp; <a target="_blank" href="http://blog.csdn.net/sonictl/article/details/46764855">
+Create and Build ROS Package 生成包（C&#43;&#43;） </a></span></p>
+&nbsp;&nbsp; <br></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150712094900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-12T09:49:00&#43;0800" class="date">July 12, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150712093300/" title="ROS学习手记 9 -- 阶段性复习">ROS学习手记 9 -- 阶段性复习</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><pre><code>    &lt;div class=&quot;markdown_views&quot;&gt;&lt;h1 id=&quot;ros-阶段性总结&quot;&gt;ROS 阶段性总结&lt;/h1&gt;
+</code></pre>
+<h2 id="1-基本概念">1. 基本概念</h2>
+<pre><code>ROS 是建立在Linux特别是Ubuntu系统上的一套软件系统，它具有操作系统的特征
+</code></pre>
+<p>，负责管理各个模块的协同运行。设计初衷主要是面向机器人软硬件开发的特点：多</p>
+<p>点运行，随时增删模块，各模块独立开发，便于机器人多样功能的自由组合。通过拆</p>
+<p>解成不同节点和建立节点间的通信的方式，使得本来是非标准的机器人功能开发变得</p>
+<p>标准化和可维护。</p>
+<h2 id="2-ros的三种结构划分">2. ROS的三种结构划分</h2>
+<pre><code>2.1 按文件系统级
+
+2.2 按计算图级
+
+2.3 按社区级
+</code></pre>
+<h2 id="3-ros的主要组成元素">3. ROS的主要组成元素</h2>
+<pre><code>Repository
+  Stack
+    Package
+      Nodes
+      Messages
+      Services
+      Libraries
+      Tools
+</code></pre>
+<h2 id="4-ros中messagetopic的理解">4. ROS中Message/Topic的理解</h2>
+<h2 id="5-ros中nodespublishersubscribermaster的理解">5. ROS中Nodes/Publisher/Subscriber/Master的理解</h2>
+<h2 id="6-ros中service的理解">6. ROS中Service的理解</h2>
+<h2 id="7-ros-messageservice的编写和编译">7. ROS Message/Service的编写和编译</h2>
+<h2 id="8-ros-nodes的编写和编译">8. ROS Nodes的编写和编译</h2>
+<h2 id="9-ros-nodes的运行测试">9. ROS Nodes的运行测试</h2></div></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150712093300/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-12T09:33:00&#43;0800" class="date">July 12, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150710065200/" title="ROS学习手记 - 8 编写ROS的Publisher and Subscriber">ROS学习手记 - 8 编写ROS的Publisher and Subscriber</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><br>
+</p>
+<p>上一节我们完成了 message &amp; srv 文件的创建和加入编译，这次我们要玩简单的Publisher 和 Subscriber</p>
+<p>要玩 Publisher 和 Subscriber， 需要具备的条件有哪些呢？先总结一下：</p>
+<ol>
+<li>&nbsp;创建并生成自己的Package，本次是 beginner_tutorials</li><li>&nbsp;创建并生成ROS message &amp; srv</li></ol>
+<p>详细版的手记要看我上传到百度文库的文件了：http://wenku.baidu.com/view/f872755a26fff705cc170ade<br>
+这里会写个总结~</p>
+<ol>
+<li>
+<h2><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">Writing a Simple Publisher and Subscriber (C&#43;&#43;)</a></h2>
+<p><span class="anchor" id="line-1-11"></span>This tutorial covers how to write a publisher and subscriber node in C&#43;&#43;.</p>
+</li></ol>
+<p align="center"><br>
+</p>
+<h2 align="center"><strong>ROS学习笔记10 - 编写编译和检验Service Node<br>
+</strong></h2>
+<p><strong>百度文库：http://wenku.baidu.com/view/e14d5e18dd88d0d232d46a37</strong></p>
+<strong></strong>
+<p align="left"><strong>Writing a Service Node</strong></p>
+<p align="left">Here we'll create the service (&quot;add_two_ints_server&quot;)node which will receive two ints and return the sum.</p>
+<p align="left">Change directories to your beginner_tutorialspackage you created in your catkin workspace previous tutorials:</p>
+<p>cd ~/catkin_ws/src/beginner_tutorials</p>
+<p align="left">Please make sure you have followed the directions in the previous tutorialfor creating the service needed in this tutorial,<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv#Creating_a_srv">creating
+ the AddTwoInts.srv</a> (be sure to choose the rightversion of build tool you're using at the top of wiki page in the link).</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150710065200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-10T06:52:00&#43;0800" class="date">July 10, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150710060200/" title="ROS学习手记 - 7 创建ROS msg &amp;amp; srv">ROS学习手记 - 7 创建ROS msg &amp;amp; srv</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><br>
+</p>
+<p>至此，我们初步学习了ROS的基本工具，接下来一步步理解ROS的各个工作部件的创建和工作原理。</p>
+<p>本文的详细文档：<a target="_blank" href="http://wenku.baidu.com/view/623f41b3376baf1ffd4fad7a">http://wenku.baidu.com/view/623f41b3376baf1ffd4fad7a</a><br>
+</p>
+<p></p>
+<ol>
+<li>
+<h2><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv">Creating a ROS msg and srv</a></h2>
+<p><span class="anchor" id="line-1-10"></span>This tutorial covers how to create and build msg and srv files as well as the<a target="_blank" target="_blank" href="http://wiki.ros.org/rosmsg">rosmsg</a>, rossrv and roscp commandline tools.</p>
+</li></ol>
+1. msg &amp; srv 文件介绍<br>
+&nbsp;&nbsp;&nbsp; msg 文件 就是用来让不同语言能产生message的一个指导性文本文件。<br>
+&nbsp;&nbsp;&nbsp; srv file describes a service. It is composed of two parts: a request and a response.<br>
+<br>
+2. msg &amp; srv 文件存储位置：<br>
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/msg/ <br>
+&nbsp;&nbsp;&nbsp; &amp;<br>
+&nbsp;&nbsp;&nbsp; &lt;workspace&gt;/packagename/srv/
+<table border="1" cellpadding="0" cellspacing="0" height="1139" width="698">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>==== msg file 说明 ====<br>
+3. msgfile 的&#26684;式和生成<br>
+&nbsp;&nbsp;&nbsp; 生成：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ cd ~/catkin_ws/src/beginner_tutorials<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ echo &quot;int64 num&quot; &gt; msg/Num.msg<br>
+<br>
+&nbsp;&nbsp;&nbsp; &#26684;式：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string first_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string last_name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint8 age<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uint32 score<br>
+<br>
+4. msgfile 添加到package.xml的dependency中<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;<br>
+<br>
+5. 对CMakeLists.txt文件的修改：<br>
+<br>
+&nbsp; 5.1 添加message_generation dependency到CMakeLists.txt中：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation before the closing parenthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 5.2 export the message runtime dependency. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catkin_package(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CATKIN_DEPENDS message_runtime ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...)<br>
+<br>
+&nbsp; 5.3 添加msg文件<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add_message_files(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Num.msg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+&nbsp;&nbsp;&nbsp; 添加了.msg文件在CMake里，我们保证在你添加其他.msg文件时，CMake知道何时它需要reconfigure重新配置项目。<br>
+<br>
+&nbsp; 5.4 确保generate_messages 函数被调用<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+6. rosmsg 工具的使用<br>
+&nbsp;&nbsp;&nbsp; make sure that ROS can see it using the rosmsg show command.<br>
+&nbsp;&nbsp;&nbsp; Usage:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show [message type]<br>
+&nbsp;&nbsp;&nbsp; Example: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show beginner_tutorials/Num<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ rosmsg show Num<br>
+===================</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; === srv file 说明 ===<br>
+&nbsp;1. srv的路径和生成<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscd beginner_tutorials<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ mkdir srv<br>
+&nbsp;&nbsp;&nbsp; Instead of creating a new srv definition by hand, we will copy an existing one from another package.<br>
+For that, roscp is a useful commandline tool for copying files from one package to another.<br>
+&nbsp;&nbsp;&nbsp; 使用roscp工具从一个package拷贝文件到另一个。<br>
+&nbsp;&nbsp;&nbsp; Usage: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp [package_name] [file_to_copy_path] [copy_path]<br>
+&nbsp;&nbsp;&nbsp; Now we can copy a service from the rospy_tutorials package: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ roscp rospy_tutorials AddTwoInts.srv srv/AddTwoInts.srv<br>
+<br>
+&nbsp;2. 保证package.xml里有dependency配置（可能独立修改了srv，确保一下）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;build_depend&gt;message_generation&lt;/build_depend&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run_depend&gt;message_runtime&lt;/run_depend&gt;<br>
+<br>
+&nbsp;3.1 add the message_generation dependency to generate messages in CMakeLists.txt:<br>
+# Do not just add this line to your CMakeLists.txt, modify the existing line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 3.2 添加 srvice 文件<br>
+&nbsp;&nbsp;&nbsp; add_service_files(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AddTwoInts.srv<br>
+&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 3.3 确保generate_messages 函数被调用<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+4. 使用rossrv工具<br>
+&nbsp;&nbsp;&nbsp; 添加以后，确保ROS can see it using the rossrv show command. <br>
+&nbsp;&nbsp;&nbsp; Usage: <br>
+&nbsp;&nbsp;&nbsp; $ rossrv show &lt;service type&gt;<br>
+&nbsp;&nbsp;&nbsp; Example: <br>
+&nbsp;&nbsp;&nbsp; $ rossrv show beginner_tutorials/AddTwoInts<br>
+&nbsp;&nbsp;&nbsp; You will see: <br>
+&nbsp;&nbsp;&nbsp; int64 a<br>
+&nbsp;&nbsp;&nbsp; int64 b<br>
+&nbsp;&nbsp;&nbsp; ---<br>
+&nbsp;&nbsp;&nbsp; int64 sum<br>
+&nbsp;&nbsp;&nbsp; Similar to rosmsg, you can find service files like this without specifying package name:<br>
+&nbsp;&nbsp;&nbsp; $ rossrv show AddTwoInts<br>
+&nbsp;&nbsp;&nbsp; [beginner_tutorials/AddTwoInts]:<br>
+&nbsp;&nbsp;&nbsp; int64 a<br>
+&nbsp;&nbsp;&nbsp; int64 b<br>
+&nbsp;&nbsp;&nbsp; ---<br>
+&nbsp;&nbsp;&nbsp; int64 sum<br>
+<br>
+&nbsp;&nbsp;&nbsp; [rospy_tutorials/AddTwoInts]:<br>
+&nbsp;&nbsp;&nbsp; int64 a<br>
+&nbsp;&nbsp;&nbsp; int64 b<br>
+&nbsp;&nbsp;&nbsp; ---<br>
+&nbsp;&nbsp;&nbsp; int64 sum</td>
+</tr>
+</tbody>
+</table>
+<h3>无论是修改了msg还是srv，都需要做的步骤：</h3>
+&nbsp; CMakeLists.txt文件的修改<br>
+&nbsp; 1. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; find_package(catkin REQUIRED COMPONENTS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; roscpp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rospy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message_generation&nbsp; // add ’message_generation’<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+&nbsp; 2. add any packages you depend on which contain .msg files that your messages use (in this case std_msgs), such that it looks like this:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; generate_messages(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEPENDENCIES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std_msgs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+<br>
+<h3>终于到了catkin_make出手的时候：</h3>
+<p align="left">Now that we have made some new messages we need to make our package again:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150710060200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-10T06:02:00&#43;0800" class="date">July 10, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150709015800/" title="ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed">ROS学习手记 - 6 使用ROS中的工具:rqt_console &amp;amp; roslaunch &amp;amp; rosed</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><br>
+</p>
+<p><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch">http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch</a><br>
+</p>
+<p></p>
+<ol>
+<li>
+<h2><a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch">Using rqt_console and roslaunch</a></h2>
+<p><span class="anchor" id="line-1-8"></span>This tutorial introduces ROS using <a target="_blank" target="_blank" href="http://wiki.ros.org/rqt_console">
+rqt_console</a> and <a target="_blank" target="_blank" href="http://wiki.ros.org/rqt_logger_level">
+rqt_logger_level</a> for debugging and <a target="_blank" target="_blank" href="http://wiki.ros.org/roslaunch">
+roslaunch</a> for starting many nodes at once. If you use <tt class="backtick">ROS&nbsp;fuerte</tt> or ealier distros where<a target="_blank" target="_blank" href="http://wiki.ros.org/rqt">rqt</a> isn't fully available, please see this page with<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UsingRxconsoleRoslaunch">this
+ page</a> that uses old <tt class="backtick">rx</tt> based tools. </p>
+</li></ol>
+<p></p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rqt console工具的打开：</p>
+<p></p>
+<h3 id="Using_rqt_console_and_rqt_logger_level">Using rqt_console and rqt_logger_level</h3>
+<span class="anchor" id="line-33"></span>
+<p></p>
+<p class="line867"><tt class="backtick">rqt_console</tt> attaches to ROS's logging framework to display output from nodes.<tt class="backtick">rqt_logger_level</tt> allows us to change the verbosity level (DEBUG, WARN, INFO, and ERROR) of nodes as they run.<span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150709015800/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-09T01:58:00&#43;0800" class="date">July 09, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150707023000/" title="ROS学习手记 - 5 理解ROS中的基本概念_Services and Parameters">ROS学习手记 - 5 理解ROS中的基本概念_Services and Parameters</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>上一节完成了对nodes, Topic的理解，再深入一步： Services and Parameters</p>
+<p><span style="color:#990000">我不理解为何 </span><span style="color:#990000">ROS wiki</span><span style="color:#990000"> 要把service与parameter放在一起介绍, 很想分开说</span>，但限于 csdn blog 没有文章顺序调整功能。只能罢了~~<br>
+</p>
+<p>-----------------以下是我作的关于ROS Service的总结-------------------</p>
+<h2>关于ROS Service的总结：<br>
+</h2>
+<ul>
+<li>
+<p><span style="color:#990000"><strong>什么是ROS Service:</strong></span> 在wiki/tutorials/1.7 中，有“<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams">Understanding ROS Services and Parameters</a>”一节， 我不理解为何要把service与parameter放在一起介绍。<br>
+[概念concepts] ROS Service: Another way that Nodes communicate with nodes. A_node send a request to B_node, and B_node give a response.<br>
+[命令Commands] sorservice list/call/type/find/uri&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp; rossrv - this command is mainly for the .srv files operations<br>
+</p>
+</li><li><strong><span style="color:#990000">什么定义了ROS Service:</span></strong> *.srv file - srv文件： 在<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv">wiki/tutorials/1.10</a>&nbsp; 中，有“Creating Msg &amp; Srv” 一节，我还是没理解为何要把srv文件和msg文件放在一起介绍。<br>
+The function of srv file: Discribe/define the data type for a service. The data type of Req. &amp; Resp. divided by '---'<br>
+the srv file typically stored under ../workspace/src/package_name/srv/ path.<br>
+[Create the srv file]: step1. echo &quot;...&quot; ./srv/filename.srv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; step2. uncomment &quot;gen_srv()&quot; in CMakeList.txt file.<br>
+[Use the srv file]: $rossrv show filename<del>.srv</del> , rossrv -- info of service definitions</li><li><span style="color:#990000"><strong>什么程序实现了ROS Servie:</strong></span> 在 wiki/tutorials/1.14 中，有“<a target="_blank" target="_blank" href="http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29">Writing a simpleService and Client(C&#43;&#43;)</a>” 一节,
+ 其中详细介绍了Service_node &amp; Client_node的程序实现。<br>
+</li></ul>
+<p>-----------------以上是我作的关于ROS Service的总结-------------------</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150707023000/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-07T02:30:00&#43;0800" class="date">July 07, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150706105930/" title="ROS学习手记 - 4 理解ROS中的基本概念_ROS_Topics">ROS学习手记 - 4 理解ROS中的基本概念_ROS_Topics</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习手记---4-理解ros中的基本概念_ros_topics">ROS学习手记 - 4 理解ROS中的基本概念_ROS_Topics</h1>
+<p>参考步骤：http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics</p>
+<ol>
+<li>
+<h3 id="understanding-ros"><a href="http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics">Understanding ROS&rsquo;s Topics</a></h3>
+</li>
+</ol>
+<p>This tutorial introduces ROS topics as well as using the<a href="http://wiki.ros.org/rostopic">rostopic</a> and<a href="http://wiki.ros.org/rqt_plot">rqt_plot</a> commandline tools.</p>
+<p>        复习一下教程里关于Topic的解释：</p>
+<p>        <img src="https://img-blog.csdn.net/20150706105852851?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h4 id="1-准备工作">1. 准备工作</h4>
+<p>    确认运行roscore之后，开始我们的turtlesim之旅</p>
+<h4 id="2-用rosrun开了两个node">2. 用rosrun开了两个node,</h4>
+<p>     一个是显示turtlesim窗口的turtlesim turtlesim_node</p>
+<pre tabindex="0"><code>      $ rosrun turtlesim turtlesim_node
+</code></pre><p>     一个是接收用户keyboard指令的turtlesim turtle_teleop_key</p>
+<pre tabindex="0"><code>      $ rosrun turtlesim turtle_teleop_key
+</code></pre><h4 id="3-rqt_graph工具">3. rqt_graph工具</h4>
+<p>    turtle_teleop_key是publisher，turtlesim_node是listener，用rqt_graph来看当前运行的nodes&amp;topics.<br>
+    用rqt_graph工具图形化地查看当前的node和topic运行状态，主从关系等。</p>
+<pre tabindex="0"><code>     $ rosrun rqt_graph rqt_graph
+</code></pre><h4 id="4-使用rostopic工具分析topic相关信息">4. 使用rostopic工具分析topic相关信息</h4>
+<pre tabindex="0"><code>     $rostopic -h //查看说明
+</code></pre><p>     4.1 使用rostopic echo打印发送在topic上的数据<br>
+        rostopic echo shows the data published on a topic.<br>
+        rostopic echo [topic]<br>
+     4.2 使用rostopic list查看当前的topic是从属于谁，又领导谁<br>
+        $ rostopic list -h //查看说明<br>
+     4.3 使用rostopic hz 显示topic发布的频率         <br>
+     Usage: rostopic hz [topic]</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150706105930/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-06T10:59:30&#43;0800" class="date">July 06, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150705210908/" title="ROS学习手记 - 3 理解ROS中的基本概念_ROS_Nodes">ROS学习手记 - 3 理解ROS中的基本概念_ROS_Nodes</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习手记---3-理解ros中的基本概念_ros_nodes">ROS学习手记 - 3 理解ROS中的基本概念_ROS_Nodes</h1>
+<p>在上次我们完成了一趟简单的package的Create,Build之后，我们要玩正儿八经的ROS，在此之前，我们有很多概念需要理解。按照如下列表进展。</p>
+<ol>
+<li><a href="http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes">Understanding ROS Nodes</a> This tutorial introduces ROS graph concepts and discusses the use of<a href="http://wiki.ros.org/roscore">roscore</a>,<a href="http://wiki.ros.org/rosnode">rosnode</a>, and<a href="http://wiki.ros.org/rosrun">rosrun</a> commandline tools.</li>
+<li><a href="http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics">Understanding ROS Topics</a> This tutorial introduces ROS topics as well as using the<a href="http://wiki.ros.org/rostopic">rostopic</a> and<a href="http://wiki.ros.org/rqt_plot">rqt_plot</a> commandline tools.</li>
+<li><a href="http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams">Understanding ROS Services and Parameters</a> This tutorial introduces ROS services, and parameters as well as using the<a href="http://wiki.ros.org/rosservice">rosservice</a> and<a href="http://wiki.ros.org/rosparam">rosparam</a> commandline tools.</li>
+</ol>
+<h3 id="understanding-ros-nodes"><a href="http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes">Understanding ROS Nodes</a></h3>
+<p><a href="http://wiki.ros.org/roscore">roscore</a>,<a href="http://wiki.ros.org/rosnode">rosnode</a>, and<a href="http://wiki.ros.org/rosrun">rosrun</a> commandline tools</p>
+<p>       This tutorial introduces ROS graph concepts and discusses the use of  <a href="http://wiki.ros.org/roscore">roscore</a>,  <a href="http://wiki.ros.org/rosnode">rosnode</a>, and<a href="http://wiki.ros.org/rosrun">rosrun</a> commandline tools.</p>
+<p>       Prerequisites</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150705210908/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-05T21:09:08&#43;0800" class="date">July 05, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150705200549/" title="ROS学习手记 - 2 Create and Build ROS Package 生成包（C&#43;&#43;）">ROS学习手记 - 2 Create and Build ROS Package 生成包（C&#43;&#43;）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="ros学习手记---2-create-and-build-ros-package-生成包c">ROS学习手记 - 2 Create and Build ROS Package 生成包（C++）</h1>
+<p>For ROS experienced user, You can just skip to the Constuction about ROS <a href="https://so.csdn.net/so/search?q=Package&amp;spm=1001.2101.3001.7020">Package</a> usage:</p>
+<p>For Quick Reference(C++): <a href="http://blog.csdn.net/sonictl/article/details/46764855#t5">http://blog.csdn.net/sonictl/article/details/46764855#t5</a></p>
+<p>For Quick Reference(Python): <a href="http://blog.csdn.net/sonictl/article/details/46764855#t15">http://blog.csdn.net/sonictl/article/details/46764855#t15</a></p>
+<p>=== 在上一篇的基础上，Create并Customize了Package之后，要Build Package ===</p>
+<p>来源：http://wiki.ros.org/ROS/Tutorials/BuildingPackages</p>
+<h4 id="1-确认source有没有完成-版本-hydro">1. 确认source有没有完成 (版本： hydro)：</h4>
+<pre tabindex="0"><code>   $ source /opt/ros/hydro/setup.bash
+</code></pre><h4 id="2-using-catkin_make">2. Using catkin_make</h4>
+<p>      使用方法：</p>
+<pre tabindex="0"><code>   # In a catkin workspace
+   $ catkin_make [make_targets] [-DCMAKE_VARIABLES=...]
+</code></pre><p>     这里catkin_make使用了CMake 的workflow来操作，科普一下这个workflow:</p>
+<p>     <img src="https://img-blog.csdn.net/20150705193504546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<h4 id="3-如何写ros的publisher-and-subscriberc">3. 如何写ROS的Publisher and Subscriber(C++)</h4>
+<p>       因为要涉及到对CMakeLists.txt的写法，需要先了解这个文章：http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29<br>
+       具体关于CMakeLists.txt文件，请看http://wiki.ros.org/catkin/CMakeLists.txt</p>
+<h4 id="4-关于workspace下的build-devel-src文件夹">4. 关于workspace下的build devel src文件夹</h4>
+<p>        The build folder is the default location of the<a href="http://wiki.ros.org/catkin/workspaces#Build_Space">build space</a> and is wherecmake andmake are called to configure and build your packages.<br>
+        The devel folder is the default location of the<a href="http://wiki.ros.org/catkin/workspaces#Development_.28Devel.29_Space">devel space</a>, which is where your executables and libraries go before you install your packages.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150705200549/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-07-05T20:05:49&#43;0800" class="date">July 05, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/27/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/27/">27</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/28/">28</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/29/">29</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/29/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

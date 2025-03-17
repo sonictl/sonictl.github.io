@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="    什么是 web 开发
+
+    这几天因为工作需要，了解了一下Web development 的技术路线，来源自    
+
+en.wikipedia.org/wiki/Web_development
+
+    本着互联网开放分享的态度，我是一边翻译一边学习。
+    &mdash;&mdash;&mdash;&mdash;&mdash;
+    &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+    “web 开发”是在因特网www或者在局域网a private network上建立站点的各种方法的宽泛总称。
+    web 开发可以从 开发一个最简单的纯文本的静态单页面 到 很复杂的基于web的internet 应用、电子商
+
+务、和社交网络服务。一个更综合性更完善性的归纳可以把web 开发分为为： 
+    web 设计， 
+    web 内容开发，
+    客户端联络， 
+    客户端/服务器端 脚本开发， 
+    web 服务，  
+    网络安全配置， 和 
+    电子商务开发（比如支付服务）。
+    （相关词条还有更深层次的解释，有空我可以后续学习并翻译出来）
+
+    在web 专业领域，“web 开发”一般是指 在网站建设中，那些无关页面设计的工作：写 Markup 标记语
+
+言和写代码。
+
+    &mdash;&mdash;&mdash;&mdash;&mdash; 【以上是有关 定义 咯】 &mdash;&mdash;&mdash;&mdash;&mdash;
+
+    对于大的组织或公司，web 开发团队可以由几百个开发者（web开发人员）组成。小点的组织只需要单一
+
+的长期工或者合同制的web master, 或者兼职。比如 图形设计， 信息系统 工程人员。web开发会是几个部门之
+
+间的协同工作，而不是某个特定的designated部门的某个业务区域（domain）。
+
+    ===== 目 录 =====
+    1.web 开发作为一个产业industry
+
+    2.web 开发的一些典型的领域
+        2.1 客户端开发
+        2.2 服务器端开发
+        2.3 客户端&#43;服务器端
+        2.4 数据库技术
+
+    3.实际的web 开发工作
+        3.1 基础
+        3.2 高级
+
+    4.安全性考虑
+        
+    5.时间线
+    
+    6.其他内容(see also)
+
+    7.参考文献、链接
+        " />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>什么是 web 开发 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20140121095300/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="    什么是 web 开发
+
+    这几天因为工作需要，了解了一下Web development 的技术路线，来源自    
+
+en.wikipedia.org/wiki/Web_development
+
+    本着互联网开放分享的态度，我是一边翻译一边学习。
+    &mdash;&mdash;&mdash;&mdash;&mdash;
+    &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+    “web 开发”是在因特网www或者在局域网a private network上建立站点的各种方法的宽泛总称。
+    web 开发可以从 开发一个最简单的纯文本的静态单页面 到 很复杂的基于web的internet 应用、电子商
+
+务、和社交网络服务。一个更综合性更完善性的归纳可以把web 开发分为为： 
+    web 设计， 
+    web 内容开发，
+    客户端联络， 
+    客户端/服务器端 脚本开发， 
+    web 服务，  
+    网络安全配置， 和 
+    电子商务开发（比如支付服务）。
+    （相关词条还有更深层次的解释，有空我可以后续学习并翻译出来）
+
+    在web 专业领域，“web 开发”一般是指 在网站建设中，那些无关页面设计的工作：写 Markup 标记语
+
+言和写代码。
+
+    &mdash;&mdash;&mdash;&mdash;&mdash; 【以上是有关 定义 咯】 &mdash;&mdash;&mdash;&mdash;&mdash;
+
+    对于大的组织或公司，web 开发团队可以由几百个开发者（web开发人员）组成。小点的组织只需要单一
+
+的长期工或者合同制的web master, 或者兼职。比如 图形设计， 信息系统 工程人员。web开发会是几个部门之
+
+间的协同工作，而不是某个特定的designated部门的某个业务区域（domain）。
+
+    ===== 目 录 =====
+    1.web 开发作为一个产业industry
+
+    2.web 开发的一些典型的领域
+        2.1 客户端开发
+        2.2 服务器端开发
+        2.3 客户端&#43;服务器端
+        2.4 数据库技术
+
+    3.实际的web 开发工作
+        3.1 基础
+        3.2 高级
+
+    4.安全性考虑
+        
+    5.时间线
+    
+    6.其他内容(see also)
+
+    7.参考文献、链接
+        " />
+  <meta property="og:title" content="什么是 web 开发" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20140121095300/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2014-01-21" />
+    <meta property="article:modified_time" content="2014-01-21" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="什么是 web 开发 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="    什么是 web 开发
+
+    这几天因为工作需要，了解了一下Web development 的技术路线，来源自    
+
+en.wikipedia.org/wiki/Web_development
+
+    本着互联网开放分享的态度，我是一边翻译一边学习。
+    &mdash;&mdash;&mdash;&mdash;&mdash;
+    &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+    “web 开发”是在因特网www或者在局域网a private network上建立站点的各种方法的宽泛总称。
+    web 开发可以从 开发一个最简单的纯文本的静态单页面 到 很复杂的基于web的internet 应用、电子商
+
+务、和社交网络服务。一个更综合性更完善性的归纳可以把web 开发分为为： 
+    web 设计， 
+    web 内容开发，
+    客户端联络， 
+    客户端/服务器端 脚本开发， 
+    web 服务，  
+    网络安全配置， 和 
+    电子商务开发（比如支付服务）。
+    （相关词条还有更深层次的解释，有空我可以后续学习并翻译出来）
+
+    在web 专业领域，“web 开发”一般是指 在网站建设中，那些无关页面设计的工作：写 Markup 标记语
+
+言和写代码。
+
+    &mdash;&mdash;&mdash;&mdash;&mdash; 【以上是有关 定义 咯】 &mdash;&mdash;&mdash;&mdash;&mdash;
+
+    对于大的组织或公司，web 开发团队可以由几百个开发者（web开发人员）组成。小点的组织只需要单一
+
+的长期工或者合同制的web master, 或者兼职。比如 图形设计， 信息系统 工程人员。web开发会是几个部门之
+
+间的协同工作，而不是某个特定的designated部门的某个业务区域（domain）。
+
+    ===== 目 录 =====
+    1.web 开发作为一个产业industry
+
+    2.web 开发的一些典型的领域
+        2.1 客户端开发
+        2.2 服务器端开发
+        2.3 客户端&#43;服务器端
+        2.4 数据库技术
+
+    3.实际的web 开发工作
+        3.1 基础
+        3.2 高级
+
+    4.安全性考虑
+        
+    5.时间线
+    
+    6.其他内容(see also)
+
+    7.参考文献、链接
+        " />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20140121095300/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20140121095300/">什么是 web 开发</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">什么是 web 开发</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2014-01-21T09:53:00&#43;0800 class="date">January 21, 2014</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+4 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p>    什么是 web 开发<br>
+<br>
+    这几天因为工作需要，了解了一下Web development 的技术路线，来源自    <br>
+<br>
+en.wikipedia.org/wiki/Web_development<br>
+<br>
+    本着互联网开放分享的态度，我是一边翻译一边学习。<br>
+    &mdash;&mdash;&mdash;&mdash;&mdash;<br>
+    &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-<br>
+    “web 开发”是在因特网www或者在局域网a private network上建立站点的各种方法的宽泛总称。<br>
+    web 开发可以从 开发一个最简单的纯文本的静态单页面 到 很复杂的基于web的internet 应用、电子商<br>
+<br>
+务、和社交网络服务。一个更综合性更完善性的归纳可以把web 开发分为为： <br>
+    web 设计， <br>
+    web 内容开发，<br>
+    客户端联络， <br>
+    客户端/服务器端 脚本开发， <br>
+    web 服务，  <br>
+    网络安全配置， 和 <br>
+    电子商务开发（比如支付服务）。<br>
+    （相关词条还有更深层次的解释，有空我可以后续学习并翻译出来）<br>
+<br>
+    在web 专业领域，“web 开发”一般是指 在网站建设中，那些无关页面设计的工作：写 Markup 标记语<br>
+<br>
+言和写代码。<br>
+<br>
+    &mdash;&mdash;&mdash;&mdash;&mdash; 【以上是有关 定义 咯】 &mdash;&mdash;&mdash;&mdash;&mdash;<br>
+<br>
+    对于大的组织或公司，web 开发团队可以由几百个开发者（web开发人员）组成。小点的组织只需要单一<br>
+<br>
+的长期工或者合同制的web master, 或者兼职。比如 图形设计， 信息系统 工程人员。web开发会是几个部门之<br>
+<br>
+间的协同工作，而不是某个特定的designated部门的某个业务区域（domain）。<br>
+<br>
+    ===== 目 录 =====<br>
+    1.web 开发作为一个产业industry<br>
+<br>
+    2.web 开发的一些典型的领域<br>
+        2.1 客户端开发<br>
+        2.2 服务器端开发<br>
+        2.3 客户端+服务器端<br>
+        2.4 数据库技术<br>
+<br>
+    3.实际的web 开发工作<br>
+        3.1 基础<br>
+        3.2 高级<br>
+<br>
+    4.安全性考虑<br>
+        <br>
+    5.时间线<br>
+    <br>
+    6.其他内容(see also)<br>
+<br>
+    7.参考文献、链接<br>
+        <br></p>
+<h2>&nbsp;&nbsp; &nbsp;--------&nbsp; 【以下是 web 开发产业】 ----------</h2>
+&nbsp;&nbsp; &nbsp;随着web的商业化，web 开发变成一个持续增长的产业。特别是随着在线商业和商品销售的需要，大大促<br>
+<br>
+进了web开发产业的发展。<br>
+&nbsp;&nbsp; &nbsp;对于工具和平台，公众可以使用很多开源open source的系统的协助来进行web 开发。一个很出名的例子<br>
+<br>
+叫做LAMP （Linux &#43; Apache &#43; MySQL &#43; PHP）栈，它是可以免费下载的。所以学习Web 开发的成本是极小的。另<br>
+<br>
+一个有益的因素是，一些更易用的&quot;所见即所得&quot;（What you see is what you get = WYSIWYG）web 开发软件正<br>
+<br>
+在蓬勃发展，加入到web开发大军。<br>
+&nbsp;&nbsp; &nbsp;最著名的是Adobe Dreamweaver, WebDev 和 Microsoft Expression Studio. 使用这些软件可以使初学<br>
+<br>
+者很快开发一个基本的web页面。不过学习 超文本标记语言HTML( Hyper text markup language )也是必要的，<br>
+<br>
+通过阅读他们的帮助文档、技术手册、在线教程或面对面教授，很快就能学会。<br>
+<br>
+&nbsp;&nbsp; &nbsp;另一方面快速发展的工具和技术是让开发者建立了更多的动态和交互的web 站点。开发者现在正致力于<br>
+<br>
+使以前在PC上的软件现在能作为Web应用来服务大众。<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;现在人们不需要在本机运行程序，而是把程序运行在远端的服务器上。这一趋势产生了一些新的交流方<br>
+<br>
+式，并且允许很多机遇的出现，在分散信息和媒体分发上。用户可以在不同地点和应用交互，而不是固定的工作<br>
+<br>
+站或特定的应用环境。<br>
+<br>
+&nbsp;&nbsp; &nbsp;最典型的web改变传统通信方式的案例是 电子商务。在线拍卖网站 如 eBay, 已经改变了顾客去寻找产<br>
+<br>
+品和服务的方式。在线零售商 Amazon.com 和 Buy.com 以及京东淘宝啥的也是把 传统的购物颠覆。另一个大事<br>
+<br>
+是blog的产生，改变了人们的通信方式。Web 应用，比如 WordPress 和 Movable Type 建立了简易实施的 博客<br>
+<br>
+环境，针对单独的web站点。<br>
+<br>
+&nbsp;&nbsp; &nbsp;一些开源的内容管理系统，比如 Joomla!, Drupal, XOOPS 和 TYPO3 ； 还有一些企业内容管理系统 <br>
+<br>
+Alfresco 已经扩展了web开发在在线交互和通信领域的影响。<br>
+<br>
+&nbsp;&nbsp; &nbsp;还有一些web 开发影响了人们的社交和市场工作。它不再是简单的商业和工作的工具，还更广泛地服务<br>
+<br>
+于社交网络。比如 Facebook, and Twitter 就以更个人和互动的方式，为人们提供了交流和组织的平台，从而登<br>
+<br>
+上大众舞台。<br>
+<br>
+<h2>&nbsp;&nbsp; &nbsp;---------- 【以下是 典型领域】 -----------</h2>
+&nbsp;&nbsp; &nbsp;web 开发可以被分为很多领域，一个典型的基本的分类可以为：<br>
+<br>
+<h3>&nbsp;&nbsp; &nbsp;====【客户端的web编程】 ====</h3>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Ajax -- Asynchronous JavaScript 异步的js提供了一种使用JS或其他语言来提升用户体验的<br>
+<br>
+新方法。<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Flash -- Adobe Flash Player 是一个普遍存在的浏览器插件，可用于 RIAs rich internet <br>
+<br>
+app. Flex2 也是开发来用于Flash Player(v9&#43;)的。<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;JavaScript -- 也是一个普遍应用的客户端平台，用于建立和转化了很多web app. 这些web 应<br>
+<br>
+用可以跨越很多平台的设备。JavaScript是脚本语言ECMAScript的通用名称，土名字。详见ECMAScript。<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;jQuery -- 跨平台的JS库，用于加速客户端的HTML编程。<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Microsoft Silverlight -- 微软的浏览器插件，让动画，矢量图和高分辨率视频播放成为可能<br>
+<br>
+。使用XAML 和 .NET 语言进行开发。<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;HTML5 和 CSS3 -- 最新的HTML提交标准，包含了最新的针对CSS的提交标准（proposed <br>
+<br>
+standard），天然支持很多由 其他框架 比如 Flash和Silverlight 提供的 客户端功能。<br>
+<br>
+&nbsp;&nbsp; &nbsp;用一个伞状的方式来查看这些条目，像XHTML这样的客户端代码 实际上是在本地存储和在浏览器上执行<br>
+<br>
+的。本地是不会执行客户端的程序的。客户端程序是执行在web服务器上的，web服务器生成 合适的一个 XHTML <br>
+<br>
+，然后发送它到 client客户端。 客户端编程的本质是要允许替换本地客户端上的HTML并可以通过内容更新来刷<br>
+<br>
+新网页。web 开发者必须具有一个观念，就是 他们的服务器端的脚本的 重要性 和 relevance关联性。如果一个<br>
+<br>
+服务器端的脚本接收了一个本地端脚本修改来的内容，那样的web开发在 防攻击和安全性方面 就很糟糕。<br>
+<br>
+<h3>&nbsp;&nbsp; &nbsp;===== 【服务器端的web编程】 =====</h3>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ASP -- （微软专有）<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ColdFusion -- (Adobe 专用，以前是Macromedia的)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;CGI<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Erlang, with Linux, Yaws, Mnesia, Erlang(LYME) solution stack<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Groovy， using the Grails 框架<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Java，如 Java Servlets, JSP or WebObjects<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Lotus Domino<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Node.js<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Perl 如 Catalyst, Dancer or Mojolicious(全都开源)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PHP (开源)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Python， 如 Django on Rails(open source)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Ruby, 如 Ruby on Rails(开源)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SSJS = Server-Side Javascript 如 Aptana Jaxer, Mozilla Rhino<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;.Net and .NET MVC 框架 （微软专属）<br>
+<br>
+&nbsp;&nbsp; &nbsp;万维网已经成为各种领域的复杂综合应用的转换平台，跨越了各个领域。在它们的多层次应用的本质之外，这些web app展现出复杂的行为，并且在他们的使用方式、表现、安全和发展进化的需求上很一致。但是，一个很大的特点是这些web app都是持续地在以ad-hoc的方式开发，持续地导致在 使用、维护、质量和可靠性方面的 问题。尽管web 开发可以在 从其他相关原理建立好的实践 中受益，它还是需要包含有区别的特点，来满足特定的需求。这些年，web开发已经朝着面向这些问题和要求去发展。<br>
+<br>
+&nbsp;&nbsp; &nbsp;Web 工程是多项领域的结合贡献产物：系统分析和设计，软件工程，超媒体超文本工程，需求工程，人机交互，用户界面，信息工程，信息分类和检索，测试，建模和仿真，项目管理，图像设计和展示。尽管二者都是包含了大量的代码编写，但web工程既不是克隆，也不是软件工程。尽管web 开发使用了软件开发的原理，但web开发包含了新的手段，策略，工具和技巧，同时也是以基于web的应用为唯一导向的。<br>
+<br>
+<h3>&nbsp;&nbsp; &nbsp;==== 【客户端 &#43; 服务器端 的web编程】 ====</h3>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Google Web Toolkit -- 提供了一个工具来创造和维护复杂的javascript前端应用，用java<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Dart -- 提供了工具用于创造和维护复杂的javascript前端应用，还有支持服务器端用Dart语言编写的代码 <br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Opa -- 是一个高层语言，不管是客户端还是服务器端都可被实现。编译器决定哪部分应该放在客户端上运行（自动地转换为Javascript），和哪部分应该放在服务器上运行。开发者可以通过简单的指令来优化这些决策。（开源）<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Pyjamas -- 是一个用来开发Ajax应用 和 在Python下开发Rich Internet App 的工具和框架。<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Tersus -- 是一个通过虚拟 定义用户界面，客户端行为和服务器处理 的对 富web应用 进行开发的平台。<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;尽管如此，像Ruby and Python这样的语言经常拿来和 MySQL（LAMP中的M） 以外的数据库服务协同使用。下面是web开发领域被广泛使用的数据库框架。例如，有些开发者喜欢一个叫做LAPR（Linux/Apache/PostgreSQL/Ruby on Rails）的搭配来进行开发。<br>
+<br>
+<h3>&nbsp;&nbsp; &nbsp;==== 【数据库技术】 ====</h3>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FileMaker -- <br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Apache Derby*<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;IBM DB2<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Firebird<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Microsoft SQL Server<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;MySQL *<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;MariaDB *<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Oracle<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PostgreSQL *<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SQLite *<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Sybase<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WebDNA<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Redis *<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;MongoDB *<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;CouchDB *<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Mark_Logic<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;* -- 开源/公共域<br>
+<br>
+<h2>&nbsp;&nbsp; &nbsp;========== 【web 开发实践】 ============</h2>
+<h3>&nbsp;&nbsp; &nbsp;【基础】</h3>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;在实际开发工程中，许多web工程师基本的各学科间的技能/角色，包括：<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;图形设计/web设计<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;信息架构 和 拷贝写/拷贝编辑 ，围绕 web的可用性，可访问性，以及 搜索引擎优化<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;上述的几点是一个简单web站点开发 层级（Hierarchy），并且可以扩展到包含了 客户端和服务器端的 所有方面。仍然要重视的是，web 开发还是通常被分为 包括页面布局、设计 的前端开发设计工作和 包含 website's 的功能设计 的服务器端开发，以及 back-end 最后端的系统。<br>
+<br>
+<h3>&nbsp;&nbsp; &nbsp;【高级】</h3>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;更多的一些高级web 开发者也会具有这些跨学科的技能/角色：<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》GUI -- 图形用户界面设计<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》声音，视频，动画过程设计，针对web使用<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》Flash 能力 -- （动画，声音，视频，脚本）<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》web 内容管理系统开发 and/or 内容管理架构设计，开发，和整合。<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》Web Application 开发， 整合， 和布署（deployment = disposition）<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》web 服务器压力测试（在崩溃之前，一个运行着某个应用的web服务器能够承担多大的流量）<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》web site 的安全性分析和测试<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》web 站点的代码优化（是搜索引擎优化的非常重要的一部分）<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;》项目管理，质量保证，以及与IT开发相类&#20284;的其他方面的能力。<br>
+<br>
+<h2>&nbsp;&nbsp; &nbsp;========== 【有关安全的考虑】 ============</h2>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;web开发引入了很多有关安全性的问题，比如数据入口的错误检测，通过表&#26684;，过滤器输出，和加密。恶意的行为，比如 SQL注入 这种行为可以由用户来发起，只要对于web开发有一个原始的认识，有了恶意意图即可以发起攻击。有些脚本可以把网站隐私发掘出来，通过让它允许某些未经授权的访问，恶意用户可搜集诸如Email地址，密码，受保护的内容，比如信用卡账号。<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;这样的问题依赖服务器环境（Apache 或 Microsoft IIS 最类&#20284;？） ，脚本语言都运行在这些服务器环境上。所以web开发者也没有动力去维护这些环境。但是，在web服务上线之前，严&#26684;的测试可以避免被攻击和侦测到隐蔽信息。If some contact form is provided in a website， it should include a captcha field in it， which prevents computer programs from automatically
+ filling forms and also mail spamming.<br>
+<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Keeping a web server safe from intrusion is often called Server Port Hardening. Many technologies come into play to keep information on the internet safe when it is transmitted from one location to another. For instance Secure Socket Layer Encryption
+ (SSL) Certificates are issued by certificate authorities to help prevent internet fraud. Many developers often employ different forms of encryption when transmitting and storing sensitive information. A basic understanding of information technology security
+ concerns is often part of a web developer's knowledge.一个web开发者需要具备基本的对于信息安全的理解。<br>
+<br>
+Because new security holes are found in web applications even after testing and launch, security patch updates are frequent for widely used applications. It is often the job of web developers to keep applications up to date as security patches are released
+ and new security concerns are discovered.新的漏洞层出不穷，web开发者一定要跟进patch。<br>
+<br>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p></p>
+<h2>&nbsp;&nbsp; &nbsp;========== 【TimeLine 时间线】 ============</h2>
+<div><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Web_development_timeline.png/800px-Web_development_timeline.png" width="800" height="664" border="1" alt=""><br>
+</div>
+<h2>&nbsp;&nbsp; &nbsp;========== 【另见内容】 ============</h2>
+&nbsp;&nbsp; &nbsp;Cross-browser<br>
+&nbsp;&nbsp; &nbsp;Web design<br>
+&nbsp;&nbsp; &nbsp;Website builder<br>
+<br>
+<br>
+<h2>&nbsp;&nbsp; &nbsp;========== 【引用内容】 ============</h2>
+<br>
+&nbsp;&nbsp;&nbsp; Jump up ^ Bureau of Labor Statistics, U.S. Department of Labor. &quot;Information Security Analysts, Web Developers, and Computer Network Architects&quot;. Occupational Outlook Handbook, 2012-13 Edition. Retrieved 2013-01-17.<br>
+&nbsp;&nbsp;&nbsp; Jump up ^ &quot;Web Application Security&quot;. DocForge. 22 February 2010. Retrieved 17 December 2008.<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp; &nbsp;<br>
+&nbsp;&nbsp;&nbsp; <br>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2014-01-21 09:53 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share 什么是 web 开发 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20140121095300%2f&title=%e4%bb%80%e4%b9%88%e6%98%af%20web%20%e5%bc%80%e5%8f%91">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share 什么是 web 开发 on twitter"
+          href="https://twitter.com/intent/tweet/?text=%e4%bb%80%e4%b9%88%e6%98%af%20web%20%e5%bc%80%e5%8f%91&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20140121095300%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share 什么是 web 开发 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20140121095300%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

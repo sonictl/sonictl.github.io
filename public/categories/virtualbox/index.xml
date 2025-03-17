@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>Virtualbox on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/virtualbox/</link>
+    <description>Recent content in Virtualbox on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Feb 2022 23:11:02 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to extend the Ubuntu guest OS&#39;s hard disk for VirtualBox on Mac</title>
+      <link>http://localhost:1313/posts/p20220206231102/</link>
+      <pubDate>Sun, 06 Feb 2022 23:11:02 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220206231102/</guid>
+      <description>&lt;h1 id=&#34;how-to-extend-the-ubuntu-guest-oss-hard-disk-for-virtualbox-on-mac&#34;&gt;How to extend the Ubuntu guest OS&amp;rsquo;s hard disk for VirtualBox on Mac&lt;/h1&gt;&#xA;&lt;h2 id=&#34;steps&#34;&gt;Steps:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;resize the VDI file on Mac OS: &lt;a href=&#34;https://osxdaily.com/2015/04/07/how-to-resize-a-virtualbox-vdi-or-vhd-file-on-mac-os-x/&#34;&gt;How to Resize a VirtualBox VDI or VHD File on Mac OS X&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;boot the Ubuntu with the image(ISO) and Gparted(resize the partition).&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; firstly resize the extension partition (/dev/sda2), then resize the partition (/dev/sda5)&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://technology.amis.nl/platform/virtualization-and-oracle-vm/ubuntu-vm-virtualbox-increase-size-disk-make-smaller-exports-distribution/&#34;&gt;Ubuntu VM in VirtualBox: How to increase the size of a disk and make small(er) exports for distribution&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;reboot the ubuntu with local vdi file and check the result.&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

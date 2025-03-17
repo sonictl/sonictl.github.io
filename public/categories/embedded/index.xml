@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>Embedded on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/embedded/</link>
+    <description>Recent content in Embedded on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Nov 2023 21:44:13 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/embedded/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3 Ways to Convert Python App into APK</title>
+      <link>http://localhost:1313/posts/p20231103214413/</link>
+      <pubDate>Fri, 03 Nov 2023 21:44:13 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20231103214413/</guid>
+      <description>&lt;h1 id=&#34;3-ways-to-convert-python-app-into-apk&#34;&gt;3 Ways to Convert Python App into APK&lt;/h1&gt;&#xA;&lt;p&gt;When you write an android app with python (&lt;a href=&#34;https://towardsdatascience.com/building-android-apps-with-python-part-1-603820bebde8&#34;&gt;see how to&lt;/a&gt;), with packages like &lt;code&gt;kivy&lt;/code&gt;, it is suffering that convert your Python code into installable/runable APK file for real mobile Android devices.&lt;/p&gt;&#xA;&lt;p&gt;This blog is borrowing &lt;a href=&#34;https://towardsdatascience.com/3-ways-to-convert-python-app-into-apk-77f4c9cd55af&#34;&gt;Kaustubh Gupta&amp;rsquo;s blog&lt;/a&gt; and is re-edited to introduce the 3 ways to obtain the APK from Python Android app code.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-the-challege&#34;&gt;1. The challege&lt;/h2&gt;&#xA;&lt;p&gt;we need to package the python code properly, otherwise, Python apps build with Kivy cannot be directly transferred to android devices.&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Example of Reverse Proxy Configuration - Nginx &amp; Caddy</title>
+      <link>http://localhost:1313/posts/p20231029101954/</link>
+      <pubDate>Sun, 29 Oct 2023 10:19:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20231029101954/</guid>
+      <description>&lt;h3 id=&#34;example-of-nginx-reverse-proxy-configuration&#34;&gt;Example of Nginx Reverse Proxy Configuration&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;server {&#xA;    listen          80;&#xA;    listen          [::]:80;&#xA;&#xA;    server_name     &amp;lt;your_server_name&amp;gt;;&#xA;    rewrite ^(.*)$  https://$host$1 permanent;&#xA;}&#xA;&#xA;map $http_upgrade $connection_upgrade {&#xA;    default upgrade;&#xA;    &amp;#39;&amp;#39;      close;&#xA;}&#xA;&#xA;server {&#xA;    listen  443       ssl http2;&#xA;    listen  [::]:443  ssl http2;&#xA;&#xA;    server_name         &amp;lt;your_server_name&amp;gt;;&#xA;&#xA;    ssl_certificate     /path/to/ssl_cert;&#xA;    ssl_certificate_key /path/to/ssl_cert_key;&#xA;&#xA;    location / {&#xA;        proxy_set_header    Host                $host;&#xA;        proxy_set_header    X-Real-IP           $remote_addr;&#xA;        proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;&#xA;        proxy_set_header    X-Forwarded-Proto   $scheme;&#xA;        proxy_http_version  1.1;&#xA;        proxy_set_header    Upgrade             $http_upgrade;&#xA;        proxy_set_header    Connection          $connection_upgrade;&#xA;        proxy_pass          http://127.0.0.1:9000/;&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;example-of-caddy-reverse-proxy-configuration&#34;&gt;Example of Caddy Reverse Proxy Configuration&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# This is a comment&#xA;yourdomain.com {&#xA;  # This is also a comment&#xA;  reverse_proxy /myroute localhost:2024&#xA;&#xA;  # May take option1/option2 either:&#xA;&#xA;  #  option1: a static web server for `index.html` in /var/www/mysite&#xA;  root * /var/www/mysite&#xA;  file_server&#xA;&#xA;  #  option2:&#xA;  reverse_proxy https://www.abc.com {&#xA;        header_up Host {upstream_hostport}&#xA;  }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;reference&#34;&gt;Reference:&lt;/h3&gt;&#xA;&lt;h5 id=&#34;nginx-ui&#34;&gt;&lt;a href=&#34;https://github.com/0xJacky/nginx-ui#nginx-ui&#34;&gt;Nginx UI&lt;/a&gt;&lt;/h5&gt;</description>
+      
+    </item>
+    <item>
+      <title>稚晖君软硬件环境配置整理</title>
+      <link>http://localhost:1313/posts/p20221124233353/</link>
+      <pubDate>Thu, 24 Nov 2022 23:33:53 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20221124233353/</guid>
+      <description>&lt;h1 id=&#34;稚晖君软硬件环境配置整理&#34;&gt;稚晖君软硬件环境配置整理&lt;/h1&gt;&#xA;&lt;p&gt;宝藏up主，&lt;a href=&#34;http://www.pengzhihui.com/&#34;&gt;稚晖君&lt;/a&gt;。很厉害。真&lt;a href=&#34;https://so.csdn.net/so/search?q=%E5%85%A8%E6%A0%88&amp;amp;spm=1001.2101.3001.7020&#34;&gt;全栈&lt;/a&gt;，从产品到机械到电路到软件，这就是那种真的聪明，一学就会的。&#xA;做的东西也是功能颜值双在线，审美还是很棒的，剪的视频也很棒。&#xA;先把他软件篇和硬件篇的视频总结一下，备用。&lt;/p&gt;&#xA;&lt;h1 id=&#34;1-软件环境&#34;&gt;1. 软件环境&lt;/h1&gt;&#xA;&lt;p&gt;总结来自稚晖君&lt;a href=&#34;https://www.bilibili.com/video/BV1F7411u71s&#34;&gt;软件篇视频&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;项目&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;XMind ZEN : 思维导图&lt;/li&gt;&#xA;&lt;li&gt;Typora : markdown&lt;/li&gt;&#xA;&lt;li&gt;有道云笔记：同步，私有云图床&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;电路&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;AD：主要设计工具&lt;/li&gt;&#xA;&lt;li&gt;Eagle：转换一些开源的eagle格式PCB文档&lt;/li&gt;&#xA;&lt;li&gt;fritzing：EDA软件，也可以用作矢量风格说明软件&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;机械&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Rhinocores：参数化建模，不适合不规则曲面&lt;/li&gt;&#xA;&lt;li&gt;Fusion360：全能&lt;/li&gt;&#xA;&lt;li&gt;Cinema4D&lt;/li&gt;&#xA;&lt;li&gt;KeyShot：仿真&lt;/li&gt;&#xA;&lt;li&gt;inkScape：矢量图轨迹&lt;/li&gt;&#xA;&lt;li&gt;ArtCAM：生成雕刻机的刀路文件&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;软件&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Visual Studio&lt;/li&gt;&#xA;&lt;li&gt;Android Studio：手机APP开发&lt;/li&gt;&#xA;&lt;li&gt;Jetbrain全家桶&#xA;&lt;ul&gt;&#xA;&lt;li&gt;pycharm：python&lt;/li&gt;&#xA;&lt;li&gt;Rider：C#开发&lt;/li&gt;&#xA;&lt;li&gt;Clion：C &amp;amp; C++&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Unity：3D仿真&lt;/li&gt;&#xA;&lt;li&gt;Keil&lt;/li&gt;&#xA;&lt;li&gt;CubeMX&lt;/li&gt;&#xA;&lt;li&gt;Arduino&lt;/li&gt;&#xA;&lt;li&gt;KendryteIDE：K210&lt;/li&gt;&#xA;&lt;li&gt;Processing：数字多媒体艺术&lt;/li&gt;&#xA;&lt;li&gt;matlab：建模仿真&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;其他&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;XShell &amp;amp; Xftp&lt;/li&gt;&#xA;&lt;li&gt;串口调试助手 &amp;amp; 网络调试助手&lt;/li&gt;&#xA;&lt;li&gt;Cmake&lt;/li&gt;&#xA;&lt;li&gt;GitGUI&lt;/li&gt;&#xA;&lt;li&gt;CoolFormat：代码格式&lt;/li&gt;&#xA;&lt;li&gt;IDA：反编译&lt;/li&gt;&#xA;&lt;li&gt;wireshark：网络抓包&lt;/li&gt;&#xA;&lt;li&gt;SerialChart：串口绘图&lt;/li&gt;&#xA;&lt;li&gt;Netron：图形化查看神经网络模型&lt;/li&gt;&#xA;&lt;li&gt;beyond Compare：代码比对&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;2-硬件环境&#34;&gt;2. 硬件环境&lt;/h1&gt;&#xA;&lt;p&gt;总结来自稚晖君的&lt;a href=&#34;https://www.bilibili.com/video/BV19E411a7Sf&#34;&gt;硬件篇视频&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;电脑桌：转角桌（右边电脑区+左边电工区）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;电脑区&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;iQniX红轴机械键盘&lt;/li&gt;&#xA;&lt;li&gt;Xbox one&lt;/li&gt;&#xA;&lt;li&gt;个人服务器&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;电工区&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;防割板&lt;/li&gt;&#xA;&lt;li&gt;热风枪&lt;/li&gt;&#xA;&lt;li&gt;控温电烙铁&lt;/li&gt;&#xA;&lt;li&gt;焊接辅助：飞线，锡球，焊锡膏，铁丝球，助焊剂，洗板水……&lt;/li&gt;&#xA;&lt;li&gt;数控电源&lt;/li&gt;&#xA;&lt;li&gt;元器件盒： 装主控&lt;/li&gt;&#xA;&lt;li&gt;电阻电容样品本&lt;/li&gt;&#xA;&lt;li&gt;示波器：袖珍 20Mhz&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;书籍&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard</title>
+      <link>http://localhost:1313/posts/p20220119221545/</link>
+      <pubDate>Wed, 19 Jan 2022 22:15:45 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220119221545/</guid>
+      <description>&lt;h1 id=&#34;esp32_lvgluse-lvgl-with-micropython-for-esp32-devboard&#34;&gt;[ESP32_lvgl]Use LVGL with Micropython for ESP32 devBoard&lt;/h1&gt;&#xA;&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of contents:&lt;/h2&gt;&#xA;&lt;p&gt;[TOC]&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Table of contents:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#1-some-basic-concepts&#34;&gt;1 Some basic concepts&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#2-the-one-lvmicropython&#34;&gt;2 The one: lv_micropython&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#3-quick-use-of-lvmicropython&#34;&gt;3 Quick use of lv_micropython&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#31--build-micropython-for-linux-port-optional-for-newbie&#34;&gt;3.1  Build micropython for Linux port (optional for newbie):&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#32-building-lvmicropython-micropython-fork-for-esp32-port&#34;&gt;3.2 Building &lt;code&gt;lv_micropython&lt;/code&gt; micropython fork for ESP32 port:&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt; [3.2.1 install the ESP-IDF sdk](#321-install-the-esp-idf-sdk)&#xA; &#xA;    [Get ESP-IDF v4.2](#get-esp-idf-v42)&#xA;    &#xA;    [Set up the environment variables](#set-up-the-environment-variables)&#xA;    &#xA; [3.2.2 Build the `lv_micropython` firmware](#322-build-the-lvmicropython-firmware)&#xA; &#xA; [3.2.3 Flashing the `lv_micropython` firmware](#323-flashing-the-lvmicropython-firmware)&#xA; &#xA; [3.2.4 Getting a Python prompt on the device](#324-getting-a-python-prompt-on-the-device)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;a href=&#34;#4-confiture-wifi-and-use-the-board&#34;&gt;4 Confiture wifi and use the board&lt;/a&gt;&#xA;&lt;a href=&#34;#reference-and-read-more&#34;&gt;Reference and read more&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

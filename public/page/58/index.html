@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="" />
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="" />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+  <body>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150529084500/" title="VS2010 C&#43;&#43; MFC框架学习笔记1 - 创建一个简单的加法计算器（1）">VS2010 C&#43;&#43; MFC框架学习笔记1 - 创建一个简单的加法计算器（1）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="vs2010-c-mfc框架学习笔记1---创建一个简单的加法计算器1">VS2010 C++ MFC框架学习笔记1 - 创建一个简单的加法计算器（1）</h1>
+<p>=======================================</p>
+<h4 id="mfc程序框架及运行流程介绍"><a href="https://so.csdn.net/so/search?q=MFC&amp;spm=1001.2101.3001.7020">MFC</a>程序框架及运行流程介绍</h4>
+<p>利用C++ MFC （微软基础类库）创建windows应用程序可以比较方便，因为微软打包好了很多基础东东，比如控件。</p>
+<p>首先MFC写的程序的运行大致原理，要了解。</p>
+<p>    MFC应用程序的运行流程与SDK程序是类似的，都是先进行一些初始化过程，再注册并创建窗口，然后显示、更新窗口，最后进入消息循环，消息都由窗口过程函数处理。</p>
+<p>   在运行流程上有基本的掌握即可。</p>
+<p>========================================</p>
+<h4 id="mfc程序消息驱动机制">MFC程序消息驱动机制</h4>
+<p>    Windows应用程序是消息驱动的。在MFC软件开发中，界面操作或者线程之间通信都会经常用到消息，通过对消息的处理实现相应的操作。比较典型的过程是:</p>
+<ul>
+<li>用户操作窗口，</li>
+<li>然后有消息产生，</li>
+<li>送给窗口的消息处理函数处理，</li>
+<li>对用户的操作做出响应。</li>
+</ul>
+<p>  <strong>什么是消息</strong><br>
+        窗口消息一般由三个部分组成：</p>
+<p>             1) 一个无符号整数，是消息值；<br>
+             2) 消息附带的WPARAM类型的参数；<br>
+             3) 消息附带的LPARAM类型的参数。</p>
+<p>         其实我们一般所说的消息是狭义上的消息值，也就是一个无符号整数，经常被定义为宏。</p>
+<p>    <strong>什么是消息映射机制</strong><br>
+         MFC使用一种消息映射机制来处理消息，在应用程序<a href="https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&amp;spm=1001.2101.3001.7020">框架</a>中的表现就是一个消息与消息处理函数一一对应的消息映射表，以及消息处理函数的声明和实现等代码。当<br>
+窗口接收到消息时，会到消息映射表中查找该消息对应的消息处理函数，然后由消息处理函数进行相应的处理。SDK编程时需要在窗口过程中一一判断消息值进行相应的<br>
+处理，相比之下MFC的消息映射机制要方便好用的多。</p>
+<p>    <strong>Windows消息分类</strong><br>
+    先讲下Windows消息的分类。Windows消息分为系统消息和用户自定义消息。<br>
+    Windows系统消息有三种：<br>
+              1.标准Windows消息。除WM_COMMAND外以WM_开头的消息是标准消息。例如，WM_CREATE、WM_CLOSE。<br>
+              2.命令消息。消息名为WM_COMMAND，消息中附带了标识符ID来区分是来自哪个菜单、工具栏按钮或加速键的消息。<br>
+              3.通知消息。通知消息一般由列表框等子窗口发送给父窗口，消息名也是WM_COMMAND，其中附带了控件通知码来区分控件。<br>
+              CWnd的派生类都可以接收到标准Windows消息、通知消息和命令消息。命令消息还可以由文档类等接收。</p>
+<p>   用户自定义消息是实际上就是用户定义一个宏作为消息，此宏的值应该大于等于WM_USER，然后此宏就可以跟系统消息一样使用，窗口类中可以定义它的处理函数。 </p>
+<p><strong>消息映射表</strong><br>
+    除了一些没有基类的类或CObject的直接派生类外，其他的类都可以自动生成消息映射表。下面的讲解都以HelloWorld的CMainFrame为例。消息映射表如下：<br>
+      C++代码：</p>
+<pre tabindex="0"><code>1. BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
+2. ON_WM_CREATE()
+3. ON_COMMAND(ID_VIEW_CUSTOMIZE, &amp;CMainFrame::OnViewCustomize)
+4. ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &amp;CMainFrame::OnToolbarCreateNew)
+5. ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &amp;CMainFrame::OnApplicationLook)
+6. ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7,&amp;CMainFrame::OnUpdateApplicationLook)
+7. ON_WM_SETTINGCHANGE()
+8. END_MESSAGE_MAP()
+</code></pre><p>     在BEGIN_MESSAG_MAP和END_MESSAGE_MAP之间的内容成为消息映射入口项。消息映射除了在CMainFrame的实现文件中添加消息映射表外，在类的定义文件MainFrm.h中还会添加一个宏调用：</p>
+<p>     DECLARE_MESSAGE_MAP()</p>
+<p>     一般这个宏调用写在类定义的结尾处。</p>
+<p>    <strong>添加消息处理函数</strong><br>
+    如何添加消息处理函数呢？不管是自动还是手动添加都有三个步骤：<br>
+    1.在类定义中加入消息处理函数的函数声明，注意要以afx_msg打头。例如MainFrm.h中WM_CREATE的消息处理函数的函数声明：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150529084500/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-29T08:45:00&#43;0800" class="date">May 29, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150521054700/" title="Ruby学习笔记7: 添加身份验证（adding Authentication）">Ruby学习笔记7: 添加身份验证（adding Authentication）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><!-- raw HTML omitted -->
+<h1 id="bundle-edge-rails-instead-gem-39rails39-github-39railsrails39">Bundle edge Rails instead: gem 'rails', github: 'rails/rails'</h1>
+<p>gem 'rails', '4.1.1'</p>
+<h1 id="use-sqlite3-as-the-database-for-active-record">Use sqlite3 as the database for Active Record</h1>
+<p>gem 'sqlite3', '1.3.9'</p>
+<h1 id="use-scss-for-stylesheets">Use SCSS for stylesheets</h1>
+<p>gem 'sass-rails', '4.0.3'</p>
+<h1 id="use-uglifier-as-compressor-for-javascript-assets">Use Uglifier as compressor for JavaScript assets</h1>
+<p>gem 'uglifier', '1.3.0'</p>
+<h1 id="use-coffeescript-for-jscoffee-assets-and-views">Use CoffeeScript for .js.coffee assets and views</h1>
+<p>gem 'coffee-rails', '4.0.0'</p>
+<h1 id="see--for-more-supported-runtimes">See <a href="https://github.com/sstephenson/execjs#readme">https://github.com/sstephenson/execjs#readme</a> for more supported runtimes</h1>
+<h1 id="gem-39therubyracer39--platforms-ruby">gem 'therubyracer',  platforms: :ruby</h1>
+<p>gem 'paperclip', '4.2.0'</p>
+<h1 id="use-jquery-as-the-javascript-library">Use jquery as the JavaScript library</h1>
+<p>gem 'jquery-rails', '3.1.2'</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150521054700/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-21T05:47:00&#43;0800" class="date">May 21, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150519064900/" title="Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互">Ruby学习笔记6: 动态web app的建立(3)--多Model之间的交互</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><!-- raw HTML omitted -->
+<p>$ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>art = Category.create(name: &amp;#39;Art&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/eb/144-la_fuente_de_Monforte_V.jpg&amp;#39;)
+home_and_living = Category.create(name: &amp;#39;Home &amp;amp; Living&amp;#39;, thumburl: &amp;#39;http://ihomedecorsideas.com/wp-content/uploads/2014/04/diy_network_homemade_coat_rack_.jpg&amp;#39;)
+jewelry = Category.create(name: &amp;#39;Jewelry&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/f/ff/Midyat_Silver_Jewelry_1310103_Nevit.jpg&amp;#39;)
+women = Category.create(name: &amp;#39;Women&amp;#39;, thumburl: &amp;#39;https://c1.staticflickr.com/9/8255/8660920433_57a184d9d1_z.jpg&amp;#39;)
+men = Category.create(name: &amp;#39;Men&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/d/d5/Fullbrogue_(Grenson).jpg&amp;#39;)
+kids = Category.create(name: &amp;#39;Kids&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/e0/Artist%27s_Paint_Brushes_Adapted_With_Photoshop._Surrey_UK.jpg&amp;#39;)
+vintage = Category.create(name: &amp;#39;Vintage&amp;#39;, thumburl: &amp;#39;https://c2.staticflickr.com/8/7402/9426557291_139134efaa_z.jpg&amp;#39;)
+weddings = Category.create(name: &amp;#39;Weddings&amp;#39;, thumburl: &amp;#39;http://hostingessence.com/wp-content/uploads/2012/04/green-wedding.jpg&amp;#39;)
+</code></pre>
+<p>craft_supplies = Category.create(name: 'Craft Supplies', thumburl: 'http://bit.ly/1w1uPow')</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150519064900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-19T06:49:00&#43;0800" class="date">May 19, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150513122000/" title="Ruby学习笔记5: 动态web app的建立 （2）">Ruby学习笔记5: 动态web app的建立 （2）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><!-- raw HTML omitted -->
+<p>resources :categories
+get 'categories/:id/delete' =&gt; 'categories#delete', :as =&gt; :categories_delete
+end<!-- raw HTML omitted -->**show.html.erb:<!-- raw HTML omitted -->&lt;%= render 'shared/topnav' %&gt;
+&lt;p&gt;
+  &lt;strong&gt;Name:&lt;/strong&gt;
+  &lt;%= @category.name %&gt;
+&lt;/p&gt;</p>
+<p>&lt;p&gt;
+  &lt;strong&gt;Thumburl:&lt;/strong&gt;
+  &lt;%= image_tag @category.thumburl %&gt;
+&lt;/p&gt;</p>
+<p>&lt;%= link_to 'Edit', edit_category_path(@category) %&gt; |
+&lt;%= link_to 'Back', categories_path %&gt;</p>
+<p>&lt;%= render 'shared/footer' %&gt;<!-- raw HTML omitted -->**request in browser: http://localhost:8000/categories/1<!-- raw HTML omitted -->
+we get:<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+我们再请求一些url如： localhost:8000/categories/2 能得到对应的改变。<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->这里我就有个疑问，为何routes.rb文件里没有体现出任何对 url 请求的处理的代码，比如，它怎么区分 /categories 和 /categories/1 这俩请求的<!-- raw HTML omitted --><!-- raw HTML omitted --></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150513122000/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-13T12:20:00&#43;0800" class="date">May 13, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150507153800/" title="Ruby学习笔记4: 动态web app的建立">Ruby学习笔记4: 动态web app的建立</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><!-- raw HTML omitted -->
+<p>$ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>art = Category.create(name: &amp;#39;Art&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/eb/144-la_fuente_de_Monforte_V.jpg&amp;#39;)
+home_and_living = Category.create(name: &amp;#39;Home &amp;amp; Living&amp;#39;, thumburl: &amp;#39;http://ihomedecorsideas.com/wp-content/uploads/2014/04/diy_network_homemade_coat_rack_.jpg&amp;#39;)
+jewelry = Category.create(name: &amp;#39;Jewelry&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/f/ff/Midyat_Silver_Jewelry_1310103_Nevit.jpg&amp;#39;)
+women = Category.create(name: &amp;#39;Women&amp;#39;, thumburl: &amp;#39;https://c1.staticflickr.com/9/8255/8660920433_57a184d9d1_z.jpg&amp;#39;)
+men = Category.create(name: &amp;#39;Men&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/d/d5/Fullbrogue_(Grenson).jpg&amp;#39;)
+kids = Category.create(name: &amp;#39;Kids&amp;#39;, thumburl: &amp;#39;http://upload.wikimedia.org/wikipedia/commons/e/e0/Artist%27s_Paint_Brushes_Adapted_With_Photoshop._Surrey_UK.jpg&amp;#39;)
+vintage = Category.create(name: &amp;#39;Vintage&amp;#39;, thumburl: &amp;#39;https://c2.staticflickr.com/8/7402/9426557291_139134efaa_z.jpg&amp;#39;)
+weddings = Category.create(name: &amp;#39;Weddings&amp;#39;, thumburl: &amp;#39;http://hostingessence.com/wp-content/uploads/2012/04/green-wedding.jpg&amp;#39;)
+</code></pre>
+<h1 id="add-your-category-here">Add your category here</h1>
+<p><!-- raw HTML omitted --></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150507153800/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-07T15:38:00&#43;0800" class="date">May 07, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/57/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/57/">57</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/58/">58</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/59/">59</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/79/">79</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/59/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+          <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </body>
+</html>

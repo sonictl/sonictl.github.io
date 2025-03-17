@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>DailyLife on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/dailylife/</link>
+    <description>Recent content in DailyLife on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Aug 2023 20:37:12 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/dailylife/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My first Hugo post</title>
+      <link>http://localhost:1313/posts/p20230801203712/</link>
+      <pubDate>Tue, 01 Aug 2023 20:37:12 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20230801203712/</guid>
+      <description>&lt;h3 id=&#34;below-is-installing-and-creating-a-hugo-site-with-themefluency&#34;&gt;Below is installing and creating a hugo site with theme=fluency&lt;/h3&gt;&#xA;&lt;p&gt;with operations like:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    hugo new site sonictl.github.io&#xA;    cd sonictl.github.io&#xA;    git submodule add https://github.com/wayjam/hugo-theme-fluency.git themes/fluency&#xA;    echo &amp;#34;theme = &amp;#39;fluency&amp;#39;&amp;#34; &amp;gt;&amp;gt; hugo.toml&#xA;    hugo server&#xA;    &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;by following this &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;https://gohugo.io/getting-started/quick-start/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;add-blog-content&#34;&gt;add blog content:&lt;/h2&gt;&#xA;&lt;p&gt;**directly add a .md file in &lt;code&gt;content/posts&lt;/code&gt; **&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;or ask hugo to creat one post:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new posts/my-first-post.md&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;this create a new file under &lt;code&gt;content/posts&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Note the draft value in the front matter of your post.&lt;/p&gt;&#xA;&lt;p&gt;if its value == true, You can run either of the following commands to include draft content.&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="ROS_Navigation专题1 - Introduction and Learning
+ROS_Navigation专题1 - Introduction and Learning Resources
+  Before going further, it is highly recommended that the reader check out the NavigationRobot Setup tutorial on the ROS Wiki.
+  This tutorial provides an excellent overview of the ROS navigation stack.
+  For an even better understanding, check out all of the  Navigation Tutorials.
+  And for a superb introduction to the mathematics underlying SLAM, check out Sebastian Thrun&rsquo;s onlineArtificial Intelligence course on Udacity.
+  If you own a TurtleBot, you might want to skip directly to the  TurtleBot SLAM tutorial on the ROS Wiki.
+  Another affordable SLAM robot is the Neato XV-11 vacuum cleaner which includes a 360-degree laser scanner. In fact, you can run the complete Navigation Stack using the XV-11 thanks to the neato_robot ROS stack by Michael Ferguson." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>ROS_Navigation专题1 - Introduction and Learning | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20160414110614/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="ROS_Navigation专题1 - Introduction and Learning
+ROS_Navigation专题1 - Introduction and Learning Resources
+  Before going further, it is highly recommended that the reader check out the NavigationRobot Setup tutorial on the ROS Wiki.
+  This tutorial provides an excellent overview of the ROS navigation stack.
+  For an even better understanding, check out all of the  Navigation Tutorials.
+  And for a superb introduction to the mathematics underlying SLAM, check out Sebastian Thrun&rsquo;s onlineArtificial Intelligence course on Udacity.
+  If you own a TurtleBot, you might want to skip directly to the  TurtleBot SLAM tutorial on the ROS Wiki.
+  Another affordable SLAM robot is the Neato XV-11 vacuum cleaner which includes a 360-degree laser scanner. In fact, you can run the complete Navigation Stack using the XV-11 thanks to the neato_robot ROS stack by Michael Ferguson." />
+  <meta property="og:title" content="ROS_Navigation专题1 - Introduction and Learning" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20160414110614/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2016-04-14" />
+    <meta property="article:modified_time" content="2016-04-14" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ROS_Navigation专题1 - Introduction and Learning | Combine Art and Sciences" />
+  <meta name="twitter:description" content="ROS_Navigation专题1 - Introduction and Learning
+ROS_Navigation专题1 - Introduction and Learning Resources
+  Before going further, it is highly recommended that the reader check out the NavigationRobot Setup tutorial on the ROS Wiki.
+  This tutorial provides an excellent overview of the ROS navigation stack.
+  For an even better understanding, check out all of the  Navigation Tutorials.
+  And for a superb introduction to the mathematics underlying SLAM, check out Sebastian Thrun&rsquo;s onlineArtificial Intelligence course on Udacity.
+  If you own a TurtleBot, you might want to skip directly to the  TurtleBot SLAM tutorial on the ROS Wiki.
+  Another affordable SLAM robot is the Neato XV-11 vacuum cleaner which includes a 360-degree laser scanner. In fact, you can run the complete Navigation Stack using the XV-11 thanks to the neato_robot ROS stack by Michael Ferguson." />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20160414110614/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20160414110614/">ROS_Navigation专题1 - Introduction and Learning</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">ROS_Navigation专题1 - Introduction and Learning</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2016-04-14T11:06:14&#43;0800 class="date">April 14, 2016</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+5 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="ros_navigation专题1---introduction-and-learning">ROS_Navigation专题1 - Introduction and Learning<a hidden class="heading-anchor" aria-hidden="true" href="#ros_navigation专题1---introduction-and-learning">#</a></h1>
+<h2 id="ros_navigation专题1---introduction-and-learning-resources">ROS_Navigation专题1 - Introduction and Learning Resources<a hidden class="heading-anchor" aria-hidden="true" href="#ros_navigation专题1---introduction-and-learning-resources">#</a></h2>
+<p>  Before going further, it is highly recommended that the reader check out the Navigation<a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup">Robot Setup</a> tutorial on the ROS Wiki.<br>
+  This tutorial provides an excellent overview of the ROS navigation stack.<br>
+  For an even better understanding, check out all of the  <a href="http://wiki.ros.org/navigation/Tutorials">Navigation Tutorials</a>.<br>
+  And for a superb introduction to the mathematics underlying SLAM, check out Sebastian Thrun&rsquo;s online<a href="http://write.blog.csdn.net/postedit/www.udacity.com/overview/Course/cs373/CourseRev/apr2012">Artificial Intelligence course</a> on Udacity.</p>
+<p>  If you own a TurtleBot, you might want to skip directly to the  <a href="http://wiki.ros.org/turtlebot_navigation/Tutorials/Build%20a%20map%20with%20SLAM">TurtleBot SLAM tutorial</a> on the ROS Wiki.<br>
+  Another affordable SLAM robot is the Neato XV-11 vacuum cleaner which includes a 360-degree laser scanner. In fact, you can run the complete Navigation Stack using the XV-11 thanks to the neato_robot ROS stack by Michael Ferguson.</p>
+<p>In this special subject, we will cover the three essential ROS packages that make up the core of the Navigation Stack:</p>
+<ul>
+<li>•  <a href="http://write.blog.csdn.net/postedit/wiki.ros.org/move_base">move_base</a> for moving the robot to a goal pose within a given reference frame</li>
+<li>•  <a href="http://write.blog.csdn.net/postedit/wiki.ros.org/gmapping">gmapping</a> for creating a map from laser scan data (or simulated laser data from a depth camera)</li>
+<li>•  <a href="http://write.blog.csdn.net/postedit/wiki.ros.org/amcl">amcl</a> for localization using an existing map</li>
+</ul>
+<hr>
+<p>In this case, I fell that starting from ROS 
+<a href="http://wiki.ros.org/navigation/Tutorials">Navigation Tutorials</a> could be a better way to learn.</p>
+<hr>
+<p>So I will follow the outline below:</p>
+<h4 id="1-navigation-is-an-ros-stack-named-as-navigation">1. Navigation is an ROS stack named as &ldquo;Navigation&rdquo;<a hidden class="heading-anchor" aria-hidden="true" href="#1-navigation-is-an-ros-stack-named-as-navigation">#</a></h4>
+<p>   It contains packages listed as below:</p>
+<p>   amcl*</p>
+<p>   base_local_planner</p>
+<p>   carrot_planner</p>
+<p>   clear_costmap_recovery</p>
+<p>   costmap_2d</p>
+<p>   dwa_local_planner</p>
+<p>   fake_localization</p>
+<p>   global_planner</p>
+<p>   map_server*</p>
+<p>   move_base*</p>
+<p>   move_base_msgs</p>
+<p>   move_slow_and_clear</p>
+<p>   nav_core</p>
+<p>   navfn</p>
+<p>   robot_pose_ekf</p>
+<p>   rotate_recovery</p>
+<p>   voxel_grid</p>
+<h4 id="2-first-follow-the-tutorials-in-this-order">2. First, follow the tutorials in this order:<a hidden class="heading-anchor" aria-hidden="true" href="#2-first-follow-the-tutorials-in-this-order">#</a></h4>
+<p>   1) The introduction to Navigation:
+<a href="http://wiki.ros.org/navigation?distro=hydro#Tutorials">http://wiki.ros.org/navigation?distro=hydro#Tutorials</a></p>
+<p>   2) The specific tutorial webpage:
+<a href="http://wiki.ros.org/navigation/Tutorials">http://wiki.ros.org/navigation/Tutorials</a></p>
+<p>  
+Note:</p>
+<h5 id="使用导航功能包集navigation-stacks的先决条件是">使用导航功能包集(Navigation Stacks)的先决条件是：<a hidden class="heading-anchor" aria-hidden="true" href="#使用导航功能包集navigation-stacks的先决条件是">#</a></h5>
+<p>       &gt;机器人必须运行ROS，</p>
+<p>       &gt;有一个tf变换树，</p>
+<p>       &gt;使用正确的ROS Message types发布传感器数据。</p>
+<p>   而且，我们需要在高层为一个具有一定形状和动力学特点的机器人配置Navigation Stacks。本手册指导配置一个典型的Navigation Stacks。</p>
+<p>  </p>
+<h5 id="硬件限制">硬件限制：<a hidden class="heading-anchor" aria-hidden="true" href="#硬件限制">#</a></h5>
+<p>       虽然Navigation Stacks被设计成尽可能的通用，在使用时仍然有三个主要的硬件限制：</p>
+<ul>
+<li>它是为差分驱动的完全约束的轮式机器人设计的。它假设移动基站受到理想的运动命令的控制并可实现预期的结果，命令的格式为：x速度分量，y速度分量，角速度(theta)分量。</li>
+<li>它需要在移动基站上安装一个平面二维激光。这个激光用于构建地图和定位。</li>
+<li>Navigation Stacks是为正方形的机器人开发的，所以方形或圆形的机器人将是性能最好的。 它也可以工作在任意形状和大小的机器人上，但是较大的矩形机器人将很难通过狭窄的空间，例如门道。</li>
+</ul>
+<p>  </p>
+<h4 id="3-second-follow-the--tutorial-webpage">3. Second, follow the  <a href="http://wiki.ros.org/navigation/Tutorials">tutorial</a> webpage:<a hidden class="heading-anchor" aria-hidden="true" href="#3-second-follow-the--tutorial-webpage">#</a></h4>
+<p>   &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&raquo;&raquo;</p>
+<h5 id="configuring-and-using-the-navigation-stack">Configuring and Using the Navigation Stack<a hidden class="heading-anchor" aria-hidden="true" href="#configuring-and-using-the-navigation-stack">#</a></h5>
+<ol>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF">Setting up your robot using tf</a>  This tutorial provides a guide to set up your robot to start using tf.</li>
+<li><a href="http://wiki.ros.org/evarobot_navigation/Tutorials/indigo">No Title</a> No Description</li>
+<li><a href="http://wiki.ros.org/evarobot_navigation/Tutorials/indigo/Navigation%20of%20the%20Evarobot%20in%20Gazebo">Navigation of the Evarobot in Gazebo</a>  How to navigate evarobot in Gazebo with a previously known map.</li>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide">Basic Navigation Tuning Guide</a>  This guide seeks to give some standard advice on how to tune the<a href="http://wiki.ros.org/navigation">ROS Navigation Stack</a> on a robot. This guide is in no way comprehensive, but should give some insight into the process. I&rsquo;d also encourage folks to make sure they&rsquo;ve read the<a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup">ROS Navigation Tutorial</a> before this post as it gives a good overview on setting the navigation stack up on a robot wheras this guide just gives advice on the process.</li>
+<li><a href="http://wiki.ros.org/evarobot_navigation/Tutorials/indigo/Otonom%20Evarobot%20Navigasyonu">Bilinen Bir Haritada Otonom Evarobot Navigasyonu</a>  Daha önceden çıkartılmış haritada otonom robot navigasyonu.</li>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/Using%20rviz%20with%20the%20Navigation%20Stack">Using rviz with the Navigation Stack</a>  This tutorial provides a guide to using rviz with the navigation stack to initialize the localization system, send goals to the robot, and view the many visualizations that the navigation stack publishes over ROS.</li>
+<li><a href="http://wiki.ros.org/mrpt_navigation/Tutorials/Installing">Installing</a>  Instructions to install and compile this package</li>
+<li><a href="http://wiki.ros.org/robotino_navigation/Tutorials/Navigation%20with%20Robotino">Navigation with Robotino</a>  Autonomous navigation of a known map with Robotino</li>
+<li><a href="http://wiki.ros.org/evarobot_navigation/Tutorials/indigo/Autonomous%20Navigation%20of%20a%20Known%20Map%20with%20Evarobot">Autonomous Navigation of a Known Map with Evarobot</a>  How to navigate autonomously the Evarobot with known map.</li>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup">Setup and Configuration of the Navigation Stack on a Robot</a>  This tutorial provides step-by-step instructions for how to get the navigation stack running on a robot. Topics covered include: sending transforms using tf, publishing odometry information, publishing sensor data from a laser over ROS, and basic navigation stack configuration.</li>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/Odom">Publishing Odometry Information over ROS</a>  This tutorial provides an example of publishing odometry information for the navigation stack. It covers both publishing the nav_msgs/Odometry message over ROS, and a transform from a &ldquo;odom&rdquo; coordinate frame to a &ldquo;base_link&rdquo; coordinate frame over tf.</li>
+<li><a href="http://wiki.ros.org/robotino_navigation/Tutorials/Mapping%20with%20Robotino">Mapping with Robotino</a>  Explains how to build a map with Robotino using gmapping</li>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/Sensors">Publishing Sensor Streams Over ROS</a>  This tutorial provides examples of sending two types of sensor streams,sensor_msgs/LaserScan messages and sensor_msgs/PointCloud messages over ROS.</li>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals">Sending Goals to the Navigation Stack</a>  The Navigation Stack serves to drive a mobile base from one location to another while safely avoiding obstacles. Often, the robot is tasked to move to a goal location using a pre-existing tool such as rviz in conjunction with a map. For example, to tell the robot to go to a particular office, a user could click on the location of the office in a map and the robot would attempt to go there. However, it is also important to be able to send the robot goals to move to a particular location using code, much like rviz does under the hood. For example, code to plug the robot in might first detect the outlet, then tell the robot to drive to a location a foot away from the wall, and then attempt to insert the plug into the outlet using the arm. The goal of this tutorial is to provide an example of sending the navigation stack a simple goal from user code.</li>
+<li><a href="http://wiki.ros.org/evarobot_navigation/Tutorials/indigo/Gazebo%20Evarobot%20Navigasyonu">Gazebo&rsquo;da Evarobot Navigasyonu</a>  Çıkartılmış harita üzerinden Gazebo&rsquo;da otonom Evarobot navigasyonu.</li>
+</ol>
+<h5 id="configuring-and-using-the-global-planner-of-the-navigation-stack">Configuring and Using the Global Planner of the Navigation Stack<a hidden class="heading-anchor" aria-hidden="true" href="#configuring-and-using-the-global-planner-of-the-navigation-stack">#</a></h5>
+<ol>
+<li><a href="http://wiki.ros.org/navigation/Tutorials/Writing%20A%20Global%20Path%20Planner%20As%20Plugin%20in%20ROS">Writing A Global Path Planner As Plugin in ROS</a>: This tutorial presents the steps for writing and using a global path planner in ROS as a plugin.</li>
+</ol>
+<h5 id="navigation-stack-and-stage">Navigation stack and stage<a hidden class="heading-anchor" aria-hidden="true" href="#navigation-stack-and-stage">#</a></h5>
+<p>To use navigation stack with stage, check the  <a href="http://wiki.ros.org/navigation_stage">navigation_stage</a> package.</p>
+<h5 id="robot-specific-configurations">Robot Specific Configurations<a hidden class="heading-anchor" aria-hidden="true" href="#robot-specific-configurations">#</a></h5>
+<p>This section contains information on configuring particular robots with the navigation stack. Please help us by adding information on your robots.</p>
+<h4 id="erratic">Erratic<a hidden class="heading-anchor" aria-hidden="true" href="#erratic">#</a></h4>
+<p>The  <a href="http://wiki.ros.org/erratic_navigation">erratic_navigation</a> package contains configuration and launch files for running the navigation stack on Erratic robot. The<a href="http://wiki.ros.org/erratic_navigation_apps">erratic_navigation_apps</a> package contains example launch files that will start the navigation stack in three different configurations:</p>
+<ul>
+<li>navigation with existing static map</li>
+<li>navigation with SLAM for building a map of the area</li>
+<li>navigation in local odometric frame without a map and localization:</li>
+</ul>
+<p>The  <a href="http://wiki.ros.org/erratic_teleop">erratic_teleop</a> package contains a keyboard teleoperation node for driving the robot (e.g. while in SLAM mode).</p>
+<h4 id="pioneer">Pioneer<a hidden class="heading-anchor" aria-hidden="true" href="#pioneer">#</a></h4>
+<p><strong>TODO</strong></p>
+<h4 id="irobot-create">iRobot Create<a hidden class="heading-anchor" aria-hidden="true" href="#irobot-create">#</a></h4>
+<p><strong>TODO</strong></p>
+<h4 id="4">4.<a hidden class="heading-anchor" aria-hidden="true" href="#4">#</a></h4>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2016-04-14 11:06 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share ROS_Navigation专题1 - Introduction and Learning on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160414110614%2f&title=ROS_Navigation%e4%b8%93%e9%a2%981%20-%20Introduction%20and%20Learning">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share ROS_Navigation专题1 - Introduction and Learning on twitter"
+          href="https://twitter.com/intent/tweet/?text=ROS_Navigation%e4%b8%93%e9%a2%981%20-%20Introduction%20and%20Learning&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160414110614%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share ROS_Navigation专题1 - Introduction and Learning on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20160414110614%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

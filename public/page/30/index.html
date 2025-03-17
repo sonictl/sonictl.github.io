@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Combine Art and Sciences">
+  
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta property="og:title" content="Combine Art and Sciences" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Combine Art and Sciences" />
+  <meta name="twitter:description" content="A fluency Hugo theme for writers and bloggers." />
+  <meta name="twitter:domain" content="http://localhost:1313/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+<main id="main" class="index-page homepage" role="main">
+  <div class="container has-padding">
+    
+    
+    
+
+    
+    <div class="article-list">
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150506140500/" title="Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向）">Ruby学习笔记3：Rendering（渲染）和 Redirect（重定向）</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><br>
+</p>
+<h3>1. Rendering<br>
+</h3>
+<p>Rendering 是特别要告诉Controller 中的methods，要哪个view file来显示给用户。We can show Views as we wish!</p>
+<p></p>
+<p>Earlier each one of our Views rendered based on the method specified in the Controller.</p>
+<p>If we write the following method:</p>
+<pre><code class="lang-rb"><span class="function"><span class="keyword">def</span> <span class="title">render_demo</span></span>
+<span class="identifier"><span class="keyword">end</span></span>
+</code></pre>
+<p>Rails will always look for the render_demo View. But if we write:</p>
+<pre><code class="lang-rb"><span class="function"><span class="keyword">def</span> <span class="title">render_demo</span></span>
+  <span class="identifier">render</span> <span class="symbol">:<span class="identifier">home</span></span>
+<span class="identifier"><span class="keyword">end</span></span>
+</code></pre>
+<p>We can tell Rails to render the home View, as long as we have one. Rendering just tells Rails to show the View we specify.</p>
+这里这个例子是这样的：<br>
+1. 在pages_controller.rb文件中，加入一个method: render_demo<pre code_snippet_id="660614" snippet_file_name="blog_20150506_1_4172159"  code_snippet_id="660614" snippet_file_name="blog_20150506_1_4172159" name="code" class="ruby">class PagesController &lt; ApplicationController
+   def home
+   end
+   def erb_demo
+   end
+   def render_demo
+      render :home  #return home page. but return render_demo.html.erb if without this line
+   end
+&#160;end
+</pre>2. 在routes.rb文件中，加入一个route：pages/render_demo<pre code_snippet_id="660614" snippet_file_name="blog_20150506_2_8660352"  code_snippet_id="660614" snippet_file_name="blog_20150506_2_8660352" name="code" class="ruby">Rails.application.routes.draw do
+  get &#39;pages/home&#39;
+  root &#39;pages#home&#39;
+  get &#39;pages/erb_demo&#39;
+  get &#39;pages/render_demo&#39;
+end</pre>3. 在render_demo.html.erb文件中:<pre code_snippet_id="660614" snippet_file_name="blog_20150506_3_2724218"  code_snippet_id="660614" snippet_file_name="blog_20150506_3_2724218" name="code" class="ruby">  &lt;%= &quot;This is the render demo template.&quot; %&gt;
+</pre>4. 最后在浏览器中请求： localhost:8000/pages/render_demo&nbsp;&nbsp;&nbsp; ，可以得到homepage. 或得到&quot;This is the render
+ demo template&quot;<br>
+<p><br>
+</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150506140500/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-06T14:05:00&#43;0800" class="date">May 06, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150505071900/" title="对互联网垂直社交产品的分析">对互联网垂直社交产品的分析</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>社交产品是对每个个体自身人性的迎合、利诱和放大。如果说世界上最复杂的是人性，那么创业项目里最复杂的自然就是社交产品。互联网创业最有意思又最深奥的就是社交类产品。<br>
+<br>
+一款好的社交产品一定是能够迎合人类七宗罪中的其中之一的，比如他觉得Facebook迎合的是傲慢/自负，人们把一些精挑细选的东西用粉饰后的方式表现给他们的关注者们，以此来获得一种虚荣感。<br>
+<br>
+人类七宗罪（好色、暴食、贪婪、懒惰、愤怒、嫉妒、傲慢）<br>
+<br>
+从七宗罪类型的人类原始需求出发的产品，好处是能够迅速吸引用户，形成病毒传播，但坏处是可持续性差，社区氛围维持难度高，和留存低。<br>
+<br>
+更重要的是要像放风筝一样，利用七宗罪反过来的把社区向正面塑造。日常生活中的交往是一样的，哪怕你再喜欢一个人，也是要一步步循序渐进。<br>
+<br>
+懂得生活的人，会从身边的旁枝末节中体会生活，而不是每天只高谈阔论。懂得追女孩子的人，与其每天都在献殷勤、表白和宣誓，不如找点事情一起做，找个共同话题一起聊天。容易交朋友的人，也是一样，都是有自己的兴趣和专长，这样大家才有话聊，才能在交谈中更加深入的了解彼此。<br>
+<br>
+所有社交产品表面上要解决的核心问题只有一个，那就是牵线搭桥、制造媒介，最终让用户基于这个平台上的媒介形成更好的互动和关系的留存。<br>
+<br>
+“知乎”给人们制造的媒介是问答<br>
+“YY”或“9158”给人们制造的媒介是视频娱乐内容<br>
+“豆瓣”给人们制造的媒介是影音书<br>
+ “Nice”是潮流文化和标签式媒介<br>
+“陌陌”最早兴起的媒介其实就是地理位置因素<br>
+“会会”的媒介是用户的行业和背景与相约聊天的主题。<br>
+<br>
+交往的过程需要这些媒介，要让用户之间有话聊，有源源不断的内容产生，内容消费，并且形成关系链条。<br>
+<br>
+有甚者，有一些社交产品跳过了媒介，直接把人和人的关系引向了结果，比如直接可供任何人线下约饭的产品或是单纯根据照片挑选配对类的产品我都觉得是非常粗暴、违反人类正常交往习惯和不可持续的。<br>
+<br>
+社交类产品还有一个需要注意的事情是“媒介的即时性”。<br>
+<br>
+每种媒介的作用和效果都不同。媒介的选择非常重要，直接影响了最终产品和社区的形态。一种双向多边的，每个人都能低成本生产和消费内容的媒介才是最理想的。<br>
+<br>
+垂直社交产品的意义并没有那么大。结果就是社交产品往往是几年出一个大的，也是个赢家通吃的市场。所以在最开始的时候就要想好抓的是用户的什么痛点和原始需求，又该用怎样的媒介来引导。<br>
+<br>
+脉脉、会会、知乎、Linkedin、“Same”、“陪我”、“抱抱”</p></p>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150505071900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-05T07:19:00&#43;0800" class="date">May 05, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150505025400/" title="Ruby学习笔记2 ： 一个简单的Ruby网站，搭建ruby环境">Ruby学习笔记2 ： 一个简单的Ruby网站，搭建ruby环境</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p>Ruby on Rails website 的基础是 请求-返回 循环。<br>
+<br>
+<br>
+首先是浏览器请求服务器，<br>
+<br>
+<br>
+第二步，Second, in our Rails application, the route takes the request and finds the right Controller and method to handle the request.<br>
+<br>
+<br>
+第三步，控制器拿到相关数据并发给View模块。<br>
+<br>
+<br>
+最后，View模块把数据打包好，并且发回给浏览器显示。</p>
+<p>-----</p>
+<h3>搭建开发环境：<br>
+</h3>
+<ul>
+<li>Creat rails file package: rails new my-app</li><li>Install Ruby gems</li><li>Making a controller called pages<br>
+</li><li>在routes.rb文件中，Create a route</li><li>Create the View<br>
+</li></ul>
+<h3>1. Creat rails file package<br>
+</h3>
+<p>操作 Rails 用的commands叫做Generator， 在Terminal里，使用如下命令可以新建一个rails app:</p>
+<p></p>
+<pre><code>rails <span class="keyword">new</span> my-app</code></pre>
+rails就会建立一系列的站点文件。<br>
+然后我们在浏览器里输入：localhost:8000就能访问rails建立的第一个web 站点：
+<p></p>
+<p><img src="http://img.blog.csdn.net/20150505151242538?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp; Let's learn about the files that you generated.来看看我们建立了哪些文件：</p>
+<p>&nbsp; Rails is made up folders that hold our code:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150505025400/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-05T02:54:00&#43;0800" class="date">May 05, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150504084200/" title="Patrick Hughes - 错觉3D雕塑艺术">Patrick Hughes - 错觉3D雕塑艺术</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><div id="pics">
+<p><img src="http://img.blog.csdn.net/20150504163929237?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20150504163949464?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" vspace="10"><img src="http://img.blog.csdn.net/20150504164012659?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" vspace="10"></p>
+<p><img src="http://img.blog.csdn.net/20150504163927032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">Pictures</p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="footer" style="margin-left:11em; margin-top:0px; padding:1.25em; direction:ltr; font-family:sans-serif; font-size:16px">
+</div>
+<br>
+<br>
+<br>
+<div id="mw-head-base" class="noprint" style="margin-top:-5em; margin-left:11em; height:5em; font-family:sans-serif; font-size:16px">
+</div>
+<div id="content" class="mw-body" style="margin-left:11em; padding:1.25em 1.5em 1.5em; border-width:1px 0px 1px 1px; border-style:solid; border-color:rgb(167,215,249); margin-top:-1px; color:rgb(37,37,37); direction:ltr; font-family:sans-serif; font-size:16px">
+<a target="_blank" target="_blank" id="top" style="color:rgb(6,69,173); background:none"></a>
+<div id="siteNotice" style="position:relative; text-align:center; margin:0px; font-size:0.8em">
+<div id="centralNotice"></div>
+</div>
+<div class="mw-indicators" style="float:right; line-height:1.6; font-size:0.875em; position:relative; z-index:1; padding-top:0.4em">
+</div>
+<h1 id="firstHeading" class="firstHeading" lang="en" style="color:black; font-weight:normal; margin:0px 0px 0.25em; overflow:visible; padding:0px; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(170,170,170); font-size:1.8em; line-height:1.3; font-family:'Linux Libertine',Georgia,Times,serif; background:none">
+Patrick Hughes (artist)</h1>
+<div id="bodyContent" class="mw-body-content" style="position:relative; line-height:1.6; font-size:0.875em; z-index:0">
+<div id="siteSub" style="font-size:12.8800001144409px">From Wikipedia, the free encyclopedia</div>
+<div id="contentSub" style="font-size:12px; line-height:1.2em; margin:0px 0px 1.4em 1em; color:rgb(84,84,84); width:auto">
+</div>
+<div id="jump-to-nav" class="mw-jump" style=""><a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/Patrick_Hughes_(artist)#mw-head" style="text-decoration:none; color:rgb(11,0,128); background:none"></a><a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/Patrick_Hughes_(artist)#p-search" style="text-decoration:none; color:rgb(11,0,128); background:none"></a></div>
+<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en" style="direction:ltr">
+<div class="thumb tright" style="clear:right; float:right; margin:0.5em 0px 1.3em 1.4em; width:auto; background-color:transparent">
+<div class="thumbinner" style="min-width:100px; border:1px solid rgb(204,204,204); padding:3px; font-size:13.1599998474121px; text-align:center; overflow:hidden; width:222px; background-color:rgb(249,249,249)">
+<a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/File:Leaning_on_a_Landscape_-_Patrick_Hughes_-_1979.jpg" class="image" style="text-decoration:none; color:rgb(11,0,128); background:none"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Leaning_on_a_Landscape_-_Patrick_Hughes_-_1979.jpg/220px-Leaning_on_a_Landscape_-_Patrick_Hughes_-_1979.jpg" class="thumbimage" height="145" width="220" style="border:1px solid rgb(204,204,204); vertical-align:middle; background-color:rgb(255,255,255)"></a>
+<div class="thumbcaption" style="border:none; line-height:1.4em; padding:3px; font-size:12.370400428772px; text-align:left">
+<div class="magnify" style="float:right; margin-left:3px; margin-right:0px"><a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/File:Leaning_on_a_Landscape_-_Patrick_Hughes_-_1979.jpg" class="internal" title="Enlarge" style=""></a></div>
+Patrick Hughes.&nbsp;<em>Leaning on a Landscape</em>, 1979, print.</div>
+</div>
+</div>
+<p style="margin-top:0.5em; margin-bottom:0.5em; line-height:inherit"><strong>Patrick Hughes</strong>&nbsp;(born 20 Oct 1939)<sup id="cite_ref-1" class="reference" style="line-height:1; font-size:12px"><a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/Patrick_Hughes_(artist)#cite_note-1" style="text-decoration:none; color:rgb(11,0,128); white-space:nowrap; background:none">[1]</a></sup>&nbsp;is
+ a British artist working in London. He is the creator of &quot;<a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/Reverse_perspective" title="Reverse perspective" style="text-decoration:none; color:rgb(11,0,128); background:none">reverspective</a>&quot;,
+ an optical illusion on a 3-dimensional surface where the parts of the picture which seem farthest away are actually physically the nearest.</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150504084200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-05-04T08:42:00&#43;0800" class="date">May 04, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150424075900/" title="Ruby学习笔记1 -- 基本语法和数据类型, Class">Ruby学习笔记1 -- 基本语法和数据类型, Class</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p></p>
+<p>Ruby 有4种数据类型：String, Boolen, Array, Hashes<br>
+Ruby 有3种操作方法：Method,&nbsp;attribute, ??<br>
+Ruby 有xxx: Classes, Object....</p>
+<p>====<strong><span style="font-size:18px">先来看数据类型</span></strong>====</p>
+<h4>1. String and Declaring the variables:&nbsp;</h4>
+<pre code_snippet_id="652182" snippet_file_name="blog_20150424_1_2130945"  code_snippet_id="652182" snippet_file_name="blog_20150424_1_2130945" name="code" class="ruby">name = &quot;Wonder Woman&quot;   #declare a var and store a string
+puts name  &lt;span style=&quot;white-space:pre&quot;&gt;		&lt;/span&gt;#puts -- print out the var
+<p>sum = 5 + 1.4
+puts sum</p>
+<p>correct = 1 == 1
+puts correct
+</pre><br></p>
+<h4>2. Arrays:</h4>
+<p></p>
+<pre code_snippet_id="652182" snippet_file_name="blog_20150424_2_8604005"  code_snippet_id="652182" snippet_file_name="blog_20150424_2_8604005" name="code" class="ruby">cities = [&quot;chongqing&quot;,&quot;beijing&quot;,&quot;shanghai&quot;]
+<p>puts cities[1];		#print out the SECOND city</pre><br></p>
+<h4>3.Hashes:</h4>
+<p></p>
+<p><img src="http://img.blog.csdn.net/20150424153546634?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" border="1" alt=""><br>
+</p>
+<p>注意这句话：<strong>We can access any value by naming its key</strong></p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150424075900/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-24T07:59:00&#43;0800" class="date">April 24, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150422021200/" title="Javascript学习笔记5 - 滑动Slides">Javascript学习笔记5 - 滑动Slides</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><p><span style="color:rgb(102,102,102); font-family:Arial; font-size:14px; line-height:24px; text-indent:28px">开始之前：http://docs.jquery.com/ 是jQuery文档的网站， https://jsfiddle.net/是js的在线验证工具</span><br>
+</p>
+<p><img src="http://img.blog.csdn.net/20150422100454819?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+</p>
+<p>在html中，有这几个标签：&nbsp;</p>
+<p><img src="http://img.blog.csdn.net/20150422101041717?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+</p>
+<p><br>
+</p>
+<p>javascript、jQuery代码：<pre code_snippet_id="649925" snippet_file_name="blog_20150422_1_9860979"  name="code" class="javascript">var main = function(){
+    $(&#39;.dropdown-toggle&#39;).click(function(){
+        //$(&#39;.dropdown-menu&#39;).slideDown();
+        $(&#39;.dropdown-menu&#39;).toggle();
+<pre><code>});
+
+// Click Slides -- Show next slide
+$(&amp;#39;.arrow-next&amp;#39;).click(function(){//select
+    var currentSlide = $(&amp;#39;.active-slide&amp;#39;);
+    var nextSlide = currentSlide.next();
+    if (nextSlide.length ===0)
+        nextSlide = $(&amp;#39;.slide&amp;#39;).first();
+    
+    currentSlide.fadeOut(600);
+    nextSlide.fadeIn(600);
+    currentSlide.removeClass(&amp;#39;active-slide&amp;#39;);//注意这里没有&amp;quot;.&amp;quot;
+    nextSlide.addClass(&amp;#39;active-slide&amp;#39;);
+    //让点点的颜色跟随变化
+    var currentDot = $(&amp;#39;.active-dot&amp;#39;);
+    var nextDot = currentDot.next();
+    if (nextDot.length === 0)
+        nextDot = $(&amp;#39;.dot&amp;#39;).first();
+    currentDot.removeClass(&amp;#39;active-dot&amp;#39;);
+    nextDot.addClass(&amp;#39;active-dot&amp;#39;);
+});
+
+// Click Slides -- show previous slide
+$(&amp;#39;.arrow-prev&amp;#39;).click(function(){//select
+    var currentSlide = $(&amp;#39;.active-slide&amp;#39;);
+    var prevSlide = currentSlide.prev();
+    if (prevSlide.length === 0)
+        prevSlide = $(&amp;#39;.slide&amp;#39;).last();
+    
+    currentSlide.fadeOut(600);
+    prevSlide.fadeIn(600);
+    currentSlide.removeClass(&amp;#39;active-slide&amp;#39;);//注意这里没有&amp;quot;.&amp;quot;
+    prevSlide.addClass(&amp;#39;active-slide&amp;#39;);
+    //让点点的颜色跟随变化
+    var currentDot = $(&amp;#39;.active-dot&amp;#39;);
+    var prevDot = currentDot.prev();
+    if (prevDot.length === 0)
+        prevDot = $(&amp;#39;.dot&amp;#39;).last();
+    currentDot.removeClass(&amp;#39;active-dot&amp;#39;);
+    prevDot.addClass(&amp;#39;active-dot&amp;#39;);
+});
+</code></pre>
+<p>}</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150422021200/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-22T02:12:00&#43;0800" class="date">April 22, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150420140705/" title="jQuery学习笔记4——A flipboard 剪贴板实例">jQuery学习笔记4——A flipboard 剪贴板实例</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="jquery学习笔记4a-flipboard-剪贴板实例">jQuery学习笔记4——A flipboard 剪贴板实例</h1>
+<p>开始之前：jQuery文档(<a href="http://docs.jquery.com/">http://docs.jquery.com/</a>) ， js在线IDE(<a href="https://jsfiddle.net/">https://jsfiddle.net/</a>)，教程：(<a href="http://w3school.com.cn/">http://w3school.com.cn/</a>)</p>
+<p>slideDown ——下滑</p>
+<p>slideUp —— 向上滑</p>
+<p>fadeIn —— 淡入</p>
+<p>fadeOut —— 淡出</p>
+<p>animate ——动画</p>
+<p>        takes two parameters:<br>
+        1. A set of CSS properties,<br>
+        2. A time duration over which to change them.</p>
+<pre tabindex="0"><code>1. //*********关于slideDown和slideUp热身小程序********//
+2. //=========点击从上往下出现==========
+3. var main = function() {
+4. $(&#34;.btn&#34;).click(function(event) {
+5. $(&#34;.container&#34;).hide();
+6. $(&#34;.container&#34;).slideDown(900);
+7. });
+8. };
+9. 
+10. $(document).ready(main);
+11. 
+12. //=========点击从下往上出现==========
+13. 
+14. var main = function() {
+15. $(&#34;.btn&#34;).click(function(event) {
+16. $(&#34;.container&#34;).show ();
+17. $(&#34;.container&#34;).slideUp(1100);
+18. });
+19. };
+20. 
+21. $(document).ready(main);
+22. 
+23. //===================================
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>回顾一下next的用法：</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150420140705/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-20T14:07:05&#43;0800" class="date">April 20, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150417104529/" title="产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="产品经理从零到一技术进阶不懂代码也能愉快地与开发相处">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</h1>
+<h3 id="产品经理从零到一技术进阶不懂代码也能愉快地与开发相处-1">产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处</h3>
+<p>原文链接：
+<a href="http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd">http://mp.weixin.qq.com/s?__biz=MjAzNzMzNTkyMQ==&amp;mid=205836688&amp;idx=1&amp;sn=e7f7131702c907cc22cf2f5e8474595d&amp;scene=2#rd</a></p>
+<p>原创
+2015-04-14 馨苑
+36氪
+36氪</p>
+<p>36氪
+<img src="" alt="">
+微信号  wow36kr</p>
+<p>功能介绍  36氪(36Kr.com)是中国领先的科技新媒体，我们报道最新的互联网科技新闻以及最有潜力的互联网创业企业。</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz/WRGz2LWLARDWSicbsoScAFibPhwdKbp3k02Xdb1t9ca2IqylqjibyKBPEhOznU0qqvGOIXjJRv2ibOdl2j9TqicFSCQ/640?tp=webp&amp;wxfrom=5" alt=""></p>
+<p>36氪微信号：wow36kr</p>
+<p>这是 NEXT 「产品经理从零到一技术进阶：不懂代码也能愉快地与开发相处」线下活动的笔记。主讲者张元一，产品原型工具墨刀的创始人，见证了 Web 开发从 99 年 HTML4.0 到去年 12 月 HTML5 最终定稿这之间整个 Web 开发变迁史的 15 年「码龄」全栈工程师。</p>
+<p>NEXT 本次活动收到了近 1000 多个报名，大家对周日线上和线下的互动学习反馈也不错。因此我们将笔记分享出来，希望让更多产品人、创业者够快速了解基本技术知识，更好地把握产品周期与项目进度。当然，你也可以观看网聚直播提供的视频回放：http://wangju.tv/live/3k562amaskvzg 。</p>
+<p><strong>概览</strong></p>
+<p>以下这张图就是元一分享的干货内容，它基本涵盖了一个初级码农需要知道的所有基础入门知识。但这张图的目的并非用来吓人，这其中的所有技术名词，将以最通俗易懂的方式串联起来—— 即我们上网时的慢动作解析：打开一个网页或 App，这背后都运用了那些技术来让这个网页和 App 的内容呈现在浏览器和手机上；驱动这些动作背后的技术名词都是什么，各自有着怎样的优缺点，彼此间是如何协作和运转的，以及怎样合理地评估技术能力和开发难度。当然，元一也推荐了丰富的学习资料。</p>
+<p>这中间涉及的技术知识，前端包括 HTML，CSS，JavaScript，jQuery 以及 Bootstrap ；后端包括 HTTP 服务器，后端编程语言，数据库以及 Cookie 和 Session；移动开发分为原生，混合式，HTML5，以及不同的移动端技术选择在功能和开发成本上的比较。</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz/WRGz2LWLARDWSicbsoScAFibPhwdKbp3k0PLmFxshibR4HTmo1uj2Pb7ZZ6SXxgbYHINyx6Ricj0JufQx9AWDibGlRA/0?tp=webp&amp;wxfrom=5" alt=""></p>
+<p><strong>什么是前端？什么是后端？二者是如何配合运转的？</strong></p>
+<p>前后端的划分，可以简单地理解为凡是运行在用户设备上的技术都可以称为前端技术（ 比如 HTML / CSS / JS，甚至移动设备的 Obj-C / Swift ）；而后端的作用就是负责将这些东西封装在 HTTP 的数据包中然后通过网络传送到前端。当然除了这些前端文件，后端还有一个更重要的职能，即保存和提供用户数据，比如移动端常见的 JSON 就是目前最流行的在后端和前端之间传输的一个文件格式。</p>
+<p><img src="" alt=""></p>
+<p>前端与后端是如何配合的？如上图，以 Web 端为例，在浏览器输入一个网址后，浏览器向服务器发送了一个 HTTP 请求；服务器通过一个 HTTP 响应，把显示这个网页所需要的资源传回给了浏览器。而需要在浏览器中执行的技术，HTML / CSS / Javascript 等就叫做前端；需要在服务器端执行的、通常我们看不到技术就叫做后端。</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150417104529/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-17T10:45:29&#43;0800" class="date">April 17, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150416155712/" title="jQuery学习笔记3——写的状态板简单实例">jQuery学习笔记3——写的状态板简单实例</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="jquery学习笔记3写的状态板简单实例">jQuery学习笔记3——写的状态板简单实例</h1>
+<p><a href="http://jsfiddle.net">http://jsfiddle.net</a>  &amp; <a href="https://so.csdn.net/so/search?q=jQuery&amp;spm=1001.2101.3001.7020">jQuery</a>.com &amp; tutorial: <a href="http://w3school.com.cn/">http://w3school.com.cn/</a> , <a href="http://www.codecademy.com/">http://www.codecademy.com/</a></p>
+<hr>
+<p>Congratulations! You used jQuery events to build a status update tool.</p>
+<ul>
+<li>You can type messages and post status updates</li>
+<li>A counter keeps track of the number of characters left</li>
+<li>The <strong>Post</strong> button is only enabled when there is a message that is 140 characters or less</li>
+</ul>
+<p>Great work! Next let&rsquo;s learn more about how to use jQuery to create animated transitions.</p>
+<p>HTML:</p>
+<pre tabindex="0"><code>1. &lt;!doctype html&gt;
+2. &lt;html&gt;
+3. &lt;head&gt;
+4. &lt;link href=&#34;http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+5. &lt;link href=&#39;http://fonts.googleapis.com/css?family=Roboto&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+6. &lt;link href=&#34;style.css&#34; rel=&#34;stylesheet&#34;&gt;
+7. &lt;/head&gt;
+8. &lt;body&gt;
+9. &lt;div class=&#34;container&#34;&gt;
+10. &lt;form&gt;
+11. &lt;div class=&#34;form-group&#34;&gt;
+12. &lt;textarea class=&#34;form-control status-box&#34; rows=&#34;2&#34; placeholder=&#34;What&#39;s on your mind?&#34;&gt;&lt;/textarea&gt;
+13. &lt;/div&gt;
+14. &lt;/form&gt;
+15. &lt;div class=&#34;button-group pull-right&#34;&gt;
+16. &lt;p class=&#34;counter&#34;&gt;140&lt;/p&gt;
+17. &lt;p class=&#34;in-counter&#34;&gt;0&lt;/p&gt;
+18. &lt;a href=&#34;#&#34; class=&#34;btn btn-primary&#34;&gt;Post&lt;/a&gt;
+19. &lt;/div&gt;
+20. 
+21. &lt;ul class=&#34;posts&#34;&gt;
+22. &lt;/ul&gt;
+23. &lt;/div&gt;
+24. 
+25. &lt;script src=&#34;//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&#34;&gt;&lt;/script&gt;
+26. &lt;script src=&#34;app.js&#34;&gt;&lt;/script&gt;
+27. 
+28. &lt;/body&gt;
+29. &lt;/html&gt;
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>CSS:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150416155712/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-16T15:57:12&#43;0800" class="date">April 16, 2015</time>
+        </div>
+      </article>
+      
+      <article class="post">
+        <h3 class="title">
+          <a href="http://localhost:1313/posts/p20150409090118/" title="jQuery学习笔记2——温故&#43;知新">jQuery学习笔记2——温故&#43;知新</a>
+        </h3>
+        
+          <div class="content summary">
+            <p><h1 id="jquery学习笔记2温故知新">jQuery学习笔记2——温故+知新</h1>
+<p>开始之前：http://docs.<a href="https://so.csdn.net/so/search?q=jquery&amp;spm=1001.2101.3001.7020">jquery</a>.com/ 是jQuery文档的网站， <a href="https://jsfiddle.net/">https://jsfiddle.net/</a>是js的在线验证工具。</p>
+<p>如果你没有html,CSS,js,jQuery基础，请学习它们先。</p>
+<h4 id="introduction">Introduction</h4>
+<p>Web pages made with<strong>HTML</strong> and<strong>CSS</strong> display static content. They don&rsquo;t respond to user actions like clicking a mouse or typing a key.</p>
+<p><strong>JavaScript</strong> and<strong>jQuery</strong> are used to make web pages interactive.</p>
+<ul>
+<li><strong>JavaScript</strong> is a programming language used to create web pages that change in response to user actions.</li>
+<li><strong>jQuery</strong> is a collection of prewritten JavaScript code that lets us easily create interactive effects on our site.</li>
+</ul>
+<h5 id="1-介绍一个实际的例子可以在httpsjsfiddlenet上得到验证">1. 介绍一个实际的例子，可以在https://jsfiddle.net/上得到验证。</h5>
+<p>这个例子是侧面菜单的点击滑入效果：</p>
+<pre tabindex="0"><code>1. &lt;html&gt;
+2. &lt;head&gt;
+3. &lt;link href=&#34;//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+4. &lt;link href=&#39;http://fonts.googleapis.com/css?family=Open+Sans:400;300&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+5. &lt;link href=&#39;style.css&#39; rel=&#39;stylesheet&#39;&gt;
+6. 
+7. 
+8. &lt;/head&gt;
+9. &lt;body&gt;
+10. 
+11. &lt;div class=&#34;menu&#34;&gt;
+12. 
+13. &lt;!-- Menu icon --&gt;
+14. &lt;div class=&#34;icon-close&#34;&gt;
+15. &lt;img src=&#34;http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png&#34;&gt;
+16. &lt;/div&gt;
+17. 
+18. &lt;!-- Menu --&gt;
+19. &lt;ul&gt;
+20. &lt;li&gt;&lt;a href=&#34;#&#34;&gt;About&lt;/a&gt;&lt;/li&gt;
+21. &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Blog&lt;/a&gt;&lt;/li&gt;
+22. &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Help&lt;/a&gt;&lt;/li&gt;
+23. &lt;li&gt;&lt;a href=&#34;#&#34;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+24. &lt;/ul&gt;
+25. &lt;/div&gt;
+26. 
+27. &lt;!-- Main body --&gt;
+28. &lt;div class=&#34;jumbotron&#34;&gt;
+29. 
+30. &lt;div class=&#34;icon-menu&#34;&gt;
+31. &lt;i class=&#34;fa fa-bars&#34;&gt;&lt;/i&gt;
+32. Menu
+33. &lt;/div&gt;
+34. 
+35. &lt;script src=&#34;//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&#34;&gt;&lt;/script&gt;
+36. &lt;script src=&#34;app.js&#34;&gt;&lt;/script&gt;
+37. &lt;/body&gt;
+38. &lt;/html&gt;
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>CSS:</p></p>
+            
+              <span class="hellip">&hellip;</span>
+            
+          </div>
+          <a class="readmore" href="http://localhost:1313/posts/p20150409090118/" aria-label="READ MORE">READ MORE</a>
+        
+        <div class="date float-right">
+          
+          <time datetime="2015-04-09T09:01:18&#43;0800" class="date">April 09, 2015</time>
+        </div>
+      </article>
+      
+    </div>
+    
+
+
+<div class="pagination">
+  <ul class="pagination-container">
+    
+      <li class="page-item to-left">
+        <a href="/page/29/" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&#xab; Previous</span>
+        </a>
+      </li>
+    
+
+    
+    
+
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/">1</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/2/">2</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/3/">3</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/29/">29</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item current page-number"><a class="page-link" href="/page/30/">30</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/31/">31</a></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+    
+      
+      
+      
+      
+      
+        
+        
+      
+
+      
+        <li class="page-item  page-number"><a class="page-link" href="/page/40/">40</a></li>
+      
+    
+
+    
+    <li class="page-item to-right">
+      <a href="/page/31/" class="page-link" aria-label="Next">
+        <span aria-hidden="true">Next &#xbb;</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        <a class="nav-link navbar-button" href="http://localhost:1313/index.xml" type="application/rss&#43;xml">RSS</a>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

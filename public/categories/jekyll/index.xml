@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>Jekyll on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/jekyll/</link>
+    <description>Recent content in Jekyll on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 May 2022 11:19:54 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to use LittleFS on ESP32 with PlatformIO</title>
+      <link>http://localhost:1313/posts/p20220517111954/</link>
+      <pubDate>Tue, 17 May 2022 11:19:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220517111954/</guid>
+      <description>&lt;h1 id=&#34;how-to-use-littlefs-on-esp32-with-vscodeplatfromio&#34;&gt;How to use LittleFS on ESP32 with vsCode+platfromIO&lt;/h1&gt;&#xA;&lt;p&gt;As a suplement of this tutorial &lt;a href=&#34;https://randomnerdtutorials.com/esp8266-nodemcu-vs-code-platformio-littlefs/&#34;&gt;How to use LittleFS on ESP8266&lt;/a&gt; I follows some reference and examples to build this blog.&lt;/p&gt;&#xA;&lt;p&gt;Get to konw some basic introductions about SPIFFS and &lt;a href=&#34;https://www.mischianti.org/2021/04/01/esp32-integrated-littlefs-filesystem-5/#LittleFS_File_System&#34;&gt;LittleFS&lt;/a&gt; on ESP8266 and ESP32 is necessary for a noob.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Note: Most of the functions for SPIFFS operations are compatible for LittleFS.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;follow the tutorials one by one:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;- SPIFFS for ESP8266&#xA;- SPIFFS for ESP32&#xA;- LittleFS for ESP8266&#xA;- LittleFS for ESP32&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;LittleFS is newly introduced into ESP32 SDK (Aug 2021) . By May2022, the default ESP32-arduino SDK  (arduino-esp32 core) usd by platformIO  is version 1.0.3, which is not supporting LittleFS originally. You&amp;rsquo;ll meet that the &lt;code&gt;&amp;lt;LittleFS.h&amp;gt;&lt;/code&gt; is missing.&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Install and Configure Fail2Ban On CentOS 7</title>
+      <link>http://localhost:1313/posts/p20220330110904/</link>
+      <pubDate>Wed, 30 Mar 2022 11:09:04 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220330110904/</guid>
+      <description>&lt;h1 id=&#34;install-fail2ban-on-centos-7&#34;&gt;Install Fail2Ban On CentOS 7&lt;/h1&gt;&#xA;&lt;p&gt;Posted on December 13, 2019 by &lt;a href=&#34;https://www.liquidweb.com/kb/author/dsinger/&#34;&gt;David Singer&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-fail2ban&#34;&gt;What Is Fail2Ban?&lt;/h2&gt;&#xA;&lt;p&gt;Fail2ban is an open-source software that actively scans the servers log files in real-time for any brute force login attempts, and if found, summarily blocks the attack using the servers firewall software (firewalld or iptables). Fail2Ban runs as a background process and continuously scans the log files for unusual login patterns and security breach attempts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;&#xA;&lt;p&gt;In order to install Fail2Ban on CentOS 7, we first need to enable the EPEL (Extra Packages for Enterprise Linux) repository. The following commands will be run as the root user.&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Fixing certbot does not know where nginx is located in your server</title>
+      <link>http://localhost:1313/posts/p20220330101954/</link>
+      <pubDate>Wed, 30 Mar 2022 10:19:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220330101954/</guid>
+      <description>&lt;h1 id=&#34;fixing-certbot-does-not-know-where-nginx-is-located-in-your-server&#34;&gt;Fixing certbot does not know where nginx is located in your server&lt;/h1&gt;&#xA;&lt;p&gt;If your certbot cannot auto configure ssl for your host:&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-cause-of-this-problem&#34;&gt;The cause of this problem&lt;/h2&gt;&#xA;&lt;p&gt;Mine is because the installation path of nginx is not the default one， such as /etc/nginx or /usr/bin/nginx&lt;/p&gt;&#xA;&lt;h2 id=&#34;when-certbot-is-unable-to-automatically-configure-your-web&#34;&gt;When Certbot is unable to automatically configure your web:&lt;/h2&gt;&#xA;&lt;p&gt;Follow the GPT&amp;rsquo;s answer:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ME: &#xA;  Certbot doesn&amp;#39;t know how to automatically configure the web server on this system.&#xA;&#xA;GPT:&#xA;  If Certbot is unable to automatically configure your web server, it usually means that it couldn&amp;#39;t identify the web server software and configuration on your system. To address this issue, you may need to specify the web server and its configuration manually when running Certbot.&#xA;  command:&#xA;    certbot --apache&#xA;  or:&#xA;    certbot --nginx&#xA;&#xA;ME:&#xA;  The requested nginx plugin does not appear to be installed.&#xA;&#xA;GPT:&#xA;  Install Certbot and the Nginx plugin using the following command:&#xA;    apt install certbot python3-certbot-nginx&#xA;    certbot --nginx&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;solution-2-create-a-link-to-your-path-of-nginx-manually-assign-path-of-conf-files&#34;&gt;solution 2: create a link to your path of nginx, manually assign path of conf files.&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The systemd service file &lt;code&gt;/etc/systemd/system/nginx.service&lt;/code&gt; may need change.&lt;/li&gt;&#xA;&lt;li&gt;Carefully change the path of /etc/nginx/nginx.conf and the &lt;code&gt;include path&lt;/code&gt; in it.&lt;/li&gt;&#xA;&lt;li&gt;use &lt;code&gt;ln -s&lt;/code&gt; command to create link from certbot known location to real location of conf file.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;an-example&#34;&gt;An Example:&lt;/h4&gt;&#xA;&lt;p&gt;The executable binary of nginx is: &lt;code&gt;/etc/nginx/sbin/nginx&lt;/code&gt; and the real conf path is &lt;code&gt;/etc/nginx/conf/&lt;/code&gt;&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Getting started with MicroPython with NodeMCU(ESP8266) board</title>
+      <link>http://localhost:1313/posts/p20220117125538/</link>
+      <pubDate>Mon, 17 Jan 2022 12:55:38 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220117125538/</guid>
+      <description>&lt;h1 id=&#34;getting-started-with-micropython-with-nodemcuesp8266-board&#34;&gt;Getting started with MicroPython with NodeMCU(ESP8266) board&lt;/h1&gt;&#xA;&lt;h2 id=&#34;1-follow-the-official-tutorial-to-flash-the-micropython-firmware&#34;&gt;1. Follow the official tutorial to flash the MicroPython firmware&lt;/h2&gt;&#xA;&lt;p&gt;Link:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.micropython.org/en/latest/esp8266/quickref.html&#34;&gt;https://docs.micropython.org/en/latest/esp8266/quickref.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro&#34;&gt;https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html#intro&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Comands you may need:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ esptool.py --port /dev/tty.usbserial-14120 erase_flash&#xA;$ esptool.py --port /dev/tty.usbserial-14120 --baud 460800 write_flash --flash_size=detect -fm dout 0  esp8266-20210902-v1.17.bin&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;you&amp;rsquo;ll receive message from ESP8266 on serial monitor such as puTTy:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;microPython v1.17 on 2021-09-02; ESP module with ESP8266&#xA;Type &amp;#34;help()&amp;#34; for more information.&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;micropython script can be run in the REPL shell.&lt;/p&gt;&#xA;&lt;p&gt;The Adafruit &lt;code&gt;ampy&lt;/code&gt; tool gives you more function and recommended to use it. &lt;a href=&#34;https://learn.adafruit.com/micropython-basics-load-files-and-run-code&#34;&gt;https://learn.adafruit.com/micropython-basics-load-files-and-run-code&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>[ESP32_lvgl]Tips for getting started with lvgl project on ESP32</title>
+      <link>http://localhost:1313/posts/p20220115140254/</link>
+      <pubDate>Sat, 15 Jan 2022 14:02:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220115140254/</guid>
+      <description>&lt;h1 id=&#34;tips-for-getting-started-with-lvgl-project-on-esp32&#34;&gt;Tips for getting started with lvgl project on ESP32&lt;/h1&gt;&#xA;&lt;p&gt;Before you get started with lvgl on ESP32, the first problem is which SDK(firmware platform) is going to be based on.&#xA;You may dev ESP32 project based on Arduino or ESP-IDF(espreessif officially offered).&lt;/p&gt;&#xA;&lt;p&gt;There are two pathes at least to implement ESP32 project. By the way, the esp32_library for arduino can be used as a submoduel(component) of ESP-IDF SDK.&lt;/p&gt;&#xA;&lt;h2 id=&#34;path1-esp-idf-develop-esp32-lvgl-project-with-vscode-platformio-and-esp-idf&#34;&gt;path1: ESP-IDF: Develop ESP32 lvgl project with vsCode, platformIO and ESP-IDF&lt;/h2&gt;&#xA;&lt;p&gt;before start, you need to know how to implement a &amp;ldquo;Hello world&amp;rdquo; or &amp;ldquo;LED blinking&amp;rdquo; project using the vsCode+platformIO+ESP_IDF&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>[ESP32_lvgl]Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform</title>
+      <link>http://localhost:1313/posts/p20220115140154/</link>
+      <pubDate>Sat, 15 Jan 2022 14:01:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220115140154/</guid>
+      <description>&lt;h1 id=&#34;start-a-lvgl-project-on-esp32-with-vscode-platformio-on-arduino-platform&#34;&gt;Start a lvgl project on ESP32 with vsCode, platformIO on Arduino platform&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;WARING&lt;/strong&gt; : The version confilict problem may crazy you if you play lvgl on Arduino platform.&#xA;Fortunately, this post offers you one solution for version_conflict problem.&lt;/p&gt;&#xA;&lt;p&gt;This is the sister post for &amp;lsquo;&lt;strong&gt;Complile the lvgl sample proj in vsCode with ESP-IDF extension&lt;/strong&gt;&amp;rsquo;. The difference is the dev-kit based on &lt;strong&gt;Arduino&lt;/strong&gt; vs &lt;strong&gt;ESP-IDF&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Here, we use &lt;strong&gt;Arduino&lt;/strong&gt; + platformIO in vsCode for developing ESP32 SoC project with lvgl GUI.&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>[ESP32_lvgl]Complile the lvgl sample proj. in visual studio Code (vsCode) with help of ESP-IDF extension</title>
+      <link>http://localhost:1313/posts/p20220111210954/</link>
+      <pubDate>Tue, 11 Jan 2022 21:09:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220111210954/</guid>
+      <description>&lt;h1 id=&#34;complile-the-lvgl-sample-project-in-visual-studio-code-vscode-with-help-of-esp-idf-extension&#34;&gt;Complile the lvgl sample project in visual studio Code (vsCode) with help of ESP-IDF extension&lt;/h1&gt;&#xA;&lt;p&gt;If you&amp;rsquo;ve go through esp-idf vscode extension installation, esp-idf blink example, just skip the &lt;strong&gt;section 1&lt;/strong&gt; and &lt;strong&gt;section 2&lt;/strong&gt;. Directly check the lvgl example project &lt;code&gt;lv_port_esp32&lt;/code&gt; cloning/configure/build/etc. steps in &lt;strong&gt;section 3&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;implement-a-hello-world-or-led-blinking-project-using-the-vscodeplatformioesp_idf&#34;&gt;Implement a &amp;ldquo;Hello world&amp;rdquo; or &amp;ldquo;LED blinking&amp;rdquo; project using the vsCode+platformIO+ESP_IDF&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Prerequisit:&lt;/strong&gt; Go through the official &amp;ldquo;get started with ESP-IDF&amp;rdquo; tutorial (&lt;strong&gt;highly recomemded&lt;/strong&gt;, &lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html&#34;&gt;link&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;h3 id=&#34;section-1-install-the-esp-idf-vscode-extension&#34;&gt;section 1. install the esp-idf vscode extension&lt;/h3&gt;&#xA;&lt;p&gt;Note: if you have go through the official &amp;ldquo;get started with ESP-IDF&amp;rdquo; tutorial (&lt;strong&gt;highly recomemded&lt;/strong&gt;, &lt;a href=&#34;https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html&#34;&gt;link&lt;/a&gt;), you can specify the path of ESP-IDF code and tools when install the ESP-IDF vscode extension. If your machine/PC has no ESP-IDF downloaded, just keep the default options when installing the ESP-IDF vscode extension&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Node.js realtime communication with ESP8266 via socket.io</title>
+      <link>http://localhost:1313/posts/p20220105221954/</link>
+      <pubDate>Wed, 05 Jan 2022 22:19:54 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220105221954/</guid>
+      <description>&lt;h1 id=&#34;nodejs-realtime-communication-with-nodemcu-with-socketio&#34;&gt;Node.js realtime communication with NodeMCU with socket.io&lt;/h1&gt;&#xA;&lt;p&gt;Reference: &lt;a href=&#34;https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio&#34;&gt;https://salfade.com/tutorials/realtime-communication-with-nodemcu-with-socketio&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;goal-of-this-post&#34;&gt;Goal of this post&lt;/h3&gt;&#xA;&lt;p&gt;Establish a real-time communication between a server and the NodeMCU, this can be really useful like a situation where the server has to notify the client asynchronously,&lt;/p&gt;&#xA;&lt;h3 id=&#34;lets-get-started-with-the-back-end&#34;&gt;Let’s get started with the back-end&lt;/h3&gt;&#xA;&lt;p&gt;We are going to use a Node server, where we can integrate Socket.io init. &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Install&lt;/a&gt; Node.js if you haven’t it yet.&lt;/p&gt;&#xA;&lt;p&gt;In node, we ‘ll be using the framework called &lt;a href=&#34;https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm&#34;&gt;express&lt;/a&gt; to deal with the communication with HTTP requests. Then integrate socket.io and start listening to events defined.&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Attiny85 Arduino SleepMode 睡眠模式使用笔记</title>
+      <link>http://localhost:1313/posts/p20211126182011/</link>
+      <pubDate>Fri, 26 Nov 2021 18:06:42 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20211126182011/</guid>
+      <description>&lt;h2 id=&#34;attiny85-arduino-sleepmode-睡眠模式使用笔记&#34;&gt;Attiny85 Arduino SleepMode 睡眠模式使用笔记&lt;/h2&gt;&#xA;&lt;p&gt;Attiny 85 board:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/images/image-20211126180807011.png&#34; alt=&#34;image-20211126180807011&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;这款迷你开发板带了6个IO口，4个ADC，I2C通信结构等资源，已经能应付很多控制场景了。&lt;/p&gt;&#xA;&lt;p&gt;使用VScode + platformIO ， 在Arduino框架下进行开发。睡眠模式探究&lt;/p&gt;&#xA;&lt;hr&gt;</description>
+      
+    </item>
+    <item>
+      <title>PIP and CONDA Add and Remove Mirror Source 配置软件源</title>
+      <link>http://localhost:1313/posts/p20211115215455/</link>
+      <pubDate>Mon, 15 Nov 2021 21:55:30 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20211115215455/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;First, PIP&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;1, add a source&lt;/p&gt;&#xA;&lt;p&gt;For example, add SJTU Source &lt;a href=&#34;https://mirror.sjtu.edu.cn/pypi/web/simple&#34;&gt;https://mirror.sjtu.edu.cn/pypi/web/simple&lt;/a&gt;：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip config set global.index-url https://mirror.sjtu.edu.cn/pypi/web/simple&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If SET has multiple times, it seems to be only saved the mirror source of the last set.&lt;/p&gt;&#xA;&lt;p&gt;2, delete the source&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip config unset global.index-url&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3, check which source now&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip config list&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Second, Conda&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;1, add a source&lt;/p&gt;&#xA;&lt;p&gt;For example, Tsinghua Source:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/&#xA;conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/&#xA;conda config --set show_channel_urls yes&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;SJTU:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda config --add channels https://mirror.sjtu.edu.cn/anaconda/{{pkg_name}}&#xA;&#xA;e.g.&#xA;conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/free&#xA;conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/main&#xA;conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/mro&#xA;conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/msys2&#xA;pkgs/pro: (deprecated) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/pro&#xA;pkgs/r: (empty) conda config --add channels https://mirror.sjtu.edu.cn/anaconda/pkgs/r&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://mirrors.sjtug.sjtu.edu.cn/docs/anaconda&#34;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.</title>
+      <link>http://localhost:1313/posts/p20211110170635/</link>
+      <pubDate>Wed, 10 Nov 2021 17:06:35 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20211110170635/</guid>
+      <description>&lt;h2 id=&#34;use-short-passwords-on-macos-big-sur-four-characters-not-required&#34;&gt;Use Short Passwords On MacOS Big Sur. FOUR Characters Not Required.&lt;/h2&gt;&#xA;&lt;p&gt;If you’re an Apple user and have macOS Big Sur, Catalina or Mojave installed on your machine you’ve probably realized you can’t use a password shorter than 4 characters anymore…&lt;/p&gt;&#xA;&lt;p&gt;Luckily, here is the easy fix.&lt;/p&gt;&#xA;&lt;h4 id=&#34;1-open-terminal-on-your-machine&#34;&gt;1. Open “Terminal” on your machine.&lt;/h4&gt;&#xA;&lt;h4 id=&#34;2-type-this-command--press-return-enter&#34;&gt;2. Type this command &amp;amp; press Return (enter):&lt;/h4&gt;&#xA;&lt;pre&gt;&lt;code&gt;`pwpolicy -clearaccountpolicies`&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h4 id=&#34;3-terminal-will-ask-you-to-enter-the-password-for-your-admin-profile&#34;&gt;3. Terminal will ask you to enter the password for your admin profile.&lt;/h4&gt;&#xA;&lt;p&gt;Terminal WILL NOT show the password as you type it.&#xA;After typing the password for your account, press “Return” (enter).&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Keyboard Maestro: Mac电脑效率神器</title>
+      <link>http://localhost:1313/posts/p20211028175806/</link>
+      <pubDate>Thu, 28 Oct 2021 17:58:06 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20211028175806/</guid>
+      <description>&lt;h1 id=&#34;终于解决单手向右删除的痛点&#34;&gt;终于解决单手向右删除的痛点&lt;/h1&gt;&#xA;&lt;p&gt;Keyboard  Maestro 软件很是强大。&lt;/p&gt;&#xA;&lt;p&gt;ReadMore: &lt;a href=&#34;https://sspai.com/post/36442&#34;&gt;Keyboard Maestro 入门指南&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    <item>
+      <title>Implementing comment for jekyll blog with github pull request</title>
+      <link>http://localhost:1313/posts/p20210701170100/</link>
+      <pubDate>Thu, 01 Jul 2021 17:01:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20210701170100/</guid>
+      <description>&lt;h1 id=&#34;利用pull-request实现-jekyll-博客评论功能&#34;&gt;利用pull request实现 jekyll 博客评论功能&lt;/h1&gt;&#xA;&lt;h2 id=&#34;implementing-comment-for-jekyll-blog-with-github-pull-request&#34;&gt;Implementing comment for jekyll blog with github pull request&lt;/h2&gt;&#xA;&lt;h4 id=&#34;1-the-refered-blogs&#34;&gt;1. The refered blogs:&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments&#34;&gt;https://damieng.com/blog/2018/05/28/wordpress-to-jekyll-comments&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/&#34;&gt;https://haacked.com/archive/2018/06/24/comments-for-jekyll-blogs/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The github repos that needed:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/damieng/jekyll-blog-comments&#34;&gt;https://github.com/damieng/jekyll-blog-comments&lt;/a&gt; This is for the static layout/html contents supporting  comment functions.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/haacked/jekyll-blog-comments-azure&#34;&gt;https://github.com/haacked/jekyll-blog-comments-azure&lt;/a&gt; This is for the dynamic Azure Function code, which is forked from: &lt;a href=&#34;https://github.com/Azure-Functions/jekyll-blog-comments&#34;&gt;https://github.com/Azure-Functions/jekyll-blog-comments&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h4 id=&#34;2-steps-and-notes-for-jekyll-comment-box-building&#34;&gt;2. Steps and notes for jekyll comment box building&lt;/h4&gt;&#xA;&lt;p&gt;The idea is use &lt;a href=&#34;https://jekyllrb.com/docs/datafiles/&#34;&gt;data files&lt;/a&gt; in Jekyll to store comments and some liquid templates to render them. That all can be static.&lt;/p&gt;&#xA;&lt;p&gt;Azure Function or AWS Lambda combined with the GitHub API. Receive a comment form submission and create the appropriate data file in your Jekyll repository.&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2
+跟着教材《Visual C&#43;&#43; 2010 MFC 编程入门》.pdf 学习了2周，感觉有些基础的概念不太清楚，所以找出网易学堂的VC&#43;&#43;课程进行学习http://tech.163.com/special/0009159F/vc.html
+===========================================
+[第二课 C&#43;&#43;经典语法与应用 类的编写与应用]
+===========================================
+构造函数：采用类的方式来保证它的唯一性，取个类名，没有返回值，对类里的变量进行初始化。
+析构函数：回收内存，没有返回，没有参数。
+例：
+1. #include&lt;iostream&gt;
+2. using namespace std;
+3. class Point{
+4. public:
+5. int x;
+6. int y;
+7. Point(){	//构造函数，同，类名
+8. x = 0;
+9. y = 0;
+10. }
+11. 
+12. Point(int a, int b){ //构造函数，带参
+13. x = a; y = b;
+14. }
+15. 
+16. ~Point(){	//析构函数，取反符号&#43;类名
+17. }
+18. 
+19. void output(){
+20. cout&lt;&lt;x&lt;&lt;endl&lt;&lt;y&lt;&lt;endl;
+21. }
+22. void output(int x, int y){
+23. this-&gt;x = x;	//this point, 指向对象
+24. this-&gt;y = y;
+25. }
+26. };
+27. 
+28. void main(){
+29. Point pt(3,3);
+30. pt.output(5,5);
+31. pt.output();
+32. }
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+上例中，出现了两个Point()构造函数，这种情况称为函数的重载：函数重载是指在同一作用域内，可以有一组具有相同函数名，不同参数列表的函数，这组函数被称为重载函数。重载函数通常用来命名一组功能相似的函数，这样做减少了函数名的数量，避免了名字空间的污染，对于程序的可读性有很大的好处。参考：http://www.cnblogs.com/skynet/archive/2010/09/05/1818636.html" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2 | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20150609163031/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2
+跟着教材《Visual C&#43;&#43; 2010 MFC 编程入门》.pdf 学习了2周，感觉有些基础的概念不太清楚，所以找出网易学堂的VC&#43;&#43;课程进行学习http://tech.163.com/special/0009159F/vc.html
+===========================================
+[第二课 C&#43;&#43;经典语法与应用 类的编写与应用]
+===========================================
+构造函数：采用类的方式来保证它的唯一性，取个类名，没有返回值，对类里的变量进行初始化。
+析构函数：回收内存，没有返回，没有参数。
+例：
+1. #include&lt;iostream&gt;
+2. using namespace std;
+3. class Point{
+4. public:
+5. int x;
+6. int y;
+7. Point(){	//构造函数，同，类名
+8. x = 0;
+9. y = 0;
+10. }
+11. 
+12. Point(int a, int b){ //构造函数，带参
+13. x = a; y = b;
+14. }
+15. 
+16. ~Point(){	//析构函数，取反符号&#43;类名
+17. }
+18. 
+19. void output(){
+20. cout&lt;&lt;x&lt;&lt;endl&lt;&lt;y&lt;&lt;endl;
+21. }
+22. void output(int x, int y){
+23. this-&gt;x = x;	//this point, 指向对象
+24. this-&gt;y = y;
+25. }
+26. };
+27. 
+28. void main(){
+29. Point pt(3,3);
+30. pt.output(5,5);
+31. pt.output();
+32. }
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+上例中，出现了两个Point()构造函数，这种情况称为函数的重载：函数重载是指在同一作用域内，可以有一组具有相同函数名，不同参数列表的函数，这组函数被称为重载函数。重载函数通常用来命名一组功能相似的函数，这样做减少了函数名的数量，避免了名字空间的污染，对于程序的可读性有很大的好处。参考：http://www.cnblogs.com/skynet/archive/2010/09/05/1818636.html" />
+  <meta property="og:title" content="VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20150609163031/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2015-06-09" />
+    <meta property="article:modified_time" content="2015-06-09" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2 | Combine Art and Sciences" />
+  <meta name="twitter:description" content="VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2
+跟着教材《Visual C&#43;&#43; 2010 MFC 编程入门》.pdf 学习了2周，感觉有些基础的概念不太清楚，所以找出网易学堂的VC&#43;&#43;课程进行学习http://tech.163.com/special/0009159F/vc.html
+===========================================
+[第二课 C&#43;&#43;经典语法与应用 类的编写与应用]
+===========================================
+构造函数：采用类的方式来保证它的唯一性，取个类名，没有返回值，对类里的变量进行初始化。
+析构函数：回收内存，没有返回，没有参数。
+例：
+1. #include&lt;iostream&gt;
+2. using namespace std;
+3. class Point{
+4. public:
+5. int x;
+6. int y;
+7. Point(){	//构造函数，同，类名
+8. x = 0;
+9. y = 0;
+10. }
+11. 
+12. Point(int a, int b){ //构造函数，带参
+13. x = a; y = b;
+14. }
+15. 
+16. ~Point(){	//析构函数，取反符号&#43;类名
+17. }
+18. 
+19. void output(){
+20. cout&lt;&lt;x&lt;&lt;endl&lt;&lt;y&lt;&lt;endl;
+21. }
+22. void output(int x, int y){
+23. this-&gt;x = x;	//this point, 指向对象
+24. this-&gt;y = y;
+25. }
+26. };
+27. 
+28. void main(){
+29. Point pt(3,3);
+30. pt.output(5,5);
+31. pt.output();
+32. }
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+上例中，出现了两个Point()构造函数，这种情况称为函数的重载：函数重载是指在同一作用域内，可以有一组具有相同函数名，不同参数列表的函数，这组函数被称为重载函数。重载函数通常用来命名一组功能相似的函数，这样做减少了函数名的数量，避免了名字空间的污染，对于程序的可读性有很大的好处。参考：http://www.cnblogs.com/skynet/archive/2010/09/05/1818636.html" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20150609163031/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20150609163031/">VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2015-06-09T16:30:31&#43;0800 class="date">June 09, 2015</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+3 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="vs2010-c-mfc框架学习笔记4---c面向对象编程基础2">VS2010 C++ MFC框架学习笔记4 - C++面向对象编程基础2<a hidden class="heading-anchor" aria-hidden="true" href="#vs2010-c-mfc框架学习笔记4---c面向对象编程基础2">#</a></h1>
+<p>跟着教材《Visual C++ 2010 <a href="https://so.csdn.net/so/search?q=MFC&amp;spm=1001.2101.3001.7020">MFC</a> 编程入门》.pdf 学习了2周，感觉有些基础的概念不太清楚，所以找出网易学堂的VC++课程进行学习http://tech.163.com/special/0009159F/vc.html</p>
+<p>===========================================</p>
+<p>[第二课 C++经典语法与应用 类的编写与应用]</p>
+<p>===========================================</p>
+<p>构造函数：采用类的方式来保证它的唯一性，取个类名，没有返回值，对类里的变量进行初始化。</p>
+<p>析构函数：回收内存，没有返回，没有参数。</p>
+<p>例：</p>
+<pre tabindex="0"><code>1. #include&lt;iostream&gt;
+2. using namespace std;
+3. class Point{
+4. public:
+5. int x;
+6. int y;
+7. Point(){	//构造函数，同，类名
+8. x = 0;
+9. y = 0;
+10. }
+11. 
+12. Point(int a, int b){ //构造函数，带参
+13. x = a; y = b;
+14. }
+15. 
+16. ~Point(){	//析构函数，取反符号+类名
+17. }
+18. 
+19. void output(){
+20. cout&lt;&lt;x&lt;&lt;endl&lt;&lt;y&lt;&lt;endl;
+21. }
+22. void output(int x, int y){
+23. this-&gt;x = x;	//this point, 指向对象
+24. this-&gt;y = y;
+25. }
+26. };
+27. 
+28. void main(){
+29. Point pt(3,3);
+30. pt.output(5,5);
+31. pt.output();
+32. }
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>上例中，出现了两个Point()构造函数，这种情况称为函数的重载：函数重载是指在同一作用域内，可以有一组具有相同函数名，不同参数列表的函数，这组函数被称为重载函数。重载函数通常用来命名一组功能相似的函数，这样做减少了函数名的数量，避免了名字空间的污染，对于程序的可读性有很大的好处。参考：http://www.cnblogs.com/skynet/archive/2010/09/05/1818636.html</p>
+<p><strong>this指针</strong>是一个隐含的，指向对象本身，代表对象地址的指针；一个类所有的对象调用的成员函数都是同一代码段，如何区分不同对象但是同一类下的成员函数的执行呢？其实，成员函数除了接受参数外，还接受了一个对象的地址，这个地址被一个隐含的形参this指针所获取，等同于执行 this = &amp;pt. 所有对数据成员的访问都隐含地被加上前缀this-&gt;</p>
+<h4 id="继承">继承：<a hidden class="heading-anchor" aria-hidden="true" href="#继承">#</a></h4>
+<p>====================public; protected; private在继承中，对method的保护权限区别：  》public    是外部Y访问，子类Y访问  》protected     是外部N访问，子类Y访问  》private    是外部N访问，子类N访问如：</p>
+<pre tabindex="0"><code>1. #include&lt;iostream&gt;
+2. using namespace std;
+3. 
+4. class Animal{
+5. public:
+6. void eat(){
+7. cout&lt;&lt;&#34;animal eat&#34;&lt;&lt;endl;
+8. }
+9. protected:
+10. void sleep(){
+11. cout&lt;&lt;&#34;animal sleep&#34;&lt;&lt;endl;
+12. }
+13. private:
+14. void breathe(){
+15. cout&lt;&lt;&#34;animal breathe&#34;&lt;&lt;endl;
+16. }
+17. };
+18. 
+19. class Fish : public Animal{ //子类的继承特性：这里是public式继承
+20. void test(){
+21. sleep(); //protected，子类中可以访问
+22. //breathe();//private,子类都不能access
+23. }
+24. };
+25. 
+26. void main(){
+27. Animal an;
+28. an.eat();
+29. Fish fh;
+30. //fh.sleep();//protected, cannot access
+31. }
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><p>这里有个继承的权限叠加后，对method的最终对外访问权限的判定问题：</p>
+<p>基类method的权限：   子类的继承特性：   最终对外访问特性：</p>
+<table>
+  <thead>
+      <tr>
+          <th>基类method权限</th>
+          <th>类继承特性</th>
+          <th>子类的访问特性</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Public Protected Private</td>
+          <td>Public</td>
+          <td>Public Protected No Access</td>
+      </tr>
+      <tr>
+          <td>Public Protected Private</td>
+          <td>Protected</td>
+          <td>Protected Protected No Access</td>
+      </tr>
+      <tr>
+          <td>Public Protected Private</td>
+          <td>Private</td>
+          <td>Private Private No Access</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>构造函数的访问顺序<br>
+父类{<br>
+    父类的构造函数（）{<br>
+        指令1；<br>
+    }<br>
+    ~父类的构造函数（）{<br>
+        指令2；<br>
+    }<br>
+    <br>
+}</p>
+<p>子类:public 父类{    //继承<br>
+    子类的构造函数（）{<br>
+        指令3；<br>
+    }<br>
+    ~子类的构造函数（）{<br>
+        指令4；<br>
+    }<br>
+}</p>
+<p>main(){<br>
+    子类.子类obj;<br>
+}</p>
+<p>====执行结果：====<br>
+        指令1；<br>
+        指令3；<br>
+        指令4；<br>
+        指令2；</p>
+<hr>
+<p>如果父类的构造函数带参数，而子类不带，则子构造函数：<br>
+  Fish():Animal(400,300){<br>
+}</p>
+<p>========================</p>
+<p><img src="https://img-blog.csdn.net/20150609171930437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>完整代码：</p>
+<pre tabindex="0"><code>1. #include&lt;iostream&gt;
+2. using namespace std;
+3. 
+4. class Animal{
+5. public:
+6. Animal(int x, int y){
+7. cout &lt;&lt; &#34;animal construct&#34;&lt;&lt;endl;
+8. cout &lt;&lt; x &lt;&lt;endl;
+9. cout &lt;&lt; y &lt;&lt;endl;
+10. }
+11. 
+12. void eat(){
+13. cout&lt;&lt;&#34;animal eat&#34;&lt;&lt;endl;
+14. }
+15. protected:
+16. void sleep(){
+17. cout&lt;&lt;&#34;animal sleep&#34;&lt;&lt;endl;
+18. }
+19. private:
+20. void breathe(){
+21. cout&lt;&lt;&#34;animal breathe&#34;&lt;&lt;endl;
+22. }
+23. };
+24. 
+25. class Fish : public Animal{
+26. public:
+27. Fish():Animal(300,400),a(11){
+28. cout&lt;&lt;&#34;fish construct&#34;&lt;&lt;endl;
+29. cout&lt;&lt;a&lt;&lt;endl;
+30. }
+31. 
+32. void test(){
+33. sleep(); //protected，子类中可以访问
+34. //breathe();//private,子类都不能access
+35. }
+36. private:
+37. const int a;
+38. };
+39. 
+40. void main(){
+41. //Animal an;
+42. //an.eat();
+43. Fish fh;
+44. //fh.sleep();//protected, cannot access
+45. 
+46. getchar();
+47. }
+![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+</code></pre><h4 id="函数的覆盖"><strong>函数的覆盖：</strong><a hidden class="heading-anchor" aria-hidden="true" href="#函数的覆盖">#</a></h4>
+<p>发生在父类和子类之间的，父类下有个method_name(){}，子类下也有个同名method_name(){}，则子类的obj优先执行子类的函数/method</p>
+<p>但是，如果又要用父类的method，则使用两个冒号来作为作用域标识符，例：</p>
+<pre tabindex="0"><code>1. class Fish : public Animal{
+2. public:
+3. Fish(){
+4. }
+5. void breathe(){
+6. Animal::breathe(); //此处就是调父类的breathe()来
+7. cout&lt;&lt;&#34;fish bubble&#34;&lt;&lt;endl;
+8. }
+9. };
+</code></pre><h4 id="c继承的多态性"><strong>C++继承的多态性：</strong><a hidden class="heading-anchor" aria-hidden="true" href="#c继承的多态性">#</a></h4>
+<pre tabindex="0"><code>1. void fn(Animal *pAn){  //有一个全局函数，输入Animal指针，找指针下的breathe()方法进行执行。
+2. pAn-&gt;breathe();
+3. }
+4. 
+5. void main(){
+6. Fish fh;    //obj Declare
+7. Animal *pAn;    //pointer Declare
+8. pAn = &amp;fh;    //赋值
+9. fh(pAn);    //调用
+10. }
+11. //因为Fish是Animal的子类，
+12. //目测会调用Fish的breathe()函数来执行，
+13. //但是却执行了Animal类下的breathe()
+</code></pre><p>原因就是Fish和Animal是共用的一个内存起始地址。如下：</p>
+<p>  —————</p>
+<p>   |  Animal  |</p>
+<p>  —————</p>
+<p>   |   Fish     |</p>
+<p>  —————
+如果要根据不同的类型（Animal or Fish）来调用不同类（Animal or Fish）下的函数，则可利用C++的多态性，在Animal的breathe()前加个virtual，将之定义为“虚函数”，让C++编译器作一个 late binding迟绑定。就可以了：</p>
+<pre tabindex="0"><code>    virtual void breathe(){
+        cout&lt;&lt;&#34;Animal breathe&#34;&lt;&lt;endl;
+    }
+</code></pre><p>此时，再运行 fn(pAn) ，如果子类中有 breathe，则就会调用子类Fish中的breathe，如果没有，再调用Animal中的breathe</p>
+<p><strong>纯虚函数：</strong></p>
+<p>让父类只有操作名称，而没有具体的操作内容；让派生类在继承时候再具体地给出它的定义。</p>
+<pre tabindex="0"><code>Animal 下：  virtual void breathe() = 0;
+</code></pre><pre tabindex="0"><code>Fish 下：    void breathe(){ cout &lt;&lt;&#34;fish bubble...&#34;&lt;&lt;endl ;}
+</code></pre><p>在不确定这种行为具体表现形式，而这种行为又是必须的，就可以在基类中以这种纯虚函数来。</p>
+<h4 id="c中的引用">C++中的引用：<a hidden class="heading-anchor" aria-hidden="true" href="#c中的引用">#</a></h4>
+<p>把工程文件按.h &amp; .cpp来管理：<br>
+.h  文件用于类的声明；<br>
+.cpp文件用于类的定义。<br>
+这里，Fish是继承于Animal的类，则include&quot;&ldquo;的顺序要注意：</p>
+<p><img src="https://img-blog.csdn.net/20150610171728585?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""> 一个进一步的模型是：<img src="https://img-blog.csdn.net/20150624160854573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29uaWN0bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>也就是说，在main.cpp中include了Animal.h &amp; Fish.h;     在Fish.h &amp; Animal.cpp中，include&quot;Animal.h&rdquo; ;    在Fish.cpp中 include“Fish.h”</p>
+<p>这里会有一个错误：因为main.cpp引用了Animal.h，同时main.cpp引用了Fish.h，而Fish.h再次引用了Animal.h，所以会报Animal.h中的类被重复定义。怎么办呢？使用预编译命令： #ifndef #def #endif</p>
+<h4 id="使用预编译命令">使用预编译命令<a hidden class="heading-anchor" aria-hidden="true" href="#使用预编译命令">#</a></h4>
+<p>main.cpp引用了Animal.h，然后main.cpp引用了Fish.h，而Fish.h再次引用了Animal.h，所以会报Animal.h中的类被重复定义。怎么办呢？</p>
+<pre tabindex="0"><code>使用预编译命令： #ifndef #def #endif
+</code></pre><pre tabindex="0"><code>1. //File： Animal.h
+2. //Declare the Animal class and the functions
+3. //
+4. #ifndef ANIMAL_H_H //用预编译指令符防止类的重复编译错误: if not define
+5. #define ANIMAL_H_H //用预编译指令符防止类的重复编译错误: define
+6. class Animal{
+7. public:
+8. Animal(int height, int weight);//构造函数
+9. void eat();//
+10. void sleep();//
+11. virtual void breathe();//virtual
+12. };
+13. #endif  //用预编译指令符防止类的重复编译错误: end if
+</code></pre><h4 id="vc编译链接过程">VC++编译链接过程<a hidden class="heading-anchor" aria-hidden="true" href="#vc编译链接过程">#</a></h4>
+<p>先对cpp文件进行编译，编程成obj文件，h头文件不参与编译。最后进行链接。</p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2015-06-09 16:30 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2 on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150609163031%2f&title=VS2010%20C%2b%2b%20MFC%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b04%20-%20C%2b%2b%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b%e5%9f%ba%e7%a1%802">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2 on twitter"
+          href="https://twitter.com/intent/tweet/?text=VS2010%20C%2b%2b%20MFC%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b04%20-%20C%2b%2b%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b%e5%9f%ba%e7%a1%802&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150609163031%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share VS2010 C&#43;&#43; MFC框架学习笔记4 - C&#43;&#43;面向对象编程基础2 on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20150609163031%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

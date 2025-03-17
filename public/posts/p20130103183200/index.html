@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="function callback(s,BytesAvailable,p)
+global i;
+global t;
+global x;
+global m;
+%     p = plot(t,m,&hellip;
+%              &#39;EraseMode&#39;,&#39;background&#39;,&#39;MarkerSize&#39;,5);
+out = fscanf(s) %read data from s
+data = str2num(out);
+if data&amp;gt;-2 &amp;amp; data &amp;lt; 2 %detect if data is legal
+%    disp(&amp;#39;*******data comes! \n&amp;#39;);
+t=[t 0.01*2*pi*i];   %0 0.1 0.2 0.3.. %Matrix 1*(i&#43;1), column is increasing
+m=[m data]; %Matrix 2*(i&#43;1), 2row, i&#43;1 column.
+%http://blog.csdn.net/sonictl
+%set(p(1),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+%set(p(2),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(2,:))
+set(p,&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+
+%http://blog.csdn.net/sonictl
+drawnow
+x = x &#43; 3.6/360*2*pi;   % x = x&#43;0.1
+axis([x x&#43;2*pi -1.5 1.5]);
+pause(0.1);
+i = i&#43;1;
+end
+%http://blog.csdn.net/sonictl end&lt;/pre&gt;&lt;br&gt;
+
+MATLAB动画显示串口数据【实例】
+
+" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>MATLAB动画显示串口数据【实例】（修正链接） | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20130103183200/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="function callback(s,BytesAvailable,p)
+global i;
+global t;
+global x;
+global m;
+%     p = plot(t,m,&hellip;
+%              &#39;EraseMode&#39;,&#39;background&#39;,&#39;MarkerSize&#39;,5);
+out = fscanf(s) %read data from s
+data = str2num(out);
+if data&amp;gt;-2 &amp;amp; data &amp;lt; 2 %detect if data is legal
+%    disp(&amp;#39;*******data comes! \n&amp;#39;);
+t=[t 0.01*2*pi*i];   %0 0.1 0.2 0.3.. %Matrix 1*(i&#43;1), column is increasing
+m=[m data]; %Matrix 2*(i&#43;1), 2row, i&#43;1 column.
+%http://blog.csdn.net/sonictl
+%set(p(1),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+%set(p(2),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(2,:))
+set(p,&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+
+%http://blog.csdn.net/sonictl
+drawnow
+x = x &#43; 3.6/360*2*pi;   % x = x&#43;0.1
+axis([x x&#43;2*pi -1.5 1.5]);
+pause(0.1);
+i = i&#43;1;
+end
+%http://blog.csdn.net/sonictl end&lt;/pre&gt;&lt;br&gt;
+
+MATLAB动画显示串口数据【实例】
+
+" />
+  <meta property="og:title" content="MATLAB动画显示串口数据【实例】（修正链接）" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20130103183200/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2013-01-03" />
+    <meta property="article:modified_time" content="2013-01-03" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="MATLAB动画显示串口数据【实例】（修正链接） | Combine Art and Sciences" />
+  <meta name="twitter:description" content="function callback(s,BytesAvailable,p)
+global i;
+global t;
+global x;
+global m;
+%     p = plot(t,m,&hellip;
+%              &#39;EraseMode&#39;,&#39;background&#39;,&#39;MarkerSize&#39;,5);
+out = fscanf(s) %read data from s
+data = str2num(out);
+if data&amp;gt;-2 &amp;amp; data &amp;lt; 2 %detect if data is legal
+%    disp(&amp;#39;*******data comes! \n&amp;#39;);
+t=[t 0.01*2*pi*i];   %0 0.1 0.2 0.3.. %Matrix 1*(i&#43;1), column is increasing
+m=[m data]; %Matrix 2*(i&#43;1), 2row, i&#43;1 column.
+%http://blog.csdn.net/sonictl
+%set(p(1),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+%set(p(2),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(2,:))
+set(p,&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+
+%http://blog.csdn.net/sonictl
+drawnow
+x = x &#43; 3.6/360*2*pi;   % x = x&#43;0.1
+axis([x x&#43;2*pi -1.5 1.5]);
+pause(0.1);
+i = i&#43;1;
+end
+%http://blog.csdn.net/sonictl end&lt;/pre&gt;&lt;br&gt;
+
+MATLAB动画显示串口数据【实例】
+
+" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20130103183200/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20130103183200/">MATLAB动画显示串口数据【实例】（修正链接）</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">MATLAB动画显示串口数据【实例】（修正链接）</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2013-01-03T18:32:00&#43;0800 class="date">January 03, 2013</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+2 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <p><span style="font-size:18px"></span><pre name="code" class="plain">function callback(s,BytesAvailable,p)
+global i;
+global t;
+global x;
+global m;</p>
+<p>%     p = plot(t,m,&hellip;
+%              'EraseMode','background','MarkerSize',5);
+out = fscanf(s) %read data from s</p>
+<pre><code>data = str2num(out);
+if data&amp;gt;-2 &amp;amp; data &amp;lt; 2 %detect if data is legal
+%    disp(&amp;#39;*******data comes! \n&amp;#39;);
+t=[t 0.01*2*pi*i];   %0 0.1 0.2 0.3.. %Matrix 1*(i+1), column is increasing
+m=[m data]; %Matrix 2*(i+1), 2row, i+1 column.
+%http://blog.csdn.net/sonictl
+%set(p(1),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+%set(p(2),&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(2,:))
+set(p,&amp;#39;XData&amp;#39;,t,&amp;#39;YData&amp;#39;,m(1,:))
+
+%http://blog.csdn.net/sonictl
+drawnow
+x = x + 3.6/360*2*pi;   % x = x+0.1
+axis([x x+2*pi -1.5 1.5]);
+pause(0.1);
+i = i+1;
+end
+%http://blog.csdn.net/sonictl end&lt;/pre&gt;&lt;br&gt;
+</code></pre>
+<p>MATLAB动画显示串口数据【实例】<br>
+<br>
+<br></p>
+<p><span style="font-size:18px">经过几天的学习，现在能实现串口数据的实时plot并记录在MATLAB变量中。</span></p>
+<p><span style="font-size:12px">After a few days' learning, we can implement that<span style="font-size:12px">real-time&nbsp;</span>plot the data from serial port.</span></p>
+<span style="font-size:18px">先看一下演示的视频吧：(see demo video)</span><br>
+<p><a target="_blank" target="_blank" href="http://v.youku.com/v_show/id_XNDk2OTA1OTQw.html" style="font-size:24px">http://v.youku.com/v_show/id_XNDk2OTA1OTQw.html</a></p>
+<p>升级版（双数据接收，绘图）：<a target="_blank" target="_blank" href="http://v.youku.com/v_show/id_XNDk3NzM0NzE2.html">http://v.youku.com/v_show/id_XNDk3NzM0NzE2.html</a></p>
+<p><br>
+</p>
+<p><img src="http://img.my.csdn.net/uploads/201301/05/1357348019_5886.JPG" alt="" height="404" border="1" width="720"></p>
+<p>The outline of the video:</p>
+<span style="font-size:18px">演示视频大纲：<br>
+&nbsp; 1.介绍系统构成<br>
+</span><span style="font-size:18px">&nbsp; 2.介绍板载C语言程序</span><span style="font-size:18px"><br>
+</span><span style="font-size:18px">&nbsp; 3.用Linux界面演示由MATLAB发送给目标板的命令，及理论返回&#20540;。</span><span style="font-size:18px"><br>
+</span><span style="font-size:18px">&nbsp; 4.介绍MATLAB本实例的m文件的主要功能，发送的命令，判断，画图</span><span style="font-size:18px"><br>
+</span><span style="font-size:18px">&nbsp; 5.演示整个MATLAB程序的实现效果</span><br>
+<br>
+<span style="font-family:Microsoft YaHei; font-size:14px">完成这个实例需要学习“<a target="_blank" target="_blank" href="http://download.csdn.net/detail/sonictl/7926279">MATLAB串口操作官方教程.pdf</a>” 和 &quot;<a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/8460339" style="color:rgb(0,0,0); text-decoration:initial; line-height:30px">Matlab中使用Plot函数动态画图方法总结</a>&quot;，
+ 请点击。</span><br>
+To finish this subject, we need firstly learn&quot;Official tutorial for MATLAB serial port operation &quot;<br>
+<br>
+板卡产生数据源程序（C语言）： The source code for generating original data on the TLL main board.<br>
+--------------------<br>
+<pre name="code" class="cpp">#include&quot;stdio.h&quot;
+#include&quot;math.h&quot;
+#include&quot;string.h&quot;
+<p>#define pi 3.1415926</p>
+<p>void delay(int a){
+int i,j,delay;
+for(i = 0 ;  i &lt; 1000<em>a; i++){
+delay = 0;
+for(j = 0; j &lt; 1000</em>a; j++){
+delay = delay+1;
+}
+}
+}</p>
+<p>int main(){
+float angle, x, y,rad;
+int i,N,dltime;
+angle = 0;
+//getchar();
+printf(&quot;input the num of circles, delay time: &quot;);
+scanf(&quot;%d,%d&quot;, &amp;N, &amp;dltime);
+for (i = 0; i &lt; 100<em>N ; i++){
+angle = angle + 3.6;
+rad = angle/180</em>pi;
+x = cos(rad);
+y = sin(rad);
+printf(&quot;%f \n&quot;, x);
+delay(dltime);
+}
+return 0;</p>
+<p>}</pre><br></p>
+<p>--------------------------------------------</p>
+<p>MATLAB 接收数据主程序serial-test.m：</p>
+<p>The main program for receiving data in MATLAB:</p>
+<p></p>
+<pre name="code" class="plain">clc;
+<p>%%
+% Use EraseMode,draw dynamically. Change axis dynamically.
+% Multi-Line drawing line
+global i;
+global t;
+global x;
+global m;
+t = [0];                    % initialize
+m = [0];                    % initialize
+i = 0;
+x = -pi ;</p>
+<p>p = plot(t,m,&hellip;
+'EraseMode','background','MarkerSize',5);
+axis([x x+2*pi -1.5 1.5]);   % x = [-1.5 pi, 0.5 pi]
+grid on;</p>
+<p>%%</p>
+<p>s = serial('COM3');     % creat serial port obj
+set(s,'BaudRate',115200,'DataBits',8,'StopBits',1,&hellip;
+'Parity','none','FlowControl','none');  % set properties for serial</p>
+<p>s.BytesAvailableFcnMode = 'terminator'; % byte number or terminator
+s.BytesAvailableFcn = {@callback,p};   % {@mycallback,time}</p>
+<p>fopen(s);</p>
+<p>fprintf(s,'cd /home');
+pause(1);           % pause function, 1s
+fprintf(s,'./matlab-serial');
+pause;           % pause function
+fprintf(s,'1,1');</p>
+<h2>pause;      %right here is receiving the data and plot
+fclose(s);
+delete(s)
+clear s
+close all;
+clear all;
+</pre><br></h2>
+<p></p>
+<p>MATLAB 接收数据，判断，动态绘图，回调函数 callback.m:</p>
+<p>The Callback function for receiving, judge, plotting in MATLAB.</p>
+<p></p>
+<br>
+<br>
+<p></p>
+<p><strong>Explore more: &nbsp;Real-time plotting in MATLAB for the Three axis accelerometer data&nbsp;</strong></p>
+<p><span style="font-family:Microsoft YaHei; font-size:18px">三轴力传感器数据在MATLAB中实时绘图显示：</span></p>
+<p><a target="_blank" target="_blank" href="http://blog.csdn.net/sonictl/article/details/8495973">http://blog.csdn.net/sonictl/article/details/8495973</a><br>
+</p>
+<br>
+--------------------------------------------
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2013-01-03 18:32 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share MATLAB动画显示串口数据【实例】（修正链接） on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130103183200%2f&title=MATLAB%e5%8a%a8%e7%94%bb%e6%98%be%e7%a4%ba%e4%b8%b2%e5%8f%a3%e6%95%b0%e6%8d%ae%e3%80%90%e5%ae%9e%e4%be%8b%e3%80%91%ef%bc%88%e4%bf%ae%e6%ad%a3%e9%93%be%e6%8e%a5%ef%bc%89">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share MATLAB动画显示串口数据【实例】（修正链接） on twitter"
+          href="https://twitter.com/intent/tweet/?text=MATLAB%e5%8a%a8%e7%94%bb%e6%98%be%e7%a4%ba%e4%b8%b2%e5%8f%a3%e6%95%b0%e6%8d%ae%e3%80%90%e5%ae%9e%e4%be%8b%e3%80%91%ef%bc%88%e4%bf%ae%e6%ad%a3%e9%93%be%e6%8e%a5%ef%bc%89&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130103183200%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share MATLAB动画显示串口数据【实例】（修正链接） on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20130103183200%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

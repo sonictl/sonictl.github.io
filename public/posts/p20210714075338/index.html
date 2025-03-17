@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Getting started with Graph Convolutional Networks as an Amateur
+https://zhuanlan.zhihu.com/p/27587371
+https://www.cnblogs.com/wangxiaocvpr/p/8306519.html
+https://www.cnblogs.com/wangxiaocvpr/p/8299336.html
+https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780
+GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：
+
+本篇：一个高层级的GCN介绍
+谱图卷积的半监督学习
+
+最基本的代码实现GCN &ndash; 一个高层级的GCN介绍
+In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。
+ref link in Chinese中文
+看看GCN的输入是啥
+Given a graph $G = (V, E)$ , a GCN takes as input:
+
+adjacency matrix $\mathbf{A}$ of $G$.   N × N
+an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,
+
+where N is the number of nodes and
+F⁰ is the number of input features for each node
+
+
+
+" />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Getting started with Graph Convolutional Networks as an Amateur | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20210714075338/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Getting started with Graph Convolutional Networks as an Amateur
+https://zhuanlan.zhihu.com/p/27587371
+https://www.cnblogs.com/wangxiaocvpr/p/8306519.html
+https://www.cnblogs.com/wangxiaocvpr/p/8299336.html
+https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780
+GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：
+
+本篇：一个高层级的GCN介绍
+谱图卷积的半监督学习
+
+最基本的代码实现GCN &ndash; 一个高层级的GCN介绍
+In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。
+ref link in Chinese中文
+看看GCN的输入是啥
+Given a graph $G = (V, E)$ , a GCN takes as input:
+
+adjacency matrix $\mathbf{A}$ of $G$.   N × N
+an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,
+
+where N is the number of nodes and
+F⁰ is the number of input features for each node
+
+
+
+" />
+  <meta property="og:title" content="Getting started with Graph Convolutional Networks as an Amateur" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20210714075338/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2021-07-14" />
+    <meta property="article:modified_time" content="2021-07-14" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Getting started with Graph Convolutional Networks as an Amateur | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Getting started with Graph Convolutional Networks as an Amateur
+https://zhuanlan.zhihu.com/p/27587371
+https://www.cnblogs.com/wangxiaocvpr/p/8306519.html
+https://www.cnblogs.com/wangxiaocvpr/p/8299336.html
+https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780
+GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：
+
+本篇：一个高层级的GCN介绍
+谱图卷积的半监督学习
+
+最基本的代码实现GCN &ndash; 一个高层级的GCN介绍
+In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。
+ref link in Chinese中文
+看看GCN的输入是啥
+Given a graph $G = (V, E)$ , a GCN takes as input:
+
+adjacency matrix $\mathbf{A}$ of $G$.   N × N
+an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,
+
+where N is the number of nodes and
+F⁰ is the number of input features for each node
+
+
+
+" />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20210714075338/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20210714075338/">Getting started with Graph Convolutional Networks as an Amateur</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">Getting started with Graph Convolutional Networks as an Amateur</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2021-07-14T07:53:38&#43;0800 class="date">July 14, 2021</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+4 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1 id="getting-started-with-graph-convolutional-networks-as-an-amateur">Getting started with Graph Convolutional Networks as an Amateur<a hidden class="heading-anchor" aria-hidden="true" href="#getting-started-with-graph-convolutional-networks-as-an-amateur">#</a></h1>
+<p><a href="https://zhuanlan.zhihu.com/p/27587371">https://zhuanlan.zhihu.com/p/27587371</a></p>
+<p><a href="https://www.cnblogs.com/wangxiaocvpr/p/8306519.html">https://www.cnblogs.com/wangxiaocvpr/p/8306519.html</a></p>
+<p><a href="https://www.cnblogs.com/wangxiaocvpr/p/8299336.html">https://www.cnblogs.com/wangxiaocvpr/p/8299336.html</a></p>
+<p><a href="https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780">https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-7d2250723780</a></p>
+<p>GCN是一种强大的神经网络，旨在直接在图上工作并利用其结构信息。这篇文章是关于如何用图卷积网络（GCN）在图上进行深度学习的系列文章的第一篇。该系列的包含：</p>
+<ol>
+<li>本篇：一个高层级的GCN介绍</li>
+<li>谱图卷积的半监督学习</li>
+</ol>
+<h2 id="最基本的代码实现gcn--一个高层级的gcn介绍">最基本的代码实现GCN &ndash; 一个高层级的GCN介绍<a hidden class="heading-anchor" aria-hidden="true" href="#最基本的代码实现gcn--一个高层级的gcn介绍">#</a></h2>
+<p>In this post, I will illustrate how information is propagated through the hidden layers of a GCN using coding examples. 看看GCN是如何从前几层聚合信息的，以及这种机制是如何产生图中节点的有用特征表示的。
+<a href="https://cloud.tencent.com/developer/article/1400504">ref link in Chinese中文</a></p>
+<h3 id="看看gcn的输入是啥">看看GCN的输入是啥<a hidden class="heading-anchor" aria-hidden="true" href="#看看gcn的输入是啥">#</a></h3>
+<p>Given a graph $G = (V, E)$ , a GCN takes as input:</p>
+<ul>
+<li>adjacency matrix $\mathbf{A}$ of $G$.   <em>N</em> × <em>N</em></li>
+<li>an input feature matrix, $N × F⁰$ feature matrix, $\mathbf{X}$,
+<ul>
+<li>where <em>N</em> is the number of nodes and</li>
+<li><em>F⁰</em> is the number of input features for each node</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/images/image-20210717215412877.png" alt="image-20210717215412877"></p>
+<p>图示是一个例子</p>
+<h3 id="对图中示例的解释">对图中示例的解释：<a hidden class="heading-anchor" aria-hidden="true" href="#对图中示例的解释">#</a></h3>
+<p>以一个包含4个节点的图为例，圆括号是每个节点的属性信息。有向边（v,n）表示从v-&gt;n的边，此时定义n是节点v的邻居。</p>
+<p>GCN的隐藏层记作： $H^{i} = f(H^{i-1}, \mathbf{A})$</p>
+<p>如果将 $f$ 这个传播规则定义为最简单的  $f(\cdot) = \mathbf{A} \times H^{i-1}$</p>
+<p>$$
+\mathbf{A} = \begin{bmatrix} 0&amp;1&amp;0&amp;0 \ 0&amp;0&amp;1&amp;1 \0&amp;1&amp;0&amp;0 \1&amp;0&amp;1&amp;0 \ \end{bmatrix}
+$$</p>
+<p>$$
+H^{i-1} = \begin{bmatrix} 0&amp;0 \ 1&amp;-1 \ 2&amp;-2 \ 3&amp;-3 \  \end{bmatrix}
+$$</p>
+<p>$$
+H^{i} = \mathbf{A} \times H^{i-1} = \begin{bmatrix} 1 &amp; -1 \ 5 &amp; -5 \ 1 &amp; -1 \ 2 &amp; -2 \end{bmatrix}
+$$</p>
+<p>通过一次传播，得到了节点的新的特征$H^i$ .</p>
+<p>如果我们还有节点的度矩阵： $D$ ，利用 $D$ 可以对 $H^i$ 进行归一化： $f(X,A) = D^{-1} \mathbf{A} X$ or  $f(X,A) = D^{-1} \mathbf{A} H^{i}$</p>
+<p>此例中，$$D = \begin{bmatrix} 1&amp;0&amp;0&amp;0 \ 0&amp;2&amp;0&amp;0 \0&amp;0&amp;2&amp;0 \0&amp;0&amp;0&amp;1 \ \end{bmatrix}$$</p>
+<p>归一化后，上面的 $H^i$ 变为：$$ H^i = \begin{bmatrix} 1&amp;-1 \ 2.5&amp;-2.5 \ 0.5&amp;-0.5 \ 2&amp;-2 \end{bmatrix} $$</p>
+<h3 id="几个问题">几个问题<a hidden class="heading-anchor" aria-hidden="true" href="#几个问题">#</a></h3>
+<p>**问题1：**该表征是相邻节点的特征聚合， 节点的聚合表征不包含它⾃⼰的特征！只有具有⾃环（self-loop）的节点才会在该聚合中包含⾃⼰的特征。在邻接矩阵A中，对角线上为1的节点才是具有自环的节点。</p>
+<p>**问题2：**度⼤的节点在其特征表征中将具有较⼤的值，度⼩的节点将具有较⼩的值。会影响随机梯度下降算法，比如梯度爆炸。</p>
+<h4 id="解决">解决：<a hidden class="heading-anchor" aria-hidden="true" href="#解决">#</a></h4>
+<ol>
+<li>增加自环，在A中加入eye矩阵 $I$：np.eye(A.shape[0])</li>
+<li>对表征进行归一化。如：$f(X,A) = D^{-1} \mathbf{A} X$</li>
+</ol>
+<hr>
+<h2 id="2-整合">2. 整合<a hidden class="heading-anchor" aria-hidden="true" href="#2-整合">#</a></h2>
+<p>这一节要把前面讨论的增加自环、归一化加入，还要加入前面省略的权重和激活函数。</p>
+<p>即： 自环 - 归一化 - 权重 - 激活函数</p>
+<h3 id="21-应用权重">2.1 应用权重<a hidden class="heading-anchor" aria-hidden="true" href="#21-应用权重">#</a></h3>
+<p>一个定义，添加了自环的adj_Matrix：$\hat{\mathbf{A}} = \mathbf{A} + I$ 。 $D$ 是 $\mathbf{A}$ 的度矩阵，定义$\hat{D}$ 是 $\hat{\mathbf{A}}$ 的度矩阵。</p>
+<p>权重矩阵： $$W = \begin{bmatrix} 1&amp;-1 \ -1&amp;1 \end{bmatrix}$$</p>
+<p>计算此时的属性传播：$\hat{D}^{-1} \times \hat{\mathbf{A}} \times X \times W$</p>
+<p>上面的 $H^i$ 即为：$$ H^{i} = \begin{bmatrix} 1  \ 4 \ 2 \ 5 \end{bmatrix} $$</p>
+<p>再用ReLu函数套一下：<code>relu(D_hat**-1 * A_hat * X * W)</code></p>
+<h2 id="3-应用于-karate-网络数据">3. 应用于 Karate 网络数据<a hidden class="heading-anchor" aria-hidden="true" href="#3-应用于-karate-网络数据">#</a></h2>
+<h3 id="在-zacharys-karate-club-网络上进行gcn">在 Zachary’s Karate Club 网络上进行GCN<a hidden class="heading-anchor" aria-hidden="true" href="#在-zacharys-karate-club-网络上进行gcn">#</a></h3>
+<p><img src="https://miro.medium.com/max/1400/1*d62WDGX4uf6bwlu0KyfRsQ.png" alt="Zachary&rsquo;s Karate Club"></p>
+<p><strong>Zachary’s Karate Club:</strong>
+<img src="https://pic4.zhimg.com/80/v2-a506ceeb70e6719aecdf5d09c43c49db_720w.jpg" alt="img"></p>
+<p>先随机初始化一把：计算A_hat 和 D_hat 矩阵</p>
+<pre tabindex="0"><code># 计算A_hat 和 D_hat 矩阵
+from networkx import karate_club_graph, to_numpy_matrix
+zkc = karate_club_graph()
+order = sorted(list(zkc.nodes()))  # order = [0,1,2,...]
+
+A = to_numpy_matrix(zkc, nodelist=order)   # 输入一个nx.graph, this shows 如何生成它的 adj_Matrix
+I = np.eye(zkc.number_of_nodes())
+A_hat = A + I
+D_hat = np.array(np.sum(A_hat, axis=0))[0]
+D_hat = np.matrix(np.diag(D_hat))
+</code></pre><pre tabindex="0"><code># initialize the weights randomly
+W_1 = np.random.normal(loc=0, scale=1, size=(zkc.number_of_nodes(), 4))   # W1: shape: (34,4)
+W_2 = np.random.normal(loc=0, size=(W_1.shape[1], 2))  # W2 shape: (4,2)
+</code></pre><p><strong>Stack the GCN layers.</strong></p>
+<p>We here use just the identity matrix as feature representation, that is, each node is represented as a one-hot encoded categorical variable.</p>
+<p>feature representation will be like:</p>
+<pre tabindex="0"><code>node_0: 1,0,0,...,0
+node_1: 0,1,0,...,0
+node_2: 0,0,1,0,..,0
+...
+</code></pre><pre tabindex="0"><code># Each transmit is a layer, so defines it as a function
+def gcn_layer(A_hat, D_hat, X, W):
+    return relu(D_hat**-1 * A_hat * X * W)
+
+# H1 &lt;= A_hat + D_hat + H_0(I) + weight(W_1)
+H_1 = gcn_layer(A_hat, D_hat, I, W_1)     # note the I here: I = np.eye(zkc.number_of_nodes())
+
+# H2 &lt;= A_hat + D_hat + H_1 + W_1
+H_2 = gcn_layer(A_hat, D_hat, H_1, W_2)
+
+output = H_2
+</code></pre><pre tabindex="0"><code># We extract the feature representations.
+feature_representations = {
+    node: np.array(output)[node] 
+    for node in zkc.nodes()}
+
+feature_representations
+</code></pre><pre tabindex="0"><code>{0: array([0.27514556, 0.2916475 ]),
+ 1: array([0.23384102, 0.12333202]),
+ 2: array([0.10573154, 0.19859599]),
+ 3: array([0.10044765, 0.15261897]),
+ 4: array([0.23252655, 0.68635458]),
+ 5: array([0.41926146, 1.2925271 ]),
+ 6: array([0.45833935, 1.42640262]),
+ 7: array([0.06380073, 0.13444717]),
+ 8: array([0.17890381, 0.37274954]),
+ 9: array([0.12122856, 0.20078968]),
+ 10: array([0.23332865, 0.6970111 ]),
+ 11: array([0.42113657, 0.21505439]),
+ 12: array([0.17455961, 0.33643646]),
+ 13: array([0.10565966, 0.20771884]),
+ 14: array([0.33195037, 0.53988095]),
+ 15: array([0.49140489, 1.08604872]),
+ 16: array([0.60948432, 1.93432754]),
+ 17: array([0.43220848, 0.29479237]),
+ 18: array([0.28285175, 0.55598298]),
+ 19: array([0.17600684, 0.31744565]),
+ 20: array([0.33020733, 0.73801137]),
+ 21: array([0.36867983, 0.3119505 ]),
+ 22: array([0.34193455, 0.50004196]),
+ 23: array([0.46985141, 0.7935709 ]),
+ 24: array([0.79867382, 1.25776893]),
+ 25: array([0.81112201, 1.25608014]),
+ 26: array([0.13385231, 0.19571042]),
+ 27: array([0.47025238, 0.76962093]),
+ 28: array([0.1175102 , 0.15650574]),
+ 29: array([0.23946535, 0.42422421]),
+ 30: array([0.1985622 , 0.32838823]),
+ 31: array([0.5660882 , 0.98039276]),
+ 32: array([0.18968005, 0.30977425]),
+ 33: array([0.15852075, 0.25247645])}
+</code></pre><pre tabindex="0"><code># visualize the feature
+import matplotlib.pyplot as pltt
+
+def plot_embeddings(M_reduced, word2Ind, words):
+    &#34;&#34;&#34; 
+        Plot in a scatterplot the embeddings of the words specified in the list &#34;words&#34;.
+        Include a label next to each point.
+    &#34;&#34;&#34;
+    for word in words:
+        x, y = M_reduced[word2Ind[word]]
+        pltt.scatter(x, y, marker=&#39;o&#39;, color=&#39;red&#39;)
+        pltt.text(x+.006, y+.006, word, fontsize=9)
+    pltt.show()
+
+&#34;&#34;&#34;
+M_reduced_plot_test = np.array([[1, 1], [-1, -1], [1, -1], [-1, 1], [0, 0]])
+word2Ind_plot_test = {&#39;test1&#39;: 0, &#39;test2&#39;: 1, &#39;test3&#39;: 2, &#39;test4&#39;: 3, &#39;test5&#39;: 4}
+words = [&#39;test1&#39;, &#39;test2&#39;, &#39;test3&#39;, &#39;test4&#39;, &#39;test5&#39;]
+plot_embeddings(M_reduced_plot_test, word2Ind_plot_test, words)
+
+&#34;&#34;&#34;
+
+N = len(feature_representations)
+M_reduced_plot = np.stack([feature_representations[key_i] for key_i in feature_representations])
+word2Ind_plot = {}
+words = []
+for i in range(N):
+    label_i = str(i)
+    word2Ind_plot[label_i] = i
+    words.append(label_i)
+
+plot_embeddings(M_reduced_plot, word2Ind_plot, words)
+
+    
+</code></pre><p><img src="data:image/png;base64,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" alt="img"></p>
+<p>这个结果看起来还是不够直观，常常遇到x坐标为零，或者y坐标为零。 在这个例子中，随机初始化的权重很可能因为ReLU函数而在x轴或y轴上给出0值，所以需要随机初始化几次才能产生上图。</p>
+<h3 id="总结">总结<a hidden class="heading-anchor" aria-hidden="true" href="#总结">#</a></h3>
+<p>在这篇文章中，我对图卷积网络进行了高层次的介绍，并说明了GCN中每一层的节点的特征表示是如何基于其邻域的集合的。我们看到了如何使用numpy构建这些网络，以及它们有多么强大：即使是随机初始化的GCN也能在Zachary的空手道俱乐部中分离出社区。 在下一篇文章中，我将对技术细节进行深入探讨，并展示如何使用半监督学习实现和训练一个最近发表的GCN。你可以在这里找到这个系列的下一篇文章。 喜欢你读的东西吗？可以考虑在Twitter上关注我，除了我自己的文章之外，我还会分享与数据科学和机器学习的实践、理论和伦理学有关的论文、视频和文章。 有关专业咨询，请在LinkedIn上联系我，或在Twitter上直接留言。</p>
+<p>参考下一节： <a href="https://towardsdatascience.com/how-to-do-deep-learning-on-graphs-with-graph-convolutional-networks-62acf5b143d0">Part 2: Semi-Supervised Learning with Spectral Graph Convolutions</a></p>
+
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2021-07-14 07:53 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share Getting started with Graph Convolutional Networks as an Amateur on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20210714075338%2f&title=Getting%20started%20with%20Graph%20Convolutional%20Networks%20as%20an%20Amateur">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share Getting started with Graph Convolutional Networks as an Amateur on twitter"
+          href="https://twitter.com/intent/tweet/?text=Getting%20started%20with%20Graph%20Convolutional%20Networks%20as%20an%20Amateur&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20210714075338%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share Getting started with Graph Convolutional Networks as an Amateur on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20210714075338%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

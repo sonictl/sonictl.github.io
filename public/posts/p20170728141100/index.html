@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+
+
+
+  
+  
+
+
+<head lang="en-us">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Git客户端命令on Linux：
+在此之前：Git 1-服务端搭建 Setting up a Git Server in CentOS 6.5本地客户端操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令，但在自己搭建Git Remote Server的用法中，往往是从git remote add（添加远程主机）开始的。本文与git clone相关的内容被放在第2点。
+1. 管理远程主机
+a.查看远程主机名
+为了便于管理，Git要求每个远程主机都必须指定一个主机名，即远程主机在本地的一个代号？。git remote命令就用于管理主机名。
+    &gt;&gt; git remote
+    &gt;&gt; git remote -v
+    origin sonictl@x.x.x.x:/home/git_admin/project1 (fetch)
+    origin sonictl@x.x.x.x:/home/git_admin/project1 (push)
+#使用-&lt;span style=&quot;color: #000000;&quot;&gt;v选项，显示远程主机的网址。
+&amp;gt;&amp;gt;git remote show &amp;lt;主机名&amp;gt; # 查看主机详细信息：git remote show origin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ==相关命令==
+
+远程主机的改名。git remote rename命令
+ &gt;&gt; $ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;
+
+
+
+
+添加远程主机。&nbsp;git remote add命令
+ &gt;&gt; $ git remote add &lt;主机名&gt; &lt;网址&gt;
+ &gt;&gt; $ git remote add origin tony@x.x.x.x:/home/git_admin/project1
+
+删除远程主机。git remote rm命令
+ &gt;&gt; $ git remote rm &lt;主机名&gt;
+
+
+===
+2. 直接从远程主机克隆版本库
+$ git clone &lt;版本库的网址&gt; " />
+  <meta name="author" content="Hugo Author">
+  <meta name="keywords" content="">
+  <title>Git 2-客户端命令on Linux： | Combine Art and Sciences</title>
+  <link rel="canonical" href="http://localhost:1313/posts/p20170728141100/" />
+  
+
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Git客户端命令on Linux：
+在此之前：Git 1-服务端搭建 Setting up a Git Server in CentOS 6.5本地客户端操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令，但在自己搭建Git Remote Server的用法中，往往是从git remote add（添加远程主机）开始的。本文与git clone相关的内容被放在第2点。
+1. 管理远程主机
+a.查看远程主机名
+为了便于管理，Git要求每个远程主机都必须指定一个主机名，即远程主机在本地的一个代号？。git remote命令就用于管理主机名。
+    &gt;&gt; git remote
+    &gt;&gt; git remote -v
+    origin sonictl@x.x.x.x:/home/git_admin/project1 (fetch)
+    origin sonictl@x.x.x.x:/home/git_admin/project1 (push)
+#使用-&lt;span style=&quot;color: #000000;&quot;&gt;v选项，显示远程主机的网址。
+&amp;gt;&amp;gt;git remote show &amp;lt;主机名&amp;gt; # 查看主机详细信息：git remote show origin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ==相关命令==
+
+远程主机的改名。git remote rename命令
+ &gt;&gt; $ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;
+
+
+
+
+添加远程主机。&nbsp;git remote add命令
+ &gt;&gt; $ git remote add &lt;主机名&gt; &lt;网址&gt;
+ &gt;&gt; $ git remote add origin tony@x.x.x.x:/home/git_admin/project1
+
+删除远程主机。git remote rm命令
+ &gt;&gt; $ git remote rm &lt;主机名&gt;
+
+
+===
+2. 直接从远程主机克隆版本库
+$ git clone &lt;版本库的网址&gt; " />
+  <meta property="og:title" content="Git 2-客户端命令on Linux：" />
+  <meta property="og:site_name" content="Combine Art and Sciences" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:url" content="http://localhost:1313/posts/p20170728141100/" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <meta property="article:published_time" content="2017-07-28" />
+    <meta property="article:modified_time" content="2017-07-28" />
+    
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Git 2-客户端命令on Linux： | Combine Art and Sciences" />
+  <meta name="twitter:description" content="Git客户端命令on Linux：
+在此之前：Git 1-服务端搭建 Setting up a Git Server in CentOS 6.5本地客户端操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令，但在自己搭建Git Remote Server的用法中，往往是从git remote add（添加远程主机）开始的。本文与git clone相关的内容被放在第2点。
+1. 管理远程主机
+a.查看远程主机名
+为了便于管理，Git要求每个远程主机都必须指定一个主机名，即远程主机在本地的一个代号？。git remote命令就用于管理主机名。
+    &gt;&gt; git remote
+    &gt;&gt; git remote -v
+    origin sonictl@x.x.x.x:/home/git_admin/project1 (fetch)
+    origin sonictl@x.x.x.x:/home/git_admin/project1 (push)
+#使用-&lt;span style=&quot;color: #000000;&quot;&gt;v选项，显示远程主机的网址。
+&amp;gt;&amp;gt;git remote show &amp;lt;主机名&amp;gt; # 查看主机详细信息：git remote show origin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ==相关命令==
+
+远程主机的改名。git remote rename命令
+ &gt;&gt; $ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;
+
+
+
+
+添加远程主机。&nbsp;git remote add命令
+ &gt;&gt; $ git remote add &lt;主机名&gt; &lt;网址&gt;
+ &gt;&gt; $ git remote add origin tony@x.x.x.x:/home/git_admin/project1
+
+删除远程主机。git remote rm命令
+ &gt;&gt; $ git remote rm &lt;主机名&gt;
+
+
+===
+2. 直接从远程主机克隆版本库
+$ git clone &lt;版本库的网址&gt; " />
+  <meta name="twitter:domain" content="http://localhost:1313/posts/p20170728141100/" />
+
+  
+  
+    <link rel="icon" href="http://localhost:1313/favicon.ico">
+  
+  
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css">
+
+  
+  
+  
+
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/style.css" rel="preload stylesheet" as="style"/>
+  
+
+  
+  
+</head>
+
+</head>
+<body>
+  <header>
+    <header id="header">
+  <div class="row">
+    <div class="container has-padding nav">
+      <button id="navbar-toggler" class="navbar-button" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>
+
+
+
+
+
+</button>
+      <div class="navbar-brand">
+        <a class="logo navbar-button" href="http://localhost:1313/" title="Combine Art and Sciences">
+          <span>Combine Art and Sciences</span>
+        </a>
+      </div>
+      <nav class="navbar" role="navigation">
+        <ul>
+          
+          
+            <li class="nav-bar-item active">
+              <a class="nav-link navbar-button" href="/posts/" title="posts">
+                <span>posts</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/tags/" title="tags">
+                <span>tags</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/archives/" title="archives">
+                <span>archives</span>
+              </a>
+            </li>
+          
+            <li class="nav-bar-item">
+              <a class="nav-link navbar-button" href="/about/" title="about">
+                <span>about</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="button is-text" id="theme-selector-button" title="toggle theme">
+          <span class="label icon">
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 32C132.29 32 32 132.29 32 256s100.29 224 224 224 224-100.29 224-224S379.71 32 256 32zM128.72 383.28A180 180 0 01256 76v360a178.82 178.82 0 01-127.28-52.72z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+</span>
+        </button>
+      </div>
+    </div>
+    
+      <div class="container has-padding">
+        <div class="breadcrumb">
+          
+<ol  class="breadcrumb-nav">
+  
+
+  
+
+  
+
+<li >
+  <a href="http://localhost:1313/">Home</a>
+</li>
+
+
+<li >
+  <a href="http://localhost:1313/posts/">Posts</a>
+</li>
+
+
+<li class="active">
+  <a href="http://localhost:1313/posts/p20170728141100/">Git 2-客户端命令on Linux：</a>
+</li>
+
+</ol>
+
+
+
+
+        </div>
+      </div>
+    
+  </div>
+</header>
+
+  </header>
+  <main>
+    
+
+<main id="main">
+  <div class="container has-padding">
+    <div class="article-card post single">
+      <h1 class="title">Git 2-客户端命令on Linux：</h1>
+      <div class="post-info">
+        <span>
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime=2017-07-28T14:11:00&#43;0800 class="date">July 28, 2017</time></span>
+        <span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 48C141.13 48 48 141.13 48 256c0 114.69 93.32 208 208 208 114.86 0 208-93.14 208-208 0-114.69-93.31-208-208-208zm108 240H244a4 4 0 01-4-4V116a4 4 0 014-4h24a4 4 0 014 4v140h92a4 4 0 014 4v24a4 4 0 01-4 4z'/></svg>
+2 mins to read</span>
+        
+          <span>
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z'/></svg>
+
+
+
+
+Hugo Author</span>
+        
+        
+        
+          <span>posts </span>
+        
+      </div>
+      <article class="post-entry content">
+        
+          <h1>Git客户端命令on Linux：</h1>
+<p>在此之前：<a id="link_post_title" class="link-post-title" href="http://www.cnblogs.com/sonictl/diary/2017/07/23/7226426.html">Git 1-服务端搭建 Setting up a Git Server in CentOS 6.5</a><br />本地客户端操作的第一步，通常是从远程主机克隆一个版本库，这时就要用到git clone命令，但在自己搭建Git Remote Server的用法中，往往是从git remote add（添加远程主机）开始的。<br />本文与git clone相关的内容被放在第2点。</p>
+<h2>1. 管理远程主机</h2>
+<h3 style="margin-left: 30px;">a.查看远程主机名</h3>
+<p style="margin-left: 30px;">为了便于管理，Git要求每个远程主机都必须指定一个主机名，<span style="color: #808080;">即远程主机在本地的一个代号？</span>。git remote命令就用于管理主机名。</p>
+<pre>    &gt;&gt;<span style="color: #000000;"> git remote
+    &gt;&gt; git remote -<span style="color: #000000;">v
+    origin sonictl@x.x.x.x:/home/git_admin/<span style="color: #000000;">project1 (fetch)
+    origin sonictl@x.x.x.x:/home/git_admin/<span style="color: #000000;">project1 (push)
+<pre><code>#使用-&lt;span style=&quot;color: #000000;&quot;&gt;v选项，显示远程主机的网址。
+&amp;gt;&amp;gt;git remote show &amp;lt;主机名&amp;gt; # 查看主机详细信息：git remote show origin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+</code></pre>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ==相关命令==</h4>
+<ul>
+<li>远程主机的改名。git remote rename命令
+<pre class="brush:bash;gutter:true;"> &gt;&gt; $ git remote rename &lt;原主机名&gt; &lt;新主机名&gt;
+</pre>
+</li>
+</ul>
+<ul>
+<li>添加远程主机。&nbsp;git remote add命令
+<pre class="brush:bash;gutter:true;"> &gt;&gt; $ git remote add &lt;主机名&gt; &lt;网址&gt;
+ &gt;&gt; $ git remote add origin tony@x.x.x.x:/home/git_admin/project1</pre>
+</li>
+<li>删除远程主机。git remote rm命令
+<pre class="brush:bash;gutter:true;"> &gt;&gt; $ git remote rm &lt;主机名&gt;</pre>
+</li>
+</ul>
+<pre class="brush:bash;gutter:true;">===</pre>
+<h2>2. 直接从远程主机克隆版本库</h2>
+<p style="margin-left: 30px;"><span style="font-family: courier new,courier;">$ git clone &lt;版本库的网址&gt; </span></p>
+<p style="margin-left: 30px;">如：</p>
+<div class="cnblogs_Highlighter" style="margin-left: 30px;">
+<pre class="brush:bash;gutter:true;">$ git clone https://github.com/jquery/jquery.git
+$ git clone sonictl@43.245.223.188:/home/git_admin/project1 localDirName #本地目录名为可选参数
+</pre>
+</div>
+<p style="margin-left: 30px;">&nbsp;git clone支持多种协议，除了HTTP(s)以外，还支持SSH、Git、本地文件协议等，下面是一些例子。</p>
+<div class="cnblogs_code" style="margin-left: 30px;" onclick="cnblogs_code_show('042db039-30dc-41f5-993d-b75ae8d7c70d')"><img id="code_img_closed_042db039-30dc-41f5-993d-b75ae8d7c70d" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_042db039-30dc-41f5-993d-b75ae8d7c70d" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('042db039-30dc-41f5-993d-b75ae8d7c70d',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_042db039-30dc-41f5-993d-b75ae8d7c70d" class="cnblogs_code_hide" style="margin-left: 30px;">
+<pre>$ git clone http[s]:<span style="color: #008000;">//</span><span style="color: #008000;">example.com/path/to/repo.git/</span>
+$ git clone <span style="color: #0000ff;">ssh</span>:<span style="color: #008000;">//</span><span style="color: #008000;">example.com/path/to/repo.git/</span>
+$ git clone git:<span style="color: #008000;">//</span><span style="color: #008000;">example.com/path/to/repo.git/</span>
+$ git clone /opt/git/<span style="color: #000000;">project.git
+$ git clone </span><span style="color: #0000ff;">file</span>:<span style="color: #808080;">///</span><span style="color: #008000;">opt/git/project.git</span>
+$ git clone <span style="color: #0000ff;">ftp</span>[s]:<span style="color: #008000;">//</span><span style="color: #008000;">example.com/path/to/repo.git/</span>
+$ git clone rsync:<span style="color: #008000;">//</span><span style="color: #008000;">example.com/path/to/repo.git/</span>
+<span style="color: #000000;">#SSH协议还有另一种写法:
+$ git clone [user@]example.com:path</span>/to/repo.git/<span style="color: #000000;">
+#通常来说，Git协议下载速度最快，SSH协议用于需要用户认证的场合。各种协议优劣的详细讨论请参考官方文档。</span></pre>
+</div>
+<span class="cnblogs_code_collapse">展开显示</span></div>
+<p>&nbsp;</p>
+<h2>3. Fetch - 取。当远程有更新时</h2>
+<p>git fetch命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。</p>
+<h3>&nbsp;&nbsp; 全部取回与指定分支名取回：</h3>
+<ol>
+<li>将某个远程主机的更新，全部取回本地----------&gt; $ git fetch origin</li>
+<li>如果只想取回特定分支的更新，可以指定分支名--&gt; $ git fetch origin master</li>
+</ol>
+<p>所取回的更新，在本地主机上要用"远程主机名/分支名"的形式读取。比如origin主机的master，就要用origin/master读取。<span style="color: #800000;">@@@如何读取？？</span></p>
+<h3>&nbsp;&nbsp; 关于分支</h3>
+<ul>
+<li>查看本地分支：$ git branch</li>
+<li>查看远程分支: git branch -r</li>
+<li>查看所有分支（本地+远程）: git branch -a</li>
+<li>创建一个新的分支：<br />取回远程主机的更新以后，可以在它的基础上，使用git checkout命令创建一个新的分支。<br /><span style="font-family: courier new,courier;">$ git checkout -b newBrach origin/master</span><br />上面命令表示，在origin/master的基础上，创建一个新分支。</li>
+<li>在本地分支上合并远程分支: <span style="font-family: courier new,courier;">git merge</span>命令或者<span style="font-family: courier new,courier;">git rebase</span>命令<br /><span style="font-family: courier new,courier;">$ git merge origin/master</span><br /># 或者<br /><span style="font-family: courier new,courier;">$ git rebase origin/master</span><br />上面命令表示在当前分支上，合并origin/master</li>
+</ul>
+<h2>4. git pull - 拉, fetch &amp; merge</h2>
+<p style="margin-left: 30px;">git pull - 取回远程主机某个分支的更新，再与本地的指定分支合并。</p>
+<pre class="brush:bash;gutter:true;">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;<br />比如：取回<code>origin</code>主机的<code>next</code>分支，与本地的<code>master</code>分支合并，需要写成下面这样。</pre>
+<blockquote>
+<pre class=" language-javascript"><code class=" language-javascript">$ git pull origin next<span class="token punctuation">:master
+</span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">如果远程分支是与当前分支合并，则冒号后面的部分可以省略。取回<code>origin/next</code>分支，再与当前分支合并：</p>
+<blockquote>
+<pre class=" language-javascript"><code class=" language-javascript">$ git pull origin next  <br /><br />实质上，这等同于先做<code>git fetch</code>，再做<code>git merge</code>。<br />同下：<br />$ git fetch origin
+$ git merge origin<span class="token operator">/next</span></code></pre>
+</blockquote>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp; 关于追踪</h3>
+<p style="margin-left: 30px;">在某些场合，Git会自动在本地分支与远程分支之间，建立一种追踪关系（tracking）。比如，在<code>git clone</code>的时候，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说，本地的<code>master</code>分支自动"追踪"<code>origin/master</code>分支。</p>
+<p style="margin-left: 30px;">Git也允许手动建立追踪关系。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">git branch <span class="token operator">--set<span class="token operator">-upstream master origin<span class="token operator">/next
+</span></span></span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令指定<code>master</code>分支追踪<code>origin/next</code>分支。</p>
+<p style="margin-left: 30px;">如果当前分支与远程分支存在追踪关系，<code>git pull</code>就可以省略远程分支名。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git pull origin
+</code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令表示，本地的当前分支自动与对应的<code>origin</code>主机"追踪分支"（remote-tracking branch）进行合并。</p>
+<p style="margin-left: 30px;">如果当前分支只有一个追踪分支，连远程主机名都可以省略。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git pull
+</code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令表示，当前分支自动与唯一一个追踪分支进行合并。</p>
+<p style="margin-left: 30px;">注：如果合并需要采用rebase模式，可以使用<code>--rebase</code>选项。格式：</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git pull <span class="token operator">--rebase <span class="token operator">&lt;远程主机名<span class="token operator">&gt; <span class="token operator">&lt;远程分支名<span class="token operator">&gt;<span class="token punctuation">:<span class="token operator">&lt;本地分支名<span class="token operator">&gt;</span></span></span></span></span></span></span></span></code></pre>
+</blockquote>
+<h3 style="margin-left: 30px;">在本地删除远程已经删除的分支</h3>
+<p style="margin-left: 30px;">如果远程主机删除了某个分支，默认情况下，在拉取远程分支的时候，<code>git pull</code>&nbsp;不会删除对应的本地分支。这是为了防止：其他人操作了远程主机，导致<code>git pull</code>不知不觉删除了本地分支。</p>
+<p style="margin-left: 30px;">但是，你可以改变这个行为，加上参数&nbsp;<code>-p</code>&nbsp;就会在本地删除远程已经删除的分支。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git pull <span class="token operator">-p
+# 等同于下面的命令
+$ git fetch <span class="token operator">--prune origin 
+$ git fetch <span class="token operator">-p</span></span></span></code></pre>
+</blockquote>
+<h2>5. git push - 推，将本地更新推送到远端</h2>
+<p style="margin-left: 30px;"><code>git push</code>命令用于将本地分支的更新，推送到远程主机。它的格式与<code>git pull</code>命令相仿。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push <span class="token operator">&lt;远程主机名<span class="token operator">&gt; <span class="token operator">&lt;本地分支名<span class="token operator">&gt;<span class="token punctuation">:<span class="token operator">&lt;远程分支名<span class="token operator">&gt;
+</span></span></span></span></span></span></span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">注意，分支推送顺序的写法是&lt;来源地&gt;:&lt;目的地&gt;，所以<code>git pull</code>是&lt;远程分支&gt;:&lt;本地分支&gt;，而<code>git push</code>是&lt;本地分支&gt;:&lt;远程分支&gt;。</p>
+<p style="margin-left: 30px;">如果省略远程分支名，则表示将本地分支推送与之存在"追踪关系"的远程分支（通常两者同名），如果该远程分支不存在，则会被新建。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push origin master
+</code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令表示，将本地的<code>master</code>分支推送到<code>origin</code>主机的<code>master</code>分支。如果后者不存在，则会被新建。</p>
+<p style="margin-left: 30px;">如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push origin <span class="token punctuation">:master
+# 等同于
+$ git push origin <span class="token operator">--delete master
+</span></span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令表示删除<code>origin</code>主机的<code>master</code>分支。</p>
+<p style="margin-left: 30px;">如果当前分支与远程分支之间存在追踪关系，则本地分支和远程分支都可以省略。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push origin
+</code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令表示，将当前分支推送到<code>origin</code>主机的对应分支。</p>
+<p style="margin-left: 30px;">如果当前分支只有一个追踪分支，那么主机名都可以省略。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push
+</code></pre>
+</blockquote>
+<p style="margin-left: 30px;">如果当前分支与多个主机存在追踪关系，则可以使用<code>-u</code>选项指定一个默认主机，这样后面就可以不加任何参数使用<code>git push</code>。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">
+$ git push <span class="token operator">-u origin master
+</span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令将本地的<code>master</code>分支推送到<code>origin</code>主机，同时指定<code>origin</code>为默认主机，后面就可以不加任何参数使用<code>git push</code>了。</p>
+<p style="margin-left: 30px;">不带任何参数的<code>git push</code>，默认只推送当前分支，这叫做simple方式。此外，还有一种matching方式，会推送所有有对应的远程分支的本地分支。Git 2.0版本之前，默认采用matching方法，现在改为默认采用simple方式。如果要修改这个设置，可以采用<code>git config</code>命令。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">
+$ git config <span class="token operator">--global push<span class="token punctuation">.default matching
+# 或者
+$ git config <span class="token operator">--global push<span class="token punctuation">.default simple
+</span></span></span></span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">还有一种情况，就是不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机，这时需要使用<code>--all</code>选项。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push <span class="token operator">--all origin
+</span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令表示，将所有本地分支都推送到<code>origin</code>主机。</p>
+<p style="margin-left: 30px;">如果远程主机的版本比本地版本更新，推送时Git会报错，要求先在本地做<code>git pull</code>合并差异，然后再推送到远程主机。这时，如果你一定要推送，可以使用<code>--force</code>选项。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push <span class="token operator">--force origin 
+</span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">上面命令使用<code>--force</code>选项，结果导致远程主机上更新的版本被覆盖。除非你很确定要这样做，否则应该尽量避免使用<code>--force</code>选项。</p>
+<p style="margin-left: 30px;">最后，<code>git push</code>不会推送标签（tag），除非使用<code>--tags</code>选项。</p>
+<blockquote style="margin-left: 30px;">
+<pre class=" language-javascript"><code class=" language-javascript">$ git push origin <span class="token operator">--tags</span></code></pre>
+</blockquote>
+<p style="margin-left: 30px;">&nbsp;<img title="总结图" src="http://image.beekka.com/blog/2014/bg2014061202.jpg" alt="汇总图" width="800" height="227" border="2" /></p>
+
+
+        
+      </article>
+    </div>
+
+    
+      <div class="meta article-card">
+    <div class="row">
+      <span class="label">
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z'/></svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Published At</span><time>2017-07-28 14:11 CST</time>
+      
+    </div>
+
+    
+
+    
+      <div class="row social-share">
+        <span class="label">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><path d='M272 176v161h-32V176H92a12 12 0 00-12 12v280a12 12 0 0012 12h328a12 12 0 0012-12V188a12 12 0 00-12-12zM272 92.63l64 64L358.63 134 256 31.37 153.37 134 176 156.63l64-64V176h32V92.63z'/></svg>
+
+Share with</span>
+        
+        
+        <a
+          target="_blank"
+          title="share to reddit"
+          rel="noopener noreferrer"
+          aria-label="share Git 2-客户端命令on Linux： on reddit"
+          href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20170728141100%2f&title=Git%202-%e5%ae%a2%e6%88%b7%e7%ab%af%e5%91%bd%e4%bb%a4on%20Linux%ef%bc%9a">
+          
+
+
+
+
+
+
+
+
+
+<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' fill="currentColor" stroke="currentColor" stroke-width="10"><path d='M324 256a36 36 0 1036 36 36 36 0 00-36-36z'/><circle cx='188' cy='292' r='36' transform='rotate(-22.5 187.997 291.992)'/><path d='M496 253.77c0-31.19-25.14-56.56-56-56.56a55.72 55.72 0 00-35.61 12.86c-35-23.77-80.78-38.32-129.65-41.27l22-79 66.41 13.2c1.9 26.48 24 47.49 50.65 47.49 28 0 50.78-23 50.78-51.21S441 48 413 48c-19.53 0-36.31 11.19-44.85 28.77l-90-17.89-31.1 109.52-4.63.13c-50.63 2.21-98.34 16.93-134.77 41.53A55.38 55.38 0 0072 197.21c-30.89 0-56 25.37-56 56.56a56.43 56.43 0 0028.11 49.06 98.65 98.65 0 00-.89 13.34c.11 39.74 22.49 77 63 105C146.36 448.77 199.51 464 256 464s109.76-15.23 149.83-42.89c40.53-28 62.85-65.27 62.85-105.06a109.32 109.32 0 00-.84-13.3A56.32 56.32 0 00496 253.77zM414 75a24 24 0 11-24 24 24 24 0 0124-24zM42.72 253.77a29.6 29.6 0 0129.42-29.71 29 29 0 0113.62 3.43c-15.5 14.41-26.93 30.41-34.07 47.68a30.23 30.23 0 01-8.97-21.4zM390.82 399c-35.74 24.59-83.6 38.14-134.77 38.14S157 423.61 121.29 399c-33-22.79-51.24-52.26-51.24-83A78.5 78.5 0 0175 288.72c5.68-15.74 16.16-30.48 31.15-43.79a155.17 155.17 0 0114.76-11.53l.3-.21.24-.17c35.72-24.52 83.52-38 134.61-38s98.9 13.51 134.62 38l.23.17.34.25A156.57 156.57 0 01406 244.92c15 13.32 25.48 28.05 31.16 43.81a85.44 85.44 0 014.31 17.67 77.29 77.29 0 01.6 9.65c-.01 30.72-18.21 60.19-51.25 82.95zm69.6-123.92c-7.13-17.28-18.56-33.29-34.07-47.72A29.09 29.09 0 01440 224a29.59 29.59 0 0129.41 29.71 30.07 30.07 0 01-8.99 21.39z'/><path d='M323.23 362.22c-.25.25-25.56 26.07-67.15 26.27-42-.2-66.28-25.23-67.31-26.27a4.14 4.14 0 00-5.83 0l-13.7 13.47a4.15 4.15 0 000 5.89c3.4 3.4 34.7 34.23 86.78 34.45 51.94-.22 83.38-31.05 86.78-34.45a4.16 4.16 0 000-5.9l-13.71-13.47a4.13 4.13 0 00-5.81 0z'/></svg>
+
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to twitter"
+          rel="noopener noreferrer"
+          aria-label="share Git 2-客户端命令on Linux： on twitter"
+          href="https://twitter.com/intent/tweet/?text=Git%202-%e5%ae%a2%e6%88%b7%e7%ab%af%e5%91%bd%e4%bb%a4on%20Linux%ef%bc%9a&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20170728141100%2f&amp;hashtags=">
+          
+
+
+
+
+
+
+
+
+
+
+<svg class="ionicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+
+
+
+
+
+
+
+        </a>
+        <a
+          target="_blank"
+          title="share to facebook"
+          rel="noopener noreferrer"
+          aria-label="share Git 2-客户端命令on Linux： on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fp20170728141100%2f">
+          
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 24 24" style="fill:none;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+
+
+
+
+
+
+
+
+
+        </a>
+      </div>
+    
+
+    
+</div>
+
+    
+
+    
+
+  </div>
+</main>
+
+  </main>
+  <footer>
+    <footer id="footer">
+  <div class="container has-padding is-flex">
+    <ul class="links">
+      
+      <li>
+        </li>
+      <li>
+        <a
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluency"
+          title="using Hugo theme fluency">
+          Theme Fluency
+        </a>
+      </li>
+      <li>
+        <a rel="nofollow" target="_blank" href="https://gohugo.io" title="Built with hugo">Built with Hugo</a>
+      </li>
+    </ul>
+    <div class="copyright">
+       &copy; 2025 Combine Art and Sciences
+      
+    </div>
+  </div>
+</footer>
+
+<script>
+    window.FluencyCopyIcon = '\n\n\n\n\n\n\n\u003csvg xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027 class=\u0027ionicon\u0027 viewBox=\u00270 0 512 512\u0027\u003e\u003crect x=\u0027128\u0027 y=\u0027128\u0027 width=\u0027336\u0027 height=\u0027336\u0027 rx=\u002757\u0027 ry=\u002757\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003cpath d=\u0027M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027 class=\u0027ionicon-fill-none ionicon-stroke-width\u0027\/\u003e\u003c\/svg\u003e\n\n\n\n\n\n\n\n\n\n\n'
+</script>
+
+
+<script defer src="http://localhost:1313/js/main.min.15ea6de828b83519cdc1bc66872563a50cd5e59b4b1cfc6f31019951922b2e78.js" integrity="sha256-Fept6Ci4NRnNwbxmhyVjpQzV5ZtLHPxvMQGZUZIrLng=" crossorigin="anonymous" async></script>
+
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+
+<noscript>
+<style type=text/css>#theme-selector-button{display:none}</style>
+</noscript>
+
+
+
+
+  </footer>
+</body>
+</html>

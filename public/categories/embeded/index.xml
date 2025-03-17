@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  
+>
+  <channel>
+    <title>Embeded on Combine Art and Sciences</title>
+    <link>http://localhost:1313/categories/embeded/</link>
+    <description>Recent content in Embeded on Combine Art and Sciences</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Jan 2022 17:44:07 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/embeded/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[ESP32_lvgl] From demo to own UI component with lvgl on ESP32</title>
+      <link>http://localhost:1313/posts/p20220122174407/</link>
+      <pubDate>Sat, 22 Jan 2022 17:44:07 +0800</pubDate>
+      <guid>http://localhost:1313/posts/p20220122174407/</guid>
+      <description>&lt;h1 id=&#34;esp32_lvgl-from-demo-to-own-ui-component-with-lvgl-on-esp32&#34;&gt;[ESP32_lvgl] From demo to own UI component with lvgl on ESP32&lt;/h1&gt;&#xA;&lt;p&gt;This is the FIRST blog for denoting my learning process of lvgl on platform of ESP-IDF for chip ESP32.&lt;/p&gt;&#xA;&lt;p&gt;After a lot of experinment, I gues ESP-IDF should be the best sdk that suit for ESP32 lvgl development. Rather than the toy &amp;ndash; micropython.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-motivation-and-value-of-this-post&#34;&gt;1. Motivation and value of this post&lt;/h2&gt;&#xA;&lt;p&gt;After configuring the ESP32 LVGL development environment, developer will try to run demo on the development board. But for beginners, from running demo to developing the specific project, they may meet some little but not-easy-to-solve difficalties. They need to be familiar with the code structure of demo.&lt;/p&gt;</description>
+      
+    </item>
+  </channel>
+</rss>
