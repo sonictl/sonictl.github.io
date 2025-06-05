@@ -42,16 +42,16 @@ sudo adduser --system --no-create-home --group www-data
 确保应用根目录及其子目录归属正确用户并设置合适权限：
 
 ```bash
-sudo chown -R www-data:www-data /path/to/teachplan_misc_generator
-sudo chmod -R 750 /path/to/teachplan_misc_generator
+sudo chown -R www-data:www-data /path/to/your_flask_proj
+sudo chmod -R 750 /path/to/your_flask_proj
 ```
 
 对于上传、下载或日志目录，如需写权限：
 
 ```bash
-sudo chmod 770 /path/to/teachplan_misc_generator/uploads
-sudo chmod 770 /path/to/teachplan_misc_generator/downloads
-sudo chmod 770 /path/to/teachplan_misc_generator/logs
+sudo chmod 770 /path/to/your_flask_proj/uploads
+sudo chmod 770 /path/to/your_flask_proj/downloads
+sudo chmod 770 /path/to/your_flask_proj/logs
 ```
 
 > **提示**：770 表示“用户和组可读写执行，其他无权限”。
@@ -77,15 +77,15 @@ sudo chmod 770 /path/to/teachplan_misc_generator/logs
 
 ```ini
 [Unit]
-Description=Gunicorn instance to serve teachplan_misc_generator
+Description=Gunicorn instance to serve your_flask_proj
 After=network.target
 
 [Service]
 User=www-data
 Group=www-data
-WorkingDirectory=/path/to/teachplan_misc_generator
+WorkingDirectory=/path/to/your_flask_proj
 Environment="PATH=/path/to/venv/bin"
-ExecStart=/path/to/venv/bin/gunicorn --workers 3 --bind unix:/path/to/teachplan_misc_generator/your-app.sock -m 007 run:app
+ExecStart=/path/to/venv/bin/gunicorn --workers 3 --bind unix:/path/to/your_flask_proj/your-app.sock -m 007 run:app
 
 [Install]
 WantedBy=multi-user.target
@@ -107,14 +107,14 @@ WantedBy=multi-user.target
 ```python
 import multiprocessing
 
-bind = "unix:/path/to/teachplan_misc_generator/your-app.sock"
+bind = "unix:/path/to/your_flask_proj/your-app.sock"
 workers = multiprocessing.cpu_count() * 2 + 1
 user = "www-data"
 group = "www-data"
 umask = 0o007  # 创建文件权限为770
 timeout = 30
-accesslog = "/path/to/teachplan_misc_generator/logs/gunicorn_access.log"
-errorlog = "/path/to/teachplan_misc_generator/logs/gunicorn_error.log"
+accesslog = "/path/to/your_flask_proj/logs/gunicorn_access.log"
+errorlog = "/path/to/your_flask_proj/logs/gunicorn_error.log"
 ```
 
 ------
@@ -124,9 +124,9 @@ errorlog = "/path/to/teachplan_misc_generator/logs/gunicorn_error.log"
 确保日志文件由 `www-data` 用户写入并设置合适权限：
 
 ```bash
-sudo touch /path/to/teachplan_misc_generator/logs/{gunicorn_access.log,gunicorn_error.log,app.log}
-sudo chown www-data:www-data /path/to/teachplan_misc_generator/logs/*
-sudo chmod 660 /path/to/teachplan_misc_generator/logs/*
+sudo touch /path/to/your_flask_proj/logs/{gunicorn_access.log,gunicorn_error.log,app.log}
+sudo chown www-data:www-data /path/to/your_flask_proj/logs/*
+sudo chmod 660 /path/to/your_flask_proj/logs/*
 ```
 
 ------
@@ -138,8 +138,8 @@ sudo chmod 660 /path/to/teachplan_misc_generator/logs/*
 **SELinux：**
 
 ```bash
-sudo chcon -R -t httpd_sys_content_t /path/to/teachplan_misc_generator
-sudo chcon -R -t httpd_sys_rw_content_t /path/to/teachplan_misc_generator/{uploads,downloads,logs}
+sudo chcon -R -t httpd_sys_content_t /path/to/your_flask_proj
+sudo chcon -R -t httpd_sys_rw_content_t /path/to/your_flask_proj/{uploads,downloads,logs}
 ```
 
 **AppArmor：**
