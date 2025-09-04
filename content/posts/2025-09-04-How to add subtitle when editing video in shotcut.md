@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to add subtitle when editing video in shotcut.md"
+title:  "How to add subtitle when editing video in shotcut"
 date: 2025-09-04 11:38:29 +0800
 tags: ['技巧']
 slug: p20250904114011
