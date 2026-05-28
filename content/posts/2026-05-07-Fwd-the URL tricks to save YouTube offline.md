@@ -6,6 +6,65 @@ categories: daily_use
 slug: p20260507174853
 ---
 
+# yt-dlp 使用指南：从 YouTube 下载视频与片段
+本指南介绍了如何使用 `yt-dlp` 工具下载 YouTube 视频，涵盖指定代理、设置下载路径以及截取特定时间段等高级用法。
+
+---
+
+## 1. 下载准备
+在开始之前，请确保您的电脑已安装以下核心工具：
+* **yt-dlp**: 开源视频下载工具。
+* **ffmpeg**: 用于视频合并与切片处理的底层依赖。
+
+---
+
+## 2. 基础下载命令
+### 下载完整视频
+若要下载完整的视频，直接运行以下命令：
+```bash
+yt-dlp "https://www.youtube.com/watch?v=C6MVEwl0ceI"
+```
+
+### 指定下载路径与代理 (SOCKS5)
+如果您需要将文件保存到 `~/downloads` 目录，并使用端口为 1093 的本地 SOCKS5 代理：
+```bash
+yt-dlp --proxy "socks5://127.0.0.1:1093" -P "~/downloads" "https://www.youtube.com/watch?v=C6MVEwl0ceI"
+```
+
+注：如果连接不稳定，可将 `socks5` 改为 `socks5h`，强制在代理端进行 DNS 解析。
+
+## 3. 高级用法：时间段截取
+yt-dlp 支持通过 `--download-sections` 参数精确控制下载的片段。
+
+### 从指定时间开始下载直到结束
+例如从第 44 分 01 秒开始下载：
+```bash
+yt-dlp --proxy "socks5://127.0.0.1:1093" -P "~/downloads" --download-sections "*00:44:01-inf" "https://www.youtube.com/watch?v=C6MVEwl0ceI"
+```
+
+### 下载特定时间区间
+例如下载从 44 分 01 秒到 49 分 01 秒之间的片段：
+```bash
+yt-dlp --proxy "socks5://127.0.0.1:1093" -P "~/downloads" --download-sections "*00:44:01-00:49:01" "https://www.youtube.com/watch?v=C6MVEwl0ceI"
+```
+
+## 4. 常用进阶参数建议
+| 参数 | 说明 |
+| ---- | ---- |
+| `-f "bestvideo+bestaudio/best"` | 强制获取最高画质音视频并合并 |
+| `--merge-output-format mp4` | 确保最终封装格式为 MP4 |
+| `-x --audio-format mp3` | 仅提取音频并转为 MP3 格式 |
+| `-U` | 自动检查并更新 yt-dlp 到最新版本 |
+
+提示：在使用 macOS 时，若出现网络拦截提示，请确保在**系统设置 -> 隐私与安全性 -> 网络扩展**中已授予 Proxifier 或相关网络代理工具足够的权限。
+
+## 5. Py lib for youtube video downloading
+
+https://github.com/pytube/pytube
+
+PyTube is a library for python code to obtaining the youtube videos and subtitles.
+
+
 # 媒体下载工具库 upto May 2026
 
 一套完整的媒体下载工具库，从国内到国外、从APP到网页，全覆盖到位，以后再也不用到处找工具下视频了。
@@ -78,9 +137,5 @@ youtube.com/watch?v=C6MVEwl0ceI&t=2s -> pwnyoutube.com/watch?v=C6MVEwl0ceI&t=2s
 
 The quality of the downloaded YouTube video can depend on several factors, including the original video quality and the tool or service you’re using for the download. Most downloading tools offer different resolution options to choose from, typically ranging from 144p to 1080p or even 4K if the original video supports it. However, higher resolution videos will take longer to download and use up more storage space. So, while there are no inherent restrictions, practical considerations may affect the quality of downloaded videos.](https://towardsdatascience.com/3-ways-to-convert-python-app-into-apk-77f4c9cd55af#Any%20Examples?)
 
-## Py lib for youtube video downloading
 
-https://github.com/pytube/pytube
-
-PyTube is a library for python code to obtaining the youtube videos and subtitles.
 
