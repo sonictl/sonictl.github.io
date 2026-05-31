@@ -6,6 +6,48 @@ categories: embedded
 slug: p20231029101954
 ---
 
+### Caddy2 Reverse Proxy Configuration for vue+nodejs web app
+```
+yourdomain.com {
+    # if the nodejs root is: /var/www/yourdomain.com/backend
+    # if the vue root is: /var/www/yourdomain.com/frontend
+    root * /var/www/yourdomain.com/frontend/dist
+    encode gzip zstd
+
+    # handle req for yourdomain.com/api/*
+    handle /api/* {
+        # configure for the backend nodejs serve on port 2001
+        reverse_proxy 127.0.0.1:2001
+    }
+
+    handle {
+        try_files {path} /index.html
+        file_server
+    }
+}
+```
+
+### Example of Caddy Reverse Proxy Configuration
+
+```
+# This is a comment
+yourdomain.com {
+  # This is also a comment
+  reverse_proxy /myroute localhost:2024
+
+  # May take option1/option2 either:
+
+  #  option1: a static web server for `index.html` in /var/www/mysite
+  root * /var/www/mysite
+  file_server
+
+  #  option2:
+  reverse_proxy https://www.abc.com {
+        header_up Host {upstream_hostport}
+  }
+}
+```
+
 ### Example of Nginx Reverse Proxy Configuration
 
 ```
@@ -44,26 +86,6 @@ server {
 }
 ```
 
-### Example of Caddy Reverse Proxy Configuration
-
-```
-# This is a comment
-yourdomain.com {
-  # This is also a comment
-  reverse_proxy /myroute localhost:2024
-
-  # May take option1/option2 either:
-
-  #  option1: a static web server for `index.html` in /var/www/mysite
-  root * /var/www/mysite
-  file_server
-
-  #  option2:
-  reverse_proxy https://www.abc.com {
-        header_up Host {upstream_hostport}
-  }
-}
-```
 
 ### Reference:
 
